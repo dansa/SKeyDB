@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.assemble",
+  "name": "Assemble",
+  "route": {
+    "slug": "assemble",
+    "canonicalPath": "/database/derived-skills/assemble"
+  },
+  "derivedFromId": "derived.global.gluttonous-attack",
+  "descriptionTemplate": "Put one \"Strike\" with 0 Arithmetica Cost for each Awakener into hand, and they gain 5 Aliemus",
+  "descriptionArgs": {},
+  "cardKeywords": []
+}

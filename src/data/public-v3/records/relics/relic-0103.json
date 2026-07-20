@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0103",
+  "name": "Chrono Pendulum \"Eye\"",
+  "route": {
+    "slug": "chrono-pendulum-eye",
+    "canonicalPath": "/database/relics/chrono-pendulum-eye"
+  },
+  "assets": {
+    "icon": "asset-relic-0103-icon"
+  },
+  "relicType": "Pendulum",
+  "categories": ["PENDULUM"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0128",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "When you play a card with an actual Arithmetica Cost of 3, draw 1 card and gain 2 Arithmetica; when you play a card with an actual Arithmetica Cost of 4 or more, reduce the Arithmetica Cost of other cards in your hand by 1.",
+  "descriptionArgs": {},
+  "variants": [
+    {
+      "id": "relic-variant-0128",
+      "name": "Chrono Pendulum \"Eye\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "When you play a card with an actual Arithmetica Cost of 3, draw 1 card and gain 2 Arithmetica; when you play a card with an actual Arithmetica Cost of 4 or more, reduce the Arithmetica Cost of other cards in your hand by 1.",
+      "descriptionArgs": {}
+    }
+  ]
+}

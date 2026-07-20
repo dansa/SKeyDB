@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0090",
+  "name": "Chrono Pendulum \"Backlash\"",
+  "route": {
+    "slug": "chrono-pendulum-backlash",
+    "canonicalPath": "/database/relics/chrono-pendulum-backlash"
+  },
+  "assets": {
+    "icon": "asset-relic-0090-icon"
+  },
+  "relicType": "Pendulum",
+  "categories": ["PENDULUM"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0115",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "Every time {Devour} is triggered, gain 30 {Embryo Fusion} and [Arg1] {STR}. If triggered a {ordinal:2nd} time in the same turn, gain 1 pt of Arithmetica and draw 1 card. If triggered a {ordinal:3rd} time in the same turn, gain 2 Arithmetica and draw 2 cards.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.01,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0115",
+      "name": "Chrono Pendulum \"Backlash\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "Every time {Devour} is triggered, gain 30 {Embryo Fusion} and [Arg1] {STR}. If triggered a {ordinal:2nd} time in the same turn, gain 1 pt of Arithmetica and draw 1 card. If triggered a {ordinal:3rd} time in the same turn, gain 2 Arithmetica and draw 2 cards.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.01,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      }
+    }
+  ]
+}

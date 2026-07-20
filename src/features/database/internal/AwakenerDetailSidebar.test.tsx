@@ -10,6 +10,7 @@ import type {Awakener} from '@/domain/awakeners'
 
 import {AwakenerDetailSidebar} from './AwakenerDetailSidebar'
 import {DatabasePopoverContext} from './database-popover-context'
+import {makeDatabasePopoverContext} from './database-test-fixtures'
 
 vi.mock('@/domain/awakener-assets', () => ({
   getAwakenerCardAsset: () => null,
@@ -22,6 +23,11 @@ vi.mock('@/domain/name-format', () => ({
 vi.mock('@/domain/mainstats', () => ({
   getMainstatIcon: () => null,
 }))
+
+const openRootInfo = vi.fn()
+const popoverContext = makeDatabasePopoverContext({
+  openRootInfo,
+})
 
 const TEST_AWAKENER: Awakener = {
   id: 'awakener-0001',
@@ -96,19 +102,8 @@ const TEST_SELECTION: AwakenerDatabaseSelection = {
 
 describe('AwakenerDetailSidebar', () => {
   it('keeps main and scaling stats visible, collapses other secondary stats, and exposes scaling info on demand', () => {
-    const openRootInfo = vi.fn()
     render(
-      <DatabasePopoverContext.Provider
-        value={{
-          closeAllPopovers: vi.fn(),
-          hasOpenPopovers: false,
-          openNestedOverlay: vi.fn(),
-          openNestedReferenceByName: vi.fn(),
-          openRootInfo,
-          openRootOverlay: vi.fn(),
-          openRootReferenceByName: vi.fn(),
-        }}
-      >
+      <DatabasePopoverContext.Provider value={popoverContext}>
         <AwakenerDetailSidebar
           awakener={TEST_AWAKENER}
           controls={TEST_CONTROLS}

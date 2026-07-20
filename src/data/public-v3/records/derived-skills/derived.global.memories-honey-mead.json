@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.memories-honey-mead",
+  "name": "Remembrance - Honey Wine",
+  "route": {
+    "slug": "remembrance-honey-wine",
+    "canonicalPath": "/database/derived-skills/remembrance-honey-wine"
+  },
+  "derivedFromId": "derived.global.twilight-honey-mead",
+  "descriptionTemplate": "Obtain 2 stacks of Temporary {Barrier}. At the start of next turn, draw 3 additional cards and obtain 3 Arithmetica.",
+  "descriptionArgs": {},
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "0"
+}

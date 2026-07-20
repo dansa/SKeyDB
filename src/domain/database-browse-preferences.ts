@@ -7,6 +7,12 @@ import {
   type DatabaseBrowseState,
 } from './database-browse-state'
 import {
+  DEFAULT_RELIC_DATABASE_DISPLAY_SCOPES,
+  normalizeRelicDisplayScopes,
+  RELIC_DATABASE_DISPLAY_SCOPE_IDS,
+  type RelicDatabaseDisplayScopeId,
+} from './relic-database-display-scopes'
+import {
   getBrowserLocalStorage,
   safeStorageRead,
   safeStorageWrite,
@@ -35,7 +41,12 @@ export interface WheelsDatabaseBrowseSortPreferences {
 
 export interface DatabaseBrowsePreferences {
   awakeners: DatabaseBrowseSortPreferences
+  relics: RelicDatabaseDisplayPreferences
   wheels: WheelsDatabaseBrowseSortPreferences
+}
+
+export interface RelicDatabaseDisplayPreferences {
+  displayScopes: RelicDatabaseDisplayScopeId[]
 }
 
 export const DEFAULT_DATABASE_BROWSE_PREFERENCES: DatabaseBrowsePreferences = {
@@ -43,6 +54,9 @@ export const DEFAULT_DATABASE_BROWSE_PREFERENCES: DatabaseBrowsePreferences = {
     sortKey: DATABASE_BROWSE_DEFAULTS.sortKey,
     sortDirection: DATABASE_BROWSE_DEFAULTS.sortDirection,
     groupByRealm: DATABASE_BROWSE_DEFAULTS.groupByRealm,
+  },
+  relics: {
+    displayScopes: [...DEFAULT_RELIC_DATABASE_DISPLAY_SCOPES],
   },
   wheels: {
     sortKey: WHEELS_DATABASE_BROWSE_DEFAULTS.sortKey,
@@ -75,9 +89,20 @@ const wheelsSortPreferencesSchema = z
   .partial()
   .catch({})
 
+const relicDisplayPreferencesSchema = z
+  .object({
+    displayScopes: z
+      .array(z.enum(RELIC_DATABASE_DISPLAY_SCOPE_IDS))
+      .transform(normalizeRelicDisplayScopes)
+      .catch([...DEFAULT_RELIC_DATABASE_DISPLAY_SCOPES]),
+  })
+  .partial()
+  .catch({})
+
 const databaseBrowsePreferencesSchema = z
   .object({
     awakeners: awakenerSortPreferencesSchema.optional(),
+    relics: relicDisplayPreferencesSchema.optional(),
     wheels: wheelsSortPreferencesSchema.optional(),
   })
   .catch({})
@@ -92,6 +117,10 @@ export function normalizeDatabaseBrowsePreferences(input: unknown = {}): Databas
     wheels: {
       ...DEFAULT_DATABASE_BROWSE_PREFERENCES.wheels,
       ...parsed.wheels,
+    },
+    relics: {
+      ...DEFAULT_DATABASE_BROWSE_PREFERENCES.relics,
+      ...parsed.relics,
     },
   }
 }
@@ -129,6 +158,19 @@ export function writeWheelsDatabaseBrowseSortPreferences(
     sortDirection: next.sortDirection,
   }
   return safeStorageWrite(storage, STORAGE_KEY, JSON.stringify({...current, wheels: normalized}))
+}
+
+export function writeRelicDatabaseDisplayPreferences(
+  next: RelicDatabaseDisplayPreferences,
+  storage: StorageLike | null = getBrowserLocalStorage(),
+): boolean {
+  const current = readDatabaseBrowsePreferences(storage)
+  const displayScopes = normalizeRelicDisplayScopes(next.displayScopes)
+  return safeStorageWrite(
+    storage,
+    STORAGE_KEY,
+    JSON.stringify({...current, relics: {displayScopes}}),
+  )
 }
 
 export function hasAwakenerSortSearchParams(searchParams: URLSearchParams): boolean {

@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0086",
+  "name": "Celestial Astrolabe",
+  "route": {
+    "slug": "celestial-astrolabe",
+    "canonicalPath": "/database/relics/celestial-astrolabe"
+  },
+  "assets": {
+    "icon": "asset-relic-0086-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0108",
+  "rarity": "N",
+  "aliases": ["Celestial Astrolabe+"],
+  "descriptionTemplate": "After using {Keyflare Rouse}, increase the Base DMG dealt by all Awakeners by [Arg1]% and gain [Arg2] Keyflare.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "10",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "100"
+    }
+  },
+  "lore": "The wonders of the universe.",
+  "variants": [
+    {
+      "id": "relic-variant-0108",
+      "name": "Celestial Astrolabe",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "After using {Keyflare Rouse}, increase the Base DMG dealt by all Awakeners by [Arg1]% and gain [Arg2] Keyflare.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "10",
+          "suffix": "%"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "100"
+        }
+      },
+      "lore": "The wonders of the universe."
+    },
+    {
+      "id": "relic-variant-0109",
+      "name": "Celestial Astrolabe+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "After using {Keyflare Rouse}, increase the Base DMG dealt by all Awakeners by [Arg1]% and gain [Arg2] Keyflare.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "20",
+          "suffix": "%"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "200"
+        }
+      },
+      "lore": "The wonders of the universe."
+    },
+    {
+      "id": "relic-variant-0107",
+      "name": "Celestial Astrolabe",
+      "label": "Faded Legacy - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "FADED_LEGACY",
+      "rarity": "SSR",
+      "descriptionTemplate": "Crit. Rate +15%. If HP is below 25% at the start of a turn, Crit. Rate further +30% for that turn.",
+      "descriptionArgs": {},
+      "lore": "The wonders of the universe."
+    }
+  ]
+}

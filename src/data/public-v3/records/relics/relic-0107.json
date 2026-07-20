@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0107",
+  "name": "Chrono Pendulum \"Meditation\"",
+  "route": {
+    "slug": "chrono-pendulum-meditation",
+    "canonicalPath": "/database/relics/chrono-pendulum-meditation"
+  },
+  "assets": {
+    "icon": "asset-relic-0107-icon"
+  },
+  "relicType": "Pendulum",
+  "categories": ["PENDULUM"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0132",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "Crit. DMG +50%. Every third attack is guaranteed to be a Critical Hit.",
+  "descriptionArgs": {},
+  "variants": [
+    {
+      "id": "relic-variant-0132",
+      "name": "Chrono Pendulum \"Meditation\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "Crit. DMG +50%. Every third attack is guaranteed to be a Critical Hit.",
+      "descriptionArgs": {}
+    }
+  ]
+}

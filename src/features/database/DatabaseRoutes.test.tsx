@@ -1,7 +1,6 @@
 /// <reference types="node" />
 
 import '@testing-library/jest-dom/vitest'
-
 import {Suspense, useState} from 'react'
 
 import {act, fireEvent, render, screen, waitFor} from '@testing-library/react'
@@ -15,6 +14,66 @@ import {DatabaseRouteElements} from './routes'
 
 const mockPublicCatalog = createMockPublicCatalog()
 const mockPublicDetailLoaders = createMockPublicDetailLoaders()
+const mockRelics = [
+  {
+    aliases: [],
+    assetId: '',
+    categories: ['DIMENSIONAL_IMAGE'] as const,
+    defaultVariantId: 'relic-variant-0001',
+    description: '',
+    id: 'relic-0001',
+    kind: 'PORTRAIT' as const,
+    name: 'Dimensional Image: "24"',
+    ownerAwakenerId: 'awakener-0001',
+    ownerAwakenerName: '24',
+    rarity: 'SSR' as const,
+    relicType: 'Dimensional Image' as const,
+    route: {
+      canonicalPath: '/database/relics/dimensional-image-24',
+      slug: 'dimensional-image-24',
+    },
+    variantCount: 2,
+    variantTiers: ['Silver', 'Gold'] as const,
+  },
+]
+const mockRelicRecord = {
+  ...mockRelics[0],
+  assets: {},
+  descriptionArgs: {},
+  descriptionTemplate: 'Exact portrait effect.',
+  kind: 'relic' as const,
+  lore: 'Exact portrait lore.',
+  schemaVersion: 3 as const,
+  variants: [
+    {
+      category: 'DIMENSIONAL_IMAGE' as const,
+      descriptionArgs: {},
+      descriptionTemplate: 'Exact portrait effect.',
+      id: 'relic-variant-0001',
+      label: 'Dimensional Image',
+      lore: 'Exact portrait lore.',
+      name: 'Dimensional Image: "24"',
+      ownerAwakenerId: 'awakener-0001',
+      ownerAwakenerName: '24',
+      rarity: 'SSR' as const,
+      tier: 'Silver',
+      variantType: 'PORTRAIT',
+    },
+    {
+      category: 'DIMENSIONAL_IMAGE' as const,
+      descriptionArgs: {},
+      descriptionTemplate: 'Exact portrait gold effect.',
+      id: 'relic-variant-0002',
+      label: 'Dimensional Image - Gold',
+      name: 'Dimensional Image: "24"+',
+      ownerAwakenerId: 'awakener-0001',
+      ownerAwakenerName: '24',
+      rarity: 'SSR' as const,
+      tier: 'Gold',
+      variantType: 'PORTRAIT',
+    },
+  ],
+}
 
 vi.mock('@/domain/awakeners', () => ({
   getAwakeners: () => mockPublicCatalog.awakeners,
@@ -33,6 +92,28 @@ vi.mock('@/domain/posses', () => ({
 
 vi.mock('@/domain/covenants', () => ({
   getCovenants: () => mockPublicCatalog.covenants,
+}))
+
+vi.mock('@/domain/relics', () => ({
+  RELIC_CATEGORIES: [
+    'ASTRAL_REIGN',
+    'FADED_LEGACY',
+    'DIMENSIONAL_IMAGE',
+    'EVENT',
+    'PENDULUM',
+    'OTHER',
+  ],
+  RELIC_RARITIES: ['SSR', 'SR', 'N'],
+  getDefaultRelicVariant: () => mockRelicRecord.variants[0],
+  getRelicVariantById: (_record: unknown, id: string) =>
+    mockRelicRecord.variants.find((variant) => variant.id === id),
+  resolvePreferredRelicVariant: (
+    _record: unknown,
+    filters: {tier: 'Silver' | 'Gold' | 'Cursed' | null},
+  ) => (filters.tier === 'Gold' ? mockRelicRecord.variants[1] : mockRelicRecord.variants[0]),
+  getRelics: () => mockRelics,
+  loadRelicRecordById: async (id: string) =>
+    id === mockRelicRecord.id ? mockRelicRecord : undefined,
 }))
 
 vi.mock('@/domain/public-detail-record-adapters', () => ({
@@ -193,6 +274,28 @@ vi.mock('@/features/database/internal/SimpleArtifactDetailModal', () => ({
       </button>
     </dialog>
   ),
+}))
+
+vi.mock('@/features/database/internal/RelicDetailModal', () => ({
+  RelicDetailModal: ({
+    item,
+    onClose,
+    selectedVariantId,
+  }: {
+    item: {name: string}
+    onClose: () => void
+    onRelicVariantChange?: (variantId: string) => void
+    selectedVariantId?: string
+  }) => {
+    return (
+      <dialog aria-label={`${item.name} relic details`} open>
+        <div>{`Selected relic variant ${selectedVariantId ?? 'default'}`}</div>
+        <button aria-label='Close relic detail' onClick={onClose} type='button'>
+          Close relic
+        </button>
+      </dialog>
+    )
+  },
 }))
 
 beforeAll(async () => {
@@ -556,6 +659,77 @@ describe('DatabasePage', () => {
     expect(screen.getByTestId('location-path')).toHaveTextContent('/database/wheels')
     expect(screen.getByLabelText('Search wheels')).toBeInTheDocument()
     expect(screen.getByLabelText('View details for Merciful Nurturing')).toBeInTheDocument()
+  })
+
+  it('opens the family-grain relic browse and exact variant detail route', async () => {
+    await renderDatabasePage('/database/relics')
+
+    expect(screen.getByLabelText('Search relics')).toBeInTheDocument()
+    expect(
+      screen.getByLabelText('View relic details for Dimensional Image: "24"'),
+    ).toBeInTheDocument()
+    expect(getResultsSummary('1 relics')).toBeInTheDocument()
+
+    await act(async () => {
+      fireEvent.click(screen.getByLabelText('View relic details for Dimensional Image: "24"'))
+    })
+
+    expect(
+      await screen.findByRole('dialog', {name: /dimensional image: "24" relic details/i}),
+    ).toBeInTheDocument()
+    expect(screen.getByTestId('location-path')).toHaveTextContent(
+      '/database/relics/dimensional-image-24',
+    )
+
+    await act(async () => {
+      fireEvent.click(screen.getByLabelText('Close relic detail'))
+    })
+    expect(screen.getByTestId('location-path')).toHaveTextContent('/database/relics')
+  })
+
+  it('preserves an exact relic variant deep link', async () => {
+    await renderDatabasePage('/database/relics/dimensional-image-24?variant=relic-variant-0001')
+
+    expect(
+      await screen.findByRole('dialog', {name: /dimensional image: "24" relic details/i}),
+    ).toBeInTheDocument()
+    expect(screen.getByText('Selected relic variant relic-variant-0001')).toBeInTheDocument()
+    expect(screen.getByTestId('location-search')).toHaveTextContent('?variant=relic-variant-0001')
+  })
+
+  it('opens a family on the variant selected by the active tier filter', async () => {
+    await renderDatabasePage('/database/relics/dimensional-image-24?tier=GOLD')
+
+    await waitFor(() => {
+      expect(screen.getByTestId('location-search')).toHaveTextContent(
+        '?tier=GOLD&variant=relic-variant-0002',
+      )
+    })
+    expect(screen.getByText('Selected relic variant relic-variant-0002')).toBeInTheDocument()
+  })
+
+  it('replaces an invalid relic variant with the family default while preserving browse filters', async () => {
+    await renderDatabasePage(
+      [
+        '/database/relics?category=DIMENSIONAL_IMAGE',
+        '/database/relics/dimensional-image-24?category=DIMENSIONAL_IMAGE&variant=relic-variant-9999',
+      ],
+      1,
+    )
+
+    await waitFor(() => {
+      expect(screen.getByTestId('location-search')).toHaveTextContent(
+        '?category=DIMENSIONAL_IMAGE&variant=relic-variant-0001',
+      )
+    })
+
+    await act(async () => {
+      fireEvent.click(screen.getByLabelText('Go back in history'))
+    })
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path')).toHaveTextContent('/database/relics')
+      expect(screen.getByTestId('location-search')).toHaveTextContent('?category=DIMENSIONAL_IMAGE')
+    })
   })
 
   it('opens a wheel detail modal from the wheel browse grid and closes back to wheel browse', async () => {

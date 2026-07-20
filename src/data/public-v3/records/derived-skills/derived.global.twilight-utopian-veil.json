@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.twilight-utopian-veil",
+  "name": "Twilight: Utopian Veil",
+  "route": {
+    "slug": "twilight-utopian-veil",
+    "canonicalPath": "/database/derived-skills/twilight-utopian-veil"
+  },
+  "childDerivedSkillIds": ["derived.global.memories-utopian-veil"],
+  "descriptionTemplate": "Choose 1 card from the Draw Pile or Discard Pile and add it to hand, setting its Arithmetica Cost to 0. Place 1 {Remembrance - Utopian Veil} into both the Draw Pile and the Discard Pile.",
+  "descriptionArgs": {},
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "0"
+}

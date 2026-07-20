@@ -10,16 +10,39 @@
   "assets": {
     "icon": "asset-relic-0058-icon"
   },
-  "relicType": "DIMENSIONAL_IMAGE",
+  "relicType": "Dimensional Image",
+  "categories": ["DIMENSIONAL_IMAGE"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0058",
   "ownerAwakenerId": "awakener-0058",
   "ownerAwakenerName": "Pontos",
   "rarity": "SSR",
-  "realm": "AEQUOR",
+  "aliases": [],
   "descriptionTemplate": "Pontos gains [Arg1] Aliemus at turn start. When picked up, generate 3 Permanent {Gaunt} cards at the start of next battle. Pontos gains 3 Aliemus after playing a {Gaunt}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
       "value": "15"
     }
-  }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0058",
+      "name": "Dimensional Image: Pontos",
+      "label": "Dimensional Image",
+      "variantType": "DIMENSIONAL_IMAGE",
+      "tier": "Unique",
+      "category": "DIMENSIONAL_IMAGE",
+      "ownerAwakenerId": "awakener-0058",
+      "ownerAwakenerName": "Pontos",
+      "rarity": "SSR",
+      "descriptionTemplate": "Pontos gains [Arg1] Aliemus at turn start. When picked up, generate 3 Permanent {Gaunt} cards at the start of next battle. Pontos gains 3 Aliemus after playing a {Gaunt}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        }
+      }
+    }
+  ]
 }

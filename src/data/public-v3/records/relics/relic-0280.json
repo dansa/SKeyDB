@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0280",
+  "name": "Sudden Fallacy",
+  "route": {
+    "slug": "sudden-fallacy",
+    "canonicalPath": "/database/relics/sudden-fallacy"
+  },
+  "assets": {
+    "icon": "asset-relic-0280-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["FADED_LEGACY"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0494",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "When picked up, choose a card of an Awakener to reduce its Arithmetica Cost by 1, treating it as \"Strike\".",
+  "descriptionArgs": {},
+  "lore": "Laugh to your heart's content!",
+  "variants": [
+    {
+      "id": "relic-variant-0494",
+      "name": "Sudden Fallacy",
+      "label": "Faded Legacy - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "FADED_LEGACY",
+      "rarity": "SSR",
+      "descriptionTemplate": "When picked up, choose a card of an Awakener to reduce its Arithmetica Cost by 1, treating it as \"Strike\".",
+      "descriptionArgs": {},
+      "lore": "Laugh to your heart's content!"
+    }
+  ]
+}

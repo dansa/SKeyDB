@@ -4,29 +4,27 @@ import {existsSync, readFileSync} from 'node:fs'
 import path from 'node:path'
 import process from 'node:process'
 
-import prettier from 'prettier'
-
 const args = new Set(process.argv.slice(2))
 const quiet = args.has('--quiet')
 const failOnWrite = args.has('--fail-on-write')
 const stagedOnly = args.has('--staged')
 const repoRoot = getRepoRoot()
 const changedFiles = collectChangedFiles(repoRoot, {stagedOnly})
-const prettierTargets = changedFiles.filter(isPrettierTarget)
+const oxfmtTargets = changedFiles.filter(isOxfmtTarget)
 
-if (prettierTargets.length === 0) {
+if (oxfmtTargets.length === 0) {
   if (!quiet) {
-    console.log('format-changed-files: no changed prettier targets')
+    console.log('format-changed-files: no changed Oxfmt targets')
   }
   process.exit(0)
 }
 
 if (!quiet) {
-  console.log(`format-changed-files: formatting ${prettierTargets.length} file(s)`)
+  console.log(`format-changed-files: formatting ${oxfmtTargets.length} file(s)`)
 }
 
 if (stagedOnly && failOnWrite) {
-  const unformattedTargets = await collectUnformattedStagedTargets(prettierTargets, repoRoot)
+  const unformattedTargets = collectUnformattedStagedTargets(oxfmtTargets, repoRoot)
   if (unformattedTargets.length > 0) {
     console.error(
       [
@@ -40,15 +38,15 @@ if (stagedOnly && failOnWrite) {
   process.exit(0)
 }
 
-const hashesBeforeFormat = failOnWrite ? collectFileHashes(prettierTargets, repoRoot) : null
-runPrettier(prettierTargets, repoRoot)
+const hashesBeforeFormat = failOnWrite ? collectFileHashes(oxfmtTargets, repoRoot) : null
+runOxfmt(oxfmtTargets, repoRoot)
 
 if (failOnWrite) {
-  const rewrittenTargets = collectRewrittenTargets(prettierTargets, repoRoot, hashesBeforeFormat)
+  const rewrittenTargets = collectRewrittenTargets(oxfmtTargets, repoRoot, hashesBeforeFormat)
   if (rewrittenTargets.length > 0) {
     console.error(
       [
-        'format-changed-files: prettier rewrote files during pre-commit.',
+        'format-changed-files: Oxfmt rewrote files during pre-commit.',
         'Review the changes and restage before committing again.',
         ...rewrittenTargets.map((filePath) => `  - ${filePath}`),
       ].join('\n'),
@@ -73,17 +71,17 @@ function readStagedFile(filePath) {
   return execGit(['show', `:${filePath}`])
 }
 
-function runPrettier(targets, cwd) {
-  const prettierCli = path.join(cwd, 'node_modules', 'prettier', 'bin', 'prettier.cjs')
-  const prettierArgs = ['--write', '--ignore-unknown']
-  if (quiet) {
-    prettierArgs.push('--log-level', 'silent')
-  }
+function getOxfmtCli(cwd) {
+  return path.join(cwd, 'node_modules', 'oxfmt', 'bin', 'oxfmt')
+}
+
+function runOxfmt(targets, cwd) {
+  const oxfmtCli = getOxfmtCli(cwd)
 
   for (const targetChunk of chunkTargets(targets)) {
-    execFileSync(process.execPath, [prettierCli, ...prettierArgs, ...targetChunk], {
+    execFileSync(process.execPath, [oxfmtCli, '--write', ...targetChunk], {
       cwd,
-      stdio: 'inherit',
+      stdio: quiet ? ['ignore', 'ignore', 'inherit'] : 'inherit',
     })
   }
 }
@@ -120,25 +118,31 @@ function collectFileHashes(filePaths, cwd) {
   )
 }
 
-async function collectUnformattedStagedTargets(filePaths, cwd) {
-  const unformattedTargets = []
-  const ignorePath = path.join(cwd, '.prettierignore')
-  for (const filePath of filePaths) {
-    const absolutePath = path.join(cwd, filePath)
-    const fileInfo = await prettier.getFileInfo(absolutePath, {ignorePath})
-    if (fileInfo.ignored) {
-      continue
-    }
-    const options = {
-      ...(await prettier.resolveConfig(absolutePath)),
-      filepath: absolutePath,
-    }
-    const isFormatted = await prettier.check(readStagedFile(filePath), options)
-    if (!isFormatted) {
-      unformattedTargets.push(filePath)
-    }
-  }
-  return unformattedTargets
+function collectUnformattedStagedTargets(filePaths, cwd) {
+  return filePaths.filter((filePath) => {
+    const stagedSource = readStagedFile(filePath)
+    return formatSourceWithOxfmt(stagedSource, filePath, cwd) !== stagedSource
+  })
+}
+
+function formatSourceWithOxfmt(source, filePath, cwd) {
+  return execFileSync(
+    process.execPath,
+    [
+      getOxfmtCli(cwd),
+      '--config',
+      path.join(cwd, '.oxfmtrc.json'),
+      '--stdin-filepath',
+      path.join(cwd, filePath),
+    ],
+    {
+      cwd,
+      encoding: 'utf8',
+      input: source,
+      maxBuffer: 64 * 1024 * 1024,
+      stdio: ['pipe', 'pipe', 'pipe'],
+    },
+  )
 }
 
 function collectRewrittenTargets(filePaths, cwd, previousHashes) {
@@ -180,16 +184,15 @@ function collectChangedFiles(cwd, {stagedOnly} = {stagedOnly: false}) {
   return [...fileSet].sort()
 }
 
-function isPrettierTarget(filePath) {
+function isOxfmtTarget(filePath) {
   if (
     filePath === 'package.json' ||
-    filePath === 'prettier.config.cjs' ||
-    filePath === '.prettierignore' ||
-    filePath === 'eslint.config.js' ||
+    filePath === '.oxfmtrc.json' ||
+    filePath === '.oxlintrc.json' ||
+    filePath === 'doctor.config.ts' ||
     filePath === 'vite.config.ts' ||
     filePath === 'vitest.config.ts' ||
-    filePath === 'src/domain/persistence-contract.v1.json' ||
-    filePath === 'tools/react-sidecar/package.json'
+    filePath === 'src/domain/persistence-contract.v1.json'
   ) {
     return true
   }
@@ -212,7 +215,7 @@ function isPrettierTarget(filePath) {
     return true
   }
 
-  if (/^src\/data\/.*\.json$/.test(normalized)) {
+  if (/^src\/data\/.*\.json$/.test(normalized) && !/^src\/data\/public-v[23]\//.test(normalized)) {
     return true
   }
 

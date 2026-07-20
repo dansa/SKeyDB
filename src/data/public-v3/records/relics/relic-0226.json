@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0226",
+  "name": "Nightmare Manifest",
+  "route": {
+    "slug": "nightmare-manifest",
+    "canonicalPath": "/database/relics/nightmare-manifest"
+  },
+  "assets": {
+    "icon": "asset-relic-0226-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 4,
+  "defaultVariantId": "relic-variant-0377",
+  "aliases": ["Blessed: Nightmare Manifest", "Sinful: Nightmare Manifest"],
+  "descriptionTemplate": "At the start of the turn, if Keyflare exceeds [Arg1], consume [Arg1] Keyflare to add 1 {Adv. Insight} to hand.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "500"
+    }
+  },
+  "lore": "Watch out, indulgent deep sleep will devour everything without you noticing.",
+  "variants": [
+    {
+      "id": "relic-variant-0377",
+      "name": "Nightmare Manifest",
+      "label": "Astral Reign - Cursed",
+      "variantType": "STANDARD",
+      "tier": "Cursed",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "At the start of the turn, if Keyflare exceeds [Arg1], consume [Arg1] Keyflare to add 1 {Adv. Insight} to hand.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "500"
+        }
+      },
+      "lore": "Watch out, indulgent deep sleep will devour everything without you noticing."
+    },
+    {
+      "id": "relic-variant-0374",
+      "name": "Nightmare Manifest",
+      "label": "Faded Legacy - Cursed",
+      "variantType": "STANDARD",
+      "tier": "Cursed",
+      "category": "FADED_LEGACY",
+      "descriptionTemplate": "All Awakeners gain 10 Aliemus at turn start. Reduce Max HP by 30% upon pickup.",
+      "descriptionArgs": {},
+      "lore": "Watch out, indulgent deep sleep will devour everything without you noticing."
+    },
+    {
+      "id": "relic-variant-0376",
+      "name": "Blessed: Nightmare Manifest",
+      "label": "Faded Legacy - Blessed",
+      "variantType": "BLESSED",
+      "tier": "Blessed",
+      "category": "FADED_LEGACY",
+      "descriptionTemplate": "All Awakeners gain 25 Aliemus at turn start. Max HP x3 upon pickup.",
+      "descriptionArgs": {},
+      "lore": "Fear not, hesitate not. This is but a fleeting dream; the light of the All-Father still shines upon you."
+    },
+    {
+      "id": "relic-variant-0375",
+      "name": "Sinful: Nightmare Manifest",
+      "label": "Faded Legacy - Sinful",
+      "variantType": "SINFUL",
+      "tier": "Sinful",
+      "category": "FADED_LEGACY",
+      "descriptionTemplate": "All Awakeners gain 20 Aliemus at turn start. Max HP -50% upon pickup.",
+      "descriptionArgs": {},
+      "lore": "The indulgent deep sleep is desire, which devours everything before you realize it."
+    }
+  ]
+}

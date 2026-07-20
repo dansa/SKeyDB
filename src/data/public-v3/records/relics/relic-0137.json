@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0137",
+  "name": "Crimson Brooch",
+  "route": {
+    "slug": "crimson-brooch",
+    "canonicalPath": "/database/relics/crimson-brooch"
+  },
+  "assets": {
+    "icon": "asset-relic-0137-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0192",
+  "rarity": "N",
+  "aliases": ["Crimson Brooch+"],
+  "descriptionTemplate": "At the start of combat, gain [Arg1] {STR}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.05,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "A hint of fresh red seeps through.",
+  "variants": [
+    {
+      "id": "relic-variant-0192",
+      "name": "Crimson Brooch",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "At the start of combat, gain [Arg1] {STR}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.05,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "A hint of fresh red seeps through."
+    },
+    {
+      "id": "relic-variant-0193",
+      "name": "Crimson Brooch+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "At the start of combat, gain [Arg1] {STR}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.1,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "A hint of fresh red seeps through."
+    },
+    {
+      "id": "relic-variant-0191",
+      "name": "Crimson Brooch",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "Permanently gain [Arg1] {STR}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.03,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "A hint of fresh red seeps through."
+    }
+  ]
+}

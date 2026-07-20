@@ -20,7 +20,7 @@
   "releaseDate": "2024-09-09",
   "faction": "The Unknowable",
   "aliases": ["hameln"],
-  "searchTags": ["Weakness", "Vulnerable", "Poison", "Bleed", "STR Up", "STR Down", "Steal STR", "Pierce DMG", "Arithmetica"],
+  "searchTags": ["Weakness", "Vulnerable", "Poison", "Bleed", "STR Up", "STR Down", "Steal STR", "Pierce DMG", "Dispel", "Arithmetica"],
   "primaryScalingBase": 20,
   "baseStatsLv1": {
     "CON": 32,

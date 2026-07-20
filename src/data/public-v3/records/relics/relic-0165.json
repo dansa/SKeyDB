@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0165",
+  "name": "Finale Research Manuscript",
+  "route": {
+    "slug": "finale-research-manuscript",
+    "canonicalPath": "/database/relics/finale-research-manuscript"
+  },
+  "assets": {
+    "icon": "asset-relic-0165-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0240",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "Hand Limit +1. At turn start, if no Research has been conducted, choose an untried Research. Upon completion, gain the corresponding Research result from Doll: Inferno. After completing 3 Researches, place {derived:Illusion's End} into hand; this Relic becomes inactive.",
+  "descriptionArgs": {},
+  "variants": [
+    {
+      "id": "relic-variant-0240",
+      "name": "Finale Research Manuscript",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "Hand Limit +1. At turn start, if no Research has been conducted, choose an untried Research. Upon completion, gain the corresponding Research result from Doll: Inferno. After completing 3 Researches, place {derived:Illusion's End} into hand; this Relic becomes inactive.",
+      "descriptionArgs": {}
+    }
+  ]
+}

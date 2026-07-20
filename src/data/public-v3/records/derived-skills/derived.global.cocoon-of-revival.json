@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.cocoon-of-revival",
+  "name": "Cocoon of Revival",
+  "route": {
+    "slug": "cocoon-of-revival",
+    "canonicalPath": "/database/derived-skills/cocoon-of-revival"
+  },
+  "childDerivedSkillIds": ["derived.global.pupation", "derived.global.devour-card"],
+  "descriptionTemplate": "Choice: {Pupation} or {derived:Devour}",
+  "descriptionArgs": {},
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "0"
+}

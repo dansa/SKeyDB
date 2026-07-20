@@ -47,6 +47,36 @@ function restorePropertyDescriptor(
   Reflect.deleteProperty(target, property)
 }
 
+export function createTestMediaQueryList({
+  getMatches,
+  media,
+}: {
+  getMatches: () => boolean
+  media: string
+}): MediaQueryList {
+  const eventTarget = new EventTarget()
+
+  Object.defineProperties(eventTarget, {
+    matches: {
+      configurable: true,
+      get: getMatches,
+    },
+    media: {
+      configurable: true,
+      value: media,
+    },
+    onchange: {
+      configurable: true,
+      value: null,
+      writable: true,
+    },
+  })
+
+  // MediaQueryList still declares deprecated addListener/removeListener members.
+  // Tests exercise the modern EventTarget API, which this object implements directly.
+  return eventTarget as MediaQueryList
+}
+
 export function installElementRectMock(
   getRect: (element: HTMLElement) => DOMRect | MockDomRectInit,
 ): () => void {
@@ -93,16 +123,10 @@ export function installStaticMatchMediaMock({
     configurable: true,
     value: vi.fn().mockImplementation(
       (query: string): MediaQueryList =>
-        ({
-          addEventListener: vi.fn(),
-          addListener: vi.fn(),
-          dispatchEvent: vi.fn(),
-          matches,
+        createTestMediaQueryList({
+          getMatches: () => matches,
           media: media ?? query,
-          onchange: null,
-          removeEventListener: vi.fn(),
-          removeListener: vi.fn(),
-        }) as MediaQueryList,
+        }),
     ),
   })
 

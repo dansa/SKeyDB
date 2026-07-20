@@ -10,11 +10,14 @@
   "assets": {
     "icon": "asset-relic-0008-icon"
   },
-  "relicType": "DIMENSIONAL_IMAGE",
+  "relicType": "Dimensional Image",
+  "categories": ["DIMENSIONAL_IMAGE"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0008",
   "ownerAwakenerId": "awakener-0008",
   "ownerAwakenerName": "Castor",
   "rarity": "SSR",
-  "realm": "ULTRA",
+  "aliases": [],
   "descriptionTemplate": "At turn start, Castor gains [Arg1] Aliemus. Place 2 {Onyx Plume} into hand at the start of battle. Gain [Arg2] Temporary {STR} when {Onyx Plume} is played for the first time each turn.",
   "descriptionArgs": {
     "Arg1": {
@@ -28,5 +31,32 @@
       "multiplier": 0.075,
       "inputs": ["accountLevel", "ownedPosseCount"]
     }
-  }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0008",
+      "name": "Dimensional Image: Castor",
+      "label": "Dimensional Image",
+      "variantType": "DIMENSIONAL_IMAGE",
+      "tier": "Unique",
+      "category": "DIMENSIONAL_IMAGE",
+      "ownerAwakenerId": "awakener-0008",
+      "ownerAwakenerName": "Castor",
+      "rarity": "SSR",
+      "descriptionTemplate": "At turn start, Castor gains [Arg1] Aliemus. Place 2 {Onyx Plume} into hand at the start of battle. Gain [Arg2] Temporary {STR} when {Onyx Plume} is played for the first time each turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.075,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      }
+    }
+  ]
 }

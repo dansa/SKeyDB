@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0135",
+  "name": "Concubines' Conceit",
+  "route": {
+    "slug": "concubines-conceit",
+    "canonicalPath": "/database/relics/concubines-conceit"
+  },
+  "assets": {
+    "icon": "asset-relic-0135-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0189",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "All Awakeners gain [Arg1] Aliemus the first time they play a Command Card each turn. After playing 4 Command Cards belonging to different Awakeners in one turn, inflict [Arg2]% of team's Max HP as {Poison} on all enemies.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "10"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "100",
+      "suffix": "%"
+    }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0189",
+      "name": "Concubines' Conceit",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "All Awakeners gain [Arg1] Aliemus the first time they play a Command Card each turn. After playing 4 Command Cards belonging to different Awakeners in one turn, inflict [Arg2]% of team's Max HP as {Poison} on all enemies.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "10"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "100",
+          "suffix": "%"
+        }
+      }
+    }
+  ]
+}

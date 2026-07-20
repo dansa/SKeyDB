@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.radiance-of-humanity",
+  "name": "Radiance of Humanity",
+  "route": {
+    "slug": "radiance-of-humanity",
+    "canonicalPath": "/database/derived-skills/radiance-of-humanity"
+  },
+  "descriptionTemplate": "Gain [Arg1] Arithmetica, choose 1 Awakener to gain [Arg2] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "3"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "50"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    },
+    {
+      "id": "mechanic.exhaust"
+    }
+  ],
+  "cost": "0"
+}

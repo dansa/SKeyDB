@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0174",
+  "name": "Gilded Reverie",
+  "route": {
+    "slug": "gilded-reverie",
+    "canonicalPath": "/database/relics/gilded-reverie"
+  },
+  "assets": {
+    "icon": "asset-relic-0174-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 5,
+  "defaultVariantId": "relic-variant-0268",
+  "rarity": "N",
+  "aliases": ["Gilded Reverie+", "Painted Gilded Reverie", "Painted Gilded Reverie+"],
+  "descriptionTemplate": "Each turn, when {Devour} occurs for the first time, other Awakeners gain [Arg1] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "10"
+    }
+  },
+  "lore": "The day of transformation will be your doom.",
+  "variants": [
+    {
+      "id": "relic-variant-0268",
+      "name": "Gilded Reverie",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "Each turn, when {Devour} occurs for the first time, other Awakeners gain [Arg1] Aliemus.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "10"
+        }
+      },
+      "lore": "The day of transformation will be your doom."
+    },
+    {
+      "id": "relic-variant-0269",
+      "name": "Gilded Reverie+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "Each turn, when {Devour} occurs for the first time, other Awakeners gain [Arg1] Aliemus.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "20"
+        }
+      },
+      "lore": "The day of transformation will be your doom."
+    },
+    {
+      "id": "relic-variant-0267",
+      "name": "Gilded Reverie",
+      "label": "Faded Legacy - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "FADED_LEGACY",
+      "rarity": "SSR",
+      "descriptionTemplate": "Whenever an Awakener has {Devour} once, other Awakeners gain 10 Aliemus.",
+      "descriptionArgs": {},
+      "lore": "The day of transformation will be your doom."
+    },
+    {
+      "id": "relic-variant-0270",
+      "name": "Painted Gilded Reverie",
+      "label": "Pickman - Silver",
+      "variantType": "AWAKENER_MECHANIC",
+      "tier": "Silver",
+      "mechanicOwner": "Pickman",
+      "rarity": "N",
+      "descriptionTemplate": "After triggering the {Devour} effect, other Awakeners gain [Arg1] Aliemus. Triggers once per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "10"
+        }
+      },
+      "lore": "The day of transformation will be your doom."
+    },
+    {
+      "id": "relic-variant-0271",
+      "name": "Painted Gilded Reverie+",
+      "label": "Pickman - Gold",
+      "variantType": "AWAKENER_MECHANIC",
+      "tier": "Gold",
+      "mechanicOwner": "Pickman",
+      "descriptionTemplate": "After triggering the {Devour} effect, other Awakeners gain [Arg1] Aliemus. Triggers once per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "20"
+        }
+      },
+      "lore": "The day of transformation will be your doom."
+    }
+  ]
+}

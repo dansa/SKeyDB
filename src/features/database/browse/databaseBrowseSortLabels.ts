@@ -1,5 +1,6 @@
 import type {CollectionSortDirection} from '@/domain/collection-sorting'
 import type {DatabaseSortKey} from '@/domain/database-browse-state'
+import type {RelicDatabaseSortKey} from '@/domain/relic-database-browse-state'
 import type {WheelsDatabaseSortKey} from '@/domain/wheels-database-browse-state'
 
 const DATABASE_SORT_LABELS: Record<DatabaseSortKey, string> = {
@@ -16,6 +17,12 @@ const WHEEL_SORT_LABELS: Record<WheelsDatabaseSortKey, string> = {
   ALPHABETICAL: 'Alphabetical',
   MAINSTAT: 'Main stat',
   RARITY: 'Rarity',
+}
+
+const RELIC_SORT_LABELS: Record<RelicDatabaseSortKey, string> = {
+  ALPHABETICAL: 'Alphabetical',
+  BEST_MATCH: 'Best match',
+  VARIANT_COUNT: 'Variant count',
 }
 
 export function getDatabaseSortLabel(sortKey: DatabaseSortKey): string {
@@ -50,4 +57,21 @@ export function getWheelSortDirectionLabel(
     return direction === 'ASC' ? 'Low → High' : 'High → Low'
   }
   return direction === 'ASC' ? 'A → Z' : 'Z → A'
+}
+
+export function getRelicSortLabel(sortKey: RelicDatabaseSortKey): string {
+  return RELIC_SORT_LABELS[sortKey]
+}
+
+export function getRelicSortDirectionLabel(
+  sortKey: RelicDatabaseSortKey,
+  direction: CollectionSortDirection,
+): string {
+  if (sortKey === 'BEST_MATCH') {
+    return ''
+  }
+  if (sortKey === 'ALPHABETICAL') {
+    return direction === 'ASC' ? 'A → Z' : 'Z → A'
+  }
+  return direction === 'ASC' ? 'Low → High' : 'High → Low'
 }

@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0269",
+  "name": "Silent Prelude",
+  "route": {
+    "slug": "silent-prelude",
+    "canonicalPath": "/database/relics/silent-prelude"
+  },
+  "assets": {
+    "icon": "asset-relic-0269-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0470",
+  "rarity": "N",
+  "aliases": ["Silent Prelude+"],
+  "descriptionTemplate": "Draw or discard a card to gain [Arg1] Temporary {STR}, triggering a maximum of 15 times per turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.00625,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "The violin of the renowned violinist Eric Eckstein.\nNow, it can no longer be played.",
+  "variants": [
+    {
+      "id": "relic-variant-0470",
+      "name": "Silent Prelude",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "Draw or discard a card to gain [Arg1] Temporary {STR}, triggering a maximum of 15 times per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.00625,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "The violin of the renowned violinist Eric Eckstein.\nNow, it can no longer be played."
+    },
+    {
+      "id": "relic-variant-0471",
+      "name": "Silent Prelude+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "Draw or discard a card to gain [Arg1] Temporary {STR}, triggering a maximum of 15 times per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.0125,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "The violin of the renowned violinist Eric Eckstein.\nNow, it can no longer be played."
+    },
+    {
+      "id": "relic-variant-0469",
+      "name": "Silent Prelude",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "After playing a Command Card for the first time each turn, add one \"Defense\" to your hand corresponding to the Awakener and attach {Fleeting} and {Exhaust}.",
+      "descriptionArgs": {},
+      "lore": "The violin of the renowned violinist Eric Eckstein.\nNow, it can no longer be played."
+    }
+  ]
+}

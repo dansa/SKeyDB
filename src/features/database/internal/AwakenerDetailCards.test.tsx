@@ -5,6 +5,7 @@ import {AwakenerDetailCards} from './AwakenerDetailCards'
 import {DatabasePopoverContext} from './database-popover-context'
 import {
   makeDatabaseDescribedEntry,
+  makeDatabasePopoverContext,
   makeDatabaseShellView,
   makeDerivedSkillRecord,
   makeSkillRecord,
@@ -27,9 +28,13 @@ vi.mock('./RichDescription', () => ({
   ),
 }))
 
+const openRootReferenceByName = vi.fn()
+const popoverContext = makeDatabasePopoverContext({
+  openRootReferenceByName,
+})
+
 describe('AwakenerDetailCards', () => {
   it('shows enlighten influence badges for affected cards', () => {
-    const openRootReferenceByName = vi.fn()
     const onToggleEnlightenSlot = vi.fn()
     const shellView = makeDatabaseShellView({
       selection: {
@@ -145,18 +150,8 @@ describe('AwakenerDetailCards', () => {
         }),
       ],
     })
-
     render(
-      <DatabasePopoverContext.Provider
-        value={{
-          openRootReferenceByName,
-          openRootOverlay: vi.fn(),
-          openNestedReferenceByName: vi.fn(),
-          openNestedOverlay: vi.fn(),
-          hasOpenPopovers: false,
-          closeAllPopovers: vi.fn(),
-        }}
-      >
+      <DatabasePopoverContext.Provider value={popoverContext}>
         <AwakenerDetailCards
           onToggleEnlightenSlot={onToggleEnlightenSlot}
           referenceLayer={null}

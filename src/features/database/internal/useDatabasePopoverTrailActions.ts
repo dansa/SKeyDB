@@ -123,16 +123,16 @@ export function useDatabasePopoverTrailActions({
     setTrail,
   })
 
-  const closeTrailFrom = useCallback((index: number) => {
-    setTrail((prev) => {
-      const next = closeTrailFromIndex(prev, index)
-      if (next.length === 0) {
+  const closeTrailFrom = useCallback(
+    (index: number) => {
+      setTrail((prev) => closeTrailFromIndex(prev, index))
+      if (trail.length === 1 && index === 0) {
         setTrailAnchorRect(null)
         setTrailAnchorElement(null)
       }
-      return next
-    })
-  }, [])
+    },
+    [trail.length],
+  )
 
   const contextValue = useMemo<DatabasePopoverContextValue>(
     () => ({

@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0047",
   "slot": "E3",
-  "descriptionTemplate": "\"Basic Strike\" and \"Basic Defense\" grant Tawil 3% Crit. Rate and Crit. DMG, up to 30%. When triggering {Death Resistance} for the first time during exploration, place one {Echoes of the Past} into hand.",
+  "descriptionTemplate": "\"Basic Strike\" and \"Basic Defense\" grant Tawil 3% Crit. Rate and Crit. DMG, up to 30%. When triggering {Death Resistance} for the first time during exploration, place one {derived:Echoes of the Past} into hand.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Tawil"
 }

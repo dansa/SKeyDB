@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.prion-virus",
+  "name": "Prion Virus",
+  "route": {
+    "slug": "prion-virus",
+    "canonicalPath": "/database/derived-skills/prion-virus"
+  },
+  "childDerivedSkillIds": ["derived.global.adsorption", "derived.global.solidify"],
+  "descriptionTemplate": "Choice: {Adsorption} or {Solidify}",
+  "descriptionArgs": {},
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "0"
+}

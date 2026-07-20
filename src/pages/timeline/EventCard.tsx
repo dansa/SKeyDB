@@ -17,7 +17,16 @@ import {resolveTimelineFeaturedAsset} from './timelineDetailResolution'
 import {useEventDescriptionOverflow} from './useEventDescriptionOverflow'
 
 type EventMetaTone =
-  'amber' | 'blue' | 'champagne' | 'gold' | 'orange' | 'price' | 'red' | 'slate' | 'teal' | 'violet'
+  | 'amber'
+  | 'blue'
+  | 'champagne'
+  | 'gold'
+  | 'orange'
+  | 'price'
+  | 'red'
+  | 'slate'
+  | 'teal'
+  | 'violet'
 type EventMetaRole = 'awakener' | 'price' | 'rerun' | 'wheel'
 
 const CATEGORY_TONE: Record<EventCategory, EventMetaTone> = {

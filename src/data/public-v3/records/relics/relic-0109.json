@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0109",
+  "name": "Chrono Pendulum \"Nightmare\"",
+  "route": {
+    "slug": "chrono-pendulum-nightmare",
+    "canonicalPath": "/database/relics/chrono-pendulum-nightmare"
+  },
+  "assets": {
+    "icon": "asset-relic-0109-icon"
+  },
+  "relicType": "Pendulum",
+  "categories": ["PENDULUM"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0134",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "Realm Mastery boosts by 100. Every time an Active DMG is dealt, Temporary {Tentacle DMG} +[Arg1]; every time a {Tentacle DMG} is dealt, Gain [Arg2] Shield. This effect can occur a maximum of 6 times per turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.02,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.02,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0134",
+      "name": "Chrono Pendulum \"Nightmare\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "Realm Mastery boosts by 100. Every time an Active DMG is dealt, Temporary {Tentacle DMG} +[Arg1]; every time a {Tentacle DMG} is dealt, Gain [Arg2] Shield. This effect can occur a maximum of 6 times per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.02,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.02,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      }
+    }
+  ]
+}

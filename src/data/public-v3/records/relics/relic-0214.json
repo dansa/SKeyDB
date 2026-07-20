@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0214",
+  "name": "\"Memory\" and \"Dream\"",
+  "route": {
+    "slug": "memory-and-dream",
+    "canonicalPath": "/database/relics/memory-and-dream"
+  },
+  "assets": {
+    "icon": "asset-relic-0214-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0348",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "Hand size limit +2, draw +2 cards. \"Clear Memory\" starts at 5 stacks, playing marked cards changes the \"Clear Memory\". When \"Clear Memory\" is below 5, each reduction by 1 increases Final DMG by 10%, reduces Shield and HP recovery by 5%; when above 5, every stack increases Shield and HP Recovery by 5%, reduces Final DMG by 10%.",
+  "descriptionArgs": {},
+  "lore": "\"Come, listen to me.\"\n\"Let me transform your memories and dreams.\"\n\"Into an incredibly delicious dessert.\"",
+  "variants": [
+    {
+      "id": "relic-variant-0348",
+      "name": "\"Memory\" and \"Dream\"",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "Hand size limit +2, draw +2 cards. \"Clear Memory\" starts at 5 stacks, playing marked cards changes the \"Clear Memory\". When \"Clear Memory\" is below 5, each reduction by 1 increases Final DMG by 10%, reduces Shield and HP recovery by 5%; when above 5, every stack increases Shield and HP Recovery by 5%, reduces Final DMG by 10%.",
+      "descriptionArgs": {},
+      "lore": "\"Come, listen to me.\"\n\"Let me transform your memories and dreams.\"\n\"Into an incredibly delicious dessert.\""
+    }
+  ]
+}

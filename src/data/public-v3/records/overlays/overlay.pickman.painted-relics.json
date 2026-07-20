@@ -11,7 +11,7 @@
   "ownerAwakenerId": "awakener-0040",
   "aliases": ["Golden Relics", "Silver Relics", "Painted Silver Relics"],
   "textColor": "misc",
-  "descriptionTemplate": "Includes the following \"{Astral Reign} Relics\": Malignant Child, Rite of Spring, Iron Lock, Filigree Agate, Blessed Blood, Rusted Saw, Gilded Reverie, Bloody Pebble.",
+  "descriptionTemplate": "Includes the following \"{Astral Reign} Relics\": {Malignant Child}, {Rite of Spring}, {Iron Lock}, {Filigree Agate}, {Blessed Blood}, {Rusted Saw}, {Gilded Reverie}, {Bloody Pebble}.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Pickman"
 }

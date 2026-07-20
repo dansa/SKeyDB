@@ -146,7 +146,7 @@ export function AwakenerDetailLore({
                           ? 'border-amber-200/80 text-amber-100'
                           : 'border-transparent text-slate-500 hover:text-slate-300'
                       }`}
-                      key={`${story.title}:${index.toString()}`}
+                      key={`${story.title}:${story.content}`}
                       onClick={() => {
                         setStorySelection({awakenerId: awakener.id, index})
                       }}
@@ -199,7 +199,7 @@ export function AwakenerDetailLore({
                         ? 'border-amber-200/75 bg-amber-200/8'
                         : 'border-slate-700/55 bg-slate-950/30 hover:border-slate-500/65'
                     }`}
-                    key={`${story.title}:${index.toString()}`}
+                    key={`${story.title}:${story.content}`}
                     onClick={() => {
                       setStorySelection({awakenerId: awakener.id, index})
                     }}

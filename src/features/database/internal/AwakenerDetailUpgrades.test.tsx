@@ -5,6 +5,7 @@ import {AwakenerDetailUpgrades} from './AwakenerDetailUpgrades'
 import {DatabasePopoverContext} from './database-popover-context'
 import {
   makeDatabaseDescribedEntry,
+  makeDatabasePopoverContext,
   makeDatabaseShellView,
   makeEnlightenRecord,
   makeSkillRecord,
@@ -27,6 +28,11 @@ vi.mock('./RichDescription', () => ({
     <span>{record?.descriptionTemplate ?? text}</span>
   ),
 }))
+
+const openRootReferenceByName = vi.fn()
+const popoverContext = makeDatabasePopoverContext({
+  openRootReferenceByName,
+})
 
 const TEST_AWAKENER = makeTestAwakener({id: 1, name: 'salvador', realm: 'CHAOS'})
 const TEST_STATS = makeTestFullStats()
@@ -128,19 +134,8 @@ const TEST_SHELL_VIEW = makeDatabaseShellView({
 
 describe('AwakenerDetailUpgrades', () => {
   it('renders fourth talent entries and over exalt progression rows when they exist in the full data', () => {
-    const openRootReferenceByName = vi.fn()
-
     render(
-      <DatabasePopoverContext.Provider
-        value={{
-          openRootReferenceByName,
-          openRootOverlay: vi.fn(),
-          openNestedReferenceByName: vi.fn(),
-          openNestedOverlay: vi.fn(),
-          hasOpenPopovers: false,
-          closeAllPopovers: vi.fn(),
-        }}
-      >
+      <DatabasePopoverContext.Provider value={popoverContext}>
         <AwakenerDetailUpgrades
           awakener={TEST_AWAKENER}
           fontScale={'medium'}

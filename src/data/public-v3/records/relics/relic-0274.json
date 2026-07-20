@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0274",
+  "name": "SOS Signal",
+  "route": {
+    "slug": "sos-signal",
+    "canonicalPath": "/database/relics/sos-signal"
+  },
+  "assets": {
+    "icon": "asset-relic-0274-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["FADED_LEGACY"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0481",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "Gain [Arg1] Shield at the end of your turn. If your Shield is 0 or a multiple of 3, gain [Arg2] {STR}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaledCeilThenMultiply",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.06,
+      "divisor": 3.0,
+      "postMultiplier": 3.0,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.01,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "He didn't wait for the rescue.",
+  "variants": [
+    {
+      "id": "relic-variant-0481",
+      "name": "SOS Signal",
+      "label": "Faded Legacy - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "FADED_LEGACY",
+      "rarity": "SSR",
+      "descriptionTemplate": "Gain [Arg1] Shield at the end of your turn. If your Shield is 0 or a multiple of 3, gain [Arg2] {STR}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaledCeilThenMultiply",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.06,
+          "divisor": 3.0,
+          "postMultiplier": 3.0,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.01,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "He didn't wait for the rescue."
+    }
+  ]
+}

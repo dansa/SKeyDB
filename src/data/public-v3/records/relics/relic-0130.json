@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0130",
+  "name": "Chrono Pendulum \"Unclean\"",
+  "route": {
+    "slug": "chrono-pendulum-unclean",
+    "canonicalPath": "/database/relics/chrono-pendulum-unclean"
+  },
+  "assets": {
+    "icon": "asset-relic-0130-icon"
+  },
+  "relicType": "Pendulum",
+  "categories": ["PENDULUM"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0176",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "When picked up, the team's Realm Mastery increases to 150% of its base value. After playing the {ordinal:5th} Command Card each turn, all Awakeners gain 20 Aliemus.",
+  "descriptionArgs": {},
+  "variants": [
+    {
+      "id": "relic-variant-0176",
+      "name": "Chrono Pendulum \"Unclean\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "When picked up, the team's Realm Mastery increases to 150% of its base value. After playing the {ordinal:5th} Command Card each turn, all Awakeners gain 20 Aliemus.",
+      "descriptionArgs": {}
+    }
+  ]
+}

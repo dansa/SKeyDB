@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0075",
+  "name": "Big Mouth Button",
+  "route": {
+    "slug": "big-mouth-button",
+    "canonicalPath": "/database/relics/big-mouth-button"
+  },
+  "assets": {
+    "icon": "asset-relic-0075-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["OTHER"],
+  "variantCount": 2,
+  "defaultVariantId": "relic-variant-0082",
+  "rarity": "SR",
+  "aliases": ["Premium Mouth Button"],
+  "descriptionTemplate": "At the start of each turn and when Ryker or the dice's random effect is triggered, gain 50 Keyflare and 2% Crit. DMG, up to 30% Crit. DMG. Removed at the end of the battle.",
+  "descriptionArgs": {},
+  "lore": "The Big Mouth Button loves everything round, such as the moon, chips, and fresh eyeballs.\nIt will spew black mist on a full moon night for unknown reasons.",
+  "variants": [
+    {
+      "id": "relic-variant-0082",
+      "name": "Big Mouth Button",
+      "label": "Ryker - Base",
+      "variantType": "AWAKENER_MECHANIC",
+      "tier": "Base",
+      "category": "OTHER",
+      "mechanicOwner": "Ryker",
+      "rarity": "SR",
+      "descriptionTemplate": "At the start of each turn and when Ryker or the dice's random effect is triggered, gain 50 Keyflare and 2% Crit. DMG, up to 30% Crit. DMG. Removed at the end of the battle.",
+      "descriptionArgs": {},
+      "lore": "The Big Mouth Button loves everything round, such as the moon, chips, and fresh eyeballs.\nIt will spew black mist on a full moon night for unknown reasons."
+    },
+    {
+      "id": "relic-variant-0083",
+      "name": "Premium Mouth Button",
+      "label": "Ryker - Upgraded",
+      "variantType": "AWAKENER_MECHANIC",
+      "tier": "Upgraded",
+      "category": "OTHER",
+      "mechanicOwner": "Ryker",
+      "descriptionTemplate": "At the start of each turn and when Ryker or the dice's random effect is triggered, gain 100 Keyflare and 4% Crit. DMG, up to 50% Crit. DMG. Removed at the end of the battle.",
+      "descriptionArgs": {},
+      "lore": "The Big Mouth Button loves everything round, such as the moon, chips, and fresh eyeballs.\nIt will spew black mist on a full moon night for unknown reasons."
+    }
+  ]
+}

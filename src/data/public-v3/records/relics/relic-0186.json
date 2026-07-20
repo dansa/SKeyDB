@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0186",
+  "name": "In Twilight",
+  "route": {
+    "slug": "in-twilight",
+    "canonicalPath": "/database/relics/in-twilight"
+  },
+  "assets": {
+    "icon": "asset-relic-0186-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0295",
+  "rarity": "N",
+  "aliases": ["In Twilight+"],
+  "descriptionTemplate": "At turn end, if Keyflare is full, consumes [Arg1] Keyflare to add a {Silver Key Gleam} to hand.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "750"
+    }
+  },
+  "lore": "Let's take a photo together! Experience the feeling of real pain.",
+  "variants": [
+    {
+      "id": "relic-variant-0295",
+      "name": "In Twilight",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "At turn end, if Keyflare is full, consumes [Arg1] Keyflare to add a {Silver Key Gleam} to hand.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "750"
+        }
+      },
+      "lore": "Let's take a photo together! Experience the feeling of real pain."
+    },
+    {
+      "id": "relic-variant-0296",
+      "name": "In Twilight+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "At turn end, if Keyflare is full, consumes [Arg1] Keyflare to put a {derived:Silver Key Dawn} into hand.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "350"
+        }
+      },
+      "lore": "Let's take a photo together! Experience the feeling of real pain."
+    },
+    {
+      "id": "relic-variant-0294",
+      "name": "In Twilight",
+      "label": "Faded Legacy - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "FADED_LEGACY",
+      "rarity": "SSR",
+      "descriptionTemplate": "Playing the {ordinal:6th} Command Card returns it to your hand from the Discard Pile.",
+      "descriptionArgs": {},
+      "lore": "Let's take a photo together! Experience the feeling of real pain."
+    }
+  ]
+}

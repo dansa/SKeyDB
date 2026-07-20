@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0304",
+  "name": "Wriggling Cord",
+  "route": {
+    "slug": "wriggling-cord",
+    "canonicalPath": "/database/relics/wriggling-cord"
+  },
+  "assets": {
+    "icon": "asset-relic-0304-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 2,
+  "defaultVariantId": "relic-variant-0550",
+  "aliases": [],
+  "descriptionTemplate": "At turn start, {Embryo Fusion} +[Arg1]. {Embryo} cards will be discarded at turn end.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "100"
+    }
+  },
+  "lore": "Entwine the neck.",
+  "variants": [
+    {
+      "id": "relic-variant-0550",
+      "name": "Wriggling Cord",
+      "label": "Astral Reign - Cursed",
+      "variantType": "STANDARD",
+      "tier": "Cursed",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "At turn start, {Embryo Fusion} +[Arg1]. {Embryo} cards will be discarded at turn end.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "100"
+        }
+      },
+      "lore": "Entwine the neck."
+    },
+    {
+      "id": "relic-variant-0549",
+      "name": "Wriggling Cord",
+      "label": "Faded Legacy - Cursed",
+      "variantType": "STANDARD",
+      "tier": "Cursed",
+      "category": "FADED_LEGACY",
+      "descriptionTemplate": "At turn start, {Embryo Fusion}+30. All your {Devour} effects become {Infinite Devour}.",
+      "descriptionArgs": {},
+      "lore": "Entwined around the neck."
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0164",
+  "name": "Filigree Agate",
+  "route": {
+    "slug": "filigree-agate",
+    "canonicalPath": "/database/relics/filigree-agate"
+  },
+  "assets": {
+    "icon": "asset-relic-0164-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 5,
+  "defaultVariantId": "relic-variant-0236",
+  "rarity": "N",
+  "aliases": ["Filigree Agate+", "Painted Filigree Agate", "Painted Filigree Agate+"],
+  "descriptionTemplate": "Gain [Arg1] Temporary {STR} whenever DMG is dealt, up to 15 times per turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.0075,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "It's probably just ordinary agate patterns. Perhaps.",
+  "variants": [
+    {
+      "id": "relic-variant-0236",
+      "name": "Filigree Agate",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "Gain [Arg1] Temporary {STR} whenever DMG is dealt, up to 15 times per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.0075,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "It's probably just ordinary agate patterns. Perhaps."
+    },
+    {
+      "id": "relic-variant-0237",
+      "name": "Filigree Agate+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "Gain [Arg1] Temporary {STR} whenever DMG is dealt, up to 15 times per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.015,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "It's probably just ordinary agate patterns. Perhaps."
+    },
+    {
+      "id": "relic-variant-0235",
+      "name": "Filigree Agate",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "Each time DMG is dealt, gain [Arg1] Temporary {STR}, up to 3 times. When at maximum stacks, the effect is doubled.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.01,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "It's probably just ordinary agate patterns. Perhaps."
+    },
+    {
+      "id": "relic-variant-0238",
+      "name": "Painted Filigree Agate",
+      "label": "Pickman - Silver",
+      "variantType": "AWAKENER_MECHANIC",
+      "tier": "Silver",
+      "mechanicOwner": "Pickman",
+      "rarity": "N",
+      "descriptionTemplate": "Gain [Arg1] Temporary {STR} whenever DMG is dealt, up to 15 times per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.0075,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "It's probably just ordinary agate patterns. Perhaps."
+    },
+    {
+      "id": "relic-variant-0239",
+      "name": "Painted Filigree Agate+",
+      "label": "Pickman - Gold",
+      "variantType": "AWAKENER_MECHANIC",
+      "tier": "Gold",
+      "mechanicOwner": "Pickman",
+      "descriptionTemplate": "Gain [Arg1] Temporary {STR} whenever DMG is dealt, up to 15 times per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.015,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "It's probably just ordinary agate patterns. Perhaps."
+    }
+  ]
+}

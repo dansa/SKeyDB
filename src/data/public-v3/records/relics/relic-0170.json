@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0170",
+  "name": "Forsaken Blood",
+  "route": {
+    "slug": "forsaken-blood",
+    "canonicalPath": "/database/relics/forsaken-blood"
+  },
+  "assets": {
+    "icon": "asset-relic-0170-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0254",
+  "rarity": "N",
+  "aliases": ["Forsaken Blood+"],
+  "descriptionTemplate": "All Awakeners Base DMG +[Arg1]%. Immediately before unleashing Exalt, temporarily increase the Base DMG dealt by this Awakener by [Arg2]%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "10",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "25",
+      "suffix": "%"
+    }
+  },
+  "lore": "Gradually melting away.",
+  "variants": [
+    {
+      "id": "relic-variant-0254",
+      "name": "Forsaken Blood",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "All Awakeners Base DMG +[Arg1]%. Immediately before unleashing Exalt, temporarily increase the Base DMG dealt by this Awakener by [Arg2]%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "10",
+          "suffix": "%"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "25",
+          "suffix": "%"
+        }
+      },
+      "lore": "Gradually melting away."
+    },
+    {
+      "id": "relic-variant-0255",
+      "name": "Forsaken Blood+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "All Awakeners Base DMG +[Arg1]%. Immediately before unleashing Exalt, temporarily increase the Base DMG dealt by this Awakener by [Arg2]%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "20",
+          "suffix": "%"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "50",
+          "suffix": "%"
+        }
+      },
+      "lore": "Gradually melting away."
+    },
+    {
+      "id": "relic-variant-0253",
+      "name": "Forsaken Blood",
+      "label": "Faded Legacy - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "FADED_LEGACY",
+      "rarity": "SSR",
+      "descriptionTemplate": "After releasing 2 Exalts each turn, all Awakeners gain 8 Aliemus. After releasing 3 Exalts, all Awakeners gain an additional 8 Aliemus.",
+      "descriptionArgs": {},
+      "lore": "Gradually melting away."
+    }
+  ]
+}

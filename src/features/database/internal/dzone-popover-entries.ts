@@ -1,6 +1,12 @@
 import type {RelicDatabaseDescriptionRecord} from '@/domain/description-records'
 import type {DzoneMonsterAlertStats, DzoneResolvedMonster} from '@/domain/dzone'
-import {loadRelicRecordById, type PublicRelicRecord} from '@/domain/relics'
+import {
+  getRelicVariantById,
+  loadRelicRecordById,
+  normalizeRelicDescriptionTemplate,
+  type PublicRelicRecord,
+  type PublicRelicVariant,
+} from '@/domain/relics'
 
 import type {KeyedDatabaseReferenceEntry} from './database-reference-entry'
 
@@ -8,12 +14,19 @@ type DatabaseDescriptionSection = NonNullable<
   KeyedDatabaseReferenceEntry['descriptionSections']
 >[number]
 
-function buildRelicDescriptionRecord(record: PublicRelicRecord): RelicDatabaseDescriptionRecord {
+type DzoneRelicEffectRecord = Pick<
+  PublicRelicRecord | PublicRelicVariant,
+  'id' | 'name' | 'descriptionTemplate' | 'descriptionArgs' | 'lore'
+>
+
+function buildRelicDescriptionRecord(
+  record: DzoneRelicEffectRecord,
+): RelicDatabaseDescriptionRecord {
   return {
     id: record.id,
     kind: 'relic',
     displayName: record.name,
-    descriptionTemplate: record.descriptionTemplate,
+    descriptionTemplate: normalizeRelicDescriptionTemplate(record.descriptionTemplate),
     descriptionArgs: record.descriptionArgs,
   }
 }
@@ -184,45 +197,56 @@ export function buildDzoneMonsterPopoverEntry({
 
 export function buildDzoneRelicPopoverEntry({
   record,
+  variantId,
   thumbnailSrc,
 }: {
   record: PublicRelicRecord
+  variantId?: string
   thumbnailSrc?: string
 }): KeyedDatabaseReferenceEntry {
-  const descriptionRecord = buildRelicDescriptionRecord(record)
-  const descriptionSections = record.lore
+  const variant = variantId ? getRelicVariantById(record, variantId) : undefined
+  if (variantId && !variant) {
+    throw new Error(`Relic family "${record.id}" does not contain variant "${variantId}".`)
+  }
+  const effectRecord = variant ?? record
+  const descriptionRecord = buildRelicDescriptionRecord(effectRecord)
+  const descriptionSections = effectRecord.lore
     ? [
         {
           label: 'Effect',
-          description: record.descriptionTemplate,
+          description: effectRecord.descriptionTemplate,
           record: descriptionRecord,
         },
         {
           label: 'Lore',
-          description: record.lore,
+          description: effectRecord.lore,
           tone: 'lore' as const,
         },
       ]
     : undefined
 
   return {
-    key: `dzone-relic:${record.id}`,
-    name: record.name,
-    label: '',
-    description: record.descriptionTemplate,
+    key: `dzone-relic:${record.id}:${effectRecord.id}`,
+    name: effectRecord.name,
+    label: variant?.label ?? '',
+    description: effectRecord.descriptionTemplate,
     record: descriptionRecord,
-    thumbnail: thumbnailSrc ? {src: thumbnailSrc, alt: record.name} : undefined,
+    thumbnail: thumbnailSrc ? {src: thumbnailSrc, alt: effectRecord.name} : undefined,
     descriptionSections,
+    navigationHref: `${record.route.canonicalPath}?variant=${encodeURIComponent(effectRecord.id)}`,
+    navigationLabel: 'Open relic details',
   }
 }
 
 export async function loadDzoneRelicPopoverEntry({
   relicId,
+  variantId,
   thumbnailSrc,
 }: {
   relicId: string
+  variantId?: string
   thumbnailSrc?: string
 }): Promise<KeyedDatabaseReferenceEntry | undefined> {
   const record = await loadRelicRecordById(relicId)
-  return record ? buildDzoneRelicPopoverEntry({record, thumbnailSrc}) : undefined
+  return record ? buildDzoneRelicPopoverEntry({record, variantId, thumbnailSrc}) : undefined
 }

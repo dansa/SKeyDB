@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0261",
+  "name": "Safe Passage",
+  "route": {
+    "slug": "safe-passage",
+    "canonicalPath": "/database/relics/safe-passage"
+  },
+  "assets": {
+    "icon": "asset-relic-0261-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0454",
+  "rarity": "N",
+  "aliases": ["Safe Passage+"],
+  "descriptionTemplate": "Gain [Arg1]% DMG Amplification at the start of battle. After taking damage, gain [Arg2] {Counter}, triggering a maximum of 3 times per turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.03,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "Looks like he didn't make it out either.",
+  "variants": [
+    {
+      "id": "relic-variant-0454",
+      "name": "Safe Passage",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "Gain [Arg1]% DMG Amplification at the start of battle. After taking damage, gain [Arg2] {Counter}, triggering a maximum of 3 times per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15",
+          "suffix": "%"
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.03,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "Looks like he didn't make it out either."
+    },
+    {
+      "id": "relic-variant-0455",
+      "name": "Safe Passage+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "Gain [Arg1]% DMG Amplification at the start of battle. After taking damage, gain [Arg2] {Counter}, triggering a maximum of 3 times per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "30",
+          "suffix": "%"
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.06,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "Looks like he didn't make it out either."
+    },
+    {
+      "id": "relic-variant-0453",
+      "name": "Safe Passage",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "After dealing the {ordinal:3rd} DMG Each turn, Gain [Arg1] Shield. After dealing the {ordinal:6th} DMG Each turn, Gain [Arg2] {STR}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.03,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.01,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "Looks like he didn't make it out either."
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.convulsion",
+  "name": "Convulsion",
+  "route": {
+    "slug": "convulsion",
+    "canonicalPath": "/database/derived-skills/convulsion"
+  },
+  "descriptionTemplate": "State Card.\nRemoved When Discarded",
+  "descriptionArgs": {},
+  "cardKeywords": []
+}

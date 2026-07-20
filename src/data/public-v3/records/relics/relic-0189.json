@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0189",
+  "name": "Ivory Raven Beak",
+  "route": {
+    "slug": "ivory-raven-beak",
+    "canonicalPath": "/database/relics/ivory-raven-beak"
+  },
+  "assets": {
+    "icon": "asset-relic-0189-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["FADED_LEGACY"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0303",
+  "rarity": "N",
+  "aliases": [],
+  "descriptionTemplate": "Crit. DMG increased by 15%. \"Strike\" Crit. Rate increased by 40%.",
+  "descriptionArgs": {},
+  "lore": "There are no secrets before it.",
+  "variants": [
+    {
+      "id": "relic-variant-0303",
+      "name": "Ivory Raven Beak",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "Crit. DMG increased by 15%. \"Strike\" Crit. Rate increased by 40%.",
+      "descriptionArgs": {},
+      "lore": "There are no secrets before it."
+    }
+  ]
+}

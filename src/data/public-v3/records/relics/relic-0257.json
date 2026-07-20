@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0257",
+  "name": "Rotting Blood Abyss Serum",
+  "route": {
+    "slug": "rotting-blood-abyss-serum",
+    "canonicalPath": "/database/relics/rotting-blood-abyss-serum"
+  },
+  "assets": {
+    "icon": "asset-relic-0257-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0442",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "Increase Realm Mastery by 200.\nWhen consuming {Crimson Furnace}, increase {Tentacle DMG} by 15% of the consumed amount.\nAccumulate [Arg3] {Crimson Furnace} points each time a Tentacle attacks.",
+  "descriptionArgs": {
+    "Arg3": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.025,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0442",
+      "name": "Rotting Blood Abyss Serum",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "Increase Realm Mastery by 200.\nWhen consuming {Crimson Furnace}, increase {Tentacle DMG} by 15% of the consumed amount.\nAccumulate [Arg3] {Crimson Furnace} points each time a Tentacle attacks.",
+      "descriptionArgs": {
+        "Arg3": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.025,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      }
+    }
+  ]
+}

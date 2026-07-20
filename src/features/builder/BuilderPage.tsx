@@ -68,6 +68,7 @@ function openPosseDetailOverlay(posse: Posse) {
   dbDetailStore.getState().openDetail({kind: 'posse', id: posse.id}, 'builder-overlay')
 }
 
+// react-doctor-disable-next-line react-doctor/no-giant-component -- classic Builder is retiring; only breaking fixes are in scope while Builder V2 replaces it.
 export function BuilderPage() {
   const {toastEntries, showToast} = useTimedToast({defaultDurationMs: 3200})
   const searchInputRef = useRef<HTMLInputElement | null>(null)

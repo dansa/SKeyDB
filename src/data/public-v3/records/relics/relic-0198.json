@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0198",
+  "name": "Life Breather",
+  "route": {
+    "slug": "life-breather",
+    "canonicalPath": "/database/relics/life-breather"
+  },
+  "assets": {
+    "icon": "asset-relic-0198-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["FADED_LEGACY"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0323",
+  "rarity": "N",
+  "aliases": [],
+  "descriptionTemplate": "{Death Resistance} +100% upon pickup. (each time {Death Resistance} triggers in this challenge, the gained {Death Resistance} is halved). After triggering {Death Resistance}, recover [Arg1] HP at turn start in this battle.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.04,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "A must-have for explorers. Relying on it too much will make it a part of you.",
+  "variants": [
+    {
+      "id": "relic-variant-0323",
+      "name": "Life Breather",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "{Death Resistance} +100% upon pickup. (each time {Death Resistance} triggers in this challenge, the gained {Death Resistance} is halved). After triggering {Death Resistance}, recover [Arg1] HP at turn start in this battle.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.04,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "A must-have for explorers. Relying on it too much will make it a part of you."
+    }
+  ]
+}

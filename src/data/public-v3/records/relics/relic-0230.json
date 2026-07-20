@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0230",
+  "name": "Omniscient Eye",
+  "route": {
+    "slug": "omniscient-eye",
+    "canonicalPath": "/database/relics/omniscient-eye"
+  },
+  "assets": {
+    "icon": "asset-relic-0230-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0385",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "Tawil's DMG, Shield, and Healing +50%. At the start of combat, Tawil gains 120 Aliemus.",
+  "descriptionArgs": {},
+  "lore": "Stepping out from the Gateway, He sets foot on the only correct path.",
+  "variants": [
+    {
+      "id": "relic-variant-0385",
+      "name": "Omniscient Eye",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SR",
+      "descriptionTemplate": "Tawil's DMG, Shield, and Healing +50%. At the start of combat, Tawil gains 120 Aliemus.",
+      "descriptionArgs": {},
+      "lore": "Stepping out from the Gateway, He sets foot on the only correct path."
+    }
+  ]
+}

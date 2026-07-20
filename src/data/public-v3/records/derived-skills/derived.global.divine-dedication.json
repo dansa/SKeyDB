@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.divine-dedication",
+  "name": "Divine Dedication",
+  "route": {
+    "slug": "divine-dedication",
+    "canonicalPath": "/database/derived-skills/divine-dedication"
+  },
+  "descriptionTemplate": "Choose a {Ritual}, limited to one of each type.\nReturn to hand after being discarded",
+  "descriptionArgs": {},
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    },
+    {
+      "id": "mechanic.exhaust"
+    }
+  ],
+  "cost": "0"
+}

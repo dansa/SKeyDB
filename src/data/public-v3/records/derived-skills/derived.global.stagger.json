@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.stagger",
+  "name": "Stagger",
+  "route": {
+    "slug": "stagger",
+    "canonicalPath": "/database/derived-skills/stagger"
+  },
+  "descriptionTemplate": "State Card.",
+  "descriptionArgs": {},
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    }
+  ],
+  "cost": "2"
+}

@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0128",
+  "name": "Chrono Pendulum \"Treasure\"",
+  "route": {
+    "slug": "chrono-pendulum-treasure",
+    "canonicalPath": "/database/relics/chrono-pendulum-treasure"
+  },
+  "assets": {
+    "icon": "asset-relic-0128-icon"
+  },
+  "relicType": "Pendulum",
+  "categories": ["PENDULUM"],
+  "variantCount": 5,
+  "defaultVariantId": "relic-variant-0170",
+  "rarity": "SR",
+  "aliases": [
+    "Chrono Pendulum \"Treasure α\"",
+    "Chrono Pendulum \"Treasure β\"",
+    "Chrono Pendulum \"Treasure γ\"",
+    "Chrono Pendulum \"Treasure δ\"",
+    "Chrono Pendulum \"Treasure ε\""
+  ],
+  "descriptionTemplate": "At battle start, increase the Arithmetica Limit by 1 and {Rouse} all Awakeners. For the next 5 turns, At turn start, gain a Relic from \"{Rusty Lancet}, {Modern Axle}, {Our Home}, {Eerie Hook}, Chrono Pendulum: Trance\".",
+  "descriptionArgs": {},
+  "variants": [
+    {
+      "id": "relic-variant-0170",
+      "name": "Chrono Pendulum \"Treasure α\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "At battle start, increase the Arithmetica Limit by 1 and {Rouse} all Awakeners. For the next 5 turns, At turn start, gain a Relic from \"{Rusty Lancet}, {Modern Axle}, {Our Home}, {Eerie Hook}, Chrono Pendulum: Trance\".",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "relic-variant-0171",
+      "name": "Chrono Pendulum \"Treasure β\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "At the start of the battle, Max Arithmetica +1 and {Rouse} all Awakeners. In the next 5 turns, gain 1 Relic at turn start: {Honeyed Ink}, {Mute Jukebox}, {Stellar Brew}, {Trickster's Hat}, Chrono Pendulum: Surge.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "relic-variant-0172",
+      "name": "Chrono Pendulum \"Treasure γ\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "At the start of the battle, increase the Arithmetica Limit by +1 and {Rouse} all Awakeners. For the next 5 turns, gain one Relic at turn start: \"{Mythag Insignia}, {Doctor's Case}, {Proto Battery}, {Mind Engraving}, Chrono Pendulum: Evolution\".",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "relic-variant-0173",
+      "name": "Chrono Pendulum \"Treasure δ\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "At the start of the battle, increase the Arithmetica Limit by 1 and {Rouse} all Awakeners. For the next 5 turns, gain one Relic at turn start: \"{Signal Relay}, {Rite of Spring}, {Hierophant's Staff}, {Omen {Ritual} Bird}, Chrono Pendulum: Projection\".",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "relic-variant-0174",
+      "name": "Chrono Pendulum \"Treasure ε\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "At the start of the battle, the Arithmetica Limit +1, and {Rouse} all Awakeners. For the next 5 turns, gain a relic at turn start: \"{Putney Morning Post}, {Principles of Aesthetics}, {Mob Song}, {Broken Visage}, Chrono Pendulum: Reciprocate\".",
+      "descriptionArgs": {}
+    }
+  ]
+}

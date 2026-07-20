@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0158",
+  "name": "Enthralling Chime",
+  "route": {
+    "slug": "enthralling-chime",
+    "canonicalPath": "/database/relics/enthralling-chime"
+  },
+  "assets": {
+    "icon": "asset-relic-0158-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["FADED_LEGACY"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0229",
+  "aliases": [],
+  "descriptionTemplate": "Hide monster intentions. Gain 1 Arithmetica each turn and draw 1 card.",
+  "descriptionArgs": {},
+  "lore": "Jingle, jingle.",
+  "variants": [
+    {
+      "id": "relic-variant-0229",
+      "name": "Enthralling Chime",
+      "label": "Faded Legacy - Cursed",
+      "variantType": "STANDARD",
+      "tier": "Cursed",
+      "category": "FADED_LEGACY",
+      "descriptionTemplate": "Hide monster intentions. Gain 1 Arithmetica each turn and draw 1 card.",
+      "descriptionArgs": {},
+      "lore": "Jingle, jingle."
+    }
+  ]
+}

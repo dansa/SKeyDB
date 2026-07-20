@@ -4,6 +4,7 @@ import {afterEach, describe, expect, it, vi} from 'vitest'
 
 import type {CovenantFullRecord} from '@/domain/covenants-full'
 import type {PosseFullRecord} from '@/domain/posses-full'
+import type {PublicRelicRecord, Relic} from '@/domain/relics'
 import type {Wheel} from '@/domain/wheels'
 import type {WheelFullRecord} from '@/domain/wheels-full'
 import {makeTestAwakenerFullRecord} from '@/features/database/internal/database-test-fixtures'
@@ -24,89 +25,113 @@ interface MockDetailRenderOptions {
     item: {
       name: string
     }
+    variantId?: string
   }
 }
 
 vi.mock('./dbDetailRegistry', async () => {
   const actual = await vi.importActual<typeof import('./dbDetailRegistry')>('./dbDetailRegistry')
 
+  const dbDetailRegistry = {
+    awakener: {
+      ...actual.dbDetailRegistry.awakener,
+      loadRecord: vi.fn(async (_id: string) => ({id: 'record-awakener'})),
+      loadingLabel: 'Loading awakener details...',
+      missingBrowsePath: '/database',
+      render: vi.fn(({callbacks, item}: MockDetailRenderOptions) => (
+        <dialog aria-label={`${item.item.name} details`} open>
+          <button onClick={callbacks.onClose} type='button'>
+            Close overlay
+          </button>
+          <button
+            onClick={() => {
+              callbacks.onSelectWheel({id: 'wheel-0050', name: 'Merciful Nurturing'})
+            }}
+            type='button'
+          >
+            Refer wheel
+          </button>
+          <button
+            onClick={() => {
+              callbacks.onSelectWheel({name: ' Merciful Nurturing '})
+            }}
+            type='button'
+          >
+            Refer wheel by name
+          </button>
+          <span>Active tab: {item.activeTab}</span>
+          <button
+            onClick={() => {
+              callbacks.onTabChange('skills')
+            }}
+            type='button'
+          >
+            Show skills tab
+          </button>
+        </dialog>
+      )),
+    },
+    wheel: {
+      ...actual.dbDetailRegistry.wheel,
+      loadRecord: vi.fn(async (_id: string) => ({id: 'record-wheel'})),
+      loadingLabel: 'Loading wheel details...',
+      missingBrowsePath: '/database/wheels',
+      render: vi.fn(({callbacks, item}: MockDetailRenderOptions) => (
+        <dialog aria-label={`${item.item.name} details`} open>
+          <button onClick={callbacks.onClose} type='button'>
+            Close overlay
+          </button>
+        </dialog>
+      )),
+    },
+    posse: {
+      ...actual.dbDetailRegistry.posse,
+      loadRecord: vi.fn(async (_id: string) => ({id: 'record-posse'})),
+      loadingLabel: 'Loading posse details...',
+      missingBrowsePath: '/database/posses',
+      render: vi.fn(({callbacks, item}: MockDetailRenderOptions) => (
+        <dialog aria-label={`${item.item.name} details`} open>
+          <button onClick={callbacks.onClose} type='button'>
+            Close overlay
+          </button>
+        </dialog>
+      )),
+    },
+    covenant: {
+      ...actual.dbDetailRegistry.covenant,
+      loadRecord: vi.fn(async (_id: string) => ({id: 'record-covenant'})),
+      loadingLabel: 'Loading covenant details...',
+      missingBrowsePath: '/database/covenants',
+      render: vi.fn(({callbacks, item}: MockDetailRenderOptions) => (
+        <dialog aria-label={`${item.item.name} details`} open>
+          <button onClick={callbacks.onClose} type='button'>
+            Close overlay
+          </button>
+        </dialog>
+      )),
+    },
+    relic: {
+      ...actual.dbDetailRegistry.relic,
+      loadRecord: vi.fn(async (_id: string) => ({id: 'record-relic'})),
+      loadingLabel: 'Loading relic details...',
+      missingBrowsePath: '/database/relics',
+      render: vi.fn(({callbacks, item}: MockDetailRenderOptions) => (
+        <dialog aria-label={`${item.item.name} details`} open>
+          <button onClick={callbacks.onClose} type='button'>
+            Close overlay
+          </button>
+        </dialog>
+      )),
+    },
+  }
+
   return {
     ...actual,
-    dbDetailRegistry: {
-      awakener: {
-        loadRecord: vi.fn(async () => ({id: 'record-awakener'})),
-        loadingLabel: 'Loading awakener details...',
-        missingBrowsePath: '/database',
-        render: vi.fn(({callbacks, item}: MockDetailRenderOptions) => (
-          <dialog aria-label={`${item.item.name} details`} open>
-            <button onClick={callbacks.onClose} type='button'>
-              Close overlay
-            </button>
-            <button
-              onClick={() => {
-                callbacks.onSelectWheel({id: 'wheel-0050', name: 'Merciful Nurturing'})
-              }}
-              type='button'
-            >
-              Refer wheel
-            </button>
-            <button
-              onClick={() => {
-                callbacks.onSelectWheel({name: ' Merciful Nurturing '})
-              }}
-              type='button'
-            >
-              Refer wheel by name
-            </button>
-            <span>Active tab: {item.activeTab}</span>
-            <button
-              onClick={() => {
-                callbacks.onTabChange('skills')
-              }}
-              type='button'
-            >
-              Show skills tab
-            </button>
-          </dialog>
-        )),
-      },
-      wheel: {
-        loadRecord: vi.fn(async () => ({id: 'record-wheel'})),
-        loadingLabel: 'Loading wheel details...',
-        missingBrowsePath: '/database/wheels',
-        render: vi.fn(({callbacks, item}: MockDetailRenderOptions) => (
-          <dialog aria-label={`${item.item.name} details`} open>
-            <button onClick={callbacks.onClose} type='button'>
-              Close overlay
-            </button>
-          </dialog>
-        )),
-      },
-      posse: {
-        loadRecord: vi.fn(async () => ({id: 'record-posse'})),
-        loadingLabel: 'Loading posse details...',
-        missingBrowsePath: '/database/posses',
-        render: vi.fn(({callbacks, item}: MockDetailRenderOptions) => (
-          <dialog aria-label={`${item.item.name} details`} open>
-            <button onClick={callbacks.onClose} type='button'>
-              Close overlay
-            </button>
-          </dialog>
-        )),
-      },
-      covenant: {
-        loadRecord: vi.fn(async () => ({id: 'record-covenant'})),
-        loadingLabel: 'Loading covenant details...',
-        missingBrowsePath: '/database/covenants',
-        render: vi.fn(({callbacks, item}: MockDetailRenderOptions) => (
-          <dialog aria-label={`${item.item.name} details`} open>
-            <button onClick={callbacks.onClose} type='button'>
-              Close overlay
-            </button>
-          </dialog>
-        )),
-      },
-    },
+    dbDetailRegistry,
+    preloadDatabaseDetailRecordByKind: vi.fn(
+      (kind: keyof typeof dbDetailRegistry, id: string) =>
+        void dbDetailRegistry[kind].loadRecord(id),
+    ),
   }
 })
 
@@ -135,6 +160,31 @@ const wheels: Wheel[] = [
     aliases: [],
     tags: [],
     lineupToken: 'm',
+  },
+]
+
+const relics: Relic[] = [
+  {
+    aliases: [],
+    assetId: 'Relic_24',
+    categories: ['DIMENSIONAL_IMAGE'],
+    defaultVariantCategory: 'DIMENSIONAL_IMAGE',
+    defaultVariantId: 'relic-variant-0001',
+    description: 'Test relic',
+    id: 'relic-0001',
+    kind: 'PORTRAIT',
+    name: 'Dimensional Image: "24"',
+    ownerAwakenerId: 'awakener-0001',
+    ownerAwakenerName: '24',
+    rarity: 'SSR',
+    relicType: 'Dimensional Image',
+    route: {
+      canonicalPath: '/database/relics/dimensional-image-24',
+      slug: 'dimensional-image-24',
+    },
+    variantCount: 1,
+    variantCategoryTiers: [{category: 'DIMENSIONAL_IMAGE', tier: 'Unique'}],
+    variantTiers: ['Unique'],
   },
 ]
 
@@ -167,6 +217,38 @@ const mockCovenantRecord: CovenantFullRecord = {
   assetId: 'covenant-icon-001',
   setEffects: [],
 }
+const mockRelicRecord: PublicRelicRecord = {
+  schemaVersion: 3,
+  kind: 'relic',
+  id: 'relic-0001',
+  name: 'Dimensional Image: "24"',
+  route: {
+    canonicalPath: '/database/relics/dimensional-image-24',
+    slug: 'dimensional-image-24',
+  },
+  assets: {icon: 'asset-relic-0001-icon'},
+  aliases: [],
+  categories: ['DIMENSIONAL_IMAGE'],
+  defaultVariantId: 'relic-variant-0001',
+  relicType: 'Dimensional Image',
+  variantCount: 1,
+  variantCategoryTiers: [{category: 'DIMENSIONAL_IMAGE', tier: 'Unique'}],
+  variantTiers: ['Unique'],
+  descriptionTemplate: 'Test relic',
+  descriptionArgs: {},
+  variants: [
+    {
+      id: 'relic-variant-0001',
+      name: 'Dimensional Image: "24"',
+      label: 'Dimensional Image',
+      variantType: 'DIMENSIONAL_IMAGE',
+      tier: 'Unique',
+      category: 'DIMENSIONAL_IMAGE',
+      descriptionTemplate: 'Test relic',
+      descriptionArgs: {},
+    },
+  ],
+}
 
 afterEach(() => {
   cleanup()
@@ -176,6 +258,7 @@ afterEach(() => {
   vi.mocked(dbDetailRegistry.wheel.loadRecord).mockResolvedValue(mockWheelRecord)
   vi.mocked(dbDetailRegistry.posse.loadRecord).mockResolvedValue(mockPosseRecord)
   vi.mocked(dbDetailRegistry.covenant.loadRecord).mockResolvedValue(mockCovenantRecord)
+  vi.mocked(dbDetailRegistry.relic.loadRecord).mockResolvedValue(mockRelicRecord)
 })
 
 function openDetailInAct(
@@ -196,6 +279,11 @@ function closeAllDetailsInAct() {
 function LocationProbe() {
   const location = useLocation()
   return <span data-testid='location-pathname'>{location.pathname}</span>
+}
+
+function LocationSearchProbe() {
+  const location = useLocation()
+  return <span data-testid='location-search'>{location.search}</span>
 }
 
 describe('DbDetailModalHost overlay entries', () => {
@@ -358,7 +446,7 @@ describe('DbDetailModalHost overlay entries', () => {
     expect(screen.getByTestId('location-pathname')).toHaveTextContent('/builder')
   })
 
-  it('rejects unsupported overlay refs before they enter the detail stack', () => {
+  it('loads and renders registered relic overlay refs', async () => {
     render(
       <MemoryRouter initialEntries={['/builder']}>
         <LocationProbe />
@@ -372,20 +460,157 @@ describe('DbDetailModalHost overlay entries', () => {
             onSelectWheel: vi.fn(),
             onTabChange: vi.fn(),
           }}
+          relics={relics}
           routeItem={null}
           wheels={wheels}
         />
       </MemoryRouter>,
     )
 
-    openDetailInAct({kind: 'relic', id: 'relic-0001'} as never, 'builder-overlay')
+    openDetailInAct({kind: 'relic', id: 'relic-0001'}, 'builder-overlay')
 
-    expect(dbDetailStore.getState().stack).toEqual([])
+    expect(dbDetailStore.getState().stack).toEqual([
+      {kind: 'relic', id: 'relic-0001', source: 'builder-overlay'},
+    ])
+    await waitFor(() => {
+      expect(dbDetailRegistry.relic.loadRecord).toHaveBeenCalledWith('relic-0001')
+      expect(dbDetailRegistry.relic.render).toHaveBeenCalled()
+    })
+    expect(
+      screen.getByRole('dialog', {name: /dimensional image: "24" details/i}),
+    ).toBeInTheDocument()
     expect(screen.getByTestId('location-pathname')).toHaveTextContent('/builder')
   })
 })
 
 describe('DbDetailModalHost route entries', () => {
+  it('renders the filter-preferred relic variant on its first committed frame', async () => {
+    const goldVariantId = 'relic-variant-0002'
+    vi.mocked(dbDetailRegistry.relic.render).mockClear()
+    vi.mocked(dbDetailRegistry.relic.loadRecord).mockResolvedValue({
+      ...mockRelicRecord,
+      categories: ['ASTRAL_REIGN'],
+      relicType: 'Relic',
+      variantCount: 2,
+      variantCategoryTiers: [
+        {category: 'ASTRAL_REIGN', tier: 'Silver'},
+        {category: 'ASTRAL_REIGN', tier: 'Gold'},
+      ],
+      variantTiers: ['Silver', 'Gold'],
+      variants: [
+        {
+          ...mockRelicRecord.variants[0],
+          category: 'ASTRAL_REIGN',
+          label: 'Astral Reign - Silver',
+          tier: 'Silver',
+          variantType: 'STANDARD',
+        },
+        {
+          ...mockRelicRecord.variants[0],
+          category: 'ASTRAL_REIGN',
+          id: goldVariantId,
+          label: 'Astral Reign - Gold',
+          tier: 'Gold',
+          variantType: 'STANDARD',
+        },
+      ],
+    })
+
+    render(
+      <MemoryRouter initialEntries={['/database/relics/dimensional-image-24?tier=GOLD']}>
+        <DbDetailModalHost
+          awakeners={awakeners}
+          callbacks={{
+            onClose: vi.fn(),
+            onSelectAwakener: vi.fn(),
+            onSelectCovenant: vi.fn(),
+            onSelectPosse: vi.fn(),
+            onSelectWheel: vi.fn(),
+            onTabChange: vi.fn(),
+          }}
+          relics={relics}
+          routeItem={{kind: 'relic', item: relics[0]}}
+          wheels={wheels}
+        />
+      </MemoryRouter>,
+    )
+
+    await waitFor(() => {
+      expect(dbDetailRegistry.relic.render).toHaveBeenCalled()
+    })
+    expect(vi.mocked(dbDetailRegistry.relic.render).mock.calls[0]?.[0].item.variantId).toBe(
+      goldVariantId,
+    )
+  })
+
+  it('renders the family default on the first frame for a foreign relic variant', async () => {
+    vi.mocked(dbDetailRegistry.relic.render).mockClear()
+    vi.mocked(dbDetailRegistry.relic.loadRecord).mockResolvedValue(mockRelicRecord)
+
+    render(
+      <MemoryRouter
+        initialEntries={['/database/relics/dimensional-image-24?variant=relic-variant-9999']}
+      >
+        <DbDetailModalHost
+          awakeners={awakeners}
+          callbacks={{
+            onClose: vi.fn(),
+            onSelectAwakener: vi.fn(),
+            onSelectCovenant: vi.fn(),
+            onSelectPosse: vi.fn(),
+            onSelectWheel: vi.fn(),
+            onTabChange: vi.fn(),
+          }}
+          relics={relics}
+          routeItem={{kind: 'relic', item: relics[0], variantId: 'relic-variant-9999'}}
+          wheels={wheels}
+        />
+      </MemoryRouter>,
+    )
+
+    await waitFor(() => {
+      expect(dbDetailRegistry.relic.render).toHaveBeenCalled()
+    })
+    expect(vi.mocked(dbDetailRegistry.relic.render).mock.calls[0]?.[0].item.variantId).toBe(
+      mockRelicRecord.defaultVariantId,
+    )
+  })
+
+  it('keeps the relic modal mounted while canonicalizing its default variant', async () => {
+    vi.mocked(dbDetailRegistry.relic.loadRecord).mockResolvedValue(mockRelicRecord)
+    const callbacks = {
+      onClose: vi.fn(),
+      onSelectAwakener: vi.fn(),
+      onSelectCovenant: vi.fn(),
+      onSelectPosse: vi.fn(),
+      onSelectWheel: vi.fn(),
+      onTabChange: vi.fn(),
+    }
+
+    render(
+      <MemoryRouter initialEntries={['/database/relics/dimensional-image-24']}>
+        <LocationSearchProbe />
+        <DbDetailModalHost
+          awakeners={awakeners}
+          callbacks={callbacks}
+          relics={relics}
+          routeItem={{kind: 'relic', item: relics[0]}}
+          wheels={wheels}
+        />
+      </MemoryRouter>,
+    )
+
+    await waitFor(() => {
+      expect(dbDetailRegistry.relic.render).toHaveBeenCalled()
+    })
+    expect(
+      screen.getByRole('dialog', {name: /dimensional image: "24" details/i}),
+    ).toBeInTheDocument()
+    await waitFor(() => {
+      expect(screen.getByTestId('location-search')).toHaveTextContent('?variant=relic-variant-0001')
+    })
+  })
+
   it('does not render a stale route-sourced stack entry as an overlay after the route closes', async () => {
     vi.mocked(dbDetailRegistry.awakener.loadRecord).mockResolvedValue(mockAwakenerRecord)
     const callbacks = {

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.twilight-innocent-return-gift",
+  "name": "Twilight: Innocent Return Gift",
+  "route": {
+    "slug": "twilight-innocent-return-gift",
+    "canonicalPath": "/database/derived-skills/twilight-innocent-return-gift"
+  },
+  "childDerivedSkillIds": ["derived.global.memories-innocent-return-gift"],
+  "descriptionTemplate": "Choose 1 card from the Draw Pile or Discard Pile and add it to hand, setting its Arithmetica Cost to 0. Place 1 {Memories: Innocent Return Gift} into both the Draw Pile and the Discard Pile.",
+  "descriptionArgs": {},
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "0"
+}

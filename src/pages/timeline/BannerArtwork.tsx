@@ -227,7 +227,7 @@ function FeaturedArtwork({
         <ArtworkPanel
           asset={asset}
           emphasis={index === 0}
-          key={`${asset.label}-${String(index)}`}
+          key={`${asset.label}:${asset.url ?? asset.linkTo ?? 'unlinked'}`}
           loading={loading}
           onOpenDetail={onOpenDetail}
           showSeparator={index < splitAssets.length - 1}
@@ -430,7 +430,7 @@ function PoolMontageArtwork({
             <PoolMontageSlot
               assets={vs.assets}
               frame={cycleFrames[vs.cycleFrameIndex]}
-              key={`${String(index)}:${getVisualSlotSignature(vs)}`}
+              key={getVisualSlotSignature(vs)}
               loading={loading}
               onOpenDetail={onOpenDetail}
               showSeparator={index < visualSlots.length - 1}
@@ -439,7 +439,7 @@ function PoolMontageArtwork({
         : visualSlots.map((vs, index) => (
             <PoolMontagePlaceholderSlot
               asset={vs.assets[0]}
-              key={`${String(index)}:${getVisualSlotSignature(vs)}`}
+              key={getVisualSlotSignature(vs)}
               showSeparator={index < visualSlots.length - 1}
             />
           ))}

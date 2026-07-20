@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0179",
+  "name": "Hemostatic Clamp",
+  "route": {
+    "slug": "hemostatic-clamp",
+    "canonicalPath": "/database/relics/hemostatic-clamp"
+  },
+  "assets": {
+    "icon": "asset-relic-0179-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["FADED_LEGACY"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0280",
+  "rarity": "N",
+  "aliases": [],
+  "descriptionTemplate": "\"Strike\" restores [Arg1] HP and reduces self {Poison} by [Arg1] {plural:[Arg1]|stack|stacks}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.02,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "\"Hurry, hurry! Give it to me!\"",
+  "variants": [
+    {
+      "id": "relic-variant-0280",
+      "name": "Hemostatic Clamp",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "\"Strike\" restores [Arg1] HP and reduces self {Poison} by [Arg1] {plural:[Arg1]|stack|stacks}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.02,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "\"Hurry, hurry! Give it to me!\""
+    }
+  ]
+}

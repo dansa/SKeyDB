@@ -10,11 +10,14 @@
   "assets": {
     "icon": "asset-relic-0007-icon"
   },
-  "relicType": "DIMENSIONAL_IMAGE",
+  "relicType": "Dimensional Image",
+  "categories": ["DIMENSIONAL_IMAGE"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0007",
   "ownerAwakenerId": "awakener-0007",
   "ownerAwakenerName": "Casiah",
   "rarity": "SSR",
-  "realm": "ULTRA",
+  "aliases": [],
   "descriptionTemplate": "At turn start, Casiah gains [Arg1] Aliemus. Drawing 1 card grants Casiah [Arg2] Aliemus. When Casiah unleashes Exalt, all enemies lose [Arg3] {STR}.",
   "descriptionArgs": {
     "Arg1": {
@@ -32,5 +35,36 @@
       "multiplier": 0.03,
       "inputs": ["accountLevel", "ownedPosseCount"]
     }
-  }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0007",
+      "name": "Dimensional Image: Casiah",
+      "label": "Dimensional Image",
+      "variantType": "DIMENSIONAL_IMAGE",
+      "tier": "Unique",
+      "category": "DIMENSIONAL_IMAGE",
+      "ownerAwakenerId": "awakener-0007",
+      "ownerAwakenerName": "Casiah",
+      "rarity": "SSR",
+      "descriptionTemplate": "At turn start, Casiah gains [Arg1] Aliemus. Drawing 1 card grants Casiah [Arg2] Aliemus. When Casiah unleashes Exalt, all enemies lose [Arg3] {STR}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "1"
+        },
+        "Arg3": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.03,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      }
+    }
+  ]
 }

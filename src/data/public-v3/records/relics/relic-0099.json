@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0099",
+  "name": "Chrono Pendulum \"Echo\"",
+  "route": {
+    "slug": "chrono-pendulum-echo",
+    "canonicalPath": "/database/relics/chrono-pendulum-echo"
+  },
+  "assets": {
+    "icon": "asset-relic-0099-icon"
+  },
+  "relicType": "Pendulum",
+  "categories": ["PENDULUM"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0124",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "When the number of Command Cards played in a turn reaches 3, gain 1 {derived:Insight}; at 6 cards, gain another {derived:Insight}; and when reaching 10 cards, you may select 2 cards from your deck to add to your hand at the start of next turn.",
+  "descriptionArgs": {},
+  "variants": [
+    {
+      "id": "relic-variant-0124",
+      "name": "Chrono Pendulum \"Echo\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "When the number of Command Cards played in a turn reaches 3, gain 1 {derived:Insight}; at 6 cards, gain another {derived:Insight}; and when reaching 10 cards, you may select 2 cards from your deck to add to your hand at the start of next turn.",
+      "descriptionArgs": {}
+    }
+  ]
+}

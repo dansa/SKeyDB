@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.flicker-of-humanity",
+  "name": "Flicker of Humanity",
+  "route": {
+    "slug": "flicker-of-humanity",
+    "canonicalPath": "/database/derived-skills/flicker-of-humanity"
+  },
+  "descriptionTemplate": "Gain [Arg1] Arithmetica, choose 1 Awakener to gain [Arg2] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "2"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "30"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    },
+    {
+      "id": "mechanic.exhaust"
+    }
+  ],
+  "cost": "0"
+}

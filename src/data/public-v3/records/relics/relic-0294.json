@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0294",
+  "name": "Uncanny Salve",
+  "route": {
+    "slug": "uncanny-salve",
+    "canonicalPath": "/database/relics/uncanny-salve"
+  },
+  "assets": {
+    "icon": "asset-relic-0294-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0525",
+  "rarity": "N",
+  "aliases": ["Uncanny Salve+"],
+  "descriptionTemplate": "Use {Keyflare Rouse} to inflict [Arg1] {Poison} on all enemies and gain [Arg2] Keyflare.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.3,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "100"
+    }
+  },
+  "lore": "Some kind of homemade ointment for external injuries. Do not use without a doctor's guidance.",
+  "variants": [
+    {
+      "id": "relic-variant-0525",
+      "name": "Uncanny Salve",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "Use {Keyflare Rouse} to inflict [Arg1] {Poison} on all enemies and gain [Arg2] Keyflare.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.3,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "100"
+        }
+      },
+      "lore": "Some kind of homemade ointment for external injuries. Do not use without a doctor's guidance."
+    },
+    {
+      "id": "relic-variant-0526",
+      "name": "Uncanny Salve+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "Use {Keyflare Rouse} to inflict [Arg1] {Poison} on all enemies and gain [Arg2] Keyflare.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.6,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "200"
+        }
+      },
+      "lore": "Some kind of homemade ointment for external injuries. Do not use without a doctor's guidance."
+    },
+    {
+      "id": "relic-variant-0524",
+      "name": "Uncanny Salve",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "At turn end, for each card in hand, inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Poison} on all enemies.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.014,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "Some kind of homemade ointment for external injuries. Do not use without a doctor's guidance."
+    }
+  ]
+}

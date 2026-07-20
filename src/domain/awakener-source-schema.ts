@@ -70,6 +70,7 @@ const publicScaledBaseFormulaSchema = z.enum([
   'somaticResearchHpMultiplier',
   'esotericResearchDepth',
   'occultResearchDepth',
+  'occultResearchMultiplier',
 ])
 
 export const descriptionArgSchema = z.discriminatedUnion('kind', [
@@ -121,6 +122,19 @@ export const descriptionArgSchema = z.discriminatedUnion('kind', [
       baseFormula: publicScaledBaseFormulaSchema,
       multiplier: z.number().optional(),
       rounding: z.literal('ceil').optional(),
+      inputs: z.array(publicFormulaKeySchema),
+      channel: descriptionArgChannelSchema.optional(),
+      suffix: nonEmptyStringSchema.optional(),
+      stat: z.enum(SCALING_ARG_STAT_KEYS).optional(),
+      substatBonus: descriptionArgSubstatBonusSchema.optional(),
+    }),
+    z.object({
+      kind: z.literal('computed'),
+      formulaKey: z.literal('scaledCeilThenMultiply'),
+      baseFormula: publicScaledBaseFormulaSchema,
+      multiplier: z.number(),
+      divisor: z.number().positive().optional(),
+      postMultiplier: z.number(),
       inputs: z.array(publicFormulaKeySchema),
       channel: descriptionArgChannelSchema.optional(),
       suffix: nonEmptyStringSchema.optional(),

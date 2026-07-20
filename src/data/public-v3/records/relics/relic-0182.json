@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0182",
+  "name": "Honeyed Ink",
+  "route": {
+    "slug": "honeyed-ink",
+    "canonicalPath": "/database/relics/honeyed-ink"
+  },
+  "assets": {
+    "icon": "asset-relic-0182-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["FADED_LEGACY"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0288",
+  "rarity": "N",
+  "aliases": [],
+  "descriptionTemplate": "Increases Max HP by [Arg1] when picked up and increases Aliemus gained by 2 points when attacked.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.065,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "Some say this is the devil's blood, but hey, give it a try!",
+  "variants": [
+    {
+      "id": "relic-variant-0288",
+      "name": "Honeyed Ink",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "Increases Max HP by [Arg1] when picked up and increases Aliemus gained by 2 points when attacked.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.065,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "Some say this is the devil's blood, but hey, give it a try!"
+    }
+  ]
+}

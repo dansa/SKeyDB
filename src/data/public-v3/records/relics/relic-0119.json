@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0119",
+  "name": "Chrono Pendulum \"Slumber\"",
+  "route": {
+    "slug": "chrono-pendulum-slumber",
+    "canonicalPath": "/database/relics/chrono-pendulum-slumber"
+  },
+  "assets": {
+    "icon": "asset-relic-0119-icon"
+  },
+  "relicType": "Pendulum",
+  "categories": ["PENDULUM"],
+  "variantCount": 2,
+  "defaultVariantId": "relic-variant-0153",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "All Awakeners' Keyflare Regen +30. After releasing Posse, shuffle 3 {derived:Insight} into your deck.",
+  "descriptionArgs": {},
+  "variants": [
+    {
+      "id": "relic-variant-0153",
+      "name": "Chrono Pendulum \"Slumber\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "All Awakeners' Keyflare Regen +30. After releasing Posse, shuffle 3 {derived:Insight} into your deck.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "relic-variant-0154",
+      "name": "Chrono Pendulum \"Slumber\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "Tentacle Limit +2. After triggering Exalt, {Tentacle DMG} +[Arg1]. When Exalt is triggered 3 times in a turn, activate all Tentacles once.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.02,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      }
+    }
+  ]
+}

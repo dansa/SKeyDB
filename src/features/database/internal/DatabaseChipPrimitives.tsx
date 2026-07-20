@@ -3,6 +3,7 @@ import {useId, type CSSProperties, type ReactNode} from 'react'
 import {getRealmAccent, getRealmIcon, getRealmLabel} from '@/domain/realms'
 import {ChipFilterRow} from '@/ui/filters/ChipFilterRow'
 import {FilterChipButton} from '@/ui/filters/FilterChipButton'
+import {FilterRow} from '@/ui/filters/FilterRow'
 
 interface CatalogRealmFilterRowProps<TValue extends string> {
   activeRealm: TValue
@@ -10,6 +11,80 @@ interface CatalogRealmFilterRowProps<TValue extends string> {
   label?: string
   onChange: (next: TValue) => void
   realms: readonly TValue[]
+}
+
+interface CatalogFilterOption<TValue extends string> {
+  id: TValue
+  label: ReactNode
+  ariaLabel?: string
+  activeStyle?: CSSProperties
+  iconSrc?: string | null
+}
+
+interface CatalogFilterRowProps<TValue extends string> {
+  activeId: TValue
+  defaultId: TValue
+  label: string
+  onChange: (next: TValue) => void
+  options: readonly CatalogFilterOption<TValue>[]
+}
+
+export function CatalogFilterRow<TValue extends string>({
+  activeId,
+  defaultId,
+  label,
+  onChange,
+  options,
+}: CatalogFilterRowProps<TValue>) {
+  return (
+    <ChipFilterRow
+      activeId={activeId}
+      defaultId={defaultId}
+      label={label}
+      onChange={onChange}
+      options={options}
+    />
+  )
+}
+
+interface CatalogMultiFilterRowProps<TValue extends string> {
+  activeIds: readonly TValue[]
+  description?: ReactNode
+  label: string
+  onToggle: (value: TValue) => void
+  options: readonly CatalogFilterOption<TValue>[]
+  visuallyHideLabel?: boolean
+}
+
+export function CatalogMultiFilterRow<TValue extends string>({
+  activeIds,
+  description,
+  label,
+  onToggle,
+  options,
+  visuallyHideLabel = false,
+}: CatalogMultiFilterRowProps<TValue>) {
+  const activeIdSet = new Set(activeIds)
+  return (
+    <FilterRow description={description} label={label} visuallyHideLabel={visuallyHideLabel}>
+      {options.map((option) => {
+        const active = activeIdSet.has(option.id)
+        return (
+          <FilterChipButton
+            active={active}
+            ariaLabel={option.ariaLabel}
+            key={option.id}
+            onClick={() => {
+              onToggle(option.id)
+            }}
+            style={active ? option.activeStyle : undefined}
+          >
+            {option.label}
+          </FilterChipButton>
+        )
+      })}
+    </FilterRow>
+  )
 }
 
 export function CatalogRealmFilterRow<TValue extends string>({

@@ -10,16 +10,39 @@
   "assets": {
     "icon": "asset-relic-0030-icon"
   },
-  "relicType": "DIMENSIONAL_IMAGE",
+  "relicType": "Dimensional Image",
+  "categories": ["DIMENSIONAL_IMAGE"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0030",
   "ownerAwakenerId": "awakener-0030",
   "ownerAwakenerName": "Liz",
   "rarity": "SSR",
-  "realm": "ULTRA",
+  "aliases": [],
   "descriptionTemplate": "At turn start, Liz gains [Arg1] Aliemus. Cards discarded by {Dance to Destruction} takes effect 1 more time, with a 3-turn cooldown.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
       "value": "15"
     }
-  }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0030",
+      "name": "Dimensional Image: Liz",
+      "label": "Dimensional Image",
+      "variantType": "DIMENSIONAL_IMAGE",
+      "tier": "Unique",
+      "category": "DIMENSIONAL_IMAGE",
+      "ownerAwakenerId": "awakener-0030",
+      "ownerAwakenerName": "Liz",
+      "rarity": "SSR",
+      "descriptionTemplate": "At turn start, Liz gains [Arg1] Aliemus. Cards discarded by {Dance to Destruction} takes effect 1 more time, with a 3-turn cooldown.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        }
+      }
+    }
+  ]
 }

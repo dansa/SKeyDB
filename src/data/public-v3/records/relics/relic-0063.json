@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0063",
+  "name": "Antique Puzzle",
+  "route": {
+    "slug": "antique-puzzle",
+    "canonicalPath": "/database/relics/antique-puzzle"
+  },
+  "assets": {
+    "icon": "asset-relic-0063-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["FADED_LEGACY"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0065",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "At turn start, deal [Arg1] DMG to a random enemy. After playing \"Strike\" 7 times in this battle, the DMG dealt will change to [Arg2]. After playing \"Strike\" 21 times, instantly deal [Arg3] DMG to all enemies.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.12,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "scaledCeilThenMultiply",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.06,
+      "postMultiplier": 11.0,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg3": {
+      "kind": "computed",
+      "formulaKey": "scaledCeilThenMultiply",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.12,
+      "postMultiplier": 33.0,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "The artwork, once embedded in the heavy frame, has been missing a piece since the day it was displayed.",
+  "variants": [
+    {
+      "id": "relic-variant-0065",
+      "name": "Antique Puzzle",
+      "label": "Faded Legacy - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "FADED_LEGACY",
+      "rarity": "SSR",
+      "descriptionTemplate": "At turn start, deal [Arg1] DMG to a random enemy. After playing \"Strike\" 7 times in this battle, the DMG dealt will change to [Arg2]. After playing \"Strike\" 21 times, instantly deal [Arg3] DMG to all enemies.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.12,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaledCeilThenMultiply",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.06,
+          "postMultiplier": 11.0,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg3": {
+          "kind": "computed",
+          "formulaKey": "scaledCeilThenMultiply",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.12,
+          "postMultiplier": 33.0,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "The artwork, once embedded in the heavy frame, has been missing a piece since the day it was displayed."
+    }
+  ]
+}

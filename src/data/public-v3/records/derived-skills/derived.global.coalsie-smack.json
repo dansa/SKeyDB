@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.coalsie-smack",
+  "name": "Coalsie SMACK!",
+  "route": {
+    "slug": "coalsie-smack",
+    "canonicalPath": "/database/derived-skills/coalsie-smack"
+  },
+  "descriptionTemplate": "Remove all enemy {Fortress}. Healing 50% of lost HP, fill all Awakeners' Aliemus to maximum. This turn, all Awakeners can Unleash Exalt twice.",
+  "descriptionArgs": {},
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "0"
+}

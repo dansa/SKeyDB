@@ -25,6 +25,7 @@ import {
   resolveDescribedRecord,
   type CovenantDatabaseDescriptionRecord,
   type PosseDatabaseDescriptionRecord,
+  type RelicDatabaseDescriptionRecord,
   type WheelDatabaseDescriptionRecord,
 } from './description-records'
 import {getPosses, type Posse} from './posses'
@@ -38,6 +39,7 @@ type ArtifactDescriptionRecord =
   | WheelDatabaseDescriptionRecord
   | PosseDatabaseDescriptionRecord
   | CovenantDatabaseDescriptionRecord
+  | RelicDatabaseDescriptionRecord
 
 export function buildPosseDatabaseDescriptionRecord(
   record: Pick<
@@ -431,6 +433,10 @@ export async function hydrateGlobalDatabaseReferenceInfo(
       info.label,
       formulaContext,
     )
+  }
+
+  if (info.kind === 'relic') {
+    return info
   }
 
   const {loadPublicCovenantDetailById} = await import('./public-detail-record-adapters')

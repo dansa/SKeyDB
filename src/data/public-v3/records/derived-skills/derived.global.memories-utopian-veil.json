@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.memories-utopian-veil",
+  "name": "Remembrance - Utopian Veil",
+  "route": {
+    "slug": "remembrance-utopian-veil",
+    "canonicalPath": "/database/derived-skills/remembrance-utopian-veil"
+  },
+  "derivedFromId": "derived.global.twilight-utopian-veil",
+  "descriptionTemplate": "Gain 2 Arithmetica. View 3 Posse, choose 1 to release immediately, dispel debuffs, and restore 25% of lost HP.",
+  "descriptionArgs": {},
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "0"
+}

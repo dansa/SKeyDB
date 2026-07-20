@@ -1,8 +1,8 @@
 import {resolveAccountLevelCurveEntry} from './gameplay-math-metadata'
 import type {
   PublicComputedDescriptionArg,
+  PublicScaledFormulaDescriptionArg,
   PublicScaledBaseFormula,
-  PublicScaledComputedDescriptionArg,
 } from './public-description-args.schema'
 import {buildPublicFormulaContext, type PublicFormulaContext} from './public-formula-context'
 
@@ -16,7 +16,9 @@ export type {
   PublicFormulaKey,
   PublicLinearDescriptionArg,
   PublicRealmMasteryLinearComputedDescriptionArg,
+  PublicScaledFormulaDescriptionArg,
   PublicScaledBaseFormula,
+  PublicScaledCeilThenMultiplyComputedDescriptionArg,
   PublicScaledComputedDescriptionArg,
   PublicScalingDescriptionArg,
   PublicWheelRefinementLinearComputedDescriptionArg,
@@ -65,6 +67,7 @@ function isPublicComputedDescriptionArg(value: unknown): value is PublicComputed
   return (
     candidate.kind === 'computed' &&
     (candidate.formulaKey === 'scaled' ||
+      candidate.formulaKey === 'scaledCeilThenMultiply' ||
       candidate.formulaKey === 'wheelRefinementLinear' ||
       candidate.formulaKey === 'realmMasteryLinear')
   )
@@ -86,13 +89,15 @@ function resolveScaledBaseFormula(
       return resolved(curve.stageGrow)
     case 'occultResearchDepth':
       return resolved(curve.stageGrow * (curve.accountDamagePower / 100))
+    case 'occultResearchMultiplier':
+      return resolved(curve.accountDamagePower / 100)
   }
 
   return unresolved()
 }
 
 export function getPublicScaledFormulaBreakdown(
-  arg: PublicScaledComputedDescriptionArg,
+  arg: PublicScaledFormulaDescriptionArg,
   context: PublicFormulaContext = {},
 ): PublicScaledFormulaBreakdown {
   const resolvedContext = {...buildPublicFormulaContext(), ...context}
@@ -147,7 +152,44 @@ export function getPublicScaledFormulaBreakdown(
         ownedPosseMultiplier,
         multiplier,
       }
+    case 'occultResearchMultiplier':
+      return {
+        title: 'Forbidden Lore Scaling',
+        accountLevel: curve.accountLevel,
+        baseLabel: 'Occult Research multiplier',
+        baseLabelPlacement: 'before',
+        baseValue: curve.accountDamagePower / 100,
+        ownedPosseCount,
+        ownedPosseMultiplier,
+        multiplier,
+      }
   }
+}
+
+export function resolvePublicScaledFormulaValue(
+  arg: PublicScaledFormulaDescriptionArg,
+  baseValue: number,
+): number | null {
+  if (!Number.isFinite(baseValue)) {
+    return null
+  }
+
+  if (arg.formulaKey === 'scaled') {
+    const scaledValue =
+      typeof arg.multiplier === 'number' && Number.isFinite(arg.multiplier)
+        ? baseValue * arg.multiplier
+        : baseValue
+    const value = arg.rounding === 'ceil' ? Math.ceil(scaledValue) : scaledValue
+    return Number.isFinite(value) ? value : null
+  }
+
+  const divisor = arg.divisor ?? 1
+  if (!Number.isFinite(divisor) || divisor <= 0) {
+    return null
+  }
+
+  const value = Math.ceil((baseValue * arg.multiplier) / divisor) * arg.postMultiplier
+  return Number.isFinite(value) ? value : null
 }
 
 export function evaluatePublicFormulaExpression(
@@ -158,17 +200,14 @@ export function evaluatePublicFormulaExpression(
     return unresolved()
   }
 
-  if (arg.formulaKey === 'scaled') {
+  if (arg.formulaKey === 'scaled' || arg.formulaKey === 'scaledCeilThenMultiply') {
     const base = resolveScaledBaseFormula(arg.baseFormula, context)
     if (!base.resolved || base.value === null) {
       return unresolved()
     }
 
-    const scaledValue =
-      typeof arg.multiplier === 'number' && Number.isFinite(arg.multiplier)
-        ? base.value * arg.multiplier
-        : base.value
-    return resolved(arg.rounding === 'ceil' ? Math.ceil(scaledValue) : scaledValue)
+    const value = resolvePublicScaledFormulaValue(arg, base.value)
+    return value === null ? unresolved() : resolved(value)
   }
 
   if (arg.formulaKey === 'realmMasteryLinear') {

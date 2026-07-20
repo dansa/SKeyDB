@@ -10,16 +10,39 @@
   "assets": {
     "icon": "asset-relic-0027-icon"
   },
-  "relicType": "DIMENSIONAL_IMAGE",
+  "relicType": "Dimensional Image",
+  "categories": ["DIMENSIONAL_IMAGE"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0027",
   "ownerAwakenerId": "awakener-0027",
   "ownerAwakenerName": "Kathigu-Ra",
   "rarity": "SSR",
-  "realm": "CHAOS",
+  "aliases": [],
   "descriptionTemplate": "At turn start, Kathigu-Ra gains [Arg1] Aliemus. After accumulating 10 stacks of {Fiamma}, immediately draw 1 Kathigu-Ra's Command Card and grant it 3 stacks of {Fiamma}. This effect will not accumulate stacks for the rest of this turn.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
       "value": "15"
     }
-  }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0027",
+      "name": "Dimensional Image: Kathigu-Ra",
+      "label": "Dimensional Image",
+      "variantType": "DIMENSIONAL_IMAGE",
+      "tier": "Unique",
+      "category": "DIMENSIONAL_IMAGE",
+      "ownerAwakenerId": "awakener-0027",
+      "ownerAwakenerName": "Kathigu-Ra",
+      "rarity": "SSR",
+      "descriptionTemplate": "At turn start, Kathigu-Ra gains [Arg1] Aliemus. After accumulating 10 stacks of {Fiamma}, immediately draw 1 Kathigu-Ra's Command Card and grant it 3 stacks of {Fiamma}. This effect will not accumulate stacks for the rest of this turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        }
+      }
+    }
+  ]
 }

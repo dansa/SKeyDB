@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.inspire-offsprings",
+  "name": "Inspire Offsprings",
+  "route": {
+    "slug": "inspire-offsprings",
+    "canonicalPath": "/database/derived-skills/inspire-offsprings"
+  },
+  "descriptionTemplate": "Gain 4 stacks of Temporary Fervor and 2 Arithmetica.",
+  "descriptionArgs": {},
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "0"
+}

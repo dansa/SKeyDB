@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.silver-key-dawn",
+  "name": "Silver Key Dawn",
+  "route": {
+    "slug": "silver-key-dawn",
+    "canonicalPath": "/database/derived-skills/silver-key-dawn"
+  },
+  "descriptionTemplate": "Choose 1 unlocked Posse from 3 randomly unlocked Posses to activate immediately, and it will take effect twice.",
+  "descriptionArgs": {},
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "0"
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0146",
+  "name": "Dimension Pendulum-Duel",
+  "route": {
+    "slug": "dimension-pendulum-duel",
+    "canonicalPath": "/database/relics/dimension-pendulum-duel"
+  },
+  "assets": {
+    "icon": "asset-relic-0146-icon"
+  },
+  "relicType": "Pendulum",
+  "categories": ["PENDULUM"],
+  "variantCount": 2,
+  "defaultVariantId": "relic-variant-0208",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "{Awaken}: After unleashing Exalt for the first time each turn, reset that Awakener's Exalt cooldown and grant them 50 Aliemus, generating temporary copies of all \"Skills\" with an Arithmetica Cost of 0.\n{Seal}: After unleashing Exalt for the first time each turn, seal other Awakeners.",
+  "descriptionArgs": {},
+  "variants": [
+    {
+      "id": "relic-variant-0208",
+      "name": "Dimension Pendulum-Duel",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "{Awaken}: After unleashing Exalt for the first time each turn, reset that Awakener's Exalt cooldown and grant them 50 Aliemus, generating temporary copies of all \"Skills\" with an Arithmetica Cost of 0.\n{Seal}: After unleashing Exalt for the first time each turn, seal other Awakeners.",
+      "descriptionArgs": {}
+    },
+    {
+      "id": "relic-variant-0209",
+      "name": "Dimension Pendulum-Duel",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "{Backwater}: At the Start of each turn, for every 1% Max HP lost, Final DMG is Temporarily Boosted by 5%. If {Death Resistance} was triggered last turn, this Effect is doubled.\n{Supreme}: All enemies' Max HP is Boosted by 300%.",
+      "descriptionArgs": {}
+    }
+  ]
+}

@@ -2,6 +2,7 @@ import {useEffect} from 'react'
 
 import {FaChevronLeft, FaChevronRight} from 'react-icons/fa6'
 
+import {isDatabaseDetailNavigationEditingTarget} from './database-detail-navigation-keys'
 import type {
   DatabaseDetailResultNavigation,
   DatabaseDetailResultNavigationPreview,
@@ -26,26 +27,6 @@ function isEmptyDetailSearchInput(element: Element): element is HTMLInputElement
   )
 }
 
-function isTextEditingTarget(target: EventTarget | null): boolean {
-  if (!(target instanceof Element)) {
-    return false
-  }
-
-  if (target.closest('[role="tablist"]')) {
-    return true
-  }
-
-  if (target instanceof HTMLElement && target.isContentEditable) {
-    return true
-  }
-
-  return (
-    target instanceof HTMLInputElement ||
-    target instanceof HTMLSelectElement ||
-    target instanceof HTMLTextAreaElement
-  )
-}
-
 function useDatabaseDetailResultNavigationKeys(navigation: DatabaseDetailResultNavigation | null) {
   useEffect(() => {
     if (!navigation) {
@@ -59,7 +40,7 @@ function useDatabaseDetailResultNavigationKeys(navigation: DatabaseDetailResultN
         event.ctrlKey ||
         event.metaKey ||
         event.shiftKey ||
-        isTextEditingTarget(event.target)
+        isDatabaseDetailNavigationEditingTarget(event.target)
       ) {
         return
       }

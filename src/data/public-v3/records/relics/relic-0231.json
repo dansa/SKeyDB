@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0231",
+  "name": "Other Tongue",
+  "route": {
+    "slug": "other-tongue",
+    "canonicalPath": "/database/relics/other-tongue"
+  },
+  "assets": {
+    "icon": "asset-relic-0231-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0387",
+  "rarity": "N",
+  "aliases": ["Other Tongue+"],
+  "descriptionTemplate": "\"Strike\" inflicts {Poison} equal to [Arg1]% of DMG dealt, with a maximum of [Arg2] per turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "10"
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.4,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "It is not a demon, but it indeed conveys whispers from beyond the mortal realm.",
+  "variants": [
+    {
+      "id": "relic-variant-0387",
+      "name": "Other Tongue",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "\"Strike\" inflicts {Poison} equal to [Arg1]% of DMG dealt, with a maximum of [Arg2] per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "10"
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.4,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "It is not a demon, but it indeed conveys whispers from beyond the mortal realm."
+    },
+    {
+      "id": "relic-variant-0388",
+      "name": "Other Tongue+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "\"Strike\" inflicts {Poison} equal to [Arg1]% of DMG dealt, with a maximum of [Arg2] per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "20"
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.8,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "It is not a demon, but it indeed conveys whispers from beyond the mortal realm."
+    },
+    {
+      "id": "relic-variant-0386",
+      "name": "Other Tongue",
+      "label": "Faded Legacy - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "FADED_LEGACY",
+      "rarity": "SSR",
+      "descriptionTemplate": "Each time you release an Exalt, gain 1 {Toxic Infusion}. If you have 3 {Toxic Infusion} in your hand, synthesize into a {Toxic Outbreak} that triggers {Poison}.",
+      "descriptionArgs": {},
+      "lore": "It is not a demon, but it indeed conveys whispers from beyond the mortal realm."
+    }
+  ]
+}

@@ -233,6 +233,7 @@ function AwakenerAdvancedFilters({
   scalingSubstatFilters,
 }: AwakenerAdvancedFiltersProps) {
   const activeCount = gameplayFactionFilters.length + scalingSubstatFilters.length
+  const gameplayFactionFilterSet = new Set(gameplayFactionFilters)
   const [open, setOpen] = useState(activeCount > 0)
 
   return (
@@ -267,7 +268,7 @@ function AwakenerAdvancedFilters({
           <FilterRow label='Faction'>
             {gameplayFactionOptions.map((option) => (
               <FilterChipButton
-                active={gameplayFactionFilters.includes(option.id)}
+                active={gameplayFactionFilterSet.has(option.id)}
                 key={option.id}
                 onClick={() => {
                   onGameplayFactionFilterToggle(option.id)

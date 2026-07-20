@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0301",
+  "name": "Warp Device",
+  "route": {
+    "slug": "warp-device",
+    "canonicalPath": "/database/relics/warp-device"
+  },
+  "assets": {
+    "icon": "asset-relic-0301-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["FADED_LEGACY"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0541",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "The first Command Card played each turn that triggers a {Leap} effect draws 1 card; otherwise, gain 1 Arithmetica. During {Ultra Rounds}, both effects apply.",
+  "descriptionArgs": {},
+  "lore": "Reflects a twisted shadow.",
+  "variants": [
+    {
+      "id": "relic-variant-0541",
+      "name": "Warp Device",
+      "label": "Faded Legacy - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "FADED_LEGACY",
+      "rarity": "SSR",
+      "descriptionTemplate": "The first Command Card played each turn that triggers a {Leap} effect draws 1 card; otherwise, gain 1 Arithmetica. During {Ultra Rounds}, both effects apply.",
+      "descriptionArgs": {},
+      "lore": "Reflects a twisted shadow."
+    }
+  ]
+}

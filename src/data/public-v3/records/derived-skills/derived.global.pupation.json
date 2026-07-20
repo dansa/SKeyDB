@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.pupation",
+  "name": "Pupation",
+  "route": {
+    "slug": "pupation",
+    "canonicalPath": "/database/derived-skills/pupation"
+  },
+  "derivedFromId": "derived.global.cocoon-of-revival",
+  "descriptionTemplate": "Gain Shield equal to 30% of Max HP.",
+  "descriptionArgs": {},
+  "cardKeywords": []
+}

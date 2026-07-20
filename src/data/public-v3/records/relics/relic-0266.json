@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0266",
+  "name": "Shapeshifter's Invitation",
+  "route": {
+    "slug": "shapeshifters-invitation",
+    "canonicalPath": "/database/relics/shapeshifters-invitation"
+  },
+  "assets": {
+    "icon": "asset-relic-0266-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0465",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "Hand Limit +1. Create a customized \"Taboo Trade\" at the start of battle. Play \"Taboo Trade\" to create another on your next turn.\n\"Taboo Trade\" has 4 Arithmetica Cost, {Retain}, {Prepare}, & {Exhaust}, and has 3 custom effects. Playing \"Strike,\" \"Defense,\" or \"Skill\" Command Cards will enhance its {ordinal:1st}, {ordinal:2nd}, or {ordinal:3rd} effects respectively.",
+  "descriptionArgs": {},
+  "lore": "The words on the letter kept changing, always transforming into an irresistible desire.",
+  "variants": [
+    {
+      "id": "relic-variant-0465",
+      "name": "Shapeshifter's Invitation",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "Hand Limit +1. Create a customized \"Taboo Trade\" at the start of battle. Play \"Taboo Trade\" to create another on your next turn.\n\"Taboo Trade\" has 4 Arithmetica Cost, {Retain}, {Prepare}, & {Exhaust}, and has 3 custom effects. Playing \"Strike,\" \"Defense,\" or \"Skill\" Command Cards will enhance its {ordinal:1st}, {ordinal:2nd}, or {ordinal:3rd} effects respectively.",
+      "descriptionArgs": {},
+      "lore": "The words on the letter kept changing, always transforming into an irresistible desire."
+    }
+  ]
+}

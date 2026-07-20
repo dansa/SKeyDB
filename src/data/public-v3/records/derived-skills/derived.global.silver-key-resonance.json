@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.silver-key-resonance",
+  "name": "Silver Key Resonance",
+  "route": {
+    "slug": "silver-key-resonance",
+    "canonicalPath": "/database/derived-skills/silver-key-resonance"
+  },
+  "descriptionTemplate": "Choose an Awakener and add one of each of their Command Cards to your hand. The {Resonance} of Keepers and the Silver Key inspires Awakeners to keep fighting.",
+  "descriptionArgs": {},
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "0"
+}

@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0227",
+  "name": "Octahedron Dice",
+  "route": {
+    "slug": "octahedron-dice",
+    "canonicalPath": "/database/relics/octahedron-dice"
+  },
+  "assets": {
+    "icon": "asset-relic-0227-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["OTHER"],
+  "variantCount": 2,
+  "defaultVariantId": "relic-variant-0378",
+  "rarity": "SR",
+  "aliases": ["Shining Octahedron Dice"],
+  "descriptionTemplate": "Whenever a Posse is released, put 1 \"Octahedron Dice\" into hand.",
+  "descriptionArgs": {},
+  "lore": "What shines is not only the surface but also the unyielding heart.\nGaze at it for more than five seconds, and you will summon @2.",
+  "variants": [
+    {
+      "id": "relic-variant-0378",
+      "name": "Octahedron Dice",
+      "label": "Ryker - Base",
+      "variantType": "AWAKENER_MECHANIC",
+      "tier": "Base",
+      "category": "OTHER",
+      "mechanicOwner": "Ryker",
+      "rarity": "SR",
+      "descriptionTemplate": "Whenever a Posse is released, put 1 \"Octahedron Dice\" into hand.",
+      "descriptionArgs": {},
+      "lore": "What shines is not only the surface but also the unyielding heart.\nGaze at it for more than five seconds, and you will summon @2."
+    },
+    {
+      "id": "relic-variant-0379",
+      "name": "Shining Octahedron Dice",
+      "label": "Ryker - Upgraded",
+      "variantType": "AWAKENER_MECHANIC",
+      "tier": "Upgraded",
+      "category": "OTHER",
+      "mechanicOwner": "Ryker",
+      "descriptionTemplate": "Whenever a Posse is released, put 1 \"Shining Octahedron Dice\" into hand.",
+      "descriptionArgs": {},
+      "lore": "What shines is not only the surface but also the unyielding heart.\nGaze at it for more than five seconds, and you will summon @2."
+    }
+  ]
+}

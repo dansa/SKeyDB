@@ -51,6 +51,13 @@ export function DatabaseEntityTabs({activeEntity, search}: DatabaseEntityTabsPro
       >
         Covenants
       </NavLink>
+      <NavLink
+        aria-current={activeEntity === 'relics' ? 'page' : undefined}
+        className={buildTabClassName(activeEntity === 'relics')}
+        to={{pathname: buildDatabaseEntityBrowsePath('relics'), search: getTabSearch('relics')}}
+      >
+        Relics
+      </NavLink>
     </nav>
   )
 }

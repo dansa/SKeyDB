@@ -10,11 +10,14 @@
   "assets": {
     "icon": "asset-relic-0045-icon"
   },
-  "relicType": "DIMENSIONAL_IMAGE",
+  "relicType": "Dimensional Image",
+  "categories": ["DIMENSIONAL_IMAGE"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0045",
   "ownerAwakenerId": "awakener-0045",
   "ownerAwakenerName": "Sanga",
   "rarity": "SSR",
-  "realm": "AEQUOR",
+  "aliases": [],
   "descriptionTemplate": "At turn start, Sanga gains [Arg1] Aliemus. At the start of the battle, grant all of Sanga's Command Cards {Retain} and {Prepare 1}, and gain [Arg2] Shield.",
   "descriptionArgs": {
     "Arg1": {
@@ -28,5 +31,32 @@
       "multiplier": 0.03,
       "inputs": ["accountLevel", "ownedPosseCount"]
     }
-  }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0045",
+      "name": "Dimensional Image: Sanga",
+      "label": "Dimensional Image",
+      "variantType": "DIMENSIONAL_IMAGE",
+      "tier": "Unique",
+      "category": "DIMENSIONAL_IMAGE",
+      "ownerAwakenerId": "awakener-0045",
+      "ownerAwakenerName": "Sanga",
+      "rarity": "SSR",
+      "descriptionTemplate": "At turn start, Sanga gains [Arg1] Aliemus. At the start of the battle, grant all of Sanga's Command Cards {Retain} and {Prepare 1}, and gain [Arg2] Shield.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.03,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      }
+    }
+  ]
 }

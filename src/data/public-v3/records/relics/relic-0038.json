@@ -10,11 +10,14 @@
   "assets": {
     "icon": "asset-relic-0038-icon"
   },
-  "relicType": "DIMENSIONAL_IMAGE",
+  "relicType": "Dimensional Image",
+  "categories": ["DIMENSIONAL_IMAGE"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0038",
   "ownerAwakenerId": "awakener-0038",
   "ownerAwakenerName": "Ogier",
   "rarity": "SSR",
-  "realm": "CHAOS",
+  "aliases": [],
   "descriptionTemplate": "At turn start, Ogier gains [Arg1] Aliemus. After the first time Ogier plays {Piercing Strike} or \"Strike\" in each turn, the Shield and {STR} Ogier generates in that turn +[Arg2]%.",
   "descriptionArgs": {
     "Arg1": {
@@ -26,5 +29,30 @@
       "value": "50",
       "suffix": "%"
     }
-  }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0038",
+      "name": "Dimensional Image: Ogier",
+      "label": "Dimensional Image",
+      "variantType": "DIMENSIONAL_IMAGE",
+      "tier": "Unique",
+      "category": "DIMENSIONAL_IMAGE",
+      "ownerAwakenerId": "awakener-0038",
+      "ownerAwakenerName": "Ogier",
+      "rarity": "SSR",
+      "descriptionTemplate": "At turn start, Ogier gains [Arg1] Aliemus. After the first time Ogier plays {Piercing Strike} or \"Strike\" in each turn, the Shield and {STR} Ogier generates in that turn +[Arg2]%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "50",
+          "suffix": "%"
+        }
+      }
+    }
+  ]
 }

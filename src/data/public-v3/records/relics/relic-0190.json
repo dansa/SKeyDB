@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0190",
+  "name": "Jade Imprint",
+  "route": {
+    "slug": "jade-imprint",
+    "canonicalPath": "/database/relics/jade-imprint"
+  },
+  "assets": {
+    "icon": "asset-relic-0190-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 4,
+  "defaultVariantId": "relic-variant-0307",
+  "aliases": ["Blessed: Jade Imprint", "Sinful: Jade Imprint"],
+  "descriptionTemplate": "After using {Keyflare Rouse}, choose [Arg1] Non-Derived Command Card corresponding to that Awakener in your hand. {Exhaust} that card to place [Arg2] Base Copy of it into the Draw Pile, hand, and Discard Pile respectively.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "1"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "lore": "This imprint endures for millennia without decay.",
+  "variants": [
+    {
+      "id": "relic-variant-0307",
+      "name": "Jade Imprint",
+      "label": "Astral Reign - Cursed",
+      "variantType": "STANDARD",
+      "tier": "Cursed",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "After using {Keyflare Rouse}, choose [Arg1] Non-Derived Command Card corresponding to that Awakener in your hand. {Exhaust} that card to place [Arg2] Base Copy of it into the Draw Pile, hand, and Discard Pile respectively.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "1"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "lore": "This imprint endures for millennia without decay."
+    },
+    {
+      "id": "relic-variant-0304",
+      "name": "Jade Imprint",
+      "label": "Faded Legacy - Cursed",
+      "variantType": "STANDARD",
+      "tier": "Cursed",
+      "category": "FADED_LEGACY",
+      "descriptionTemplate": "After the battle, gain an extra 75 Black Sigils and 1 Symptom Card.",
+      "descriptionArgs": {},
+      "lore": "This imprint endures for millennia without decay."
+    },
+    {
+      "id": "relic-variant-0306",
+      "name": "Blessed: Jade Imprint",
+      "label": "Faded Legacy - Blessed",
+      "variantType": "BLESSED",
+      "tier": "Blessed",
+      "category": "FADED_LEGACY",
+      "descriptionTemplate": "Relic Capacity +[Arg1], \"D-Mark\" refreshes +1. After the battle, gain 125 Black Sigil. When picking up, you can choose to delete up to 6 Symptom Cards.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "5"
+        }
+      },
+      "lore": "The All-Father's redemption wiped away the pain."
+    },
+    {
+      "id": "relic-variant-0305",
+      "name": "Sinful: Jade Imprint",
+      "label": "Faded Legacy - Sinful",
+      "variantType": "SINFUL",
+      "tier": "Sinful",
+      "category": "FADED_LEGACY",
+      "descriptionTemplate": "After the battle, gain 100 Black Sigils and 2 Symptom Cards.",
+      "descriptionArgs": {},
+      "lore": "The ancient sins are engraved here."
+    }
+  ]
+}

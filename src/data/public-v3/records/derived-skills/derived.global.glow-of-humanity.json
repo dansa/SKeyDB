@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.glow-of-humanity",
+  "name": "Glow of Humanity",
+  "route": {
+    "slug": "glow-of-humanity",
+    "canonicalPath": "/database/derived-skills/glow-of-humanity"
+  },
+  "descriptionTemplate": "Gain [Arg1] Arithmetica, choose 1 Awakener to gain [Arg2] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "2"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "20"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    },
+    {
+      "id": "mechanic.exhaust"
+    }
+  ],
+  "cost": "0"
+}

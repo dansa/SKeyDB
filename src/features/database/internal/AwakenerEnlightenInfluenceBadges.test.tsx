@@ -3,23 +3,19 @@ import {describe, expect, it, vi} from 'vitest'
 
 import {AwakenerEnlightenInfluenceBadges} from './AwakenerEnlightenInfluenceBadges'
 import {DatabasePopoverContext} from './database-popover-context'
+import {makeDatabasePopoverContext} from './database-test-fixtures'
+
+const openRootReferenceByName = vi.fn()
+const popoverContext = makeDatabasePopoverContext({
+  openRootReferenceByName,
+})
 
 describe('AwakenerEnlightenInfluenceBadges', () => {
   it('opens root references through the popover controller and toggles enlighten slots on context menu', () => {
-    const openRootReferenceByName = vi.fn()
     const onToggleEnlightenSlot = vi.fn()
 
     render(
-      <DatabasePopoverContext.Provider
-        value={{
-          openRootReferenceByName,
-          openRootOverlay: vi.fn(),
-          openNestedReferenceByName: vi.fn(),
-          openNestedOverlay: vi.fn(),
-          hasOpenPopovers: false,
-          closeAllPopovers: vi.fn(),
-        }}
-      >
+      <DatabasePopoverContext.Provider value={popoverContext}>
         <AwakenerEnlightenInfluenceBadges
           influenceBadges={[
             {

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.luster-of-humanity",
+  "name": "Luster of Humanity",
+  "route": {
+    "slug": "luster-of-humanity",
+    "canonicalPath": "/database/derived-skills/luster-of-humanity"
+  },
+  "descriptionTemplate": "Gain [Arg1] Arithmetica, choose 1 Awakener to gain [Arg2] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "3"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "30"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    },
+    {
+      "id": "mechanic.exhaust"
+    }
+  ],
+  "cost": "0"
+}

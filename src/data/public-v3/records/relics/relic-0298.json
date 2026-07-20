@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0298",
+  "name": "Vitality Injection",
+  "route": {
+    "slug": "vitality-injection",
+    "canonicalPath": "/database/relics/vitality-injection"
+  },
+  "assets": {
+    "icon": "asset-relic-0298-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0535",
+  "rarity": "N",
+  "aliases": ["Vitality Injection+"],
+  "descriptionTemplate": "Max Arithmetica +[Arg1].",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "lore": "Twitching is also a form of vitality.",
+  "variants": [
+    {
+      "id": "relic-variant-0535",
+      "name": "Vitality Injection",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "Max Arithmetica +[Arg1].",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "lore": "Twitching is also a form of vitality."
+    },
+    {
+      "id": "relic-variant-0536",
+      "name": "Vitality Injection+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "Max Arithmetica +[Arg1].",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "2"
+        }
+      },
+      "lore": "Twitching is also a form of vitality."
+    },
+    {
+      "id": "relic-variant-0534",
+      "name": "Vitality Injection",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "Max Arithmetica increased by 1.",
+      "descriptionArgs": {},
+      "lore": "Twitching is also a form of vitality."
+    }
+  ]
+}

@@ -46,7 +46,7 @@ interface CovenantDetailModalProps {
 
 type SimpleArtifactDetailModalProps = PosseDetailModalProps | CovenantDetailModalProps
 export function SimpleArtifactDetailModal(props: SimpleArtifactDetailModalProps) {
-  return <SimpleArtifactDetailModalInner {...props} key={props.item.id} />
+  return <SimpleArtifactDetailModalInner key={props.item.id} {...props} />
 }
 
 function SimpleArtifactDetailModalInner({

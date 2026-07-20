@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0076",
+  "name": "Black Candle",
+  "route": {
+    "slug": "black-candle",
+    "canonicalPath": "/database/relics/black-candle"
+  },
+  "assets": {
+    "icon": "asset-relic-0076-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 4,
+  "defaultVariantId": "relic-variant-0087",
+  "aliases": ["Blessed: Black Candle", "Sinful: Black Candle"],
+  "descriptionTemplate": "Increase all Awakeners' Base DMG by [Arg1]%. Each time the deck is reset, an additional [Arg2]% is granted, but a {Stagger} card is added to your hand. The maximum increase is [Arg3]%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "50",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "10",
+      "suffix": "%"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "100",
+      "suffix": "%"
+    }
+  },
+  "lore": "Burn in clarity, fall into illusion.",
+  "variants": [
+    {
+      "id": "relic-variant-0087",
+      "name": "Black Candle",
+      "label": "Astral Reign - Cursed",
+      "variantType": "STANDARD",
+      "tier": "Cursed",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "Increase all Awakeners' Base DMG by [Arg1]%. Each time the deck is reset, an additional [Arg2]% is granted, but a {Stagger} card is added to your hand. The maximum increase is [Arg3]%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "50",
+          "suffix": "%"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "10",
+          "suffix": "%"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "100",
+          "suffix": "%"
+        }
+      },
+      "lore": "Burn in clarity, fall into illusion."
+    },
+    {
+      "id": "relic-variant-0084",
+      "name": "Black Candle",
+      "label": "Faded Legacy - Cursed",
+      "variantType": "STANDARD",
+      "tier": "Cursed",
+      "category": "FADED_LEGACY",
+      "descriptionTemplate": "Max Arithmetica +2. Each time the deck is reset, add 1 {Stagger} to the Draw Pile.",
+      "descriptionArgs": {},
+      "lore": "Burn in clarity, fall into illusion."
+    },
+    {
+      "id": "relic-variant-0086",
+      "name": "Blessed: Black Candle",
+      "label": "Faded Legacy - Blessed",
+      "variantType": "BLESSED",
+      "tier": "Blessed",
+      "category": "FADED_LEGACY",
+      "descriptionTemplate": "Max Arithmetica +4. Each time the deck is reset, add 4 {derived:Insight} to the Draw Pile.",
+      "descriptionArgs": {},
+      "lore": "Burning desire, gain redemption."
+    },
+    {
+      "id": "relic-variant-0085",
+      "name": "Sinful: Black Candle",
+      "label": "Faded Legacy - Sinful",
+      "variantType": "SINFUL",
+      "tier": "Sinful",
+      "category": "FADED_LEGACY",
+      "descriptionTemplate": "Max Arithmetica +3. Each time the deck is reset, add 2 {Stagger} to the Draw Pile.",
+      "descriptionArgs": {},
+      "lore": "Burn sanity, fall into madness."
+    }
+  ]
+}

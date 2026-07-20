@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0095",
+  "name": "Chrono Pendulum \"Chaotic Gift\"",
+  "route": {
+    "slug": "chrono-pendulum-chaotic-gift",
+    "canonicalPath": "/database/relics/chrono-pendulum-chaotic-gift"
+  },
+  "assets": {
+    "icon": "asset-relic-0095-icon"
+  },
+  "relicType": "Pendulum",
+  "categories": ["PENDULUM"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0120",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "At turn start, gain 1 \"Ryker's Lucky Dice,\" increasing the die roll result by +1. At turn start and after each die roll, all Awakeners gain 4% Crit. DMG, up to 100%.",
+  "descriptionArgs": {},
+  "lore": "The ancient sins are engraved here.",
+  "variants": [
+    {
+      "id": "relic-variant-0120",
+      "name": "Chrono Pendulum \"Chaotic Gift\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "At turn start, gain 1 \"Ryker's Lucky Dice,\" increasing the die roll result by +1. At turn start and after each die roll, all Awakeners gain 4% Crit. DMG, up to 100%.",
+      "descriptionArgs": {},
+      "lore": "The ancient sins are engraved here."
+    }
+  ]
+}

@@ -121,6 +121,12 @@
         "id": "skill.murphy-fauxborn.abyss-hymns"
       }
     ],
+    "abyss link": [
+      {
+        "kind": "relic",
+        "id": "relic-0059"
+      }
+    ],
     "abyss order": [
       {
         "kind": "skill",
@@ -163,6 +169,12 @@
         "id": "skill.thais.ad-matrem-vocatus"
       }
     ],
+    "adsorption": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.adsorption"
+      }
+    ],
     "adv insight": [
       {
         "kind": "derivedSkill",
@@ -196,7 +208,7 @@
     "aequor ring": [
       {
         "kind": "relic",
-        "id": "relic-9004"
+        "id": "relic-0060"
       }
     ],
     "aflame": [
@@ -247,10 +259,22 @@
         "id": "overlay.global.alert"
       }
     ],
+    "alfonsos artifact": [
+      {
+        "kind": "relic",
+        "id": "relic-0061"
+      }
+    ],
     "aliemus": [
       {
         "kind": "derivedSkill",
         "id": "derived.daffodil.thousand-mirage-effect-aliemus"
+      }
+    ],
+    "alien heart": [
+      {
+        "kind": "relic",
+        "id": "relic-0062"
       }
     ],
     "alight": [
@@ -361,6 +385,12 @@
         "id": "posse-0029"
       }
     ],
+    "antique puzzle": [
+      {
+        "kind": "relic",
+        "id": "relic-0063"
+      }
+    ],
     "april tribute": [
       {
         "kind": "covenant",
@@ -382,19 +412,67 @@
     "arcana archive": [
       {
         "kind": "relic",
-        "id": "relic-9103"
+        "id": "relic-0064"
       }
     ],
     "arcana relic": [
       {
         "kind": "relic",
-        "id": "relic-9020"
+        "id": "relic-0065"
       }
     ],
     "arcane gloves": [
       {
         "kind": "relic",
-        "id": "relic-9026"
+        "id": "relic-0066"
+      }
+    ],
+    "argent return": [
+      {
+        "kind": "relic",
+        "id": "relic-0067"
+      }
+    ],
+    "argent return birth": [
+      {
+        "kind": "relic",
+        "id": "relic-0067"
+      }
+    ],
+    "argent return deceit": [
+      {
+        "kind": "relic",
+        "id": "relic-0067"
+      }
+    ],
+    "argent return fear": [
+      {
+        "kind": "relic",
+        "id": "relic-0067"
+      }
+    ],
+    "argent return heresy": [
+      {
+        "kind": "relic",
+        "id": "relic-0067"
+      }
+    ],
+    "argent return madness": [
+      {
+        "kind": "relic",
+        "id": "relic-0067"
+      }
+    ],
+    "argent return scathe": [
+      {
+        "kind": "relic",
+        "id": "relic-0067"
+      }
+    ],
+    "argent return sorrow": [
+      {
+        "kind": "relic",
+        "id": "relic-0067"
       }
     ],
     "arithmetica harmony": [
@@ -449,6 +527,12 @@
       {
         "kind": "skill",
         "id": "skill.ramona.assault-thesis"
+      }
+    ],
+    "assemble": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.assemble"
       }
     ],
     "astral meltdown": [
@@ -583,6 +667,12 @@
         "id": "overlay.global.divine-realm-tranquil-sea"
       }
     ],
+    "bespoke lucky windcoat": [
+      {
+        "kind": "relic",
+        "id": "relic-0205"
+      }
+    ],
     "beyond death": [
       {
         "kind": "enlighten",
@@ -593,6 +683,12 @@
       {
         "kind": "enlighten",
         "id": "enlighten.celeste.beyond-joy-and-sorrow"
+      }
+    ],
+    "big mouth button": [
+      {
+        "kind": "relic",
+        "id": "relic-0075"
       }
     ],
     "binary stars": [
@@ -628,7 +724,13 @@
     "black candle": [
       {
         "kind": "relic",
-        "id": "relic-9039"
+        "id": "relic-0076"
+      }
+    ],
+    "black star ember": [
+      {
+        "kind": "relic",
+        "id": "relic-0077"
       }
     ],
     "black stone decree": [
@@ -697,10 +799,64 @@
         "id": "skill.salvador.blessed-are-the-bones"
       }
     ],
+    "blessed black candle": [
+      {
+        "kind": "relic",
+        "id": "relic-0076"
+      }
+    ],
     "blessed blood": [
       {
         "kind": "relic",
-        "id": "relic-9018"
+        "id": "relic-0078"
+      }
+    ],
+    "blessed eerie hook": [
+      {
+        "kind": "relic",
+        "id": "relic-0157"
+      }
+    ],
+    "blessed jade imprint": [
+      {
+        "kind": "relic",
+        "id": "relic-0190"
+      }
+    ],
+    "blessed lamprey kiss": [
+      {
+        "kind": "relic",
+        "id": "relic-0195"
+      }
+    ],
+    "blessed mind engraving": [
+      {
+        "kind": "relic",
+        "id": "relic-0216"
+      }
+    ],
+    "blessed nightmare manifest": [
+      {
+        "kind": "relic",
+        "id": "relic-0226"
+      }
+    ],
+    "blessed omen ritual bird": [
+      {
+        "kind": "relic",
+        "id": "relic-0229"
+      }
+    ],
+    "blessed pathwalkers remains": [
+      {
+        "kind": "relic",
+        "id": "relic-0234"
+      }
+    ],
+    "blessed swarm mind": [
+      {
+        "kind": "relic",
+        "id": "relic-0281"
       }
     ],
     "blessing of the stars": [
@@ -757,6 +913,12 @@
         "id": "wheel-0008"
       }
     ],
+    "bloody pebble": [
+      {
+        "kind": "relic",
+        "id": "relic-0079"
+      }
+    ],
     "blossoms and verses reunited": [
       {
         "kind": "enlighten",
@@ -779,6 +941,12 @@
       {
         "kind": "skill",
         "id": "skill.uvhash.boil-blood"
+      }
+    ],
+    "bone chalice": [
+      {
+        "kind": "relic",
+        "id": "relic-0080"
       }
     ],
     "bone chilling embrace": [
@@ -826,7 +994,13 @@
     "brand new wallet": [
       {
         "kind": "relic",
-        "id": "relic-9012"
+        "id": "relic-0081"
+      }
+    ],
+    "brass censer": [
+      {
+        "kind": "relic",
+        "id": "relic-0082"
       }
     ],
     "brawn": [
@@ -839,6 +1013,18 @@
       {
         "kind": "overlay",
         "id": "overlay.global.propagation-frenzy"
+      }
+    ],
+    "brilliance of humanity": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.brilliance-of-humanity"
+      }
+    ],
+    "broken visage": [
+      {
+        "kind": "relic",
+        "id": "relic-0083"
       }
     ],
     "bubbling journey": [
@@ -910,7 +1096,7 @@
     "caro ring": [
       {
         "kind": "relic",
-        "id": "relic-9041"
+        "id": "relic-0084"
       }
     ],
     "carol psalm": [
@@ -961,6 +1147,12 @@
         "id": "derived.daffodil.thousand-mirage-effect-catalyst"
       }
     ],
+    "cats treasure": [
+      {
+        "kind": "relic",
+        "id": "relic-0085"
+      }
+    ],
     "celeste": [
       {
         "kind": "awakener",
@@ -976,7 +1168,7 @@
     "celestial astrolabe": [
       {
         "kind": "relic",
-        "id": "relic-9021"
+        "id": "relic-0086"
       }
     ],
     "celestial beast": [
@@ -997,6 +1189,12 @@
         "id": "enlighten.pickman.centered-composition"
       }
     ],
+    "ceylon tea": [
+      {
+        "kind": "relic",
+        "id": "relic-0087"
+      }
+    ],
     "chains unbound": [
       {
         "kind": "wheel",
@@ -1009,6 +1207,12 @@
         "id": "enlighten.horla.chamber-of-shadows"
       }
     ],
+    "chant of the tides": [
+      {
+        "kind": "relic",
+        "id": "relic-0088"
+      }
+    ],
     "chaos": [
       {
         "kind": "overlay",
@@ -1018,7 +1222,7 @@
     "chaos ring": [
       {
         "kind": "relic",
-        "id": "relic-9043"
+        "id": "relic-0089"
       }
     ],
     "chaotic legacy": [
@@ -1039,238 +1243,268 @@
         "id": "skill.pickman.chromaphage"
       }
     ],
+    "chrono pendulum backlash": [
+      {
+        "kind": "relic",
+        "id": "relic-0090"
+      }
+    ],
     "chrono pendulum balance": [
       {
         "kind": "relic",
-        "id": "relic-9086"
+        "id": "relic-0091"
       }
     ],
     "chrono pendulum benediction": [
       {
         "kind": "relic",
-        "id": "relic-9085"
+        "id": "relic-0092"
       }
     ],
     "chrono pendulum breeding": [
       {
         "kind": "relic",
-        "id": "relic-9090"
+        "id": "relic-0093"
       }
     ],
     "chrono pendulum buildup": [
       {
         "kind": "relic",
-        "id": "relic-9074"
+        "id": "relic-0094"
+      }
+    ],
+    "chrono pendulum chaotic gift": [
+      {
+        "kind": "relic",
+        "id": "relic-0095"
       }
     ],
     "chrono pendulum charge": [
       {
         "kind": "relic",
-        "id": "relic-9077"
+        "id": "relic-0096"
       }
     ],
     "chrono pendulum deepen": [
       {
         "kind": "relic",
-        "id": "relic-9065"
+        "id": "relic-0097"
+      }
+    ],
+    "chrono pendulum dreamtheft": [
+      {
+        "kind": "relic",
+        "id": "relic-0098"
+      }
+    ],
+    "chrono pendulum echo": [
+      {
+        "kind": "relic",
+        "id": "relic-0099"
+      }
+    ],
+    "chrono pendulum emulate": [
+      {
+        "kind": "relic",
+        "id": "relic-0100"
       }
     ],
     "chrono pendulum end": [
       {
         "kind": "relic",
-        "id": "relic-9079"
+        "id": "relic-0101"
       }
     ],
     "chrono pendulum evolution": [
       {
         "kind": "relic",
-        "id": "relic-9088"
+        "id": "relic-0102"
       }
     ],
     "chrono pendulum eye": [
       {
         "kind": "relic",
-        "id": "relic-9068"
+        "id": "relic-0103"
       }
     ],
     "chrono pendulum illusion": [
       {
         "kind": "relic",
-        "id": "relic-9082"
+        "id": "relic-0104"
+      }
+    ],
+    "chrono pendulum interval": [
+      {
+        "kind": "relic",
+        "id": "relic-0105"
+      }
+    ],
+    "chrono pendulum lapse": [
+      {
+        "kind": "relic",
+        "id": "relic-0106"
+      }
+    ],
+    "chrono pendulum meditation": [
+      {
+        "kind": "relic",
+        "id": "relic-0107"
       }
     ],
     "chrono pendulum moon": [
       {
         "kind": "relic",
-        "id": "relic-9069"
+        "id": "relic-0108"
+      }
+    ],
+    "chrono pendulum nightmare": [
+      {
+        "kind": "relic",
+        "id": "relic-0109"
       }
     ],
     "chrono pendulum occult": [
       {
         "kind": "relic",
-        "id": "relic-9073"
+        "id": "relic-0110"
+      }
+    ],
+    "chrono pendulum parsing": [
+      {
+        "kind": "relic",
+        "id": "relic-0111"
       }
     ],
     "chrono pendulum plague": [
       {
         "kind": "relic",
-        "id": "relic-9091"
+        "id": "relic-0112"
+      }
+    ],
+    "chrono pendulum principals message": [
+      {
+        "kind": "relic",
+        "id": "relic-0113"
       }
     ],
     "chrono pendulum projection": [
       {
         "kind": "relic",
-        "id": "relic-9089"
+        "id": "relic-0114"
       }
     ],
     "chrono pendulum proliferate": [
       {
         "kind": "relic",
-        "id": "relic-9078"
+        "id": "relic-0115"
       }
     ],
     "chrono pendulum reciprocate": [
       {
         "kind": "relic",
-        "id": "relic-9080"
+        "id": "relic-0116"
+      }
+    ],
+    "chrono pendulum revive": [
+      {
+        "kind": "relic",
+        "id": "relic-0117"
       }
     ],
     "chrono pendulum sleepless": [
       {
         "kind": "relic",
-        "id": "relic-9081"
+        "id": "relic-0118"
       }
     ],
     "chrono pendulum slumber": [
       {
         "kind": "relic",
-        "id": "relic-9067"
+        "id": "relic-0119"
       }
     ],
     "chrono pendulum stars": [
       {
         "kind": "relic",
-        "id": "relic-9070"
+        "id": "relic-0120"
       }
     ],
     "chrono pendulum startle": [
       {
         "kind": "relic",
-        "id": "relic-9083"
+        "id": "relic-0121"
       }
     ],
     "chrono pendulum stubborn": [
       {
         "kind": "relic",
-        "id": "relic-9076"
+        "id": "relic-0122"
       }
     ],
     "chrono pendulum submersion": [
       {
         "kind": "relic",
-        "id": "relic-9072"
+        "id": "relic-0123"
+      }
+    ],
+    "chrono pendulum sunken treasure": [
+      {
+        "kind": "relic",
+        "id": "relic-0124"
       }
     ],
     "chrono pendulum surge": [
       {
         "kind": "relic",
-        "id": "relic-9087"
+        "id": "relic-0125"
+      }
+    ],
+    "chrono pendulum tides": [
+      {
+        "kind": "relic",
+        "id": "relic-0126"
       }
     ],
     "chrono pendulum trance": [
       {
         "kind": "relic",
-        "id": "relic-9075"
+        "id": "relic-0127"
       }
     ],
-    "chrono pendulum treasure alpha": [
+    "chrono pendulum treasure": [
       {
         "kind": "relic",
-        "id": "relic-9092"
-      }
-    ],
-    "chrono pendulum treasure beta": [
-      {
-        "kind": "relic",
-        "id": "relic-9093"
-      }
-    ],
-    "chrono pendulum treasure delta": [
-      {
-        "kind": "relic",
-        "id": "relic-9094"
-      }
-    ],
-    "chrono pendulum treasure epsilon": [
-      {
-        "kind": "relic",
-        "id": "relic-9096"
-      }
-    ],
-    "chrono pendulum treasure gamma": [
-      {
-        "kind": "relic",
-        "id": "relic-9095"
+        "id": "relic-0128"
       }
     ],
     "chrono pendulum twins": [
       {
         "kind": "relic",
-        "id": "relic-9084"
+        "id": "relic-0129"
       }
     ],
     "chrono pendulum unclean": [
       {
         "kind": "relic",
-        "id": "relic-9071"
+        "id": "relic-0130"
       }
     ],
     "chrono pendulum wings": [
       {
         "kind": "relic",
-        "id": "relic-9066"
+        "id": "relic-0131"
       }
     ],
-    "chrono pendulum wish alpha": [
+    "chrono pendulum wish": [
       {
         "kind": "relic",
-        "id": "relic-9098"
+        "id": "relic-0132"
       }
     ],
-    "chrono pendulum wish beta": [
+    "chronometric device": [
       {
         "kind": "relic",
-        "id": "relic-9097"
-      }
-    ],
-    "chrono pendulum wish delta": [
-      {
-        "kind": "relic",
-        "id": "relic-9101"
-      }
-    ],
-    "chrono pendulum wish epsilon": [
-      {
-        "kind": "relic",
-        "id": "relic-9099"
-      }
-    ],
-    "chrono pendulum wish eta": [
-      {
-        "kind": "relic",
-        "id": "relic-9108"
-      }
-    ],
-    "chrono pendulum wish gamma": [
-      {
-        "kind": "relic",
-        "id": "relic-9100"
-      }
-    ],
-    "chrono pendulum wish zeta": [
-      {
-        "kind": "relic",
-        "id": "relic-9109"
+        "id": "relic-0133"
       }
     ],
     "cinders": [
@@ -1319,6 +1553,24 @@
       {
         "kind": "wheel",
         "id": "wheel-0081"
+      }
+    ],
+    "coalsie ii": [
+      {
+        "kind": "relic",
+        "id": "relic-0134"
+      }
+    ],
+    "coalsie smack": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.coalsie-smack"
+      }
+    ],
+    "cocoon of revival": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.cocoon-of-revival"
       }
     ],
     "cocoon of the maiden": [
@@ -1375,6 +1627,18 @@
         "id": "derived.daffodil.thousand-mirage-effect-computation"
       }
     ],
+    "concubines conceit": [
+      {
+        "kind": "relic",
+        "id": "relic-0135"
+      }
+    ],
+    "conductors baton": [
+      {
+        "kind": "relic",
+        "id": "relic-0136"
+      }
+    ],
     "congealed ambergris": [
       {
         "kind": "enlighten",
@@ -1391,6 +1655,12 @@
       {
         "kind": "derivedSkill",
         "id": "derived.clementine.psychic-trauma"
+      }
+    ],
+    "convulsion": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.convulsion"
       }
     ],
     "core meltdown": [
@@ -1486,7 +1756,7 @@
     "crimson brooch": [
       {
         "kind": "relic",
-        "id": "relic-9016"
+        "id": "relic-0137"
       }
     ],
     "crimson furnace": [
@@ -1567,6 +1837,12 @@
         "id": "covenant-0008"
       }
     ],
+    "cursed stele": [
+      {
+        "kind": "relic",
+        "id": "relic-0138"
+      }
+    ],
     "daffodil": [
       {
         "kind": "awakener",
@@ -1621,6 +1897,12 @@
         "id": "wheel-0045"
       }
     ],
+    "dearest babe": [
+      {
+        "kind": "relic",
+        "id": "relic-0139"
+      }
+    ],
     "death is rebirth": [
       {
         "kind": "enlighten",
@@ -1666,7 +1948,7 @@
     "deceaseds chrono": [
       {
         "kind": "relic",
-        "id": "relic-9033"
+        "id": "relic-0140"
       }
     ],
     "decomposition": [
@@ -1747,6 +2029,12 @@
         "id": "enlighten.arachne.destiny-as-i-arrange"
       }
     ],
+    "destiny spindle": [
+      {
+        "kind": "relic",
+        "id": "relic-0141"
+      }
+    ],
     "destroy": [
       {
         "kind": "overlay",
@@ -1759,10 +2047,10 @@
         "id": "covenant-0001"
       }
     ],
-    "devour": [
+    "devoted heart": [
       {
-        "kind": "overlay",
-        "id": "overlay.global.devour"
+        "kind": "relic",
+        "id": "relic-0142"
       }
     ],
     "devoured": [
@@ -1786,7 +2074,43 @@
     "differential engine": [
       {
         "kind": "relic",
-        "id": "relic-9104"
+        "id": "relic-0143"
+      }
+    ],
+    "dimension pendulum alert": [
+      {
+        "kind": "relic",
+        "id": "relic-0144"
+      }
+    ],
+    "dimension pendulum confuse": [
+      {
+        "kind": "relic",
+        "id": "relic-0145"
+      }
+    ],
+    "dimension pendulum duel": [
+      {
+        "kind": "relic",
+        "id": "relic-0146"
+      }
+    ],
+    "dimension pendulum lurk": [
+      {
+        "kind": "relic",
+        "id": "relic-0147"
+      }
+    ],
+    "dimension pendulum scare": [
+      {
+        "kind": "relic",
+        "id": "relic-0148"
+      }
+    ],
+    "dimension pendulum voodoo": [
+      {
+        "kind": "relic",
+        "id": "relic-0149"
       }
     ],
     "dimensional image 24": [
@@ -2191,6 +2515,12 @@
         "id": "overlay.global.propagation-caro"
       }
     ],
+    "divine dedication": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.divine-dedication"
+      }
+    ],
     "divine kings power": [
       {
         "kind": "talent",
@@ -2201,6 +2531,18 @@
       {
         "kind": "skill",
         "id": "skill.murphy.divine-maidens-birth"
+      }
+    ],
+    "divine mothers protection": [
+      {
+        "kind": "relic",
+        "id": "relic-0150"
+      }
+    ],
+    "divine oracle": [
+      {
+        "kind": "relic",
+        "id": "relic-0151"
       }
     ],
     "divine proxy": [
@@ -2266,7 +2608,7 @@
     "doctors case": [
       {
         "kind": "relic",
-        "id": "relic-9006"
+        "id": "relic-0152"
       }
     ],
     "doll": [
@@ -2315,6 +2657,18 @@
       {
         "kind": "derivedSkill",
         "id": "derived.goliath.dormancy"
+      }
+    ],
+    "dossier": [
+      {
+        "kind": "relic",
+        "id": "relic-0153"
+      }
+    ],
+    "dove feather fan": [
+      {
+        "kind": "relic",
+        "id": "relic-0154"
       }
     ],
     "dread of the darkness": [
@@ -2386,7 +2740,7 @@
     "easter moment": [
       {
         "kind": "relic",
-        "id": "relic-9061"
+        "id": "relic-0155"
       }
     ],
     "ecarlate profond": [
@@ -2401,10 +2755,16 @@
         "id": "overlay.global.echo"
       }
     ],
-    "echoes of the past": [
+    "echoes from beyond": [
+      {
+        "kind": "relic",
+        "id": "relic-0156"
+      }
+    ],
+    "echoes of lost shadows": [
       {
         "kind": "derivedSkill",
-        "id": "derived.tawil.echoes-of-the-past"
+        "id": "derived.global.echoes-of-lost-shadows"
       }
     ],
     "echoes of whispers": [
@@ -2422,7 +2782,7 @@
     "eerie hook": [
       {
         "kind": "relic",
-        "id": "relic-9034"
+        "id": "relic-0157"
       }
     ],
     "ego beyond the fog": [
@@ -2587,6 +2947,12 @@
         "id": "enlighten.xu.enmity-of-the-heart"
       }
     ],
+    "enthralling chime": [
+      {
+        "kind": "relic",
+        "id": "relic-0158"
+      }
+    ],
     "entropy undone": [
       {
         "kind": "skill",
@@ -2603,6 +2969,12 @@
       {
         "kind": "posse",
         "id": "posse-0012"
+      }
+    ],
+    "ephemeral fire": [
+      {
+        "kind": "relic",
+        "id": "relic-0159"
       }
     ],
     "epiphany": [
@@ -2725,6 +3097,12 @@
         "id": "wheel-0072"
       }
     ],
+    "expedition team": [
+      {
+        "kind": "relic",
+        "id": "relic-0160"
+      }
+    ],
     "external power source": [
       {
         "kind": "talent",
@@ -2735,6 +3113,18 @@
       {
         "kind": "skill",
         "id": "skill.aigis.eye-of-eternity"
+      }
+    ],
+    "faded photo": [
+      {
+        "kind": "relic",
+        "id": "relic-0161"
+      }
+    ],
+    "faded photograph": [
+      {
+        "kind": "relic",
+        "id": "relic-0161"
       }
     ],
     "faint": [
@@ -2869,6 +3259,12 @@
         "id": "posse-0025"
       }
     ],
+    "festive benediction": [
+      {
+        "kind": "relic",
+        "id": "relic-0163"
+      }
+    ],
     "fiamma": [
       {
         "kind": "overlay",
@@ -2878,7 +3274,7 @@
     "filigree agate": [
       {
         "kind": "relic",
-        "id": "relic-9003"
+        "id": "relic-0164"
       }
     ],
     "fin of sorrow": [
@@ -2915,6 +3311,12 @@
       {
         "kind": "overlay",
         "id": "overlay.doll-inferno.finale-form"
+      }
+    ],
+    "finale research manuscript": [
+      {
+        "kind": "relic",
+        "id": "relic-0165"
       }
     ],
     "finesse": [
@@ -2971,6 +3373,12 @@
         "id": "enlighten.doll.flesh-transcended"
       }
     ],
+    "flicker of humanity": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.flicker-of-humanity"
+      }
+    ],
     "flickering candle": [
       {
         "kind": "enlighten",
@@ -3007,6 +3415,12 @@
         "id": "skill.lily.forbidden-swamp"
       }
     ],
+    "forbidden truth": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.forbidden-truth"
+      }
+    ],
     "force circuit": [
       {
         "kind": "enlighten",
@@ -3016,7 +3430,7 @@
     "foreign stamp album": [
       {
         "kind": "relic",
-        "id": "relic-9063"
+        "id": "relic-0167"
       }
     ],
     "forests embrace": [
@@ -3034,13 +3448,13 @@
     "forgotten loom": [
       {
         "kind": "relic",
-        "id": "relic-9010"
+        "id": "relic-0168"
       }
     ],
     "forgotten prelude": [
       {
         "kind": "relic",
-        "id": "relic-9011"
+        "id": "relic-0169"
       }
     ],
     "formless refinement": [
@@ -3058,7 +3472,7 @@
     "forsaken blood": [
       {
         "kind": "relic",
-        "id": "relic-9059"
+        "id": "relic-0170"
       }
     ],
     "forsaken homeland": [
@@ -3187,6 +3601,12 @@
         "id": "awakener-0020"
       }
     ],
+    "gateway of all realms": [
+      {
+        "kind": "relic",
+        "id": "relic-0171"
+      }
+    ],
     "gateway of retrospection": [
       {
         "kind": "posse",
@@ -3215,6 +3635,12 @@
       {
         "kind": "derivedSkill",
         "id": "derived.pontos.gaunts"
+      }
+    ],
+    "gauntward": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.gauntward"
       }
     ],
     "gauntwards call": [
@@ -3247,6 +3673,24 @@
         "id": "wheel-0022"
       }
     ],
+    "gilded frame": [
+      {
+        "kind": "relic",
+        "id": "relic-0172"
+      }
+    ],
+    "gilded guide": [
+      {
+        "kind": "relic",
+        "id": "relic-0173"
+      }
+    ],
+    "gilded reverie": [
+      {
+        "kind": "relic",
+        "id": "relic-0174"
+      }
+    ],
     "give and take": [
       {
         "kind": "skill",
@@ -3259,6 +3703,18 @@
         "id": "skill.aurita.gland-division"
       }
     ],
+    "glow of humanity": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.glow-of-humanity"
+      }
+    ],
+    "gluttonous attack": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.gluttonous-attack"
+      }
+    ],
     "gluttony": [
       {
         "kind": "wheel",
@@ -3269,6 +3725,12 @@
       {
         "kind": "talent",
         "id": "talent.doll.gnosis-deconstruction"
+      }
+    ],
+    "gnosis device": [
+      {
+        "kind": "relic",
+        "id": "relic-0175"
       }
     ],
     "gobble up": [
@@ -3334,13 +3796,19 @@
     "guardian hand": [
       {
         "kind": "relic",
-        "id": "relic-9030"
+        "id": "relic-0176"
       }
     ],
     "guardian of vanity": [
       {
         "kind": "talent",
         "id": "talent.sorel.guardian-of-vanity"
+      }
+    ],
+    "guidance of erasmus": [
+      {
+        "kind": "relic",
+        "id": "relic-0177"
       }
     ],
     "guiding strings": [
@@ -3406,7 +3874,7 @@
     "harfords elixir": [
       {
         "kind": "relic",
-        "id": "relic-9052"
+        "id": "relic-0178"
       }
     ],
     "hatred unleashed": [
@@ -3457,6 +3925,12 @@
         "id": "awakener-build-0019"
       }
     ],
+    "hemostatic clamp": [
+      {
+        "kind": "relic",
+        "id": "relic-0179"
+      }
+    ],
     "here it goes": [
       {
         "kind": "skill",
@@ -3487,16 +3961,28 @@
         "id": "skill.daffodil.heterogeneous-tides"
       }
     ],
+    "hide": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.hide-beta"
+      }
+    ],
+    "hide beta": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.hide-beta"
+      }
+    ],
     "hierophants staff": [
       {
         "kind": "relic",
-        "id": "relic-9053"
+        "id": "relic-0180"
       }
     ],
     "highest honor": [
       {
         "kind": "relic",
-        "id": "relic-9025"
+        "id": "relic-0181"
       }
     ],
     "hive resonance": [
@@ -3551,6 +4037,12 @@
       {
         "kind": "derivedSkill",
         "id": "derived.tawil.honey-mead"
+      }
+    ],
+    "honeyed ink": [
+      {
+        "kind": "relic",
+        "id": "relic-0182"
       }
     ],
     "hope": [
@@ -3661,6 +4153,24 @@
         "id": "derived.kathigu-ra.hyperflare"
       }
     ],
+    "hyperstring abyssal elixir": [
+      {
+        "kind": "relic",
+        "id": "relic-0183"
+      }
+    ],
+    "hyperstring blood rot serum": [
+      {
+        "kind": "relic",
+        "id": "relic-0184"
+      }
+    ],
+    "hyperstring pocketwatch": [
+      {
+        "kind": "relic",
+        "id": "relic-0185"
+      }
+    ],
     "hypnotic pendulum": [
       {
         "kind": "wheel",
@@ -3730,7 +4240,7 @@
     "in twilight": [
       {
         "kind": "relic",
-        "id": "relic-9047"
+        "id": "relic-0186"
       }
     ],
     "incalculable factor": [
@@ -3755,6 +4265,12 @@
       {
         "kind": "enlighten",
         "id": "enlighten.daffodil.infinite-passage"
+      }
+    ],
+    "infinite silver vault": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.infinite-silver-vault"
       }
     ],
     "infinite singularity": [
@@ -3805,10 +4321,22 @@
         "id": "derived.pickman.inspiration"
       }
     ],
+    "inspire offsprings": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.inspire-offsprings"
+      }
+    ],
     "inverted pregnancy": [
       {
         "kind": "enlighten",
         "id": "enlighten.murphy-fauxborn.inverted-pregnancy"
+      }
+    ],
+    "inverted view": [
+      {
+        "kind": "relic",
+        "id": "relic-0187"
       }
     ],
     "invocation of the muse": [
@@ -3820,7 +4348,7 @@
     "iron lock": [
       {
         "kind": "relic",
-        "id": "relic-9007"
+        "id": "relic-0188"
       }
     ],
     "iron resolve": [
@@ -3847,10 +4375,16 @@
         "id": "enlighten.mouchette.irretrievable-past"
       }
     ],
+    "ivory raven beak": [
+      {
+        "kind": "relic",
+        "id": "relic-0189"
+      }
+    ],
     "jade imprint": [
       {
         "kind": "relic",
-        "id": "relic-9110"
+        "id": "relic-0190"
       }
     ],
     "jagged shore": [
@@ -3877,10 +4411,16 @@
         "id": "awakener-0025"
       }
     ],
+    "joyous record": [
+      {
+        "kind": "relic",
+        "id": "relic-0191"
+      }
+    ],
     "kaleidoscope": [
       {
         "kind": "relic",
-        "id": "relic-9044"
+        "id": "relic-0192"
       }
     ],
     "karen": [
@@ -3985,6 +4525,12 @@
         "id": "enlighten.clementine.knocking-on-minds-portal"
       }
     ],
+    "knowledge wheel": [
+      {
+        "kind": "relic",
+        "id": "relic-0193"
+      }
+    ],
     "lady of dreamless land": [
       {
         "kind": "skill",
@@ -4001,6 +4547,18 @@
       {
         "kind": "posse",
         "id": "posse-0015"
+      }
+    ],
+    "lamp of salvation": [
+      {
+        "kind": "relic",
+        "id": "relic-0194"
+      }
+    ],
+    "lamprey kiss": [
+      {
+        "kind": "relic",
+        "id": "relic-0195"
       }
     ],
     "last dawnlight": [
@@ -4030,7 +4588,7 @@
     "laurel cufflinks": [
       {
         "kind": "relic",
-        "id": "relic-9009"
+        "id": "relic-0196"
       }
     ],
     "law of the strongest": [
@@ -4075,6 +4633,12 @@
         "id": "overlay.global.lemurian"
       }
     ],
+    "lemurian delight": [
+      {
+        "kind": "relic",
+        "id": "relic-0197"
+      }
+    ],
     "lets all have fun together": [
       {
         "kind": "enlighten",
@@ -4085,6 +4649,12 @@
       {
         "kind": "derivedSkill",
         "id": "derived.salvador.liberation"
+      }
+    ],
+    "life breather": [
+      {
+        "kind": "relic",
+        "id": "relic-0198"
       }
     ],
     "life drain": [
@@ -4115,6 +4685,12 @@
       {
         "kind": "derivedSkill",
         "id": "derived.global.light-cone-boundary"
+      }
+    ],
+    "light of civilization": [
+      {
+        "kind": "relic",
+        "id": "relic-0199"
       }
     ],
     "light of intellect": [
@@ -4153,6 +4729,30 @@
         "id": "awakener-build-0029"
       }
     ],
+    "little ns camera": [
+      {
+        "kind": "relic",
+        "id": "relic-0200"
+      }
+    ],
+    "little ns chaotic camera": [
+      {
+        "kind": "relic",
+        "id": "relic-0200"
+      }
+    ],
+    "little ns pristine camera": [
+      {
+        "kind": "relic",
+        "id": "relic-0200"
+      }
+    ],
+    "little ns worn camera": [
+      {
+        "kind": "relic",
+        "id": "relic-0200"
+      }
+    ],
     "living deads delirium": [
       {
         "kind": "skill",
@@ -4189,6 +4789,12 @@
         "id": "enlighten.tulu.lone-king"
       }
     ],
+    "lone wolfs insignia": [
+      {
+        "kind": "relic",
+        "id": "relic-0203"
+      }
+    ],
     "loop": [
       {
         "kind": "overlay",
@@ -4216,7 +4822,13 @@
     "lucky rabbits paw": [
       {
         "kind": "relic",
-        "id": "relic-9005"
+        "id": "relic-0204"
+      }
+    ],
+    "lucky windcoat": [
+      {
+        "kind": "relic",
+        "id": "relic-0205"
       }
     ],
     "lullaby devoured": [
@@ -4225,10 +4837,22 @@
         "id": "wheel-0010"
       }
     ],
+    "luminous hourglass": [
+      {
+        "kind": "relic",
+        "id": "relic-0206"
+      }
+    ],
     "lure of light": [
       {
         "kind": "enlighten",
         "id": "enlighten.pontos.lure-of-light"
+      }
+    ],
+    "luster of humanity": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.luster-of-humanity"
       }
     ],
     "lustrous pearl": [
@@ -4288,7 +4912,7 @@
     "malignant child": [
       {
         "kind": "relic",
-        "id": "relic-9017"
+        "id": "relic-0207"
       }
     ],
     "man in the mirror": [
@@ -4327,10 +4951,52 @@
         "id": "overlay.hameln.marvelous-debuff"
       }
     ],
+    "mary the pure": [
+      {
+        "kind": "relic",
+        "id": "relic-0208"
+      }
+    ],
     "master of magic": [
       {
         "kind": "talent",
         "id": "talent.casiah.master-of-magic"
+      }
+    ],
+    "medal of rescue": [
+      {
+        "kind": "relic",
+        "id": "relic-0209"
+      }
+    ],
+    "medal of rescue bronze": [
+      {
+        "kind": "relic",
+        "id": "relic-0209"
+      }
+    ],
+    "medal of rescue diamond": [
+      {
+        "kind": "relic",
+        "id": "relic-0209"
+      }
+    ],
+    "medal of rescue gold": [
+      {
+        "kind": "relic",
+        "id": "relic-0209"
+      }
+    ],
+    "medal of rescue platinum": [
+      {
+        "kind": "relic",
+        "id": "relic-0209"
+      }
+    ],
+    "medal of rescue silver": [
+      {
+        "kind": "relic",
+        "id": "relic-0209"
       }
     ],
     "mediating personalities": [
@@ -4357,6 +5023,36 @@
         "id": "derived.tawil.memories"
       }
     ],
+    "memories emissarys verdict": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.memories-envoys-verdict"
+      }
+    ],
+    "memories innocent return gift": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.memories-innocent-return-gift"
+      }
+    ],
+    "memories mutated heart": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.memories-mutated-heart"
+      }
+    ],
+    "memories unfinished wax sculpture": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.memories-unfinished-wax-sculpture"
+      }
+    ],
+    "memory and dream": [
+      {
+        "kind": "relic",
+        "id": "relic-0214"
+      }
+    ],
     "memory rondo": [
       {
         "kind": "skill",
@@ -4373,6 +5069,12 @@
       {
         "kind": "wheel",
         "id": "wheel-0085"
+      }
+    ],
+    "memphis ritual mirror": [
+      {
+        "kind": "relic",
+        "id": "relic-0215"
       }
     ],
     "mental interference": [
@@ -4456,7 +5158,7 @@
     "mind engraving": [
       {
         "kind": "relic",
-        "id": "relic-9111"
+        "id": "relic-0216"
       }
     ],
     "minds whisper": [
@@ -4519,10 +5221,22 @@
         "id": "enlighten.karen.mistmoon-banquet"
       }
     ],
+    "mob song": [
+      {
+        "kind": "relic",
+        "id": "relic-0217"
+      }
+    ],
     "mobius captive": [
       {
         "kind": "enlighten",
         "id": "enlighten.ramona-timeworn.mobius-captive"
+      }
+    ],
+    "modern axle": [
+      {
+        "kind": "relic",
+        "id": "relic-0218"
       }
     ],
     "moira as i decree": [
@@ -4565,6 +5279,12 @@
       {
         "kind": "skill",
         "id": "skill.liz.moth-trapping-fire"
+      }
+    ],
+    "mother effigy": [
+      {
+        "kind": "relic",
+        "id": "relic-0219"
       }
     ],
     "mouchette": [
@@ -4642,13 +5362,25 @@
     "mute jukebox": [
       {
         "kind": "relic",
-        "id": "relic-9023"
+        "id": "relic-0220"
+      }
+    ],
+    "muted gloves": [
+      {
+        "kind": "relic",
+        "id": "relic-0221"
       }
     ],
     "mythag insignia": [
       {
         "kind": "relic",
-        "id": "relic-9027"
+        "id": "relic-0222"
+      }
+    ],
+    "nameless appendage": [
+      {
+        "kind": "relic",
+        "id": "relic-0223"
       }
     ],
     "nautila": [
@@ -4696,13 +5428,13 @@
     "nettle vest": [
       {
         "kind": "relic",
-        "id": "relic-9024"
+        "id": "relic-0224"
       }
     ],
     "neurotoxin": [
       {
         "kind": "relic",
-        "id": "relic-9105"
+        "id": "relic-0225"
       }
     ],
     "never ending performance": [
@@ -4727,6 +5459,12 @@
       {
         "kind": "enlighten",
         "id": "enlighten.aigis.nightborne-wings"
+      }
+    ],
+    "nightmare manifest": [
+      {
+        "kind": "relic",
+        "id": "relic-0226"
       }
     ],
     "nirvanas kiss": [
@@ -4825,16 +5563,16 @@
         "id": "enlighten.nymphaea.oceans-vessel"
       }
     ],
-    "octahedron dice": [
-      {
-        "kind": "derivedSkill",
-        "id": "derived.ryker.octahedron-dice"
-      }
-    ],
     "ode to tomorrow": [
       {
         "kind": "derivedSkill",
         "id": "derived.ramona-timeworn.ode-to-tomorrow"
+      }
+    ],
+    "ogais notes": [
+      {
+        "kind": "relic",
+        "id": "relic-0228"
       }
     ],
     "ogier": [
@@ -4864,7 +5602,7 @@
     "omen ritual bird": [
       {
         "kind": "relic",
-        "id": "relic-9038"
+        "id": "relic-0229"
       }
     ],
     "ominous semaphore": [
@@ -4885,10 +5623,22 @@
         "id": "enlighten.tawil.omniscient-and-omnipotent"
       }
     ],
+    "omniscient eye": [
+      {
+        "kind": "relic",
+        "id": "relic-0230"
+      }
+    ],
     "omniscient verity": [
       {
         "kind": "skill",
         "id": "skill.tawil.omniscient-verity"
+      }
+    ],
+    "one way": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.one-way"
       }
     ],
     "oneiric waltz": [
@@ -4942,13 +5692,13 @@
     "other tongue": [
       {
         "kind": "relic",
-        "id": "relic-9102"
+        "id": "relic-0231"
       }
     ],
     "our home": [
       {
         "kind": "relic",
-        "id": "relic-9015"
+        "id": "relic-0232"
       }
     ],
     "outer surgery": [
@@ -5005,6 +5755,42 @@
         "id": "talent.helot.pain-sigil"
       }
     ],
+    "painted blessed blood": [
+      {
+        "kind": "relic",
+        "id": "relic-0078"
+      }
+    ],
+    "painted bloody pebble": [
+      {
+        "kind": "relic",
+        "id": "relic-0079"
+      }
+    ],
+    "painted filigree agate": [
+      {
+        "kind": "relic",
+        "id": "relic-0164"
+      }
+    ],
+    "painted gilded reverie": [
+      {
+        "kind": "relic",
+        "id": "relic-0174"
+      }
+    ],
+    "painted iron lock": [
+      {
+        "kind": "relic",
+        "id": "relic-0188"
+      }
+    ],
+    "painted malignant child": [
+      {
+        "kind": "relic",
+        "id": "relic-0207"
+      }
+    ],
     "painted orisons": [
       {
         "kind": "overlay",
@@ -5015,6 +5801,18 @@
       {
         "kind": "overlay",
         "id": "overlay.pickman.painted-relics"
+      }
+    ],
+    "painted rite of spring": [
+      {
+        "kind": "relic",
+        "id": "relic-0255"
+      }
+    ],
+    "painted rusted saw": [
+      {
+        "kind": "relic",
+        "id": "relic-0258"
       }
     ],
     "painted silver relics": [
@@ -5039,6 +5837,18 @@
       {
         "kind": "wheel",
         "id": "wheel-0007"
+      }
+    ],
+    "palette": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.palette"
+      }
+    ],
+    "pallid egg": [
+      {
+        "kind": "relic",
+        "id": "relic-0233"
       }
     ],
     "pandia": [
@@ -5077,6 +5887,12 @@
         "id": "skill.erica.parameter-fitting"
       }
     ],
+    "parasol": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.parasol"
+      }
+    ],
     "passage of the ego": [
       {
         "kind": "skill",
@@ -5110,7 +5926,7 @@
     "pathwalkers remains": [
       {
         "kind": "relic",
-        "id": "relic-9036"
+        "id": "relic-0234"
       }
     ],
     "pavlovian conditioning study": [
@@ -5141,6 +5957,12 @@
       {
         "kind": "overlay",
         "id": "overlay.aigis.petrify"
+      }
+    ],
+    "phantom hand": [
+      {
+        "kind": "relic",
+        "id": "relic-0235"
       }
     ],
     "phobic fixation": [
@@ -5209,10 +6031,22 @@
         "id": "posse-0030"
       }
     ],
+    "plague record": [
+      {
+        "kind": "relic",
+        "id": "relic-0236"
+      }
+    ],
     "planetary traveler": [
       {
         "kind": "talent",
         "id": "talent.tinct.planetary-traveler"
+      }
+    ],
+    "pocketwatch mirror": [
+      {
+        "kind": "relic",
+        "id": "relic-0237"
       }
     ],
     "poems": [
@@ -5293,6 +6127,12 @@
         "id": "wheel-0056"
       }
     ],
+    "prasno lens": [
+      {
+        "kind": "relic",
+        "id": "relic-0238"
+      }
+    ],
     "pray to the abyss": [
       {
         "kind": "skill",
@@ -5335,6 +6175,12 @@
         "id": "skill.horla.prelude-verse"
       }
     ],
+    "premium mouth button": [
+      {
+        "kind": "relic",
+        "id": "relic-0075"
+      }
+    ],
     "prepare": [
       {
         "kind": "overlay",
@@ -5374,7 +6220,7 @@
     "preserved butterfly": [
       {
         "kind": "relic",
-        "id": "relic-9001"
+        "id": "relic-0239"
       }
     ],
     "primal chord": [
@@ -5393,6 +6239,18 @@
       {
         "kind": "skill",
         "id": "skill.murphy-fauxborn.princess-of-delusions"
+      }
+    ],
+    "principles of aesthetics": [
+      {
+        "kind": "relic",
+        "id": "relic-0240"
+      }
+    ],
+    "prion virus": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.prion-virus"
       }
     ],
     "profane apocalypse": [
@@ -5434,7 +6292,13 @@
     "prophets lamp": [
       {
         "kind": "relic",
-        "id": "relic-9046"
+        "id": "relic-0241"
+      }
+    ],
+    "protect offsprings": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.protect-offsprings"
       }
     ],
     "protective scales": [
@@ -5446,7 +6310,13 @@
     "proto battery": [
       {
         "kind": "relic",
-        "id": "relic-9014"
+        "id": "relic-0242"
+      }
+    ],
+    "psyche analysis": [
+      {
+        "kind": "relic",
+        "id": "relic-0243"
       }
     ],
     "psyche reforged": [
@@ -5473,6 +6343,12 @@
         "id": "talent.pandia.punishment-time"
       }
     ],
+    "pupation": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.pupation"
+      }
+    ],
     "puppet stage unveiled": [
       {
         "kind": "skill",
@@ -5483,6 +6359,54 @@
       {
         "kind": "enlighten",
         "id": "enlighten.doll.pure-rationality"
+      }
+    ],
+    "pure silver core": [
+      {
+        "kind": "relic",
+        "id": "relic-0244"
+      }
+    ],
+    "pure silver core birth": [
+      {
+        "kind": "relic",
+        "id": "relic-0244"
+      }
+    ],
+    "pure silver core deceit": [
+      {
+        "kind": "relic",
+        "id": "relic-0244"
+      }
+    ],
+    "pure silver core fear": [
+      {
+        "kind": "relic",
+        "id": "relic-0244"
+      }
+    ],
+    "pure silver core heresy": [
+      {
+        "kind": "relic",
+        "id": "relic-0244"
+      }
+    ],
+    "pure silver core madness": [
+      {
+        "kind": "relic",
+        "id": "relic-0244"
+      }
+    ],
+    "pure silver core scathe": [
+      {
+        "kind": "relic",
+        "id": "relic-0244"
+      }
+    ],
+    "pure silver core sorrow": [
+      {
+        "kind": "relic",
+        "id": "relic-0244"
       }
     ],
     "pure ultra": [
@@ -5500,7 +6424,7 @@
     "putney morning post": [
       {
         "kind": "relic",
-        "id": "relic-9055"
+        "id": "relic-0251"
       }
     ],
     "quasar": [
@@ -5521,10 +6445,16 @@
         "id": "skill.ramona.queens-sword"
       }
     ],
+    "radiance of humanity": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.radiance-of-humanity"
+      }
+    ],
     "radium jawbone": [
       {
         "kind": "relic",
-        "id": "relic-9107"
+        "id": "relic-0252"
       }
     ],
     "raging waves": [
@@ -5656,7 +6586,7 @@
     "relic of the past": [
       {
         "kind": "relic",
-        "id": "relic-9051"
+        "id": "relic-0253"
       }
     ],
     "reload": [
@@ -5669,6 +6599,24 @@
       {
         "kind": "skill",
         "id": "skill.agrippa.reluctant-alms"
+      }
+    ],
+    "remembrance core of abundance": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.memories-seed-of-abundance"
+      }
+    ],
+    "remembrance honey wine": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.memories-honey-mead"
+      }
+    ],
+    "remembrance utopian veil": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.memories-utopian-veil"
       }
     ],
     "remnants requiem": [
@@ -5806,7 +6754,7 @@
     "rhind papyrus": [
       {
         "kind": "relic",
-        "id": "relic-9062"
+        "id": "relic-0254"
       }
     ],
     "ring of chamber 36": [
@@ -5818,7 +6766,7 @@
     "rite of spring": [
       {
         "kind": "relic",
-        "id": "relic-9002"
+        "id": "relic-0255"
       }
     ],
     "ritual": [
@@ -5830,7 +6778,7 @@
     "ritual dagger": [
       {
         "kind": "relic",
-        "id": "relic-9019"
+        "id": "relic-0256"
       }
     ],
     "ritual of abundance": [
@@ -5875,6 +6823,12 @@
         "id": "wheel-0132"
       }
     ],
+    "rotting blood abyss serum": [
+      {
+        "kind": "relic",
+        "id": "relic-0257"
+      }
+    ],
     "rouse": [
       {
         "kind": "overlay",
@@ -5887,10 +6841,16 @@
         "id": "enlighten.goliath.rule-by-the-strongest"
       }
     ],
+    "rusted saw": [
+      {
+        "kind": "relic",
+        "id": "relic-0258"
+      }
+    ],
     "rusty lancet": [
       {
         "kind": "relic",
-        "id": "relic-9029"
+        "id": "relic-0259"
       }
     ],
     "ryker": [
@@ -5909,6 +6869,12 @@
       {
         "kind": "derivedSkill",
         "id": "derived.miryam.sacrament"
+      }
+    ],
+    "sacred agony": [
+      {
+        "kind": "relic",
+        "id": "relic-0260"
       }
     ],
     "sacred bleeding heart": [
@@ -5956,13 +6922,19 @@
     "safe passage": [
       {
         "kind": "relic",
-        "id": "relic-9049"
+        "id": "relic-0261"
       }
     ],
     "sail of providence": [
       {
         "kind": "wheel",
         "id": "wheel-0058"
+      }
+    ],
+    "sailor whistle": [
+      {
+        "kind": "relic",
+        "id": "relic-0262"
       }
     ],
     "sakura blossoms": [
@@ -5998,7 +6970,7 @@
     "salvific limb": [
       {
         "kind": "relic",
-        "id": "relic-9040"
+        "id": "relic-0263"
       }
     ],
     "sanctuary of mercy": [
@@ -6124,7 +7096,7 @@
     "serpents husk": [
       {
         "kind": "relic",
-        "id": "relic-9048"
+        "id": "relic-0264"
       }
     ],
     "seven arts and virtues": [
@@ -6139,6 +7111,12 @@
         "id": "wheel-0080"
       }
     ],
+    "severed head worm": [
+      {
+        "kind": "relic",
+        "id": "relic-0265"
+      }
+    ],
     "sextants calculation": [
       {
         "kind": "enlighten",
@@ -6149,6 +7127,12 @@
       {
         "kind": "enlighten",
         "id": "enlighten.vortice.shackled-impulse"
+      }
+    ],
+    "shapeshifters invitation": [
+      {
+        "kind": "relic",
+        "id": "relic-0266"
       }
     ],
     "shattered halberd": [
@@ -6175,10 +7159,10 @@
         "id": "wheel-0106"
       }
     ],
-    "shining octahedron dice": [
+    "shifting straitjacket": [
       {
-        "kind": "derivedSkill",
-        "id": "derived.ryker.shining-octahedron-dice"
+        "kind": "relic",
+        "id": "relic-0267"
       }
     ],
     "shiningcrush": [
@@ -6217,6 +7201,12 @@
         "id": "skill.ramona-timeworn.sight-unbound"
       }
     ],
+    "signal relay": [
+      {
+        "kind": "relic",
+        "id": "relic-0268"
+      }
+    ],
     "silent banquet": [
       {
         "kind": "wheel",
@@ -6244,7 +7234,7 @@
     "silent prelude": [
       {
         "kind": "relic",
-        "id": "relic-9054"
+        "id": "relic-0269"
       }
     ],
     "silver cods determination": [
@@ -6253,16 +7243,16 @@
         "id": "wheel-0096"
       }
     ],
-    "silver key dawn": [
-      {
-        "kind": "derivedSkill",
-        "id": "derived.tawil.silver-key-dawn"
-      }
-    ],
     "silver key gleam": [
       {
         "kind": "derivedSkill",
         "id": "derived.global.silver-key-gleam"
+      }
+    ],
+    "silver key resonance": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.silver-key-resonance"
       }
     ],
     "silver relics": [
@@ -6271,16 +7261,82 @@
         "id": "overlay.pickman.painted-relics"
       }
     ],
+    "silver ribbon": [
+      {
+        "kind": "relic",
+        "id": "relic-0270"
+      }
+    ],
     "silver tongue": [
       {
         "kind": "relic",
-        "id": "relic-9057"
+        "id": "relic-0271"
       }
     ],
     "sin mark": [
       {
         "kind": "overlay",
         "id": "overlay.pollux.sin-mark"
+      }
+    ],
+    "sinful black candle": [
+      {
+        "kind": "relic",
+        "id": "relic-0076"
+      }
+    ],
+    "sinful cursed stele": [
+      {
+        "kind": "relic",
+        "id": "relic-0138"
+      }
+    ],
+    "sinful eerie hook": [
+      {
+        "kind": "relic",
+        "id": "relic-0157"
+      }
+    ],
+    "sinful jade imprint": [
+      {
+        "kind": "relic",
+        "id": "relic-0190"
+      }
+    ],
+    "sinful lamprey kiss": [
+      {
+        "kind": "relic",
+        "id": "relic-0195"
+      }
+    ],
+    "sinful mind engraving": [
+      {
+        "kind": "relic",
+        "id": "relic-0216"
+      }
+    ],
+    "sinful nightmare manifest": [
+      {
+        "kind": "relic",
+        "id": "relic-0226"
+      }
+    ],
+    "sinful omen ritual bird": [
+      {
+        "kind": "relic",
+        "id": "relic-0229"
+      }
+    ],
+    "sinful pathwalkers remains": [
+      {
+        "kind": "relic",
+        "id": "relic-0234"
+      }
+    ],
+    "sinful swarm mind": [
+      {
+        "kind": "relic",
+        "id": "relic-0281"
       }
     ],
     "singularity annihilation": [
@@ -6323,6 +7379,12 @@
       {
         "kind": "skill",
         "id": "skill.pollux.sinless-verdict"
+      }
+    ],
+    "sirens tear": [
+      {
+        "kind": "relic",
+        "id": "relic-0272"
       }
     ],
     "six wings": [
@@ -6394,13 +7456,19 @@
     "solar disc": [
       {
         "kind": "relic",
-        "id": "relic-9050"
+        "id": "relic-0273"
       }
     ],
     "solarflare": [
       {
         "kind": "skill",
         "id": "skill.kathigu-ra.solarflare"
+      }
+    ],
+    "solidify": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.solidify"
       }
     ],
     "solitary mast": [
@@ -6451,6 +7519,12 @@
         "id": "awakener-build-0046"
       }
     ],
+    "sos signal": [
+      {
+        "kind": "relic",
+        "id": "relic-0274"
+      }
+    ],
     "soul healing journey": [
       {
         "kind": "enlighten",
@@ -6481,10 +7555,22 @@
         "id": "skill.pollux.soulsearing-light"
       }
     ],
+    "sovereigns power": [
+      {
+        "kind": "relic",
+        "id": "relic-0275"
+      }
+    ],
     "sparkling friendship": [
       {
         "kind": "enlighten",
         "id": "enlighten.aurita.sparkling-friendship"
+      }
+    ],
+    "spatial deflector": [
+      {
+        "kind": "relic",
+        "id": "relic-0276"
       }
     ],
     "spatial fold": [
@@ -6547,6 +7633,12 @@
         "id": "skill.faint.sprouting-bud"
       }
     ],
+    "stagger": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.stagger"
+      }
+    ],
     "stagnant curse": [
       {
         "kind": "skill",
@@ -6557,6 +7649,12 @@
       {
         "kind": "overlay",
         "id": "overlay.global.stagnation"
+      }
+    ],
+    "stand in doll": [
+      {
+        "kind": "relic",
+        "id": "relic-0277"
       }
     ],
     "standard support": [
@@ -6586,7 +7684,7 @@
     "stellar brew": [
       {
         "kind": "relic",
-        "id": "relic-9058"
+        "id": "relic-0278"
       }
     ],
     "stellar protection": [
@@ -6655,10 +7753,22 @@
         "id": "enlighten.ramona.sublime-tempering"
       }
     ],
+    "submersible helm": [
+      {
+        "kind": "relic",
+        "id": "relic-0279"
+      }
+    ],
     "suction": [
       {
         "kind": "wheel",
         "id": "wheel-0073"
+      }
+    ],
+    "sudden fallacy": [
+      {
+        "kind": "relic",
+        "id": "relic-0280"
       }
     ],
     "sugary aroma": [
@@ -6709,10 +7819,22 @@
         "id": "skill.helot.surviving-impasse"
       }
     ],
+    "suspicion": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.suspicion"
+      }
+    ],
     "swarm impact": [
       {
         "kind": "derivedSkill",
         "id": "derived.jenkins.swarm-impact"
+      }
+    ],
+    "swarm mind": [
+      {
+        "kind": "relic",
+        "id": "relic-0281"
       }
     ],
     "sweet slug": [
@@ -6889,6 +8011,12 @@
         "id": "enlighten.tawil.the-first-logos"
       }
     ],
+    "the futile travail": [
+      {
+        "kind": "relic",
+        "id": "relic-0282"
+      }
+    ],
     "the gaze of isarawu": [
       {
         "kind": "wheel",
@@ -7048,7 +8176,13 @@
     "tilted scales": [
       {
         "kind": "relic",
-        "id": "relic-9064"
+        "id": "relic-0283"
+      }
+    ],
+    "time scarab": [
+      {
+        "kind": "relic",
+        "id": "relic-0284"
       }
     ],
     "timeless solitude": [
@@ -7075,10 +8209,16 @@
         "id": "skill.celeste.tintless-dream"
       }
     ],
+    "tiny cradle": [
+      {
+        "kind": "relic",
+        "id": "relic-0285"
+      }
+    ],
     "tiny music box": [
       {
         "kind": "relic",
-        "id": "relic-9056"
+        "id": "relic-0286"
       }
     ],
     "tiny wish": [
@@ -7123,6 +8263,18 @@
         "id": "enlighten.tulu.touch-of-revival"
       }
     ],
+    "toxic infusion": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.toxic-infusion"
+      }
+    ],
+    "toxic outbreak": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.toxic-outbreak"
+      }
+    ],
     "tranquil sea": [
       {
         "kind": "overlay",
@@ -7138,13 +8290,19 @@
     "tricksters hat": [
       {
         "kind": "relic",
-        "id": "relic-9037"
+        "id": "relic-0287"
+      }
+    ],
+    "trigon prism": [
+      {
+        "kind": "relic",
+        "id": "relic-0288"
       }
     ],
     "true north compass": [
       {
         "kind": "relic",
-        "id": "relic-9013"
+        "id": "relic-0289"
       }
     ],
     "truth behind grey mist": [
@@ -7162,7 +8320,7 @@
     "truth unbound": [
       {
         "kind": "relic",
-        "id": "relic-9028"
+        "id": "relic-0290"
       }
     ],
     "tulu": [
@@ -7183,6 +8341,54 @@
         "id": "awakener-0001"
       }
     ],
+    "twilight honey mead": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.twilight-honey-mead"
+      }
+    ],
+    "twilight innocent return gift": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.twilight-innocent-return-gift"
+      }
+    ],
+    "twilight mutated heart": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.twilight-mutated-heart"
+      }
+    ],
+    "twilight seed of abundance": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.twilight-seed-of-abundance"
+      }
+    ],
+    "twilight the envoys verdict": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.twilight-envoys-verdict"
+      }
+    ],
+    "twilight unfinished wax sculpture": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.twilight-unfinished-wax-sculpture"
+      }
+    ],
+    "twilight utopian veil": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.twilight-utopian-veil"
+      }
+    ],
+    "twin dolls": [
+      {
+        "kind": "relic",
+        "id": "relic-0291"
+      }
+    ],
     "twin wings": [
       {
         "kind": "derivedSkill",
@@ -7199,6 +8405,12 @@
       {
         "kind": "wheel",
         "id": "wheel-0042"
+      }
+    ],
+    "twisted palette": [
+      {
+        "kind": "relic",
+        "id": "relic-0292"
       }
     ],
     "twisted twins black": [
@@ -7234,7 +8446,7 @@
     "ultra ring": [
       {
         "kind": "relic",
-        "id": "relic-9042"
+        "id": "relic-0293"
       }
     ],
     "ultra round": [
@@ -7270,7 +8482,7 @@
     "uncanny salve": [
       {
         "kind": "relic",
-        "id": "relic-9008"
+        "id": "relic-0294"
       }
     ],
     "undying bird of paradise": [
@@ -7307,6 +8519,12 @@
       {
         "kind": "skill",
         "id": "skill.ryker.unexpected-gain"
+      }
+    ],
+    "unified evolution reagent": [
+      {
+        "kind": "relic",
+        "id": "relic-0295"
       }
     ],
     "universe as i conceive": [
@@ -7351,10 +8569,10 @@
         "id": "enlighten.alva.unyielding-bastion"
       }
     ],
-    "unyielding will": [
+    "unyielding will beta": [
       {
-        "kind": "enlighten",
-        "id": "enlighten.castor.unyielding-will"
+        "kind": "derivedSkill",
+        "id": "derived.global.unyielding-will-beta"
       }
     ],
     "usable 1 times": [
@@ -7534,7 +8752,7 @@
     "veil of the nameless deity": [
       {
         "kind": "relic",
-        "id": "relic-9032"
+        "id": "relic-0296"
       }
     ],
     "veiled anguish": [
@@ -7612,7 +8830,7 @@
     "vision corrector": [
       {
         "kind": "relic",
-        "id": "relic-9031"
+        "id": "relic-0297"
       }
     ],
     "vitality": [
@@ -7624,7 +8842,7 @@
     "vitality injection": [
       {
         "kind": "relic",
-        "id": "relic-9022"
+        "id": "relic-0298"
       }
     ],
     "voices from beyond": [
@@ -7696,7 +8914,7 @@
     "voyagers parasol": [
       {
         "kind": "relic",
-        "id": "relic-9060"
+        "id": "relic-0299"
       }
     ],
     "vulnerability": [
@@ -7708,7 +8926,7 @@
     "wailing bell": [
       {
         "kind": "relic",
-        "id": "relic-9035"
+        "id": "relic-0300"
       }
     ],
     "waltz of lemuria": [
@@ -7733,6 +8951,12 @@
       {
         "kind": "posse",
         "id": "posse-0003"
+      }
+    ],
+    "warp device": [
+      {
+        "kind": "relic",
+        "id": "relic-0301"
       }
     ],
     "wax hot desire": [
@@ -7762,7 +8986,7 @@
     "weeping pipe": [
       {
         "kind": "relic",
-        "id": "relic-9106"
+        "id": "relic-0302"
       }
     ],
     "wheel unseen": [
@@ -7831,6 +9055,12 @@
         "id": "awakener-build-0053"
       }
     ],
+    "winners cup": [
+      {
+        "kind": "relic",
+        "id": "relic-0303"
+      }
+    ],
     "winters requiem": [
       {
         "kind": "wheel",
@@ -7867,6 +9097,12 @@
         "id": "skill.pontos.wrath-of-the-abyss"
       }
     ],
+    "wriggling cord": [
+      {
+        "kind": "relic",
+        "id": "relic-0304"
+      }
+    ],
     "writing with feeling": [
       {
         "kind": "talent",
@@ -7889,6 +9125,12 @@
       {
         "kind": "posse",
         "id": "posse-0048"
+      }
+    ],
+    "yellow snail": [
+      {
+        "kind": "relic",
+        "id": "relic-0305"
       }
     ],
     "you will recover": [
@@ -7975,6 +9217,16 @@
         "id": "skill.lily.at-your-behest"
       }
     ],
+    "barbed trident": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.barbed-trident"
+      },
+      {
+        "kind": "relic",
+        "id": "relic-0074"
+      }
+    ],
     "betroth": [
       {
         "kind": "derivedSkill",
@@ -8033,58 +9285,6 @@
       {
         "kind": "overlay",
         "id": "overlay.ryker.certain-gain"
-      }
-    ],
-    "chrono pendulum treasure": [
-      {
-        "kind": "relic",
-        "id": "relic-9092"
-      },
-      {
-        "kind": "relic",
-        "id": "relic-9093"
-      },
-      {
-        "kind": "relic",
-        "id": "relic-9094"
-      },
-      {
-        "kind": "relic",
-        "id": "relic-9095"
-      },
-      {
-        "kind": "relic",
-        "id": "relic-9096"
-      }
-    ],
-    "chrono pendulum wish": [
-      {
-        "kind": "relic",
-        "id": "relic-9097"
-      },
-      {
-        "kind": "relic",
-        "id": "relic-9098"
-      },
-      {
-        "kind": "relic",
-        "id": "relic-9099"
-      },
-      {
-        "kind": "relic",
-        "id": "relic-9100"
-      },
-      {
-        "kind": "relic",
-        "id": "relic-9101"
-      },
-      {
-        "kind": "relic",
-        "id": "relic-9108"
-      },
-      {
-        "kind": "relic",
-        "id": "relic-9109"
       }
     ],
     "cosmic symphony": [
@@ -8337,6 +9537,16 @@
         "id": "skill.xu.defense"
       }
     ],
+    "devour": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.devour-card"
+      },
+      {
+        "kind": "overlay",
+        "id": "overlay.global.devour"
+      }
+    ],
     "dimension shuttle": [
       {
         "kind": "overlay",
@@ -8399,6 +9609,16 @@
         "id": "wheel-0170"
       }
     ],
+    "echoes of the past": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.echoes-of-the-past"
+      },
+      {
+        "kind": "derivedSkill",
+        "id": "derived.tawil.echoes-of-the-past"
+      }
+    ],
     "elegy over fate": [
       {
         "kind": "enlighten",
@@ -8456,7 +9676,7 @@
       },
       {
         "kind": "relic",
-        "id": "relic-9045"
+        "id": "relic-0166"
       }
     ],
     "gaze out of the aeons": [
@@ -9121,6 +10341,16 @@
         "id": "skill.murphy.oath-of-liberation"
       }
     ],
+    "octahedron dice": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.ryker.octahedron-dice"
+      },
+      {
+        "kind": "relic",
+        "id": "relic-0227"
+      }
+    ],
     "omens descent": [
       {
         "kind": "enlighten",
@@ -9259,6 +10489,26 @@
       {
         "kind": "skill",
         "id": "skill.thais.sacred-relics-perpetuity"
+      }
+    ],
+    "shining octahedron dice": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.ryker.shining-octahedron-dice"
+      },
+      {
+        "kind": "relic",
+        "id": "relic-0227"
+      }
+    ],
+    "silver key dawn": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.silver-key-dawn"
+      },
+      {
+        "kind": "derivedSkill",
+        "id": "derived.tawil.silver-key-dawn"
       }
     ],
     "silverheart resonance": [
@@ -10103,6 +11353,16 @@
       {
         "kind": "skill",
         "id": "skill.lotan.until-the-planets-end"
+      }
+    ],
+    "unyielding will": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.unyielding-will-beta"
+      },
+      {
+        "kind": "enlighten",
+        "id": "enlighten.castor.unyielding-will"
       }
     ],
     "vanitys collapse": [

@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0281",
+  "name": "Swarm Mind",
+  "route": {
+    "slug": "swarm-mind",
+    "canonicalPath": "/database/relics/swarm-mind"
+  },
+  "assets": {
+    "icon": "asset-relic-0281-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 4,
+  "defaultVariantId": "relic-variant-0498",
+  "aliases": ["Blessed: Swarm Mind", "Sinful: Swarm Mind"],
+  "descriptionTemplate": "At turn start, gain [Arg1] {STR} for every 1 vacant space in {Ultra Space}, but suffer [Arg2] {plural:[Arg2]|stack|stacks} of {Poison}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.01,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "accountStageGrowth",
+      "multiplier": 0.005,
+      "inputs": ["accountLevel"]
+    }
+  },
+  "lore": "Entwine, Symbiosis, Swarm; Fear, Unknown, Control.",
+  "variants": [
+    {
+      "id": "relic-variant-0498",
+      "name": "Swarm Mind",
+      "label": "Astral Reign - Cursed",
+      "variantType": "STANDARD",
+      "tier": "Cursed",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "At turn start, gain [Arg1] {STR} for every 1 vacant space in {Ultra Space}, but suffer [Arg2] {plural:[Arg2]|stack|stacks} of {Poison}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.01,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "accountStageGrowth",
+          "multiplier": 0.005,
+          "inputs": ["accountLevel"]
+        }
+      },
+      "lore": "Entwine, Symbiosis, Swarm; Fear, Unknown, Control."
+    },
+    {
+      "id": "relic-variant-0495",
+      "name": "Swarm Mind",
+      "label": "Faded Legacy - Cursed",
+      "variantType": "STANDARD",
+      "tier": "Cursed",
+      "category": "FADED_LEGACY",
+      "descriptionTemplate": "For every 1 instance of Active DMG dealt, inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Bleed} on self and [Arg2] {plural:[Arg2]|stack|stacks} of {Bleed} on the target. For each enemy killed, dispel the {Bleed} state from self.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "accountStageGrowth",
+          "multiplier": 0.01,
+          "inputs": ["accountLevel"]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.08,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "Entwine, Symbiosis, Swarm; Fear, Unknown, Control."
+    },
+    {
+      "id": "relic-variant-0497",
+      "name": "Blessed: Swarm Mind",
+      "label": "Faded Legacy - Blessed",
+      "variantType": "BLESSED",
+      "tier": "Blessed",
+      "category": "FADED_LEGACY",
+      "descriptionTemplate": "For each Active DMG dealt, restore [Arg1] HP and Inflict [Arg2] {plural:[Arg2]|stack|stacks} of {Bleed} to the target.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.005,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.36,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "Entwine, Symbiosis, Swarm; Unity, Coexistence, Shelter."
+    },
+    {
+      "id": "relic-variant-0496",
+      "name": "Sinful: Swarm Mind",
+      "label": "Faded Legacy - Sinful",
+      "variantType": "SINFUL",
+      "tier": "Sinful",
+      "category": "FADED_LEGACY",
+      "descriptionTemplate": "For every Active DMG instance, Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Bleed} to self and [Arg2] {plural:[Arg2]|stack|stacks} of {Bleed} to the DMG target.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "accountStageGrowth",
+          "multiplier": 0.02,
+          "inputs": ["accountLevel"]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.18,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "Entwine, Symbiosis, Swarm; Fear, Unknown, Control."
+    }
+  ]
+}

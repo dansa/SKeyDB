@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0267",
+  "name": "Shifting Straitjacket",
+  "route": {
+    "slug": "shifting-straitjacket",
+    "canonicalPath": "/database/relics/shifting-straitjacket"
+  },
+  "assets": {
+    "icon": "asset-relic-0267-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["FADED_LEGACY"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0466",
+  "rarity": "N",
+  "aliases": [],
+  "descriptionTemplate": "At the start of battle, inflict 1 turn of {Weakness} and {Vulnerable} on all enemies. If it is a Boss Battle, additionally inflict 2 turns of {Weakness} and {Vulnerable}.",
+  "descriptionArgs": {},
+  "lore": "Not only can time cause fabric to fade, but fear and pain as well.",
+  "variants": [
+    {
+      "id": "relic-variant-0466",
+      "name": "Shifting Straitjacket",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "At the start of battle, inflict 1 turn of {Weakness} and {Vulnerable} on all enemies. If it is a Boss Battle, additionally inflict 2 turns of {Weakness} and {Vulnerable}.",
+      "descriptionArgs": {},
+      "lore": "Not only can time cause fabric to fade, but fear and pain as well."
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.memories-envoys-verdict",
+  "name": "Memories: Emissary's Verdict",
+  "route": {
+    "slug": "memories-emissarys-verdict",
+    "canonicalPath": "/database/derived-skills/memories-emissarys-verdict"
+  },
+  "derivedFromId": "derived.global.twilight-envoys-verdict",
+  "descriptionTemplate": "Deal {Fixed DMG} equal to 25% of Max HP to backline enemies and gain Shield equal to 25% of Max HP.",
+  "descriptionArgs": {},
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "0"
+}

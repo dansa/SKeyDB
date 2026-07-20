@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0255",
+  "name": "Rite of Spring",
+  "route": {
+    "slug": "rite-of-spring",
+    "canonicalPath": "/database/relics/rite-of-spring"
+  },
+  "assets": {
+    "icon": "asset-relic-0255-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 5,
+  "defaultVariantId": "relic-variant-0435",
+  "rarity": "N",
+  "aliases": ["Painted Rite of Spring", "Painted Rite of Spring+", "Rite of Spring+"],
+  "descriptionTemplate": "After the battle starts, Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Vulnerable} to all enemies, with the effect doubled in Boss Battles. All Awakener Base DMG is +[Arg2]%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "1"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "15",
+      "suffix": "%"
+    }
+  },
+  "lore": "Amid the laughter of the night, the silhouette of the canoe glides effortlessly across the lake.",
+  "variants": [
+    {
+      "id": "relic-variant-0435",
+      "name": "Rite of Spring",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "After the battle starts, Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Vulnerable} to all enemies, with the effect doubled in Boss Battles. All Awakener Base DMG is +[Arg2]%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "1"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "15",
+          "suffix": "%"
+        }
+      },
+      "lore": "Amid the laughter of the night, the silhouette of the canoe glides effortlessly across the lake."
+    },
+    {
+      "id": "relic-variant-0436",
+      "name": "Rite of Spring+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "After the battle starts, Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Vulnerable} to all enemies, with the effect doubled in Boss Battles. All Awakener base DMG is +[Arg2]%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "2"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "30",
+          "suffix": "%"
+        }
+      },
+      "lore": "Amid the laughter of the night, the silhouette of the canoe glides effortlessly across the lake."
+    },
+    {
+      "id": "relic-variant-0434",
+      "name": "Rite of Spring",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "Every 3 turns, add 1 stack of {Vulnerable} to all enemies. After dealing DMG to a {Vulnerable} enemy, reduce their Temporary {STR} by [Arg1], with a maximum of 3 triggers per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.015,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "Amid the laughter of the night, the silhouette of the canoe glides effortlessly across the lake."
+    },
+    {
+      "id": "relic-variant-0437",
+      "name": "Painted Rite of Spring",
+      "label": "Pickman - Silver",
+      "variantType": "AWAKENER_MECHANIC",
+      "tier": "Silver",
+      "mechanicOwner": "Pickman",
+      "rarity": "N",
+      "descriptionTemplate": "Upon picking up, inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Vulnerable} on all enemies. The Base DMG dealt by all Awakeners +[Arg2]%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "1"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "15",
+          "suffix": "%"
+        }
+      },
+      "lore": "Amid the laughter of the night, the silhouette of the canoe glides effortlessly across the lake."
+    },
+    {
+      "id": "relic-variant-0438",
+      "name": "Painted Rite of Spring+",
+      "label": "Pickman - Gold",
+      "variantType": "AWAKENER_MECHANIC",
+      "tier": "Gold",
+      "mechanicOwner": "Pickman",
+      "descriptionTemplate": "Upon picking up, inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Vulnerable} on all enemies. The Base DMG dealt by all Awakeners +[Arg2]%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "2"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "30",
+          "suffix": "%"
+        }
+      },
+      "lore": "Amid the laughter of the night, the silhouette of the canoe glides effortlessly across the lake."
+    }
+  ]
+}

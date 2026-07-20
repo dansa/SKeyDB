@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0192",
+  "name": "Kaleidoscope",
+  "route": {
+    "slug": "kaleidoscope",
+    "canonicalPath": "/database/relics/kaleidoscope"
+  },
+  "assets": {
+    "icon": "asset-relic-0192-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0310",
+  "rarity": "N",
+  "aliases": ["Kaleidoscope+"],
+  "descriptionTemplate": "At the start of the battle, gain [Arg1]% DMG Amplification. For each Command Card played by a different Awakener, gain an additional [Arg1]% Temporary DMG Amplification.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15",
+      "suffix": "%"
+    }
+  },
+  "lore": "What you think and see are all illusions.",
+  "variants": [
+    {
+      "id": "relic-variant-0310",
+      "name": "Kaleidoscope",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "At the start of the battle, gain [Arg1]% DMG Amplification. For each Command Card played by a different Awakener, gain an additional [Arg1]% Temporary DMG Amplification.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15",
+          "suffix": "%"
+        }
+      },
+      "lore": "What you think and see are all illusions."
+    },
+    {
+      "id": "relic-variant-0311",
+      "name": "Kaleidoscope+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "At the start of the battle, gain [Arg1]% DMG Amplification. For each Command Card played by a different Awakener, gain an additional [Arg1]% Temporary DMG Amplification.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "30",
+          "suffix": "%"
+        }
+      },
+      "lore": "What you think and see are all illusions."
+    },
+    {
+      "id": "relic-variant-0309",
+      "name": "Kaleidoscope",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "Realm Mastery +50. When picked up, choose a Relic and change it to a random Relic.",
+      "descriptionArgs": {},
+      "lore": "What you think and see are all illusions."
+    }
+  ]
+}

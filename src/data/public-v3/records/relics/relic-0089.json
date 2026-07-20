@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0089",
+  "name": "Chaos Ring",
+  "route": {
+    "slug": "chaos-ring",
+    "canonicalPath": "/database/relics/chaos-ring"
+  },
+  "assets": {
+    "icon": "asset-relic-0089-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["OTHER"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0114",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "At the start of exploration, increase the Relic Capacity by +1, and {Chaos} Awakener gains its \"Dimensional Image\". For each {Chaos} Awakener in the team, increase the Relic Capacity by +1.",
+  "descriptionArgs": {},
+  "lore": "Chaos is formless, chaos is intangible; chaos has merged into all things.",
+  "variants": [
+    {
+      "id": "relic-variant-0114",
+      "name": "Chaos Ring",
+      "label": "Other - Special",
+      "variantType": "OTHER",
+      "tier": "Special",
+      "category": "OTHER",
+      "rarity": "SSR",
+      "descriptionTemplate": "At the start of exploration, increase the Relic Capacity by +1, and {Chaos} Awakener gains its \"Dimensional Image\". For each {Chaos} Awakener in the team, increase the Relic Capacity by +1.",
+      "descriptionArgs": {},
+      "lore": "Chaos is formless, chaos is intangible; chaos has merged into all things."
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0079",
+  "name": "Bloody Pebble",
+  "route": {
+    "slug": "bloody-pebble",
+    "canonicalPath": "/database/relics/bloody-pebble"
+  },
+  "assets": {
+    "icon": "asset-relic-0079-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 5,
+  "defaultVariantId": "relic-variant-0095",
+  "rarity": "N",
+  "aliases": ["Bloody Pebble+", "Painted Bloody Pebble", "Painted Bloody Pebble+"],
+  "descriptionTemplate": "After directly using {Embryo} for the first time each turn, Active DMG will cause [Arg1]% of the DMG dealt as {Bleed} for the rest of the turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15",
+      "suffix": "%"
+    }
+  },
+  "lore": "One, Two, Three, Four, Five.",
+  "variants": [
+    {
+      "id": "relic-variant-0095",
+      "name": "Bloody Pebble",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "After directly using {Embryo} for the first time each turn, Active DMG will cause [Arg1]% of the DMG dealt as {Bleed} for the rest of the turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15",
+          "suffix": "%"
+        }
+      },
+      "lore": "One, Two, Three, Four, Five."
+    },
+    {
+      "id": "relic-variant-0096",
+      "name": "Bloody Pebble+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "After directly using {Embryo} for the first time each turn, Active DMG will cause [Arg1]% of the DMG dealt as {Bleed} for the rest of the turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "30",
+          "suffix": "%"
+        }
+      },
+      "lore": "One, Two, Three, Four, Five."
+    },
+    {
+      "id": "relic-variant-0094",
+      "name": "Bloody Pebble",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "Gain [Arg1] {STR} when picked up. Whenever a {Embryo} is fused, gain [Arg2] Temporary {STR}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.02,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.03,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "One, Two, Three, Four, Five."
+    },
+    {
+      "id": "relic-variant-0097",
+      "name": "Painted Bloody Pebble",
+      "label": "Pickman - Silver",
+      "variantType": "AWAKENER_MECHANIC",
+      "tier": "Silver",
+      "mechanicOwner": "Pickman",
+      "rarity": "N",
+      "descriptionTemplate": "After directly using {Embryo} for the first time each turn, Active DMG will cause [Arg1]% of the DMG dealt as {Bleed} for the rest of the turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15",
+          "suffix": "%"
+        }
+      },
+      "lore": "One, Two, Three, Four, Five."
+    },
+    {
+      "id": "relic-variant-0098",
+      "name": "Painted Bloody Pebble+",
+      "label": "Pickman - Gold",
+      "variantType": "AWAKENER_MECHANIC",
+      "tier": "Gold",
+      "mechanicOwner": "Pickman",
+      "descriptionTemplate": "After directly using {Embryo} for the first time each turn, Active DMG will cause [Arg1]% of the DMG dealt as {Bleed} for the rest of the turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "30",
+          "suffix": "%"
+        }
+      },
+      "lore": "One, Two, Three, Four, Five."
+    }
+  ]
+}

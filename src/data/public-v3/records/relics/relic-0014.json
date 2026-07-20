@@ -10,11 +10,14 @@
   "assets": {
     "icon": "asset-relic-0014-icon"
   },
-  "relicType": "DIMENSIONAL_IMAGE",
+  "relicType": "Dimensional Image",
+  "categories": ["DIMENSIONAL_IMAGE"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0014",
   "ownerAwakenerId": "awakener-0014",
   "ownerAwakenerName": "Doresain",
   "rarity": "SSR",
-  "realm": "CARO",
+  "aliases": [],
   "descriptionTemplate": "At turn start, Doresain gains [Arg1] Aliemus and [Arg2] {STR}. When Doresain consumes a {Corpse}, he gains Temporary {STR} equal to 20% of Doresain's Permanent {STR}.",
   "descriptionArgs": {
     "Arg1": {
@@ -28,5 +31,32 @@
       "multiplier": 0.02,
       "inputs": ["accountLevel", "ownedPosseCount"]
     }
-  }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0014",
+      "name": "Dimensional Image: Doresain",
+      "label": "Dimensional Image",
+      "variantType": "DIMENSIONAL_IMAGE",
+      "tier": "Unique",
+      "category": "DIMENSIONAL_IMAGE",
+      "ownerAwakenerId": "awakener-0014",
+      "ownerAwakenerName": "Doresain",
+      "rarity": "SSR",
+      "descriptionTemplate": "At turn start, Doresain gains [Arg1] Aliemus and [Arg2] {STR}. When Doresain consumes a {Corpse}, he gains Temporary {STR} equal to 20% of Doresain's Permanent {STR}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.02,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      }
+    }
+  ]
 }

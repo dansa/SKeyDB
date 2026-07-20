@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0272",
+  "name": "Siren's Tear",
+  "route": {
+    "slug": "sirens-tear",
+    "canonicalPath": "/database/relics/sirens-tear"
+  },
+  "assets": {
+    "icon": "asset-relic-0272-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["FADED_LEGACY"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0476",
+  "rarity": "N",
+  "aliases": [],
+  "descriptionTemplate": "At turn start, {Death Resistance} +10% (each time {Death Resistance} triggers in this stage, the gained {Death Resistance} is halved). When {Death Resistance} is above 100%, Realm Mastery +100.",
+  "descriptionArgs": {},
+  "lore": "Do not place it in water.",
+  "variants": [
+    {
+      "id": "relic-variant-0476",
+      "name": "Siren's Tear",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "At turn start, {Death Resistance} +10% (each time {Death Resistance} triggers in this stage, the gained {Death Resistance} is halved). When {Death Resistance} is above 100%, Realm Mastery +100.",
+      "descriptionArgs": {},
+      "lore": "Do not place it in water."
+    }
+  ]
+}

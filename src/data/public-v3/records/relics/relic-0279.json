@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0279",
+  "name": "Submersible Helm",
+  "route": {
+    "slug": "submersible-helm",
+    "canonicalPath": "/database/relics/submersible-helm"
+  },
+  "assets": {
+    "icon": "asset-relic-0279-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0492",
+  "rarity": "N",
+  "aliases": ["Submersible Helm+"],
+  "descriptionTemplate": "After dealing active or {Tentacle DMG}, increases the target's {Tentacle DMG} taken by [Arg1]% for the remainder of the turn. Can trigger up to 20 times per turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "1",
+      "suffix": "%"
+    }
+  },
+  "lore": "Dreams are the stars and the sea!",
+  "variants": [
+    {
+      "id": "relic-variant-0492",
+      "name": "Submersible Helm",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "After dealing active or {Tentacle DMG}, increases the target's {Tentacle DMG} taken by [Arg1]% for the remainder of the turn. Can trigger up to 20 times per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "1",
+          "suffix": "%"
+        }
+      },
+      "lore": "Dreams are the stars and the sea!"
+    },
+    {
+      "id": "relic-variant-0493",
+      "name": "Submersible Helm+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "After dealing active or {Tentacle DMG}, increases the target's {Tentacle DMG} taken by [Arg1]% for the remainder of the turn. Can trigger up to 20 times per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "2",
+          "suffix": "%"
+        }
+      },
+      "lore": "Dreams are the stars and the sea!"
+    },
+    {
+      "id": "relic-variant-0491",
+      "name": "Submersible Helm",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "Gain 3 Temporary Tentacles every 3 turns.",
+      "descriptionArgs": {},
+      "lore": "Dreams are the stars and the sea!"
+    }
+  ]
+}

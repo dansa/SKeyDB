@@ -1,4 +1,4 @@
-export type DatabaseDetailResultKind = 'awakener' | 'wheel' | 'posse' | 'covenant'
+export type DatabaseDetailResultKind = 'awakener' | 'wheel' | 'posse' | 'covenant' | 'relic'
 
 export interface DatabaseDetailResultSetItem {
   id: string

@@ -150,6 +150,84 @@ describe('public-description-args', () => {
     )
   })
 
+  it('resolves scaled ceil-then-multiply args in the source-backed operation order', () => {
+    const arg = publicDescriptionArgsSchema.parse({
+      Arg1: {
+        kind: 'computed',
+        formulaKey: 'scaledCeilThenMultiply',
+        baseFormula: 'esotericResearchDepth',
+        multiplier: 0.06,
+        divisor: 3,
+        postMultiplier: 3,
+        inputs: ['accountLevel', 'ownedPosseCount'],
+      },
+    }).Arg1
+
+    expect(evaluatePublicFormulaExpression(arg, {accountLevel: 33, ownedPosseCount: 0})).toEqual({
+      resolved: true,
+      value: 15,
+    })
+    expect(
+      resolveDescriptionArg(arg, {
+        formulaContext: {accountLevel: 33, ownedPosseCount: 50},
+      }).formattedTotalValue,
+    ).toBe('15 (24)')
+    expect(
+      buildDescriptionArgHover(arg, {
+        formulaContext: {accountLevel: 33, ownedPosseCount: 50},
+      }),
+    ).toBe(
+      [
+        'Forbidden Lore Scaling',
+        'Base (Account Lv 33): ceil((243 × 6%) ÷ 3) × 3 = 15',
+        'Astral Reign: 50 Posses add +50% to Research → 24',
+      ].join('\n'),
+    )
+  })
+
+  it('defaults the scaled ceil-then-multiply divisor to one', () => {
+    const arg = publicDescriptionArgsSchema.parse({
+      Arg1: {
+        kind: 'computed',
+        formulaKey: 'scaledCeilThenMultiply',
+        baseFormula: 'esotericResearchDepth',
+        multiplier: 0.008,
+        postMultiplier: 3,
+        inputs: ['accountLevel', 'ownedPosseCount'],
+      },
+    }).Arg1
+
+    expect(evaluatePublicFormulaExpression(arg, {accountLevel: 33, ownedPosseCount: 0})).toEqual({
+      resolved: true,
+      value: 6,
+    })
+  })
+
+  it('rejects malformed scaled ceil-then-multiply args at the public boundary', () => {
+    const validArg = {
+      kind: 'computed',
+      formulaKey: 'scaledCeilThenMultiply',
+      baseFormula: 'esotericResearchDepth',
+      multiplier: 0.06,
+      postMultiplier: 3,
+      inputs: ['accountLevel', 'ownedPosseCount'],
+    } as const
+
+    expect(() => publicDescriptionArgsSchema.parse({Arg1: {...validArg, divisor: 0}})).toThrow()
+
+    expect(() =>
+      publicDescriptionArgsSchema.parse({
+        Arg1: {
+          kind: 'computed',
+          formulaKey: 'scaledCeilThenMultiply',
+          baseFormula: 'esotericResearchDepth',
+          multiplier: 0.06,
+          inputs: ['accountLevel', 'ownedPosseCount'],
+        },
+      }),
+    ).toThrow()
+  })
+
   it('derives normal occult research while explaining its Astral Reign value', () => {
     const arg: PublicDescriptionArg = {
       kind: 'computed',
@@ -182,6 +260,25 @@ describe('public-description-args', () => {
         'Astral Reign: 50 Posses add +50% to Research → 106',
       ].join('\n'),
     )
+  })
+
+  it('resolves the exposed occult research multiplier baseline', () => {
+    const arg: PublicDescriptionArg = {
+      kind: 'computed',
+      formulaKey: 'scaled',
+      baseFormula: 'occultResearchMultiplier',
+      multiplier: 50,
+      inputs: ['accountLevel', 'ownedPosseCount'],
+    }
+
+    const result = evaluatePublicFormulaExpression(arg, {accountLevel: 1, ownedPosseCount: 0})
+    expect(result.resolved).toBe(true)
+    if (result.resolved) expect(result.value).toBeCloseTo(56.5)
+    expect(
+      resolveDescriptionArg(arg, {
+        formulaContext: {accountLevel: 1, ownedPosseCount: 50},
+      }).formattedTotalValue,
+    ).toBe('57 (85)')
   })
 
   it('resolves wheel refinement linear computed args from wheel refinement level', () => {

@@ -20,7 +20,7 @@
   "releaseDate": "2026-06-29",
   "faction": "TBD",
   "aliases": ["pontos"],
-  "searchTags": [],
+  "searchTags": ["Tentacle DMG", "Fixed DMG", "Dispel"],
   "primaryScalingBase": 20,
   "baseStatsLv1": {
     "CON": 42,

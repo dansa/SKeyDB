@@ -10,11 +10,14 @@
   "assets": {
     "icon": "asset-relic-0004-icon"
   },
-  "relicType": "DIMENSIONAL_IMAGE",
+  "relicType": "Dimensional Image",
+  "categories": ["DIMENSIONAL_IMAGE"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0004",
   "ownerAwakenerId": "awakener-0004",
   "ownerAwakenerName": "Alva",
   "rarity": "SSR",
-  "realm": "CHAOS",
+  "aliases": [],
   "descriptionTemplate": "At turn start, Alva gains [Arg1] Aliemus. Within 1 turn, after playing the [Arg2]nd \"Defense\" card, place a {Precision Slash} with {Exhaust} into hand; after playing the [Arg3]nd \"Strike\" card, place a {Combat Stance} with {Exhaust} into hand.",
   "descriptionArgs": {
     "Arg1": {
@@ -29,5 +32,33 @@
       "kind": "fixed",
       "value": "2"
     }
-  }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0004",
+      "name": "Dimensional Image: Alva",
+      "label": "Dimensional Image",
+      "variantType": "DIMENSIONAL_IMAGE",
+      "tier": "Unique",
+      "category": "DIMENSIONAL_IMAGE",
+      "ownerAwakenerId": "awakener-0004",
+      "ownerAwakenerName": "Alva",
+      "rarity": "SSR",
+      "descriptionTemplate": "At turn start, Alva gains [Arg1] Aliemus. Within 1 turn, after playing the [Arg2]nd \"Defense\" card, place a {Precision Slash} with {Exhaust} into hand; after playing the [Arg3]nd \"Strike\" card, place a {Combat Stance} with {Exhaust} into hand.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "2"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "2"
+        }
+      }
+    }
+  ]
 }

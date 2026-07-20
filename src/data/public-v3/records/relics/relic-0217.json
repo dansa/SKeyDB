@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0217",
+  "name": "Mob Song",
+  "route": {
+    "slug": "mob-song",
+    "canonicalPath": "/database/relics/mob-song"
+  },
+  "assets": {
+    "icon": "asset-relic-0217-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["FADED_LEGACY", "EVENT"],
+  "variantCount": 2,
+  "defaultVariantId": "relic-variant-0355",
+  "rarity": "SSR",
+  "aliases": ["Mob Song+"],
+  "descriptionTemplate": "At turn start, gain 1 Arithmetica for each enemy. When an enemy is killed by Active DMG, inflict {Bleed} on other enemies equal to the excess Damage.",
+  "descriptionArgs": {},
+  "lore": "Specifically designed to torment your ears.",
+  "variants": [
+    {
+      "id": "relic-variant-0355",
+      "name": "Mob Song",
+      "label": "Faded Legacy - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "FADED_LEGACY",
+      "rarity": "SSR",
+      "descriptionTemplate": "At turn start, gain 1 Arithmetica for each enemy. When an enemy is killed by Active DMG, inflict {Bleed} on other enemies equal to the excess Damage.",
+      "descriptionArgs": {},
+      "lore": "Specifically designed to torment your ears."
+    },
+    {
+      "id": "relic-variant-0354",
+      "name": "Mob Song+",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "At turn start, gain 2 Arithmetica for each enemy. When an enemy is killed by Active DMG, deal double excess DMG to other enemies as {Bleed}.",
+      "descriptionArgs": {},
+      "lore": "Specifically designed to torment your ears."
+    }
+  ]
+}

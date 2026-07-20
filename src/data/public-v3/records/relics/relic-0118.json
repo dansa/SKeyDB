@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0118",
+  "name": "Chrono Pendulum \"Sleepless\"",
+  "route": {
+    "slug": "chrono-pendulum-sleepless",
+    "canonicalPath": "/database/relics/chrono-pendulum-sleepless"
+  },
+  "assets": {
+    "icon": "asset-relic-0118-icon"
+  },
+  "relicType": "Pendulum",
+  "categories": ["PENDULUM"],
+  "variantCount": 2,
+  "defaultVariantId": "relic-variant-0151",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "For each instance of DMG dealt, gain [Arg1] Temporary {STR}, up to 5 stacks. When the stack limit is reached, gain [Arg1] {STR}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.02,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0151",
+      "name": "Chrono Pendulum \"Sleepless\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "For each instance of DMG dealt, gain [Arg1] Temporary {STR}, up to 5 stacks. When the stack limit is reached, gain [Arg1] {STR}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.02,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      }
+    },
+    {
+      "id": "relic-variant-0152",
+      "name": "Chrono Pendulum \"Sleepless\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "Draw 1 card each time Arithmetica is spent, up to 5 times per turn. Gain 2 Arithmetica whenever the deck is reshuffled.",
+      "descriptionArgs": {}
+    }
+  ]
+}

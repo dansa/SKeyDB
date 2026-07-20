@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0208",
+  "name": "Mary the Pure",
+  "route": {
+    "slug": "mary-the-pure",
+    "canonicalPath": "/database/relics/mary-the-pure"
+  },
+  "assets": {
+    "icon": "asset-relic-0208-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["FADED_LEGACY"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0342",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "At the start of the battle, all cards with a current Arithmetica Cost of 1 gain +[Arg1] DMG and +[Arg2] Shield for this battle.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.08,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.025,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "Logic is like a cocktail; too much of it diminishes its benefits.",
+  "variants": [
+    {
+      "id": "relic-variant-0342",
+      "name": "Mary the Pure",
+      "label": "Faded Legacy - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "FADED_LEGACY",
+      "rarity": "SSR",
+      "descriptionTemplate": "At the start of the battle, all cards with a current Arithmetica Cost of 1 gain +[Arg1] DMG and +[Arg2] Shield for this battle.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.08,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.025,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "Logic is like a cocktail; too much of it diminishes its benefits."
+    }
+  ]
+}

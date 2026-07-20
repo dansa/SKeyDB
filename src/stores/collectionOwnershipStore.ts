@@ -11,7 +11,7 @@ import {
   type CollectionOwnershipKind,
   type CollectionOwnershipState,
 } from '@/domain/collection-ownership'
-import {safeStorageRead, type StorageLike} from '@/domain/storage'
+import {getBrowserLocalStorage, safeStorageRead, type StorageLike} from '@/domain/storage'
 import {
   COLLECTION_OWNERSHIP_KEY,
   COLLECTION_OWNERSHIP_LEGACY_KEY,
@@ -163,5 +163,5 @@ export function createCollectionOwnershipStore({
 }
 
 export const collectionOwnershipStore = createCollectionOwnershipStore({
-  storage: typeof window === 'undefined' ? null : window.localStorage,
+  storage: getBrowserLocalStorage(),
 })

@@ -139,22 +139,72 @@ describe('D-zone database popover entries', () => {
     ])
   })
 
-  it('omits relic metadata from the label and marks lore as flavor text', () => {
+  it('uses the exact D-Zone relic variant effect and marks lore as flavor text', () => {
     const relic: PublicRelicRecord = {
-      id: 'relic-9004',
+      schemaVersion: 3,
+      id: 'relic-0241',
       kind: 'relic',
-      name: '"Aequor Ring"',
+      name: "Prophet's Lamp",
+      route: {
+        slug: 'prophets-lamp',
+        canonicalPath: '/database/relics/prophets-lamp',
+      },
       assets: {},
+      aliases: [],
+      categories: ['ASTRAL_REIGN', 'FADED_LEGACY'],
+      defaultVariantId: 'relic-variant-0410',
       descriptionArgs: {},
-      descriptionTemplate: 'Increase the Relic Capacity by +1.',
-      rarity: 'SSR',
-      relicType: 'D-Zone Initial Relic',
-      lore: 'The sleepers in the abyssal ocean begin to stir.',
+      descriptionTemplate: 'Silver effect.',
+      rarity: 'SR',
+      relicType: 'Relic',
+      variantCount: 2,
+      variantCategoryTiers: [
+        {category: 'ASTRAL_REIGN', tier: 'Silver'},
+        {category: 'FADED_LEGACY', tier: 'Gold'},
+      ],
+      variantTiers: ['Silver', 'Gold'],
+      variants: [
+        {
+          id: 'relic-variant-0410',
+          name: "Prophet's Lamp",
+          label: 'Astral Reign - Silver',
+          variantType: 'STANDARD',
+          tier: 'Silver',
+          category: 'ASTRAL_REIGN',
+          rarity: 'SR',
+          descriptionTemplate: 'Silver effect.',
+          descriptionArgs: {},
+        },
+        {
+          id: 'relic-variant-0411',
+          name: "Prophet's Lamp+",
+          label: 'Astral Reign - Gold',
+          variantType: 'STANDARD',
+          tier: 'Gold',
+          category: 'ASTRAL_REIGN',
+          rarity: 'SSR',
+          descriptionTemplate: 'Gold effect.',
+          descriptionArgs: {},
+          lore: 'The sleepers in the abyssal ocean begin to stir.',
+        },
+      ],
     }
 
-    const entry = buildDzoneRelicPopoverEntry({record: relic})
+    const entry = buildDzoneRelicPopoverEntry({
+      record: relic,
+      variantId: 'relic-variant-0411',
+    })
 
-    expect(entry.label).toBe('')
+    expect(entry.key).toBe('dzone-relic:relic-0241:relic-variant-0411')
+    expect(entry.name).toBe("Prophet's Lamp+")
+    expect(entry.label).toBe('Astral Reign - Gold')
+    expect(entry.description).toBe('Gold effect.')
+    expect(entry.record).toMatchObject({
+      id: 'relic-variant-0411',
+      descriptionTemplate: 'Gold effect.',
+    })
+    expect(entry.navigationHref).toBe('/database/relics/prophets-lamp?variant=relic-variant-0411')
+    expect(entry.navigationLabel).toBe('Open relic details')
     expect(entry.attributeRows).toBeUndefined()
     expect(entry.descriptionSections?.at(-1)).toEqual({
       label: 'Lore',

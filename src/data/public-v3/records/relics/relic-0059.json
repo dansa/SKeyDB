@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0059",
+  "name": "Abyss Link",
+  "route": {
+    "slug": "abyss-link",
+    "canonicalPath": "/database/relics/abyss-link"
+  },
+  "assets": {
+    "icon": "asset-relic-0059-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["FADED_LEGACY"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0059",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "Gain [Arg1] Temporary {STR} when drawing a Symptom Card. For each Cursed Relic you have, your Crit. Rate and Crit. DMG increase by 10%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.02,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "In the desolate outskirts, a phone rings in the lonely booth.\n\"Darkness... hiss... endless... hissing... darkness...\"",
+  "variants": [
+    {
+      "id": "relic-variant-0059",
+      "name": "Abyss Link",
+      "label": "Faded Legacy - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "FADED_LEGACY",
+      "rarity": "SSR",
+      "descriptionTemplate": "Gain [Arg1] Temporary {STR} when drawing a Symptom Card. For each Cursed Relic you have, your Crit. Rate and Crit. DMG increase by 10%.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.02,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "In the desolate outskirts, a phone rings in the lonely booth.\n\"Darkness... hiss... endless... hissing... darkness...\""
+    }
+  ]
+}

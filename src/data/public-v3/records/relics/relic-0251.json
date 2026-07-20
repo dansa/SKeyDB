@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0251",
+  "name": "Putney Morning Post",
+  "route": {
+    "slug": "putney-morning-post",
+    "canonicalPath": "/database/relics/putney-morning-post"
+  },
+  "assets": {
+    "icon": "asset-relic-0251-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0424",
+  "rarity": "N",
+  "aliases": ["Putney Morning Post+"],
+  "descriptionTemplate": "Gain [Arg1]% DMG Amplification at the start of the Battle, and gain [Arg2] Arithmetica after receiving {Counter} for the first time each turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "lore": "Your most thoughtful toilet companion.",
+  "variants": [
+    {
+      "id": "relic-variant-0424",
+      "name": "Putney Morning Post",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "Gain [Arg1]% DMG Amplification at the start of the Battle, and gain [Arg2] Arithmetica after receiving {Counter} for the first time each turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15",
+          "suffix": "%"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "lore": "Your most thoughtful toilet companion."
+    },
+    {
+      "id": "relic-variant-0425",
+      "name": "Putney Morning Post+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "Gain [Arg1]% DMG Amplification at the start of the Battle, and gain [Arg2] Arithmetica after receiving {Counter} for the first time each turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "30",
+          "suffix": "%"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "2"
+        }
+      },
+      "lore": "Your most thoughtful toilet companion."
+    },
+    {
+      "id": "relic-variant-0423",
+      "name": "Putney Morning Post",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "Gain [Arg1] Shield at the start of battle. After playing \"Defense\" 7 times in this battle, immediately gain [Arg2] Shield. After playing \"Defense\" 21 times in this battle, gain 1 stack of Temporary {Barrier}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.06,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaledCeilThenMultiply",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.06,
+          "postMultiplier": 11.0,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "Your most thoughtful toilet companion."
+    }
+  ]
+}

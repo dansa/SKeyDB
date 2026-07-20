@@ -14,6 +14,7 @@ const publicScaledBaseFormulaSchema = z.enum([
   'somaticResearchHpMultiplier',
   'esotericResearchDepth',
   'occultResearchDepth',
+  'occultResearchMultiplier',
 ])
 
 const publicDescriptionArgStatSchema = z.enum(['ATK', 'DEF', 'CON'])
@@ -79,6 +80,19 @@ export const publicDescriptionArgSchema = z.discriminatedUnion('kind', [
     }),
     z.strictObject({
       kind: z.literal('computed'),
+      formulaKey: z.literal('scaledCeilThenMultiply'),
+      baseFormula: publicScaledBaseFormulaSchema,
+      multiplier: z.number(),
+      divisor: z.number().positive().optional(),
+      postMultiplier: z.number(),
+      inputs: z.array(publicFormulaKeySchema).min(1),
+      channel: nonEmptyStringSchema.optional(),
+      suffix: nonEmptyStringSchema.optional(),
+      stat: publicDescriptionArgStatSchema.optional(),
+      substatBonus: publicDescriptionArgSubstatBonusSchema.optional(),
+    }),
+    z.strictObject({
+      kind: z.literal('computed'),
       formulaKey: z.literal('wheelRefinementLinear'),
       baseValue: z.number(),
       perLevel: z.number(),
@@ -123,6 +137,13 @@ export type PublicScaledComputedDescriptionArg = Extract<
   PublicComputedDescriptionArg,
   {formulaKey: 'scaled'}
 >
+export type PublicScaledCeilThenMultiplyComputedDescriptionArg = Extract<
+  PublicComputedDescriptionArg,
+  {formulaKey: 'scaledCeilThenMultiply'}
+>
+export type PublicScaledFormulaDescriptionArg =
+  | PublicScaledComputedDescriptionArg
+  | PublicScaledCeilThenMultiplyComputedDescriptionArg
 export type PublicWheelRefinementLinearComputedDescriptionArg = Extract<
   PublicComputedDescriptionArg,
   {formulaKey: 'wheelRefinementLinear'}

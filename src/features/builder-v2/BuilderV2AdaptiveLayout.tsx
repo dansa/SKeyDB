@@ -50,6 +50,7 @@ export function BuilderV2AdaptiveLayout({
   const pickerToggleRef = useRef<HTMLButtonElement | null>(null)
   const pickerTriggerRef = useRef<HTMLElement | null>(null)
 
+  // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
   const closePicker = useStableEvent((restoreFocus = true) => {
     setIsPickerExpanded(false)
     if (restoreFocus) {
@@ -81,6 +82,7 @@ export function BuilderV2AdaptiveLayout({
   }, [closePicker, isPickerExpanded])
 
   const openPicker = useStableEvent(
+    // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
     (restoreTarget?: HTMLElement | null, options?: {ensureTarget?: boolean}) => {
       pickerTriggerRef.current = restoreTarget ?? getCurrentFocusRestoreTarget()
 
@@ -91,11 +93,13 @@ export function BuilderV2AdaptiveLayout({
     },
   )
 
+  // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
   const expandPickerFromControl = useStableEvent((restoreTarget?: HTMLElement | null) => {
     openPicker(restoreTarget ?? getCurrentFocusRestoreTarget(), {ensureTarget: false})
   })
 
   const selectAwakenerSlotAndOpenPicker = useStableEvent(
+    // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
     (slotId: string, restoreTarget?: HTMLElement | null) => {
       const focusRestoreTarget = restoreTarget ?? getCurrentFocusRestoreTarget()
       model.selectAwakenerSlot(slotId)
@@ -104,6 +108,7 @@ export function BuilderV2AdaptiveLayout({
   )
 
   const selectWheelSlotAndOpenPicker = useStableEvent(
+    // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
     (slotId: string, wheelIndex: WheelSlotIndex, restoreTarget?: HTMLElement | null) => {
       const focusRestoreTarget = restoreTarget ?? getCurrentFocusRestoreTarget()
       model.selectWheelSlot(slotId, wheelIndex)
@@ -112,6 +117,7 @@ export function BuilderV2AdaptiveLayout({
   )
 
   const selectCovenantSlotAndOpenPicker = useStableEvent(
+    // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
     (slotId: string, restoreTarget?: HTMLElement | null) => {
       const focusRestoreTarget = restoreTarget ?? getCurrentFocusRestoreTarget()
       model.selectCovenantSlot(slotId)
@@ -119,6 +125,7 @@ export function BuilderV2AdaptiveLayout({
     },
   )
 
+  // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
   const selectPosseAndOpenPicker = useStableEvent(() => {
     const restoreTarget = getCurrentFocusRestoreTarget()
     model.selectPosse()
@@ -135,18 +142,22 @@ export function BuilderV2AdaptiveLayout({
     }),
   )
 
+  // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
   const assignAwakener = useStableEvent((awakenerId: string) => {
     model.assignAwakener(awakenerId)
   })
 
+  // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
   const assignWheel = useStableEvent((wheelId: string) => {
     model.assignWheel(wheelId)
   })
 
+  // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
   const assignCovenant = useStableEvent((covenantId: string) => {
     model.assignCovenant(covenantId)
   })
 
+  // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
   const assignPosse = useStableEvent((posseId: string) => {
     model.assignPosse(posseId)
   })
@@ -314,6 +325,7 @@ function getCurrentFocusRestoreTarget(): HTMLElement | null {
 
 function useAdaptiveTeamManagementShortcuts(model: BuilderV2Model, openPicker: AdaptiveOpenPicker) {
   const selectTeamListSlotAndOpenPicker = useStableEvent(
+    // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
     (
       team: BuilderV2TeamSummary,
       slot: BuilderV2TeamSummarySlot,
@@ -339,6 +351,7 @@ function useAdaptiveTeamManagementShortcuts(model: BuilderV2Model, openPicker: A
   )
 
   const selectTeamListPosseAndOpenPicker = useStableEvent(
+    // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
     (team: BuilderV2TeamSummary, restoreTarget: HTMLElement | null) => {
       const isCurrentTarget =
         model.activeTeamId === team.id && model.activeTeamTarget?.kind === 'posse'

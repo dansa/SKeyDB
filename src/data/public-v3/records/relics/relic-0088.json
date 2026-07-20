@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0088",
+  "name": "Chant of the Tides",
+  "route": {
+    "slug": "chant-of-the-tides",
+    "canonicalPath": "/database/relics/chant-of-the-tides"
+  },
+  "assets": {
+    "icon": "asset-relic-0088-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0112",
+  "rarity": "N",
+  "aliases": ["Chant of the Tides+"],
+  "descriptionTemplate": "At battle start, Tentacle Limit +[Arg1], gain [Arg2] Tentacles.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "1"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "lore": "It is said that inedible animals like whelks absorb around 80% of the ocean's nutrients",
+  "variants": [
+    {
+      "id": "relic-variant-0112",
+      "name": "Chant of the Tides",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "At battle start, Tentacle Limit +[Arg1], gain [Arg2] Tentacles.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "1"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "lore": "It is said that inedible animals like whelks absorb around 80% of the ocean's nutrients"
+    },
+    {
+      "id": "relic-variant-0113",
+      "name": "Chant of the Tides+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "At battle start, Tentacle Limit +[Arg1], gain [Arg2] Tentacles.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "2"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "2"
+        }
+      },
+      "lore": "It is said that inedible animals like whelks absorb around 80% of the ocean's nutrients"
+    },
+    {
+      "id": "relic-variant-0111",
+      "name": "Chant of the Tides",
+      "label": "Faded Legacy - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "FADED_LEGACY",
+      "rarity": "SSR",
+      "descriptionTemplate": "Tentacle Limit +1. When HP is below 50%, {Tentacle DMG} +[Arg1].",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.05,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "It is said that inedible animals like whelks absorb around 80% of the ocean's nutrients"
+    }
+  ]
+}

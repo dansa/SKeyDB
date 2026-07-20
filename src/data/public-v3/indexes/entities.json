@@ -2431,6 +2431,15 @@
       "ownerAwakenerId": "awakener-0015",
       "ownerAwakenerName": "Erica"
     },
+    "derived.global.adsorption": {
+      "kind": "derivedSkill",
+      "id": "derived.global.adsorption",
+      "name": "Adsorption",
+      "route": {
+        "slug": "adsorption",
+        "canonicalPath": "/database/derived-skills/adsorption"
+      }
+    },
     "derived.global.adv-insight": {
       "kind": "derivedSkill",
       "id": "derived.global.adv-insight",
@@ -2447,6 +2456,60 @@
       "route": {
         "slug": "arouse",
         "canonicalPath": "/database/derived-skills/arouse"
+      }
+    },
+    "derived.global.assemble": {
+      "kind": "derivedSkill",
+      "id": "derived.global.assemble",
+      "name": "Assemble",
+      "route": {
+        "slug": "assemble",
+        "canonicalPath": "/database/derived-skills/assemble"
+      }
+    },
+    "derived.global.barbed-trident": {
+      "kind": "derivedSkill",
+      "id": "derived.global.barbed-trident",
+      "name": "Barbed Trident",
+      "route": {
+        "slug": "barbed-trident",
+        "canonicalPath": "/database/derived-skills/barbed-trident"
+      }
+    },
+    "derived.global.brilliance-of-humanity": {
+      "kind": "derivedSkill",
+      "id": "derived.global.brilliance-of-humanity",
+      "name": "Brilliance of Humanity",
+      "route": {
+        "slug": "brilliance-of-humanity",
+        "canonicalPath": "/database/derived-skills/brilliance-of-humanity"
+      }
+    },
+    "derived.global.coalsie-smack": {
+      "kind": "derivedSkill",
+      "id": "derived.global.coalsie-smack",
+      "name": "Coalsie SMACK!",
+      "route": {
+        "slug": "coalsie-smack",
+        "canonicalPath": "/database/derived-skills/coalsie-smack"
+      }
+    },
+    "derived.global.cocoon-of-revival": {
+      "kind": "derivedSkill",
+      "id": "derived.global.cocoon-of-revival",
+      "name": "Cocoon of Revival",
+      "route": {
+        "slug": "cocoon-of-revival",
+        "canonicalPath": "/database/derived-skills/cocoon-of-revival"
+      }
+    },
+    "derived.global.convulsion": {
+      "kind": "derivedSkill",
+      "id": "derived.global.convulsion",
+      "name": "Convulsion",
+      "route": {
+        "slug": "convulsion",
+        "canonicalPath": "/database/derived-skills/convulsion"
       }
     },
     "derived.global.countdown": {
@@ -2513,6 +2576,24 @@
         "canonicalPath": "/database/derived-skills/5-countdown"
       }
     },
+    "derived.global.devour-card": {
+      "kind": "derivedSkill",
+      "id": "derived.global.devour-card",
+      "name": "Devour",
+      "route": {
+        "slug": "devour",
+        "canonicalPath": "/database/derived-skills/devour"
+      }
+    },
+    "derived.global.divine-dedication": {
+      "kind": "derivedSkill",
+      "id": "derived.global.divine-dedication",
+      "name": "Divine Dedication",
+      "route": {
+        "slug": "divine-dedication",
+        "canonicalPath": "/database/derived-skills/divine-dedication"
+      }
+    },
     "derived.global.dreaming-of-wonderland": {
       "kind": "derivedSkill",
       "id": "derived.global.dreaming-of-wonderland",
@@ -2520,6 +2601,24 @@
       "route": {
         "slug": "dreaming-of-wonderland",
         "canonicalPath": "/database/derived-skills/dreaming-of-wonderland"
+      }
+    },
+    "derived.global.echoes-of-lost-shadows": {
+      "kind": "derivedSkill",
+      "id": "derived.global.echoes-of-lost-shadows",
+      "name": "Echoes of Lost Shadows",
+      "route": {
+        "slug": "echoes-of-lost-shadows",
+        "canonicalPath": "/database/derived-skills/echoes-of-lost-shadows"
+      }
+    },
+    "derived.global.echoes-of-the-past": {
+      "kind": "derivedSkill",
+      "id": "derived.global.echoes-of-the-past",
+      "name": "Echoes of the Past",
+      "route": {
+        "slug": "echoes-of-the-past",
+        "canonicalPath": "/database/derived-skills/echoes-of-the-past"
       }
     },
     "derived.global.embryo": {
@@ -2540,6 +2639,51 @@
         "canonicalPath": "/database/derived-skills/fleeting-beauty"
       }
     },
+    "derived.global.flicker-of-humanity": {
+      "kind": "derivedSkill",
+      "id": "derived.global.flicker-of-humanity",
+      "name": "Flicker of Humanity",
+      "route": {
+        "slug": "flicker-of-humanity",
+        "canonicalPath": "/database/derived-skills/flicker-of-humanity"
+      }
+    },
+    "derived.global.forbidden-truth": {
+      "kind": "derivedSkill",
+      "id": "derived.global.forbidden-truth",
+      "name": "Forbidden Truth",
+      "route": {
+        "slug": "forbidden-truth",
+        "canonicalPath": "/database/derived-skills/forbidden-truth"
+      }
+    },
+    "derived.global.gauntward": {
+      "kind": "derivedSkill",
+      "id": "derived.global.gauntward",
+      "name": "Gauntward",
+      "route": {
+        "slug": "gauntward",
+        "canonicalPath": "/database/derived-skills/gauntward"
+      }
+    },
+    "derived.global.glow-of-humanity": {
+      "kind": "derivedSkill",
+      "id": "derived.global.glow-of-humanity",
+      "name": "Glow of Humanity",
+      "route": {
+        "slug": "glow-of-humanity",
+        "canonicalPath": "/database/derived-skills/glow-of-humanity"
+      }
+    },
+    "derived.global.gluttonous-attack": {
+      "kind": "derivedSkill",
+      "id": "derived.global.gluttonous-attack",
+      "name": "Gluttonous Attack",
+      "route": {
+        "slug": "gluttonous-attack",
+        "canonicalPath": "/database/derived-skills/gluttonous-attack"
+      }
+    },
     "derived.global.gobble-up": {
       "kind": "derivedSkill",
       "id": "derived.global.gobble-up",
@@ -2558,6 +2702,15 @@
         "canonicalPath": "/database/derived-skills/hanafubuki"
       }
     },
+    "derived.global.hide-beta": {
+      "kind": "derivedSkill",
+      "id": "derived.global.hide-beta",
+      "name": "Hideβ",
+      "route": {
+        "slug": "hide-beta",
+        "canonicalPath": "/database/derived-skills/hide-beta"
+      }
+    },
     "derived.global.ichigo-ichie": {
       "kind": "derivedSkill",
       "id": "derived.global.ichigo-ichie",
@@ -2567,6 +2720,15 @@
         "canonicalPath": "/database/derived-skills/ichigo-ichie"
       }
     },
+    "derived.global.infinite-silver-vault": {
+      "kind": "derivedSkill",
+      "id": "derived.global.infinite-silver-vault",
+      "name": "Infinite Silver Vault",
+      "route": {
+        "slug": "infinite-silver-vault",
+        "canonicalPath": "/database/derived-skills/infinite-silver-vault"
+      }
+    },
     "derived.global.insight": {
       "kind": "derivedSkill",
       "id": "derived.global.insight",
@@ -2574,6 +2736,15 @@
       "route": {
         "slug": "insight",
         "canonicalPath": "/database/derived-skills/insight"
+      }
+    },
+    "derived.global.inspire-offsprings": {
+      "kind": "derivedSkill",
+      "id": "derived.global.inspire-offsprings",
+      "name": "Inspire Offsprings",
+      "route": {
+        "slug": "inspire-offsprings",
+        "canonicalPath": "/database/derived-skills/inspire-offsprings"
       }
     },
     "derived.global.leahs-coin": {
@@ -2594,6 +2765,114 @@
         "canonicalPath": "/database/derived-skills/light-cone-boundary"
       }
     },
+    "derived.global.luster-of-humanity": {
+      "kind": "derivedSkill",
+      "id": "derived.global.luster-of-humanity",
+      "name": "Luster of Humanity",
+      "route": {
+        "slug": "luster-of-humanity",
+        "canonicalPath": "/database/derived-skills/luster-of-humanity"
+      }
+    },
+    "derived.global.memories-envoys-verdict": {
+      "kind": "derivedSkill",
+      "id": "derived.global.memories-envoys-verdict",
+      "name": "Memories: Emissary's Verdict",
+      "route": {
+        "slug": "memories-emissarys-verdict",
+        "canonicalPath": "/database/derived-skills/memories-emissarys-verdict"
+      }
+    },
+    "derived.global.memories-honey-mead": {
+      "kind": "derivedSkill",
+      "id": "derived.global.memories-honey-mead",
+      "name": "Remembrance - Honey Wine",
+      "route": {
+        "slug": "remembrance-honey-wine",
+        "canonicalPath": "/database/derived-skills/remembrance-honey-wine"
+      }
+    },
+    "derived.global.memories-innocent-return-gift": {
+      "kind": "derivedSkill",
+      "id": "derived.global.memories-innocent-return-gift",
+      "name": "Memories: Innocent Return Gift",
+      "route": {
+        "slug": "memories-innocent-return-gift",
+        "canonicalPath": "/database/derived-skills/memories-innocent-return-gift"
+      }
+    },
+    "derived.global.memories-mutated-heart": {
+      "kind": "derivedSkill",
+      "id": "derived.global.memories-mutated-heart",
+      "name": "Memories - Mutated Heart",
+      "route": {
+        "slug": "memories-mutated-heart",
+        "canonicalPath": "/database/derived-skills/memories-mutated-heart"
+      }
+    },
+    "derived.global.memories-seed-of-abundance": {
+      "kind": "derivedSkill",
+      "id": "derived.global.memories-seed-of-abundance",
+      "name": "Remembrance - Core of Abundance",
+      "route": {
+        "slug": "remembrance-core-of-abundance",
+        "canonicalPath": "/database/derived-skills/remembrance-core-of-abundance"
+      }
+    },
+    "derived.global.memories-unfinished-wax-sculpture": {
+      "kind": "derivedSkill",
+      "id": "derived.global.memories-unfinished-wax-sculpture",
+      "name": "Memories - Unfinished Wax Sculpture",
+      "route": {
+        "slug": "memories-unfinished-wax-sculpture",
+        "canonicalPath": "/database/derived-skills/memories-unfinished-wax-sculpture"
+      }
+    },
+    "derived.global.memories-utopian-veil": {
+      "kind": "derivedSkill",
+      "id": "derived.global.memories-utopian-veil",
+      "name": "Remembrance - Utopian Veil",
+      "route": {
+        "slug": "remembrance-utopian-veil",
+        "canonicalPath": "/database/derived-skills/remembrance-utopian-veil"
+      }
+    },
+    "derived.global.one-way": {
+      "kind": "derivedSkill",
+      "id": "derived.global.one-way",
+      "name": "One-way",
+      "route": {
+        "slug": "one-way",
+        "canonicalPath": "/database/derived-skills/one-way"
+      }
+    },
+    "derived.global.palette": {
+      "kind": "derivedSkill",
+      "id": "derived.global.palette",
+      "name": "Palette",
+      "route": {
+        "slug": "palette",
+        "canonicalPath": "/database/derived-skills/palette"
+      }
+    },
+    "derived.global.parasol": {
+      "kind": "derivedSkill",
+      "id": "derived.global.parasol",
+      "name": "Parasol",
+      "route": {
+        "slug": "parasol",
+        "canonicalPath": "/database/derived-skills/parasol"
+      }
+    },
+    "derived.global.prion-virus": {
+      "kind": "derivedSkill",
+      "id": "derived.global.prion-virus",
+      "name": "Prion Virus",
+      "route": {
+        "slug": "prion-virus",
+        "canonicalPath": "/database/derived-skills/prion-virus"
+      }
+    },
     "derived.global.private-afternoon": {
       "kind": "derivedSkill",
       "id": "derived.global.private-afternoon",
@@ -2612,6 +2891,33 @@
         "canonicalPath": "/database/derived-skills/propagule-embryo"
       }
     },
+    "derived.global.protect-offsprings": {
+      "kind": "derivedSkill",
+      "id": "derived.global.protect-offsprings",
+      "name": "Protect Offsprings",
+      "route": {
+        "slug": "protect-offsprings",
+        "canonicalPath": "/database/derived-skills/protect-offsprings"
+      }
+    },
+    "derived.global.pupation": {
+      "kind": "derivedSkill",
+      "id": "derived.global.pupation",
+      "name": "Pupation",
+      "route": {
+        "slug": "pupation",
+        "canonicalPath": "/database/derived-skills/pupation"
+      }
+    },
+    "derived.global.radiance-of-humanity": {
+      "kind": "derivedSkill",
+      "id": "derived.global.radiance-of-humanity",
+      "name": "Radiance of Humanity",
+      "route": {
+        "slug": "radiance-of-humanity",
+        "canonicalPath": "/database/derived-skills/radiance-of-humanity"
+      }
+    },
     "derived.global.sakura-blossoms": {
       "kind": "derivedSkill",
       "id": "derived.global.sakura-blossoms",
@@ -2619,6 +2925,15 @@
       "route": {
         "slug": "sakura-blossoms",
         "canonicalPath": "/database/derived-skills/sakura-blossoms"
+      }
+    },
+    "derived.global.silver-key-dawn": {
+      "kind": "derivedSkill",
+      "id": "derived.global.silver-key-dawn",
+      "name": "Silver Key Dawn",
+      "route": {
+        "slug": "silver-key-dawn",
+        "canonicalPath": "/database/derived-skills/silver-key-dawn"
       }
     },
     "derived.global.silver-key-gleam": {
@@ -2630,6 +2945,15 @@
         "canonicalPath": "/database/derived-skills/silver-key-gleam"
       }
     },
+    "derived.global.silver-key-resonance": {
+      "kind": "derivedSkill",
+      "id": "derived.global.silver-key-resonance",
+      "name": "Silver Key Resonance",
+      "route": {
+        "slug": "silver-key-resonance",
+        "canonicalPath": "/database/derived-skills/silver-key-resonance"
+      }
+    },
     "derived.global.slumber": {
       "kind": "derivedSkill",
       "id": "derived.global.slumber",
@@ -2639,6 +2963,24 @@
         "canonicalPath": "/database/derived-skills/slumber"
       }
     },
+    "derived.global.solidify": {
+      "kind": "derivedSkill",
+      "id": "derived.global.solidify",
+      "name": "Solidify",
+      "route": {
+        "slug": "solidify",
+        "canonicalPath": "/database/derived-skills/solidify"
+      }
+    },
+    "derived.global.stagger": {
+      "kind": "derivedSkill",
+      "id": "derived.global.stagger",
+      "name": "Stagger",
+      "route": {
+        "slug": "stagger",
+        "canonicalPath": "/database/derived-skills/stagger"
+      }
+    },
     "derived.global.stakes-of-wisdom": {
       "kind": "derivedSkill",
       "id": "derived.global.stakes-of-wisdom",
@@ -2646,6 +2988,105 @@
       "route": {
         "slug": "stakes-of-wisdom",
         "canonicalPath": "/database/derived-skills/stakes-of-wisdom"
+      }
+    },
+    "derived.global.suspicion": {
+      "kind": "derivedSkill",
+      "id": "derived.global.suspicion",
+      "name": "Suspicion",
+      "route": {
+        "slug": "suspicion",
+        "canonicalPath": "/database/derived-skills/suspicion"
+      }
+    },
+    "derived.global.toxic-infusion": {
+      "kind": "derivedSkill",
+      "id": "derived.global.toxic-infusion",
+      "name": "Toxic Infusion",
+      "route": {
+        "slug": "toxic-infusion",
+        "canonicalPath": "/database/derived-skills/toxic-infusion"
+      }
+    },
+    "derived.global.toxic-outbreak": {
+      "kind": "derivedSkill",
+      "id": "derived.global.toxic-outbreak",
+      "name": "Toxic Outbreak",
+      "route": {
+        "slug": "toxic-outbreak",
+        "canonicalPath": "/database/derived-skills/toxic-outbreak"
+      }
+    },
+    "derived.global.twilight-envoys-verdict": {
+      "kind": "derivedSkill",
+      "id": "derived.global.twilight-envoys-verdict",
+      "name": "Twilight: The Envoy's Verdict",
+      "route": {
+        "slug": "twilight-the-envoys-verdict",
+        "canonicalPath": "/database/derived-skills/twilight-the-envoys-verdict"
+      }
+    },
+    "derived.global.twilight-honey-mead": {
+      "kind": "derivedSkill",
+      "id": "derived.global.twilight-honey-mead",
+      "name": "Twilight: Honey Mead",
+      "route": {
+        "slug": "twilight-honey-mead",
+        "canonicalPath": "/database/derived-skills/twilight-honey-mead"
+      }
+    },
+    "derived.global.twilight-innocent-return-gift": {
+      "kind": "derivedSkill",
+      "id": "derived.global.twilight-innocent-return-gift",
+      "name": "Twilight: Innocent Return Gift",
+      "route": {
+        "slug": "twilight-innocent-return-gift",
+        "canonicalPath": "/database/derived-skills/twilight-innocent-return-gift"
+      }
+    },
+    "derived.global.twilight-mutated-heart": {
+      "kind": "derivedSkill",
+      "id": "derived.global.twilight-mutated-heart",
+      "name": "Twilight: Mutated Heart",
+      "route": {
+        "slug": "twilight-mutated-heart",
+        "canonicalPath": "/database/derived-skills/twilight-mutated-heart"
+      }
+    },
+    "derived.global.twilight-seed-of-abundance": {
+      "kind": "derivedSkill",
+      "id": "derived.global.twilight-seed-of-abundance",
+      "name": "Twilight: Seed of Abundance",
+      "route": {
+        "slug": "twilight-seed-of-abundance",
+        "canonicalPath": "/database/derived-skills/twilight-seed-of-abundance"
+      }
+    },
+    "derived.global.twilight-unfinished-wax-sculpture": {
+      "kind": "derivedSkill",
+      "id": "derived.global.twilight-unfinished-wax-sculpture",
+      "name": "Twilight: Unfinished Wax Sculpture",
+      "route": {
+        "slug": "twilight-unfinished-wax-sculpture",
+        "canonicalPath": "/database/derived-skills/twilight-unfinished-wax-sculpture"
+      }
+    },
+    "derived.global.twilight-utopian-veil": {
+      "kind": "derivedSkill",
+      "id": "derived.global.twilight-utopian-veil",
+      "name": "Twilight: Utopian Veil",
+      "route": {
+        "slug": "twilight-utopian-veil",
+        "canonicalPath": "/database/derived-skills/twilight-utopian-veil"
+      }
+    },
+    "derived.global.unyielding-will-beta": {
+      "kind": "derivedSkill",
+      "id": "derived.global.unyielding-will-beta",
+      "name": "Unyielding Will β",
+      "route": {
+        "slug": "unyielding-will-beta",
+        "canonicalPath": "/database/derived-skills/unyielding-will-beta"
       }
     },
     "derived.global.vernal-message": {
@@ -9434,7 +9875,6 @@
       "assets": {
         "icon": "asset-relic-0001-icon"
       },
-      "realm": "CHAOS",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0001",
       "ownerAwakenerName": "24"
@@ -9450,7 +9890,6 @@
       "assets": {
         "icon": "asset-relic-0002-icon"
       },
-      "realm": "CARO",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0002",
       "ownerAwakenerName": "Agrippa"
@@ -9466,7 +9905,6 @@
       "assets": {
         "icon": "asset-relic-0003-icon"
       },
-      "realm": "CARO",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0003",
       "ownerAwakenerName": "Aigis"
@@ -9482,7 +9920,6 @@
       "assets": {
         "icon": "asset-relic-0004-icon"
       },
-      "realm": "CHAOS",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0004",
       "ownerAwakenerName": "Alva"
@@ -9498,7 +9935,6 @@
       "assets": {
         "icon": "asset-relic-0005-icon"
       },
-      "realm": "AEQUOR",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0005",
       "ownerAwakenerName": "Aurita"
@@ -9514,7 +9950,6 @@
       "assets": {
         "icon": "asset-relic-0006-icon"
       },
-      "realm": "AEQUOR",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0006",
       "ownerAwakenerName": "Caecus"
@@ -9530,7 +9965,6 @@
       "assets": {
         "icon": "asset-relic-0007-icon"
       },
-      "realm": "ULTRA",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0007",
       "ownerAwakenerName": "Casiah"
@@ -9546,7 +9980,6 @@
       "assets": {
         "icon": "asset-relic-0008-icon"
       },
-      "realm": "ULTRA",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0008",
       "ownerAwakenerName": "Castor"
@@ -9562,7 +9995,6 @@
       "assets": {
         "icon": "asset-relic-0009-icon"
       },
-      "realm": "AEQUOR",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0009",
       "ownerAwakenerName": "Celeste"
@@ -9578,7 +10010,6 @@
       "assets": {
         "icon": "asset-relic-0010-icon"
       },
-      "realm": "ULTRA",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0010",
       "ownerAwakenerName": "Clementine"
@@ -9594,7 +10025,6 @@
       "assets": {
         "icon": "asset-relic-0011-icon"
       },
-      "realm": "AEQUOR",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0011",
       "ownerAwakenerName": "Corposant"
@@ -9610,7 +10040,6 @@
       "assets": {
         "icon": "asset-relic-0012-icon"
       },
-      "realm": "ULTRA",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0012",
       "ownerAwakenerName": "Daffodil"
@@ -9626,7 +10055,6 @@
       "assets": {
         "icon": "asset-relic-0013-icon"
       },
-      "realm": "CHAOS",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0013",
       "ownerAwakenerName": "Doll"
@@ -9642,7 +10070,6 @@
       "assets": {
         "icon": "asset-relic-0014-icon"
       },
-      "realm": "CARO",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0014",
       "ownerAwakenerName": "Doresain"
@@ -9658,7 +10085,6 @@
       "assets": {
         "icon": "asset-relic-0015-icon"
       },
-      "realm": "ULTRA",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0015",
       "ownerAwakenerName": "Erica"
@@ -9674,7 +10100,6 @@
       "assets": {
         "icon": "asset-relic-0016-icon"
       },
-      "realm": "CARO",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0016",
       "ownerAwakenerName": "Faint"
@@ -9690,7 +10115,6 @@
       "assets": {
         "icon": "asset-relic-0017-icon"
       },
-      "realm": "AEQUOR",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0017",
       "ownerAwakenerName": "Faros"
@@ -9706,7 +10130,6 @@
       "assets": {
         "icon": "asset-relic-0018-icon"
       },
-      "realm": "CHAOS",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0018",
       "ownerAwakenerName": "Doll: Inferno"
@@ -9722,7 +10145,6 @@
       "assets": {
         "icon": "asset-relic-0019-icon"
       },
-      "realm": "CARO",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0019",
       "ownerAwakenerName": "Helot: Catena"
@@ -9738,7 +10160,6 @@
       "assets": {
         "icon": "asset-relic-0020-icon"
       },
-      "realm": "CHAOS",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0020",
       "ownerAwakenerName": "Ramona: Timeworn"
@@ -9754,7 +10175,6 @@
       "assets": {
         "icon": "asset-relic-0021-icon"
       },
-      "realm": "AEQUOR",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0021",
       "ownerAwakenerName": "Goliath"
@@ -9770,7 +10190,6 @@
       "assets": {
         "icon": "asset-relic-0022-icon"
       },
-      "realm": "CHAOS",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0022",
       "ownerAwakenerName": "Hameln"
@@ -9786,7 +10205,6 @@
       "assets": {
         "icon": "asset-relic-0023-icon"
       },
-      "realm": "CARO",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0023",
       "ownerAwakenerName": "Helot"
@@ -9802,7 +10220,6 @@
       "assets": {
         "icon": "asset-relic-0024-icon"
       },
-      "realm": "ULTRA",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0024",
       "ownerAwakenerName": "Horla"
@@ -9818,7 +10235,6 @@
       "assets": {
         "icon": "asset-relic-0025-icon"
       },
-      "realm": "ULTRA",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0025",
       "ownerAwakenerName": "Jenkin"
@@ -9834,7 +10250,6 @@
       "assets": {
         "icon": "asset-relic-0026-icon"
       },
-      "realm": "CHAOS",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0026",
       "ownerAwakenerName": "Karen"
@@ -9850,7 +10265,6 @@
       "assets": {
         "icon": "asset-relic-0027-icon"
       },
-      "realm": "CHAOS",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0027",
       "ownerAwakenerName": "Kathigu-Ra"
@@ -9866,7 +10280,6 @@
       "assets": {
         "icon": "asset-relic-0028-icon"
       },
-      "realm": "CARO",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0028",
       "ownerAwakenerName": "Leigh"
@@ -9882,7 +10295,6 @@
       "assets": {
         "icon": "asset-relic-0029-icon"
       },
-      "realm": "CHAOS",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0029",
       "ownerAwakenerName": "Lily"
@@ -9898,7 +10310,6 @@
       "assets": {
         "icon": "asset-relic-0030-icon"
       },
-      "realm": "ULTRA",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0030",
       "ownerAwakenerName": "Liz"
@@ -9914,7 +10325,6 @@
       "assets": {
         "icon": "asset-relic-0031-icon"
       },
-      "realm": "CHAOS",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0031",
       "ownerAwakenerName": "Lotan"
@@ -9930,7 +10340,6 @@
       "assets": {
         "icon": "asset-relic-0032-icon"
       },
-      "realm": "AEQUOR",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0032",
       "ownerAwakenerName": "Miryam"
@@ -9946,7 +10355,6 @@
       "assets": {
         "icon": "asset-relic-0033-icon"
       },
-      "realm": "CHAOS",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0033",
       "ownerAwakenerName": "Mouchette"
@@ -9962,7 +10370,6 @@
       "assets": {
         "icon": "asset-relic-0034-icon"
       },
-      "realm": "AEQUOR",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0034",
       "ownerAwakenerName": "Murphy"
@@ -9978,7 +10385,6 @@
       "assets": {
         "icon": "asset-relic-0035-icon"
       },
-      "realm": "AEQUOR",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0035",
       "ownerAwakenerName": "Murphy: Fauxborn"
@@ -9994,7 +10400,6 @@
       "assets": {
         "icon": "asset-relic-0036-icon"
       },
-      "realm": "CHAOS",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0036",
       "ownerAwakenerName": "Nautila"
@@ -10010,7 +10415,6 @@
       "assets": {
         "icon": "asset-relic-0037-icon"
       },
-      "realm": "CHAOS",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0037",
       "ownerAwakenerName": "Nymphaea"
@@ -10026,7 +10430,6 @@
       "assets": {
         "icon": "asset-relic-0038-icon"
       },
-      "realm": "CHAOS",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0038",
       "ownerAwakenerName": "Ogier"
@@ -10042,7 +10445,6 @@
       "assets": {
         "icon": "asset-relic-0039-icon"
       },
-      "realm": "CHAOS",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0039",
       "ownerAwakenerName": "Pandia"
@@ -10058,7 +10460,6 @@
       "assets": {
         "icon": "asset-relic-0040-icon"
       },
-      "realm": "CARO",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0040",
       "ownerAwakenerName": "Pickman"
@@ -10074,7 +10475,6 @@
       "assets": {
         "icon": "asset-relic-0041-icon"
       },
-      "realm": "ULTRA",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0041",
       "ownerAwakenerName": "Pollux"
@@ -10090,7 +10490,6 @@
       "assets": {
         "icon": "asset-relic-0042-icon"
       },
-      "realm": "CHAOS",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0042",
       "ownerAwakenerName": "Ramona"
@@ -10106,7 +10505,6 @@
       "assets": {
         "icon": "asset-relic-0043-icon"
       },
-      "realm": "CHAOS",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0043",
       "ownerAwakenerName": "Ryker"
@@ -10122,7 +10520,6 @@
       "assets": {
         "icon": "asset-relic-0044-icon"
       },
-      "realm": "CARO",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0044",
       "ownerAwakenerName": "Salvador"
@@ -10138,7 +10535,6 @@
       "assets": {
         "icon": "asset-relic-0045-icon"
       },
-      "realm": "AEQUOR",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0045",
       "ownerAwakenerName": "Sanga"
@@ -10154,7 +10550,6 @@
       "assets": {
         "icon": "asset-relic-0046-icon"
       },
-      "realm": "CARO",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0046",
       "ownerAwakenerName": "Sorel"
@@ -10170,7 +10565,6 @@
       "assets": {
         "icon": "asset-relic-0047-icon"
       },
-      "realm": "CHAOS",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0047",
       "ownerAwakenerName": "Tawil"
@@ -10186,7 +10580,6 @@
       "assets": {
         "icon": "asset-relic-0048-icon"
       },
-      "realm": "CARO",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0048",
       "ownerAwakenerName": "Thais"
@@ -10202,7 +10595,6 @@
       "assets": {
         "icon": "asset-relic-0049-icon"
       },
-      "realm": "ULTRA",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0049",
       "ownerAwakenerName": "Tinct"
@@ -10218,7 +10610,6 @@
       "assets": {
         "icon": "asset-relic-0050-icon"
       },
-      "realm": "AEQUOR",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0050",
       "ownerAwakenerName": "Tulu"
@@ -10234,7 +10625,6 @@
       "assets": {
         "icon": "asset-relic-0051-icon"
       },
-      "realm": "CARO",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0051",
       "ownerAwakenerName": "Uvhash"
@@ -10250,7 +10640,6 @@
       "assets": {
         "icon": "asset-relic-0052-icon"
       },
-      "realm": "ULTRA",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0052",
       "ownerAwakenerName": "Wanda"
@@ -10266,7 +10655,6 @@
       "assets": {
         "icon": "asset-relic-0053-icon"
       },
-      "realm": "ULTRA",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0053",
       "ownerAwakenerName": "Winkle"
@@ -10282,7 +10670,6 @@
       "assets": {
         "icon": "asset-relic-0054-icon"
       },
-      "realm": "CARO",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0054",
       "ownerAwakenerName": "Xu"
@@ -10298,7 +10685,6 @@
       "assets": {
         "icon": "asset-relic-0055-icon"
       },
-      "realm": "AEQUOR",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0055",
       "ownerAwakenerName": "Vortice"
@@ -10314,7 +10700,6 @@
       "assets": {
         "icon": "asset-relic-0056-icon"
       },
-      "realm": "ULTRA",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0056",
       "ownerAwakenerName": "Arachne"
@@ -10330,7 +10715,6 @@
       "assets": {
         "icon": "asset-relic-0057-icon"
       },
-      "realm": "CARO",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0057",
       "ownerAwakenerName": "Saya"
@@ -10346,1385 +10730,2953 @@
       "assets": {
         "icon": "asset-relic-0058-icon"
       },
-      "realm": "AEQUOR",
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0058",
       "ownerAwakenerName": "Pontos"
     },
-    "relic-9001": {
+    "relic-0059": {
       "kind": "relic",
-      "id": "relic-9001",
-      "name": "Preserved Butterfly+",
+      "id": "relic-0059",
+      "name": "Abyss Link",
       "route": {
-        "slug": "preserved-butterfly",
-        "canonicalPath": "/database/relics/preserved-butterfly"
+        "slug": "abyss-link",
+        "canonicalPath": "/database/relics/abyss-link"
       },
       "assets": {
-        "icon": "asset-relic-9001-icon"
-      }
-    },
-    "relic-9002": {
-      "kind": "relic",
-      "id": "relic-9002",
-      "name": "Rite of Spring+",
-      "route": {
-        "slug": "rite-of-spring",
-        "canonicalPath": "/database/relics/rite-of-spring"
+        "icon": "asset-relic-0059-icon"
       },
-      "assets": {
-        "icon": "asset-relic-9002-icon"
-      }
+      "rarity": "SSR"
     },
-    "relic-9003": {
+    "relic-0060": {
       "kind": "relic",
-      "id": "relic-9003",
-      "name": "Filigree Agate+",
-      "route": {
-        "slug": "filigree-agate",
-        "canonicalPath": "/database/relics/filigree-agate"
-      },
-      "assets": {
-        "icon": "asset-relic-9003-icon"
-      }
-    },
-    "relic-9004": {
-      "kind": "relic",
-      "id": "relic-9004",
-      "name": "\"Aequor Ring\"",
+      "id": "relic-0060",
+      "name": "Aequor Ring",
       "route": {
         "slug": "aequor-ring",
         "canonicalPath": "/database/relics/aequor-ring"
       },
       "assets": {
-        "icon": "asset-relic-9004-icon"
+        "icon": "asset-relic-0060-icon"
       },
       "rarity": "SSR"
     },
-    "relic-9005": {
+    "relic-0061": {
       "kind": "relic",
-      "id": "relic-9005",
-      "name": "Lucky Rabbit's Paw+",
+      "id": "relic-0061",
+      "name": "Alfonso's Artifact",
       "route": {
-        "slug": "lucky-rabbits-paw",
-        "canonicalPath": "/database/relics/lucky-rabbits-paw"
+        "slug": "alfonsos-artifact",
+        "canonicalPath": "/database/relics/alfonsos-artifact"
       },
       "assets": {
-        "icon": "asset-relic-9005-icon"
-      }
+        "icon": "asset-relic-0061-icon"
+      },
+      "rarity": "N"
     },
-    "relic-9006": {
+    "relic-0062": {
       "kind": "relic",
-      "id": "relic-9006",
-      "name": "Doctor's Case+",
+      "id": "relic-0062",
+      "name": "Alien Heart",
       "route": {
-        "slug": "doctors-case",
-        "canonicalPath": "/database/relics/doctors-case"
+        "slug": "alien-heart",
+        "canonicalPath": "/database/relics/alien-heart"
       },
       "assets": {
-        "icon": "asset-relic-9006-icon"
-      }
+        "icon": "asset-relic-0062-icon"
+      },
+      "rarity": "N"
     },
-    "relic-9007": {
+    "relic-0063": {
       "kind": "relic",
-      "id": "relic-9007",
-      "name": "Iron Lock+",
+      "id": "relic-0063",
+      "name": "Antique Puzzle",
       "route": {
-        "slug": "iron-lock",
-        "canonicalPath": "/database/relics/iron-lock"
+        "slug": "antique-puzzle",
+        "canonicalPath": "/database/relics/antique-puzzle"
       },
       "assets": {
-        "icon": "asset-relic-9007-icon"
-      }
+        "icon": "asset-relic-0063-icon"
+      },
+      "rarity": "SSR"
     },
-    "relic-9008": {
+    "relic-0064": {
       "kind": "relic",
-      "id": "relic-9008",
-      "name": "Uncanny Salve+",
+      "id": "relic-0064",
+      "name": "Arcana Archive",
       "route": {
-        "slug": "uncanny-salve",
-        "canonicalPath": "/database/relics/uncanny-salve"
+        "slug": "arcana-archive",
+        "canonicalPath": "/database/relics/arcana-archive"
       },
       "assets": {
-        "icon": "asset-relic-9008-icon"
-      }
-    },
-    "relic-9009": {
-      "kind": "relic",
-      "id": "relic-9009",
-      "name": "Laurel Cufflinks+",
-      "route": {
-        "slug": "laurel-cufflinks",
-        "canonicalPath": "/database/relics/laurel-cufflinks"
+        "icon": "asset-relic-0064-icon"
       },
-      "assets": {
-        "icon": "asset-relic-9009-icon"
-      }
+      "rarity": "N"
     },
-    "relic-9010": {
+    "relic-0065": {
       "kind": "relic",
-      "id": "relic-9010",
-      "name": "Forgotten Loom+",
-      "route": {
-        "slug": "forgotten-loom",
-        "canonicalPath": "/database/relics/forgotten-loom"
-      },
-      "assets": {
-        "icon": "asset-relic-9010-icon"
-      }
-    },
-    "relic-9011": {
-      "kind": "relic",
-      "id": "relic-9011",
-      "name": "Forgotten Prelude+",
-      "route": {
-        "slug": "forgotten-prelude",
-        "canonicalPath": "/database/relics/forgotten-prelude"
-      },
-      "assets": {
-        "icon": "asset-relic-9011-icon"
-      }
-    },
-    "relic-9012": {
-      "kind": "relic",
-      "id": "relic-9012",
-      "name": "Brand-New Wallet+",
-      "route": {
-        "slug": "brand-new-wallet",
-        "canonicalPath": "/database/relics/brand-new-wallet"
-      },
-      "assets": {
-        "icon": "asset-relic-9012-icon"
-      }
-    },
-    "relic-9013": {
-      "kind": "relic",
-      "id": "relic-9013",
-      "name": "True North Compass+",
-      "route": {
-        "slug": "true-north-compass",
-        "canonicalPath": "/database/relics/true-north-compass"
-      },
-      "assets": {
-        "icon": "asset-relic-9013-icon"
-      }
-    },
-    "relic-9014": {
-      "kind": "relic",
-      "id": "relic-9014",
-      "name": "Proto Battery+",
-      "route": {
-        "slug": "proto-battery",
-        "canonicalPath": "/database/relics/proto-battery"
-      },
-      "assets": {
-        "icon": "asset-relic-9014-icon"
-      }
-    },
-    "relic-9015": {
-      "kind": "relic",
-      "id": "relic-9015",
-      "name": "Our Home+",
-      "route": {
-        "slug": "our-home",
-        "canonicalPath": "/database/relics/our-home"
-      },
-      "assets": {
-        "icon": "asset-relic-9015-icon"
-      }
-    },
-    "relic-9016": {
-      "kind": "relic",
-      "id": "relic-9016",
-      "name": "Crimson Brooch+",
-      "route": {
-        "slug": "crimson-brooch",
-        "canonicalPath": "/database/relics/crimson-brooch"
-      },
-      "assets": {
-        "icon": "asset-relic-9016-icon"
-      }
-    },
-    "relic-9017": {
-      "kind": "relic",
-      "id": "relic-9017",
-      "name": "Malignant Child+",
-      "route": {
-        "slug": "malignant-child",
-        "canonicalPath": "/database/relics/malignant-child"
-      },
-      "assets": {
-        "icon": "asset-relic-9017-icon"
-      }
-    },
-    "relic-9018": {
-      "kind": "relic",
-      "id": "relic-9018",
-      "name": "Blessed Blood+",
-      "route": {
-        "slug": "blessed-blood",
-        "canonicalPath": "/database/relics/blessed-blood"
-      },
-      "assets": {
-        "icon": "asset-relic-9018-icon"
-      }
-    },
-    "relic-9019": {
-      "kind": "relic",
-      "id": "relic-9019",
-      "name": "Ritual Dagger+",
-      "route": {
-        "slug": "ritual-dagger",
-        "canonicalPath": "/database/relics/ritual-dagger"
-      },
-      "assets": {
-        "icon": "asset-relic-9019-icon"
-      }
-    },
-    "relic-9020": {
-      "kind": "relic",
-      "id": "relic-9020",
-      "name": "Arcana Relic+",
+      "id": "relic-0065",
+      "name": "Arcana Relic",
       "route": {
         "slug": "arcana-relic",
         "canonicalPath": "/database/relics/arcana-relic"
       },
       "assets": {
-        "icon": "asset-relic-9020-icon"
-      }
-    },
-    "relic-9021": {
-      "kind": "relic",
-      "id": "relic-9021",
-      "name": "Celestial Astrolabe+",
-      "route": {
-        "slug": "celestial-astrolabe",
-        "canonicalPath": "/database/relics/celestial-astrolabe"
+        "icon": "asset-relic-0065-icon"
       },
-      "assets": {
-        "icon": "asset-relic-9021-icon"
-      }
+      "rarity": "N"
     },
-    "relic-9022": {
+    "relic-0066": {
       "kind": "relic",
-      "id": "relic-9022",
-      "name": "Vitality Injection+",
-      "route": {
-        "slug": "vitality-injection",
-        "canonicalPath": "/database/relics/vitality-injection"
-      },
-      "assets": {
-        "icon": "asset-relic-9022-icon"
-      }
-    },
-    "relic-9023": {
-      "kind": "relic",
-      "id": "relic-9023",
-      "name": "Mute Jukebox+",
-      "route": {
-        "slug": "mute-jukebox",
-        "canonicalPath": "/database/relics/mute-jukebox"
-      },
-      "assets": {
-        "icon": "asset-relic-9023-icon"
-      }
-    },
-    "relic-9024": {
-      "kind": "relic",
-      "id": "relic-9024",
-      "name": "Nettle Vest+",
-      "route": {
-        "slug": "nettle-vest",
-        "canonicalPath": "/database/relics/nettle-vest"
-      },
-      "assets": {
-        "icon": "asset-relic-9024-icon"
-      }
-    },
-    "relic-9025": {
-      "kind": "relic",
-      "id": "relic-9025",
-      "name": "Highest Honor+",
-      "route": {
-        "slug": "highest-honor",
-        "canonicalPath": "/database/relics/highest-honor"
-      },
-      "assets": {
-        "icon": "asset-relic-9025-icon"
-      }
-    },
-    "relic-9026": {
-      "kind": "relic",
-      "id": "relic-9026",
-      "name": "Arcane Gloves+",
+      "id": "relic-0066",
+      "name": "Arcane Gloves",
       "route": {
         "slug": "arcane-gloves",
         "canonicalPath": "/database/relics/arcane-gloves"
       },
       "assets": {
-        "icon": "asset-relic-9026-icon"
-      }
+        "icon": "asset-relic-0066-icon"
+      },
+      "rarity": "N"
     },
-    "relic-9027": {
+    "relic-0067": {
       "kind": "relic",
-      "id": "relic-9027",
-      "name": "Mythag Insignia+",
+      "id": "relic-0067",
+      "name": "Argent Return",
       "route": {
-        "slug": "mythag-insignia",
-        "canonicalPath": "/database/relics/mythag-insignia"
+        "slug": "argent-return",
+        "canonicalPath": "/database/relics/argent-return"
       },
       "assets": {
-        "icon": "asset-relic-9027-icon"
-      }
+        "icon": "asset-relic-0067-icon"
+      },
+      "rarity": "SR"
     },
-    "relic-9028": {
+    "relic-0074": {
       "kind": "relic",
-      "id": "relic-9028",
-      "name": "Truth Unbound+",
+      "id": "relic-0074",
+      "name": "Barbed Trident",
       "route": {
-        "slug": "truth-unbound",
-        "canonicalPath": "/database/relics/truth-unbound"
+        "slug": "barbed-trident",
+        "canonicalPath": "/database/relics/barbed-trident"
       },
       "assets": {
-        "icon": "asset-relic-9028-icon"
-      }
+        "icon": "asset-relic-0074-icon"
+      },
+      "rarity": "N"
     },
-    "relic-9029": {
+    "relic-0075": {
       "kind": "relic",
-      "id": "relic-9029",
-      "name": "Rusty Lancet+",
+      "id": "relic-0075",
+      "name": "Big Mouth Button",
       "route": {
-        "slug": "rusty-lancet",
-        "canonicalPath": "/database/relics/rusty-lancet"
+        "slug": "big-mouth-button",
+        "canonicalPath": "/database/relics/big-mouth-button"
       },
       "assets": {
-        "icon": "asset-relic-9029-icon"
-      }
-    },
-    "relic-9030": {
-      "kind": "relic",
-      "id": "relic-9030",
-      "name": "Guardian Hand+",
-      "route": {
-        "slug": "guardian-hand",
-        "canonicalPath": "/database/relics/guardian-hand"
+        "icon": "asset-relic-0075-icon"
       },
-      "assets": {
-        "icon": "asset-relic-9030-icon"
-      }
+      "rarity": "SR"
     },
-    "relic-9031": {
+    "relic-0076": {
       "kind": "relic",
-      "id": "relic-9031",
-      "name": "Vision Corrector+",
-      "route": {
-        "slug": "vision-corrector",
-        "canonicalPath": "/database/relics/vision-corrector"
-      },
-      "assets": {
-        "icon": "asset-relic-9031-icon"
-      }
-    },
-    "relic-9032": {
-      "kind": "relic",
-      "id": "relic-9032",
-      "name": "Veil of the Nameless Deity+",
-      "route": {
-        "slug": "veil-of-the-nameless-deity",
-        "canonicalPath": "/database/relics/veil-of-the-nameless-deity"
-      },
-      "assets": {
-        "icon": "asset-relic-9032-icon"
-      }
-    },
-    "relic-9033": {
-      "kind": "relic",
-      "id": "relic-9033",
-      "name": "Deceased's Chrono+",
-      "route": {
-        "slug": "deceaseds-chrono",
-        "canonicalPath": "/database/relics/deceaseds-chrono"
-      },
-      "assets": {
-        "icon": "asset-relic-9033-icon"
-      }
-    },
-    "relic-9034": {
-      "kind": "relic",
-      "id": "relic-9034",
-      "name": "Eerie Hook",
-      "route": {
-        "slug": "eerie-hook",
-        "canonicalPath": "/database/relics/eerie-hook"
-      },
-      "assets": {
-        "icon": "asset-relic-9034-icon"
-      }
-    },
-    "relic-9035": {
-      "kind": "relic",
-      "id": "relic-9035",
-      "name": "Wailing Bell",
-      "route": {
-        "slug": "wailing-bell",
-        "canonicalPath": "/database/relics/wailing-bell"
-      },
-      "assets": {
-        "icon": "asset-relic-9035-icon"
-      }
-    },
-    "relic-9036": {
-      "kind": "relic",
-      "id": "relic-9036",
-      "name": "Pathwalker's Remains",
-      "route": {
-        "slug": "pathwalkers-remains",
-        "canonicalPath": "/database/relics/pathwalkers-remains"
-      },
-      "assets": {
-        "icon": "asset-relic-9036-icon"
-      }
-    },
-    "relic-9037": {
-      "kind": "relic",
-      "id": "relic-9037",
-      "name": "Trickster's Hat",
-      "route": {
-        "slug": "tricksters-hat",
-        "canonicalPath": "/database/relics/tricksters-hat"
-      },
-      "assets": {
-        "icon": "asset-relic-9037-icon"
-      }
-    },
-    "relic-9038": {
-      "kind": "relic",
-      "id": "relic-9038",
-      "name": "Omen Ritual Bird",
-      "route": {
-        "slug": "omen-ritual-bird",
-        "canonicalPath": "/database/relics/omen-ritual-bird"
-      },
-      "assets": {
-        "icon": "asset-relic-9038-icon"
-      }
-    },
-    "relic-9039": {
-      "kind": "relic",
-      "id": "relic-9039",
+      "id": "relic-0076",
       "name": "Black Candle",
       "route": {
         "slug": "black-candle",
         "canonicalPath": "/database/relics/black-candle"
       },
       "assets": {
-        "icon": "asset-relic-9039-icon"
+        "icon": "asset-relic-0076-icon"
       }
     },
-    "relic-9040": {
+    "relic-0077": {
       "kind": "relic",
-      "id": "relic-9040",
-      "name": "Salvific Limb",
+      "id": "relic-0077",
+      "name": "Black Star Ember",
       "route": {
-        "slug": "salvific-limb",
-        "canonicalPath": "/database/relics/salvific-limb"
+        "slug": "black-star-ember",
+        "canonicalPath": "/database/relics/black-star-ember"
       },
       "assets": {
-        "icon": "asset-relic-9040-icon"
+        "icon": "asset-relic-0077-icon"
       }
     },
-    "relic-9041": {
+    "relic-0078": {
       "kind": "relic",
-      "id": "relic-9041",
-      "name": "\"Caro Ring\"",
+      "id": "relic-0078",
+      "name": "Blessed Blood",
+      "route": {
+        "slug": "blessed-blood",
+        "canonicalPath": "/database/relics/blessed-blood"
+      },
+      "assets": {
+        "icon": "asset-relic-0078-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0079": {
+      "kind": "relic",
+      "id": "relic-0079",
+      "name": "Bloody Pebble",
+      "route": {
+        "slug": "bloody-pebble",
+        "canonicalPath": "/database/relics/bloody-pebble"
+      },
+      "assets": {
+        "icon": "asset-relic-0079-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0080": {
+      "kind": "relic",
+      "id": "relic-0080",
+      "name": "Bone Chalice",
+      "route": {
+        "slug": "bone-chalice",
+        "canonicalPath": "/database/relics/bone-chalice"
+      },
+      "assets": {
+        "icon": "asset-relic-0080-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0081": {
+      "kind": "relic",
+      "id": "relic-0081",
+      "name": "Brand-New Wallet",
+      "route": {
+        "slug": "brand-new-wallet",
+        "canonicalPath": "/database/relics/brand-new-wallet"
+      },
+      "assets": {
+        "icon": "asset-relic-0081-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0082": {
+      "kind": "relic",
+      "id": "relic-0082",
+      "name": "Brass Censer",
+      "route": {
+        "slug": "brass-censer",
+        "canonicalPath": "/database/relics/brass-censer"
+      },
+      "assets": {
+        "icon": "asset-relic-0082-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0083": {
+      "kind": "relic",
+      "id": "relic-0083",
+      "name": "Broken Visage",
+      "route": {
+        "slug": "broken-visage",
+        "canonicalPath": "/database/relics/broken-visage"
+      },
+      "assets": {
+        "icon": "asset-relic-0083-icon"
+      }
+    },
+    "relic-0084": {
+      "kind": "relic",
+      "id": "relic-0084",
+      "name": "Caro Ring",
       "route": {
         "slug": "caro-ring",
         "canonicalPath": "/database/relics/caro-ring"
       },
       "assets": {
-        "icon": "asset-relic-9041-icon"
+        "icon": "asset-relic-0084-icon"
       },
       "rarity": "SSR"
     },
-    "relic-9042": {
+    "relic-0085": {
       "kind": "relic",
-      "id": "relic-9042",
-      "name": "\"Ultra Ring\"",
+      "id": "relic-0085",
+      "name": "Cat's Treasure",
       "route": {
-        "slug": "ultra-ring",
-        "canonicalPath": "/database/relics/ultra-ring"
+        "slug": "cats-treasure",
+        "canonicalPath": "/database/relics/cats-treasure"
       },
       "assets": {
-        "icon": "asset-relic-9042-icon"
+        "icon": "asset-relic-0085-icon"
       },
-      "rarity": "SSR"
+      "rarity": "SR"
     },
-    "relic-9043": {
+    "relic-0086": {
       "kind": "relic",
-      "id": "relic-9043",
-      "name": "\"Chaos Ring\"",
+      "id": "relic-0086",
+      "name": "Celestial Astrolabe",
+      "route": {
+        "slug": "celestial-astrolabe",
+        "canonicalPath": "/database/relics/celestial-astrolabe"
+      },
+      "assets": {
+        "icon": "asset-relic-0086-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0087": {
+      "kind": "relic",
+      "id": "relic-0087",
+      "name": "Ceylon Tea",
+      "route": {
+        "slug": "ceylon-tea",
+        "canonicalPath": "/database/relics/ceylon-tea"
+      },
+      "assets": {
+        "icon": "asset-relic-0087-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0088": {
+      "kind": "relic",
+      "id": "relic-0088",
+      "name": "Chant of the Tides",
+      "route": {
+        "slug": "chant-of-the-tides",
+        "canonicalPath": "/database/relics/chant-of-the-tides"
+      },
+      "assets": {
+        "icon": "asset-relic-0088-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0089": {
+      "kind": "relic",
+      "id": "relic-0089",
+      "name": "Chaos Ring",
       "route": {
         "slug": "chaos-ring",
         "canonicalPath": "/database/relics/chaos-ring"
       },
       "assets": {
-        "icon": "asset-relic-9043-icon"
+        "icon": "asset-relic-0089-icon"
       },
       "rarity": "SSR"
     },
-    "relic-9044": {
+    "relic-0090": {
       "kind": "relic",
-      "id": "relic-9044",
-      "name": "Kaleidoscope+",
+      "id": "relic-0090",
+      "name": "Chrono Pendulum \"Backlash\"",
       "route": {
-        "slug": "kaleidoscope",
-        "canonicalPath": "/database/relics/kaleidoscope"
+        "slug": "chrono-pendulum-backlash",
+        "canonicalPath": "/database/relics/chrono-pendulum-backlash"
       },
       "assets": {
-        "icon": "asset-relic-9044-icon"
-      }
-    },
-    "relic-9045": {
-      "kind": "relic",
-      "id": "relic-9045",
-      "name": "Fleeting Beauty+",
-      "route": {
-        "slug": "fleeting-beauty",
-        "canonicalPath": "/database/relics/fleeting-beauty"
-      },
-      "assets": {
-        "icon": "asset-relic-9045-icon"
-      }
-    },
-    "relic-9046": {
-      "kind": "relic",
-      "id": "relic-9046",
-      "name": "Prophet's Lamp+",
-      "route": {
-        "slug": "prophets-lamp",
-        "canonicalPath": "/database/relics/prophets-lamp"
-      },
-      "assets": {
-        "icon": "asset-relic-9046-icon"
-      }
-    },
-    "relic-9047": {
-      "kind": "relic",
-      "id": "relic-9047",
-      "name": "In Twilight+",
-      "route": {
-        "slug": "in-twilight",
-        "canonicalPath": "/database/relics/in-twilight"
-      },
-      "assets": {
-        "icon": "asset-relic-9047-icon"
-      }
-    },
-    "relic-9048": {
-      "kind": "relic",
-      "id": "relic-9048",
-      "name": "Serpent's Husk+",
-      "route": {
-        "slug": "serpents-husk",
-        "canonicalPath": "/database/relics/serpents-husk"
-      },
-      "assets": {
-        "icon": "asset-relic-9048-icon"
-      }
-    },
-    "relic-9049": {
-      "kind": "relic",
-      "id": "relic-9049",
-      "name": "Safe Passage+",
-      "route": {
-        "slug": "safe-passage",
-        "canonicalPath": "/database/relics/safe-passage"
-      },
-      "assets": {
-        "icon": "asset-relic-9049-icon"
-      }
-    },
-    "relic-9050": {
-      "kind": "relic",
-      "id": "relic-9050",
-      "name": "Solar Disc+",
-      "route": {
-        "slug": "solar-disc",
-        "canonicalPath": "/database/relics/solar-disc"
-      },
-      "assets": {
-        "icon": "asset-relic-9050-icon"
-      }
-    },
-    "relic-9051": {
-      "kind": "relic",
-      "id": "relic-9051",
-      "name": "Relic of the Past+",
-      "route": {
-        "slug": "relic-of-the-past",
-        "canonicalPath": "/database/relics/relic-of-the-past"
-      },
-      "assets": {
-        "icon": "asset-relic-9051-icon"
-      }
-    },
-    "relic-9052": {
-      "kind": "relic",
-      "id": "relic-9052",
-      "name": "Harford's Elixir+",
-      "route": {
-        "slug": "harfords-elixir",
-        "canonicalPath": "/database/relics/harfords-elixir"
-      },
-      "assets": {
-        "icon": "asset-relic-9052-icon"
-      }
-    },
-    "relic-9053": {
-      "kind": "relic",
-      "id": "relic-9053",
-      "name": "Hierophant's Staff+",
-      "route": {
-        "slug": "hierophants-staff",
-        "canonicalPath": "/database/relics/hierophants-staff"
-      },
-      "assets": {
-        "icon": "asset-relic-9053-icon"
-      }
-    },
-    "relic-9054": {
-      "kind": "relic",
-      "id": "relic-9054",
-      "name": "Silent Prelude+",
-      "route": {
-        "slug": "silent-prelude",
-        "canonicalPath": "/database/relics/silent-prelude"
-      },
-      "assets": {
-        "icon": "asset-relic-9054-icon"
-      }
-    },
-    "relic-9055": {
-      "kind": "relic",
-      "id": "relic-9055",
-      "name": "Putney Morning Post+",
-      "route": {
-        "slug": "putney-morning-post",
-        "canonicalPath": "/database/relics/putney-morning-post"
-      },
-      "assets": {
-        "icon": "asset-relic-9055-icon"
-      }
-    },
-    "relic-9056": {
-      "kind": "relic",
-      "id": "relic-9056",
-      "name": "Tiny Music Box+",
-      "route": {
-        "slug": "tiny-music-box",
-        "canonicalPath": "/database/relics/tiny-music-box"
-      },
-      "assets": {
-        "icon": "asset-relic-9056-icon"
-      }
-    },
-    "relic-9057": {
-      "kind": "relic",
-      "id": "relic-9057",
-      "name": "Silver Tongue+",
-      "route": {
-        "slug": "silver-tongue",
-        "canonicalPath": "/database/relics/silver-tongue"
-      },
-      "assets": {
-        "icon": "asset-relic-9057-icon"
-      }
-    },
-    "relic-9058": {
-      "kind": "relic",
-      "id": "relic-9058",
-      "name": "Stellar Brew+",
-      "route": {
-        "slug": "stellar-brew",
-        "canonicalPath": "/database/relics/stellar-brew"
-      },
-      "assets": {
-        "icon": "asset-relic-9058-icon"
-      }
-    },
-    "relic-9059": {
-      "kind": "relic",
-      "id": "relic-9059",
-      "name": "Forsaken Blood+",
-      "route": {
-        "slug": "forsaken-blood",
-        "canonicalPath": "/database/relics/forsaken-blood"
-      },
-      "assets": {
-        "icon": "asset-relic-9059-icon"
-      }
-    },
-    "relic-9060": {
-      "kind": "relic",
-      "id": "relic-9060",
-      "name": "Voyager's Parasol+",
-      "route": {
-        "slug": "voyagers-parasol",
-        "canonicalPath": "/database/relics/voyagers-parasol"
-      },
-      "assets": {
-        "icon": "asset-relic-9060-icon"
-      }
-    },
-    "relic-9061": {
-      "kind": "relic",
-      "id": "relic-9061",
-      "name": "Easter Moment+",
-      "route": {
-        "slug": "easter-moment",
-        "canonicalPath": "/database/relics/easter-moment"
-      },
-      "assets": {
-        "icon": "asset-relic-9061-icon"
-      }
-    },
-    "relic-9062": {
-      "kind": "relic",
-      "id": "relic-9062",
-      "name": "Rhind Papyrus+",
-      "route": {
-        "slug": "rhind-papyrus",
-        "canonicalPath": "/database/relics/rhind-papyrus"
-      },
-      "assets": {
-        "icon": "asset-relic-9062-icon"
-      }
-    },
-    "relic-9063": {
-      "kind": "relic",
-      "id": "relic-9063",
-      "name": "Foreign Stamp Album+",
-      "route": {
-        "slug": "foreign-stamp-album",
-        "canonicalPath": "/database/relics/foreign-stamp-album"
-      },
-      "assets": {
-        "icon": "asset-relic-9063-icon"
-      }
-    },
-    "relic-9064": {
-      "kind": "relic",
-      "id": "relic-9064",
-      "name": "Tilted Scales+",
-      "route": {
-        "slug": "tilted-scales",
-        "canonicalPath": "/database/relics/tilted-scales"
-      },
-      "assets": {
-        "icon": "asset-relic-9064-icon"
-      }
-    },
-    "relic-9065": {
-      "kind": "relic",
-      "id": "relic-9065",
-      "name": "Chrono Pendulum \"Deepen\"",
-      "route": {
-        "slug": "chrono-pendulum-deepen",
-        "canonicalPath": "/database/relics/chrono-pendulum-deepen"
-      },
-      "assets": {
-        "icon": "asset-relic-9065-icon"
+        "icon": "asset-relic-0090-icon"
       },
       "rarity": "SR"
     },
-    "relic-9066": {
+    "relic-0091": {
       "kind": "relic",
-      "id": "relic-9066",
-      "name": "Chrono Pendulum \"Wings\"",
-      "route": {
-        "slug": "chrono-pendulum-wings",
-        "canonicalPath": "/database/relics/chrono-pendulum-wings"
-      },
-      "assets": {
-        "icon": "asset-relic-9066-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-9067": {
-      "kind": "relic",
-      "id": "relic-9067",
-      "name": "Chrono Pendulum \"Slumber\"",
-      "route": {
-        "slug": "chrono-pendulum-slumber",
-        "canonicalPath": "/database/relics/chrono-pendulum-slumber"
-      },
-      "assets": {
-        "icon": "asset-relic-9067-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-9068": {
-      "kind": "relic",
-      "id": "relic-9068",
-      "name": "Chrono Pendulum \"Eye\"",
-      "route": {
-        "slug": "chrono-pendulum-eye",
-        "canonicalPath": "/database/relics/chrono-pendulum-eye"
-      },
-      "assets": {
-        "icon": "asset-relic-9068-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-9069": {
-      "kind": "relic",
-      "id": "relic-9069",
-      "name": "Chrono Pendulum \"Moon\"",
-      "route": {
-        "slug": "chrono-pendulum-moon",
-        "canonicalPath": "/database/relics/chrono-pendulum-moon"
-      },
-      "assets": {
-        "icon": "asset-relic-9069-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-9070": {
-      "kind": "relic",
-      "id": "relic-9070",
-      "name": "Chrono Pendulum \"Stars\"",
-      "route": {
-        "slug": "chrono-pendulum-stars",
-        "canonicalPath": "/database/relics/chrono-pendulum-stars"
-      },
-      "assets": {
-        "icon": "asset-relic-9070-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-9071": {
-      "kind": "relic",
-      "id": "relic-9071",
-      "name": "Chrono Pendulum \"Unclean\"",
-      "route": {
-        "slug": "chrono-pendulum-unclean",
-        "canonicalPath": "/database/relics/chrono-pendulum-unclean"
-      },
-      "assets": {
-        "icon": "asset-relic-9071-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-9072": {
-      "kind": "relic",
-      "id": "relic-9072",
-      "name": "Chrono Pendulum \"Submersion\"",
-      "route": {
-        "slug": "chrono-pendulum-submersion",
-        "canonicalPath": "/database/relics/chrono-pendulum-submersion"
-      },
-      "assets": {
-        "icon": "asset-relic-9072-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-9073": {
-      "kind": "relic",
-      "id": "relic-9073",
-      "name": "Chrono Pendulum \"Occult\"",
-      "route": {
-        "slug": "chrono-pendulum-occult",
-        "canonicalPath": "/database/relics/chrono-pendulum-occult"
-      },
-      "assets": {
-        "icon": "asset-relic-9073-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-9074": {
-      "kind": "relic",
-      "id": "relic-9074",
-      "name": "Chrono Pendulum \"Buildup\"",
-      "route": {
-        "slug": "chrono-pendulum-buildup",
-        "canonicalPath": "/database/relics/chrono-pendulum-buildup"
-      },
-      "assets": {
-        "icon": "asset-relic-9074-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-9075": {
-      "kind": "relic",
-      "id": "relic-9075",
-      "name": "Chrono Pendulum \"Trance\"",
-      "route": {
-        "slug": "chrono-pendulum-trance",
-        "canonicalPath": "/database/relics/chrono-pendulum-trance"
-      },
-      "assets": {
-        "icon": "asset-relic-9075-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-9076": {
-      "kind": "relic",
-      "id": "relic-9076",
-      "name": "Chrono Pendulum \"Stubborn\"",
-      "route": {
-        "slug": "chrono-pendulum-stubborn",
-        "canonicalPath": "/database/relics/chrono-pendulum-stubborn"
-      },
-      "assets": {
-        "icon": "asset-relic-9076-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-9077": {
-      "kind": "relic",
-      "id": "relic-9077",
-      "name": "Chrono Pendulum \"Charge\"",
-      "route": {
-        "slug": "chrono-pendulum-charge",
-        "canonicalPath": "/database/relics/chrono-pendulum-charge"
-      },
-      "assets": {
-        "icon": "asset-relic-9077-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-9078": {
-      "kind": "relic",
-      "id": "relic-9078",
-      "name": "Chrono Pendulum \"Proliferate\"",
-      "route": {
-        "slug": "chrono-pendulum-proliferate",
-        "canonicalPath": "/database/relics/chrono-pendulum-proliferate"
-      },
-      "assets": {
-        "icon": "asset-relic-9078-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-9079": {
-      "kind": "relic",
-      "id": "relic-9079",
-      "name": "Chrono Pendulum \"End\"",
-      "route": {
-        "slug": "chrono-pendulum-end",
-        "canonicalPath": "/database/relics/chrono-pendulum-end"
-      },
-      "assets": {
-        "icon": "asset-relic-9079-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-9080": {
-      "kind": "relic",
-      "id": "relic-9080",
-      "name": "Chrono Pendulum \"Reciprocate\"",
-      "route": {
-        "slug": "chrono-pendulum-reciprocate",
-        "canonicalPath": "/database/relics/chrono-pendulum-reciprocate"
-      },
-      "assets": {
-        "icon": "asset-relic-9080-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-9081": {
-      "kind": "relic",
-      "id": "relic-9081",
-      "name": "Chrono Pendulum \"Sleepless\"",
-      "route": {
-        "slug": "chrono-pendulum-sleepless",
-        "canonicalPath": "/database/relics/chrono-pendulum-sleepless"
-      },
-      "assets": {
-        "icon": "asset-relic-9081-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-9082": {
-      "kind": "relic",
-      "id": "relic-9082",
-      "name": "Chrono Pendulum \"Illusion\"",
-      "route": {
-        "slug": "chrono-pendulum-illusion",
-        "canonicalPath": "/database/relics/chrono-pendulum-illusion"
-      },
-      "assets": {
-        "icon": "asset-relic-9082-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-9083": {
-      "kind": "relic",
-      "id": "relic-9083",
-      "name": "Chrono Pendulum \"Startle\"",
-      "route": {
-        "slug": "chrono-pendulum-startle",
-        "canonicalPath": "/database/relics/chrono-pendulum-startle"
-      },
-      "assets": {
-        "icon": "asset-relic-9083-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-9084": {
-      "kind": "relic",
-      "id": "relic-9084",
-      "name": "Chrono Pendulum \"Twins\"",
-      "route": {
-        "slug": "chrono-pendulum-twins",
-        "canonicalPath": "/database/relics/chrono-pendulum-twins"
-      },
-      "assets": {
-        "icon": "asset-relic-9084-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-9085": {
-      "kind": "relic",
-      "id": "relic-9085",
-      "name": "Chrono Pendulum \"Benediction\"",
-      "route": {
-        "slug": "chrono-pendulum-benediction",
-        "canonicalPath": "/database/relics/chrono-pendulum-benediction"
-      },
-      "assets": {
-        "icon": "asset-relic-9085-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-9086": {
-      "kind": "relic",
-      "id": "relic-9086",
+      "id": "relic-0091",
       "name": "Chrono Pendulum \"Balance\"",
       "route": {
         "slug": "chrono-pendulum-balance",
         "canonicalPath": "/database/relics/chrono-pendulum-balance"
       },
       "assets": {
-        "icon": "asset-relic-9086-icon"
+        "icon": "asset-relic-0091-icon"
       },
       "rarity": "SR"
     },
-    "relic-9087": {
+    "relic-0092": {
       "kind": "relic",
-      "id": "relic-9087",
-      "name": "Chrono Pendulum \"Surge\"",
+      "id": "relic-0092",
+      "name": "Chrono Pendulum \"Benediction\"",
       "route": {
-        "slug": "chrono-pendulum-surge",
-        "canonicalPath": "/database/relics/chrono-pendulum-surge"
+        "slug": "chrono-pendulum-benediction",
+        "canonicalPath": "/database/relics/chrono-pendulum-benediction"
       },
       "assets": {
-        "icon": "asset-relic-9087-icon"
+        "icon": "asset-relic-0092-icon"
       },
       "rarity": "SR"
     },
-    "relic-9088": {
+    "relic-0093": {
       "kind": "relic",
-      "id": "relic-9088",
-      "name": "Chrono Pendulum \"Evolution\"",
-      "route": {
-        "slug": "chrono-pendulum-evolution",
-        "canonicalPath": "/database/relics/chrono-pendulum-evolution"
-      },
-      "assets": {
-        "icon": "asset-relic-9088-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-9089": {
-      "kind": "relic",
-      "id": "relic-9089",
-      "name": "Chrono Pendulum \"Projection\"",
-      "route": {
-        "slug": "chrono-pendulum-projection",
-        "canonicalPath": "/database/relics/chrono-pendulum-projection"
-      },
-      "assets": {
-        "icon": "asset-relic-9089-icon"
-      },
-      "rarity": "SR"
-    },
-    "relic-9090": {
-      "kind": "relic",
-      "id": "relic-9090",
+      "id": "relic-0093",
       "name": "Chrono Pendulum \"Breeding\"",
       "route": {
         "slug": "chrono-pendulum-breeding",
         "canonicalPath": "/database/relics/chrono-pendulum-breeding"
       },
       "assets": {
-        "icon": "asset-relic-9090-icon"
+        "icon": "asset-relic-0093-icon"
       },
       "rarity": "SR"
     },
-    "relic-9091": {
+    "relic-0094": {
       "kind": "relic",
-      "id": "relic-9091",
+      "id": "relic-0094",
+      "name": "Chrono Pendulum \"Buildup\"",
+      "route": {
+        "slug": "chrono-pendulum-buildup",
+        "canonicalPath": "/database/relics/chrono-pendulum-buildup"
+      },
+      "assets": {
+        "icon": "asset-relic-0094-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0095": {
+      "kind": "relic",
+      "id": "relic-0095",
+      "name": "Chrono Pendulum \"Chaotic Gift\"",
+      "route": {
+        "slug": "chrono-pendulum-chaotic-gift",
+        "canonicalPath": "/database/relics/chrono-pendulum-chaotic-gift"
+      },
+      "assets": {
+        "icon": "asset-relic-0095-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0096": {
+      "kind": "relic",
+      "id": "relic-0096",
+      "name": "Chrono Pendulum \"Charge\"",
+      "route": {
+        "slug": "chrono-pendulum-charge",
+        "canonicalPath": "/database/relics/chrono-pendulum-charge"
+      },
+      "assets": {
+        "icon": "asset-relic-0096-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0097": {
+      "kind": "relic",
+      "id": "relic-0097",
+      "name": "Chrono Pendulum \"Deepen\"",
+      "route": {
+        "slug": "chrono-pendulum-deepen",
+        "canonicalPath": "/database/relics/chrono-pendulum-deepen"
+      },
+      "assets": {
+        "icon": "asset-relic-0097-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0098": {
+      "kind": "relic",
+      "id": "relic-0098",
+      "name": "Chrono Pendulum \"Dreamtheft\"",
+      "route": {
+        "slug": "chrono-pendulum-dreamtheft",
+        "canonicalPath": "/database/relics/chrono-pendulum-dreamtheft"
+      },
+      "assets": {
+        "icon": "asset-relic-0098-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0099": {
+      "kind": "relic",
+      "id": "relic-0099",
+      "name": "Chrono Pendulum \"Echo\"",
+      "route": {
+        "slug": "chrono-pendulum-echo",
+        "canonicalPath": "/database/relics/chrono-pendulum-echo"
+      },
+      "assets": {
+        "icon": "asset-relic-0099-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0100": {
+      "kind": "relic",
+      "id": "relic-0100",
+      "name": "Chrono Pendulum \"Emulate\"",
+      "route": {
+        "slug": "chrono-pendulum-emulate",
+        "canonicalPath": "/database/relics/chrono-pendulum-emulate"
+      },
+      "assets": {
+        "icon": "asset-relic-0100-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0101": {
+      "kind": "relic",
+      "id": "relic-0101",
+      "name": "Chrono Pendulum \"End\"",
+      "route": {
+        "slug": "chrono-pendulum-end",
+        "canonicalPath": "/database/relics/chrono-pendulum-end"
+      },
+      "assets": {
+        "icon": "asset-relic-0101-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0102": {
+      "kind": "relic",
+      "id": "relic-0102",
+      "name": "Chrono Pendulum \"Evolution\"",
+      "route": {
+        "slug": "chrono-pendulum-evolution",
+        "canonicalPath": "/database/relics/chrono-pendulum-evolution"
+      },
+      "assets": {
+        "icon": "asset-relic-0102-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0103": {
+      "kind": "relic",
+      "id": "relic-0103",
+      "name": "Chrono Pendulum \"Eye\"",
+      "route": {
+        "slug": "chrono-pendulum-eye",
+        "canonicalPath": "/database/relics/chrono-pendulum-eye"
+      },
+      "assets": {
+        "icon": "asset-relic-0103-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0104": {
+      "kind": "relic",
+      "id": "relic-0104",
+      "name": "Chrono Pendulum \"Illusion\"",
+      "route": {
+        "slug": "chrono-pendulum-illusion",
+        "canonicalPath": "/database/relics/chrono-pendulum-illusion"
+      },
+      "assets": {
+        "icon": "asset-relic-0104-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0105": {
+      "kind": "relic",
+      "id": "relic-0105",
+      "name": "Chrono Pendulum \"Interval\"",
+      "route": {
+        "slug": "chrono-pendulum-interval",
+        "canonicalPath": "/database/relics/chrono-pendulum-interval"
+      },
+      "assets": {
+        "icon": "asset-relic-0105-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0106": {
+      "kind": "relic",
+      "id": "relic-0106",
+      "name": "Chrono Pendulum \"Lapse\"",
+      "route": {
+        "slug": "chrono-pendulum-lapse",
+        "canonicalPath": "/database/relics/chrono-pendulum-lapse"
+      },
+      "assets": {
+        "icon": "asset-relic-0106-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0107": {
+      "kind": "relic",
+      "id": "relic-0107",
+      "name": "Chrono Pendulum \"Meditation\"",
+      "route": {
+        "slug": "chrono-pendulum-meditation",
+        "canonicalPath": "/database/relics/chrono-pendulum-meditation"
+      },
+      "assets": {
+        "icon": "asset-relic-0107-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0108": {
+      "kind": "relic",
+      "id": "relic-0108",
+      "name": "Chrono Pendulum \"Moon\"",
+      "route": {
+        "slug": "chrono-pendulum-moon",
+        "canonicalPath": "/database/relics/chrono-pendulum-moon"
+      },
+      "assets": {
+        "icon": "asset-relic-0108-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0109": {
+      "kind": "relic",
+      "id": "relic-0109",
+      "name": "Chrono Pendulum \"Nightmare\"",
+      "route": {
+        "slug": "chrono-pendulum-nightmare",
+        "canonicalPath": "/database/relics/chrono-pendulum-nightmare"
+      },
+      "assets": {
+        "icon": "asset-relic-0109-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0110": {
+      "kind": "relic",
+      "id": "relic-0110",
+      "name": "Chrono Pendulum \"Occult\"",
+      "route": {
+        "slug": "chrono-pendulum-occult",
+        "canonicalPath": "/database/relics/chrono-pendulum-occult"
+      },
+      "assets": {
+        "icon": "asset-relic-0110-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0111": {
+      "kind": "relic",
+      "id": "relic-0111",
+      "name": "Chrono Pendulum \"Parsing\"",
+      "route": {
+        "slug": "chrono-pendulum-parsing",
+        "canonicalPath": "/database/relics/chrono-pendulum-parsing"
+      },
+      "assets": {
+        "icon": "asset-relic-0111-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0112": {
+      "kind": "relic",
+      "id": "relic-0112",
       "name": "Chrono Pendulum \"Plague\"",
       "route": {
         "slug": "chrono-pendulum-plague",
         "canonicalPath": "/database/relics/chrono-pendulum-plague"
       },
       "assets": {
-        "icon": "asset-relic-9091-icon"
+        "icon": "asset-relic-0112-icon"
       },
       "rarity": "SR"
     },
-    "relic-9092": {
+    "relic-0113": {
       "kind": "relic",
-      "id": "relic-9092",
-      "name": "Chrono Pendulum \"Treasure α\"",
+      "id": "relic-0113",
+      "name": "Chrono Pendulum \"Principal's Message\"",
       "route": {
-        "slug": "chrono-pendulum-treasure-alpha",
-        "canonicalPath": "/database/relics/chrono-pendulum-treasure-alpha"
+        "slug": "chrono-pendulum-principals-message",
+        "canonicalPath": "/database/relics/chrono-pendulum-principals-message"
       },
       "assets": {
-        "icon": "asset-relic-9092-icon"
+        "icon": "asset-relic-0113-icon"
       },
       "rarity": "SR"
     },
-    "relic-9093": {
+    "relic-0114": {
       "kind": "relic",
-      "id": "relic-9093",
-      "name": "Chrono Pendulum \"Treasure β\"",
+      "id": "relic-0114",
+      "name": "Chrono Pendulum \"Projection\"",
       "route": {
-        "slug": "chrono-pendulum-treasure-beta",
-        "canonicalPath": "/database/relics/chrono-pendulum-treasure-beta"
+        "slug": "chrono-pendulum-projection",
+        "canonicalPath": "/database/relics/chrono-pendulum-projection"
       },
       "assets": {
-        "icon": "asset-relic-9093-icon"
+        "icon": "asset-relic-0114-icon"
       },
       "rarity": "SR"
     },
-    "relic-9094": {
+    "relic-0115": {
       "kind": "relic",
-      "id": "relic-9094",
-      "name": "Chrono Pendulum \"Treasure δ\"",
+      "id": "relic-0115",
+      "name": "Chrono Pendulum \"Proliferate\"",
       "route": {
-        "slug": "chrono-pendulum-treasure-delta",
-        "canonicalPath": "/database/relics/chrono-pendulum-treasure-delta"
+        "slug": "chrono-pendulum-proliferate",
+        "canonicalPath": "/database/relics/chrono-pendulum-proliferate"
       },
       "assets": {
-        "icon": "asset-relic-9094-icon"
+        "icon": "asset-relic-0115-icon"
       },
       "rarity": "SR"
     },
-    "relic-9095": {
+    "relic-0116": {
       "kind": "relic",
-      "id": "relic-9095",
-      "name": "Chrono Pendulum \"Treasure γ\"",
+      "id": "relic-0116",
+      "name": "Chrono Pendulum \"Reciprocate\"",
       "route": {
-        "slug": "chrono-pendulum-treasure-gamma",
-        "canonicalPath": "/database/relics/chrono-pendulum-treasure-gamma"
+        "slug": "chrono-pendulum-reciprocate",
+        "canonicalPath": "/database/relics/chrono-pendulum-reciprocate"
       },
       "assets": {
-        "icon": "asset-relic-9095-icon"
+        "icon": "asset-relic-0116-icon"
       },
       "rarity": "SR"
     },
-    "relic-9096": {
+    "relic-0117": {
       "kind": "relic",
-      "id": "relic-9096",
-      "name": "Chrono Pendulum \"Treasure ε\"",
+      "id": "relic-0117",
+      "name": "Chrono Pendulum \"Revive\"",
       "route": {
-        "slug": "chrono-pendulum-treasure-epsilon",
-        "canonicalPath": "/database/relics/chrono-pendulum-treasure-epsilon"
+        "slug": "chrono-pendulum-revive",
+        "canonicalPath": "/database/relics/chrono-pendulum-revive"
       },
       "assets": {
-        "icon": "asset-relic-9096-icon"
+        "icon": "asset-relic-0117-icon"
       },
       "rarity": "SR"
     },
-    "relic-9097": {
+    "relic-0118": {
       "kind": "relic",
-      "id": "relic-9097",
-      "name": "Chrono Pendulum \"Wish β\"",
+      "id": "relic-0118",
+      "name": "Chrono Pendulum \"Sleepless\"",
       "route": {
-        "slug": "chrono-pendulum-wish-beta",
-        "canonicalPath": "/database/relics/chrono-pendulum-wish-beta"
+        "slug": "chrono-pendulum-sleepless",
+        "canonicalPath": "/database/relics/chrono-pendulum-sleepless"
       },
       "assets": {
-        "icon": "asset-relic-9097-icon"
+        "icon": "asset-relic-0118-icon"
       },
       "rarity": "SR"
     },
-    "relic-9098": {
+    "relic-0119": {
       "kind": "relic",
-      "id": "relic-9098",
-      "name": "Chrono Pendulum \"Wish α\"",
+      "id": "relic-0119",
+      "name": "Chrono Pendulum \"Slumber\"",
       "route": {
-        "slug": "chrono-pendulum-wish-alpha",
-        "canonicalPath": "/database/relics/chrono-pendulum-wish-alpha"
+        "slug": "chrono-pendulum-slumber",
+        "canonicalPath": "/database/relics/chrono-pendulum-slumber"
       },
       "assets": {
-        "icon": "asset-relic-9098-icon"
+        "icon": "asset-relic-0119-icon"
       },
       "rarity": "SR"
     },
-    "relic-9099": {
+    "relic-0120": {
       "kind": "relic",
-      "id": "relic-9099",
-      "name": "Chrono Pendulum \"Wish ε\"",
+      "id": "relic-0120",
+      "name": "Chrono Pendulum \"Stars\"",
       "route": {
-        "slug": "chrono-pendulum-wish-epsilon",
-        "canonicalPath": "/database/relics/chrono-pendulum-wish-epsilon"
+        "slug": "chrono-pendulum-stars",
+        "canonicalPath": "/database/relics/chrono-pendulum-stars"
       },
       "assets": {
-        "icon": "asset-relic-9099-icon"
+        "icon": "asset-relic-0120-icon"
       },
       "rarity": "SR"
     },
-    "relic-9100": {
+    "relic-0121": {
       "kind": "relic",
-      "id": "relic-9100",
-      "name": "Chrono Pendulum \"Wish γ\"",
+      "id": "relic-0121",
+      "name": "Chrono Pendulum \"Startle\"",
       "route": {
-        "slug": "chrono-pendulum-wish-gamma",
-        "canonicalPath": "/database/relics/chrono-pendulum-wish-gamma"
+        "slug": "chrono-pendulum-startle",
+        "canonicalPath": "/database/relics/chrono-pendulum-startle"
       },
       "assets": {
-        "icon": "asset-relic-9100-icon"
+        "icon": "asset-relic-0121-icon"
       },
       "rarity": "SR"
     },
-    "relic-9101": {
+    "relic-0122": {
       "kind": "relic",
-      "id": "relic-9101",
-      "name": "Chrono Pendulum \"Wish δ\"",
+      "id": "relic-0122",
+      "name": "Chrono Pendulum \"Stubborn\"",
       "route": {
-        "slug": "chrono-pendulum-wish-delta",
-        "canonicalPath": "/database/relics/chrono-pendulum-wish-delta"
+        "slug": "chrono-pendulum-stubborn",
+        "canonicalPath": "/database/relics/chrono-pendulum-stubborn"
       },
       "assets": {
-        "icon": "asset-relic-9101-icon"
+        "icon": "asset-relic-0122-icon"
       },
       "rarity": "SR"
     },
-    "relic-9102": {
+    "relic-0123": {
       "kind": "relic",
-      "id": "relic-9102",
-      "name": "Other Tongue+",
+      "id": "relic-0123",
+      "name": "Chrono Pendulum \"Submersion\"",
       "route": {
-        "slug": "other-tongue",
-        "canonicalPath": "/database/relics/other-tongue"
+        "slug": "chrono-pendulum-submersion",
+        "canonicalPath": "/database/relics/chrono-pendulum-submersion"
       },
       "assets": {
-        "icon": "asset-relic-9102-icon"
+        "icon": "asset-relic-0123-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0124": {
+      "kind": "relic",
+      "id": "relic-0124",
+      "name": "Chrono Pendulum \"Sunken Treasure\"",
+      "route": {
+        "slug": "chrono-pendulum-sunken-treasure",
+        "canonicalPath": "/database/relics/chrono-pendulum-sunken-treasure"
+      },
+      "assets": {
+        "icon": "asset-relic-0124-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0125": {
+      "kind": "relic",
+      "id": "relic-0125",
+      "name": "Chrono Pendulum \"Surge\"",
+      "route": {
+        "slug": "chrono-pendulum-surge",
+        "canonicalPath": "/database/relics/chrono-pendulum-surge"
+      },
+      "assets": {
+        "icon": "asset-relic-0125-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0126": {
+      "kind": "relic",
+      "id": "relic-0126",
+      "name": "Chrono Pendulum \"Tides\"",
+      "route": {
+        "slug": "chrono-pendulum-tides",
+        "canonicalPath": "/database/relics/chrono-pendulum-tides"
+      },
+      "assets": {
+        "icon": "asset-relic-0126-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0127": {
+      "kind": "relic",
+      "id": "relic-0127",
+      "name": "Chrono Pendulum \"Trance\"",
+      "route": {
+        "slug": "chrono-pendulum-trance",
+        "canonicalPath": "/database/relics/chrono-pendulum-trance"
+      },
+      "assets": {
+        "icon": "asset-relic-0127-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0128": {
+      "kind": "relic",
+      "id": "relic-0128",
+      "name": "Chrono Pendulum \"Treasure\"",
+      "route": {
+        "slug": "chrono-pendulum-treasure",
+        "canonicalPath": "/database/relics/chrono-pendulum-treasure"
+      },
+      "assets": {
+        "icon": "asset-relic-0128-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0129": {
+      "kind": "relic",
+      "id": "relic-0129",
+      "name": "Chrono Pendulum \"Twins\"",
+      "route": {
+        "slug": "chrono-pendulum-twins",
+        "canonicalPath": "/database/relics/chrono-pendulum-twins"
+      },
+      "assets": {
+        "icon": "asset-relic-0129-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0130": {
+      "kind": "relic",
+      "id": "relic-0130",
+      "name": "Chrono Pendulum \"Unclean\"",
+      "route": {
+        "slug": "chrono-pendulum-unclean",
+        "canonicalPath": "/database/relics/chrono-pendulum-unclean"
+      },
+      "assets": {
+        "icon": "asset-relic-0130-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0131": {
+      "kind": "relic",
+      "id": "relic-0131",
+      "name": "Chrono Pendulum \"Wings\"",
+      "route": {
+        "slug": "chrono-pendulum-wings",
+        "canonicalPath": "/database/relics/chrono-pendulum-wings"
+      },
+      "assets": {
+        "icon": "asset-relic-0131-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0132": {
+      "kind": "relic",
+      "id": "relic-0132",
+      "name": "Chrono Pendulum \"Wish\"",
+      "route": {
+        "slug": "chrono-pendulum-wish",
+        "canonicalPath": "/database/relics/chrono-pendulum-wish"
+      },
+      "assets": {
+        "icon": "asset-relic-0132-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0133": {
+      "kind": "relic",
+      "id": "relic-0133",
+      "name": "Chronometric Device",
+      "route": {
+        "slug": "chronometric-device",
+        "canonicalPath": "/database/relics/chronometric-device"
+      },
+      "assets": {
+        "icon": "asset-relic-0133-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0134": {
+      "kind": "relic",
+      "id": "relic-0134",
+      "name": "Coalsie II",
+      "route": {
+        "slug": "coalsie-ii",
+        "canonicalPath": "/database/relics/coalsie-ii"
+      },
+      "assets": {
+        "icon": "asset-relic-0134-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0135": {
+      "kind": "relic",
+      "id": "relic-0135",
+      "name": "Concubines' Conceit",
+      "route": {
+        "slug": "concubines-conceit",
+        "canonicalPath": "/database/relics/concubines-conceit"
+      },
+      "assets": {
+        "icon": "asset-relic-0135-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0136": {
+      "kind": "relic",
+      "id": "relic-0136",
+      "name": "Conductor's Baton",
+      "route": {
+        "slug": "conductors-baton",
+        "canonicalPath": "/database/relics/conductors-baton"
+      },
+      "assets": {
+        "icon": "asset-relic-0136-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0137": {
+      "kind": "relic",
+      "id": "relic-0137",
+      "name": "Crimson Brooch",
+      "route": {
+        "slug": "crimson-brooch",
+        "canonicalPath": "/database/relics/crimson-brooch"
+      },
+      "assets": {
+        "icon": "asset-relic-0137-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0138": {
+      "kind": "relic",
+      "id": "relic-0138",
+      "name": "Cursed Stele",
+      "route": {
+        "slug": "cursed-stele",
+        "canonicalPath": "/database/relics/cursed-stele"
+      },
+      "assets": {
+        "icon": "asset-relic-0138-icon"
       }
     },
-    "relic-9103": {
+    "relic-0139": {
       "kind": "relic",
-      "id": "relic-9103",
-      "name": "Arcana Archive+",
+      "id": "relic-0139",
+      "name": "Dearest Babe",
       "route": {
-        "slug": "arcana-archive",
-        "canonicalPath": "/database/relics/arcana-archive"
+        "slug": "dearest-babe",
+        "canonicalPath": "/database/relics/dearest-babe"
       },
       "assets": {
-        "icon": "asset-relic-9103-icon"
-      }
+        "icon": "asset-relic-0139-icon"
+      },
+      "rarity": "N"
     },
-    "relic-9104": {
+    "relic-0140": {
       "kind": "relic",
-      "id": "relic-9104",
-      "name": "Differential Engine+",
+      "id": "relic-0140",
+      "name": "Deceased's Chrono",
+      "route": {
+        "slug": "deceaseds-chrono",
+        "canonicalPath": "/database/relics/deceaseds-chrono"
+      },
+      "assets": {
+        "icon": "asset-relic-0140-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0141": {
+      "kind": "relic",
+      "id": "relic-0141",
+      "name": "Destiny Spindle",
+      "route": {
+        "slug": "destiny-spindle",
+        "canonicalPath": "/database/relics/destiny-spindle"
+      },
+      "assets": {
+        "icon": "asset-relic-0141-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0142": {
+      "kind": "relic",
+      "id": "relic-0142",
+      "name": "Devoted Heart",
+      "route": {
+        "slug": "devoted-heart",
+        "canonicalPath": "/database/relics/devoted-heart"
+      },
+      "assets": {
+        "icon": "asset-relic-0142-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0143": {
+      "kind": "relic",
+      "id": "relic-0143",
+      "name": "Differential Engine",
       "route": {
         "slug": "differential-engine",
         "canonicalPath": "/database/relics/differential-engine"
       },
       "assets": {
-        "icon": "asset-relic-9104-icon"
-      }
+        "icon": "asset-relic-0143-icon"
+      },
+      "rarity": "N"
     },
-    "relic-9105": {
+    "relic-0144": {
       "kind": "relic",
-      "id": "relic-9105",
-      "name": "Neurotoxin+",
+      "id": "relic-0144",
+      "name": "Dimension Pendulum-Alert",
       "route": {
-        "slug": "neurotoxin",
-        "canonicalPath": "/database/relics/neurotoxin"
+        "slug": "dimension-pendulum-alert",
+        "canonicalPath": "/database/relics/dimension-pendulum-alert"
       },
       "assets": {
-        "icon": "asset-relic-9105-icon"
-      }
-    },
-    "relic-9106": {
-      "kind": "relic",
-      "id": "relic-9106",
-      "name": "Weeping Pipe+",
-      "route": {
-        "slug": "weeping-pipe",
-        "canonicalPath": "/database/relics/weeping-pipe"
-      },
-      "assets": {
-        "icon": "asset-relic-9106-icon"
-      }
-    },
-    "relic-9107": {
-      "kind": "relic",
-      "id": "relic-9107",
-      "name": "Radium Jawbone+",
-      "route": {
-        "slug": "radium-jawbone",
-        "canonicalPath": "/database/relics/radium-jawbone"
-      },
-      "assets": {
-        "icon": "asset-relic-9107-icon"
-      }
-    },
-    "relic-9108": {
-      "kind": "relic",
-      "id": "relic-9108",
-      "name": "Chrono Pendulum \"Wish η\"",
-      "route": {
-        "slug": "chrono-pendulum-wish-eta",
-        "canonicalPath": "/database/relics/chrono-pendulum-wish-eta"
-      },
-      "assets": {
-        "icon": "asset-relic-9108-icon"
+        "icon": "asset-relic-0144-icon"
       },
       "rarity": "SR"
     },
-    "relic-9109": {
+    "relic-0145": {
       "kind": "relic",
-      "id": "relic-9109",
-      "name": "Chrono Pendulum \"Wish ζ\"",
+      "id": "relic-0145",
+      "name": "Dimension Pendulum-Confuse",
       "route": {
-        "slug": "chrono-pendulum-wish-zeta",
-        "canonicalPath": "/database/relics/chrono-pendulum-wish-zeta"
+        "slug": "dimension-pendulum-confuse",
+        "canonicalPath": "/database/relics/dimension-pendulum-confuse"
       },
       "assets": {
-        "icon": "asset-relic-9109-icon"
+        "icon": "asset-relic-0145-icon"
       },
       "rarity": "SR"
     },
-    "relic-9110": {
+    "relic-0146": {
       "kind": "relic",
-      "id": "relic-9110",
+      "id": "relic-0146",
+      "name": "Dimension Pendulum-Duel",
+      "route": {
+        "slug": "dimension-pendulum-duel",
+        "canonicalPath": "/database/relics/dimension-pendulum-duel"
+      },
+      "assets": {
+        "icon": "asset-relic-0146-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0147": {
+      "kind": "relic",
+      "id": "relic-0147",
+      "name": "Dimension Pendulum-Lurk",
+      "route": {
+        "slug": "dimension-pendulum-lurk",
+        "canonicalPath": "/database/relics/dimension-pendulum-lurk"
+      },
+      "assets": {
+        "icon": "asset-relic-0147-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0148": {
+      "kind": "relic",
+      "id": "relic-0148",
+      "name": "Dimension Pendulum-Scare",
+      "route": {
+        "slug": "dimension-pendulum-scare",
+        "canonicalPath": "/database/relics/dimension-pendulum-scare"
+      },
+      "assets": {
+        "icon": "asset-relic-0148-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0149": {
+      "kind": "relic",
+      "id": "relic-0149",
+      "name": "Dimension Pendulum-Voodoo",
+      "route": {
+        "slug": "dimension-pendulum-voodoo",
+        "canonicalPath": "/database/relics/dimension-pendulum-voodoo"
+      },
+      "assets": {
+        "icon": "asset-relic-0149-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0150": {
+      "kind": "relic",
+      "id": "relic-0150",
+      "name": "Divine Mother's Protection",
+      "route": {
+        "slug": "divine-mothers-protection",
+        "canonicalPath": "/database/relics/divine-mothers-protection"
+      },
+      "assets": {
+        "icon": "asset-relic-0150-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0151": {
+      "kind": "relic",
+      "id": "relic-0151",
+      "name": "Divine Oracle",
+      "route": {
+        "slug": "divine-oracle",
+        "canonicalPath": "/database/relics/divine-oracle"
+      },
+      "assets": {
+        "icon": "asset-relic-0151-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0152": {
+      "kind": "relic",
+      "id": "relic-0152",
+      "name": "Doctor's Case",
+      "route": {
+        "slug": "doctors-case",
+        "canonicalPath": "/database/relics/doctors-case"
+      },
+      "assets": {
+        "icon": "asset-relic-0152-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0153": {
+      "kind": "relic",
+      "id": "relic-0153",
+      "name": "Dossier",
+      "route": {
+        "slug": "dossier",
+        "canonicalPath": "/database/relics/dossier"
+      },
+      "assets": {
+        "icon": "asset-relic-0153-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0154": {
+      "kind": "relic",
+      "id": "relic-0154",
+      "name": "Dove Feather Fan",
+      "route": {
+        "slug": "dove-feather-fan",
+        "canonicalPath": "/database/relics/dove-feather-fan"
+      },
+      "assets": {
+        "icon": "asset-relic-0154-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0155": {
+      "kind": "relic",
+      "id": "relic-0155",
+      "name": "Easter Moment",
+      "route": {
+        "slug": "easter-moment",
+        "canonicalPath": "/database/relics/easter-moment"
+      },
+      "assets": {
+        "icon": "asset-relic-0155-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0156": {
+      "kind": "relic",
+      "id": "relic-0156",
+      "name": "Echoes from Beyond",
+      "route": {
+        "slug": "echoes-from-beyond",
+        "canonicalPath": "/database/relics/echoes-from-beyond"
+      },
+      "assets": {
+        "icon": "asset-relic-0156-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0157": {
+      "kind": "relic",
+      "id": "relic-0157",
+      "name": "Eerie Hook",
+      "route": {
+        "slug": "eerie-hook",
+        "canonicalPath": "/database/relics/eerie-hook"
+      },
+      "assets": {
+        "icon": "asset-relic-0157-icon"
+      }
+    },
+    "relic-0158": {
+      "kind": "relic",
+      "id": "relic-0158",
+      "name": "Enthralling Chime",
+      "route": {
+        "slug": "enthralling-chime",
+        "canonicalPath": "/database/relics/enthralling-chime"
+      },
+      "assets": {
+        "icon": "asset-relic-0158-icon"
+      }
+    },
+    "relic-0159": {
+      "kind": "relic",
+      "id": "relic-0159",
+      "name": "Ephemeral Fire",
+      "route": {
+        "slug": "ephemeral-fire",
+        "canonicalPath": "/database/relics/ephemeral-fire"
+      },
+      "assets": {
+        "icon": "asset-relic-0159-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0160": {
+      "kind": "relic",
+      "id": "relic-0160",
+      "name": "Expedition Team",
+      "route": {
+        "slug": "expedition-team",
+        "canonicalPath": "/database/relics/expedition-team"
+      },
+      "assets": {
+        "icon": "asset-relic-0160-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0161": {
+      "kind": "relic",
+      "id": "relic-0161",
+      "name": "Faded Photo",
+      "route": {
+        "slug": "faded-photo",
+        "canonicalPath": "/database/relics/faded-photo"
+      },
+      "assets": {
+        "icon": "asset-relic-0161-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0163": {
+      "kind": "relic",
+      "id": "relic-0163",
+      "name": "Festive Benediction",
+      "route": {
+        "slug": "festive-benediction",
+        "canonicalPath": "/database/relics/festive-benediction"
+      },
+      "assets": {
+        "icon": "asset-relic-0163-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0164": {
+      "kind": "relic",
+      "id": "relic-0164",
+      "name": "Filigree Agate",
+      "route": {
+        "slug": "filigree-agate",
+        "canonicalPath": "/database/relics/filigree-agate"
+      },
+      "assets": {
+        "icon": "asset-relic-0164-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0165": {
+      "kind": "relic",
+      "id": "relic-0165",
+      "name": "Finale Research Manuscript",
+      "route": {
+        "slug": "finale-research-manuscript",
+        "canonicalPath": "/database/relics/finale-research-manuscript"
+      },
+      "assets": {
+        "icon": "asset-relic-0165-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0166": {
+      "kind": "relic",
+      "id": "relic-0166",
+      "name": "Fleeting Beauty",
+      "route": {
+        "slug": "fleeting-beauty",
+        "canonicalPath": "/database/relics/fleeting-beauty"
+      },
+      "assets": {
+        "icon": "asset-relic-0166-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0167": {
+      "kind": "relic",
+      "id": "relic-0167",
+      "name": "Foreign Stamp Album",
+      "route": {
+        "slug": "foreign-stamp-album",
+        "canonicalPath": "/database/relics/foreign-stamp-album"
+      },
+      "assets": {
+        "icon": "asset-relic-0167-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0168": {
+      "kind": "relic",
+      "id": "relic-0168",
+      "name": "Forgotten Loom",
+      "route": {
+        "slug": "forgotten-loom",
+        "canonicalPath": "/database/relics/forgotten-loom"
+      },
+      "assets": {
+        "icon": "asset-relic-0168-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0169": {
+      "kind": "relic",
+      "id": "relic-0169",
+      "name": "Forgotten Prelude",
+      "route": {
+        "slug": "forgotten-prelude",
+        "canonicalPath": "/database/relics/forgotten-prelude"
+      },
+      "assets": {
+        "icon": "asset-relic-0169-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0170": {
+      "kind": "relic",
+      "id": "relic-0170",
+      "name": "Forsaken Blood",
+      "route": {
+        "slug": "forsaken-blood",
+        "canonicalPath": "/database/relics/forsaken-blood"
+      },
+      "assets": {
+        "icon": "asset-relic-0170-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0171": {
+      "kind": "relic",
+      "id": "relic-0171",
+      "name": "Gateway of All Realms",
+      "route": {
+        "slug": "gateway-of-all-realms",
+        "canonicalPath": "/database/relics/gateway-of-all-realms"
+      },
+      "assets": {
+        "icon": "asset-relic-0171-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0172": {
+      "kind": "relic",
+      "id": "relic-0172",
+      "name": "Gilded Frame",
+      "route": {
+        "slug": "gilded-frame",
+        "canonicalPath": "/database/relics/gilded-frame"
+      },
+      "assets": {
+        "icon": "asset-relic-0172-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0173": {
+      "kind": "relic",
+      "id": "relic-0173",
+      "name": "Gilded Guide",
+      "route": {
+        "slug": "gilded-guide",
+        "canonicalPath": "/database/relics/gilded-guide"
+      },
+      "assets": {
+        "icon": "asset-relic-0173-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0174": {
+      "kind": "relic",
+      "id": "relic-0174",
+      "name": "Gilded Reverie",
+      "route": {
+        "slug": "gilded-reverie",
+        "canonicalPath": "/database/relics/gilded-reverie"
+      },
+      "assets": {
+        "icon": "asset-relic-0174-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0175": {
+      "kind": "relic",
+      "id": "relic-0175",
+      "name": "Gnosis Device",
+      "route": {
+        "slug": "gnosis-device",
+        "canonicalPath": "/database/relics/gnosis-device"
+      },
+      "assets": {
+        "icon": "asset-relic-0175-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0176": {
+      "kind": "relic",
+      "id": "relic-0176",
+      "name": "Guardian Hand",
+      "route": {
+        "slug": "guardian-hand",
+        "canonicalPath": "/database/relics/guardian-hand"
+      },
+      "assets": {
+        "icon": "asset-relic-0176-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0177": {
+      "kind": "relic",
+      "id": "relic-0177",
+      "name": "Guidance of Erasmus",
+      "route": {
+        "slug": "guidance-of-erasmus",
+        "canonicalPath": "/database/relics/guidance-of-erasmus"
+      },
+      "assets": {
+        "icon": "asset-relic-0177-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0178": {
+      "kind": "relic",
+      "id": "relic-0178",
+      "name": "Harford's Elixir",
+      "route": {
+        "slug": "harfords-elixir",
+        "canonicalPath": "/database/relics/harfords-elixir"
+      },
+      "assets": {
+        "icon": "asset-relic-0178-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0179": {
+      "kind": "relic",
+      "id": "relic-0179",
+      "name": "Hemostatic Clamp",
+      "route": {
+        "slug": "hemostatic-clamp",
+        "canonicalPath": "/database/relics/hemostatic-clamp"
+      },
+      "assets": {
+        "icon": "asset-relic-0179-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0180": {
+      "kind": "relic",
+      "id": "relic-0180",
+      "name": "Hierophant's Staff",
+      "route": {
+        "slug": "hierophants-staff",
+        "canonicalPath": "/database/relics/hierophants-staff"
+      },
+      "assets": {
+        "icon": "asset-relic-0180-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0181": {
+      "kind": "relic",
+      "id": "relic-0181",
+      "name": "Highest Honor",
+      "route": {
+        "slug": "highest-honor",
+        "canonicalPath": "/database/relics/highest-honor"
+      },
+      "assets": {
+        "icon": "asset-relic-0181-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0182": {
+      "kind": "relic",
+      "id": "relic-0182",
+      "name": "Honeyed Ink",
+      "route": {
+        "slug": "honeyed-ink",
+        "canonicalPath": "/database/relics/honeyed-ink"
+      },
+      "assets": {
+        "icon": "asset-relic-0182-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0183": {
+      "kind": "relic",
+      "id": "relic-0183",
+      "name": "Hyperstring Abyssal Elixir",
+      "route": {
+        "slug": "hyperstring-abyssal-elixir",
+        "canonicalPath": "/database/relics/hyperstring-abyssal-elixir"
+      },
+      "assets": {
+        "icon": "asset-relic-0183-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0184": {
+      "kind": "relic",
+      "id": "relic-0184",
+      "name": "Hyperstring Blood Rot Serum",
+      "route": {
+        "slug": "hyperstring-blood-rot-serum",
+        "canonicalPath": "/database/relics/hyperstring-blood-rot-serum"
+      },
+      "assets": {
+        "icon": "asset-relic-0184-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0185": {
+      "kind": "relic",
+      "id": "relic-0185",
+      "name": "Hyperstring Pocketwatch",
+      "route": {
+        "slug": "hyperstring-pocketwatch",
+        "canonicalPath": "/database/relics/hyperstring-pocketwatch"
+      },
+      "assets": {
+        "icon": "asset-relic-0185-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0186": {
+      "kind": "relic",
+      "id": "relic-0186",
+      "name": "In Twilight",
+      "route": {
+        "slug": "in-twilight",
+        "canonicalPath": "/database/relics/in-twilight"
+      },
+      "assets": {
+        "icon": "asset-relic-0186-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0187": {
+      "kind": "relic",
+      "id": "relic-0187",
+      "name": "Inverted View",
+      "route": {
+        "slug": "inverted-view",
+        "canonicalPath": "/database/relics/inverted-view"
+      },
+      "assets": {
+        "icon": "asset-relic-0187-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0188": {
+      "kind": "relic",
+      "id": "relic-0188",
+      "name": "Iron Lock",
+      "route": {
+        "slug": "iron-lock",
+        "canonicalPath": "/database/relics/iron-lock"
+      },
+      "assets": {
+        "icon": "asset-relic-0188-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0189": {
+      "kind": "relic",
+      "id": "relic-0189",
+      "name": "Ivory Raven Beak",
+      "route": {
+        "slug": "ivory-raven-beak",
+        "canonicalPath": "/database/relics/ivory-raven-beak"
+      },
+      "assets": {
+        "icon": "asset-relic-0189-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0190": {
+      "kind": "relic",
+      "id": "relic-0190",
       "name": "Jade Imprint",
       "route": {
         "slug": "jade-imprint",
         "canonicalPath": "/database/relics/jade-imprint"
       },
       "assets": {
-        "icon": "asset-relic-9110-icon"
+        "icon": "asset-relic-0190-icon"
       }
     },
-    "relic-9111": {
+    "relic-0191": {
       "kind": "relic",
-      "id": "relic-9111",
+      "id": "relic-0191",
+      "name": "Joyous Record",
+      "route": {
+        "slug": "joyous-record",
+        "canonicalPath": "/database/relics/joyous-record"
+      },
+      "assets": {
+        "icon": "asset-relic-0191-icon"
+      }
+    },
+    "relic-0192": {
+      "kind": "relic",
+      "id": "relic-0192",
+      "name": "Kaleidoscope",
+      "route": {
+        "slug": "kaleidoscope",
+        "canonicalPath": "/database/relics/kaleidoscope"
+      },
+      "assets": {
+        "icon": "asset-relic-0192-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0193": {
+      "kind": "relic",
+      "id": "relic-0193",
+      "name": "Knowledge Wheel",
+      "route": {
+        "slug": "knowledge-wheel",
+        "canonicalPath": "/database/relics/knowledge-wheel"
+      },
+      "assets": {
+        "icon": "asset-relic-0193-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0194": {
+      "kind": "relic",
+      "id": "relic-0194",
+      "name": "Lamp of Salvation",
+      "route": {
+        "slug": "lamp-of-salvation",
+        "canonicalPath": "/database/relics/lamp-of-salvation"
+      },
+      "assets": {
+        "icon": "asset-relic-0194-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0195": {
+      "kind": "relic",
+      "id": "relic-0195",
+      "name": "Lamprey Kiss",
+      "route": {
+        "slug": "lamprey-kiss",
+        "canonicalPath": "/database/relics/lamprey-kiss"
+      },
+      "assets": {
+        "icon": "asset-relic-0195-icon"
+      }
+    },
+    "relic-0196": {
+      "kind": "relic",
+      "id": "relic-0196",
+      "name": "Laurel Cufflinks",
+      "route": {
+        "slug": "laurel-cufflinks",
+        "canonicalPath": "/database/relics/laurel-cufflinks"
+      },
+      "assets": {
+        "icon": "asset-relic-0196-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0197": {
+      "kind": "relic",
+      "id": "relic-0197",
+      "name": "Lemurian Delight",
+      "route": {
+        "slug": "lemurian-delight",
+        "canonicalPath": "/database/relics/lemurian-delight"
+      },
+      "assets": {
+        "icon": "asset-relic-0197-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0198": {
+      "kind": "relic",
+      "id": "relic-0198",
+      "name": "Life Breather",
+      "route": {
+        "slug": "life-breather",
+        "canonicalPath": "/database/relics/life-breather"
+      },
+      "assets": {
+        "icon": "asset-relic-0198-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0199": {
+      "kind": "relic",
+      "id": "relic-0199",
+      "name": "Light of Civilization",
+      "route": {
+        "slug": "light-of-civilization",
+        "canonicalPath": "/database/relics/light-of-civilization"
+      },
+      "assets": {
+        "icon": "asset-relic-0199-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0200": {
+      "kind": "relic",
+      "id": "relic-0200",
+      "name": "Little N's Camera",
+      "route": {
+        "slug": "little-ns-camera",
+        "canonicalPath": "/database/relics/little-ns-camera"
+      },
+      "assets": {
+        "icon": "asset-relic-0200-icon"
+      }
+    },
+    "relic-0203": {
+      "kind": "relic",
+      "id": "relic-0203",
+      "name": "Lone Wolf's Insignia",
+      "route": {
+        "slug": "lone-wolfs-insignia",
+        "canonicalPath": "/database/relics/lone-wolfs-insignia"
+      },
+      "assets": {
+        "icon": "asset-relic-0203-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0204": {
+      "kind": "relic",
+      "id": "relic-0204",
+      "name": "Lucky Rabbit's Paw",
+      "route": {
+        "slug": "lucky-rabbits-paw",
+        "canonicalPath": "/database/relics/lucky-rabbits-paw"
+      },
+      "assets": {
+        "icon": "asset-relic-0204-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0205": {
+      "kind": "relic",
+      "id": "relic-0205",
+      "name": "Lucky Windcoat",
+      "route": {
+        "slug": "lucky-windcoat",
+        "canonicalPath": "/database/relics/lucky-windcoat"
+      },
+      "assets": {
+        "icon": "asset-relic-0205-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0206": {
+      "kind": "relic",
+      "id": "relic-0206",
+      "name": "Luminous Hourglass",
+      "route": {
+        "slug": "luminous-hourglass",
+        "canonicalPath": "/database/relics/luminous-hourglass"
+      },
+      "assets": {
+        "icon": "asset-relic-0206-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0207": {
+      "kind": "relic",
+      "id": "relic-0207",
+      "name": "Malignant Child",
+      "route": {
+        "slug": "malignant-child",
+        "canonicalPath": "/database/relics/malignant-child"
+      },
+      "assets": {
+        "icon": "asset-relic-0207-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0208": {
+      "kind": "relic",
+      "id": "relic-0208",
+      "name": "Mary the Pure",
+      "route": {
+        "slug": "mary-the-pure",
+        "canonicalPath": "/database/relics/mary-the-pure"
+      },
+      "assets": {
+        "icon": "asset-relic-0208-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0209": {
+      "kind": "relic",
+      "id": "relic-0209",
+      "name": "Medal of Rescue",
+      "route": {
+        "slug": "medal-of-rescue",
+        "canonicalPath": "/database/relics/medal-of-rescue"
+      },
+      "assets": {
+        "icon": "asset-relic-0209-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0214": {
+      "kind": "relic",
+      "id": "relic-0214",
+      "name": "\"Memory\" and \"Dream\"",
+      "route": {
+        "slug": "memory-and-dream",
+        "canonicalPath": "/database/relics/memory-and-dream"
+      },
+      "assets": {
+        "icon": "asset-relic-0214-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0215": {
+      "kind": "relic",
+      "id": "relic-0215",
+      "name": "Memphis Ritual Mirror",
+      "route": {
+        "slug": "memphis-ritual-mirror",
+        "canonicalPath": "/database/relics/memphis-ritual-mirror"
+      },
+      "assets": {
+        "icon": "asset-relic-0215-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0216": {
+      "kind": "relic",
+      "id": "relic-0216",
       "name": "Mind Engraving",
       "route": {
         "slug": "mind-engraving",
         "canonicalPath": "/database/relics/mind-engraving"
       },
       "assets": {
-        "icon": "asset-relic-9111-icon"
+        "icon": "asset-relic-0216-icon"
       }
+    },
+    "relic-0217": {
+      "kind": "relic",
+      "id": "relic-0217",
+      "name": "Mob Song",
+      "route": {
+        "slug": "mob-song",
+        "canonicalPath": "/database/relics/mob-song"
+      },
+      "assets": {
+        "icon": "asset-relic-0217-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0218": {
+      "kind": "relic",
+      "id": "relic-0218",
+      "name": "Modern Axle",
+      "route": {
+        "slug": "modern-axle",
+        "canonicalPath": "/database/relics/modern-axle"
+      },
+      "assets": {
+        "icon": "asset-relic-0218-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0219": {
+      "kind": "relic",
+      "id": "relic-0219",
+      "name": "Mother Effigy",
+      "route": {
+        "slug": "mother-effigy",
+        "canonicalPath": "/database/relics/mother-effigy"
+      },
+      "assets": {
+        "icon": "asset-relic-0219-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0220": {
+      "kind": "relic",
+      "id": "relic-0220",
+      "name": "Mute Jukebox",
+      "route": {
+        "slug": "mute-jukebox",
+        "canonicalPath": "/database/relics/mute-jukebox"
+      },
+      "assets": {
+        "icon": "asset-relic-0220-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0221": {
+      "kind": "relic",
+      "id": "relic-0221",
+      "name": "Muted Gloves",
+      "route": {
+        "slug": "muted-gloves",
+        "canonicalPath": "/database/relics/muted-gloves"
+      },
+      "assets": {
+        "icon": "asset-relic-0221-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0222": {
+      "kind": "relic",
+      "id": "relic-0222",
+      "name": "Mythag Insignia",
+      "route": {
+        "slug": "mythag-insignia",
+        "canonicalPath": "/database/relics/mythag-insignia"
+      },
+      "assets": {
+        "icon": "asset-relic-0222-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0223": {
+      "kind": "relic",
+      "id": "relic-0223",
+      "name": "Nameless Appendage",
+      "route": {
+        "slug": "nameless-appendage",
+        "canonicalPath": "/database/relics/nameless-appendage"
+      },
+      "assets": {
+        "icon": "asset-relic-0223-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0224": {
+      "kind": "relic",
+      "id": "relic-0224",
+      "name": "Nettle Vest",
+      "route": {
+        "slug": "nettle-vest",
+        "canonicalPath": "/database/relics/nettle-vest"
+      },
+      "assets": {
+        "icon": "asset-relic-0224-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0225": {
+      "kind": "relic",
+      "id": "relic-0225",
+      "name": "Neurotoxin",
+      "route": {
+        "slug": "neurotoxin",
+        "canonicalPath": "/database/relics/neurotoxin"
+      },
+      "assets": {
+        "icon": "asset-relic-0225-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0226": {
+      "kind": "relic",
+      "id": "relic-0226",
+      "name": "Nightmare Manifest",
+      "route": {
+        "slug": "nightmare-manifest",
+        "canonicalPath": "/database/relics/nightmare-manifest"
+      },
+      "assets": {
+        "icon": "asset-relic-0226-icon"
+      }
+    },
+    "relic-0227": {
+      "kind": "relic",
+      "id": "relic-0227",
+      "name": "Octahedron Dice",
+      "route": {
+        "slug": "octahedron-dice",
+        "canonicalPath": "/database/relics/octahedron-dice"
+      },
+      "assets": {
+        "icon": "asset-relic-0227-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0228": {
+      "kind": "relic",
+      "id": "relic-0228",
+      "name": "Ogai's Notes",
+      "route": {
+        "slug": "ogais-notes",
+        "canonicalPath": "/database/relics/ogais-notes"
+      },
+      "assets": {
+        "icon": "asset-relic-0228-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0229": {
+      "kind": "relic",
+      "id": "relic-0229",
+      "name": "Omen Ritual Bird",
+      "route": {
+        "slug": "omen-ritual-bird",
+        "canonicalPath": "/database/relics/omen-ritual-bird"
+      },
+      "assets": {
+        "icon": "asset-relic-0229-icon"
+      }
+    },
+    "relic-0230": {
+      "kind": "relic",
+      "id": "relic-0230",
+      "name": "Omniscient Eye",
+      "route": {
+        "slug": "omniscient-eye",
+        "canonicalPath": "/database/relics/omniscient-eye"
+      },
+      "assets": {
+        "icon": "asset-relic-0230-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0231": {
+      "kind": "relic",
+      "id": "relic-0231",
+      "name": "Other Tongue",
+      "route": {
+        "slug": "other-tongue",
+        "canonicalPath": "/database/relics/other-tongue"
+      },
+      "assets": {
+        "icon": "asset-relic-0231-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0232": {
+      "kind": "relic",
+      "id": "relic-0232",
+      "name": "Our Home",
+      "route": {
+        "slug": "our-home",
+        "canonicalPath": "/database/relics/our-home"
+      },
+      "assets": {
+        "icon": "asset-relic-0232-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0233": {
+      "kind": "relic",
+      "id": "relic-0233",
+      "name": "Pallid Egg",
+      "route": {
+        "slug": "pallid-egg",
+        "canonicalPath": "/database/relics/pallid-egg"
+      },
+      "assets": {
+        "icon": "asset-relic-0233-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0234": {
+      "kind": "relic",
+      "id": "relic-0234",
+      "name": "Pathwalker's Remains",
+      "route": {
+        "slug": "pathwalkers-remains",
+        "canonicalPath": "/database/relics/pathwalkers-remains"
+      },
+      "assets": {
+        "icon": "asset-relic-0234-icon"
+      }
+    },
+    "relic-0235": {
+      "kind": "relic",
+      "id": "relic-0235",
+      "name": "Phantom Hand",
+      "route": {
+        "slug": "phantom-hand",
+        "canonicalPath": "/database/relics/phantom-hand"
+      },
+      "assets": {
+        "icon": "asset-relic-0235-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0236": {
+      "kind": "relic",
+      "id": "relic-0236",
+      "name": "Plague Record",
+      "route": {
+        "slug": "plague-record",
+        "canonicalPath": "/database/relics/plague-record"
+      },
+      "assets": {
+        "icon": "asset-relic-0236-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0237": {
+      "kind": "relic",
+      "id": "relic-0237",
+      "name": "Pocketwatch Mirror",
+      "route": {
+        "slug": "pocketwatch-mirror",
+        "canonicalPath": "/database/relics/pocketwatch-mirror"
+      },
+      "assets": {
+        "icon": "asset-relic-0237-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0238": {
+      "kind": "relic",
+      "id": "relic-0238",
+      "name": "Prasno Lens",
+      "route": {
+        "slug": "prasno-lens",
+        "canonicalPath": "/database/relics/prasno-lens"
+      },
+      "assets": {
+        "icon": "asset-relic-0238-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0239": {
+      "kind": "relic",
+      "id": "relic-0239",
+      "name": "Preserved Butterfly",
+      "route": {
+        "slug": "preserved-butterfly",
+        "canonicalPath": "/database/relics/preserved-butterfly"
+      },
+      "assets": {
+        "icon": "asset-relic-0239-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0240": {
+      "kind": "relic",
+      "id": "relic-0240",
+      "name": "Principles of Aesthetics",
+      "route": {
+        "slug": "principles-of-aesthetics",
+        "canonicalPath": "/database/relics/principles-of-aesthetics"
+      },
+      "assets": {
+        "icon": "asset-relic-0240-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0241": {
+      "kind": "relic",
+      "id": "relic-0241",
+      "name": "Prophet's Lamp",
+      "route": {
+        "slug": "prophets-lamp",
+        "canonicalPath": "/database/relics/prophets-lamp"
+      },
+      "assets": {
+        "icon": "asset-relic-0241-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0242": {
+      "kind": "relic",
+      "id": "relic-0242",
+      "name": "Proto Battery",
+      "route": {
+        "slug": "proto-battery",
+        "canonicalPath": "/database/relics/proto-battery"
+      },
+      "assets": {
+        "icon": "asset-relic-0242-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0243": {
+      "kind": "relic",
+      "id": "relic-0243",
+      "name": "Psyche Analysis",
+      "route": {
+        "slug": "psyche-analysis",
+        "canonicalPath": "/database/relics/psyche-analysis"
+      },
+      "assets": {
+        "icon": "asset-relic-0243-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0244": {
+      "kind": "relic",
+      "id": "relic-0244",
+      "name": "Pure Silver Core",
+      "route": {
+        "slug": "pure-silver-core",
+        "canonicalPath": "/database/relics/pure-silver-core"
+      },
+      "assets": {
+        "icon": "asset-relic-0244-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0251": {
+      "kind": "relic",
+      "id": "relic-0251",
+      "name": "Putney Morning Post",
+      "route": {
+        "slug": "putney-morning-post",
+        "canonicalPath": "/database/relics/putney-morning-post"
+      },
+      "assets": {
+        "icon": "asset-relic-0251-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0252": {
+      "kind": "relic",
+      "id": "relic-0252",
+      "name": "Radium Jawbone",
+      "route": {
+        "slug": "radium-jawbone",
+        "canonicalPath": "/database/relics/radium-jawbone"
+      },
+      "assets": {
+        "icon": "asset-relic-0252-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0253": {
+      "kind": "relic",
+      "id": "relic-0253",
+      "name": "Relic of the Past",
+      "route": {
+        "slug": "relic-of-the-past",
+        "canonicalPath": "/database/relics/relic-of-the-past"
+      },
+      "assets": {
+        "icon": "asset-relic-0253-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0254": {
+      "kind": "relic",
+      "id": "relic-0254",
+      "name": "Rhind Papyrus",
+      "route": {
+        "slug": "rhind-papyrus",
+        "canonicalPath": "/database/relics/rhind-papyrus"
+      },
+      "assets": {
+        "icon": "asset-relic-0254-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0255": {
+      "kind": "relic",
+      "id": "relic-0255",
+      "name": "Rite of Spring",
+      "route": {
+        "slug": "rite-of-spring",
+        "canonicalPath": "/database/relics/rite-of-spring"
+      },
+      "assets": {
+        "icon": "asset-relic-0255-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0256": {
+      "kind": "relic",
+      "id": "relic-0256",
+      "name": "Ritual Dagger",
+      "route": {
+        "slug": "ritual-dagger",
+        "canonicalPath": "/database/relics/ritual-dagger"
+      },
+      "assets": {
+        "icon": "asset-relic-0256-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0257": {
+      "kind": "relic",
+      "id": "relic-0257",
+      "name": "Rotting Blood Abyss Serum",
+      "route": {
+        "slug": "rotting-blood-abyss-serum",
+        "canonicalPath": "/database/relics/rotting-blood-abyss-serum"
+      },
+      "assets": {
+        "icon": "asset-relic-0257-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0258": {
+      "kind": "relic",
+      "id": "relic-0258",
+      "name": "Rusted Saw",
+      "route": {
+        "slug": "rusted-saw",
+        "canonicalPath": "/database/relics/rusted-saw"
+      },
+      "assets": {
+        "icon": "asset-relic-0258-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0259": {
+      "kind": "relic",
+      "id": "relic-0259",
+      "name": "Rusty Lancet",
+      "route": {
+        "slug": "rusty-lancet",
+        "canonicalPath": "/database/relics/rusty-lancet"
+      },
+      "assets": {
+        "icon": "asset-relic-0259-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0260": {
+      "kind": "relic",
+      "id": "relic-0260",
+      "name": "Sacred Agony",
+      "route": {
+        "slug": "sacred-agony",
+        "canonicalPath": "/database/relics/sacred-agony"
+      },
+      "assets": {
+        "icon": "asset-relic-0260-icon"
+      }
+    },
+    "relic-0261": {
+      "kind": "relic",
+      "id": "relic-0261",
+      "name": "Safe Passage",
+      "route": {
+        "slug": "safe-passage",
+        "canonicalPath": "/database/relics/safe-passage"
+      },
+      "assets": {
+        "icon": "asset-relic-0261-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0262": {
+      "kind": "relic",
+      "id": "relic-0262",
+      "name": "Sailor Whistle",
+      "route": {
+        "slug": "sailor-whistle",
+        "canonicalPath": "/database/relics/sailor-whistle"
+      },
+      "assets": {
+        "icon": "asset-relic-0262-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0263": {
+      "kind": "relic",
+      "id": "relic-0263",
+      "name": "Salvific Limb",
+      "route": {
+        "slug": "salvific-limb",
+        "canonicalPath": "/database/relics/salvific-limb"
+      },
+      "assets": {
+        "icon": "asset-relic-0263-icon"
+      }
+    },
+    "relic-0264": {
+      "kind": "relic",
+      "id": "relic-0264",
+      "name": "Serpent's Husk",
+      "route": {
+        "slug": "serpents-husk",
+        "canonicalPath": "/database/relics/serpents-husk"
+      },
+      "assets": {
+        "icon": "asset-relic-0264-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0265": {
+      "kind": "relic",
+      "id": "relic-0265",
+      "name": "Severed Head Worm",
+      "route": {
+        "slug": "severed-head-worm",
+        "canonicalPath": "/database/relics/severed-head-worm"
+      },
+      "assets": {
+        "icon": "asset-relic-0265-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0266": {
+      "kind": "relic",
+      "id": "relic-0266",
+      "name": "Shapeshifter's Invitation",
+      "route": {
+        "slug": "shapeshifters-invitation",
+        "canonicalPath": "/database/relics/shapeshifters-invitation"
+      },
+      "assets": {
+        "icon": "asset-relic-0266-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0267": {
+      "kind": "relic",
+      "id": "relic-0267",
+      "name": "Shifting Straitjacket",
+      "route": {
+        "slug": "shifting-straitjacket",
+        "canonicalPath": "/database/relics/shifting-straitjacket"
+      },
+      "assets": {
+        "icon": "asset-relic-0267-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0268": {
+      "kind": "relic",
+      "id": "relic-0268",
+      "name": "Signal Relay",
+      "route": {
+        "slug": "signal-relay",
+        "canonicalPath": "/database/relics/signal-relay"
+      },
+      "assets": {
+        "icon": "asset-relic-0268-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0269": {
+      "kind": "relic",
+      "id": "relic-0269",
+      "name": "Silent Prelude",
+      "route": {
+        "slug": "silent-prelude",
+        "canonicalPath": "/database/relics/silent-prelude"
+      },
+      "assets": {
+        "icon": "asset-relic-0269-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0270": {
+      "kind": "relic",
+      "id": "relic-0270",
+      "name": "Silver Ribbon",
+      "route": {
+        "slug": "silver-ribbon",
+        "canonicalPath": "/database/relics/silver-ribbon"
+      },
+      "assets": {
+        "icon": "asset-relic-0270-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0271": {
+      "kind": "relic",
+      "id": "relic-0271",
+      "name": "Silver Tongue",
+      "route": {
+        "slug": "silver-tongue",
+        "canonicalPath": "/database/relics/silver-tongue"
+      },
+      "assets": {
+        "icon": "asset-relic-0271-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0272": {
+      "kind": "relic",
+      "id": "relic-0272",
+      "name": "Siren's Tear",
+      "route": {
+        "slug": "sirens-tear",
+        "canonicalPath": "/database/relics/sirens-tear"
+      },
+      "assets": {
+        "icon": "asset-relic-0272-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0273": {
+      "kind": "relic",
+      "id": "relic-0273",
+      "name": "Solar Disc",
+      "route": {
+        "slug": "solar-disc",
+        "canonicalPath": "/database/relics/solar-disc"
+      },
+      "assets": {
+        "icon": "asset-relic-0273-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0274": {
+      "kind": "relic",
+      "id": "relic-0274",
+      "name": "SOS Signal",
+      "route": {
+        "slug": "sos-signal",
+        "canonicalPath": "/database/relics/sos-signal"
+      },
+      "assets": {
+        "icon": "asset-relic-0274-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0275": {
+      "kind": "relic",
+      "id": "relic-0275",
+      "name": "Sovereign's Power",
+      "route": {
+        "slug": "sovereigns-power",
+        "canonicalPath": "/database/relics/sovereigns-power"
+      },
+      "assets": {
+        "icon": "asset-relic-0275-icon"
+      },
+      "rarity": "SR"
+    },
+    "relic-0276": {
+      "kind": "relic",
+      "id": "relic-0276",
+      "name": "Spatial Deflector",
+      "route": {
+        "slug": "spatial-deflector",
+        "canonicalPath": "/database/relics/spatial-deflector"
+      },
+      "assets": {
+        "icon": "asset-relic-0276-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0277": {
+      "kind": "relic",
+      "id": "relic-0277",
+      "name": "Stand-In Doll",
+      "route": {
+        "slug": "stand-in-doll",
+        "canonicalPath": "/database/relics/stand-in-doll"
+      },
+      "assets": {
+        "icon": "asset-relic-0277-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0278": {
+      "kind": "relic",
+      "id": "relic-0278",
+      "name": "Stellar Brew",
+      "route": {
+        "slug": "stellar-brew",
+        "canonicalPath": "/database/relics/stellar-brew"
+      },
+      "assets": {
+        "icon": "asset-relic-0278-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0279": {
+      "kind": "relic",
+      "id": "relic-0279",
+      "name": "Submersible Helm",
+      "route": {
+        "slug": "submersible-helm",
+        "canonicalPath": "/database/relics/submersible-helm"
+      },
+      "assets": {
+        "icon": "asset-relic-0279-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0280": {
+      "kind": "relic",
+      "id": "relic-0280",
+      "name": "Sudden Fallacy",
+      "route": {
+        "slug": "sudden-fallacy",
+        "canonicalPath": "/database/relics/sudden-fallacy"
+      },
+      "assets": {
+        "icon": "asset-relic-0280-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0281": {
+      "kind": "relic",
+      "id": "relic-0281",
+      "name": "Swarm Mind",
+      "route": {
+        "slug": "swarm-mind",
+        "canonicalPath": "/database/relics/swarm-mind"
+      },
+      "assets": {
+        "icon": "asset-relic-0281-icon"
+      }
+    },
+    "relic-0282": {
+      "kind": "relic",
+      "id": "relic-0282",
+      "name": "The Futile Travail",
+      "route": {
+        "slug": "the-futile-travail",
+        "canonicalPath": "/database/relics/the-futile-travail"
+      },
+      "assets": {
+        "icon": "asset-relic-0282-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0283": {
+      "kind": "relic",
+      "id": "relic-0283",
+      "name": "Tilted Scales",
+      "route": {
+        "slug": "tilted-scales",
+        "canonicalPath": "/database/relics/tilted-scales"
+      },
+      "assets": {
+        "icon": "asset-relic-0283-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0284": {
+      "kind": "relic",
+      "id": "relic-0284",
+      "name": "Time Scarab",
+      "route": {
+        "slug": "time-scarab",
+        "canonicalPath": "/database/relics/time-scarab"
+      },
+      "assets": {
+        "icon": "asset-relic-0284-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0285": {
+      "kind": "relic",
+      "id": "relic-0285",
+      "name": "Tiny Cradle",
+      "route": {
+        "slug": "tiny-cradle",
+        "canonicalPath": "/database/relics/tiny-cradle"
+      },
+      "assets": {
+        "icon": "asset-relic-0285-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0286": {
+      "kind": "relic",
+      "id": "relic-0286",
+      "name": "Tiny Music Box",
+      "route": {
+        "slug": "tiny-music-box",
+        "canonicalPath": "/database/relics/tiny-music-box"
+      },
+      "assets": {
+        "icon": "asset-relic-0286-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0287": {
+      "kind": "relic",
+      "id": "relic-0287",
+      "name": "Trickster's Hat",
+      "route": {
+        "slug": "tricksters-hat",
+        "canonicalPath": "/database/relics/tricksters-hat"
+      },
+      "assets": {
+        "icon": "asset-relic-0287-icon"
+      }
+    },
+    "relic-0288": {
+      "kind": "relic",
+      "id": "relic-0288",
+      "name": "Trigon Prism",
+      "route": {
+        "slug": "trigon-prism",
+        "canonicalPath": "/database/relics/trigon-prism"
+      },
+      "assets": {
+        "icon": "asset-relic-0288-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0289": {
+      "kind": "relic",
+      "id": "relic-0289",
+      "name": "True North Compass",
+      "route": {
+        "slug": "true-north-compass",
+        "canonicalPath": "/database/relics/true-north-compass"
+      },
+      "assets": {
+        "icon": "asset-relic-0289-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0290": {
+      "kind": "relic",
+      "id": "relic-0290",
+      "name": "Truth Unbound",
+      "route": {
+        "slug": "truth-unbound",
+        "canonicalPath": "/database/relics/truth-unbound"
+      },
+      "assets": {
+        "icon": "asset-relic-0290-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0291": {
+      "kind": "relic",
+      "id": "relic-0291",
+      "name": "Twin Dolls",
+      "route": {
+        "slug": "twin-dolls",
+        "canonicalPath": "/database/relics/twin-dolls"
+      },
+      "assets": {
+        "icon": "asset-relic-0291-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0292": {
+      "kind": "relic",
+      "id": "relic-0292",
+      "name": "Twisted Palette",
+      "route": {
+        "slug": "twisted-palette",
+        "canonicalPath": "/database/relics/twisted-palette"
+      },
+      "assets": {
+        "icon": "asset-relic-0292-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0293": {
+      "kind": "relic",
+      "id": "relic-0293",
+      "name": "Ultra Ring",
+      "route": {
+        "slug": "ultra-ring",
+        "canonicalPath": "/database/relics/ultra-ring"
+      },
+      "assets": {
+        "icon": "asset-relic-0293-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0294": {
+      "kind": "relic",
+      "id": "relic-0294",
+      "name": "Uncanny Salve",
+      "route": {
+        "slug": "uncanny-salve",
+        "canonicalPath": "/database/relics/uncanny-salve"
+      },
+      "assets": {
+        "icon": "asset-relic-0294-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0295": {
+      "kind": "relic",
+      "id": "relic-0295",
+      "name": "Unified Evolution Reagent",
+      "route": {
+        "slug": "unified-evolution-reagent",
+        "canonicalPath": "/database/relics/unified-evolution-reagent"
+      },
+      "assets": {
+        "icon": "asset-relic-0295-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0296": {
+      "kind": "relic",
+      "id": "relic-0296",
+      "name": "Veil of the Nameless Deity",
+      "route": {
+        "slug": "veil-of-the-nameless-deity",
+        "canonicalPath": "/database/relics/veil-of-the-nameless-deity"
+      },
+      "assets": {
+        "icon": "asset-relic-0296-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0297": {
+      "kind": "relic",
+      "id": "relic-0297",
+      "name": "Vision Corrector",
+      "route": {
+        "slug": "vision-corrector",
+        "canonicalPath": "/database/relics/vision-corrector"
+      },
+      "assets": {
+        "icon": "asset-relic-0297-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0298": {
+      "kind": "relic",
+      "id": "relic-0298",
+      "name": "Vitality Injection",
+      "route": {
+        "slug": "vitality-injection",
+        "canonicalPath": "/database/relics/vitality-injection"
+      },
+      "assets": {
+        "icon": "asset-relic-0298-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0299": {
+      "kind": "relic",
+      "id": "relic-0299",
+      "name": "Voyager's Parasol",
+      "route": {
+        "slug": "voyagers-parasol",
+        "canonicalPath": "/database/relics/voyagers-parasol"
+      },
+      "assets": {
+        "icon": "asset-relic-0299-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0300": {
+      "kind": "relic",
+      "id": "relic-0300",
+      "name": "Wailing Bell",
+      "route": {
+        "slug": "wailing-bell",
+        "canonicalPath": "/database/relics/wailing-bell"
+      },
+      "assets": {
+        "icon": "asset-relic-0300-icon"
+      }
+    },
+    "relic-0301": {
+      "kind": "relic",
+      "id": "relic-0301",
+      "name": "Warp Device",
+      "route": {
+        "slug": "warp-device",
+        "canonicalPath": "/database/relics/warp-device"
+      },
+      "assets": {
+        "icon": "asset-relic-0301-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0302": {
+      "kind": "relic",
+      "id": "relic-0302",
+      "name": "Weeping Pipe",
+      "route": {
+        "slug": "weeping-pipe",
+        "canonicalPath": "/database/relics/weeping-pipe"
+      },
+      "assets": {
+        "icon": "asset-relic-0302-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0303": {
+      "kind": "relic",
+      "id": "relic-0303",
+      "name": "Winner's Cup",
+      "route": {
+        "slug": "winners-cup",
+        "canonicalPath": "/database/relics/winners-cup"
+      },
+      "assets": {
+        "icon": "asset-relic-0303-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0304": {
+      "kind": "relic",
+      "id": "relic-0304",
+      "name": "Wriggling Cord",
+      "route": {
+        "slug": "wriggling-cord",
+        "canonicalPath": "/database/relics/wriggling-cord"
+      },
+      "assets": {
+        "icon": "asset-relic-0304-icon"
+      }
+    },
+    "relic-0305": {
+      "kind": "relic",
+      "id": "relic-0305",
+      "name": "Yellow Snail",
+      "route": {
+        "slug": "yellow-snail",
+        "canonicalPath": "/database/relics/yellow-snail"
+      },
+      "assets": {
+        "icon": "asset-relic-0305-icon"
+      },
+      "rarity": "N"
     },
     "skill.24.aberrant-vivisection": {
       "kind": "skill",
@@ -21840,8 +23792,15 @@
       "derived.doll-inferno.self-destruct-finale",
       "derived.doresain.evernights-revel",
       "derived.erica.retract-mecha",
+      "derived.global.adsorption",
       "derived.global.adv-insight",
       "derived.global.arouse",
+      "derived.global.assemble",
+      "derived.global.barbed-trident",
+      "derived.global.brilliance-of-humanity",
+      "derived.global.coalsie-smack",
+      "derived.global.cocoon-of-revival",
+      "derived.global.convulsion",
       "derived.global.countdown",
       "derived.global.countdown-0",
       "derived.global.countdown-1",
@@ -21849,21 +23808,63 @@
       "derived.global.countdown-3",
       "derived.global.countdown-4",
       "derived.global.countdown-5",
+      "derived.global.devour-card",
+      "derived.global.divine-dedication",
       "derived.global.dreaming-of-wonderland",
+      "derived.global.echoes-of-lost-shadows",
+      "derived.global.echoes-of-the-past",
       "derived.global.embryo",
       "derived.global.fleeting-beauty",
+      "derived.global.flicker-of-humanity",
+      "derived.global.forbidden-truth",
+      "derived.global.gauntward",
+      "derived.global.glow-of-humanity",
+      "derived.global.gluttonous-attack",
       "derived.global.gobble-up",
       "derived.global.hanafubuki",
+      "derived.global.hide-beta",
       "derived.global.ichigo-ichie",
+      "derived.global.infinite-silver-vault",
       "derived.global.insight",
+      "derived.global.inspire-offsprings",
       "derived.global.leahs-coin",
       "derived.global.light-cone-boundary",
+      "derived.global.luster-of-humanity",
+      "derived.global.memories-envoys-verdict",
+      "derived.global.memories-honey-mead",
+      "derived.global.memories-innocent-return-gift",
+      "derived.global.memories-mutated-heart",
+      "derived.global.memories-seed-of-abundance",
+      "derived.global.memories-unfinished-wax-sculpture",
+      "derived.global.memories-utopian-veil",
+      "derived.global.one-way",
+      "derived.global.palette",
+      "derived.global.parasol",
+      "derived.global.prion-virus",
       "derived.global.private-afternoon",
       "derived.global.propagule-embryo",
+      "derived.global.protect-offsprings",
+      "derived.global.pupation",
+      "derived.global.radiance-of-humanity",
       "derived.global.sakura-blossoms",
+      "derived.global.silver-key-dawn",
       "derived.global.silver-key-gleam",
+      "derived.global.silver-key-resonance",
       "derived.global.slumber",
+      "derived.global.solidify",
+      "derived.global.stagger",
       "derived.global.stakes-of-wisdom",
+      "derived.global.suspicion",
+      "derived.global.toxic-infusion",
+      "derived.global.toxic-outbreak",
+      "derived.global.twilight-envoys-verdict",
+      "derived.global.twilight-honey-mead",
+      "derived.global.twilight-innocent-return-gift",
+      "derived.global.twilight-mutated-heart",
+      "derived.global.twilight-seed-of-abundance",
+      "derived.global.twilight-unfinished-wax-sculpture",
+      "derived.global.twilight-utopian-veil",
+      "derived.global.unyielding-will-beta",
       "derived.global.vernal-message",
       "derived.goliath.blades-dominion",
       "derived.goliath.dormancy",
@@ -22479,117 +24480,234 @@
       "relic-0056",
       "relic-0057",
       "relic-0058",
-      "relic-9001",
-      "relic-9002",
-      "relic-9003",
-      "relic-9004",
-      "relic-9005",
-      "relic-9006",
-      "relic-9007",
-      "relic-9008",
-      "relic-9009",
-      "relic-9010",
-      "relic-9011",
-      "relic-9012",
-      "relic-9013",
-      "relic-9014",
-      "relic-9015",
-      "relic-9016",
-      "relic-9017",
-      "relic-9018",
-      "relic-9019",
-      "relic-9020",
-      "relic-9021",
-      "relic-9022",
-      "relic-9023",
-      "relic-9024",
-      "relic-9025",
-      "relic-9026",
-      "relic-9027",
-      "relic-9028",
-      "relic-9029",
-      "relic-9030",
-      "relic-9031",
-      "relic-9032",
-      "relic-9033",
-      "relic-9034",
-      "relic-9035",
-      "relic-9036",
-      "relic-9037",
-      "relic-9038",
-      "relic-9039",
-      "relic-9040",
-      "relic-9041",
-      "relic-9042",
-      "relic-9043",
-      "relic-9044",
-      "relic-9045",
-      "relic-9046",
-      "relic-9047",
-      "relic-9048",
-      "relic-9049",
-      "relic-9050",
-      "relic-9051",
-      "relic-9052",
-      "relic-9053",
-      "relic-9054",
-      "relic-9055",
-      "relic-9056",
-      "relic-9057",
-      "relic-9058",
-      "relic-9059",
-      "relic-9060",
-      "relic-9061",
-      "relic-9062",
-      "relic-9063",
-      "relic-9064",
-      "relic-9065",
-      "relic-9066",
-      "relic-9067",
-      "relic-9068",
-      "relic-9069",
-      "relic-9070",
-      "relic-9071",
-      "relic-9072",
-      "relic-9073",
-      "relic-9074",
-      "relic-9075",
-      "relic-9076",
-      "relic-9077",
-      "relic-9078",
-      "relic-9079",
-      "relic-9080",
-      "relic-9081",
-      "relic-9082",
-      "relic-9083",
-      "relic-9084",
-      "relic-9085",
-      "relic-9086",
-      "relic-9087",
-      "relic-9088",
-      "relic-9089",
-      "relic-9090",
-      "relic-9091",
-      "relic-9092",
-      "relic-9093",
-      "relic-9094",
-      "relic-9095",
-      "relic-9096",
-      "relic-9097",
-      "relic-9098",
-      "relic-9099",
-      "relic-9100",
-      "relic-9101",
-      "relic-9102",
-      "relic-9103",
-      "relic-9104",
-      "relic-9105",
-      "relic-9106",
-      "relic-9107",
-      "relic-9108",
-      "relic-9109",
-      "relic-9110",
-      "relic-9111"
+      "relic-0059",
+      "relic-0060",
+      "relic-0061",
+      "relic-0062",
+      "relic-0063",
+      "relic-0064",
+      "relic-0065",
+      "relic-0066",
+      "relic-0067",
+      "relic-0074",
+      "relic-0075",
+      "relic-0076",
+      "relic-0077",
+      "relic-0078",
+      "relic-0079",
+      "relic-0080",
+      "relic-0081",
+      "relic-0082",
+      "relic-0083",
+      "relic-0084",
+      "relic-0085",
+      "relic-0086",
+      "relic-0087",
+      "relic-0088",
+      "relic-0089",
+      "relic-0090",
+      "relic-0091",
+      "relic-0092",
+      "relic-0093",
+      "relic-0094",
+      "relic-0095",
+      "relic-0096",
+      "relic-0097",
+      "relic-0098",
+      "relic-0099",
+      "relic-0100",
+      "relic-0101",
+      "relic-0102",
+      "relic-0103",
+      "relic-0104",
+      "relic-0105",
+      "relic-0106",
+      "relic-0107",
+      "relic-0108",
+      "relic-0109",
+      "relic-0110",
+      "relic-0111",
+      "relic-0112",
+      "relic-0113",
+      "relic-0114",
+      "relic-0115",
+      "relic-0116",
+      "relic-0117",
+      "relic-0118",
+      "relic-0119",
+      "relic-0120",
+      "relic-0121",
+      "relic-0122",
+      "relic-0123",
+      "relic-0124",
+      "relic-0125",
+      "relic-0126",
+      "relic-0127",
+      "relic-0128",
+      "relic-0129",
+      "relic-0130",
+      "relic-0131",
+      "relic-0132",
+      "relic-0133",
+      "relic-0134",
+      "relic-0135",
+      "relic-0136",
+      "relic-0137",
+      "relic-0138",
+      "relic-0139",
+      "relic-0140",
+      "relic-0141",
+      "relic-0142",
+      "relic-0143",
+      "relic-0144",
+      "relic-0145",
+      "relic-0146",
+      "relic-0147",
+      "relic-0148",
+      "relic-0149",
+      "relic-0150",
+      "relic-0151",
+      "relic-0152",
+      "relic-0153",
+      "relic-0154",
+      "relic-0155",
+      "relic-0156",
+      "relic-0157",
+      "relic-0158",
+      "relic-0159",
+      "relic-0160",
+      "relic-0161",
+      "relic-0163",
+      "relic-0164",
+      "relic-0165",
+      "relic-0166",
+      "relic-0167",
+      "relic-0168",
+      "relic-0169",
+      "relic-0170",
+      "relic-0171",
+      "relic-0172",
+      "relic-0173",
+      "relic-0174",
+      "relic-0175",
+      "relic-0176",
+      "relic-0177",
+      "relic-0178",
+      "relic-0179",
+      "relic-0180",
+      "relic-0181",
+      "relic-0182",
+      "relic-0183",
+      "relic-0184",
+      "relic-0185",
+      "relic-0186",
+      "relic-0187",
+      "relic-0188",
+      "relic-0189",
+      "relic-0190",
+      "relic-0191",
+      "relic-0192",
+      "relic-0193",
+      "relic-0194",
+      "relic-0195",
+      "relic-0196",
+      "relic-0197",
+      "relic-0198",
+      "relic-0199",
+      "relic-0200",
+      "relic-0203",
+      "relic-0204",
+      "relic-0205",
+      "relic-0206",
+      "relic-0207",
+      "relic-0208",
+      "relic-0209",
+      "relic-0214",
+      "relic-0215",
+      "relic-0216",
+      "relic-0217",
+      "relic-0218",
+      "relic-0219",
+      "relic-0220",
+      "relic-0221",
+      "relic-0222",
+      "relic-0223",
+      "relic-0224",
+      "relic-0225",
+      "relic-0226",
+      "relic-0227",
+      "relic-0228",
+      "relic-0229",
+      "relic-0230",
+      "relic-0231",
+      "relic-0232",
+      "relic-0233",
+      "relic-0234",
+      "relic-0235",
+      "relic-0236",
+      "relic-0237",
+      "relic-0238",
+      "relic-0239",
+      "relic-0240",
+      "relic-0241",
+      "relic-0242",
+      "relic-0243",
+      "relic-0244",
+      "relic-0251",
+      "relic-0252",
+      "relic-0253",
+      "relic-0254",
+      "relic-0255",
+      "relic-0256",
+      "relic-0257",
+      "relic-0258",
+      "relic-0259",
+      "relic-0260",
+      "relic-0261",
+      "relic-0262",
+      "relic-0263",
+      "relic-0264",
+      "relic-0265",
+      "relic-0266",
+      "relic-0267",
+      "relic-0268",
+      "relic-0269",
+      "relic-0270",
+      "relic-0271",
+      "relic-0272",
+      "relic-0273",
+      "relic-0274",
+      "relic-0275",
+      "relic-0276",
+      "relic-0277",
+      "relic-0278",
+      "relic-0279",
+      "relic-0280",
+      "relic-0281",
+      "relic-0282",
+      "relic-0283",
+      "relic-0284",
+      "relic-0285",
+      "relic-0286",
+      "relic-0287",
+      "relic-0288",
+      "relic-0289",
+      "relic-0290",
+      "relic-0291",
+      "relic-0292",
+      "relic-0293",
+      "relic-0294",
+      "relic-0295",
+      "relic-0296",
+      "relic-0297",
+      "relic-0298",
+      "relic-0299",
+      "relic-0300",
+      "relic-0301",
+      "relic-0302",
+      "relic-0303",
+      "relic-0304",
+      "relic-0305"
     ],
     "skills": [
       "skill.24.aberrant-vivisection",

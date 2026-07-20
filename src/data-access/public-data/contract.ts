@@ -66,7 +66,9 @@ export interface PublicRouteResolutionNotFound {
 }
 
 export type PublicRouteResolution =
-  PublicRouteResolutionOk | PublicRouteResolutionRedirect | PublicRouteResolutionNotFound
+  | PublicRouteResolutionOk
+  | PublicRouteResolutionRedirect
+  | PublicRouteResolutionNotFound
 
 export interface PublicCatalogRecord {
   kind: EntityKind

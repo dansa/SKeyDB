@@ -79,7 +79,9 @@ const teamPreviewModeOptions = [
 ] as const
 
 export type BuilderV2TeamSlotEditTarget =
-  {kind: 'awakener'} | {kind: 'wheel'; wheelIndex: WheelSlotIndex} | {kind: 'covenant'}
+  | {kind: 'awakener'}
+  | {kind: 'wheel'; wheelIndex: WheelSlotIndex}
+  | {kind: 'covenant'}
 
 const teamSortTransition = {
   duration: 180,
@@ -251,12 +253,8 @@ export const BuilderV2TeamManagement = memo(function BuilderV2TeamManagement({
 })
 
 function useTeamManagementWideLayout() {
-  const observerRef = useRef<ResizeObserver | null>(null)
   const [isWideLayout, setIsWideLayout] = useState(false)
   const setSectionNode = useCallback((element: HTMLElement | null) => {
-    observerRef.current?.disconnect()
-    observerRef.current = null
-
     if (!element || typeof ResizeObserver === 'undefined') {
       return
     }
@@ -268,16 +266,12 @@ function useTeamManagementWideLayout() {
       setIsWideLayout((current) => (current === nextIsWide ? current : nextIsWide))
     })
 
+    // react-doctor-disable-next-line react-doctor/effect-needs-cleanup -- React 19 invokes the callback ref disposer below on ref replacement and unmount.
     observer.observe(element)
-    observerRef.current = observer
+    return () => {
+      observer.disconnect()
+    }
   }, [])
-
-  useEffect(
-    () => () => {
-      observerRef.current?.disconnect()
-    },
-    [],
-  )
 
   return [setSectionNode, isWideLayout] as const
 }

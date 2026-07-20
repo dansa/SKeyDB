@@ -2,7 +2,6 @@ import {fireEvent, render, screen, within} from '@testing-library/react'
 import {describe, expect, it} from 'vitest'
 
 import './builder-page.integration-mocks'
-
 import {BuilderPage} from './BuilderPage'
 
 describe('BuilderPage team management', () => {

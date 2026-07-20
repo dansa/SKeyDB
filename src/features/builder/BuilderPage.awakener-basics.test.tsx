@@ -5,7 +5,6 @@ import {COLLECTION_OWNERSHIP_KEY} from '@/features/collection/collectionMigratio
 import {dbDetailStore} from '@/stores/dbDetailStore'
 
 import './builder-page.integration-mocks'
-
 import {BuilderPage} from './BuilderPage'
 
 interface MockDetailRenderOptions {

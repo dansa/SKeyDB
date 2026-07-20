@@ -10,11 +10,14 @@
   "assets": {
     "icon": "asset-relic-0052-icon"
   },
-  "relicType": "DIMENSIONAL_IMAGE",
+  "relicType": "Dimensional Image",
+  "categories": ["DIMENSIONAL_IMAGE"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0052",
   "ownerAwakenerId": "awakener-0052",
   "ownerAwakenerName": "Wanda",
   "rarity": "SSR",
-  "realm": "ULTRA",
+  "aliases": [],
   "descriptionTemplate": "At turn start, Wanda gains [Arg1] Aliemus and [Arg2] {plural:[Arg2]|stack|stacks} of {Dreamlure}. If this is an {Ultra Round}, additionally put 1 Temporary {Spine Needle Chains} and {Keeper of the Lost} into hand, and cause Wanda's next Command Card to take effect 2 times.",
   "descriptionArgs": {
     "Arg1": {
@@ -25,5 +28,29 @@
       "kind": "fixed",
       "value": "1"
     }
-  }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0052",
+      "name": "Dimensional Image: Wanda",
+      "label": "Dimensional Image",
+      "variantType": "DIMENSIONAL_IMAGE",
+      "tier": "Unique",
+      "category": "DIMENSIONAL_IMAGE",
+      "ownerAwakenerId": "awakener-0052",
+      "ownerAwakenerName": "Wanda",
+      "rarity": "SSR",
+      "descriptionTemplate": "At turn start, Wanda gains [Arg1] Aliemus and [Arg2] {plural:[Arg2]|stack|stacks} of {Dreamlure}. If this is an {Ultra Round}, additionally put 1 Temporary {Spine Needle Chains} and {Keeper of the Lost} into hand, and cause Wanda's next Command Card to take effect 2 times.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      }
+    }
+  ]
 }

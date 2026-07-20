@@ -75,6 +75,11 @@ describe('public-data repository', () => {
       scope: 'posses',
       slug: 'missing-posse',
     })
+    expect(resolvePublicRoute('relics', 'argent-return-sorrow')).toEqual({
+      status: 'redirect',
+      ref: {kind: 'relic', id: 'relic-0067'},
+      canonicalPath: '/database/relics/argent-return',
+    })
   })
 
   it('exposes generated entity, reference, search, asset, builder, and collection indexes', () => {

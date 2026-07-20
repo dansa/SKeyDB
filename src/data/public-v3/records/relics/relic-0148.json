@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0148",
+  "name": "Dimension Pendulum-Scare",
+  "route": {
+    "slug": "dimension-pendulum-scare",
+    "canonicalPath": "/database/relics/dimension-pendulum-scare"
+  },
+  "assets": {
+    "icon": "asset-relic-0148-icon"
+  },
+  "relicType": "Pendulum",
+  "categories": ["PENDULUM"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0211",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "{Rebirth}: Shield gained and Healing Effects +25%. When recovering HP or gaining Shield, for every 1% of Max HP recovered or Shielded, gain 10% Temporary DMG Amplification.\n{Whisper}: Each turn, gain {STR▼} equal to 10% of Max HP.",
+  "descriptionArgs": {},
+  "variants": [
+    {
+      "id": "relic-variant-0211",
+      "name": "Dimension Pendulum-Scare",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "{Rebirth}: Shield gained and Healing Effects +25%. When recovering HP or gaining Shield, for every 1% of Max HP recovered or Shielded, gain 10% Temporary DMG Amplification.\n{Whisper}: Each turn, gain {STR▼} equal to 10% of Max HP.",
+      "descriptionArgs": {}
+    }
+  ]
+}

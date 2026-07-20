@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.echoes-of-lost-shadows",
+  "name": "Echoes of Lost Shadows",
+  "route": {
+    "slug": "echoes-of-lost-shadows",
+    "canonicalPath": "/database/derived-skills/echoes-of-lost-shadows"
+  },
+  "descriptionTemplate": "Choose an Awakener to obtain 50 Aliemus.",
+  "descriptionArgs": {},
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    },
+    {
+      "id": "mechanic.exhaust"
+    }
+  ],
+  "cost": "0"
+}

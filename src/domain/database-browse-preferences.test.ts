@@ -6,6 +6,7 @@ import {
   hasWheelsSortSearchParams,
   readDatabaseBrowsePreferences,
   writeAwakenerDatabaseBrowseSortPreferences,
+  writeRelicDatabaseDisplayPreferences,
   writeWheelsDatabaseBrowseSortPreferences,
 } from './database-browse-preferences'
 import type {StorageLike} from './storage'
@@ -33,12 +34,18 @@ describe('database-browse-preferences', () => {
     ).toEqual(DEFAULT_DATABASE_BROWSE_PREFERENCES)
   })
 
-  it('persists only awakener and wheel sort preferences', () => {
+  it('persists browse sort and relic display preferences', () => {
     const storage = createStorage()
 
     expect(
       writeAwakenerDatabaseBrowseSortPreferences(
         {sortKey: 'ATK', sortDirection: 'DESC', groupByRealm: true},
+        storage,
+      ),
+    ).toBe(true)
+    expect(
+      writeRelicDatabaseDisplayPreferences(
+        {displayScopes: ['STANDARD', 'OTHER', 'EVENT']},
         storage,
       ),
     ).toBe(true)
@@ -52,6 +59,7 @@ describe('database-browse-preferences', () => {
     expect(readDatabaseBrowsePreferences(storage)).toEqual({
       awakeners: {sortKey: 'ATK', sortDirection: 'DESC', groupByRealm: true},
       wheels: {sortKey: 'ALPHABETICAL', sortDirection: 'ASC'},
+      relics: {displayScopes: ['STANDARD', 'OTHER', 'EVENT']},
     })
   })
 
@@ -66,6 +74,7 @@ describe('database-browse-preferences', () => {
     expect(readDatabaseBrowsePreferences(storage)).toEqual({
       awakeners: {sortKey: 'ATK', sortDirection: 'DESC', groupByRealm: false},
       wheels: {sortKey: 'ALPHABETICAL', sortDirection: 'ASC'},
+      relics: DEFAULT_DATABASE_BROWSE_PREFERENCES.relics,
     })
   })
 
@@ -80,6 +89,7 @@ describe('database-browse-preferences', () => {
     expect(readDatabaseBrowsePreferences(storage)).toEqual({
       awakeners: DEFAULT_DATABASE_BROWSE_PREFERENCES.awakeners,
       wheels: {sortKey: 'RARITY', sortDirection: 'DESC'},
+      relics: DEFAULT_DATABASE_BROWSE_PREFERENCES.relics,
     })
   })
 

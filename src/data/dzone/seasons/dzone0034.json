@@ -14,7 +14,8 @@
         {
           "id": "d-effect-zone-wave-1",
           "name": "D-Effect Zone: Wave 1",
-          "initialRelicIds": ["relic-9030", "relic-9004"],
+          "initialRelicIds": ["relic-0176", "relic-0060"],
+          "initialRelicVariantIds": ["relic-variant-0275", "relic-variant-0060"],
           "monsterIds": [
             "dzone-monster-0306",
             "dzone-monster-0013",
@@ -332,7 +333,8 @@
         {
           "id": "d-effect-zone-wave-2",
           "name": "D-Effect Zone: Wave 2",
-          "initialRelicIds": ["relic-9011", "relic-9004"],
+          "initialRelicIds": ["relic-0169", "relic-0060"],
+          "initialRelicVariantIds": ["relic-variant-0252", "relic-variant-0060"],
           "monsterIds": [
             "dzone-monster-0068",
             "dzone-monster-0256",
@@ -650,7 +652,8 @@
         {
           "id": "d-effect-zone-wave-3",
           "name": "D-Effect Zone: Wave 3",
-          "initialRelicIds": ["relic-9025", "relic-9004"],
+          "initialRelicIds": ["relic-0181", "relic-0060"],
+          "initialRelicVariantIds": ["relic-variant-0287", "relic-variant-0060"],
           "monsterIds": ["dzone-monster-0182"],
           "alerts": [
             {
@@ -808,7 +811,8 @@
         {
           "id": "d-effect-zone-wave-4",
           "name": "D-Effect Zone: Wave 4",
-          "initialRelicIds": ["relic-9021", "relic-9004"],
+          "initialRelicIds": ["relic-0086", "relic-0060"],
+          "initialRelicVariantIds": ["relic-variant-0109", "relic-variant-0060"],
           "monsterIds": ["dzone-monster-0163", "dzone-monster-0284", "dzone-monster-0266"],
           "alerts": [
             {
@@ -1056,7 +1060,8 @@
         {
           "id": "d-effect-zone-wave-5",
           "name": "D-Effect Zone: Wave 5",
-          "initialRelicIds": ["relic-9009", "relic-9004"],
+          "initialRelicIds": ["relic-0196", "relic-0060"],
+          "initialRelicVariantIds": ["relic-variant-0319", "relic-variant-0060"],
           "monsterIds": [
             "dzone-monster-0183",
             "dzone-monster-0157",

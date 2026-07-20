@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0260",
+  "name": "Sacred Agony",
+  "route": {
+    "slug": "sacred-agony",
+    "canonicalPath": "/database/relics/sacred-agony"
+  },
+  "assets": {
+    "icon": "asset-relic-0260-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 2,
+  "defaultVariantId": "relic-variant-0452",
+  "aliases": [],
+  "descriptionTemplate": "At turn start, if there are more than [Arg1] Permanent Tentacles, lose [Arg2] Tentacles to gain [Arg3] Temporary Tentacles, otherwise gain [Arg4] Permanent Tentacles.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "1"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "1"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "3"
+    },
+    "Arg4": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "lore": "Embrace the agony.",
+  "variants": [
+    {
+      "id": "relic-variant-0452",
+      "name": "Sacred Agony",
+      "label": "Astral Reign - Cursed",
+      "variantType": "STANDARD",
+      "tier": "Cursed",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "At turn start, if there are more than [Arg1] Permanent Tentacles, lose [Arg2] Tentacles to gain [Arg3] Temporary Tentacles, otherwise gain [Arg4] Permanent Tentacles.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "1"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "1"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "3"
+        },
+        "Arg4": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "lore": "Embrace the agony."
+    },
+    {
+      "id": "relic-variant-0451",
+      "name": "Sacred Agony",
+      "label": "Faded Legacy - Cursed",
+      "variantType": "STANDARD",
+      "tier": "Cursed",
+      "category": "FADED_LEGACY",
+      "descriptionTemplate": "Tentacle Limit reduced by 2. At turn end, all Tentacles attack once more.",
+      "descriptionArgs": {},
+      "lore": "Embrace the agony."
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.memories-mutated-heart",
+  "name": "Memories - Mutated Heart",
+  "route": {
+    "slug": "memories-mutated-heart",
+    "canonicalPath": "/database/derived-skills/memories-mutated-heart"
+  },
+  "derivedFromId": "derived.global.twilight-mutated-heart",
+  "descriptionTemplate": "Discard all cards in hand, draw a number of cards equal to the number of discarded cards +3, and reduce their Arithmetica Cost by 1.",
+  "descriptionArgs": {},
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "0"
+}

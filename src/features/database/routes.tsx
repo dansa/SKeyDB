@@ -1,4 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
 import {lazy} from 'react'
 
 import {Navigate, Route, useLocation, useParams} from 'react-router-dom'
@@ -42,6 +41,8 @@ export const DatabaseRouteElements = (
       element={<DatabaseRoutePage entity='covenants' />}
       path='/database/covenants/:covenantSlug'
     />
+    <Route element={<DatabaseRoutePage entity='relics' />} path='/database/relics' />
+    <Route element={<DatabaseRoutePage entity='relics' />} path='/database/relics/:relicSlug' />
     <Route
       element={<DatabaseRoutePage entity='awakeners' />}
       path='/database/awakeners/:awakenerSlug'

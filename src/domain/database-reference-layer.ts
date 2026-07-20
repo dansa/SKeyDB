@@ -18,7 +18,15 @@ export interface DatabaseInfluenceBadge {
 
 export interface DatabaseReferenceInfo<TRecord extends DescribedRecord = DescribedRecord> {
   kind:
-    'skill' | 'talent' | 'enlighten' | 'derived-skill' | 'overlay' | 'wheel' | 'posse' | 'covenant'
+    | 'skill'
+    | 'talent'
+    | 'enlighten'
+    | 'derived-skill'
+    | 'overlay'
+    | 'wheel'
+    | 'posse'
+    | 'covenant'
+    | 'relic'
   id: string
   name: string
   label: string

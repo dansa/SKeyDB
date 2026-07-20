@@ -23,11 +23,14 @@ function getHighestAvailableAlertIdAtOrBelow(
     return null
   }
 
-  const rankedOptions = alertOptions
-    .map((alert) => ({alert, level: getAlertLevel(alert.id)}))
-    .filter((entry): entry is {alert: DzoneAlertOption; level: number} => entry.level !== null)
-    .filter((entry) => entry.level <= selectedLevel)
-    .sort((left, right) => right.level - left.level)
+  const rankedOptions: {alert: DzoneAlertOption; level: number}[] = []
+  for (const alert of alertOptions) {
+    const level = getAlertLevel(alert.id)
+    if (level !== null && level <= selectedLevel) {
+      rankedOptions.push({alert, level})
+    }
+  }
+  rankedOptions.sort((left, right) => right.level - left.level)
 
   return rankedOptions[0]?.alert.id ?? null
 }

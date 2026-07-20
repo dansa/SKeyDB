@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.memories-unfinished-wax-sculpture",
+  "name": "Memories - Unfinished Wax Sculpture",
+  "route": {
+    "slug": "memories-unfinished-wax-sculpture",
+    "canonicalPath": "/database/derived-skills/memories-unfinished-wax-sculpture"
+  },
+  "derivedFromId": "derived.global.twilight-unfinished-wax-sculpture",
+  "descriptionTemplate": "Choose a non-Derived Command Card from hand. Permanently reduce its Arithmetica Cost by 1 for this battle, and add a copy of that card into hand.",
+  "descriptionArgs": {},
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "0"
+}

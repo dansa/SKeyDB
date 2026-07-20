@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0061",
+  "name": "Alfonso's Artifact",
+  "route": {
+    "slug": "alfonsos-artifact",
+    "canonicalPath": "/database/relics/alfonsos-artifact"
+  },
+  "assets": {
+    "icon": "asset-relic-0061-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0062",
+  "rarity": "N",
+  "aliases": ["Alfonso's Artifact+"],
+  "descriptionTemplate": "Whenever a card enters {Ultra Space}, if the Awakener of This card is different from that of other cards in {Ultra Space}, place [Arg1] {derived:Insight} cards in hand.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "lore": "Unlike the unpredictable fate, the stars follow their own laws.",
+  "variants": [
+    {
+      "id": "relic-variant-0062",
+      "name": "Alfonso's Artifact",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "Whenever a card enters {Ultra Space}, if the Awakener of This card is different from that of other cards in {Ultra Space}, place [Arg1] {derived:Insight} cards in hand.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "lore": "Unlike the unpredictable fate, the stars follow their own laws."
+    },
+    {
+      "id": "relic-variant-0063",
+      "name": "Alfonso's Artifact+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "Whenever a card enters {Ultra Space}, if the Awakener of This card is different from that of other cards in {Ultra Space}, place [Arg1] {derived:Insight} cards in hand.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "2"
+        }
+      },
+      "lore": "Unlike the unpredictable fate, the stars follow their own laws."
+    },
+    {
+      "id": "relic-variant-0061",
+      "name": "Alfonso's Artifact",
+      "label": "Faded Legacy - Cursed",
+      "variantType": "STANDARD",
+      "tier": "Cursed",
+      "category": "FADED_LEGACY",
+      "descriptionTemplate": "At the start of battle, randomly place {Convulsion} and {derived:Insight} into {Ultra Space} until the limit is reached. After entering the {Ultra Round}, gain [Arg1] {STR}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.03125,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "Unlike the unpredictable fate, the stars follow their own laws."
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0209",
+  "name": "Medal of Rescue",
+  "route": {
+    "slug": "medal-of-rescue",
+    "canonicalPath": "/database/relics/medal-of-rescue"
+  },
+  "assets": {
+    "icon": "asset-relic-0209-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 5,
+  "defaultVariantId": "relic-variant-0343",
+  "rarity": "SR",
+  "aliases": ["Medal of Rescue: Bronze", "Medal of Rescue: Diamond", "Medal of Rescue: Gold", "Medal of Rescue: Platinum", "Medal of Rescue: Silver"],
+  "descriptionTemplate": "At turn start, gain [Arg1] {Glow of Humanity}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "lore": "To leave the snow mountain, you adopted a strategy prioritizing efficiency, watching as people fell one by one. The survivors regarded you with more fear than gratitude.",
+  "variants": [
+    {
+      "id": "relic-variant-0343",
+      "name": "Medal of Rescue: Bronze",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SR",
+      "descriptionTemplate": "At turn start, gain [Arg1] {Glow of Humanity}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "lore": "To leave the snow mountain, you adopted a strategy prioritizing efficiency, watching as people fell one by one. The survivors regarded you with more fear than gratitude."
+    },
+    {
+      "id": "relic-variant-0347",
+      "name": "Medal of Rescue: Silver",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SR",
+      "descriptionTemplate": "At the beginning of the turn, gain [Arg1] {Flicker of Humanity}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "lore": "You did your best. Though half of them perished, you managed to save the other half. After all, sacrifices are inevitable."
+    },
+    {
+      "id": "relic-variant-0345",
+      "name": "Medal of Rescue: Gold",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SR",
+      "descriptionTemplate": "At turn start, gain [Arg1] {Luster of Humanity}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "lore": "You saved most of the people and rewrote their tragic fates. You did your best, didn't you?"
+    },
+    {
+      "id": "relic-variant-0346",
+      "name": "Medal of Rescue: Platinum",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SR",
+      "descriptionTemplate": "At the beginning of the turn, gain [Arg1] {Radiance of Humanity}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "lore": "Your efforts were worthwhile; you saved almost the entirety of the research team. The survivors are deeply grateful to you."
+    },
+    {
+      "id": "relic-variant-0344",
+      "name": "Medal of Rescue: Diamond",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SR",
+      "descriptionTemplate": "At turn start, gain [Arg1] {Brilliance of Humanity}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "lore": "You've performed an incredible miracle; everyone survived the disaster. You're a great hero, and your legend may soon spread around the snow mountain."
+    }
+  ]
+}

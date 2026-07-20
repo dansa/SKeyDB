@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0151",
+  "name": "Divine Oracle",
+  "route": {
+    "slug": "divine-oracle",
+    "canonicalPath": "/database/relics/divine-oracle"
+  },
+  "assets": {
+    "icon": "asset-relic-0151-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["FADED_LEGACY", "EVENT"],
+  "variantCount": 2,
+  "defaultVariantId": "relic-variant-0215",
+  "rarity": "SSR",
+  "aliases": ["Divine Oracle+"],
+  "descriptionTemplate": "For each Roused Awakener, increase Realm Mastery by 35. After playing {Rouse}, randomly gain 2 Command Cards of that Awakener and attach {Exhaust}.",
+  "descriptionArgs": {},
+  "lore": "He said, \"Do not be afraid.\"",
+  "variants": [
+    {
+      "id": "relic-variant-0215",
+      "name": "Divine Oracle",
+      "label": "Faded Legacy - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "FADED_LEGACY",
+      "rarity": "SSR",
+      "descriptionTemplate": "For each Roused Awakener, increase Realm Mastery by 35. After playing {Rouse}, randomly gain 2 Command Cards of that Awakener and attach {Exhaust}.",
+      "descriptionArgs": {},
+      "lore": "He said, \"Do not be afraid.\""
+    },
+    {
+      "id": "relic-variant-0214",
+      "name": "Divine Oracle+",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "{Rouse} all Awakeners. After playing {Rouse}, randomly gain 2 Command Cards of that Awakener with {Exhaust} and {Fleeting}.",
+      "descriptionArgs": {},
+      "lore": "He said, \"Do not be afraid.\""
+    }
+  ]
+}

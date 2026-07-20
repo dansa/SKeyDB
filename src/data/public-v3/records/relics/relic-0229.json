@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0229",
+  "name": "Omen Ritual Bird",
+  "route": {
+    "slug": "omen-ritual-bird",
+    "canonicalPath": "/database/relics/omen-ritual-bird"
+  },
+  "assets": {
+    "icon": "asset-relic-0229-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 4,
+  "defaultVariantId": "relic-variant-0384",
+  "aliases": ["Blessed: Omen Ritual Bird", "Sinful: Omen Ritual Bird"],
+  "descriptionTemplate": "Gain [Arg1] {STR} At battle start. At turn start, for each [Arg2] Permanent {STR}, gain [Arg3] Temporary {STR}, up to [Arg4] Temporary {STR}, and lose Shield equals to half of the Temporary {STR} gained by that Relic at turn end.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.05,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "4"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "1"
+    },
+    "Arg4": {
+      "kind": "fixed",
+      "value": "200"
+    }
+  },
+  "lore": "The withered corpse let out a screech.",
+  "variants": [
+    {
+      "id": "relic-variant-0384",
+      "name": "Omen Ritual Bird",
+      "label": "Astral Reign - Cursed",
+      "variantType": "STANDARD",
+      "tier": "Cursed",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "Gain [Arg1] {STR} At battle start. At turn start, for each [Arg2] Permanent {STR}, gain [Arg3] Temporary {STR}, up to [Arg4] Temporary {STR}, and lose Shield equals to half of the Temporary {STR} gained by that Relic at turn end.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.05,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "4"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "1"
+        },
+        "Arg4": {
+          "kind": "fixed",
+          "value": "200"
+        }
+      },
+      "lore": "The withered corpse let out a screech."
+    },
+    {
+      "id": "relic-variant-0381",
+      "name": "Omen Ritual Bird",
+      "label": "Faded Legacy - Cursed",
+      "variantType": "STANDARD",
+      "tier": "Cursed",
+      "category": "FADED_LEGACY",
+      "descriptionTemplate": "After releasing Exalt, lose 8% of current HP, {Steal} [Arg1] Temporary {STR} from all enemies. If there is only 1 enemy, {Steal} an additional [Arg2] Temporary {STR}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.03,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.015,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "The withered corpse let out a screech."
+    },
+    {
+      "id": "relic-variant-0383",
+      "name": "Blessed: Omen Ritual Bird",
+      "label": "Faded Legacy - Blessed",
+      "variantType": "BLESSED",
+      "tier": "Blessed",
+      "category": "FADED_LEGACY",
+      "descriptionTemplate": "After releasing Exalt, Gain [Arg1] Temporary {STR} and {Steal} [Arg1] Temporary {STR} from All enemies. If there is only 1 enemy, {Steal} an additional [Arg2] Temporary {STR}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.08,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.04,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "The light of forgiveness envelops the remnants of greed, and the dead birds sing their final songs."
+    },
+    {
+      "id": "relic-variant-0382",
+      "name": "Sinful: Omen Ritual Bird",
+      "label": "Faded Legacy - Sinful",
+      "variantType": "SINFUL",
+      "tier": "Sinful",
+      "category": "FADED_LEGACY",
+      "descriptionTemplate": "After releasing exalt, lose 12% of current HP, {Steal} [Arg1] Temporary {STR} from all enemies. If there is only 1 enemy, {Steal} an additional [Arg2] Temporary {STR}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.05,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.025,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "The pitiful creature, killed by greed, lets out a piercing cry from its withered chest."
+    }
+  ]
+}

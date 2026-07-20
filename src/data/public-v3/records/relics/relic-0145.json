@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0145",
+  "name": "Dimension Pendulum-Confuse",
+  "route": {
+    "slug": "dimension-pendulum-confuse",
+    "canonicalPath": "/database/relics/dimension-pendulum-confuse"
+  },
+  "assets": {
+    "icon": "asset-relic-0145-icon"
+  },
+  "relicType": "Pendulum",
+  "categories": ["PENDULUM"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0207",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "{Echo}: At the start of your turn, Draw the 3 Command Cards with the highest Arithmetica from your Draw Pile. The first Command Card played each turn takes effect twice.\n{Daze}: After playing a Command Card, discard all other Command Cards with an Arithmetica Cost equal to or higher than it.",
+  "descriptionArgs": {},
+  "variants": [
+    {
+      "id": "relic-variant-0207",
+      "name": "Dimension Pendulum-Confuse",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "{Echo}: At the start of your turn, Draw the 3 Command Cards with the highest Arithmetica from your Draw Pile. The first Command Card played each turn takes effect twice.\n{Daze}: After playing a Command Card, discard all other Command Cards with an Arithmetica Cost equal to or higher than it.",
+      "descriptionArgs": {}
+    }
+  ]
+}

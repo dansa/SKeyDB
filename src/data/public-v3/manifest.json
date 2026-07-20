@@ -1,11 +1,11 @@
 {
   "schemaVersion": 3,
-  "gameDataVersion": "compiled-sha256-92ec59145becef85",
-  "generatedAt": "2026-07-05T22:16:26Z",
-  "buildId": "2026-07-05T22:16:26Z",
+  "gameDataVersion": "compiled-sha256-e0267d0fa5007f95",
+  "generatedAt": "2026-07-19T15:30:54Z",
+  "buildId": "2026-07-19T15:30:54Z",
   "build": {
-    "gameDataVersion": "compiled-sha256-92ec59145becef85",
-    "recordCount": 1685,
+    "gameDataVersion": "compiled-sha256-e0267d0fa5007f95",
+    "recordCount": 1851,
     "scopes": ["awakeners", "wheels", "relics", "covenants", "posses", "skills", "derived-skills", "talents", "enlightens", "overlays", "awakener-builds"]
   },
   "scopes": {
@@ -25,7 +25,7 @@
       "kind": "relic",
       "catalog": "catalogs/relics.json",
       "recordPattern": "records/relics/{id}.json",
-      "count": 169
+      "count": 286
     },
     "covenants": {
       "kind": "covenant",
@@ -49,7 +49,7 @@
       "kind": "derivedSkill",
       "catalog": "catalogs/derived-skills.json",
       "recordPattern": "records/derived-skills/{id}.json",
-      "count": 134
+      "count": 183
     },
     "talents": {
       "kind": "talent",
@@ -102,16 +102,16 @@
       "sha256": "051415f92022be9fab49efffc436c7dc280a8875cec68f7d9c96b42e24a84d53"
     },
     "catalogs/awakeners.json": {
-      "bytes": 81387,
-      "sha256": "02e37eafa2d27fe75e9be034aa6ff7fb4ece918aa690df2f06bf4c6eb462da01"
+      "bytes": 81346,
+      "sha256": "c7068b4ca274e0c5e912561cfa0c3558d7ebc77e61794ec32d9bbcc9cca44298"
     },
     "catalogs/covenants.json": {
       "bytes": 7413,
       "sha256": "5832835009dc99e350259267c602e122062a9fa735d52df61c7d2794d7bdfe7b"
     },
     "catalogs/derived-skills.json": {
-      "bytes": 61256,
-      "sha256": "1c568db6ae96d68cd56f683dd4e9775afc4e82909725f51b13ebc51fd7c6dcbb"
+      "bytes": 75615,
+      "sha256": "965c0de4b3ce343a3a8fa7e49d2d28689d0aa50293cebfe7a858247e370c0461"
     },
     "catalogs/enlightens.json": {
       "bytes": 108663,
@@ -126,8 +126,8 @@
       "sha256": "8676827fa2dd503ec79d6e80aa5ad5b99af9413582e04242961d3a6a87d0ea8d"
     },
     "catalogs/relics.json": {
-      "bytes": 65910,
-      "sha256": "b76ad9d52cc6c3572faff0ad9638e0ecc2ea0b8b926d16cb6dfb14d53b6cd29e"
+      "bytes": 210296,
+      "sha256": "b23858d4625b828d5bfef5105f828f149e74bf1ee859903c44e2f3622937605f"
     },
     "catalogs/skills.json": {
       "bytes": 141605,
@@ -142,44 +142,44 @@
       "sha256": "7cd790d56234718d28006ebe5230c53197a5e319d01fdc2c9cfc44969bcdabd3"
     },
     "indexes/assets.json": {
-      "bytes": 336744,
-      "sha256": "b700e232eeb5b938889165eeb6f658ca5d5028b27fc0cc253be7da3086327507"
+      "bytes": 412092,
+      "sha256": "cb9613c06b2e3a0c1e0560bfed1e46eb203178b6a57e40108b0c9ac9f6312312"
     },
     "indexes/builder-catalog.json": {
       "bytes": 22678,
       "sha256": "82aa2831ff316c55306dbb3923245928e44da15c0bce7553cdb2654ffd2bba5c"
     },
     "indexes/collection-catalog.json": {
-      "bytes": 24831,
-      "sha256": "529e7f5dfed44770f700cb9b659648947a79c5ccb0b951ed4204ef2bd359f6ff"
+      "bytes": 29417,
+      "sha256": "5a780de6068f22ced1857b874125331fcd280de36edceada54ad528a64c6bd8d"
     },
     "indexes/entities.json": {
-      "bytes": 723649,
-      "sha256": "8eeb60908b8fae3562b407e4ff145a1a7cc98981fbe8887ee22d7dce284eb7ee"
+      "bytes": 779481,
+      "sha256": "53df6fde3b26f5d3a718b8c999bd084e80961d0315190051b6b4d3aea67f6362"
     },
     "indexes/facets.json": {
-      "bytes": 58548,
-      "sha256": "e5d5d1e7c637be1866f13ae89d48565d4043ebbbcbfe6850fdc02c61d7922f7d"
+      "bytes": 59816,
+      "sha256": "a809d3da385b7ebf95de720f4801833a4dc8b99429e9ba2209a1c2b3cc6520e9"
     },
     "indexes/references.json": {
-      "bytes": 200842,
-      "sha256": "f7b1376f850be5849a8234dc947817c89e6606af42251e7b0f240cbbcd7c7230"
+      "bytes": 223781,
+      "sha256": "81ff7c81c363ba1a672572742cd3bd72120aee5906cb54d5c23ffb890d5da19c"
     },
     "indexes/relationships.json": {
-      "bytes": 243564,
-      "sha256": "7d972a23e3fc3827a4d85654772163f4e63511e8220b567fd8f2640e200bfe84"
+      "bytes": 253028,
+      "sha256": "968004e60b23f92027cdcdb1ceddfcb0652291aa0623e4064dddc93870c60912"
     },
     "indexes/routes.json": {
-      "bytes": 383485,
-      "sha256": "1fbf507bac53beaf25a1a81aca8616f6d66e9bde45c8ff2753cb6faaca2a82eb"
+      "bytes": 422412,
+      "sha256": "f129c1c078cbc6a3bca45196f85e3d145a27e50f576ee31c41fea4f4954bed8f"
     },
     "indexes/scopes.json": {
       "bytes": 4915,
-      "sha256": "c1bf23a241b09dabc8b6094648a6613d7ef6267da5ebbfa6c8e97025eed19ff7"
+      "sha256": "d085bf1569313000c101c5d6916f0a832fd93daa9f261df80fc87b527614f3ac"
     },
     "indexes/search-awakeners.json": {
-      "bytes": 80711,
-      "sha256": "457eb159d7aa1aedc9c946ae72a07d57a2558cdb79fbf84938c09a8666d91695"
+      "bytes": 81578,
+      "sha256": "37b38ab22b636790e1aaaeb058808cdf30b1bf40a8ae06b2798eeeca19ff0002"
     },
     "indexes/search-covenants.json": {
       "bytes": 5517,
@@ -190,20 +190,20 @@
       "sha256": "8e11e8e9d34b40b056227d853c64660784b916b0ee15ebbf732c32371da27bda"
     },
     "indexes/search-relics.json": {
-      "bytes": 88406,
-      "sha256": "3ae4df36112e6bb665c0863d4695501e9e3795a93527cda24637cbbe1b7f958e"
+      "bytes": 186278,
+      "sha256": "1a1d38466eaabc43a7dc320aca0632ccc291ed2fa7a7514dc9124196ba54bf4f"
     },
     "indexes/search-tags.json": {
       "bytes": 7285,
-      "sha256": "a31fd2a0693bae57c8308b97b5b2ef7d8244cf5e7be6017c8c9087ea5e694c5f"
+      "sha256": "7e3e9497bdde6e1f817ff6f814d9125f1362be76af545558b6b07e1f5657f9d5"
     },
     "indexes/search-wheels.json": {
       "bytes": 107842,
       "sha256": "ba1dea4c10e6ad2af9e90bb1b5040a0d47ac147cde6d5496bd8b31a5e4f16c57"
     },
     "metadata/gameplay-math.json": {
-      "bytes": 8990,
-      "sha256": "5de67efa6a2a3cbd72f3487257b47bfa853c04119c26887e65e8bd8777a2f6ff"
+      "bytes": 9315,
+      "sha256": "b07384c19d4b2a27f37df8bcbdc3be99d6e12014c1d54839068baccf693e5f45"
     },
     "records/awakener-builds/awakener-build-0001.json": {
       "bytes": 1639,
@@ -466,8 +466,8 @@
       "sha256": "05ba43307143c63b27fba2ba159cd9ae8463f92e0cdfc449833a2066977b9b22"
     },
     "records/awakeners/awakener-0010.json": {
-      "bytes": 7538,
-      "sha256": "6d968863f977d3d3c9934ffe60849bdd684fc979341467dc585a4a044735b084"
+      "bytes": 7536,
+      "sha256": "05370ff9e6d816f62fddd6924498ab21358cd131df0a60768bafb882c6c82136"
     },
     "records/awakeners/awakener-0011.json": {
       "bytes": 8002,
@@ -514,8 +514,8 @@
       "sha256": "3bf82665bad1c50397edd3cf75bddc7a0689bef29e1ff320cfb602438ee86fe3"
     },
     "records/awakeners/awakener-0022.json": {
-      "bytes": 8402,
-      "sha256": "c2cfc7bbbf53ee0ab6221fc0a56475c924f2a75cd7c6db53df18b3264771c998"
+      "bytes": 8412,
+      "sha256": "7c645c1bf7add5934c64188a61f6d9b665db59685c576bd9db544934a4774724"
     },
     "records/awakeners/awakener-0023.json": {
       "bytes": 6457,
@@ -566,8 +566,8 @@
       "sha256": "a385c47403a6a4d4e4e60b1fbab75f5b1a2097759f0a18556916d5721ac16cc9"
     },
     "records/awakeners/awakener-0035.json": {
-      "bytes": 8070,
-      "sha256": "9e08dae05f68eac20cad261e94ea45b9844de66bfaedbc1a2aeb334d8f2583b8"
+      "bytes": 8080,
+      "sha256": "beaf68cda5a36d332970f767350bc0612a87e2b8bde782e75ac542c41ee5a815"
     },
     "records/awakeners/awakener-0036.json": {
       "bytes": 6380,
@@ -650,16 +650,16 @@
       "sha256": "a55968314e949c299eed645a3395f3a4b04f9fbf921d963cc1fd192940b445cb"
     },
     "records/awakeners/awakener-0056.json": {
-      "bytes": 12374,
-      "sha256": "bd5ce06410eaa3069700fdf5e1f8d633a3e6f715b84e30352c6e8f540c18e510"
+      "bytes": 12372,
+      "sha256": "b3018283709b742a3d2a825210b2346f6bb0cc091cd60d4e4aecb458cea06347"
     },
     "records/awakeners/awakener-0057.json": {
       "bytes": 5672,
       "sha256": "9a3727b9f25b9995a07391cc906aa644892b5fc99d2c9b95adadacd1482ebb40"
     },
     "records/awakeners/awakener-0058.json": {
-      "bytes": 6435,
-      "sha256": "24459bac8cae8405f561f8bfe4d3aa445a791ee695cc8abceade357d89a13e09"
+      "bytes": 6472,
+      "sha256": "2d01dbf39d31117005a3dc25763fd5be29be28a83378f869835d0e1ac4c3b00d"
     },
     "records/covenants/covenant-0001.json": {
       "bytes": 926,
@@ -910,8 +910,8 @@
       "sha256": "fe40c01b3dbe9101e257e92b729b54e859e8ac7ca57c6b53845c6ce508ad2e89"
     },
     "records/derived-skills/derived.doll-inferno.elation.json": {
-      "bytes": 1530,
-      "sha256": "7bf4c92a65c26b7be46e532bdac6b2fe5f4e8109a1caf835a01fd0d758bb7016"
+      "bytes": 1518,
+      "sha256": "d927768d1ed5b0200f956f9400a31107d88d2e299507628c22f49516603997e7"
     },
     "records/derived-skills/derived.doll-inferno.fates-descent-finale.json": {
       "bytes": 1756,
@@ -933,6 +933,10 @@
       "bytes": 1475,
       "sha256": "8ac264ffeca29fed871a10a510bc63d95bc2f1f8d7dcaf8c7fc22c46ef8e6984"
     },
+    "records/derived-skills/derived.global.adsorption.json": {
+      "bytes": 581,
+      "sha256": "290daea6629cd259957e6cd552e0d7a6cec1c18105e819da8180cb73dd899b6d"
+    },
     "records/derived-skills/derived.global.adv-insight.json": {
       "bytes": 436,
       "sha256": "e831c1703688c0e155976f72558ead689491923c420b3a6f8e613932dff7bfc1"
@@ -940,6 +944,30 @@
     "records/derived-skills/derived.global.arouse.json": {
       "bytes": 543,
       "sha256": "7c977a83e46f33a44a9f1b53399959dab79cb83cb2fc1d4ac03a3848f67fea80"
+    },
+    "records/derived-skills/derived.global.assemble.json": {
+      "bytes": 433,
+      "sha256": "cc76e151c8e3cc76f4595440fea060ea986a828e691084a2c62a2a1ca92e8692"
+    },
+    "records/derived-skills/derived.global.barbed-trident.json": {
+      "bytes": 642,
+      "sha256": "c5bb060525d13d94043a6548c640b012a932616d2eb332821679c853fc796431"
+    },
+    "records/derived-skills/derived.global.brilliance-of-humanity.json": {
+      "bytes": 631,
+      "sha256": "0e26506681eceb793c660cedbae1cd82071d873207e9213756876000d892fb80"
+    },
+    "records/derived-skills/derived.global.coalsie-smack.json": {
+      "bytes": 550,
+      "sha256": "6dfce4d4e874dda8ff97e565449f7a4afbfd134e6e15dbab6aff9b5559ce437c"
+    },
+    "records/derived-skills/derived.global.cocoon-of-revival.json": {
+      "bytes": 546,
+      "sha256": "2c50bfc52dc234f62841f0105b24562172f4ec988aa89005ab0e7d4f46c32b89"
+    },
+    "records/derived-skills/derived.global.convulsion.json": {
+      "bytes": 326,
+      "sha256": "4ef820958cd1e65d39fa4cfb9aaafa77a34e9bdd450ca36e68a43046782c7b53"
     },
     "records/derived-skills/derived.global.countdown-0.json": {
       "bytes": 613,
@@ -969,9 +997,25 @@
       "bytes": 773,
       "sha256": "b677469623f518667fc39634b6b01c65e5594aeb267e347f6ba6a0312828b611"
     },
+    "records/derived-skills/derived.global.devour-card.json": {
+      "bytes": 386,
+      "sha256": "552cfc5ac874e40f777582268188d1368133dc6d4f88cc0a82ce464d84f30609"
+    },
+    "records/derived-skills/derived.global.divine-dedication.json": {
+      "bytes": 508,
+      "sha256": "0361e2a28bd5827df75cbe21cb8bad79192828072e9540f76253834238da5576"
+    },
     "records/derived-skills/derived.global.dreaming-of-wonderland.json": {
       "bytes": 591,
       "sha256": "3e6cbcedb311a25934e0b82cca7bd0a9315233b25599a7946962da7c72bb8558"
+    },
+    "records/derived-skills/derived.global.echoes-of-lost-shadows.json": {
+      "bytes": 483,
+      "sha256": "9b4083beac67ce56af8417d26e3a6d42faf5fd44b07dd9f046debe0da45cdb34"
+    },
+    "records/derived-skills/derived.global.echoes-of-the-past.json": {
+      "bytes": 502,
+      "sha256": "2625b2db61655fa757e1ddec2ddc86f054d6e53167023b68de6898c712f8c297"
     },
     "records/derived-skills/derived.global.embryo.json": {
       "bytes": 673,
@@ -981,6 +1025,26 @@
       "bytes": 609,
       "sha256": "288b96391c78e347960006cf51c97808f68be5cd9bf7abd98fb13227f288e21f"
     },
+    "records/derived-skills/derived.global.flicker-of-humanity.json": {
+      "bytes": 626,
+      "sha256": "bde8cd36af11d5c2c96abff7c26d7c2c15b26e3a8e9fe87ad6d9a9ff55982342"
+    },
+    "records/derived-skills/derived.global.forbidden-truth.json": {
+      "bytes": 663,
+      "sha256": "2a934845e38436249fdf1c4d92a9cf3773dac65592a0fcf33b41448393f76d6e"
+    },
+    "records/derived-skills/derived.global.gauntward.json": {
+      "bytes": 373,
+      "sha256": "02e80a0dda08c2b21990aaa9ccaa67eb27ac5270750af8a8de4aa15ef572edc9"
+    },
+    "records/derived-skills/derived.global.glow-of-humanity.json": {
+      "bytes": 614,
+      "sha256": "3358acb25f70bcd0cc4b79e8da40bdf25f786fcf92fead3ed12eca9f643260ad"
+    },
+    "records/derived-skills/derived.global.gluttonous-attack.json": {
+      "bytes": 535,
+      "sha256": "67a5736c2ca57c8c9993f3aa36f429a807988ee857cd6c607d0f72f7bab9c63b"
+    },
     "records/derived-skills/derived.global.gobble-up.json": {
       "bytes": 392,
       "sha256": "e989d67624a7d6e43d18bd44bd465a1af27abe2670465d26b3f88e7de7d3bfcc"
@@ -989,13 +1053,25 @@
       "bytes": 603,
       "sha256": "113f871525b28f772884b105b3f3f4a42487d452b4c0de5110700bb5930380e3"
     },
+    "records/derived-skills/derived.global.hide-beta.json": {
+      "bytes": 424,
+      "sha256": "fdd17ac4b63e6135f032a617c891bb46640bbc234c98565508f7bd3cc12bc888"
+    },
     "records/derived-skills/derived.global.ichigo-ichie.json": {
       "bytes": 454,
       "sha256": "beb93ea57c1c7fe0e46f3fcaf86b2976a532987507c280d3a31d7b774e42d74c"
     },
+    "records/derived-skills/derived.global.infinite-silver-vault.json": {
+      "bytes": 560,
+      "sha256": "17dbf4d7eb1d26bf611ac1ece99a9692b30739768d7f4a73a0543b801ce32610"
+    },
     "records/derived-skills/derived.global.insight.json": {
       "bytes": 418,
       "sha256": "d16751d9eaf5ad191df95665aebde3ae51d1ba0ec2753ce842c7d10ef2de9026"
+    },
+    "records/derived-skills/derived.global.inspire-offsprings.json": {
+      "bytes": 435,
+      "sha256": "3e12b5f5c1c601395cdd81111f3a9890f4745d492ceb0672a4624c5794c387b4"
     },
     "records/derived-skills/derived.global.leahs-coin.json": {
       "bytes": 429,
@@ -1005,6 +1081,54 @@
       "bytes": 432,
       "sha256": "7abb3241b108aadb2d24cd42d042f565dd5723819503379d246d7353613a6ad4"
     },
+    "records/derived-skills/derived.global.luster-of-humanity.json": {
+      "bytes": 622,
+      "sha256": "4b2b5a5cf46759a54f759a84a0c5bc15ba1f30152a2dbfd1a080ee157b0fa5b8"
+    },
+    "records/derived-skills/derived.global.memories-envoys-verdict.json": {
+      "bytes": 618,
+      "sha256": "fe581e24371b7c3a4c30de63e1040a293e559f6a38332ef3769b5efe0486229a"
+    },
+    "records/derived-skills/derived.global.memories-honey-mead.json": {
+      "bytes": 615,
+      "sha256": "fa24212579b5aa6edc90aa3e9b755b701f9358f84c35a38b43f2090dff97f7aa"
+    },
+    "records/derived-skills/derived.global.memories-innocent-return-gift.json": {
+      "bytes": 779,
+      "sha256": "bfeb1863dfced7f1d29c208d648a4d56714ac4c84a19b6561a2044132f392958"
+    },
+    "records/derived-skills/derived.global.memories-mutated-heart.json": {
+      "bytes": 637,
+      "sha256": "14c7e0097eadd0a9c50bee67bfc33a122491e660cf9787e1a43d968e01ce8a0f"
+    },
+    "records/derived-skills/derived.global.memories-seed-of-abundance.json": {
+      "bytes": 710,
+      "sha256": "49c5ba3b484558ae4c26f50351bf19b65a47364a01f7eee407259fa4eddde403"
+    },
+    "records/derived-skills/derived.global.memories-unfinished-wax-sculpture.json": {
+      "bytes": 705,
+      "sha256": "538cda55927db2db9ce86bb72353038f0c4585b95ee79be419c3f282c27d11f4"
+    },
+    "records/derived-skills/derived.global.memories-utopian-veil.json": {
+      "bytes": 619,
+      "sha256": "9b628699b40ffaeeacad30188b176701336e9763381271928528818d94ca22cc"
+    },
+    "records/derived-skills/derived.global.one-way.json": {
+      "bytes": 435,
+      "sha256": "3c82da8870354a2f64f06fafc3e7744c0b48c166c8f047800872f09a51580e13"
+    },
+    "records/derived-skills/derived.global.palette.json": {
+      "bytes": 392,
+      "sha256": "16ea0570d5147f5674dfae059a9a1307e481eab1d8ad6691546999521951dabd"
+    },
+    "records/derived-skills/derived.global.parasol.json": {
+      "bytes": 616,
+      "sha256": "7e5ff527d86c82a2748c1a20018b92294cc06a5122a8050d7c9cfb1b29a33d8c"
+    },
+    "records/derived-skills/derived.global.prion-virus.json": {
+      "bytes": 517,
+      "sha256": "cce3d5f7fa5d3b6239c31a716c349950eb4e6caec84420f5660c72fc20d92000"
+    },
     "records/derived-skills/derived.global.private-afternoon.json": {
       "bytes": 562,
       "sha256": "035844e143775e567fcbc26697d04becdd78eb054291ec704ac37423e9255d53"
@@ -1013,21 +1137,93 @@
       "bytes": 994,
       "sha256": "993b2f05c12c2306eaa4a3478fcde7c72664f9b2f3bc58e368622371d60c79e2"
     },
+    "records/derived-skills/derived.global.protect-offsprings.json": {
+      "bytes": 456,
+      "sha256": "38bf06cd92548f0cb19df58c34e022a94de51e247c60c1defdb7336e88d6c702"
+    },
+    "records/derived-skills/derived.global.pupation.json": {
+      "bytes": 373,
+      "sha256": "a76f45111e7b88e2b8e467d66c6950743d5b9f84aa92e466b56eca0e31618c54"
+    },
+    "records/derived-skills/derived.global.radiance-of-humanity.json": {
+      "bytes": 630,
+      "sha256": "a63fd95b93801a30f16dc87ea4bcc1d32435da992ada4ac110f3986cfa961a1c"
+    },
     "records/derived-skills/derived.global.sakura-blossoms.json": {
       "bytes": 621,
       "sha256": "9e299987fc8308f67b9211c0b9a445120328faf4966420ecc8ee7e1f376aff3a"
+    },
+    "records/derived-skills/derived.global.silver-key-dawn.json": {
+      "bytes": 526,
+      "sha256": "816dd089d961bee267c37eeac0a3defc2eb07b29ff85ebd4e0a3bace9f5340b3"
     },
     "records/derived-skills/derived.global.silver-key-gleam.json": {
       "bytes": 484,
       "sha256": "038d2e7b89cc7499bc803705af7f62a4c20b5ab45c9a28a64771011b0816342a"
     },
+    "records/derived-skills/derived.global.silver-key-resonance.json": {
+      "bytes": 593,
+      "sha256": "762e7a5399a69f44bb3072e0773bbcb18a231ce994bca2cdbd9450aa0c4126d0"
+    },
     "records/derived-skills/derived.global.slumber.json": {
       "bytes": 604,
       "sha256": "154f233712a7cc88e4cd9c4af27a4f08b088e0c298fec70c0960aba905ddbfb5"
     },
+    "records/derived-skills/derived.global.solidify.json": {
+      "bytes": 807,
+      "sha256": "b7b932be1160bf997e5f8da16bbdaae54d57f6b2127cf185de2063c069091117"
+    },
+    "records/derived-skills/derived.global.stagger.json": {
+      "bytes": 351,
+      "sha256": "14e20f2fbf232025ad94869036f6ed59ad11aab288c32a84dac618f1f6a53ad2"
+    },
     "records/derived-skills/derived.global.stakes-of-wisdom.json": {
       "bytes": 725,
       "sha256": "cb978a3e1721a6b6a9f377437b23163209688236a84f517c28dec300d318ec2d"
+    },
+    "records/derived-skills/derived.global.suspicion.json": {
+      "bytes": 903,
+      "sha256": "8407bfc2d0fc48a9cdfc986a4a6cbf6892097822d22369138a41d88faa49c7fb"
+    },
+    "records/derived-skills/derived.global.toxic-infusion.json": {
+      "bytes": 683,
+      "sha256": "b39cee01406daa8cbbf0490ca4eedcf07128c57652354b0e533d0116bb57614b"
+    },
+    "records/derived-skills/derived.global.toxic-outbreak.json": {
+      "bytes": 730,
+      "sha256": "01161fc983ce186f22d1c52fcf9ddaaa17075cdeb7dca6d25d6e4ea03776fef2"
+    },
+    "records/derived-skills/derived.global.twilight-envoys-verdict.json": {
+      "bytes": 711,
+      "sha256": "86671c7a0f2decbd8fb236a0bba78c798fb65659f85675c506fa3d2f2cb63f1d"
+    },
+    "records/derived-skills/derived.global.twilight-honey-mead.json": {
+      "bytes": 674,
+      "sha256": "b10e4f9d89748a8dd8e1b9447141e24c4c0228ed5a5ea5a950f8294521ca8372"
+    },
+    "records/derived-skills/derived.global.twilight-innocent-return-gift.json": {
+      "bytes": 738,
+      "sha256": "b43c9d6744cbfb7a010ad4cfd5d6dd759a15ed01e3a083c8961c2d74c602a3f4"
+    },
+    "records/derived-skills/derived.global.twilight-mutated-heart.json": {
+      "bytes": 697,
+      "sha256": "f29ce8517fe65da34b44abb5dc7a1f0858b3e6253ca6598515465d026f5dc16e"
+    },
+    "records/derived-skills/derived.global.twilight-seed-of-abundance.json": {
+      "bytes": 720,
+      "sha256": "dd79520c701d69a3f6097d298e81f7c2b3e8cb71963109a73d42472b224527ef"
+    },
+    "records/derived-skills/derived.global.twilight-unfinished-wax-sculpture.json": {
+      "bytes": 763,
+      "sha256": "4649009b6db0e3f0763318e9fbf7bbb1e34aa2ac79a7826e6deb7b60d11e9f66"
+    },
+    "records/derived-skills/derived.global.twilight-utopian-veil.json": {
+      "bytes": 694,
+      "sha256": "2a1e78ca270d3259c22972307d0c99f0cacc8a4ddf09f499332f6cbd5faaba11"
+    },
+    "records/derived-skills/derived.global.unyielding-will-beta.json": {
+      "bytes": 628,
+      "sha256": "112f9df931cab837818084a2b0ca29af977b24c015a50124d7c72427fcf9e2c2"
     },
     "records/derived-skills/derived.global.vernal-message.json": {
       "bytes": 621,
@@ -2270,8 +2466,8 @@
       "sha256": "fe156ffa4bf2b7e9a8cf60f0b2eb0c6e50b7dea7cc0fb6b046b385a8dae0d0a4"
     },
     "records/enlightens/enlighten.tawil.nonexistent-existence.json": {
-      "bytes": 615,
-      "sha256": "a6d1e4f54327f8b7a0542388c3c133115a0f5a53459d874448eae3d51a11de0e"
+      "bytes": 623,
+      "sha256": "b72ab176eb8a18e0f8a863352ad5fe515c39c44dfd61bd7a566d93f8f3192d3a"
     },
     "records/enlightens/enlighten.tawil.omniscient-and-omnipotent.json": {
       "bytes": 494,
@@ -2946,8 +3142,8 @@
       "sha256": "4ed2ce222d9aec008787ac69986bdad6333a25325308aca3b04b5360e2e10795"
     },
     "records/overlays/overlay.pickman.painted-relics.json": {
-      "bytes": 658,
-      "sha256": "142d2b4923cd496e2dd24cee0ea189683074817ac82ab32f1503663303cda336"
+      "bytes": 674,
+      "sha256": "816c1a638c3fa0a2c9450090ee10ec4bdade2f33444315e98818e5d19077fb0a"
     },
     "records/overlays/overlay.pollux.ablaze.json": {
       "bytes": 655,
@@ -2978,8 +3174,8 @@
       "sha256": "eb77874694ad6885d73b045227a55eae50d826619394d2e76098a40f4a204415"
     },
     "records/overlays/overlay.ryker.chaotic-legacy.json": {
-      "bytes": 1062,
-      "sha256": "6dae4ebc84c79885cf94f3f1ed81a5f7c3da2663b24a0d2c6ce09ffe852cab4c"
+      "bytes": 1068,
+      "sha256": "ce1c95114a7dbc8a9e14f9a64f062ac0208bda4386fadc6bc4e545baed08b14c"
     },
     "records/overlays/overlay.ryker.winner-takes-all.json": {
       "bytes": 710,
@@ -3098,8 +3294,8 @@
       "sha256": "59785db09634145133e8a96f232e00bf3fd0e6a36cb9b8ae1d7df1bb179f93e9"
     },
     "records/posses/posse-0021.json": {
-      "bytes": 1210,
-      "sha256": "1d8d878b3a90807d1ba09bf20541fee8551ab1442b479444c270969ceb34757f"
+      "bytes": 1189,
+      "sha256": "0b58135629e87e92722989fec5d811fd9e78994a96dea285eb60f55a0ddafd73"
     },
     "records/posses/posse-0022.json": {
       "bytes": 973,
@@ -3178,8 +3374,8 @@
       "sha256": "e7df52a79526d1cb2878169172af3dac1934dd5b57b57ffd83fa9fdfb1966ca4"
     },
     "records/posses/posse-0041.json": {
-      "bytes": 964,
-      "sha256": "2480afdf288b811cf933f1042bcaf3a92582058d7ec2c69c25880ed96c78bcb9"
+      "bytes": 972,
+      "sha256": "f236660eaf74b3e301eca3208655ab2bc6d573274fe0929689142c6aa7c2f8a3"
     },
     "records/posses/posse-0042.json": {
       "bytes": 978,
@@ -3226,680 +3422,1148 @@
       "sha256": "6eb29f18a1bde020dd014d3a5f8a3b19f3e50a90a0baace89c7ff0d5cabd8e14"
     },
     "records/relics/relic-0001.json": {
-      "bytes": 877,
-      "sha256": "55beec23fba13806cc77242a659b5ab06abedc4ae9e9d48dbf4215ce79da358e"
+      "bytes": 1834,
+      "sha256": "b7ed7fc571c9149b0e552e875d104a23d6bc4c2b7c8a373ff47c54bf518b4a75"
     },
     "records/relics/relic-0002.json": {
-      "bytes": 784,
-      "sha256": "e04dbd20a016339e46afe9ae802487b839f6ff54cd8cdfd6a4491d22838a7ca6"
+      "bytes": 1636,
+      "sha256": "53e301ba72650af5cc554de7db3ade79ffbf5dde670a8994aea96baa7b2dd017"
     },
     "records/relics/relic-0003.json": {
-      "bytes": 993,
-      "sha256": "c1874dbb075ace38f7d3a12d1dba11225fe85599720072fb946e7392299d6a11"
+      "bytes": 2086,
+      "sha256": "0631907c9b65510ef2e941d662af0effa8e97baa055f920a20df6f1d225cd6de"
     },
     "records/relics/relic-0004.json": {
-      "bytes": 914,
-      "sha256": "58a784e6fcd6c91e114169cfe9f4742f7c074600afd3a65a8f3b4c963452f6c1"
+      "bytes": 1916,
+      "sha256": "60e98e744203875f9bfae015e345fd17469bada3752ab215f78a8326f44b1882"
     },
     "records/relics/relic-0005.json": {
-      "bytes": 776,
-      "sha256": "010cb4988bdb6e5b45ab7003a76478b764a7d0913f11f42a34bc1169c2b7839d"
+      "bytes": 1618,
+      "sha256": "fce227960e0ba615a2788df13a5cb38b413f7ca6adbb22ec372a45fe3224d7f9"
     },
     "records/relics/relic-0006.json": {
-      "bytes": 751,
-      "sha256": "44f30be235ef7036b9b3a2a43d45fdb82565ebeee93c3e90d85abbfab8cf2187"
+      "bytes": 1572,
+      "sha256": "165eedceb5cb9bbd06ed6d2f339e46bce8830f8cf4f070dcc92c395e751206fd"
     },
     "records/relics/relic-0007.json": {
-      "bytes": 961,
-      "sha256": "4fa0d5613ebf94571b4f3b4d892ba3e96920f33942f729230f3b85ef237e89c7"
+      "bytes": 2018,
+      "sha256": "e855948235d9d38aa62bd11751bb0459a80aaa8c90b58533e0393fc842d62ef1"
     },
     "records/relics/relic-0008.json": {
-      "bytes": 935,
-      "sha256": "489a7e9b9fa46e352e5944afdcf27cc93c0d9d43567af8ac1f7a3b5c8ec4c350"
+      "bytes": 1950,
+      "sha256": "5dbd6e082dc178700b7f076f1f4a2b5c839b0e911888687302caec009c2614f4"
     },
     "records/relics/relic-0009.json": {
-      "bytes": 915,
-      "sha256": "4c4783c46f2a5e90d5d3f81b576f9635641ee8f18f5be95b435279f8b36957f9"
+      "bytes": 1906,
+      "sha256": "69313415efee873f498b4da04f41ed6200c90553bfd478e3386d951370d6dd3f"
     },
     "records/relics/relic-0010.json": {
-      "bytes": 757,
-      "sha256": "9312195acc261212bc344160c09325447da1a1cfb1066cebd9458908220542ba"
+      "bytes": 1558,
+      "sha256": "b29abfbb4f0035dfaeed1cdea5ad633e2d714706598c2aac7bc89db83aee7035"
     },
     "records/relics/relic-0011.json": {
-      "bytes": 857,
-      "sha256": "172fbff0b86399eaea26f39c58f15db79d1be494468479ba08b93bb9d0c9b7e4"
+      "bytes": 1774,
+      "sha256": "0751cca8145b270f3487b16680c2f39e64289eeb9a69c8cdb07ee26770501a0d"
     },
     "records/relics/relic-0012.json": {
-      "bytes": 1043,
-      "sha256": "6bfca9077bb89d620b26ec7363c95805277986def3241c800449830cda2c69dd"
+      "bytes": 2194,
+      "sha256": "297bacfd983ec9168ff4d5aa4839a5ec2e0716c253c2cbb84a85b8daf3992649"
     },
     "records/relics/relic-0013.json": {
-      "bytes": 794,
-      "sha256": "d810011d8fa4c61acdb0ab715822da3487110fb732e187dde80c6bc687ec3e79"
+      "bytes": 1660,
+      "sha256": "07dc10cf0b98b408ea350da5d05eb057a1a94b4ddae2d3b675a53fd11bab0c45"
     },
     "records/relics/relic-0014.json": {
-      "bytes": 923,
-      "sha256": "7392700f23180fdbad4ec96488df75a9aeb714bae350c8709c8a7f200c74f77f"
+      "bytes": 1924,
+      "sha256": "7000141522667e6e7dd4da19642da542068a7538a0949d840e74aae4f3f55f73"
     },
     "records/relics/relic-0015.json": {
-      "bytes": 812,
-      "sha256": "8f7b3e7f398b6ce74646ffa1eb73ca5b833784b21e51045d90b7234eedc5aa1b"
+      "bytes": 1694,
+      "sha256": "3340cac9748fa246b3f2ebb21d94907f69b2dcb7855b4a6821d9e8735ac92081"
     },
     "records/relics/relic-0016.json": {
-      "bytes": 1013,
-      "sha256": "f2b807ce88f197acdf2b22b8a7f0ca2110586c771f444444f5f466f28eb76f5d"
+      "bytes": 2138,
+      "sha256": "de5fc8f9614803aa7a68f2844997cdd2820347f62491ee8613db43a194a930c2"
     },
     "records/relics/relic-0017.json": {
-      "bytes": 790,
-      "sha256": "392bfd72561be9cb7c4590187eb9080c7939ced7717ebb5f202c19a24c21cda0"
+      "bytes": 1652,
+      "sha256": "a3c69ebd26bb511b5c25f1b0d27e05cd4faa6bd8f27cf944f17f500b1f1ba6e8"
     },
     "records/relics/relic-0018.json": {
-      "bytes": 802,
-      "sha256": "12001f2ae05bb75301dab85e48374bd5a592c2819f7a7c8f4d5acc88aa31e539"
+      "bytes": 1660,
+      "sha256": "d2a5dcfd05e74406db62257756f09d6d235a9f578cec96146d8f988f5e6ea202"
     },
     "records/relics/relic-0019.json": {
-      "bytes": 842,
-      "sha256": "636a2914f1a6fbbf70f7d6dd30d027e0a0727272dd6501e6694709e04f0bfa67"
+      "bytes": 1746,
+      "sha256": "0e01a4e0463f59fa69dc674e2aeb43965b2cf9c7979218731523f69033d8c998"
     },
     "records/relics/relic-0020.json": {
-      "bytes": 892,
-      "sha256": "6494e406ea70085dc9749c13b8f6781d3862826904e8d7bdb0d1f5b750dc4d37"
+      "bytes": 1850,
+      "sha256": "dd4e35f78ccdb89e440cc7ff813675fffacfe91cf0fb559f1d01f946e9038330"
     },
     "records/relics/relic-0021.json": {
-      "bytes": 837,
-      "sha256": "29924210158fde2db73501b1631351d9684cf92792b84d322282f554ac42e646"
+      "bytes": 1738,
+      "sha256": "e8368e7435fd99b096d01bc69bd228ce5b8a60a5af9f9de7448f9fd3d7a5b313"
     },
     "records/relics/relic-0022.json": {
-      "bytes": 841,
-      "sha256": "7de3c251102e55d1aa1cf3964f7e95ef3b59feeacd6cb9a26d028aebce6d1a7f"
+      "bytes": 1698,
+      "sha256": "ccf8b88a0db4a803a9f2f674d58926e78611ed7378dcada7475cd717f4de6516"
     },
     "records/relics/relic-0023.json": {
-      "bytes": 708,
-      "sha256": "7094c1b6ffa7d37dae13c92bbbeedff0112f90cc3bfab9f398f4689b5fcdfa18"
+      "bytes": 1488,
+      "sha256": "d2dd810679fa5c21c724d6280a9869f7c30852f742a323c9eb4fc28d0c8d500e"
     },
     "records/relics/relic-0024.json": {
-      "bytes": 792,
-      "sha256": "f70373ee3299d5a8876690d63da3c40771666646bf181b044455857ac763f2a5"
+      "bytes": 1654,
+      "sha256": "7965d04c0f7bc6e8af0424a2415a272e7842aab06f05c474e2ea631719a903dd"
     },
     "records/relics/relic-0025.json": {
-      "bytes": 850,
-      "sha256": "478b681efa6321829d7c14591ac6fd366ca9e9da8862e893ea91f8b1363ca737"
+      "bytes": 1792,
+      "sha256": "a4a78f12938f5d57ef324310bb492988b55ec4941cfb70daf8518d80cf711144"
     },
     "records/relics/relic-0026.json": {
-      "bytes": 776,
-      "sha256": "0afab3015bc4cbbc37ccefb56d4d89e102ddb047526e33e5036555e2e71f98ba"
+      "bytes": 1622,
+      "sha256": "b740db3e2678b50480a9e4d9b5baa0788b58ecb32253e5311b36d35d108ec001"
     },
     "records/relics/relic-0027.json": {
-      "bytes": 800,
-      "sha256": "4ef7723cf6d844ef33265fcc111bbec9615654080fddbb42ed1d08d5c9b59e5c"
+      "bytes": 1644,
+      "sha256": "c471e27914aebeebc5a0992dd3506d912054a370e2754fd3b4589c3518053ffd"
     },
     "records/relics/relic-0028.json": {
-      "bytes": 937,
-      "sha256": "422b47def529ca03327956f0903286f371119ed1af7b8586507ae2683e364a97"
+      "bytes": 1962,
+      "sha256": "78e89cb4e8eaa1fd7c33c57f7984fdd9e4d0d3f5c823f9a5fbc5a5fe6f7ea51f"
     },
     "records/relics/relic-0029.json": {
-      "bytes": 735,
-      "sha256": "6342e560fd11683dba5dacd3397980e20dfeeaccc5deaa1fb9ef911a3b88c57f"
+      "bytes": 1526,
+      "sha256": "083e81d8333643e61f92bd83656de7dfcfd733e305670b458f9605082bb5f52a"
     },
     "records/relics/relic-0030.json": {
-      "bytes": 669,
-      "sha256": "4446f029f618a59ad12628351cc90993ba4c715f6cbcd01e0d8723701d1b04c6"
+      "bytes": 1396,
+      "sha256": "ac0219c600bc79f60744839fc74a35ddcf8b6d1203195025b0ec96a210e76061"
     },
     "records/relics/relic-0031.json": {
-      "bytes": 810,
-      "sha256": "05ce6e2a341e183169fc9057ed435f7ed09fc0f7e3be11bc112053243dcbae02"
+      "bytes": 1690,
+      "sha256": "d02f4776c0ce243829ace7e014bbacd96d3a09d32a966bcce4e952a3ecec1189"
     },
     "records/relics/relic-0032.json": {
-      "bytes": 626,
-      "sha256": "793ac946b3377aa551e1d98af3ac5414b991814e7ef1f852f2f3c564c1e0d254"
+      "bytes": 1302,
+      "sha256": "fbd105816695d368ea6c34925aa7f51094d069e06aebc54658f36d3eac086b7f"
     },
     "records/relics/relic-0033.json": {
-      "bytes": 905,
-      "sha256": "ee3e69da3c6acaa649ab5d37e8d766b9003dd6fabfc3cc1d515f9524e1859060"
+      "bytes": 1876,
+      "sha256": "27e146c35c88c2639516d5e4277c9ed6a176736b1db4b6643478ebdd0012701a"
     },
     "records/relics/relic-0034.json": {
-      "bytes": 824,
-      "sha256": "79d1af53e7d64315a9b9288062ff0a56043af602471f3289d5f90b463d2ecce0"
+      "bytes": 1718,
+      "sha256": "471f35a6cf24e96ba771eeded215be04538831f5a162b298ced40eeb2322ec5d"
     },
     "records/relics/relic-0035.json": {
-      "bytes": 707,
-      "sha256": "089430ad90878c062a2b4aac6f4706223a2f633f66d6d00a8ce84188dbb09fd1"
+      "bytes": 1446,
+      "sha256": "d276946c705d5ef6075b142fa0a9ae5c4df328724d716c1a95ca69d4177619f7"
     },
     "records/relics/relic-0036.json": {
-      "bytes": 823,
-      "sha256": "45dfa61d6c96d7a8072c5c56a7021e64135345951c8e2ec6fc831fb47b0d8fea"
+      "bytes": 1716,
+      "sha256": "f402286cb88cb455eb5189fe733eb7b7aa4b0dbfe0358bc103d44493d2666f32"
     },
     "records/relics/relic-0037.json": {
-      "bytes": 1002,
-      "sha256": "e94da2c0bae782416dfa7653524df27b34146607ad56524cf91c07af017cf362"
+      "bytes": 2092,
+      "sha256": "9185c44008571ff8dd0ec6cc149443be69f6de9637594f3e3190f15eec512a41"
     },
     "records/relics/relic-0038.json": {
-      "bytes": 811,
-      "sha256": "88152fd600d805a50fd2f330429a9cfd113ea3a66649e993ef864daaceda89c8"
+      "bytes": 1696,
+      "sha256": "f68365bc05bf60c73023bf48af1b4c3248514317a0ad267708d78d1c30253143"
     },
     "records/relics/relic-0039.json": {
-      "bytes": 789,
-      "sha256": "8bd7fe415233636bef8e8b9da32703eb19b21afcdba414470dcecf59c6aa49bd"
+      "bytes": 1650,
+      "sha256": "13078006dc273ada7b85442b7222fce40551e92d948c499dadfc1475347bf3c9"
     },
     "records/relics/relic-0040.json": {
-      "bytes": 869,
-      "sha256": "bb15fa494a716418acd2f75cb3b7bd56fb8afce70d47a761598bbc9cff783698"
+      "bytes": 1806,
+      "sha256": "6ba3d72b5bea27baea2e7989ba8b8b22014e213452912ab58760dfe5baf0eaf7"
     },
     "records/relics/relic-0041.json": {
-      "bytes": 758,
-      "sha256": "cce7032dc38780ff390477aa6b059370171e53cd50eb53162192a887c0115c0f"
+      "bytes": 1568,
+      "sha256": "19e2308aebde60114c19802120b08f936bcd02d45b802280033f1f9cd02c2bf9"
     },
     "records/relics/relic-0042.json": {
-      "bytes": 836,
-      "sha256": "1659165f8d05d5ed589e27edd0b35d1166dbc0fd5a16f39e3251a75b9070c4f9"
+      "bytes": 1756,
+      "sha256": "1a95bf1343c0e7f803ff1764fb089803f8b372bedb83458b0c787d508fc7be4d"
     },
     "records/relics/relic-0043.json": {
-      "bytes": 652,
-      "sha256": "2d1c448c0155f7bc4270eed049d04d634701858549842a6b9529f9945165dd18"
+      "bytes": 1358,
+      "sha256": "40945e35aca68278985f1c60f29cbcf82e62d8aa633120e61dff736dc639fadf"
     },
     "records/relics/relic-0044.json": {
-      "bytes": 936,
-      "sha256": "0dd7a47824a6af5a7629a282702d579210cb3ffd55ff662447f0a9e1a691dc6a"
+      "bytes": 1958,
+      "sha256": "fb7751df27e999b4e5bf24141b289c47f7c33931afaefb111fa57ba453c46d7d"
     },
     "records/relics/relic-0045.json": {
-      "bytes": 902,
-      "sha256": "e54931b950056d98cf2d1775fb9f53f677473484a3012cedc0a596af667693f5"
+      "bytes": 1884,
+      "sha256": "3ef7fed30131aad3acbcf7f73f4d120f3782ec87c4d87dc32bc68f61595adcae"
     },
     "records/relics/relic-0046.json": {
-      "bytes": 984,
-      "sha256": "86281e064c8802d32d1d60172815a83ef7b7f266d7d40b2e3f2842c4a3cdfec9"
+      "bytes": 2076,
+      "sha256": "41855da31827468a15044e14dea0b0a5d4d2f8890f73c30ecf43f762d81c7bb8"
     },
     "records/relics/relic-0047.json": {
-      "bytes": 849,
-      "sha256": "14f40979a358d5675b69d0c91def4fbc7068a730ab6fabd17161b344fe956836"
+      "bytes": 1800,
+      "sha256": "8e51ee26205519c73a5530194fefedb92563dd763fb8412d53d6d7b90bde40ab"
     },
     "records/relics/relic-0048.json": {
-      "bytes": 1075,
-      "sha256": "1b572cc62c510e1615a203809a0b5b4bd9c8bb1a153c2e85fb86068bbe282e23"
+      "bytes": 2266,
+      "sha256": "f31d753ed84767e45ca4a5095f6f4f7d74a41596a94f4778a100739607cc41b5"
     },
     "records/relics/relic-0049.json": {
-      "bytes": 838,
-      "sha256": "522ef6307705a163b52dec0c9cfba584c7802703c3874714da7b1313436b684d"
+      "bytes": 1746,
+      "sha256": "d490eadeb5a2555ba57d7931b2ba02831836be4efde7709ed3c9cb76fc9d845d"
     },
     "records/relics/relic-0050.json": {
-      "bytes": 823,
-      "sha256": "80ff9842b5a6981c66183f731cb59ad4f7925c73cb8134eea2ae2c6ceccdea25"
+      "bytes": 1720,
+      "sha256": "006442f8c6a9373922cab28d8e71167789611715d57a269b6cefa73b1596a633"
     },
     "records/relics/relic-0051.json": {
-      "bytes": 861,
-      "sha256": "5b801bed8fe469227269e6a92710d12ede0aa7fea4046003f8687525f81678f4"
+      "bytes": 1808,
+      "sha256": "2d56a06fda52a42521f1ae7abd4f0ab9bd5a051e052fe7f834fa4291bdab033f"
     },
     "records/relics/relic-0052.json": {
-      "bytes": 881,
-      "sha256": "1288bc788d54a0405e2db6705a6c62b876dbd0fa839adfa744993e55aaee937b"
+      "bytes": 1832,
+      "sha256": "34268bced1dad55801cba5760cbfe43dca4e2cf84504c3d9912714d22c8d7a84"
     },
     "records/relics/relic-0053.json": {
-      "bytes": 855,
-      "sha256": "198a1450a89af7eaf6e238f4b757452882fb85b8b519c30518469f1b66b11873"
+      "bytes": 1794,
+      "sha256": "25ed0185e58544f75e195b7c729615f3c5ad06665ce15ad4a4732d7110c016c3"
     },
     "records/relics/relic-0054.json": {
-      "bytes": 702,
-      "sha256": "820ef8ce9a384df704120b7c7389b7128dfcb80e789e84305418bc42837a6860"
+      "bytes": 1466,
+      "sha256": "5a44a84e865f7e29c1d895f7aa28fb16206b3ee31a4f86d000683d1330e5bb9e"
     },
     "records/relics/relic-0055.json": {
-      "bytes": 668,
-      "sha256": "a4c1f9ce3e6cd7d33559cdf1ed42069364b0341217a7d73d77546645b761f114"
+      "bytes": 1384,
+      "sha256": "ec669fdcc65f031b2ae7169115c0aeaab3def3b18c7a3f73ec2a3b6f026b3bb7"
     },
     "records/relics/relic-0056.json": {
-      "bytes": 806,
-      "sha256": "7b0c22a1b5e2e9539879df0d5c3c41f5aabda82fd6c0315ac131c630c6646cf9"
+      "bytes": 1662,
+      "sha256": "7bc54b165f2d2a0bf90ccc7f7a9b779f8cac25d3c1a7ac6f79a47f3df697d313"
     },
     "records/relics/relic-0057.json": {
-      "bytes": 692,
-      "sha256": "98cea7d49f7a19a17c168bb5bac85f4ab27debefe77e20965c997bb1c0b0b048"
+      "bytes": 1458,
+      "sha256": "bb6ea5ed1207fdb6dd4b150e27a2bc5a7c07505cd2352af74d1d53c047db0828"
     },
     "records/relics/relic-0058.json": {
-      "bytes": 720,
-      "sha256": "a7dce48ae948b5a70fc490a7cb6994673e939ead98abc1216a131430fcd46317"
-    },
-    "records/relics/relic-9001.json": {
-      "bytes": 760,
-      "sha256": "777632f01c834a18c9a015e6f2dcc556ed2681037c2b74d35e11a14ab5432ecf"
-    },
-    "records/relics/relic-9002.json": {
-      "bytes": 782,
-      "sha256": "440d62df2f26fe75fbcc1733ab4ac127229f7c877d99cebd6e466edbcfdede6c"
-    },
-    "records/relics/relic-9003.json": {
-      "bytes": 691,
-      "sha256": "2fcf1fb662f8b05a555a363eed1de416dc809ff7f154e9fba4c74bee7b2e489c"
-    },
-    "records/relics/relic-9004.json": {
-      "bytes": 719,
-      "sha256": "70794d07ddb83e9858a1d685174d1494cf1a92ac4e86a3c641bc7bc658a2abd3"
-    },
-    "records/relics/relic-9005.json": {
-      "bytes": 556,
-      "sha256": "b6cdcc7a9a7b54867c1b0b9108f69c392700854e4881d99aed3473f88df98855"
-    },
-    "records/relics/relic-9006.json": {
-      "bytes": 787,
-      "sha256": "3b25423463f9267d8f4fa03cf95e0fe39d21f4664513339c7a4153c60c9bda3c"
-    },
-    "records/relics/relic-9007.json": {
-      "bytes": 709,
-      "sha256": "14a638309523f4bcfc5ba7e048ad9f8a7a50d2991a3c9f57244e3f076c384712"
-    },
-    "records/relics/relic-9008.json": {
-      "bytes": 803,
-      "sha256": "6207e5dd3b734e043e203a777e1630e417c7e2124a099cea64162542e6c5f197"
-    },
-    "records/relics/relic-9009.json": {
-      "bytes": 716,
-      "sha256": "7b46ef72c83048fda49d4a40ec1f74bb650ac9d4a459ab601728ff338fc1ef20"
-    },
-    "records/relics/relic-9010.json": {
-      "bytes": 661,
-      "sha256": "bc52f65a85a36b60e7af5461f6f4e585e489756a69d90b457563065e7311a087"
-    },
-    "records/relics/relic-9011.json": {
-      "bytes": 778,
-      "sha256": "faeabadc844353aa2f7897131bf81d3e2fc7c738eba2db76956ae16d9a04e243"
-    },
-    "records/relics/relic-9012.json": {
-      "bytes": 690,
-      "sha256": "53c92640e9adf80088ce4d433b5a5e281e6b836f978511a66c0061c199ec041c"
-    },
-    "records/relics/relic-9013.json": {
-      "bytes": 554,
-      "sha256": "630256f4ab0af4eca72b7a5fe5c87d6387414d143e1555f1e85dc37a6a2c8e51"
-    },
-    "records/relics/relic-9014.json": {
-      "bytes": 485,
-      "sha256": "95509a8757fe611561118fb944ed3f43b46e3c5c189556170c30288372bcceb8"
-    },
-    "records/relics/relic-9015.json": {
-      "bytes": 793,
-      "sha256": "acd607360720be8ab51743e297912662eae8d551d034092c79b5ab2df785c466"
-    },
-    "records/relics/relic-9016.json": {
-      "bytes": 638,
-      "sha256": "68d7ffb934409a05439c06835b4ea9f228ad0c496d6adf4474300ca2ae06c094"
-    },
-    "records/relics/relic-9017.json": {
-      "bytes": 744,
-      "sha256": "5c00ca6fb98ef3cf3aabc4738b665e429a1cdd6951f7943965465e399b17a3c3"
-    },
-    "records/relics/relic-9018.json": {
-      "bytes": 645,
-      "sha256": "051db149a6a7c2e6ac3f447c19d483339f3f77727b9dc74879f1f986cbef1191"
-    },
-    "records/relics/relic-9019.json": {
-      "bytes": 790,
-      "sha256": "3360a9989c8b2caf4edd0cc56bd7ba506879b1b00dd0301b37512b84cd1ae560"
-    },
-    "records/relics/relic-9020.json": {
-      "bytes": 718,
-      "sha256": "9fc07cd51e8eb63469ded8a04c413625e83cd3ce10ea49a12f9ffbf98394523d"
-    },
-    "records/relics/relic-9021.json": {
-      "bytes": 666,
-      "sha256": "0c01dd85c83421537c148aaad7ab0cdea109dc1c9de994dabf0066a2430c1c45"
-    },
-    "records/relics/relic-9022.json": {
-      "bytes": 498,
-      "sha256": "51c710adf1c05eb640c9bb21b8a32e6cb4b01efebd54bd68314900444b7bf33a"
-    },
-    "records/relics/relic-9023.json": {
-      "bytes": 613,
-      "sha256": "f076313f4a6004ac495b66f6ceb336ed79a76397828434f652692e9d58cef8a4"
-    },
-    "records/relics/relic-9024.json": {
-      "bytes": 690,
-      "sha256": "7c0747b36d814e9a75a5c4dfdfa99c61193d056ad009f8f3c2062b158f3ca970"
-    },
-    "records/relics/relic-9025.json": {
-      "bytes": 852,
-      "sha256": "564935560b2c346b0fdcfb51def6078f44241b909326a051d393e3e1d8b936d0"
-    },
-    "records/relics/relic-9026.json": {
-      "bytes": 790,
-      "sha256": "d462a6d9ee9c176cab2569379e3c162f78a30397a73cd5cbcc444b39fb01f755"
-    },
-    "records/relics/relic-9027.json": {
-      "bytes": 720,
-      "sha256": "bc33c9d59d55efdb2f451d974cecd209e0e0f994c21d3d8df68a21f1583888bf"
-    },
-    "records/relics/relic-9028.json": {
-      "bytes": 688,
-      "sha256": "1598c5d7593bb7e17acefb904f7b0325438f68cf6b3f846b405e432cb1b34868"
-    },
-    "records/relics/relic-9029.json": {
-      "bytes": 599,
-      "sha256": "c4eb3b0db991b7338402babbf67b79af6e12490c1a4514fdd345f190d34372c4"
-    },
-    "records/relics/relic-9030.json": {
-      "bytes": 667,
-      "sha256": "70f0bf7f6eff06a12af6c1e752d71e66c8cd3e64676b256a3a371ddc16b49bbe"
-    },
-    "records/relics/relic-9031.json": {
-      "bytes": 568,
-      "sha256": "f5b203e146febb2c340f9b17938f1be7944f728c4ee1d4612c0d9e41b0ed41f9"
-    },
-    "records/relics/relic-9032.json": {
-      "bytes": 630,
-      "sha256": "4f512a6cff6a9f797c8037b25b618bf05598f926b3f833ecf31883cd39eb30fe"
-    },
-    "records/relics/relic-9033.json": {
-      "bytes": 724,
-      "sha256": "d7539c0f664c71e745f7e0c94c7ef6e10ebb5ad54515267ed50e6994d1603856"
-    },
-    "records/relics/relic-9034.json": {
-      "bytes": 755,
-      "sha256": "1cc72611ba06e21d0a470b625a57fe5204ab6aebc944bd5eab93c18578e23ad4"
-    },
-    "records/relics/relic-9035.json": {
-      "bytes": 853,
-      "sha256": "cf5b8738b3a733fd37e1c6cb050e2acb1432ecbcbc392fc35721df58cddd8bc4"
-    },
-    "records/relics/relic-9036.json": {
-      "bytes": 1221,
-      "sha256": "f7d3ed79f98158eb59905fcef467c1c3de18dcfcd4bc860ecc05807b2675750c"
-    },
-    "records/relics/relic-9037.json": {
-      "bytes": 859,
-      "sha256": "4272fd5d4571406b0e6b723db5e5f8774bde8e477ec65e0100ed98cedf72291c"
-    },
-    "records/relics/relic-9038.json": {
-      "bytes": 1026,
-      "sha256": "a948713bb401cf4ced27aef9c29a253b6c3c241006d42e9f00610312e096bb65"
-    },
-    "records/relics/relic-9039.json": {
-      "bytes": 833,
-      "sha256": "7f1593f33848c8fa44ec510510533554fe4247c86de7e7feb82a133fca63f1f2"
-    },
-    "records/relics/relic-9040.json": {
-      "bytes": 984,
-      "sha256": "6a8f6ec98fe56cc2f1bef4f0b1a56c8a3535402062a61d30d9504aac837d14e1"
-    },
-    "records/relics/relic-9041.json": {
-      "bytes": 677,
-      "sha256": "1a2d5f5f1977ca6a7ceb923c27299179e9c097da079c3d989345bf759d8e7348"
-    },
-    "records/relics/relic-9042.json": {
-      "bytes": 702,
-      "sha256": "6911956e3c52896de7d33f36616b7d05a3c499ac2003d9422a7c449673d7195f"
-    },
-    "records/relics/relic-9043.json": {
-      "bytes": 700,
-      "sha256": "cabc6bce05b5de40b7e069a1c9e4f073e6e2b343b84fd6a8d52bd120e341e19e"
-    },
-    "records/relics/relic-9044.json": {
-      "bytes": 651,
-      "sha256": "3a7ca6ae10b248f5dfa4cab64f2264c834f59761eacb7dd0de412ddb899e2cf2"
-    },
-    "records/relics/relic-9045.json": {
-      "bytes": 526,
-      "sha256": "4e46bb193286002a7d68c858287c3b2843930338d8b54a475c7759538271064e"
-    },
-    "records/relics/relic-9046.json": {
-      "bytes": 942,
-      "sha256": "b805201bc8ef122f9cec1cc617717bbd4b61fb1e2487b96a9740f885ad2a5b99"
-    },
-    "records/relics/relic-9047.json": {
-      "bytes": 579,
-      "sha256": "6df270c50b2bc435d6b74fd9a705c1c8bb618697f101b980d79d88755c148165"
-    },
-    "records/relics/relic-9048.json": {
-      "bytes": 541,
-      "sha256": "a81b0b6f6aa9b8e79f994722b78293b7e3611615959b6282749873470034f5d6"
-    },
-    "records/relics/relic-9049.json": {
-      "bytes": 820,
-      "sha256": "1336339b20f596da2d8b7319753e178d235943c40536a88c7994ca84c245cf7a"
-    },
-    "records/relics/relic-9050.json": {
-      "bytes": 679,
-      "sha256": "1eea4acc82979a655e6974e22827f4348dd297332e09612d8e9e008c95ca0388"
-    },
-    "records/relics/relic-9051.json": {
-      "bytes": 549,
-      "sha256": "801f1f380b1d5fc4fab221c8c8b8deb0b4884b5575e851b5bc695f1e1615835c"
-    },
-    "records/relics/relic-9052.json": {
-      "bytes": 670,
-      "sha256": "26d02ff720daeed72165d7e6b0ecfccf56adf7180cd1fa6c2efc2c7bed83782e"
-    },
-    "records/relics/relic-9053.json": {
-      "bytes": 816,
-      "sha256": "7eb594511258289a9eb8bd34c5da5851cc824bfb207cb4d8d7e5ec4ca7c6e340"
-    },
-    "records/relics/relic-9054.json": {
-      "bytes": 746,
-      "sha256": "5053f397d1c61325b7446733153b0135449bc1024eea2aec742f2f521c3d2205"
-    },
-    "records/relics/relic-9055.json": {
-      "bytes": 705,
-      "sha256": "5bdd180c1651a50f6e800ffd48a657389107578d3f4822021dd50c4f6d2b2ce6"
-    },
-    "records/relics/relic-9056.json": {
-      "bytes": 1145,
-      "sha256": "85eabe1138d525f9466b92ad2c165fbe4f257fdfe672540e52cdededcbb78655"
-    },
-    "records/relics/relic-9057.json": {
-      "bytes": 556,
-      "sha256": "a2cb8d7870eefc3ffb6e8ad3a5af16d70e55544e8111cbddea6b6de3cab9c0d0"
-    },
-    "records/relics/relic-9058.json": {
-      "bytes": 544,
-      "sha256": "350e8bf83f0ee83e0d8446731c6c9534bf1c99d11eb6e479d859c354b324c79b"
-    },
-    "records/relics/relic-9059.json": {
-      "bytes": 693,
-      "sha256": "65c85fabf48f0c562d3d5a76175f958931fb13aa762392786ec673cd2436713a"
-    },
-    "records/relics/relic-9060.json": {
-      "bytes": 741,
-      "sha256": "b908e4cac9645e179f83460591dbe6242e7bb78c5cc6f9b2a472d07f68a48071"
-    },
-    "records/relics/relic-9061.json": {
-      "bytes": 549,
-      "sha256": "c0b6bb88c73970d7c01f366484e001ac914860d4c405bbe60855747500c4a1de"
-    },
-    "records/relics/relic-9062.json": {
-      "bytes": 747,
-      "sha256": "c83417f321b8418b7b064bf7cc3841157e469847aee1dd21bfb7eabca34ff21a"
-    },
-    "records/relics/relic-9063.json": {
-      "bytes": 713,
-      "sha256": "50f6e8193bdddb7eea689c7fd54cad5432ba8ad58fc697a73e240f17adc85801"
-    },
-    "records/relics/relic-9064.json": {
-      "bytes": 543,
-      "sha256": "41128ef33990d6b5a7947767234c66c388a41ddf6000918e373d263ebe39ca60"
-    },
-    "records/relics/relic-9065.json": {
-      "bytes": 445,
-      "sha256": "4d3803ac6ff1ea370d0c0b487083de87eeff7cf3cc05d0544083f8e5e5557335"
-    },
-    "records/relics/relic-9066.json": {
-      "bytes": 685,
-      "sha256": "2471d6da19e51a7e49b3a65eea8cb27a4fd799dad2bb0dc777253f0ef95a3f39"
-    },
-    "records/relics/relic-9067.json": {
-      "bytes": 495,
-      "sha256": "ac39e7c49af512fa9da3de7a89c446d318a7ae6f796e76df4cf857c1a2ad3c90"
-    },
-    "records/relics/relic-9068.json": {
-      "bytes": 672,
-      "sha256": "555cdc54153842f187016eb48d7610c78898f2bfaf996e3008a08612b9e7759f"
-    },
-    "records/relics/relic-9069.json": {
-      "bytes": 818,
-      "sha256": "fa147c0e5b76a45f89e0616ab61f538240c6067b61b90817d5b4534cac28f35e"
-    },
-    "records/relics/relic-9070.json": {
-      "bytes": 562,
-      "sha256": "5bb6b3fdbbebc3c5a679669deb04d07295fe39328822993f2d9d91fd51ee6215"
-    },
-    "records/relics/relic-9071.json": {
-      "bytes": 558,
-      "sha256": "05aa3cebc6103f7315e1a69f4d205e8b71e870ce54e2eebc7d80b017d1c263d4"
-    },
-    "records/relics/relic-9072.json": {
-      "bytes": 478,
-      "sha256": "0c88672b70e4b1ba68ed884a804ec841c3f19b56a17f824b468390499bd9e583"
-    },
-    "records/relics/relic-9073.json": {
-      "bytes": 743,
-      "sha256": "13d59a7bb698bef87f458f051e8278187d58788fd92f53f1da58cb236826b6f8"
-    },
-    "records/relics/relic-9074.json": {
-      "bytes": 1088,
-      "sha256": "6825ca2ca732fd6c93c5f7487de67ba14953dfcbbc3f5d52e4c6d4332378194a"
-    },
-    "records/relics/relic-9075.json": {
-      "bytes": 1369,
-      "sha256": "a16bc48769b9059f043c258d2533bfaf657712de90c49b2d1cb56105d6df510d"
-    },
-    "records/relics/relic-9076.json": {
-      "bytes": 788,
-      "sha256": "93e9cfd7904abacbf92f0dc89ac8350ad9d72474f9ba60852d987f505a078f31"
-    },
-    "records/relics/relic-9077.json": {
-      "bytes": 990,
-      "sha256": "388553cba3dc8a49cb6d17f75ec2888e53c690065a504c12b5c6fa6b83f2a2fc"
-    },
-    "records/relics/relic-9078.json": {
-      "bytes": 1042,
-      "sha256": "4b57f63bc3b8d0d39905dec68d111cedde6b875514964cad479e9b1b7f51f0ba"
-    },
-    "records/relics/relic-9079.json": {
-      "bytes": 576,
-      "sha256": "c49cd2161a745756baebb2b3a08aca4d8a2beb4798525324df3551cb736f98e0"
-    },
-    "records/relics/relic-9080.json": {
-      "bytes": 505,
-      "sha256": "8474c22561e5f4a5fe95a2cdc479b2f63eafd90b10b2c56ddf8ca306ba6e3c46"
-    },
-    "records/relics/relic-9081.json": {
-      "bytes": 519,
-      "sha256": "2f7cde0d58931477a3e0db1fa5d0b104e43fa1628a3394ae77db178c6d21613e"
-    },
-    "records/relics/relic-9082.json": {
-      "bytes": 560,
-      "sha256": "9ed816bc8252b0d029dd897e5686bd19414b63306751663a988ac58c61c23ff4"
-    },
-    "records/relics/relic-9083.json": {
-      "bytes": 1312,
-      "sha256": "4c729fd18e5a3f6771a1e273ea5fe422882fd6f68b7efaab66d02a481910feb5"
-    },
-    "records/relics/relic-9084.json": {
-      "bytes": 670,
-      "sha256": "3dd7e3f08df6303309f91c5f9df0ac4df7abfba74c339ef80680102e44200739"
-    },
-    "records/relics/relic-9085.json": {
-      "bytes": 619,
-      "sha256": "cef440491555f7d12a89c33b2688c1544ce63c8b90ba28a2a8099fda7fddb064"
-    },
-    "records/relics/relic-9086.json": {
-      "bytes": 965,
-      "sha256": "c1f1b54dc5e7ce02cc504e4843d450160c3a8b253a796be7805116778dd4afe5"
-    },
-    "records/relics/relic-9087.json": {
-      "bytes": 643,
-      "sha256": "14b451bef3cf29605450d32a8340daf34f1028b8910481140e18f7b2326e6183"
-    },
-    "records/relics/relic-9088.json": {
-      "bytes": 788,
-      "sha256": "ecad95475e2a01a6c750aefdbfac35aa340b930e7f2cb7dc7c959f89c8070c41"
-    },
-    "records/relics/relic-9089.json": {
-      "bytes": 667,
-      "sha256": "aaac477ce11c4e0c530bdcf09920847c3ae603a1f36eb140f704c2f18dc395ab"
-    },
-    "records/relics/relic-9090.json": {
-      "bytes": 607,
-      "sha256": "c3f4dcc46d4ecc8935e04d0511216fa2949076e83a3b3431a62d3dcd598ceeb3"
-    },
-    "records/relics/relic-9091.json": {
-      "bytes": 615,
-      "sha256": "1c2bf637220a3d893283ecfb88c7623bd2eb1f94ba66292f7e11da7b97905c14"
-    },
-    "records/relics/relic-9092.json": {
-      "bytes": 626,
-      "sha256": "917e311bc8cdc12a727a40c348594d11356ffbedd38199ffedad14f190fd70d8"
-    },
-    "records/relics/relic-9093.json": {
-      "bytes": 616,
-      "sha256": "631989d52d96de421b22499acd03b1bbb96006257820c99a2b5ad648f8475345"
-    },
-    "records/relics/relic-9094.json": {
-      "bytes": 659,
-      "sha256": "74a85d3c0a70c91c08c22bd8758b4c3316455374d2bc0f16d718a4ddf98048fa"
-    },
-    "records/relics/relic-9095.json": {
-      "bytes": 652,
-      "sha256": "bb35015b6964b7cb880d45894a3c8d2070c44dc1b9859a261bdeb9f8125281ec"
-    },
-    "records/relics/relic-9096.json": {
-      "bytes": 652,
-      "sha256": "3d05b00fcc2f7b55792eeadfadd60a9aa02afcecc2587848cda2fa1053960e98"
-    },
-    "records/relics/relic-9097.json": {
-      "bytes": 545,
-      "sha256": "73d78c637ea2b9a9154491256af5d4f1fccbfa5481e43ecce751c69bae5d9fdf"
-    },
-    "records/relics/relic-9098.json": {
-      "bytes": 547,
-      "sha256": "9a0f23a95956f1c3cb109223bfbeb41f9ee5962bd41b18fc9fcbc55f2739b05e"
-    },
-    "records/relics/relic-9099.json": {
-      "bytes": 551,
-      "sha256": "b104357f545dfea32c3b59f99ab82bf0f04ffbe69df8ff3f2746fb4b9d38d7a4"
-    },
-    "records/relics/relic-9100.json": {
-      "bytes": 547,
-      "sha256": "fb8e3d682692a2591c1eb0072186aa6c4489b3c3ab95c3554c18804c10f2e713"
-    },
-    "records/relics/relic-9101.json": {
-      "bytes": 547,
-      "sha256": "a73152bbb158903eff9a9705c9b31355bdfbb7c3e8603720728241217afa21c0"
-    },
-    "records/relics/relic-9102.json": {
-      "bytes": 812,
-      "sha256": "9d3951c77ec1f155544baceb18bbab833a70b09ead6a122b5c754ef8ede38034"
-    },
-    "records/relics/relic-9103.json": {
-      "bytes": 710,
-      "sha256": "5dc47e176404d329ae6062647775297989c2f9ba614f0296ee2226573f4aa67d"
-    },
-    "records/relics/relic-9104.json": {
-      "bytes": 544,
-      "sha256": "6e643b31a54216db9be06e649b2d28cdb923a084298ce0a418da3aa2f584ded8"
-    },
-    "records/relics/relic-9105.json": {
-      "bytes": 663,
-      "sha256": "aeaf86f78181c6ce76e97241c49c609cb72ec0337c45e301caa494c3be7c8b46"
-    },
-    "records/relics/relic-9106.json": {
-      "bytes": 541,
-      "sha256": "a28c733e31e1b7407b9369ae31927a5a5cdcce2b68e867fc3411f15fff896c90"
-    },
-    "records/relics/relic-9107.json": {
-      "bytes": 910,
-      "sha256": "7eefd616edaa7175954c47c08564c66a91698188ec22ad575d006548c6af1328"
-    },
-    "records/relics/relic-9108.json": {
-      "bytes": 586,
-      "sha256": "671271665b6b8257ca91795d6b087e9860cd38b2cd1b76d8789ea0221367a98f"
-    },
-    "records/relics/relic-9109.json": {
-      "bytes": 588,
-      "sha256": "46699603a61da0eb740a4e9a7187876cfac8d8a8fe42e2f4499ec40fd60b1f19"
-    },
-    "records/relics/relic-9110.json": {
-      "bytes": 752,
-      "sha256": "71331b140cac8ec12c79dab323aa727414a41f1588959095a1486ecba44c50e5"
-    },
-    "records/relics/relic-9111.json": {
-      "bytes": 833,
-      "sha256": "fa549a6c4844ba709ea253a9026622b91821d6cffae433659089dc6d17d0e608"
+      "bytes": 1490,
+      "sha256": "f5629e64627b39d4075aef7eafa6fad6c7185c0fb93865042123c7a3a5b30304"
+    },
+    "records/relics/relic-0059.json": {
+      "bytes": 1739,
+      "sha256": "4c2d6ab533c2f4a9bd28f062807100a1d9eeb1c3da1fabadb09f63db31b71bf7"
+    },
+    "records/relics/relic-0060.json": {
+      "bytes": 1337,
+      "sha256": "e592ee625ef1a5e2d30d65d47bab6270c016171c203c376262b2f90020d55271"
+    },
+    "records/relics/relic-0061.json": {
+      "bytes": 2843,
+      "sha256": "b6242b2f4752e19b8a28e72b1e33518240306a058fdebb6432bcf74710644a74"
+    },
+    "records/relics/relic-0062.json": {
+      "bytes": 1677,
+      "sha256": "6a3b05382e24c081cad8c9650eab5f0290e817f9eb5e58972b6529d19a3963f3"
+    },
+    "records/relics/relic-0063.json": {
+      "bytes": 2915,
+      "sha256": "e0a1856d1834ae77dbf2ea73672ac2a4badcd3b45c75ad0bb5854d9d95501e07"
+    },
+    "records/relics/relic-0064.json": {
+      "bytes": 2694,
+      "sha256": "60051ed7c9da352653a0c272f0a4980f92e33e0faa720ccc332bc10c84e91ecc"
+    },
+    "records/relics/relic-0065.json": {
+      "bytes": 2808,
+      "sha256": "82bb2f8799b55e6d2f4b360558cf0962e906bcf3e0813efc4dc96af5517eab56"
+    },
+    "records/relics/relic-0066.json": {
+      "bytes": 2507,
+      "sha256": "b7073fa6dedbaf21ea986edaf489a2ed8921618503241113460264fbfcdec534"
+    },
+    "records/relics/relic-0067.json": {
+      "bytes": 5694,
+      "sha256": "1705decb1aafc99e8ec23b2168483500e901b510fea3c9bc6cea8801f10148df"
+    },
+    "records/relics/relic-0074.json": {
+      "bytes": 1657,
+      "sha256": "fe91a59e578b97adb8181fa74a3346d810155d908f7099d6df358d467373ee87"
+    },
+    "records/relics/relic-0075.json": {
+      "bytes": 2166,
+      "sha256": "e91c520614cdd91a3a66ac645e20a541f2626fed153e5c298fe04a9cb296e6f8"
+    },
+    "records/relics/relic-0076.json": {
+      "bytes": 3074,
+      "sha256": "c4fcc96e999f8f9bb8057354eb23984371b5559ffe8cf36f0fa9fd078a20ac50"
+    },
+    "records/relics/relic-0077.json": {
+      "bytes": 1389,
+      "sha256": "b4cc9cbd553141a0646a02183ee993b95df498613b0aec6c1bfa406677fa79f4"
+    },
+    "records/relics/relic-0078.json": {
+      "bytes": 4263,
+      "sha256": "7f85e2bf45cd8482aa6e07062b5f9aac8815682e070814d725ffde2dab0ccdf1"
+    },
+    "records/relics/relic-0079.json": {
+      "bytes": 4068,
+      "sha256": "a1eb4fe3a35f61352568e9d6cbf79226627ef64c903e6ab38cbe704392eb82b4"
+    },
+    "records/relics/relic-0080.json": {
+      "bytes": 1293,
+      "sha256": "a292e91de4336d0b47447427a424ef85477826c76ee75eebadf44c88326b856f"
+    },
+    "records/relics/relic-0081.json": {
+      "bytes": 2669,
+      "sha256": "bf9ed0982f03b5076d0b04ff0d2fffb9ea9af2cbefbf0e483b27909f46e13bfe"
+    },
+    "records/relics/relic-0082.json": {
+      "bytes": 1365,
+      "sha256": "b7fecaad9bdc1ed52e3182b860848e4968eb09a28a35385df62cfe2c4e9f51bf"
+    },
+    "records/relics/relic-0083.json": {
+      "bytes": 1109,
+      "sha256": "46ac864900e93ff935d0c3790493544ae076f7c090a8bb86e8a67fec4af1c44d"
+    },
+    "records/relics/relic-0084.json": {
+      "bytes": 1257,
+      "sha256": "57e76dba85bdacccce808538da525273925c6776533bbc0ff7cda49eb49509ae"
+    },
+    "records/relics/relic-0085.json": {
+      "bytes": 907,
+      "sha256": "a3c275ec29e63af75516f30142c1cf241cda41f3ed25f151aeb80167eeb05436"
+    },
+    "records/relics/relic-0086.json": {
+      "bytes": 2548,
+      "sha256": "3f95a09cafac0e67c26f64b724345ec9ba147610aa35bc7fd73e84cae4901624"
+    },
+    "records/relics/relic-0087.json": {
+      "bytes": 1939,
+      "sha256": "869bda69c1c58c365869a9660ab65f55e9ad73df0b337422b9b43454ffd84e8e"
+    },
+    "records/relics/relic-0088.json": {
+      "bytes": 2754,
+      "sha256": "a2caf51aaeed242d697a6b648af7c273598fc7f027c933a692807d38483c1867"
+    },
+    "records/relics/relic-0089.json": {
+      "bytes": 1301,
+      "sha256": "02b5986fb45c0406be11731c53bc2e51b1166dc8e09e5c89ecad4252102b515f"
+    },
+    "records/relics/relic-0090.json": {
+      "bytes": 1763,
+      "sha256": "4d32de619968653e155aa97913b0fa7dcc3a51641b7b987b4c1b855357580022"
+    },
+    "records/relics/relic-0091.json": {
+      "bytes": 2007,
+      "sha256": "f36c8bd2c0182ddc2705c86f4325181a052abad19e7a4dbac34c354049148d65"
+    },
+    "records/relics/relic-0092.json": {
+      "bytes": 1247,
+      "sha256": "4ef75609f4dacb83a2b2d987789b81759c6593305b5f719660378165eb7e6f4a"
+    },
+    "records/relics/relic-0093.json": {
+      "bytes": 1229,
+      "sha256": "5832c80404993e2e93279efe67e787dc12c86c99d04a82ec59f04be1b6d5ff0c"
+    },
+    "records/relics/relic-0094.json": {
+      "bytes": 2253,
+      "sha256": "693d4ef1e7a5ae58f5ab75da8a20543579c1365d9485917f798715b1c97abeda"
+    },
+    "records/relics/relic-0095.json": {
+      "bytes": 1261,
+      "sha256": "43f9acae24c7794c6bd1b4f23a55ac5b75388605fa796fcfdac6eb77ba95c8b9"
+    },
+    "records/relics/relic-0096.json": {
+      "bytes": 2153,
+      "sha256": "ab67c45f951dad7126d19f9627aa427593bacb2811412b972ffbe02b4f8a1b20"
+    },
+    "records/relics/relic-0097.json": {
+      "bytes": 909,
+      "sha256": "6c36d2865320e778032967860574848d934227a9258a25834beee4cd1027bb5b"
+    },
+    "records/relics/relic-0098.json": {
+      "bytes": 1289,
+      "sha256": "56f239ec013f6b82d9caa3479902f5db1a6eb31ccdb40887dc99eab3a6be8ba4"
+    },
+    "records/relics/relic-0099.json": {
+      "bytes": 1279,
+      "sha256": "5aacafdf0661c5901e61fd1b092c6c6ba11985878fa465fb60036bb900c63f35"
+    },
+    "records/relics/relic-0100.json": {
+      "bytes": 987,
+      "sha256": "698294824c43ab378b8f45479b62e4ab8662eee4cf8a9e90ebce0f9eb858a58a"
+    },
+    "records/relics/relic-0101.json": {
+      "bytes": 1177,
+      "sha256": "471a9b8b187c5ecda29ee4fc37474948ce70e25511f9880f1a7b69a7892f20bc"
+    },
+    "records/relics/relic-0102.json": {
+      "bytes": 1589,
+      "sha256": "4b5c5be213b116e5db97bfe1dcace0f7d82de72d21457d589a3a54315c6366c5"
+    },
+    "records/relics/relic-0103.json": {
+      "bytes": 1235,
+      "sha256": "238a7eb0a3d2e4c01af8b06fb645686afeb3ca750fa939646b1c72c1d3d2698b"
+    },
+    "records/relics/relic-0104.json": {
+      "bytes": 1135,
+      "sha256": "51c01587051777ce740af6558ac679785d1305c732a1d1fa1346386478f7880c"
+    },
+    "records/relics/relic-0105.json": {
+      "bytes": 2207,
+      "sha256": "a5cc15694303141fdc09bd5356d332b0a06ea9f71fdf0a50a1f461a2576d5edd"
+    },
+    "records/relics/relic-0106.json": {
+      "bytes": 2081,
+      "sha256": "0d5d33f415cdeae4beb3df306383c868dbe685a2276a706fc39bde08bfaf49b3"
+    },
+    "records/relics/relic-0107.json": {
+      "bytes": 957,
+      "sha256": "890ffa49e80ee0b57a0561e6e5d69fd133d216b1a043717c0e45ec3e79218818"
+    },
+    "records/relics/relic-0108.json": {
+      "bytes": 1691,
+      "sha256": "5d29312547f9dbd2f18c24b45d5d61da58a5b551994ecdec975a5b9738a95e0d"
+    },
+    "records/relics/relic-0109.json": {
+      "bytes": 2097,
+      "sha256": "13716de8c00c815856a92a47c50a35b4dd55bd928136b15f59fb343d8f683d47"
+    },
+    "records/relics/relic-0110.json": {
+      "bytes": 1537,
+      "sha256": "59024895eb6864b866441eb8dd6964bfe38a6d448fe10fd7df346fca53b75036"
+    },
+    "records/relics/relic-0111.json": {
+      "bytes": 1061,
+      "sha256": "5c799d2f41bb0be8afdb39c4a22ca74a4735b33289d9da2f28b62001b013edad"
+    },
+    "records/relics/relic-0112.json": {
+      "bytes": 1249,
+      "sha256": "0518433f51c8af46e191ca49e4b281f2bb5b786c3bbfde5daab410b8af6b8ed7"
+    },
+    "records/relics/relic-0113.json": {
+      "bytes": 5844,
+      "sha256": "bb42085b18507a5fec35b789850ec5240e643865ac9ee142835039b0c392043e"
+    },
+    "records/relics/relic-0114.json": {
+      "bytes": 1345,
+      "sha256": "2088dfd3e775a98eee642215387ca3e91daf6da4c597c476da1ee7c318f3c447"
+    },
+    "records/relics/relic-0115.json": {
+      "bytes": 2153,
+      "sha256": "6c43290e49060e07dc9b621f410737858274e6b9705338c80bc1e7ba08d632cd"
+    },
+    "records/relics/relic-0116.json": {
+      "bytes": 1019,
+      "sha256": "47c07cf7115eb7f992260441669348a9015998fdd1a85eac1042d3f16642a19a"
+    },
+    "records/relics/relic-0117.json": {
+      "bytes": 1293,
+      "sha256": "0bfcb4fadb3cf8289f7fede99214e1a5206b5bf3833326e643c3f39297f56b2a"
+    },
+    "records/relics/relic-0118.json": {
+      "bytes": 1919,
+      "sha256": "7ca28f3c7a8003f5a34f98448e352c67e733b22599577d108f20dcbe3be0d589"
+    },
+    "records/relics/relic-0119.json": {
+      "bytes": 1671,
+      "sha256": "d19e65e4736a76bdb123852e0f076a6165816b704d9c517faa4e0528b9b49f68"
+    },
+    "records/relics/relic-0120.json": {
+      "bytes": 1161,
+      "sha256": "2644750cd779d7bf452f21d9fad5d699d53f6a4e89df81b14c9940886ab2bee7"
+    },
+    "records/relics/relic-0121.json": {
+      "bytes": 2729,
+      "sha256": "c23baf72ba9726ac65cb1eb383d640a4a8fcfed255bd47d4e0bdc717351e44d7"
+    },
+    "records/relics/relic-0122.json": {
+      "bytes": 1185,
+      "sha256": "7ff0a285cf05477b3705c48eba204b8700e950cf765234174109d3930a161208"
+    },
+    "records/relics/relic-0123.json": {
+      "bytes": 967,
+      "sha256": "e01a500fb32890dd885becf836ae78a9a35d4cc4e5390f13796f1579ed6135bd"
+    },
+    "records/relics/relic-0124.json": {
+      "bytes": 5351,
+      "sha256": "accca2fa2d4cf013f871e45a413ade03df8b0040aee59e3430c364a843402f41"
+    },
+    "records/relics/relic-0125.json": {
+      "bytes": 1599,
+      "sha256": "a6e7bf589661d83ebc8232e18730d9ba77890411f49c608c8cdd625946ead4c9"
+    },
+    "records/relics/relic-0126.json": {
+      "bytes": 1967,
+      "sha256": "fa1ab75401d31575e24fc0d381b9c9c8f7a63e23a87aed2ace8c7bd13b52bd57"
+    },
+    "records/relics/relic-0127.json": {
+      "bytes": 2845,
+      "sha256": "110730f78c82aa60db92ebfe5d777fe38d750b41b67b36cd62813ee184a8c29e"
+    },
+    "records/relics/relic-0128.json": {
+      "bytes": 3584,
+      "sha256": "9ae5201515fa8797be299a195e18e5341a94301d64fcd980dda0f99fb36129dd"
+    },
+    "records/relics/relic-0129.json": {
+      "bytes": 1227,
+      "sha256": "ee532d7305057808836b694e57172ad3480e3f831478048113c8167da47a3d6a"
+    },
+    "records/relics/relic-0130.json": {
+      "bytes": 1133,
+      "sha256": "6432b7c5bb872b481a1b3b4c60a2b88c4917338037029451098e6f988b6e6adc"
+    },
+    "records/relics/relic-0131.json": {
+      "bytes": 1391,
+      "sha256": "71b785c20541fc485d8b2bc1f3b1a495034fec08f7884fe150868590199a53ba"
+    },
+    "records/relics/relic-0132.json": {
+      "bytes": 4051,
+      "sha256": "9660d7760d0590cb57b7e2d3d0bded3c688bbedc26ecd3d6901868862c1a1869"
+    },
+    "records/relics/relic-0133.json": {
+      "bytes": 2560,
+      "sha256": "48057698b8ecb0655a5c61ca3465ca367a057b8eb8c7f6d199e8b3edad8e7f23"
+    },
+    "records/relics/relic-0134.json": {
+      "bytes": 1285,
+      "sha256": "d4f2223b2b83b3fa54466af6a9da6485a3b92a105f2f4d01da15dd29318123e0"
+    },
+    "records/relics/relic-0135.json": {
+      "bytes": 1561,
+      "sha256": "b1a9f254896e316f7644f69e46a9853eb44edf0ca27eb1d17cf7d2de34b9fbd9"
+    },
+    "records/relics/relic-0136.json": {
+      "bytes": 1565,
+      "sha256": "6bc5a8e63b8826f099175ce531ac6926f1dc07fc257be8b32158b9a2cfb64f16"
+    },
+    "records/relics/relic-0137.json": {
+      "bytes": 2635,
+      "sha256": "10f8d87c3916510b5748581d281d70e788f25750a4998191fd56cc997005139f"
+    },
+    "records/relics/relic-0138.json": {
+      "bytes": 1514,
+      "sha256": "4d352faee6f538665de860fc8fb6893a6475df8529235ff5acef41ed9b738ef0"
+    },
+    "records/relics/relic-0139.json": {
+      "bytes": 2946,
+      "sha256": "2de2d24fb073cbb514993b673461ea5596c46c83c2ba73a33c1dc6f97520abbe"
+    },
+    "records/relics/relic-0140.json": {
+      "bytes": 3057,
+      "sha256": "8c786b35e6cf69b8c5b838df260a63f4fd749acb49a29fdf6a90ca0c3852b9c4"
+    },
+    "records/relics/relic-0141.json": {
+      "bytes": 1231,
+      "sha256": "7fbd4251330981a096bef8cf2aa0af0e17b01c6ee3a9756afa69bbf54683d0d9"
+    },
+    "records/relics/relic-0142.json": {
+      "bytes": 1303,
+      "sha256": "d7ebb20dee85dbb72829429ed1b9ba3af0c43251f34f6d14ddc7c3ec12ac8cfc"
+    },
+    "records/relics/relic-0143.json": {
+      "bytes": 1687,
+      "sha256": "68b8fb39697e8f8be31c4deebc1591120090642715e65a1fdc3dc8791069923f"
+    },
+    "records/relics/relic-0144.json": {
+      "bytes": 1479,
+      "sha256": "974d15c798a7c32a78390875f688f39c3c44a37c1d57c3522dc8a1195709aa5b"
+    },
+    "records/relics/relic-0145.json": {
+      "bytes": 1395,
+      "sha256": "79f7aa681f7fa9e8a6babc007bd435693031f3bcb7a19543e8352296dcaf200b"
+    },
+    "records/relics/relic-0146.json": {
+      "bytes": 1886,
+      "sha256": "9f9b7f764f3aa8862cee0bb669cb4f14e630373e4c612f8ec46f05d5de638f76"
+    },
+    "records/relics/relic-0147.json": {
+      "bytes": 1589,
+      "sha256": "80fa5c5548a671ada91a1635bb2b36cea50ba0f7850666a2fbeff49d6a468e73"
+    },
+    "records/relics/relic-0148.json": {
+      "bytes": 1267,
+      "sha256": "9423310c51797caad6fd66622de6b55d0abda16c4a71ea95313bfb53f33b43c7"
+    },
+    "records/relics/relic-0149.json": {
+      "bytes": 1375,
+      "sha256": "0843388428fcbbba6aeed5fcd67c83ee0f40e818437f0db403f2830849f9751a"
+    },
+    "records/relics/relic-0150.json": {
+      "bytes": 1461,
+      "sha256": "4cfab09cabebf7e3941976c242f8b723576b0367996c52ec92e6460b3766d8e2"
+    },
+    "records/relics/relic-0151.json": {
+      "bytes": 1632,
+      "sha256": "4b97e206019dddf384589adf352dc989c54f4dbcbab056f56b86c00f167247ed"
+    },
+    "records/relics/relic-0152.json": {
+      "bytes": 3327,
+      "sha256": "815f31054389ea962c8f75201fd8f8bc638f632b6fde3cd6fe478e9674f6fcb2"
+    },
+    "records/relics/relic-0153.json": {
+      "bytes": 1087,
+      "sha256": "deec6914f4008ff8be98c7efdbd2496a63f3ede358162ae73000ab317ebb2ddc"
+    },
+    "records/relics/relic-0154.json": {
+      "bytes": 2101,
+      "sha256": "6cda50d9d324a8c80dfdd5ae47fe09ab582a6164728d7752cf21b1f0447939e5"
+    },
+    "records/relics/relic-0155.json": {
+      "bytes": 2187,
+      "sha256": "af485cb3846ce560887ce57ff4492f461cca2a8598f75bac396e44648e41a11c"
+    },
+    "records/relics/relic-0156.json": {
+      "bytes": 3499,
+      "sha256": "15a63123f88b1d84090a34ef6246a0efbd8e6c6cb9f966ccc90a6e0e44aac426"
+    },
+    "records/relics/relic-0157.json": {
+      "bytes": 2875,
+      "sha256": "0ea4175335d19ef36b3106683d0f1c43147346afd77e40734d2438bdb5c8e6cc"
+    },
+    "records/relics/relic-0158.json": {
+      "bytes": 951,
+      "sha256": "83d40c55a222413c03d791a796c749f8f479157da7a0754fefa78edcedfbcc4e"
+    },
+    "records/relics/relic-0159.json": {
+      "bytes": 1035,
+      "sha256": "b3019dc277b48691bd9d9788a4acb912e2a66f058a8658f67ff75f575f51e70b"
+    },
+    "records/relics/relic-0160.json": {
+      "bytes": 1391,
+      "sha256": "88e69c4c8d333f0dd81a88a3429040a0344ad221755932fa1ad8874ead2bcb3c"
+    },
+    "records/relics/relic-0161.json": {
+      "bytes": 2532,
+      "sha256": "565020478593076ca8e6295154194a1c2fde997c1ab478fac4141803865936c2"
+    },
+    "records/relics/relic-0163.json": {
+      "bytes": 1267,
+      "sha256": "d49fe5af3f0ec301cbedc09977dd67d44aee7fef090f7857ddf937e6f06f7e49"
+    },
+    "records/relics/relic-0164.json": {
+      "bytes": 4296,
+      "sha256": "bfdd6595f4592c7501497e39d19a8c65f05556708dd6864ae53b683883f7a22c"
+    },
+    "records/relics/relic-0165.json": {
+      "bytes": 1345,
+      "sha256": "978032e0215c1a95c192cc3f8d92e2c34aafce8ea461006389250f58e087ddd1"
+    },
+    "records/relics/relic-0166.json": {
+      "bytes": 2132,
+      "sha256": "efcb2df045881f444c352890b86bb50b460fa5427dcb5a64a111fde57e46d185"
+    },
+    "records/relics/relic-0167.json": {
+      "bytes": 2677,
+      "sha256": "a3aa62097eb63cc3570c3fc0109cfc788d6e05cc325d7792e0441da37e84ac20"
+    },
+    "records/relics/relic-0168.json": {
+      "bytes": 2926,
+      "sha256": "d015c3302c513a9dc2e43b49c85fc4890afc8a0b16923b625271fc1307df272e"
+    },
+    "records/relics/relic-0169.json": {
+      "bytes": 3222,
+      "sha256": "d5410fe49d85db98d32fc812579adab918da4dc85c401f606c74eadc508cc00c"
+    },
+    "records/relics/relic-0170.json": {
+      "bytes": 2679,
+      "sha256": "22c4ede1a9ea262d0d357e03452b6308e7662a75029d7ec1ac3bb7c1364c07e0"
+    },
+    "records/relics/relic-0171.json": {
+      "bytes": 5032,
+      "sha256": "47259f2a404ad8dcd564f7e0e9d6b931f1cc18743600a2175f11c180f504108c"
+    },
+    "records/relics/relic-0172.json": {
+      "bytes": 2269,
+      "sha256": "a7c60d01295e9af67f581366144579bb4adcfa143356556d9a9c9f09d267e599"
+    },
+    "records/relics/relic-0173.json": {
+      "bytes": 2153,
+      "sha256": "7129bf61436c783f190065bf28ad7d0e6bc818fa3ddb3e2f713b85ca4e7f5be5"
+    },
+    "records/relics/relic-0174.json": {
+      "bytes": 3313,
+      "sha256": "d98abfabdfeeae0da2a2632eb896085e6d3f54e34e79927a36857e77b53f2707"
+    },
+    "records/relics/relic-0175.json": {
+      "bytes": 1133,
+      "sha256": "b67704b43ca6f504c5dba2ce1b3666dfec670cc91cb7e0d16fc4b63d9d95888b"
+    },
+    "records/relics/relic-0176.json": {
+      "bytes": 3006,
+      "sha256": "baabfbfd4db7fdd5fff914ee7294aa372bd5cf895e42986866a41c4eca128e15"
+    },
+    "records/relics/relic-0177.json": {
+      "bytes": 1723,
+      "sha256": "9fd44f05f865e6b13f183aa226ecf7152af5e1e92eeea3969a19a86171dfce58"
+    },
+    "records/relics/relic-0178.json": {
+      "bytes": 2885,
+      "sha256": "324945a16cd542897692673a8c2677b8f0910cb2946bf45fbda01052c6f9f366"
+    },
+    "records/relics/relic-0179.json": {
+      "bytes": 1507,
+      "sha256": "461b0bd12862022617381f16fcf8402ee6ffeae1294421b51ffe3bb00be42e34"
+    },
+    "records/relics/relic-0180.json": {
+      "bytes": 3412,
+      "sha256": "0fc5d060b33b59150560344c5b6c086baf9a4c62b321b4f7bbe60b87a7cd2f1e"
+    },
+    "records/relics/relic-0181.json": {
+      "bytes": 3557,
+      "sha256": "71c2376819c98c172871a1a473d4ec74325b0b1c1f78d2efc6693864046567ba"
+    },
+    "records/relics/relic-0182.json": {
+      "bytes": 1547,
+      "sha256": "6ddca06cb0911ab25903eeaa855c6d31e54f394cdbf7527ca8a3d5611cddf380"
+    },
+    "records/relics/relic-0183.json": {
+      "bytes": 1421,
+      "sha256": "e07c9ac6be2553dd3988a8cc07712444330db4dbffbf45e5d289629867d0d0b8"
+    },
+    "records/relics/relic-0184.json": {
+      "bytes": 1307,
+      "sha256": "ae9133d48e1d81a5e3d85b79acfd4f9c34606a4bffac2fde757e3b938fd335d3"
+    },
+    "records/relics/relic-0185.json": {
+      "bytes": 2719,
+      "sha256": "2651ded4d51ff789cc6a1cd6fbcdb658bd130cdd82a56d86f924073c223e6664"
+    },
+    "records/relics/relic-0186.json": {
+      "bytes": 2293,
+      "sha256": "70478ce431f498565d9ba6d2564be476da43e2d84349f65cd17d304aa219a4a3"
+    },
+    "records/relics/relic-0187.json": {
+      "bytes": 1170,
+      "sha256": "98917a931df4515ff65418ac74ee9f51a9f1e305935d67f4b6cfb2888f7be339"
+    },
+    "records/relics/relic-0188.json": {
+      "bytes": 4403,
+      "sha256": "aafe3e22eefe500c12b43890eea10bc02ca133126448c0bd6fb196bb0f08d732"
+    },
+    "records/relics/relic-0189.json": {
+      "bytes": 1011,
+      "sha256": "3e54f1b84c256ba2afb21cc21a42592cf7d8f6a42fda349727b5dc4ae308fa5d"
+    },
+    "records/relics/relic-0190.json": {
+      "bytes": 3032,
+      "sha256": "3d97fef17dcf0f5ddcbed8b905e131c641eef5a8437205bf2e8ea747209864dd"
+    },
+    "records/relics/relic-0191.json": {
+      "bytes": 1267,
+      "sha256": "19ebb24560b6a42209fcb96ff305f2072233057ed9b1f901cc60caf500671525"
+    },
+    "records/relics/relic-0192.json": {
+      "bytes": 2484,
+      "sha256": "b9206bd7300d991cd518d9d793018166be39c4e211e0b8c67fcd33e9610ca208"
+    },
+    "records/relics/relic-0193.json": {
+      "bytes": 1027,
+      "sha256": "33cb8db322316e495a93cc1cc1615e82eb89d013d8f249905a5894a0fcd9df56"
+    },
+    "records/relics/relic-0194.json": {
+      "bytes": 2049,
+      "sha256": "2c5022a34a4cae2f167614f494ad2cbadcec702f8f67a697f566a1255a2a0d8a"
+    },
+    "records/relics/relic-0195.json": {
+      "bytes": 3941,
+      "sha256": "ef93f8e4f3418cd422f30ededf8a3f62a85d40a050298ccf2ebdddab14f2d0b9"
+    },
+    "records/relics/relic-0196.json": {
+      "bytes": 2787,
+      "sha256": "b72960e5811d4f5e7d1369c4e7dfe60c05ead80121a5c53e54bd777250490503"
+    },
+    "records/relics/relic-0197.json": {
+      "bytes": 2742,
+      "sha256": "497cadd334070a7a1304b8aee5328c2a8a14bbcf6a3c952ed7d3f010ee424bbe"
+    },
+    "records/relics/relic-0198.json": {
+      "bytes": 1839,
+      "sha256": "ad99935b1713df3306f8bb93ded5849d5f24578295101cad9f7b9e9358a93e8c"
+    },
+    "records/relics/relic-0199.json": {
+      "bytes": 1321,
+      "sha256": "75488e21f345b0108b15a63adbd0e1caaef3acea24a4beb8753e6b8d023a5371"
+    },
+    "records/relics/relic-0200.json": {
+      "bytes": 3594,
+      "sha256": "3590af31c8c2012533d31a10ace252f11aaea2cba7f81f1935f201fc6bfe34e2"
+    },
+    "records/relics/relic-0203.json": {
+      "bytes": 1733,
+      "sha256": "ef3c9621115c1d131bb72d86ed858db5e0c9e07d6e789db30dc0ba2fa253cbac"
+    },
+    "records/relics/relic-0204.json": {
+      "bytes": 2177,
+      "sha256": "724e4209dae5c227cb3274667d33f2ff0f1463936c4743f166d5c2978771ee2d"
+    },
+    "records/relics/relic-0205.json": {
+      "bytes": 1682,
+      "sha256": "b7a65ecf37d285479147d87197f998c31f36afcb273cf68b326d629e8073f9b6"
+    },
+    "records/relics/relic-0206.json": {
+      "bytes": 2265,
+      "sha256": "2bb21facd6793f3757bb17fca2e91d437d8acbb2dcbedc1f25f780dbdd70830e"
+    },
+    "records/relics/relic-0207.json": {
+      "bytes": 4567,
+      "sha256": "4f4424ebbe713cbd68a47041eca1d593d00decadccc52dfa4b246d43712e44d6"
+    },
+    "records/relics/relic-0208.json": {
+      "bytes": 2057,
+      "sha256": "0d7bb7e3753729c0bf948b690d4153b62bf81fafd3e51a8a3070a9f69792a6c9"
+    },
+    "records/relics/relic-0209.json": {
+      "bytes": 3789,
+      "sha256": "8f0b17c55972add307e7471a3dbb87d0a6f7cd7eabe2e49d059d26fd143ed18a"
+    },
+    "records/relics/relic-0214.json": {
+      "bytes": 1709,
+      "sha256": "0530bf0d60f6ad172d7e2fa861c18806f0d9c7397fa9c25237bfa785ac45beca"
+    },
+    "records/relics/relic-0215.json": {
+      "bytes": 1057,
+      "sha256": "881870c0b22a391da07db29eb2489d88fd1ae0cf231e5d04d0678bcce2ae6384"
+    },
+    "records/relics/relic-0216.json": {
+      "bytes": 3514,
+      "sha256": "caa86d07d8c8607e5f88f641d62b76011854fda18a628d7c904debcdba77ea5a"
+    },
+    "records/relics/relic-0217.json": {
+      "bytes": 1662,
+      "sha256": "201d44be72baa17dfc424687a1a3d5dff482bd713e90cd0679c54249eb300939"
+    },
+    "records/relics/relic-0218.json": {
+      "bytes": 1237,
+      "sha256": "ef7f15ea0eefdd05204ec97de091cabfa26a54329a01ebc984c90bf3ad9a5f82"
+    },
+    "records/relics/relic-0219.json": {
+      "bytes": 1301,
+      "sha256": "ca8d979123303f8b07391999a04dae1c993097d351c5f1606329c18a296c0135"
+    },
+    "records/relics/relic-0220.json": {
+      "bytes": 2430,
+      "sha256": "be35b5e197216810b668122b9d9ffcfb062db7672f94806f4919c2196aecbc66"
+    },
+    "records/relics/relic-0221.json": {
+      "bytes": 1583,
+      "sha256": "b53378763efc88d3131ef102b50c07174e4648b2279553c250d9295fb03cf5b0"
+    },
+    "records/relics/relic-0222.json": {
+      "bytes": 2833,
+      "sha256": "8f96098d1ab4d573fbdc6a6644c874b760fe9774aba52790ae072091a859fa0a"
+    },
+    "records/relics/relic-0223.json": {
+      "bytes": 2918,
+      "sha256": "e8c8fcf7f2cc22c211a6dd1c792946fc15054742d5de3df231c337522de27b35"
+    },
+    "records/relics/relic-0224.json": {
+      "bytes": 3169,
+      "sha256": "f7e3029060449b991e5ab223b22d44cca874000e804e80c3d803532ff1aeb156"
+    },
+    "records/relics/relic-0225.json": {
+      "bytes": 2749,
+      "sha256": "ee8e32a65f0a10b8b9ad5352697c639b8a19b59f509c64a5bfaff317799136f4"
+    },
+    "records/relics/relic-0226.json": {
+      "bytes": 2758,
+      "sha256": "dbc197b6711b478c7044d128a95c4e3a6e19cc2f91f366bd0192133c22a4d937"
+    },
+    "records/relics/relic-0227.json": {
+      "bytes": 1779,
+      "sha256": "a896e8b492bf1f7ab9d673ca95940df0bf62ad07ba323e23ef5b8b73ec01b8c5"
+    },
+    "records/relics/relic-0228.json": {
+      "bytes": 1245,
+      "sha256": "05a93a812a70a510986f5fa5f7afc290ca602d34d9866e91cd60a6c5d03f90d3"
+    },
+    "records/relics/relic-0229.json": {
+      "bytes": 5265,
+      "sha256": "c0604f57e885c9085009151f6d2a115a6eed7806fcc6f30ed511de39b84781a0"
+    },
+    "records/relics/relic-0230.json": {
+      "bytes": 1099,
+      "sha256": "85a2c96a4bb8e7fe399e3513c99cff6b06c274916880ebf17225e40e706fcc5e"
+    },
+    "records/relics/relic-0231.json": {
+      "bytes": 3066,
+      "sha256": "3e6f514fb52b0c9ffc064c432807280b80980d1f13cc5bf3ece58de7ad94ec62"
+    },
+    "records/relics/relic-0232.json": {
+      "bytes": 3517,
+      "sha256": "406b8b0f82d7ab0a424c6b69fbc0df449978d7e30915b73fa81c09a0b8071244"
+    },
+    "records/relics/relic-0233.json": {
+      "bytes": 1597,
+      "sha256": "81eb0f0690cd585e3be866746dd8387bd99eb46a5751234689ce6f1c63adc7a1"
+    },
+    "records/relics/relic-0234.json": {
+      "bytes": 4340,
+      "sha256": "a30ade6aeaa3359a761568e75f4680d30d2a3bb9d2e630d73c153c67f8202e7f"
+    },
+    "records/relics/relic-0235.json": {
+      "bytes": 3070,
+      "sha256": "6490e94b3702d11ec0733f72f272e0ff4377650f0ea84fd2bd41fbe23230b373"
+    },
+    "records/relics/relic-0236.json": {
+      "bytes": 2411,
+      "sha256": "18e85e6d772e3e16d8265566a590d92134d309baaf86e226ec944a3939ad07a1"
+    },
+    "records/relics/relic-0237.json": {
+      "bytes": 1057,
+      "sha256": "6d7ec80c0b9e35ffca5f1e858a3ebc66efae7321a6474e060b1a8681a4743714"
+    },
+    "records/relics/relic-0238.json": {
+      "bytes": 1261,
+      "sha256": "3c967093cff02f5c09c2e7a61e7f40f686368b3c16900fa63828d0f89a39afe7"
+    },
+    "records/relics/relic-0239.json": {
+      "bytes": 3352,
+      "sha256": "cccab8300ddc24909800a4c10f4660f2398816c856c71fe27fb0f8a0b3189b78"
+    },
+    "records/relics/relic-0240.json": {
+      "bytes": 1179,
+      "sha256": "7de14acd0904145586b98651bcaf1af79fedef113fa8086cac60fc1dc91880ea"
+    },
+    "records/relics/relic-0241.json": {
+      "bytes": 3434,
+      "sha256": "097a3c0228a22104d42c36d5b2cbd6cecb812cc866274674a27cd8f4bbc67ebe"
+    },
+    "records/relics/relic-0242.json": {
+      "bytes": 1989,
+      "sha256": "b06a73eec85f5a7f5e735411a7c325d983b913bcfc8814e5b6caf1b8cbc3e51a"
+    },
+    "records/relics/relic-0243.json": {
+      "bytes": 1129,
+      "sha256": "acff83c5830aa3ae21f8c64e0c6fb6cb4978803e323397dbfab95f2a91235ae8"
+    },
+    "records/relics/relic-0244.json": {
+      "bytes": 7320,
+      "sha256": "1915d3611633ed110125756ac5d0fef04c4c0881a478145a93ee015fca7faaaf"
+    },
+    "records/relics/relic-0251.json": {
+      "bytes": 3305,
+      "sha256": "b3d0984bbfcce7703d99d98ba1fde36cb5570fa1a6cfd268814092ac8aeed7de"
+    },
+    "records/relics/relic-0252.json": {
+      "bytes": 3071,
+      "sha256": "909b6936586398ea5fcfca0ac7fcb914ab4e96928cbfeee24ebe1f334945a32c"
+    },
+    "records/relics/relic-0253.json": {
+      "bytes": 2183,
+      "sha256": "4df9a9c45f9edcbf2d9c61e8dfc82f8c3de2447db100b4a672cf3025523361d9"
+    },
+    "records/relics/relic-0254.json": {
+      "bytes": 2860,
+      "sha256": "8150daf24f9e728aed724b01e3fa8da1f583bac1cdc962e3261b5968184e3fcf"
+    },
+    "records/relics/relic-0255.json": {
+      "bytes": 4815,
+      "sha256": "e2107e10f78122dd0d06e8f0fe39c80efe4c15df61face4145239df007382bfd"
+    },
+    "records/relics/relic-0256.json": {
+      "bytes": 3306,
+      "sha256": "d515cbc9985b2f71a9c04989fd8a08632986ccd6ab225220b4fd8fc839a04635"
+    },
+    "records/relics/relic-0257.json": {
+      "bytes": 1629,
+      "sha256": "d76f8d36d8a89e5e42b003b2042a10008910c943035de17fa9b9fc3724eccb8a"
+    },
+    "records/relics/relic-0258.json": {
+      "bytes": 3906,
+      "sha256": "b0c6ac2768c5d56ffe520d97fac2b5eee589566cd8c9323ed036ce772620934b"
+    },
+    "records/relics/relic-0259.json": {
+      "bytes": 2574,
+      "sha256": "0452563a8d603a91317696c6997c57f5da57811d1428a8a3c0220e3a085f179b"
+    },
+    "records/relics/relic-0260.json": {
+      "bytes": 2099,
+      "sha256": "99a77cee7bc9572c3bbfcffb5e725fc5c43506c5b02b2de6c088b10294355036"
+    },
+    "records/relics/relic-0261.json": {
+      "bytes": 3560,
+      "sha256": "5a4ce1b6faf60ebebd058c1fcd655d40a2d7be14ab0d185f55f3fac6d9c53fb6"
+    },
+    "records/relics/relic-0262.json": {
+      "bytes": 1207,
+      "sha256": "378f7ea23a9524528c56120f35cc91120bd70e8c986db0b4aa02b7b88bdcd48f"
+    },
+    "records/relics/relic-0263.json": {
+      "bytes": 3285,
+      "sha256": "2d344c85ba67ca004a7b2d4f06351ec26ca81049bd91f57d2bcd120c13848ee0"
+    },
+    "records/relics/relic-0264.json": {
+      "bytes": 2657,
+      "sha256": "41404d8c9d75d25175f2f3f70b97150eb0ed403c101490497065f6554b00a114"
+    },
+    "records/relics/relic-0265.json": {
+      "bytes": 3043,
+      "sha256": "f2ad2991a3e77f407f960d77087f12d325182a51c8c93b763d53e87d84cdbab2"
+    },
+    "records/relics/relic-0266.json": {
+      "bytes": 1763,
+      "sha256": "b57f669cc77b77a8a8d1434f702dc3c2e2fb031f37090e17b4e51fcf961acfd0"
+    },
+    "records/relics/relic-0267.json": {
+      "bytes": 1307,
+      "sha256": "3f8569be537f48ae1ab4a80b0e709ada7ba5ae855af0ce1965d9128f34bc7310"
+    },
+    "records/relics/relic-0268.json": {
+      "bytes": 1623,
+      "sha256": "5ab1f73cdc494c2c2a332867efd1df1c956dc6961283e4c01764499aa09bc992"
+    },
+    "records/relics/relic-0269.json": {
+      "bytes": 2906,
+      "sha256": "8ea7c9f4fa829f206e3079a5f9a8664ee5036b37967aca6cbb5ac87fa568a27d"
+    },
+    "records/relics/relic-0270.json": {
+      "bytes": 1239,
+      "sha256": "9eb60aa2eed49f24aa33e0026dc03c565ff83141a54f7220a393440f95b06a23"
+    },
+    "records/relics/relic-0271.json": {
+      "bytes": 2150,
+      "sha256": "f16a3714ccb1cd67bd1b9cffd17e63c294a6a83e3fecb90d6bca2efbd4de0263"
+    },
+    "records/relics/relic-0272.json": {
+      "bytes": 1233,
+      "sha256": "1f40132e395edc8dad8de615f230a091a051ccf8a4caf602e4a60207c8bc729d"
+    },
+    "records/relics/relic-0273.json": {
+      "bytes": 3160,
+      "sha256": "ab424e186acb22d374b75d7d6febe67454bfe8af2ab9d8562680567ecdf7d614"
+    },
+    "records/relics/relic-0274.json": {
+      "bytes": 2065,
+      "sha256": "82120bdb39ec17dd2008d63031cd287fda05fd6d8b661a63b86ae83cdcb6a502"
+    },
+    "records/relics/relic-0275.json": {
+      "bytes": 1337,
+      "sha256": "0cfa0c6ce191f8fc4341b120bd2b67e57a2d3b93ce68f0d6a37ec111b0a0c268"
+    },
+    "records/relics/relic-0276.json": {
+      "bytes": 2899,
+      "sha256": "5cb1f90594099fab522922deac46b94f01dc1e7accc9fb8683df5c030da201ce"
+    },
+    "records/relics/relic-0277.json": {
+      "bytes": 1587,
+      "sha256": "c628e5efacd95dc6942b51bb6417adebe98ce2adf2c4d2a2a2b417d038015ff8"
+    },
+    "records/relics/relic-0278.json": {
+      "bytes": 2622,
+      "sha256": "8bd4671d16faf84250e00697c93c957d3d4bfd114b08f35d04d7575d83122a06"
+    },
+    "records/relics/relic-0279.json": {
+      "bytes": 2415,
+      "sha256": "0fbb02a769304a624998c93d94d214131c5227e938d860fe9eee2ee0d8c3b239"
+    },
+    "records/relics/relic-0280.json": {
+      "bytes": 1083,
+      "sha256": "340815269a4303dda640442af5671b80a92cc079160c5d7b8fbaf23492b5b043"
+    },
+    "records/relics/relic-0281.json": {
+      "bytes": 4887,
+      "sha256": "1061844fe107043840234d35c0e458c266f06927f701fa2e2715dfcf81d2f171"
+    },
+    "records/relics/relic-0282.json": {
+      "bytes": 3113,
+      "sha256": "7cb6cf84d6a8c683e3142da3708efc1b2559b6c9b6bd095c93fe549d9315f9d6"
+    },
+    "records/relics/relic-0283.json": {
+      "bytes": 2130,
+      "sha256": "27920fd4db40d2ff13c1e5bbf38085fbf32945beaad3b268866d006ae83b3d83"
+    },
+    "records/relics/relic-0284.json": {
+      "bytes": 2624,
+      "sha256": "4e9691a8280b48b226bd276e8471ce585a6c7f4647727dbdf5a71fcfbf6be2db"
+    },
+    "records/relics/relic-0285.json": {
+      "bytes": 1027,
+      "sha256": "b216a090b4451897243821127bc8fa02717d97162c6742774031e8d15a48e2d9"
+    },
+    "records/relics/relic-0286.json": {
+      "bytes": 4564,
+      "sha256": "159bf07cf5aa147eebc41d370011fafd8c6feb648276c2dad9b1d4d0299cb1d9"
+    },
+    "records/relics/relic-0287.json": {
+      "bytes": 2486,
+      "sha256": "dbcb975027c7323be0bba3cf15d9caf6e6755dac81e0a4dcba9c5df5bb92cd7b"
+    },
+    "records/relics/relic-0288.json": {
+      "bytes": 3124,
+      "sha256": "cf42a481134e60c08a2788fb51f3e048d5d8b2d5d34189bf4933d95339bea97a"
+    },
+    "records/relics/relic-0289.json": {
+      "bytes": 2139,
+      "sha256": "52446d7a449a7c511e5c2d93379f229e2ad1b8e490b557159ed46e90ce06dc5f"
+    },
+    "records/relics/relic-0290.json": {
+      "bytes": 2992,
+      "sha256": "cf693b733bf98cd033262f778ef909f538a8d3f7177bccda4d2d54fdf1f14166"
+    },
+    "records/relics/relic-0291.json": {
+      "bytes": 2051,
+      "sha256": "988e61d45a0f6e9ec7cf83f3c760071daaa0391a0f7574b86c20597ad2a50bf6"
+    },
+    "records/relics/relic-0292.json": {
+      "bytes": 1915,
+      "sha256": "dac9618275d24fe632456c483176cb90b2ec08f62bd998d8b1840b36f0d8a7e3"
+    },
+    "records/relics/relic-0293.json": {
+      "bytes": 1305,
+      "sha256": "a6b588f5414ac2071db48a88e8f5447ccc788f23829d0594940a0522471159d9"
+    },
+    "records/relics/relic-0294.json": {
+      "bytes": 3297,
+      "sha256": "5ae859d8e6c00d9aa96e413251b8e5f14d48efc0a93527dc1d3c677f68292fd8"
+    },
+    "records/relics/relic-0295.json": {
+      "bytes": 1109,
+      "sha256": "91cc00f779e804c82d83dcf5ed2963601dc78c671afe0701dc7067d510f519b4"
+    },
+    "records/relics/relic-0296.json": {
+      "bytes": 2603,
+      "sha256": "e85b239e2de28beacba8fc88c640d30bc87f8bd5b7a576d340c0e7ab5031fc32"
+    },
+    "records/relics/relic-0297.json": {
+      "bytes": 2193,
+      "sha256": "5009a854767bfc21b0f0f671e560b6851f304ffef3e0f365fa90ae697d32ab82"
+    },
+    "records/relics/relic-0298.json": {
+      "bytes": 1950,
+      "sha256": "cd4aa188366840d4662210a13e1ba44ed0be826c18c596d0275c3f05b455579e"
+    },
+    "records/relics/relic-0299.json": {
+      "bytes": 3069,
+      "sha256": "368f1868621eccac9999f42a35bee9c44a08548533ea19a3a8f29a92c853b69e"
+    },
+    "records/relics/relic-0300.json": {
+      "bytes": 1819,
+      "sha256": "f62fe3eb427bf6524b73a831812665c0b49634aeac12e6d9d5c37805b3e10008"
+    },
+    "records/relics/relic-0301.json": {
+      "bytes": 1161,
+      "sha256": "995deeeb636ea569c2a8fd53c7d949186a402874ff2136dfa53ed6fbd4412561"
+    },
+    "records/relics/relic-0302.json": {
+      "bytes": 2366,
+      "sha256": "40f366bd214737f14762400aedf887ad711c25e77b6b8e9f5f71b5467aa86fc9"
+    },
+    "records/relics/relic-0303.json": {
+      "bytes": 3534,
+      "sha256": "e2ad1ec5ccc10be9ac9e4585697d5ba506de15e3d99b948062af2d2cbe4c989b"
+    },
+    "records/relics/relic-0304.json": {
+      "bytes": 1543,
+      "sha256": "40f0a0969b95a0e08851643feb7da8a4d8862efe8762098c03d181d204467fb8"
+    },
+    "records/relics/relic-0305.json": {
+      "bytes": 2486,
+      "sha256": "bb1263d726e4937090ec57ed8994364f2c374aba00e76bbffee2a8914cad8e79"
     },
     "records/skills/skill.24.aberrant-vivisection.json": {
       "bytes": 496,
@@ -4290,8 +4954,8 @@
       "sha256": "bcdd1b9c3c997485060fa69ef33b4f413b3afeb848adc50c95b639c7d09debc7"
     },
     "records/skills/skill.doll-inferno.terminal-of-truth-and-abyss.json": {
-      "bytes": 3056,
-      "sha256": "6e92e84b6c0feba7230bec00cf51968fa9e9e90e7f78c08ae62266376ccd4367"
+      "bytes": 3032,
+      "sha256": "0a8b6514303c703a877682d4b9e8f0a978566f8e5eb55c0f89a2b71b8f4aac62"
     },
     "records/skills/skill.doll.defense.json": {
       "bytes": 679,
@@ -5298,8 +5962,8 @@
       "sha256": "6b4b89ab49f085df745c271fe712b484865f71b4affa3e5e083baa23949ee7e9"
     },
     "records/skills/skill.tawil.the-silver-key-gate.json": {
-      "bytes": 1707,
-      "sha256": "e15e6adbd5ac2745d2e20d9dad210f10b0983f8b0d1972543ddffcd22596c3cc"
+      "bytes": 1723,
+      "sha256": "5d98e874e3c20997658ae241ffc60eb4b422205f6049022dfe515eed942e7671"
     },
     "records/skills/skill.thais.ad-matrem-vocatus.json": {
       "bytes": 1397,
@@ -5626,8 +6290,8 @@
       "sha256": "b0d64675bc846adc2ebbf97bb410639772639cc5f96d35379b2a88155dd6b134"
     },
     "records/talents/talent.caecus.soulforge-aptitude.json": {
-      "bytes": 1212,
-      "sha256": "0cf1029ecfee4e04ca8b8be474d21d10046a85a9dd9df733bad8a3c787cb7d43"
+      "bytes": 1213,
+      "sha256": "3b4cd3690a8892bb05e177cdb5912d269fc0d69521fe957227526bb70643365e"
     },
     "records/talents/talent.casiah.gnostic-potential.json": {
       "bytes": 975,
@@ -6554,8 +7218,8 @@
       "sha256": "6c06123c498b1dc3752ab8b0e4c5a115972ce4ec73846b07beae4fadc504c83e"
     },
     "records/wheels/wheel-0040.json": {
-      "bytes": 2786,
-      "sha256": "fbe2175e7d22df12d50885c9e096d40bbfa76b751f7e4877af91172b36875004"
+      "bytes": 2794,
+      "sha256": "6bfb4e10ebe7c1a0ec72ba77c4cdfc001e0c9b60ee20485272a6ca5dde409e59"
     },
     "records/wheels/wheel-0041.json": {
       "bytes": 2511,
@@ -6926,8 +7590,8 @@
       "sha256": "3e24f120e547e65661c74421cc7186624d07f0d221b0c0999f87a3728161e07e"
     },
     "records/wheels/wheel-0167.json": {
-      "bytes": 1888,
-      "sha256": "c9c7f598b848586b825cb5fe6ee34e42b6718086fee87b0927b1c09b1d7aa1d1"
+      "bytes": 2009,
+      "sha256": "031048cd33ec115ba803438d0f3e8c75c23a9cad2a96ca3839a6310c0ebd6fa8"
     },
     "records/wheels/wheel-0168.json": {
       "bytes": 1506,

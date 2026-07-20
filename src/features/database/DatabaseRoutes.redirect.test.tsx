@@ -1,5 +1,4 @@
 import '@testing-library/jest-dom/vitest'
-
 import {Suspense} from 'react'
 
 import {render, screen, waitFor} from '@testing-library/react'

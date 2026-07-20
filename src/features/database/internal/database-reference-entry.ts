@@ -49,6 +49,7 @@ export interface DatabaseReferenceEntry {
     tone?: 'default' | 'lore'
   }[]
   navigationLabel?: string
+  navigationHref?: string
   navigationTarget?: DatabaseReferenceNavigationTarget
   referenceLayerOverride?: ResolvedDatabaseReferenceLayer | null
 }

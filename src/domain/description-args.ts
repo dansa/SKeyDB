@@ -8,6 +8,7 @@ import {
 import {
   evaluatePublicFormulaExpression,
   getPublicScaledFormulaBreakdown,
+  resolvePublicScaledFormulaValue,
   type PublicDescriptionArg,
   type PublicFormulaContext,
 } from './public-description-args'
@@ -317,10 +318,6 @@ function hasAstralReignResearchBonus(
   )
 }
 
-function resolveScaledFormulaResultValue(baseValue: number, multiplier: number | null): number {
-  return multiplier === null ? baseValue : baseValue * multiplier
-}
-
 function formatScaledFormulaResultText(value: number, suffix: string): string {
   return formatHoverComputedValue(ceilDisplayValue(value), suffix)
 }
@@ -344,15 +341,12 @@ function buildScaledComputedFormulaHover(
       multiplierText === null
         ? baseContextText
         : `${baseContextText} × ${multiplierText.formulaValue}`
-    const baseResultValue = resolveScaledFormulaResultValue(
-      breakdown.baseValue,
-      breakdown.multiplier,
-    )
+    const baseResultValue = resolvePublicScaledFormulaValue(arg, breakdown.baseValue)
     const astralResearchValue = breakdown.baseValue * breakdown.ownedPosseMultiplier
-    const astralResultValue = resolveScaledFormulaResultValue(
-      astralResearchValue,
-      breakdown.multiplier,
-    )
+    const astralResultValue = resolvePublicScaledFormulaValue(arg, astralResearchValue)
+    if (baseResultValue === null || astralResultValue === null) {
+      return ''
+    }
 
     return formatHoverDisplayText(
       [
@@ -381,6 +375,56 @@ function buildScaledComputedFormulaHover(
           ? resolved.formattedTotalValue
           : formatScaledFormulaResultText(resolved.totalValue, resolved.suffix)
       }`,
+    ].join('\n'),
+  )
+}
+
+function buildScaledCeilThenMultiplyFormulaHover(
+  arg: Extract<PublicDescriptionArg, {kind: 'computed'; formulaKey: 'scaledCeilThenMultiply'}>,
+  resolved: ResolvedDescriptionArg,
+  formulaContext: PublicFormulaContext = {},
+): string {
+  const breakdown = getPublicScaledFormulaBreakdown(arg, formulaContext)
+  const multiplierText = formatHoverEffectMultiplier(arg.multiplier)
+  const divisor = arg.divisor ?? 1
+  const formatExpression = (baseValue: number) => {
+    const terms = `${formatHoverFormulaNumber(baseValue)} × ${multiplierText.formulaValue}`
+    const scaledTerms = divisor === 1 ? terms : `(${terms}) ÷ ${formatHoverFormulaFactor(divisor)}`
+    return `ceil(${scaledTerms}) × ${formatHoverFormulaFactor(arg.postMultiplier)}`
+  }
+
+  if (hasAstralReignResearchBonus(breakdown)) {
+    const baseResultValue = resolvePublicScaledFormulaValue(arg, breakdown.baseValue)
+    const astralResearchValue = breakdown.baseValue * breakdown.ownedPosseMultiplier
+    const astralResultValue = resolvePublicScaledFormulaValue(arg, astralResearchValue)
+    if (baseResultValue === null || astralResultValue === null) {
+      return ''
+    }
+
+    return formatHoverDisplayText(
+      [
+        breakdown.title,
+        `Base (Account Lv ${String(breakdown.accountLevel)}): ${formatExpression(breakdown.baseValue)} = ${formatHoverComputedValue(baseResultValue, resolved.suffix)}`,
+        `Astral Reign: ${String(breakdown.ownedPosseCount)} Posses add +${String(breakdown.ownedPosseCount)}% to Research → ${formatHoverComputedValue(astralResultValue, resolved.suffix)}`,
+      ].join('\n'),
+    )
+  }
+
+  const rows = [
+    breakdown.title,
+    `Account Lv ${String(breakdown.accountLevel)}: ${breakdown.baseLabel} ${formatHoverFormulaNumber(breakdown.baseValue)}`,
+    `Effect multiplier: ${multiplierText.rowValue}`,
+  ]
+  if (divisor !== 1) {
+    rows.push(`Pre-round divisor: ${formatHoverFormulaFactor(divisor)}`)
+  }
+  rows.push(`Post-round multiplier: ×${formatHoverFormulaFactor(arg.postMultiplier)}`)
+
+  return formatHoverDisplayText(
+    [
+      ...rows,
+      '',
+      `${formatExpression(breakdown.baseValue)} = ${resolved.formattedTotalValue}`,
     ].join('\n'),
   )
 }
@@ -499,7 +543,7 @@ function formatDescriptionArgTotalValue(
   if (
     totalValue === null ||
     arg.kind !== 'computed' ||
-    arg.formulaKey !== 'scaled' ||
+    (arg.formulaKey !== 'scaled' && arg.formulaKey !== 'scaledCeilThenMultiply') ||
     getSubstatBonus(arg)
   ) {
     return primaryValue
@@ -511,11 +555,15 @@ function formatDescriptionArgTotalValue(
   }
 
   const astralResearchValue = breakdown.baseValue * breakdown.ownedPosseMultiplier
-  const astralResultValue = resolveScaledFormulaResultValue(
-    astralResearchValue,
-    breakdown.multiplier,
+  const astralResultValue = resolvePublicScaledFormulaValue(arg, astralResearchValue)
+  if (astralResultValue === null) {
+    return primaryValue
+  }
+  const astralValue = formatResolvedValue(
+    arg.formulaKey === 'scaled' ? ceilDisplayValue(astralResultValue) : astralResultValue,
+    suffix,
+    stat,
   )
-  const astralValue = formatResolvedValue(ceilDisplayValue(astralResultValue), suffix, stat)
 
   return astralValue === primaryValue ? primaryValue : `${primaryValue} (${astralValue})`
 }
@@ -677,6 +725,14 @@ function buildDescriptionArgFormula(
     return buildScaledComputedFormulaHover(arg, resolved, buildPublicFormulaContext(formulaContext))
   }
 
+  if (arg.kind === 'computed' && arg.formulaKey === 'scaledCeilThenMultiply') {
+    return buildScaledCeilThenMultiplyFormulaHover(
+      arg,
+      resolved,
+      buildPublicFormulaContext(formulaContext),
+    )
+  }
+
   if (arg.kind === 'computed' && arg.formulaKey === 'realmMasteryLinear') {
     return buildRealmMasteryFormulaHover(arg, resolved, formulaContext)
   }
@@ -742,7 +798,10 @@ export function buildDescriptionArgHover(
     return buildDescriptionArgFormula(arg, resolved, context.formulaContext)
   }
 
-  if (arg.kind === 'computed' && arg.formulaKey === 'scaled') {
+  if (
+    arg.kind === 'computed' &&
+    (arg.formulaKey === 'scaled' || arg.formulaKey === 'scaledCeilThenMultiply')
+  ) {
     const resolved = resolveDescriptionArg(arg, {
       rank: context.rank,
       stats: context.stats,
@@ -798,7 +857,8 @@ export function resolveDescriptionTemplate(
   const normalizedTemplate = descriptionTemplate
     .replace(PLURAL_MACRO_PATTERN, (fullMatch, ...args: unknown[]) => {
       const groups = args.at(-1) as
-        {argToken?: string; singular?: string; plural?: string} | undefined
+        | {argToken?: string; singular?: string; plural?: string}
+        | undefined
       const argToken = groups?.argToken ? extractDescriptionArgToken(groups.argToken) : null
       const argKey = argToken?.argKey
       const arg = argKey && Object.hasOwn(descriptionArgs, argKey) ? descriptionArgs[argKey] : null

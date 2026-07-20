@@ -10,11 +10,14 @@
   "assets": {
     "icon": "asset-relic-0034-icon"
   },
-  "relicType": "DIMENSIONAL_IMAGE",
+  "relicType": "Dimensional Image",
+  "categories": ["DIMENSIONAL_IMAGE"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0034",
   "ownerAwakenerId": "awakener-0034",
   "ownerAwakenerName": "Murphy",
   "rarity": "SSR",
-  "realm": "AEQUOR",
+  "aliases": [],
   "descriptionTemplate": "At turn start, Murphy gains [Arg1] Aliemus. Murphy's \"Strike\" and \"Defense\" can convert [Arg2]% of the {Sacrifice} into Temporary {Tentacle DMG}, but can only take effect once per turn.",
   "descriptionArgs": {
     "Arg1": {
@@ -26,5 +29,30 @@
       "value": "25",
       "suffix": "%"
     }
-  }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0034",
+      "name": "Dimensional Image: Murphy",
+      "label": "Dimensional Image",
+      "variantType": "DIMENSIONAL_IMAGE",
+      "tier": "Unique",
+      "category": "DIMENSIONAL_IMAGE",
+      "ownerAwakenerId": "awakener-0034",
+      "ownerAwakenerName": "Murphy",
+      "rarity": "SSR",
+      "descriptionTemplate": "At turn start, Murphy gains [Arg1] Aliemus. Murphy's \"Strike\" and \"Defense\" can convert [Arg2]% of the {Sacrifice} into Temporary {Tentacle DMG}, but can only take effect once per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "25",
+          "suffix": "%"
+        }
+      }
+    }
+  ]
 }

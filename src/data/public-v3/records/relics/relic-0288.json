@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0288",
+  "name": "Trigon Prism",
+  "route": {
+    "slug": "trigon-prism",
+    "canonicalPath": "/database/relics/trigon-prism"
+  },
+  "assets": {
+    "icon": "asset-relic-0288-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0513",
+  "rarity": "N",
+  "aliases": ["Trigon Prism+"],
+  "descriptionTemplate": "Whenever a card enters the {Ultra Space}, draw [Arg1] Command Cards belonging to This card's owner from the Draw Pile. If unable to draw, gain an equal amount of Arithmetica instead. This effect can trigger at most 2 times per turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "lore": "\"The light is composed of seven colors.\"",
+  "variants": [
+    {
+      "id": "relic-variant-0513",
+      "name": "Trigon Prism",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "Whenever a card enters the {Ultra Space}, draw [Arg1] Command Cards belonging to This card's owner from the Draw Pile. If unable to draw, gain an equal amount of Arithmetica instead. This effect can trigger at most 2 times per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "lore": "\"The light is composed of seven colors.\""
+    },
+    {
+      "id": "relic-variant-0514",
+      "name": "Trigon Prism+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "Whenever a card enters the {Ultra Space}, draw [Arg1] Command Cards belonging to This card's owner from the Draw Pile. If unable to draw, gain an equal amount of Arithmetica instead. This effect can trigger at most 2 times per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "2"
+        }
+      },
+      "lore": "\"The light is composed of seven colors.\""
+    },
+    {
+      "id": "relic-variant-0512",
+      "name": "Trigon Prism",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "At turn start, for each card in {Ultra Space}, gain [Arg1] Temporary {STR}. If this turn is an {Ultra Round}, gain [Arg2] Temporary {STR}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.01,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.025,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "\"The light is composed of seven colors.\""
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0238",
+  "name": "Prasno Lens",
+  "route": {
+    "slug": "prasno-lens",
+    "canonicalPath": "/database/relics/prasno-lens"
+  },
+  "assets": {
+    "icon": "asset-relic-0238-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["FADED_LEGACY"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0404",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "At turn start, draw 1 card. At the start of the battle, shuffle 1 {derived:Insight} into your deck. Each battle increases the number of {derived:Insight} cards shuffled into your deck by 1, up to 3 times.",
+  "descriptionArgs": {},
+  "lore": "The Trick of Light and Shadow",
+  "variants": [
+    {
+      "id": "relic-variant-0404",
+      "name": "Prasno Lens",
+      "label": "Faded Legacy - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "FADED_LEGACY",
+      "rarity": "SSR",
+      "descriptionTemplate": "At turn start, draw 1 card. At the start of the battle, shuffle 1 {derived:Insight} into your deck. Each battle increases the number of {derived:Insight} cards shuffled into your deck by 1, up to 3 times.",
+      "descriptionArgs": {},
+      "lore": "The Trick of Light and Shadow"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.infinite-silver-vault",
+  "name": "Infinite Silver Vault",
+  "route": {
+    "slug": "infinite-silver-vault",
+    "canonicalPath": "/database/derived-skills/infinite-silver-vault"
+  },
+  "descriptionTemplate": "Feel the Power of Silver! Call upon the three Awakeners in the current Realm and choose one to obtain their support card.",
+  "descriptionArgs": {},
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    },
+    {
+      "id": "mechanic.exhaust"
+    }
+  ],
+  "cost": "0"
+}

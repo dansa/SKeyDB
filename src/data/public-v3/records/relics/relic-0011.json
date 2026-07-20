@@ -10,11 +10,14 @@
   "assets": {
     "icon": "asset-relic-0011-icon"
   },
-  "relicType": "DIMENSIONAL_IMAGE",
+  "relicType": "Dimensional Image",
+  "categories": ["DIMENSIONAL_IMAGE"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0011",
   "ownerAwakenerId": "awakener-0011",
   "ownerAwakenerName": "Corposant",
   "rarity": "SSR",
-  "realm": "AEQUOR",
+  "aliases": [],
   "descriptionTemplate": "At turn start, Corposant gains [Arg1] Aliemus and 1 Temporary Tentacle. Whenever {Death Resistance} is triggered, Corposant gains [Arg2] Aliemus, and places 1 {Lightning Retribution} with 0 Arithmetica Cost and {Exhaust} into hand.",
   "descriptionArgs": {
     "Arg1": {
@@ -25,5 +28,29 @@
       "kind": "fixed",
       "value": "30"
     }
-  }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0011",
+      "name": "Dimensional Image: Corposant",
+      "label": "Dimensional Image",
+      "variantType": "DIMENSIONAL_IMAGE",
+      "tier": "Unique",
+      "category": "DIMENSIONAL_IMAGE",
+      "ownerAwakenerId": "awakener-0011",
+      "ownerAwakenerName": "Corposant",
+      "rarity": "SSR",
+      "descriptionTemplate": "At turn start, Corposant gains [Arg1] Aliemus and 1 Temporary Tentacle. Whenever {Death Resistance} is triggered, Corposant gains [Arg2] Aliemus, and places 1 {Lightning Retribution} with 0 Arithmetica Cost and {Exhaust} into hand.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "30"
+        }
+      }
+    }
+  ]
 }

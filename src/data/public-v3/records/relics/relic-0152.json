@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0152",
+  "name": "Doctor's Case",
+  "route": {
+    "slug": "doctors-case",
+    "canonicalPath": "/database/relics/doctors-case"
+  },
+  "assets": {
+    "icon": "asset-relic-0152-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0217",
+  "rarity": "N",
+  "aliases": ["Doctor's Case+"],
+  "descriptionTemplate": "At the start of the turn, if HP is below 50%, Temporary DMG Amplification +[Arg1]%. If HP is below 25%, draw [Arg2] additional cards and gain [Arg2] Arithmetica.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "25",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "lore": "A briefcase symbolizing the identity of a doctor, very heavy.\nOpening it does not guarantee it belongs to a true doctor.",
+  "variants": [
+    {
+      "id": "relic-variant-0217",
+      "name": "Doctor's Case",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "At the start of the turn, if HP is below 50%, Temporary DMG Amplification +[Arg1]%. If HP is below 25%, draw [Arg2] additional cards and gain [Arg2] Arithmetica.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "25",
+          "suffix": "%"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "lore": "A briefcase symbolizing the identity of a doctor, very heavy.\nOpening it does not guarantee it belongs to a true doctor."
+    },
+    {
+      "id": "relic-variant-0218",
+      "name": "Doctor's Case+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "At the start of the turn, if HP is below 50%, Temporary DMG Amplification +[Arg1]%. If HP is below 25%, draw [Arg2] additional cards and gain [Arg2] Arithmetica.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "50",
+          "suffix": "%"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "2"
+        }
+      },
+      "lore": "A briefcase symbolizing the identity of a doctor, very heavy.\nOpening it does not guarantee it belongs to a true doctor."
+    },
+    {
+      "id": "relic-variant-0216",
+      "name": "Doctor's Case",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "After releasing Exalt, add a random card corresponding to the Awakener to your hand. The card gains {Exhaust} and {Fleeting}. After the battle ends, restore [Arg1] HP.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.065,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "A briefcase symbolizing the identity of a doctor, very heavy.\nOpening it does not guarantee it belongs to a true doctor."
+    }
+  ]
+}

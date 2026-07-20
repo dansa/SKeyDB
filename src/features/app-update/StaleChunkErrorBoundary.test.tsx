@@ -3,9 +3,8 @@ import {describe, expect, it} from 'vitest'
 
 import {StaleChunkErrorBoundary} from './StaleChunkErrorBoundary'
 
-function ThrowStaleChunkError() {
+function ThrowStaleChunkError(): never {
   throw new TypeError('Failed to fetch dynamically imported module')
-  return null
 }
 
 describe('StaleChunkErrorBoundary', () => {

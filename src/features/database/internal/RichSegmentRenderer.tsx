@@ -1,13 +1,11 @@
 import type {AwakenerOverlayRecord, FullStats} from '@/domain/awakener-source-schema'
+import {resolveDescriptionArg} from '@/domain/description-args'
 import type {PublicDescriptionArg} from '@/domain/public-description-args'
 import type {PublicFormulaContext} from '@/domain/public-formula-context'
 import type {RichSegment} from '@/domain/rich-text'
 
 import {DatabaseLoreMarkupText} from './DatabaseLoreMarkupText'
-import {
-  RichDescriptionArgPluralSegment,
-  RichDescriptionArgSegment,
-} from './RichDescriptionArgSegment'
+import {RichDescriptionArgSegment} from './RichDescriptionArgSegment'
 import {RichScalingSegment} from './RichScalingSegment'
 import {MechanicToken, RealmToken, SkillToken, type ActivationEvent} from './RichSegmentTokens'
 import {
@@ -135,16 +133,34 @@ export function RichSegmentRenderer({
         return <>{segment.plural}</>
       }
 
-      return (
-        <RichDescriptionArgPluralSegment
-          arg={arg}
-          formulaContext={formulaContext}
-          rank={descriptionRank ?? skillLevel}
-          singular={segment.singular}
-          plural={segment.plural}
-          stats={stats}
-        />
-      )
+      return resolveRichDescriptionArgPluralText({
+        arg,
+        formulaContext,
+        rank: descriptionRank ?? skillLevel,
+        singular: segment.singular,
+        plural: segment.plural,
+        stats,
+      })
     }
   }
+}
+
+function resolveRichDescriptionArgPluralText({
+  arg,
+  formulaContext,
+  rank,
+  singular,
+  plural,
+  stats,
+}: {
+  arg: PublicDescriptionArg
+  formulaContext: PublicFormulaContext | undefined
+  rank: number
+  singular: string
+  plural: string
+  stats: FullStats | null
+}): string {
+  const resolved = resolveDescriptionArg(arg, {rank, stats, formulaContext})
+  const value = resolved.absoluteValue ?? resolved.totalValue ?? resolved.baseValue
+  return value === 1 ? singular : plural
 }

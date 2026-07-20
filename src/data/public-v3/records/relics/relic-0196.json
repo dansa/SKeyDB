@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0196",
+  "name": "Laurel Cufflinks",
+  "route": {
+    "slug": "laurel-cufflinks",
+    "canonicalPath": "/database/relics/laurel-cufflinks"
+  },
+  "assets": {
+    "icon": "asset-relic-0196-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0318",
+  "rarity": "N",
+  "aliases": ["Laurel Cufflinks+"],
+  "descriptionTemplate": "After using {Keyflare Rouse}, all Awakeners gain [Arg1] Aliemus and [Arg2] Keyflare.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "10"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "100"
+    }
+  },
+  "lore": "Silver cufflinks engraved with osmanthus leaf patterns.\nFinely crafted and gleaming, they once embodied the friendship of two children.",
+  "variants": [
+    {
+      "id": "relic-variant-0318",
+      "name": "Laurel Cufflinks",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "After using {Keyflare Rouse}, all Awakeners gain [Arg1] Aliemus and [Arg2] Keyflare.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "10"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "100"
+        }
+      },
+      "lore": "Silver cufflinks engraved with osmanthus leaf patterns.\nFinely crafted and gleaming, they once embodied the friendship of two children."
+    },
+    {
+      "id": "relic-variant-0319",
+      "name": "Laurel Cufflinks+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "After using {Keyflare Rouse}, all Awakeners gain [Arg1] Aliemus and [Arg2] Keyflare.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "20"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "200"
+        }
+      },
+      "lore": "Silver cufflinks engraved with osmanthus leaf patterns.\nFinely crafted and gleaming, they once embodied the friendship of two children."
+    },
+    {
+      "id": "relic-variant-0317",
+      "name": "Laurel Cufflinks",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "The Awakener with the lowest Aliemus gains 15 Aliemus after the turn starts.",
+      "descriptionArgs": {},
+      "lore": "Silver cufflinks engraved with osmanthus leaf patterns.\nFinely crafted and gleaming, they once embodied the friendship of two children."
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0183",
+  "name": "Hyperstring Abyssal Elixir",
+  "route": {
+    "slug": "hyperstring-abyssal-elixir",
+    "canonicalPath": "/database/relics/hyperstring-abyssal-elixir"
+  },
+  "assets": {
+    "icon": "asset-relic-0183-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0289",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "The first Command Card each turn takes effect 1 additional time.\nWhen {Annihilation} occurs, generate 1 Tentacle.\nAfter switching the Tentacle into {Raging Waves} stance, the next Command Card's {Leap} effect is guaranteed to activate and place its 2 Base Copies into {Ultra Space}, with a 3-turn Cooldown.",
+  "descriptionArgs": {},
+  "variants": [
+    {
+      "id": "relic-variant-0289",
+      "name": "Hyperstring Abyssal Elixir",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "The first Command Card each turn takes effect 1 additional time.\nWhen {Annihilation} occurs, generate 1 Tentacle.\nAfter switching the Tentacle into {Raging Waves} stance, the next Command Card's {Leap} effect is guaranteed to activate and place its 2 Base Copies into {Ultra Space}, with a 3-turn Cooldown.",
+      "descriptionArgs": {}
+    }
+  ]
+}

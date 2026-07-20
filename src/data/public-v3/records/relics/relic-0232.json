@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0232",
+  "name": "Our Home",
+  "route": {
+    "slug": "our-home",
+    "canonicalPath": "/database/relics/our-home"
+  },
+  "assets": {
+    "icon": "asset-relic-0232-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
+  "variantCount": 3,
+  "defaultVariantId": "relic-variant-0390",
+  "rarity": "N",
+  "aliases": ["Our Home+"],
+  "descriptionTemplate": "Use {Keyflare Rouse} and gain [Arg1] {STR} and [Arg2] Keyflare.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.025,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "100"
+    }
+  },
+  "lore": "They were together in the past, and they will always be together in the future. They are a close-knit and loving family.",
+  "variants": [
+    {
+      "id": "relic-variant-0390",
+      "name": "Our Home",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "Use {Keyflare Rouse} and gain [Arg1] {STR} and [Arg2] Keyflare.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.025,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "100"
+        }
+      },
+      "lore": "They were together in the past, and they will always be together in the future. They are a close-knit and loving family."
+    },
+    {
+      "id": "relic-variant-0391",
+      "name": "Our Home+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "Use {Keyflare Rouse} and gain [Arg1] {STR} and [Arg2] Keyflare.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.05,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "200"
+        }
+      },
+      "lore": "They were together in the past, and they will always be together in the future. They are a close-knit and loving family."
+    },
+    {
+      "id": "relic-variant-0389",
+      "name": "Our Home",
+      "label": "Faded Legacy - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "FADED_LEGACY",
+      "rarity": "SSR",
+      "descriptionTemplate": "Gain [Arg1] Shield when dealing Active DMG. Gain [Arg2] Temporary {STR} when restoring HP.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.01,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.02,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "They were together in the past, and they will always be together in the future. They are a close-knit and loving family."
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0193",
+  "name": "Knowledge Wheel",
+  "route": {
+    "slug": "knowledge-wheel",
+    "canonicalPath": "/database/relics/knowledge-wheel"
+  },
+  "assets": {
+    "icon": "asset-relic-0193-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["FADED_LEGACY"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0312",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "After releasing an Exalt, draw 1 card. If HP is below 25%, draw an additional card.",
+  "descriptionArgs": {},
+  "lore": "Please read with caution.",
+  "variants": [
+    {
+      "id": "relic-variant-0312",
+      "name": "Knowledge Wheel",
+      "label": "Faded Legacy - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "FADED_LEGACY",
+      "rarity": "SSR",
+      "descriptionTemplate": "After releasing an Exalt, draw 1 card. If HP is below 25%, draw an additional card.",
+      "descriptionArgs": {},
+      "lore": "Please read with caution."
+    }
+  ]
+}

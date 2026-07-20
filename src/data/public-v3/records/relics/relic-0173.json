@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0173",
+  "name": "Gilded Guide",
+  "route": {
+    "slug": "gilded-guide",
+    "canonicalPath": "/database/relics/gilded-guide"
+  },
+  "assets": {
+    "icon": "asset-relic-0173-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["FADED_LEGACY"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0266",
+  "rarity": "N",
+  "aliases": [],
+  "descriptionTemplate": "At turn start, gain [Arg2] Shield. At turn end, deal DMG to a random enemy equal to [Arg1]% of your current Shield. In Boss Battle, the DMG is doubled.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "occultResearchMultiplier",
+      "multiplier": 50.0,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.015,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "When you're lost, open it. But be cautious—its corona must not be exposed to sunlight.",
+  "variants": [
+    {
+      "id": "relic-variant-0266",
+      "name": "Gilded Guide",
+      "label": "Faded Legacy - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "FADED_LEGACY",
+      "rarity": "N",
+      "descriptionTemplate": "At turn start, gain [Arg2] Shield. At turn end, deal DMG to a random enemy equal to [Arg1]% of your current Shield. In Boss Battle, the DMG is doubled.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchMultiplier",
+          "multiplier": 50.0,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.015,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "When you're lost, open it. But be cautious—its corona must not be exposed to sunlight."
+    }
+  ]
+}

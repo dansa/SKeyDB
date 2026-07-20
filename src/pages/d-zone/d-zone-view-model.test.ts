@@ -15,14 +15,16 @@ const TEST_DZONE_SEASON: DzoneSeason = {
     {
       id: 'wave-1',
       name: 'Wave 1',
-      initialRelicIds: ['relic-9001', 'relic-9004'],
+      initialRelicIds: ['relic-0241', 'relic-0084'],
+      initialRelicVariantIds: ['relic-variant-0411', 'relic-variant-0105'],
       monsterIds: [],
       alerts: [{id: 'alert-1', name: 'Alert I', monsters: []}],
     },
     {
       id: 'wave-2',
       name: 'Wave 2',
-      initialRelicIds: ['relic-9004'],
+      initialRelicIds: ['relic-0084'],
+      initialRelicVariantIds: ['relic-variant-0105'],
       monsterIds: [],
       alerts: [{id: 'alert-1', name: 'Alert I', monsters: []}],
     },
@@ -31,24 +33,30 @@ const TEST_DZONE_SEASON: DzoneSeason = {
 
 describe('D-zone view model', () => {
   it('sorts shared season relics before wave-specific relics while preserving local order', () => {
-    expect(sortInitialRelicIds(['relic-9001', 'relic-9004'], ['relic-9004'])).toEqual([
-      'relic-9004',
-      'relic-9001',
+    expect(sortInitialRelicIds(['relic-0241', 'relic-0084'], ['relic-0084'])).toEqual([
+      'relic-0084',
+      'relic-0241',
     ])
-    expect(sortInitialRelicIds(['relic-9004', 'relic-9001', 'relic-9003'], [])).toEqual([
-      'relic-9004',
-      'relic-9001',
-      'relic-9003',
+    expect(sortInitialRelicIds(['relic-0084', 'relic-0241', 'relic-0259'], [])).toEqual([
+      'relic-0084',
+      'relic-0241',
+      'relic-0259',
     ])
   })
 
   it('builds wave card relic previews with the season realm relic first', () => {
     const [waveOne] = buildDZoneWaveCardViewModels(TEST_DZONE_SEASON)
 
-    expect(waveOne.relics.map((relic) => relic.id)).toEqual(['relic-9004', 'relic-9001'])
+    expect(waveOne.relics.map((relic) => relic.id)).toEqual(['relic-0084', 'relic-0241'])
     expect(waveOne.relics[0]).toMatchObject({
-      id: 'relic-9004',
-      name: '"Aequor Ring"',
+      id: 'relic-0084',
+      variantId: 'relic-variant-0105',
+      name: 'Caro Ring',
+    })
+    expect(waveOne.relics[1]).toMatchObject({
+      id: 'relic-0241',
+      variantId: 'relic-variant-0411',
+      name: "Prophet's Lamp",
     })
   })
 })

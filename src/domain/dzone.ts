@@ -14,6 +14,7 @@ const waveIdSchema = z.string().regex(/^(d-effect-zone-wave|wave)-\d+$/)
 const monsterIdSchema = z.string().regex(/^dzone-monster-\d{4}$/)
 const characteristicIdSchema = z.string().regex(/^enemy-characteristic-\d{4}$/)
 const relicIdSchema = z.string().regex(/^relic-\d{4}$/)
+const relicVariantIdSchema = z.string().regex(/^relic-variant-\d{4}$/)
 const alertIdSchema = z.string().regex(/^alert-\d+$/)
 const dzoneStageEffectSchema = z.enum(['Astral Reign', 'Faded Legacy'])
 const dzoneRealmSchema = z.enum(['AEQUOR', 'CARO', 'CHAOS', 'ULTRA'])
@@ -64,13 +65,38 @@ const dzoneAlertSchema = z.object({
   monsters: z.array(dzoneAlertMonsterSchema),
 })
 
-const dzoneWaveSchema = z.object({
-  id: waveIdSchema,
-  name: nonEmptyStringSchema,
-  initialRelicIds: z.array(relicIdSchema),
-  monsterIds: z.array(monsterIdSchema),
-  alerts: z.array(dzoneAlertSchema).min(1),
-})
+const dzoneWaveSchema = z
+  .object({
+    id: waveIdSchema,
+    name: nonEmptyStringSchema,
+    initialRelicIds: z.array(relicIdSchema),
+    initialRelicVariantIds: z.array(relicVariantIdSchema),
+    monsterIds: z.array(monsterIdSchema),
+    alerts: z.array(dzoneAlertSchema).min(1),
+  })
+  .superRefine((wave, ctx) => {
+    if (wave.initialRelicVariantIds.length !== wave.initialRelicIds.length) {
+      ctx.addIssue({
+        code: 'custom',
+        message: 'initialRelicVariantIds must align one-to-one with initialRelicIds',
+        path: ['initialRelicVariantIds'],
+      })
+    }
+    if (new Set(wave.initialRelicIds).size !== wave.initialRelicIds.length) {
+      ctx.addIssue({
+        code: 'custom',
+        message: 'initialRelicIds must be unique within a wave',
+        path: ['initialRelicIds'],
+      })
+    }
+    if (new Set(wave.initialRelicVariantIds).size !== wave.initialRelicVariantIds.length) {
+      ctx.addIssue({
+        code: 'custom',
+        message: 'initialRelicVariantIds must be unique within a wave',
+        path: ['initialRelicVariantIds'],
+      })
+    }
+  })
 
 const dzoneSeasonSchema = z.object({
   id: dzoneIdSchema,
@@ -174,8 +200,14 @@ export interface DzoneResolvedWave {
   id: string
   name: string
   initialRelicIds: string[]
+  initialRelicVariantIds: string[]
   monsters: DzoneResolvedMonster[]
   alerts: DzoneResolvedAlert[]
+}
+
+export interface DzoneInitialRelicReference {
+  relicId: string
+  variantId: string
 }
 
 function parseCatalog<T extends {records: unknown[]; recordCount: number}>(
@@ -381,6 +413,16 @@ export function getDzoneSeasonSharedInitialRelicIds(season: DzoneSeason): string
   )
 }
 
+export function getDzoneWaveInitialRelicReferences(wave: DzoneWave): DzoneInitialRelicReference[] {
+  return wave.initialRelicIds.map((relicId, index) => {
+    const variantId = wave.initialRelicVariantIds[index]
+    if (!variantId) {
+      throw new Error(`D-zone wave "${wave.id}" relic "${relicId}" is missing its variant id.`)
+    }
+    return {relicId, variantId}
+  })
+}
+
 export function getDzoneSeasonAlertOptions(season: DzoneSeason): DzoneAlertOption[] {
   return season.waves[0]?.alerts.map(({id, name}) => ({id, name})) ?? []
 }
@@ -476,6 +518,7 @@ export function resolveDzoneWaveViewModel(wave: DzoneWave): DzoneResolvedWave {
     id: wave.id,
     name: wave.name,
     initialRelicIds: wave.initialRelicIds,
+    initialRelicVariantIds: wave.initialRelicVariantIds,
     monsters: wave.monsterIds.map((monsterId) => resolveDzoneMonster(monsterId)),
     alerts: wave.alerts.map((alert) => ({
       id: alert.id,

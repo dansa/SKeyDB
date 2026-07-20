@@ -139,7 +139,7 @@ export function orderBuilderV2LoadoutCollisions<TCollision extends {id: unknown}
   collisions: TCollision[],
   payload: BuilderV2DragPayload,
 ): TCollision[] {
-  return [...collisions].sort((left, right) => {
+  return collisions.toSorted((left, right) => {
     const priorityDelta =
       getBuilderV2CollisionPriority(left.id, payload) -
       getBuilderV2CollisionPriority(right.id, payload)

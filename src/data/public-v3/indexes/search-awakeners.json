@@ -1336,7 +1336,10 @@
         "bleed",
         "chaos",
         "chorus",
+        "cleanse",
+        "clear",
         "damage",
+        "dispel",
         "dmg",
         "down",
         "faded",
@@ -1348,6 +1351,7 @@
         "pierce damage",
         "pierce dmg",
         "poison",
+        "remove",
         "ssr",
         "steal",
         "steal str",
@@ -1381,6 +1385,7 @@
           "str-down",
           "steal-str",
           "pierce-dmg",
+          "dispel",
           "arithmetica",
           "weak",
           "vulnerability",
@@ -1394,7 +1399,10 @@
           "str steal",
           "strength steal",
           "Pierce DMG",
-          "pierce damage"
+          "pierce damage",
+          "cleanse",
+          "clear",
+          "remove"
         ],
         "facet": ["CHAOS", "SSR", "CHORUS", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "The Unknowable"]
       },
@@ -1404,7 +1412,7 @@
         "type": "CHORUS",
         "availabilityType": "LIMITED_FADED_LEGACY",
         "faction": "The Unknowable",
-        "tags": ["arithmetica", "bleed", "pierce-dmg", "poison", "steal-str", "str-down", "str-up", "vulnerable", "weakness"]
+        "tags": ["arithmetica", "bleed", "dispel", "pierce-dmg", "poison", "steal-str", "str-down", "str-up", "vulnerable", "weakness"]
       }
     },
     {
@@ -2090,7 +2098,10 @@
         "arithmetica",
         "astral",
         "chorus",
+        "cleanse",
+        "clear",
         "damage",
+        "dispel",
         "divine",
         "divine realm",
         "dmg",
@@ -2114,6 +2125,7 @@
         "out of the aeons",
         "realm",
         "reign",
+        "remove",
         "sacrifice",
         "tentacle",
         "tentacle damage",
@@ -2130,6 +2142,7 @@
         "tag": [
           "tentacle-dmg",
           "aftershock",
+          "dispel",
           "arithmetica",
           "divine-realm",
           "draw",
@@ -2139,6 +2152,9 @@
           "sacrifice",
           "Tentacle DMG",
           "tentacle damage",
+          "cleanse",
+          "clear",
+          "remove",
           "Divine Realm",
           "alt realm",
           "lemuria",
@@ -2154,7 +2170,7 @@
         "type": "CHORUS",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "Out of the Aeons",
-        "tags": ["aftershock", "arithmetica", "divine-realm", "draw", "keyflare", "lemurian", "sacrifice", "tentacle-dmg", "tentacles"]
+        "tags": ["aftershock", "arithmetica", "dispel", "divine-realm", "draw", "keyflare", "lemurian", "sacrifice", "tentacle-dmg", "tentacles"]
       }
     },
     {
@@ -3255,12 +3271,14 @@
         "arachne",
         "astral",
         "chorus",
+        "cleanse",
+        "clear",
         "counter",
         "damage",
+        "dispel",
         "divine",
         "divine realm",
         "dmg",
-        "down",
         "final",
         "final verdict",
         "fixed",
@@ -3273,16 +3291,15 @@
         "pursuit",
         "realm",
         "reign",
+        "remove",
         "self",
         "self damage",
         "self harm",
         "spider",
         "ssr",
         "str",
-        "str down",
         "str up",
         "strength",
-        "strength down",
         "strength up",
         "tentacle",
         "tentacle damage",
@@ -3302,10 +3319,10 @@
           "counter",
           "final-verdict",
           "str-up",
-          "str-down",
           "tentacle-dmg",
           "pursuit",
           "fixed-dmg",
+          "dispel",
           "divine-realm",
           "self-harm",
           "spider",
@@ -3313,12 +3330,13 @@
           "verdict",
           "STR Up",
           "strength up",
-          "STR Down",
-          "strength down",
           "Tentacle DMG",
           "tentacle damage",
           "Fixed DMG",
           "fixed damage",
+          "cleanse",
+          "clear",
+          "remove",
           "Divine Realm",
           "alt realm",
           "Self-Damage"
@@ -3331,7 +3349,7 @@
         "type": "CHORUS",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "The Unknowable",
-        "tags": ["counter", "divine-realm", "final-verdict", "fixed-dmg", "poison", "pursuit", "self-harm", "spider", "str-down", "str-up", "tentacle-dmg"]
+        "tags": ["counter", "dispel", "divine-realm", "final-verdict", "fixed-dmg", "poison", "pursuit", "self-harm", "spider", "str-up", "tentacle-dmg"]
       }
     },
     {
@@ -3382,10 +3400,33 @@
       "id": "awakener-0058",
       "name": "Pontos",
       "aliases": ["pontos"],
-      "tokens": ["aequor", "astral", "limited", "limited astral reign", "pontos", "reign", "ssr", "tbd", "warden"],
+      "tokens": [
+        "aequor",
+        "astral",
+        "cleanse",
+        "clear",
+        "damage",
+        "dispel",
+        "dmg",
+        "fixed",
+        "fixed damage",
+        "fixed dmg",
+        "limited",
+        "limited astral reign",
+        "pontos",
+        "reign",
+        "remove",
+        "ssr",
+        "tbd",
+        "tentacle",
+        "tentacle damage",
+        "tentacle dmg",
+        "warden"
+      ],
       "fields": {
         "name": ["Pontos"],
         "alias": ["pontos"],
+        "tag": ["tentacle-dmg", "fixed-dmg", "dispel", "Tentacle DMG", "tentacle damage", "Fixed DMG", "fixed damage", "cleanse", "clear", "remove"],
         "facet": ["AEQUOR", "SSR", "WARDEN", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "TBD"]
       },
       "facets": {
@@ -3393,7 +3434,8 @@
         "rarity": "SSR",
         "type": "WARDEN",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
-        "faction": "TBD"
+        "faction": "TBD",
+        "tags": ["dispel", "fixed-dmg", "tentacle-dmg"]
       }
     }
   ]

@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0143",
+  "name": "Differential Engine",
+  "route": {
+    "slug": "differential-engine",
+    "canonicalPath": "/database/relics/differential-engine"
+  },
+  "assets": {
+    "icon": "asset-relic-0143-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["ASTRAL_REIGN"],
+  "variantCount": 2,
+  "defaultVariantId": "relic-variant-0204",
+  "rarity": "N",
+  "aliases": ["Differential Engine+"],
+  "descriptionTemplate": "After using Exalt 4 times in one turn, gain [Arg1] Arithmetica. 3 turns cooldown.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "3"
+    }
+  },
+  "lore": "\"It changed history.\"",
+  "variants": [
+    {
+      "id": "relic-variant-0204",
+      "name": "Differential Engine",
+      "label": "Astral Reign - Silver",
+      "variantType": "STANDARD",
+      "tier": "Silver",
+      "category": "ASTRAL_REIGN",
+      "rarity": "N",
+      "descriptionTemplate": "After using Exalt 4 times in one turn, gain [Arg1] Arithmetica. 3 turns cooldown.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "3"
+        }
+      },
+      "lore": "\"It changed history.\""
+    },
+    {
+      "id": "relic-variant-0205",
+      "name": "Differential Engine+",
+      "label": "Astral Reign - Gold",
+      "variantType": "STANDARD",
+      "tier": "Gold",
+      "category": "ASTRAL_REIGN",
+      "descriptionTemplate": "After using Exalt 4 times in one turn, gain [Arg1] Arithmetica. 3 turns cooldown.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "6"
+        }
+      },
+      "lore": "\"It changed history.\""
+    }
+  ]
+}

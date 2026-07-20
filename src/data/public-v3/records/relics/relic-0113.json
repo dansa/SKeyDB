@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0113",
+  "name": "Chrono Pendulum \"Principal's Message\"",
+  "route": {
+    "slug": "chrono-pendulum-principals-message",
+    "canonicalPath": "/database/relics/chrono-pendulum-principals-message"
+  },
+  "assets": {
+    "icon": "asset-relic-0113-icon"
+  },
+  "relicType": "Pendulum",
+  "categories": ["PENDULUM"],
+  "variantCount": 9,
+  "defaultVariantId": "relic-variant-0138",
+  "rarity": "SR",
+  "aliases": [],
+  "descriptionTemplate": "At the start of the battle, gain the {Weakness} Orison and {Computation} Orison along with their Adv. {Orisons} to place on selected cards.",
+  "descriptionArgs": {},
+  "lore": "The words of the founder of Mythag linger in your ears.\n\nMay the Silver Key light your path, Mythag's Keeper.",
+  "variants": [
+    {
+      "id": "relic-variant-0138",
+      "name": "Chrono Pendulum \"Principal's Message\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "At the start of the battle, gain the {Weakness} Orison and {Computation} Orison along with their Adv. {Orisons} to place on selected cards.",
+      "descriptionArgs": {},
+      "lore": "The words of the founder of Mythag linger in your ears.\n\nMay the Silver Key light your path, Mythag's Keeper."
+    },
+    {
+      "id": "relic-variant-0139",
+      "name": "Chrono Pendulum \"Principal's Message\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "At the start of the battle, gain the \"Aliemus\" Orison and {Catalyst} Orison along with their Adv. {Orisons}, and choose an Orison on a card.",
+      "descriptionArgs": {},
+      "lore": "The words of the founder of Mythag linger in your ears.\n\nMay the Silver Key light your path, Mythag's Keeper."
+    },
+    {
+      "id": "relic-variant-0140",
+      "name": "Chrono Pendulum \"Principal's Message\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "At battle start, gain {Vulnerable} Orison and \"Burst\" Orison and their Adv. {Orisons}, choose an Orison on a card.",
+      "descriptionArgs": {},
+      "lore": "The words of the founder of Mythag linger in your ears.\n\nMay the Silver Key light your path, Mythag's Keeper."
+    },
+    {
+      "id": "relic-variant-0141",
+      "name": "Chrono Pendulum \"Principal's Message\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "At the start of the battle, gain the \"Might\" Orison and \"Drain\" Orison as well as their Adv. {Orisons}, and choose an Orison on a card.",
+      "descriptionArgs": {},
+      "lore": "The words of the founder of Mythag linger in your ears.\n\nMay the Silver Key light your path, Mythag's Keeper."
+    },
+    {
+      "id": "relic-variant-0142",
+      "name": "Chrono Pendulum \"Principal's Message\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "At the start of the battle, gain the {Finesse} Orison and {derived:Insight} Orison along with their Adv. {Orisons}, and choose an Orison on a card.",
+      "descriptionArgs": {},
+      "lore": "The words of the founder of Mythag linger in your ears.\n\nMay the Silver Key light your path, Mythag's Keeper."
+    },
+    {
+      "id": "relic-variant-0143",
+      "name": "Chrono Pendulum \"Principal's Message\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "At the start of the battle, gain \"Birth\" Orison and {Echo} Orison and their Adv. {Orisons}, choose an Orison on a card.",
+      "descriptionArgs": {},
+      "lore": "The words of the founder of Mythag linger in your ears.\n\nMay the Silver Key your path, Mythag's Keeper."
+    },
+    {
+      "id": "relic-variant-0144",
+      "name": "Chrono Pendulum \"Principal's Message\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "At battle start, gain \"Bastion\" Orison and {Finesse} Orison and their Adv. {Orisons}, and choose an Orison on a card.",
+      "descriptionArgs": {},
+      "lore": "The words of the founder of Mythag linger in your ears.\n\nMay the Silver Key light your path, Mythag's Keeper."
+    },
+    {
+      "id": "relic-variant-0145",
+      "name": "Chrono Pendulum \"Principal's Message\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "At the start of the battle, gain the {Computation}, \"Mirror\" and their Adv. {Orisons} to place on selected cards.",
+      "descriptionArgs": {},
+      "lore": "The words of the founder of Mythag linger in your ears.\n\nMay the Silver Key light your path, Mythag's Keeper."
+    },
+    {
+      "id": "relic-variant-0146",
+      "name": "Chrono Pendulum \"Principal's Message\"",
+      "label": "Pendulum",
+      "variantType": "PENDULUM",
+      "tier": "Pendulum",
+      "category": "PENDULUM",
+      "rarity": "SR",
+      "descriptionTemplate": "At the start of the battle, gain 2 \"Ensemble\" {Orisons} and their Adv. Orison, and choose an Orison on a card.",
+      "descriptionArgs": {},
+      "lore": "The words of the founder of Mythag linger in your ears.\n\nMay the Silver Key light your path, Mythag's Keeper."
+    }
+  ]
+}
