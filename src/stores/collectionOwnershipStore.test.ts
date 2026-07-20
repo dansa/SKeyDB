@@ -1,4 +1,4 @@
-import {describe, expect, it} from 'vitest'
+import {describe, expect, it, vi} from 'vitest'
 
 import {
   COLLECTION_OWNERSHIP_KEY,
@@ -44,6 +44,32 @@ function createWriteFailingStorage() {
 }
 
 describe('collectionOwnershipStore', () => {
+  it('can initialize when browser local storage access is blocked', async () => {
+    const localStorageDescriptor = Object.getOwnPropertyDescriptor(window, 'localStorage')
+    Object.defineProperty(window, 'localStorage', {
+      configurable: true,
+      get: () => {
+        throw new DOMException('Access denied', 'SecurityError')
+      },
+    })
+    vi.resetModules()
+
+    try {
+      const module = await import('./collectionOwnershipStore')
+
+      expect(module.collectionOwnershipStore.getState().persistenceStatus).toBe('idle')
+      expect(() => {
+        module.collectionOwnershipStore.getState().hydrate()
+      }).not.toThrow()
+      expect(module.collectionOwnershipStore.getState().persistenceStatus).toBe('ready')
+    } finally {
+      if (localStorageDescriptor) {
+        Object.defineProperty(window, 'localStorage', localStorageDescriptor)
+      }
+      vi.resetModules()
+    }
+  })
+
   it('hydrates shipped v1 ownership and writes the current public-id snapshot', () => {
     const storage = createStorage()
     storage.setItem(

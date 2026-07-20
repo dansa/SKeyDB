@@ -215,7 +215,7 @@ function isOxfmtTarget(filePath) {
     return true
   }
 
-  if (/^src\/data\/.*\.json$/.test(normalized)) {
+  if (/^src\/data\/.*\.json$/.test(normalized) && !/^src\/data\/public-v[23]\//.test(normalized)) {
     return true
   }
 
