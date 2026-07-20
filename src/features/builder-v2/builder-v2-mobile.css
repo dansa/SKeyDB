@@ -1258,7 +1258,7 @@
 }
 
 .builder-v2-page--mobile .builder-v2-awakener-realm img {
-  transform: translateZ(0) scale(1.12);
+  transform: scale(1.12);
 }
 
 .builder-v2-page--mobile .builder-v2-awakener-action {

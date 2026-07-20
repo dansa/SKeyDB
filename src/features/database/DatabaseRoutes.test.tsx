@@ -377,19 +377,12 @@ async function renderDatabasePage(
     )
   })
 
-  await screen.findByText('Database beta:')
+  await screen.findByRole('region', {name: 'Database'})
 
   return renderResult
 }
 
 describe('DatabasePage', () => {
-  it('renders database beta banner', async () => {
-    await renderDatabasePage()
-
-    expect(screen.getByText('Database beta:')).toBeInTheDocument()
-    expect(screen.getByText(/Search, filters, and detail views are live\./)).toBeInTheDocument()
-  })
-
   it('renders all awakeners in the grid by default', async () => {
     await renderDatabasePage()
 

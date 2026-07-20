@@ -683,7 +683,6 @@
   width: 100%;
   height: 100%;
   place-items: center;
-  transform: translateZ(0) scale(1);
   transform-origin: center;
   transition:
     opacity var(--ui-motion-duration-base) var(--ui-motion-ease-soft),
@@ -692,7 +691,7 @@
 
 .builder-v2-awakener-art-target:hover .builder-v2-awakener-art,
 .builder-v2-awakener-art-target:focus-visible .builder-v2-awakener-art {
-  transform: translateZ(0) scale(1.028);
+  transform: scale(1.028);
   will-change: transform;
 }
 
@@ -764,7 +763,6 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  transform: translateZ(0);
   transform-origin: 42% 42%;
 }
 

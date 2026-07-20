@@ -44,14 +44,14 @@ export function HomePage() {
             </p>
             <p>
               I am trying to make something useful for the community with the help of a few people
-              over in Mythag University!
+              over in Mythag Library!
             </p>
             <a
               className='text-link inline-flex items-center gap-1.5'
-              href='https://discord.gg/b3T723SUJU'
+              href='https://discord.gg/NHWAtU4RUh'
             >
               <FaDiscord aria-hidden className='text-base text-slate-300' />
-              <span>Join Mythag University!</span>
+              <span>Join Mythag Library!</span>
             </a>
             <ul className='space-y-1 pt-1'>
               <li className='flex items-center gap-1.5'>
@@ -97,7 +97,7 @@ export function HomePage() {
       <div className='grid gap-4 md:grid-cols-2'>
         <InfoCard
           description='The database now covers Awakeners, Wheels, Posses, and Covenants with search, filters, detail pages, and related-entry links. Some data is still being filled in and corrected, but it is the main place to browse game info now.'
-          title='Database (Beta)'
+          title='Database'
         />
         <InfoCard
           description='Interactive Team Planner / Builder with drag and drop, team rules, quick lineup, import/export, and multi-team planning. Your builder and collection data stay local to your browser.'
