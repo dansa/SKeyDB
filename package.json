@@ -76,11 +76,6 @@
     "vite": "^8.1.4",
     "vitest": "^4.1.10"
   },
-  "overrides": {
-    "brace-expansion": "5.0.7",
-    "flatted": "3.4.2",
-    "rollup": "^4.59.0"
-  },
   "simple-git-hooks": {
     "pre-commit": "npm run verify:pre-commit"
   }
