@@ -110,18 +110,18 @@ import type {
 import {useBuilderV2ImportExportAdapter} from './useBuilderV2ImportExportAdapter'
 import {useBuilderV2Preferences} from './useBuilderV2Preferences'
 import {useBuilderV2TeamManagementCommands} from './useBuilderV2TeamManagementCommands'
-import {useStableEvent} from './useStableEvent'
 
 const BUILDER_V2_AUTOSAVE_DEBOUNCE_MS = 300
+
+const defaultShowToast = () => undefined
 
 interface UseBuilderV2ModelOptions {
   showToast?: (message: string) => void
 }
 
 export function useBuilderV2Model({
-  showToast = () => undefined,
+  showToast = defaultShowToast,
 }: UseBuilderV2ModelOptions = {}): BuilderV2Model {
-  const stableShowToast = useStableEvent(showToast)
   const storage = useMemo(() => getBrowserLocalStorage(), [])
   const {
     allowDuplicateAwakenerIdentities,
@@ -819,7 +819,7 @@ export function useBuilderV2Model({
     storeCancelQuickLineup,
     syncQuickLineupFocus,
     setViolationMessage,
-    showToast: stableShowToast,
+    showToast,
   })
 
   const swapTeamSlots = useCallback(
@@ -1941,7 +1941,7 @@ export function useBuilderV2Model({
       setViolationMessage(null)
     },
     clearTransfer,
-    showToast: stableShowToast,
+    showToast,
   })
 
   const applyTransferTeams = useCallback(

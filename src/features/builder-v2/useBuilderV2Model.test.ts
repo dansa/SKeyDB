@@ -230,7 +230,7 @@ describe('useBuilderV2Model', () => {
     expect(result.current.teams.at(-1)?.name).toBe('Wave 5 Extra')
   })
 
-  it('uses the latest toast handler from stable team action callbacks', () => {
+  it('replaces the rendered team action callback so it uses the latest toast handler', () => {
     const firstShowToast = vi.fn()
     const secondShowToast = vi.fn()
     const {result, rerender} = renderHook(
@@ -241,14 +241,16 @@ describe('useBuilderV2Model', () => {
     act(() => {
       result.current.requestApplyTeamTemplate('DTIDE_5')
     })
-
-    const confirmTemplate = result.current.teamActionDialog?.onConfirm
-    expect(confirmTemplate).toBeTypeOf('function')
+    const initiallyRenderedConfirm = result.current.teamActionDialog?.onConfirm
+    expect(initiallyRenderedConfirm).toBeTypeOf('function')
 
     rerender({showToast: secondShowToast})
+    const latestRenderedConfirm = result.current.teamActionDialog?.onConfirm
+    expect(latestRenderedConfirm).toBeTypeOf('function')
+    expect(latestRenderedConfirm).not.toBe(initiallyRenderedConfirm)
 
     act(() => {
-      confirmTemplate?.()
+      latestRenderedConfirm?.()
     })
 
     expect(firstShowToast).not.toHaveBeenCalled()

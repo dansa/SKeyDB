@@ -59,7 +59,6 @@ import {
   builderV2PickerWindowFallbackViewportHeight as pickerWindowFallbackViewportHeight,
   builderV2PickerWindowThreshold as pickerWindowThreshold,
 } from './BuilderV2PickerWindowing'
-import {useStableEvent} from './useStableEvent'
 
 interface BuilderV2AwakenerPickerProps {
   picker: BuilderV2PickerModel
@@ -253,15 +252,7 @@ function BuilderV2PickerContentFrame({
   const pickerInstanceId = `builder-v2-picker-${useId().replaceAll(':', '')}`
   const pickerPanelId = `${pickerInstanceId}-panel`
   const getPickerTabId = (tab: BuilderV2PickerTab) => `${pickerInstanceId}-tab-${tab}`
-  const assignAwakener = useStableEvent(onAssignAwakener)
-  const assignWheel = useStableEvent(onAssignWheel)
-  const assignCovenant = useStableEvent(onAssignCovenant)
-  const assignPosse = useStableEvent(onAssignPosse)
-  const clearPickerTarget = useStableEvent(onClearPickerTarget ?? noop)
-  const openAwakenerDetail = useStableEvent(onOpenAwakenerDetail)
-  const openWheelDetail = useStableEvent(onOpenWheelDetail)
-  const openCovenantDetail = useStableEvent(onOpenCovenantDetail)
-  const openPosseDetail = useStableEvent(onOpenPosseDetail)
+  const clearPickerTarget = onClearPickerTarget ?? noop
   const placesControlsAfterResults = controlsPlacement === 'bottom' && !isCollapsed
   const showsCategoryTabs = categoryTabs === 'visible'
   const resultsRole = showsCategoryTabs ? 'tabpanel' : 'region'
@@ -382,8 +373,8 @@ function BuilderV2PickerContentFrame({
                 getItemId={(awakener) => awakener.id}
                 itemProps={{
                   isDndEnabled,
-                  onAssign: assignAwakener,
-                  onOpenDetail: openAwakenerDetail,
+                  onAssign: onAssignAwakener,
+                  onOpenDetail: onOpenAwakenerDetail,
                 }}
                 items={picker.awakeners}
                 leadingTile={clearTile}
@@ -398,8 +389,8 @@ function BuilderV2PickerContentFrame({
                 getItemId={(wheel) => wheel.id}
                 itemProps={{
                   isDndEnabled,
-                  onAssign: assignWheel,
-                  onOpenDetail: openWheelDetail,
+                  onAssign: onAssignWheel,
+                  onOpenDetail: onOpenWheelDetail,
                 }}
                 items={picker.wheels}
                 leadingTile={clearTile}
@@ -416,8 +407,8 @@ function BuilderV2PickerContentFrame({
                     covenant={covenant}
                     isDndEnabled={isDndEnabled}
                     key={covenant.id}
-                    onAssign={assignCovenant}
-                    onOpenDetail={openCovenantDetail}
+                    onAssign={onAssignCovenant}
+                    onOpenDetail={onOpenCovenantDetail}
                   />
                 ))}
               </>
@@ -430,8 +421,8 @@ function BuilderV2PickerContentFrame({
                   <BuilderV2PossePickerTile
                     isDndEnabled={isDndEnabled}
                     key={posse.id}
-                    onAssign={assignPosse}
-                    onOpenDetail={openPosseDetail}
+                    onAssign={onAssignPosse}
+                    onOpenDetail={onOpenPosseDetail}
                     posse={posse}
                   />
                 ))}

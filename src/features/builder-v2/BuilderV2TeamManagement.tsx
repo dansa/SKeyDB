@@ -30,6 +30,7 @@ import {
   type BuilderV2DropTargetDescriptor,
   type BuilderV2TeamDragPreviewDescriptor,
 } from './builder-v2-dnd'
+import type {BuilderV2TeamSlotEditTarget} from './builder-v2-editing-mode'
 import {useBuilderV2DndEnabled} from './BuilderV2DndCapability'
 import {formatBuilderV2EnlightenLabel} from './BuilderV2EnlightenLabel'
 import type {
@@ -77,11 +78,6 @@ const teamPreviewModeOptions = [
   {value: 'compact', label: 'Compact'},
   {value: 'expanded', label: 'Expanded'},
 ] as const
-
-export type BuilderV2TeamSlotEditTarget =
-  | {kind: 'awakener'}
-  | {kind: 'wheel'; wheelIndex: WheelSlotIndex}
-  | {kind: 'covenant'}
 
 const teamSortTransition = {
   duration: 180,
@@ -254,8 +250,13 @@ export const BuilderV2TeamManagement = memo(function BuilderV2TeamManagement({
 
 function useTeamManagementWideLayout() {
   const [isWideLayout, setIsWideLayout] = useState(false)
-  const setSectionNode = useCallback((element: HTMLElement | null) => {
-    if (!element || typeof ResizeObserver === 'undefined') {
+  const [sectionNode, setSectionNode] = useState<HTMLElement | null>(null)
+  const handleSectionNode = useCallback((element: HTMLElement | null) => {
+    setSectionNode(element)
+  }, [])
+
+  useEffect(() => {
+    if (!sectionNode || typeof ResizeObserver === 'undefined') {
       return
     }
 
@@ -266,14 +267,13 @@ function useTeamManagementWideLayout() {
       setIsWideLayout((current) => (current === nextIsWide ? current : nextIsWide))
     })
 
-    // react-doctor-disable-next-line react-doctor/effect-needs-cleanup -- React 19 invokes the callback ref disposer below on ref replacement and unmount.
-    observer.observe(element)
+    observer.observe(sectionNode)
     return () => {
       observer.disconnect()
     }
-  }, [])
+  }, [sectionNode])
 
-  return [setSectionNode, isWideLayout] as const
+  return [handleSectionNode, isWideLayout] as const
 }
 
 function getTeamManagementWideBreakpointPixels(): number {

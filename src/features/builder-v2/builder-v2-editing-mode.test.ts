@@ -1,10 +1,12 @@
-import {describe, expect, it} from 'vitest'
+import {describe, expect, it, vi} from 'vitest'
 
 import {
   createBuilderV2EditingState,
   getPickerTabForSelection,
   getToggledBuilderV2EditingTarget,
   isSameSelection,
+  selectBuilderV2TeamPosseEditTarget,
+  selectBuilderV2TeamSlotEditTarget,
 } from './builder-v2-editing-mode'
 
 describe('builder-v2 editing mode helpers', () => {
@@ -75,5 +77,68 @@ describe('builder-v2 editing mode helpers', () => {
         {kind: 'wheel', slotId: 'slot-1', wheelIndex: 1},
       ),
     ).toBe(false)
+  })
+
+  it('selects a team and slot target once while preserving an existing matching target', () => {
+    const commands = {
+      selectAwakenerSlot: vi.fn(),
+      selectCovenantSlot: vi.fn(),
+      selectWheelSlot: vi.fn(),
+      setActiveTeam: vi.fn(),
+    }
+
+    selectBuilderV2TeamSlotEditTarget({
+      commands,
+      slotId: 'slot-2',
+      state: {
+        activeSelection: {kind: 'awakener', slotId: 'slot-1'},
+        activeTeamId: 'team-1',
+      },
+      target: {kind: 'wheel', wheelIndex: 1},
+      teamId: 'team-2',
+    })
+
+    expect(commands.setActiveTeam).toHaveBeenCalledWith('team-2')
+    expect(commands.selectWheelSlot).toHaveBeenCalledWith('slot-2', 1)
+
+    commands.selectWheelSlot.mockClear()
+    commands.setActiveTeam.mockClear()
+    selectBuilderV2TeamSlotEditTarget({
+      commands,
+      slotId: 'slot-2',
+      state: {
+        activeSelection: {kind: 'wheel', slotId: 'slot-2', wheelIndex: 1},
+        activeTeamId: 'team-2',
+      },
+      target: {kind: 'wheel', wheelIndex: 1},
+      teamId: 'team-2',
+    })
+
+    expect(commands.setActiveTeam).not.toHaveBeenCalled()
+    expect(commands.selectWheelSlot).not.toHaveBeenCalled()
+  })
+
+  it('selects a team posse target only when it is not already active', () => {
+    const commands = {selectPosse: vi.fn(), setActiveTeam: vi.fn()}
+
+    selectBuilderV2TeamPosseEditTarget({
+      commands,
+      state: {activeTeamId: 'team-1', activeTeamTarget: null},
+      teamId: 'team-2',
+    })
+
+    expect(commands.setActiveTeam).toHaveBeenCalledWith('team-2')
+    expect(commands.selectPosse).toHaveBeenCalledOnce()
+
+    commands.selectPosse.mockClear()
+    commands.setActiveTeam.mockClear()
+    selectBuilderV2TeamPosseEditTarget({
+      commands,
+      state: {activeTeamId: 'team-2', activeTeamTarget: {kind: 'posse'}},
+      teamId: 'team-2',
+    })
+
+    expect(commands.setActiveTeam).not.toHaveBeenCalled()
+    expect(commands.selectPosse).not.toHaveBeenCalled()
   })
 })

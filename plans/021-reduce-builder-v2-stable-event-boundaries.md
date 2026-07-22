@@ -10,6 +10,7 @@
 
 ## Status
 
+- **Status**: IMPLEMENTED
 - **Priority**: P2
 - **Effort**: M
 - **Risk**: MED
@@ -67,6 +68,29 @@ Use the narrowest mechanism that matches the consumer:
 
 Do not use `useEffectEvent` for callbacks passed to children, DnD handlers, or
 ordinary user interactions.
+
+## Implemented Callback Inventory
+
+Reviewed against commit `6cc20a42` and the follow-up review fixes:
+
+| Boundary | Consumer contract | Implementation |
+| --- | --- | --- |
+| Page and adaptive assignment commands | Already-stable model commands forwarded to picker components | Passed directly |
+| Page detail-opening commands | Props of memoized picker/layout children; no reactive inputs | `useCallback([])` |
+| Desktop/adaptive team-list slot and posse selection | Props of memoized team-management children; reads current selection state | `useCallback` with explicit primitive state and stable commands; shared selection semantics live in `builder-v2-editing-mode.ts` |
+| Adaptive picker open, close, selection, and focus restoration | Child props; `closePicker` is also an Effect dependency | `useCallback` with explicit state, ref, and command dependencies |
+| Mobile picker, assignment, quick-lineup, and detail commands | Props of memoized mobile/picker children | `useCallback` with explicit command and local-state dependencies |
+| Picker tile callbacks | Ordinary forwarding to descendants whose other item props are reconstructed | Incoming callbacks invoked directly |
+| Team-action toast callback | React-rendered dialog callback; not retained outside the current render | Normal reactive dependency; the test proves rerender replaces the callback and the current callback uses the latest handler |
+| DnDKit and browser APIs | No `useStableEvent` callback was passed to or retained by these APIs | No stable-latest adapter required |
+
+No production boundary requires stable identity while dispatching to a newer
+implementation. `useStableEvent` and its contract test were therefore deleted.
+
+The full unsuppressed scan also exposed the adjacent `ResizeObserver` callback
+ref in `BuilderV2TeamManagement.tsx`. Its React 19 disposer was valid, but the
+observer lifecycle is now expressed as a conventional Effect with explicit
+cleanup so the contract is visible to both readers and static analysis.
 
 ## Scope
 
@@ -178,17 +202,39 @@ Behavioral checks:
 - React DevTools Profiler shows no material regression in memoized Builder V2
   child renders.
 
+### Verification record — 2026-07-22
+
+- `npx tsc -p tsconfig.app.json --noEmit`: passed.
+- `npm run lint` and `npm run format:check`: passed.
+- `npm run test:integration:builder-v2`: 3 files, 172 tests passed.
+- Focused editing-mode tests: 7 files, 50 tests passed.
+- `npm exec react-doctor -- --json --yes --scope changed`: zero diagnostics.
+- Full unsuppressed React Doctor scan: Builder V2 clean; only the pre-existing
+  Builder V1 `no-giant-component` warning remains.
+- `npm run verify`: 242 files and 1,787 tests passed, with script tests, asset
+  validation, typecheck, and production build also passing.
+- Interactive Chrome verification at 1365x900, 900x900, and 390x844: desktop,
+  adaptive, and mobile surfaces rendered without horizontal overflow; adaptive
+  collapse and mobile Escape restored focus to their initiating slot controls;
+  mobile quick lineup advanced from Awakener to Wheel 1 after assigning the
+  current Slot 1 target; no console errors were recorded.
+- The repository Playwright smoke was attempted after installing its current
+  Chromium runtime, but its desktop wheel DnD fixture could not find an owned
+  wheel in the fresh browser profile. The equivalent responsive and interaction
+  checks above were completed in Chrome; this is a fixture limitation, not a
+  Builder V2 runtime failure.
+
 ## Done Criteria
 
-- [ ] Every remaining stabilized callback has an identified identity-sensitive
+- [x] Every remaining stabilized callback has an identified identity-sensitive
       consumer.
-- [ ] Already-stable model commands are passed directly.
-- [ ] Composite callbacks expose complete reactive dependencies.
-- [ ] Ordinary event handlers no longer use stable-latest wrapping by default.
-- [ ] `useStableEvent` is deleted, or its remaining external contract is named,
+- [x] Already-stable model commands are passed directly.
+- [x] Composite callbacks expose complete reactive dependencies.
+- [x] Ordinary event handlers no longer use stable-latest wrapping by default.
+- [x] `useStableEvent` is deleted, or its remaining external contract is named,
       documented, and integration-tested.
-- [ ] React Doctor full scan has no unsuppressed diagnostics.
-- [ ] Builder V2 focused, browser, and full repository gates pass.
+- [x] React Doctor full scan has no unsuppressed Builder V2 diagnostics.
+- [x] Builder V2 focused, interactive browser, and full repository gates pass.
 
 ## STOP Conditions
 
@@ -202,4 +248,3 @@ Stop and report instead of improvising if:
   shape.
 - Profiler results show a meaningful render regression that cannot be isolated
   to one explicit callback boundary.
-

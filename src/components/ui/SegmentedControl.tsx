@@ -27,7 +27,6 @@ export function SegmentedControl<T extends string>({
       aria-label={ariaLabel}
       className={`segmented-control ${className}`.trim()}
       /* <address> would announce contact-info semantics; this is a generic pressed-button group. */
-      /* react-doctor-disable-next-line prefer-tag-over-role, react-doctor/prefer-tag-over-role */
       role='group'
     >
       {options.map((option, index) => {
