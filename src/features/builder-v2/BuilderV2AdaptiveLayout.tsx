@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from 'react'
+import {useCallback, useEffect, useRef, useState} from 'react'
 
 import {FaChevronDown, FaChevronUp} from 'react-icons/fa6'
 
@@ -19,7 +19,6 @@ import type {
 import {BuilderV2TeamManagement, type BuilderV2TeamSlotEditTarget} from './BuilderV2TeamManagement'
 import {BuilderV2TeamRail} from './BuilderV2TeamRail'
 import {BuilderV2TeamSlots} from './BuilderV2TeamSlots'
-import {useStableEvent} from './useStableEvent'
 
 interface BuilderV2AdaptiveLayoutProps {
   activeDropTarget: BuilderV2DropTargetDescriptor | null
@@ -49,9 +48,19 @@ export function BuilderV2AdaptiveLayout({
   const editingMessageId = 'builder-v2-adaptive-editing-message'
   const pickerToggleRef = useRef<HTMLButtonElement | null>(null)
   const pickerTriggerRef = useRef<HTMLElement | null>(null)
+  const {
+    activeSelection,
+    activeTeamId,
+    activeTeamTarget,
+    selectedSlotId,
+    selectAwakenerSlot,
+    selectCovenantSlot,
+    selectPosse,
+    selectWheelSlot,
+    setActiveTeam,
+  } = model
 
-  // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
-  const closePicker = useStableEvent((restoreFocus = true) => {
+  const closePicker = useCallback((restoreFocus = true) => {
     setIsPickerExpanded(false)
     if (restoreFocus) {
       const focusTarget = pickerTriggerRef.current?.isConnected
@@ -59,7 +68,7 @@ export function BuilderV2AdaptiveLayout({
         : pickerToggleRef.current
       focusTarget?.focus()
     }
-  })
+  }, [])
 
   useEffect(() => {
     if (!isPickerExpanded) {
@@ -81,59 +90,72 @@ export function BuilderV2AdaptiveLayout({
     }
   }, [closePicker, isPickerExpanded])
 
-  const openPicker = useStableEvent(
-    // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
+  const openPicker = useCallback(
     (restoreTarget?: HTMLElement | null, options?: {ensureTarget?: boolean}) => {
       pickerTriggerRef.current = restoreTarget ?? getCurrentFocusRestoreTarget()
 
-      if (options?.ensureTarget !== false && !model.activeSelection && !model.activeTeamTarget) {
-        model.selectAwakenerSlot(model.selectedSlotId ?? 'slot-1')
+      if (options?.ensureTarget !== false && !activeSelection && !activeTeamTarget) {
+        selectAwakenerSlot(selectedSlotId ?? 'slot-1')
       }
       setIsPickerExpanded(true)
     },
+    [activeSelection, activeTeamTarget, selectAwakenerSlot, selectedSlotId],
   )
 
-  // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
-  const expandPickerFromControl = useStableEvent((restoreTarget?: HTMLElement | null) => {
-    openPicker(restoreTarget ?? getCurrentFocusRestoreTarget(), {ensureTarget: false})
-  })
+  const expandPickerFromControl = useCallback(
+    (restoreTarget?: HTMLElement | null) => {
+      openPicker(restoreTarget ?? getCurrentFocusRestoreTarget(), {ensureTarget: false})
+    },
+    [openPicker],
+  )
 
-  const selectAwakenerSlotAndOpenPicker = useStableEvent(
-    // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
+  const selectAwakenerSlotAndOpenPicker = useCallback(
     (slotId: string, restoreTarget?: HTMLElement | null) => {
       const focusRestoreTarget = restoreTarget ?? getCurrentFocusRestoreTarget()
-      model.selectAwakenerSlot(slotId)
+      selectAwakenerSlot(slotId)
       openPicker(focusRestoreTarget, {ensureTarget: false})
     },
+    [openPicker, selectAwakenerSlot],
   )
 
-  const selectWheelSlotAndOpenPicker = useStableEvent(
-    // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
+  const selectWheelSlotAndOpenPicker = useCallback(
     (slotId: string, wheelIndex: WheelSlotIndex, restoreTarget?: HTMLElement | null) => {
       const focusRestoreTarget = restoreTarget ?? getCurrentFocusRestoreTarget()
-      model.selectWheelSlot(slotId, wheelIndex)
+      selectWheelSlot(slotId, wheelIndex)
       openPicker(focusRestoreTarget, {ensureTarget: false})
     },
+    [openPicker, selectWheelSlot],
   )
 
-  const selectCovenantSlotAndOpenPicker = useStableEvent(
-    // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
+  const selectCovenantSlotAndOpenPicker = useCallback(
     (slotId: string, restoreTarget?: HTMLElement | null) => {
       const focusRestoreTarget = restoreTarget ?? getCurrentFocusRestoreTarget()
-      model.selectCovenantSlot(slotId)
+      selectCovenantSlot(slotId)
       openPicker(focusRestoreTarget, {ensureTarget: false})
     },
+    [openPicker, selectCovenantSlot],
   )
 
-  // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
-  const selectPosseAndOpenPicker = useStableEvent(() => {
+  const selectPosseAndOpenPicker = useCallback(() => {
     const restoreTarget = getCurrentFocusRestoreTarget()
-    model.selectPosse()
+    selectPosse()
     openPicker(restoreTarget, {ensureTarget: false})
-  })
+  }, [openPicker, selectPosse])
 
   const {selectTeamListPosseAndOpenPicker, selectTeamListSlotAndOpenPicker} =
-    useAdaptiveTeamManagementShortcuts(model, openPicker)
+    useAdaptiveTeamManagementShortcuts(
+      {
+        activeSelection,
+        activeTeamId,
+        activeTeamTarget,
+        selectAwakenerSlot,
+        selectCovenantSlot,
+        selectPosse,
+        selectWheelSlot,
+        setActiveTeam,
+      },
+      openPicker,
+    )
   const activeWorkspaceClassName = getBuilderV2ActiveWorkspaceClassName(
     getBuilderV2TeamRailDensity({
       canAddTeam: model.canAddTeam,
@@ -141,26 +163,6 @@ export function BuilderV2AdaptiveLayout({
       teamCount: model.teams.length,
     }),
   )
-
-  // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
-  const assignAwakener = useStableEvent((awakenerId: string) => {
-    model.assignAwakener(awakenerId)
-  })
-
-  // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
-  const assignWheel = useStableEvent((wheelId: string) => {
-    model.assignWheel(wheelId)
-  })
-
-  // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
-  const assignCovenant = useStableEvent((covenantId: string) => {
-    model.assignCovenant(covenantId)
-  })
-
-  // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
-  const assignPosse = useStableEvent((posseId: string) => {
-    model.assignPosse(posseId)
-  })
 
   return (
     <section
@@ -243,10 +245,10 @@ export function BuilderV2AdaptiveLayout({
                 <BuilderV2PickerContent
                   isCollapsed={!isPickerExpanded}
                   isDragActive={isDragActive}
-                  onAssignAwakener={assignAwakener}
-                  onAssignCovenant={assignCovenant}
-                  onAssignPosse={assignPosse}
-                  onAssignWheel={assignWheel}
+                  onAssignAwakener={model.assignAwakener}
+                  onAssignCovenant={model.assignCovenant}
+                  onAssignPosse={model.assignPosse}
+                  onAssignWheel={model.assignWheel}
                   onClearPickerTarget={model.clearPickerTarget}
                   onOpenAwakenerDetail={onOpenAwakenerDetail}
                   onOpenCovenantDetail={onOpenCovenantDetail}
@@ -323,9 +325,34 @@ function getCurrentFocusRestoreTarget(): HTMLElement | null {
   return document.activeElement instanceof HTMLElement ? document.activeElement : null
 }
 
-function useAdaptiveTeamManagementShortcuts(model: BuilderV2Model, openPicker: AdaptiveOpenPicker) {
-  const selectTeamListSlotAndOpenPicker = useStableEvent(
-    // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
+type AdaptiveTeamManagementShortcutModel = Pick<
+  BuilderV2Model,
+  | 'activeSelection'
+  | 'activeTeamId'
+  | 'activeTeamTarget'
+  | 'selectAwakenerSlot'
+  | 'selectCovenantSlot'
+  | 'selectPosse'
+  | 'selectWheelSlot'
+  | 'setActiveTeam'
+>
+
+function useAdaptiveTeamManagementShortcuts(
+  model: AdaptiveTeamManagementShortcutModel,
+  openPicker: AdaptiveOpenPicker,
+) {
+  const {
+    activeSelection,
+    activeTeamId,
+    activeTeamTarget,
+    selectAwakenerSlot,
+    selectCovenantSlot,
+    selectPosse,
+    selectWheelSlot,
+    setActiveTeam,
+  } = model
+
+  const selectTeamListSlotAndOpenPicker = useCallback(
     (
       team: BuilderV2TeamSummary,
       slot: BuilderV2TeamSummarySlot,
@@ -333,37 +360,49 @@ function useAdaptiveTeamManagementShortcuts(model: BuilderV2Model, openPicker: A
       target: BuilderV2TeamSlotEditTarget = {kind: 'awakener'},
     ) => {
       const isCurrentTarget = isTeamSlotEditTargetSelected({
-        activeSelection: model.activeSelection,
-        activeTeamId: model.activeTeamId,
+        activeSelection,
+        activeTeamId,
         slotId: slot.slotId,
         target,
         teamId: team.id,
       })
 
-      if (model.activeTeamId !== team.id) {
-        model.setActiveTeam(team.id)
+      if (activeTeamId !== team.id) {
+        setActiveTeam(team.id)
       }
       if (!isCurrentTarget) {
-        selectBuilderV2TeamSlotTarget(model, slot.slotId, target)
+        selectBuilderV2TeamSlotTarget(
+          {selectAwakenerSlot, selectCovenantSlot, selectWheelSlot},
+          slot.slotId,
+          target,
+        )
       }
       openPicker(restoreTarget, {ensureTarget: false})
     },
+    [
+      activeSelection,
+      activeTeamId,
+      openPicker,
+      selectAwakenerSlot,
+      selectCovenantSlot,
+      selectWheelSlot,
+      setActiveTeam,
+    ],
   )
 
-  const selectTeamListPosseAndOpenPicker = useStableEvent(
-    // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
+  const selectTeamListPosseAndOpenPicker = useCallback(
     (team: BuilderV2TeamSummary, restoreTarget: HTMLElement | null) => {
-      const isCurrentTarget =
-        model.activeTeamId === team.id && model.activeTeamTarget?.kind === 'posse'
+      const isCurrentTarget = activeTeamId === team.id && activeTeamTarget?.kind === 'posse'
 
-      if (model.activeTeamId !== team.id) {
-        model.setActiveTeam(team.id)
+      if (activeTeamId !== team.id) {
+        setActiveTeam(team.id)
       }
       if (!isCurrentTarget) {
-        model.selectPosse()
+        selectPosse()
       }
       openPicker(restoreTarget, {ensureTarget: false})
     },
+    [activeTeamId, activeTeamTarget, openPicker, selectPosse, setActiveTeam],
   )
 
   return {selectTeamListPosseAndOpenPicker, selectTeamListSlotAndOpenPicker}
@@ -397,19 +436,19 @@ function isTeamSlotEditTargetSelected({
 }
 
 function selectBuilderV2TeamSlotTarget(
-  model: BuilderV2Model,
+  commands: Pick<BuilderV2Model, 'selectAwakenerSlot' | 'selectCovenantSlot' | 'selectWheelSlot'>,
   slotId: string,
   target: BuilderV2TeamSlotEditTarget,
 ) {
   switch (target.kind) {
     case 'awakener':
-      model.selectAwakenerSlot(slotId)
+      commands.selectAwakenerSlot(slotId)
       return
     case 'covenant':
-      model.selectCovenantSlot(slotId)
+      commands.selectCovenantSlot(slotId)
       return
     case 'wheel':
-      model.selectWheelSlot(slotId, target.wheelIndex)
+      commands.selectWheelSlot(slotId, target.wheelIndex)
       return
   }
 }

@@ -1,4 +1,4 @@
-import {useMemo, useSyncExternalStore, type ReactNode} from 'react'
+import {useCallback, useMemo, useSyncExternalStore, type ReactNode} from 'react'
 
 import './builder-v2.css'
 
@@ -14,6 +14,7 @@ import {dbDetailStore} from '@/stores/dbDetailStore'
 import {BuilderImportExportDialogs} from '../builder/BuilderImportExportDialogs'
 import {BuilderTransferConfirmDialog} from '../builder/BuilderTransferConfirmDialog'
 import {allAwakeners} from '../builder/constants'
+import type {BuilderV2DropTargetDescriptor} from './builder-v2-dnd'
 import {
   getBuilderV2ActiveWorkspaceClassName,
   getBuilderV2TeamRailDensity,
@@ -32,7 +33,6 @@ import {BuilderV2TeamRail} from './BuilderV2TeamRail'
 import {BuilderV2TeamSlots} from './BuilderV2TeamSlots'
 import {useBuilderV2Dnd} from './useBuilderV2Dnd'
 import {useBuilderV2Model} from './useBuilderV2Model'
-import {useStableEvent} from './useStableEvent'
 
 const BUILDER_V2_MOBILE_BREAKPOINT_PX = 640
 const BUILDER_V2_ADAPTIVE_BREAKPOINT_PX = 1056
@@ -44,26 +44,18 @@ export function BuilderV2Page() {
   const viewportMode = useBuilderV2ViewportMode()
   const isDndEnabledForDevice = useBuilderV2DndEnabledForDevice()
   const isDndEnabled = viewportMode !== 'mobile' && isDndEnabledForDevice
-  const assignAwakener = useStableEvent(model.assignAwakener)
-  const assignWheel = useStableEvent(model.assignWheel)
-  const assignCovenant = useStableEvent(model.assignCovenant)
-  const assignPosse = useStableEvent(model.assignPosse)
-  // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
-  const openAwakenerDetail = useStableEvent((awakenerId: string) => {
+  const openAwakenerDetail = useCallback((awakenerId: string) => {
     dbDetailStore.getState().openDetail({kind: 'awakener', id: awakenerId}, 'builder-overlay')
-  })
-  // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
-  const openWheelDetail = useStableEvent((wheelId: string) => {
+  }, [])
+  const openWheelDetail = useCallback((wheelId: string) => {
     dbDetailStore.getState().openDetail({kind: 'wheel', id: wheelId}, 'builder-overlay')
-  })
-  // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
-  const openCovenantDetail = useStableEvent((covenantId: string) => {
+  }, [])
+  const openCovenantDetail = useCallback((covenantId: string) => {
     dbDetailStore.getState().openDetail({kind: 'covenant', id: covenantId}, 'builder-overlay')
-  })
-  // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
-  const openPosseDetail = useStableEvent((posseId: string) => {
+  }, [])
+  const openPosseDetail = useCallback((posseId: string) => {
     dbDetailStore.getState().openDetail({kind: 'posse', id: posseId}, 'builder-overlay')
-  })
+  }, [])
   const detailWheels = useMemo(() => getWheels(), [])
   const detailModalCallbacks = useMemo(
     () => ({
@@ -115,8 +107,17 @@ export function BuilderV2Page() {
   const dnd = useBuilderV2Dnd({model: dndCommandPort})
   const activeDropTarget = isDndEnabled ? dnd.activeDropTarget : null
   const isDragActive = isDndEnabled && dnd.isLoadoutDragging
-  const selectTeamListSlot = useStableEvent(
-    // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
+  const {
+    activeSelection,
+    activeTeamId,
+    activeTeamTarget,
+    selectAwakenerSlot,
+    selectCovenantSlot,
+    selectPosse,
+    selectWheelSlot,
+    setActiveTeam,
+  } = model
+  const selectTeamListSlot = useCallback(
     (
       team: BuilderV2TeamSummary,
       slot: BuilderV2TeamSummarySlot,
@@ -124,33 +125,46 @@ export function BuilderV2Page() {
       target: BuilderV2TeamSlotEditTarget = {kind: 'awakener'},
     ) => {
       const isCurrentTarget = isTeamSlotEditTargetSelected({
-        activeSelection: model.activeSelection,
-        activeTeamId: model.activeTeamId,
+        activeSelection,
+        activeTeamId,
         slotId: slot.slotId,
         target,
         teamId: team.id,
       })
 
-      if (model.activeTeamId !== team.id) {
-        model.setActiveTeam(team.id)
+      if (activeTeamId !== team.id) {
+        setActiveTeam(team.id)
       }
       if (!isCurrentTarget) {
-        selectBuilderV2TeamSlotTarget(model, slot.slotId, target)
+        selectBuilderV2TeamSlotTarget(
+          {selectAwakenerSlot, selectCovenantSlot, selectWheelSlot},
+          slot.slotId,
+          target,
+        )
       }
     },
+    [
+      activeSelection,
+      activeTeamId,
+      selectAwakenerSlot,
+      selectCovenantSlot,
+      selectWheelSlot,
+      setActiveTeam,
+    ],
   )
-  // react-doctor-disable-next-line react-doctor/exhaustive-deps react-doctor/no-effect-with-fresh-deps -- useStableEvent stores the latest handler in a ref.
-  const selectTeamListPosse = useStableEvent((team: BuilderV2TeamSummary) => {
-    const isCurrentTarget =
-      model.activeTeamId === team.id && model.activeTeamTarget?.kind === 'posse'
+  const selectTeamListPosse = useCallback(
+    (team: BuilderV2TeamSummary) => {
+      const isCurrentTarget = activeTeamId === team.id && activeTeamTarget?.kind === 'posse'
 
-    if (model.activeTeamId !== team.id) {
-      model.setActiveTeam(team.id)
-    }
-    if (!isCurrentTarget) {
-      model.selectPosse()
-    }
-  })
+      if (activeTeamId !== team.id) {
+        setActiveTeam(team.id)
+      }
+      if (!isCurrentTarget) {
+        selectPosse()
+      }
+    },
+    [activeTeamId, activeTeamTarget, selectPosse, setActiveTeam],
+  )
   const activeWorkspaceClassName = getBuilderV2ActiveWorkspaceClassName(
     getBuilderV2TeamRailDensity({
       canAddTeam: model.canAddTeam,
@@ -189,114 +203,18 @@ export function BuilderV2Page() {
   } else {
     content = (
       <BuilderV2DndBoundary dnd={dnd} enabled={isDndEnabled}>
-        <section
-          className='builder-v2-page builder-v2-page--desktop'
-          aria-labelledby='builder-v2-title'
-        >
-          <header className='builder-v2-mast'>
-            <div className='builder-v2-mast-identity'>
-              <span aria-hidden className='builder-v2-mast-glyph' />
-              <h1 className='builder-v2-mast-title' id='builder-v2-title'>
-                Builder V2
-              </h1>
-            </div>
-          </header>
-
-          <div className='builder-v2-shell'>
-            <main className='builder-v2-workbench' aria-label='Active builder workspace'>
-              <div className={activeWorkspaceClassName}>
-                <BuilderV2TeamRail
-                  canAddTeam={model.canAddTeam}
-                  maxTeams={model.maxTeams}
-                  onAddTeam={model.addTeam}
-                  onSetActiveTeam={model.setActiveTeam}
-                  teams={model.teams}
-                />
-
-                <section className='builder-v2-panel builder-v2-active-team'>
-                  <BuilderV2ActiveHeader
-                    activePosse={model.activePosse}
-                    activeTeamName={model.activeTeamName}
-                    activeTeamTarget={model.activeTeamTarget}
-                    isDragActive={isDragActive}
-                    onClearPosse={model.clearPosse}
-                    onSelectPosse={model.selectPosse}
-                    predictedDropTarget={activeDropTarget}
-                  />
-
-                  <BuilderV2TeamSlots
-                    isDragActive={isDragActive}
-                    onClearCovenant={model.clearCovenant}
-                    onClearWheel={model.clearWheel}
-                    onRemoveAwakener={model.removeAwakener}
-                    onSelectCovenantSlot={model.selectCovenantSlot}
-                    onSelectSlot={model.selectAwakenerSlot}
-                    onSelectWheelSlot={model.selectWheelSlot}
-                    predictedDropTarget={activeDropTarget}
-                    quickLineupActive={Boolean(model.quickLineupSession)}
-                    slots={model.slots}
-                  />
-
-                  <BuilderV2ActiveFooter
-                    editingLabel={model.editingLabel}
-                    onCancelQuickLineup={model.cancelQuickLineup}
-                    onFinishQuickLineup={model.finishQuickLineup}
-                    onGoBackQuickLineupStep={model.goBackQuickLineupStep}
-                    onSkipQuickLineupStep={model.skipQuickLineupStep}
-                    onStartQuickLineup={model.startQuickLineup}
-                    quickLineupSession={model.quickLineupSession}
-                    quickLineupStepLabel={model.quickLineupStepLabel}
-                    violationMessage={model.violationMessage}
-                  />
-                </section>
-              </div>
-
-              <BuilderV2TeamManagement
-                canAddTeam={model.canAddTeam}
-                editingTeamId={model.editingTeamId}
-                editingTeamName={model.editingTeamName}
-                isDragActive={isDragActive}
-                maxTeams={model.maxTeams}
-                onAddTeam={model.addTeam}
-                onBeginTeamRename={model.beginTeamRename}
-                onCancelTeamRename={model.cancelTeamRename}
-                onCommitTeamRename={model.commitTeamRename}
-                onMoveTeamDown={model.moveTeamDown}
-                onMoveTeamUp={model.moveTeamUp}
-                onRequestExportTeam={model.openTeamExportDialog}
-                onRequestApplyTeamTemplate={model.requestApplyTeamTemplate}
-                onRequestDeleteTeam={model.requestDeleteTeam}
-                onRequestEditTeamPosse={selectTeamListPosse}
-                onRequestEditTeamSlot={selectTeamListSlot}
-                onRequestResetTeam={model.requestResetTeam}
-                onSetActiveTeam={model.setActiveTeam}
-                onSetEditingTeamName={model.setEditingTeamName}
-                onTeamPreviewModeChange={model.setTeamPreviewMode}
-                teamPreviewMode={model.teamPreviewMode}
-                teams={model.teams}
-                predictedDropTarget={activeDropTarget}
-                utilityActions={<BuilderV2ImportExportActions model={model} />}
-                variant='desktop'
-              />
-            </main>
-
-            <BuilderV2AwakenerPicker
-              isDragActive={isDragActive}
-              onAssignCovenant={assignCovenant}
-              onAssignAwakener={assignAwakener}
-              onAssignPosse={assignPosse}
-              onAssignWheel={assignWheel}
-              onClearPickerTarget={model.clearPickerTarget}
-              onOpenAwakenerDetail={openAwakenerDetail}
-              onOpenCovenantDetail={openCovenantDetail}
-              onOpenPosseDetail={openPosseDetail}
-              onOpenWheelDetail={openWheelDetail}
-              picker={model.picker}
-              pickerClearTarget={model.pickerClearTarget}
-              predictedDropTarget={activeDropTarget}
-            />
-          </div>
-        </section>
+        <BuilderV2DesktopLayout
+          activeDropTarget={activeDropTarget}
+          activeWorkspaceClassName={activeWorkspaceClassName}
+          isDragActive={isDragActive}
+          model={model}
+          onOpenAwakenerDetail={openAwakenerDetail}
+          onOpenCovenantDetail={openCovenantDetail}
+          onOpenPosseDetail={openPosseDetail}
+          onOpenWheelDetail={openWheelDetail}
+          onSelectTeamListPosse={selectTeamListPosse}
+          onSelectTeamListSlot={selectTeamListSlot}
+        />
       </BuilderV2DndBoundary>
     )
   }
@@ -329,6 +247,146 @@ export function BuilderV2Page() {
 }
 
 type BuilderV2DndController = ReturnType<typeof useBuilderV2Dnd>
+
+function BuilderV2DesktopLayout({
+  activeDropTarget,
+  activeWorkspaceClassName,
+  isDragActive,
+  model,
+  onOpenAwakenerDetail,
+  onOpenCovenantDetail,
+  onOpenPosseDetail,
+  onOpenWheelDetail,
+  onSelectTeamListPosse,
+  onSelectTeamListSlot,
+}: {
+  activeDropTarget: BuilderV2DropTargetDescriptor | null
+  activeWorkspaceClassName: string
+  isDragActive: boolean
+  model: ReturnType<typeof useBuilderV2Model>
+  onOpenAwakenerDetail: (awakenerId: string) => void
+  onOpenCovenantDetail: (covenantId: string) => void
+  onOpenPosseDetail: (posseId: string) => void
+  onOpenWheelDetail: (wheelId: string) => void
+  onSelectTeamListPosse: (team: BuilderV2TeamSummary) => void
+  onSelectTeamListSlot: (
+    team: BuilderV2TeamSummary,
+    slot: BuilderV2TeamSummarySlot,
+    restoreTarget: HTMLElement | null,
+    target?: BuilderV2TeamSlotEditTarget,
+  ) => void
+}) {
+  return (
+    <section
+      className='builder-v2-page builder-v2-page--desktop'
+      aria-labelledby='builder-v2-title'
+    >
+      <header className='builder-v2-mast'>
+        <div className='builder-v2-mast-identity'>
+          <span aria-hidden className='builder-v2-mast-glyph' />
+          <h1 className='builder-v2-mast-title' id='builder-v2-title'>
+            Builder V2
+          </h1>
+        </div>
+      </header>
+
+      <div className='builder-v2-shell'>
+        <main className='builder-v2-workbench' aria-label='Active builder workspace'>
+          <div className={activeWorkspaceClassName}>
+            <BuilderV2TeamRail
+              canAddTeam={model.canAddTeam}
+              maxTeams={model.maxTeams}
+              onAddTeam={model.addTeam}
+              onSetActiveTeam={model.setActiveTeam}
+              teams={model.teams}
+            />
+
+            <section className='builder-v2-panel builder-v2-active-team'>
+              <BuilderV2ActiveHeader
+                activePosse={model.activePosse}
+                activeTeamName={model.activeTeamName}
+                activeTeamTarget={model.activeTeamTarget}
+                isDragActive={isDragActive}
+                onClearPosse={model.clearPosse}
+                onSelectPosse={model.selectPosse}
+                predictedDropTarget={activeDropTarget}
+              />
+
+              <BuilderV2TeamSlots
+                isDragActive={isDragActive}
+                onClearCovenant={model.clearCovenant}
+                onClearWheel={model.clearWheel}
+                onRemoveAwakener={model.removeAwakener}
+                onSelectCovenantSlot={model.selectCovenantSlot}
+                onSelectSlot={model.selectAwakenerSlot}
+                onSelectWheelSlot={model.selectWheelSlot}
+                predictedDropTarget={activeDropTarget}
+                quickLineupActive={Boolean(model.quickLineupSession)}
+                slots={model.slots}
+              />
+
+              <BuilderV2ActiveFooter
+                editingLabel={model.editingLabel}
+                onCancelQuickLineup={model.cancelQuickLineup}
+                onFinishQuickLineup={model.finishQuickLineup}
+                onGoBackQuickLineupStep={model.goBackQuickLineupStep}
+                onSkipQuickLineupStep={model.skipQuickLineupStep}
+                onStartQuickLineup={model.startQuickLineup}
+                quickLineupSession={model.quickLineupSession}
+                quickLineupStepLabel={model.quickLineupStepLabel}
+                violationMessage={model.violationMessage}
+              />
+            </section>
+          </div>
+
+          <BuilderV2TeamManagement
+            canAddTeam={model.canAddTeam}
+            editingTeamId={model.editingTeamId}
+            editingTeamName={model.editingTeamName}
+            isDragActive={isDragActive}
+            maxTeams={model.maxTeams}
+            onAddTeam={model.addTeam}
+            onBeginTeamRename={model.beginTeamRename}
+            onCancelTeamRename={model.cancelTeamRename}
+            onCommitTeamRename={model.commitTeamRename}
+            onMoveTeamDown={model.moveTeamDown}
+            onMoveTeamUp={model.moveTeamUp}
+            onRequestExportTeam={model.openTeamExportDialog}
+            onRequestApplyTeamTemplate={model.requestApplyTeamTemplate}
+            onRequestDeleteTeam={model.requestDeleteTeam}
+            onRequestEditTeamPosse={onSelectTeamListPosse}
+            onRequestEditTeamSlot={onSelectTeamListSlot}
+            onRequestResetTeam={model.requestResetTeam}
+            onSetActiveTeam={model.setActiveTeam}
+            onSetEditingTeamName={model.setEditingTeamName}
+            onTeamPreviewModeChange={model.setTeamPreviewMode}
+            teamPreviewMode={model.teamPreviewMode}
+            teams={model.teams}
+            predictedDropTarget={activeDropTarget}
+            utilityActions={<BuilderV2ImportExportActions model={model} />}
+            variant='desktop'
+          />
+        </main>
+
+        <BuilderV2AwakenerPicker
+          isDragActive={isDragActive}
+          onAssignCovenant={model.assignCovenant}
+          onAssignAwakener={model.assignAwakener}
+          onAssignPosse={model.assignPosse}
+          onAssignWheel={model.assignWheel}
+          onClearPickerTarget={model.clearPickerTarget}
+          onOpenAwakenerDetail={onOpenAwakenerDetail}
+          onOpenCovenantDetail={onOpenCovenantDetail}
+          onOpenPosseDetail={onOpenPosseDetail}
+          onOpenWheelDetail={onOpenWheelDetail}
+          picker={model.picker}
+          pickerClearTarget={model.pickerClearTarget}
+          predictedDropTarget={activeDropTarget}
+        />
+      </div>
+    </section>
+  )
+}
 
 function hasBuilderDetailOverlayOpen(): boolean {
   return dbDetailStore.getState().stack.some((entry) => entry.source === 'builder-overlay')
@@ -398,19 +456,22 @@ function isTeamSlotEditTargetSelected({
 }
 
 function selectBuilderV2TeamSlotTarget(
-  model: ReturnType<typeof useBuilderV2Model>,
+  commands: Pick<
+    ReturnType<typeof useBuilderV2Model>,
+    'selectAwakenerSlot' | 'selectCovenantSlot' | 'selectWheelSlot'
+  >,
   slotId: string,
   target: BuilderV2TeamSlotEditTarget,
 ) {
   switch (target.kind) {
     case 'awakener':
-      model.selectAwakenerSlot(slotId)
+      commands.selectAwakenerSlot(slotId)
       return
     case 'covenant':
-      model.selectCovenantSlot(slotId)
+      commands.selectCovenantSlot(slotId)
       return
     case 'wheel':
-      model.selectWheelSlot(slotId, target.wheelIndex)
+      commands.selectWheelSlot(slotId, target.wheelIndex)
       return
   }
 }

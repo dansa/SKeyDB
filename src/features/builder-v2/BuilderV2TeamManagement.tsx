@@ -254,8 +254,13 @@ export const BuilderV2TeamManagement = memo(function BuilderV2TeamManagement({
 
 function useTeamManagementWideLayout() {
   const [isWideLayout, setIsWideLayout] = useState(false)
-  const setSectionNode = useCallback((element: HTMLElement | null) => {
-    if (!element || typeof ResizeObserver === 'undefined') {
+  const [sectionNode, setSectionNode] = useState<HTMLElement | null>(null)
+  const handleSectionNode = useCallback((element: HTMLElement | null) => {
+    setSectionNode(element)
+  }, [])
+
+  useEffect(() => {
+    if (!sectionNode || typeof ResizeObserver === 'undefined') {
       return
     }
 
@@ -266,14 +271,13 @@ function useTeamManagementWideLayout() {
       setIsWideLayout((current) => (current === nextIsWide ? current : nextIsWide))
     })
 
-    // react-doctor-disable-next-line react-doctor/effect-needs-cleanup -- React 19 invokes the callback ref disposer below on ref replacement and unmount.
-    observer.observe(element)
+    observer.observe(sectionNode)
     return () => {
       observer.disconnect()
     }
-  }, [])
+  }, [sectionNode])
 
-  return [setSectionNode, isWideLayout] as const
+  return [handleSectionNode, isWideLayout] as const
 }
 
 function getTeamManagementWideBreakpointPixels(): number {

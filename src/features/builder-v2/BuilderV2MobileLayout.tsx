@@ -19,7 +19,6 @@ import type {
 import {BuilderV2RealmBadge} from './BuilderV2RealmBadge'
 import {BuilderV2TeamManagement} from './BuilderV2TeamManagement'
 import {BuilderV2TeamSlots} from './BuilderV2TeamSlots'
-import {useStableEvent} from './useStableEvent'
 
 interface BuilderV2MobileLayoutProps {
   isDetailOverlayOpen: boolean
@@ -54,7 +53,19 @@ type MobilePickerTargetRequest =
 type MobilePickerTargetConfig = Omit<MobileOpenPickerConfig, 'restoreTarget'>
 
 function resolveMobilePickerTarget(
-  model: BuilderV2Model,
+  model: Pick<
+    BuilderV2Model,
+    | 'activeSelection'
+    | 'activeTeamId'
+    | 'activeTeamName'
+    | 'activeTeamTarget'
+    | 'selectAwakenerSlot'
+    | 'selectCovenantSlot'
+    | 'selectPosse'
+    | 'selectWheelSlot'
+    | 'setActiveTeam'
+    | 'slots'
+  >,
   request: MobilePickerTargetRequest,
 ): MobilePickerTargetConfig {
   if (request.kind === 'posse') {
@@ -141,12 +152,8 @@ export function BuilderV2MobileLayout({
   const [mobilePicker, setMobilePicker] = useState<MobilePickerState | null>(null)
   const pickerTriggerRef = useRef<HTMLElement | null>(null)
   const searchInputRef = useRef<HTMLInputElement | null>(null)
-  const setPickerTab = useStableEvent(model.setPickerTab)
-  const startQuickLineupCommand = useStableEvent(model.startQuickLineup)
-  const assignAwakenerCommand = useStableEvent(model.assignAwakener)
-  const assignWheelCommand = useStableEvent(model.assignWheel)
-  const assignCovenantCommand = useStableEvent(model.assignCovenant)
-  const assignPosseCommand = useStableEvent(model.assignPosse)
+  const {assignAwakener, assignCovenant, assignPosse, assignWheel, setPickerTab, startQuickLineup} =
+    model
 
   const closePicker = useCallback((restoreFocus = true) => {
     setMobilePicker(null)
@@ -187,11 +194,11 @@ export function BuilderV2MobileLayout({
     [setPickerTab],
   )
 
-  const startQuickLineup = useCallback(() => {
+  const startMobileQuickLineup = useCallback(() => {
     setMobilePicker(null)
-    startQuickLineupCommand()
+    startQuickLineup()
     scrollToMobileLineupStart()
-  }, [startQuickLineupCommand])
+  }, [startQuickLineup])
 
   const handleMobileTeamActivated = useCallback(() => {
     setMobilePicker(null)
@@ -199,42 +206,42 @@ export function BuilderV2MobileLayout({
 
   const activeMobilePicker = model.quickLineupSession ? null : mobilePicker
 
-  const assignAwakener = useCallback(
+  const assignMobileAwakener = useCallback(
     (awakenerId: string) => {
-      assignAwakenerCommand(awakenerId)
+      assignAwakener(awakenerId)
       if (!mobilePicker?.slotId) {
         closePicker(false)
       }
     },
-    [assignAwakenerCommand, closePicker, mobilePicker?.slotId],
+    [assignAwakener, closePicker, mobilePicker?.slotId],
   )
 
-  const assignWheel = useCallback(
+  const assignMobileWheel = useCallback(
     (wheelId: string) => {
-      assignWheelCommand(wheelId)
+      assignWheel(wheelId)
       if (!mobilePicker?.slotId) {
         closePicker(false)
       }
     },
-    [assignWheelCommand, closePicker, mobilePicker?.slotId],
+    [assignWheel, closePicker, mobilePicker?.slotId],
   )
 
-  const assignCovenant = useCallback(
+  const assignMobileCovenant = useCallback(
     (covenantId: string) => {
-      assignCovenantCommand(covenantId)
+      assignCovenant(covenantId)
       if (!mobilePicker?.slotId) {
         closePicker(false)
       }
     },
-    [assignCovenantCommand, closePicker, mobilePicker?.slotId],
+    [assignCovenant, closePicker, mobilePicker?.slotId],
   )
 
-  const assignPosse = useCallback(
+  const assignMobilePosse = useCallback(
     (posseId: string) => {
-      assignPosseCommand(posseId)
+      assignPosse(posseId)
       closePicker(false)
     },
-    [assignPosseCommand, closePicker],
+    [assignPosse, closePicker],
   )
   const openAwakenerDetail = useCallback(
     (awakenerId: string) => {
@@ -275,10 +282,10 @@ export function BuilderV2MobileLayout({
       {model.quickLineupSession ? (
         <MobileQuickLineupBuilder
           model={model}
-          onAssignAwakener={assignAwakener}
-          onAssignCovenant={assignCovenant}
-          onAssignPosse={assignPosse}
-          onAssignWheel={assignWheel}
+          onAssignAwakener={assignMobileAwakener}
+          onAssignCovenant={assignMobileCovenant}
+          onAssignPosse={assignMobilePosse}
+          onAssignWheel={assignMobileWheel}
           onOpenAwakenerDetail={openAwakenerDetail}
           onOpenCovenantDetail={openCovenantDetail}
           onOpenPosseDetail={openPosseDetail}
@@ -290,7 +297,7 @@ export function BuilderV2MobileLayout({
           model={model}
           onTeamActivated={handleMobileTeamActivated}
           onOpenPicker={openPicker}
-          onStartQuickLineup={startQuickLineup}
+          onStartQuickLineup={startMobileQuickLineup}
         />
       )}
 
@@ -299,10 +306,10 @@ export function BuilderV2MobileLayout({
           isDetailOverlayOpen={isDetailOverlayOpen}
           mobilePicker={activeMobilePicker}
           model={model}
-          onAssignAwakener={assignAwakener}
-          onAssignCovenant={assignCovenant}
-          onAssignPosse={assignPosse}
-          onAssignWheel={assignWheel}
+          onAssignAwakener={assignMobileAwakener}
+          onAssignCovenant={assignMobileCovenant}
+          onAssignPosse={assignMobilePosse}
+          onAssignWheel={assignMobileWheel}
           onClosePicker={closePicker}
           onOpenAwakenerDetail={openAwakenerDetail}
           onOpenCovenantDetail={openCovenantDetail}
@@ -349,38 +356,135 @@ function MobilePickerDialog({
 }) {
   const dialogRef = useRef<HTMLDialogElement | null>(null)
   const closeButtonRef = useRef<HTMLButtonElement | null>(null)
+  const {
+    activeSelection,
+    activeTeamId,
+    activeTeamName,
+    activeTeamTarget,
+    selectAwakenerSlot,
+    selectCovenantSlot,
+    selectPosse,
+    selectWheelSlot,
+    setActiveTeam,
+    setPickerTab,
+    slots,
+  } = model
   const activeSlot = mobilePicker.slotId
-    ? (model.slots.find((slot) => slot.slotId === mobilePicker.slotId) ?? null)
+    ? (slots.find((slot) => slot.slotId === mobilePicker.slotId) ?? null)
     : null
   const updateSlotPickerTarget = useCallback(
     (target: MobilePickerTargetConfig) => {
       if (!target.isTargetSelected) {
         target.selectTarget()
       }
-      model.setPickerTab(target.tab)
+      setPickerTab(target.tab)
       if (target.slotId) {
         onUpdateMobilePickerTarget(target.slotId, target.tab, target.title)
       }
     },
-    [model, onUpdateMobilePickerTarget],
+    [onUpdateMobilePickerTarget, setPickerTab],
   )
   const selectSlotAwakenerTarget = useCallback(
     (slotId: string) => {
-      updateSlotPickerTarget(resolveMobilePickerTarget(model, {kind: 'slot', slotId}))
+      updateSlotPickerTarget(
+        resolveMobilePickerTarget(
+          {
+            activeSelection,
+            activeTeamId,
+            activeTeamName,
+            activeTeamTarget,
+            selectAwakenerSlot,
+            selectCovenantSlot,
+            selectPosse,
+            selectWheelSlot,
+            setActiveTeam,
+            slots,
+          },
+          {kind: 'slot', slotId},
+        ),
+      )
     },
-    [model, updateSlotPickerTarget],
+    [
+      activeSelection,
+      activeTeamId,
+      activeTeamName,
+      activeTeamTarget,
+      selectAwakenerSlot,
+      selectCovenantSlot,
+      selectPosse,
+      selectWheelSlot,
+      setActiveTeam,
+      slots,
+      updateSlotPickerTarget,
+    ],
   )
   const selectSlotWheelTarget = useCallback(
     (slotId: string, wheelIndex: WheelSlotIndex) => {
-      updateSlotPickerTarget(resolveMobilePickerTarget(model, {kind: 'wheel', slotId, wheelIndex}))
+      updateSlotPickerTarget(
+        resolveMobilePickerTarget(
+          {
+            activeSelection,
+            activeTeamId,
+            activeTeamName,
+            activeTeamTarget,
+            selectAwakenerSlot,
+            selectCovenantSlot,
+            selectPosse,
+            selectWheelSlot,
+            setActiveTeam,
+            slots,
+          },
+          {kind: 'wheel', slotId, wheelIndex},
+        ),
+      )
     },
-    [model, updateSlotPickerTarget],
+    [
+      activeSelection,
+      activeTeamId,
+      activeTeamName,
+      activeTeamTarget,
+      selectAwakenerSlot,
+      selectCovenantSlot,
+      selectPosse,
+      selectWheelSlot,
+      setActiveTeam,
+      slots,
+      updateSlotPickerTarget,
+    ],
   )
   const selectSlotCovenantTarget = useCallback(
     (slotId: string) => {
-      updateSlotPickerTarget(resolveMobilePickerTarget(model, {kind: 'covenant', slotId}))
+      updateSlotPickerTarget(
+        resolveMobilePickerTarget(
+          {
+            activeSelection,
+            activeTeamId,
+            activeTeamName,
+            activeTeamTarget,
+            selectAwakenerSlot,
+            selectCovenantSlot,
+            selectPosse,
+            selectWheelSlot,
+            setActiveTeam,
+            slots,
+          },
+          {kind: 'covenant', slotId},
+        ),
+      )
     },
-    [model, updateSlotPickerTarget],
+    [
+      activeSelection,
+      activeTeamId,
+      activeTeamName,
+      activeTeamTarget,
+      selectAwakenerSlot,
+      selectCovenantSlot,
+      selectPosse,
+      selectWheelSlot,
+      setActiveTeam,
+      slots,
+      updateSlotPickerTarget,
+    ],
   )
 
   useNativeModalDialog({
