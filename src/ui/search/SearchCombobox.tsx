@@ -127,7 +127,6 @@ export function SearchCombobox<TResult>({
           placeholder={placeholder}
           ref={inputRef}
           /* APG editable combobox keeps DOM focus on the text input. */
-          /* react-doctor-disable-next-line no-redundant-roles, react-doctor/no-redundant-roles */
           role='combobox'
           spellCheck={false}
           type='text'
@@ -140,7 +139,6 @@ export function SearchCombobox<TResult>({
             className='ui-scrollbar max-h-72 overflow-y-auto py-1'
             id={resultsId}
             /* Custom rich options need ARIA listbox behavior that datalist cannot provide. */
-            /* react-doctor-disable-next-line prefer-tag-over-role, react-doctor/prefer-tag-over-role */
             role='listbox'
           >
             {results.map((result, index) => {

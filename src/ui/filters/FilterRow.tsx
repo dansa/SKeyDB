@@ -24,7 +24,6 @@ export function FilterRow({
       aria-labelledby={labelId}
       className='flex flex-col gap-1.5 sm:flex-row sm:items-start sm:gap-3'
       /* <address> would mean contact info; FilterRow is a reusable labelled control group. */
-      /* react-doctor-disable-next-line prefer-tag-over-role, react-doctor/prefer-tag-over-role */
       role='group'
     >
       <div className={visuallyHideLabel ? 'sr-only' : 'shrink-0 sm:w-20 sm:pt-1.5'}>

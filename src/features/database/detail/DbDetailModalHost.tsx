@@ -332,19 +332,18 @@ function DbDetailOverlayModal({
     }),
   )
   // Overlay refs can outlive the current public catalog; stale refs are pruned below.
-  // react-doctor-disable-next-line no-event-handler, react-doctor/no-event-handler
   const overlayAwakenerTab = resolveOverlayAwakenerTab(activeRefKey, overlayAwakenerTabState)
   const detailRefLookup = useMemo(
-    // react-doctor-disable-next-line no-event-handler, react-doctor/no-event-handler
     () => createDatabaseDetailCatalogLookup({awakeners, relics, wheels}),
     [awakeners, relics, wheels],
   )
-  const routeItem =
-    // react-doctor-disable-next-line no-event-handler, react-doctor/no-event-handler
-    resolveDatabaseDetailOverlayRouteItem(activeRef, detailRefLookup, overlayAwakenerTab)
+  const routeItem = resolveDatabaseDetailOverlayRouteItem(
+    activeRef,
+    detailRefLookup,
+    overlayAwakenerTab,
+  )
 
   useEffect(() => {
-    // react-doctor-disable-next-line no-event-handler, react-doctor/no-event-handler
     if (!routeItem) {
       dbDetailStore.getState().popDetail()
     }
@@ -432,13 +431,10 @@ function DbDetailOverlayModalContent<Kind extends DatabaseDetailKind>({
   wheels,
 }: DbDetailOverlayModalContentProps<Kind>) {
   // Public detail records can disappear between overlay open and async load completion.
-  // react-doctor-disable-next-line no-event-handler, react-doctor/no-event-handler
   const registryEntry = dbDetailRegistry[kind]
-  // react-doctor-disable-next-line no-event-handler, react-doctor/no-event-handler
   const {isLoading, record} = useDatabaseDetailRecord({id, loadRecord: registryEntry.loadRecord})
 
   useEffect(() => {
-    // react-doctor-disable-next-line no-event-handler, react-doctor/no-event-handler
     if (!isLoading && !record) {
       dbDetailStore.getState().popDetail()
     }

@@ -136,7 +136,6 @@ function DatabaseLoreRedaction({level}: {level: 1 | 2 | 3 | 4}) {
       aria-label='Redacted lore text'
       className='mx-[0.08em] inline-flex translate-y-[0.08em] items-end gap-px align-baseline'
       /* This wraps several aria-hidden inline SVG glyphs into one labelled image token. */
-      /* react-doctor-disable-next-line prefer-tag-over-role, react-doctor/prefer-tag-over-role */
       role='img'
     >
       {glyphs.map((glyphKey, glyphIndex) => {

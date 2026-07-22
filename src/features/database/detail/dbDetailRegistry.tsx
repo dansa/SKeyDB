@@ -1,4 +1,4 @@
-/* oxlint-disable react/only-export-components */
+/* oxlint-disable react/only-export-components -- This registry intentionally colocates lazy detail components with the non-component routing and preload API that owns them. */
 import {lazy, type ReactNode} from 'react'
 
 import type {Awakener} from '@/domain/awakeners'
