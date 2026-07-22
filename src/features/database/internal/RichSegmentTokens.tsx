@@ -150,7 +150,7 @@ export function OverlayTokenLabel({
   }
 
   return (
-    <span className='inline whitespace-nowrap' title={title}>
+    <span className='whitespace-nowrap' title={title}>
       <img
         alt=''
         aria-hidden='true'

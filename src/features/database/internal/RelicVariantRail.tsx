@@ -96,13 +96,13 @@ export function RelicVariantRail({
         {scrollEdges.top ? (
           <div
             aria-hidden
-            className='pointer-events-none absolute inset-x-0 top-0 h-5 bg-gradient-to-b from-slate-950 to-transparent'
+            className='pointer-events-none absolute inset-x-0 top-0 h-5 bg-linear-to-b from-slate-950 to-transparent'
           />
         ) : null}
         {scrollEdges.bottom ? (
           <div
             aria-hidden
-            className='pointer-events-none absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-slate-950 to-transparent'
+            className='pointer-events-none absolute inset-x-0 bottom-0 h-6 bg-linear-to-t from-slate-950 to-transparent'
           />
         ) : null}
       </div>

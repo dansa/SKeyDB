@@ -88,7 +88,7 @@ export function AwakenerDetailSidebar({
   return (
     <div className='flex shrink-0 flex-col gap-2.5'>
       {!compact ? (
-        <div className='h-[16.5rem] w-full overflow-hidden border border-slate-500/40 bg-gradient-to-b from-slate-800 to-slate-900 lg:h-[17.5rem]'>
+        <div className='h-[16.5rem] w-full overflow-hidden border border-slate-500/40 bg-linear-to-b from-slate-800 to-slate-900 lg:h-[17.5rem]'>
           {cardAsset && onOpenFullArt ? (
             <button
               aria-label={fullArtLabel}

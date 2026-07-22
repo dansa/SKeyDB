@@ -345,7 +345,7 @@ export function EventCard({event, now, onOpenDetail, priceMode = 'silver-prime'}
             <div className='absolute inset-0'>
               <EventArtSlice art={featuredArt} isEnded={isEnded} />
             </div>
-            <div className='pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-slate-950/60' />
+            <div className='pointer-events-none absolute inset-0 bg-linear-to-r from-transparent via-transparent to-slate-950/60' />
           </div>
         ) : null}
         <div className='relative flex min-w-0 flex-1 flex-col px-3.5 py-3 sm:px-4'>

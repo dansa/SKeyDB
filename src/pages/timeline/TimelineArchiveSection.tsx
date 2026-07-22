@@ -15,7 +15,7 @@ interface TimelineArchiveSectionProps {
 }
 
 const DEFAULT_ARCHIVE_DIVIDER_CLASS =
-  'bg-gradient-to-r from-amber-200/15 via-slate-500/20 to-transparent'
+  'bg-linear-to-r from-amber-200/15 via-slate-500/20 to-transparent'
 
 export function TimelineArchiveSection({
   children,

@@ -13,7 +13,7 @@ export function TimelinePageSection({children, title}: TimelinePageSectionProps)
           <span aria-hidden className='block size-1.5 bg-amber-200/60' />
           <h2 className='ui-title text-sm tracking-[0.16em] text-amber-100 uppercase'>{title}</h2>
         </div>
-        <div className='h-px flex-1 bg-gradient-to-r from-amber-200/25 via-slate-600/30 to-transparent' />
+        <div className='h-px flex-1 bg-linear-to-r from-amber-200/25 via-slate-600/30 to-transparent' />
       </div>
       {children}
     </section>

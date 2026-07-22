@@ -3,7 +3,7 @@ interface TimelineSectionHeaderProps {
 }
 
 const TIMELINE_SECTION_DIVIDER_CLASS =
-  'bg-gradient-to-r from-amber-200/20 via-slate-500/25 to-transparent'
+  'bg-linear-to-r from-amber-200/20 via-slate-500/25 to-transparent'
 
 export function TimelineSectionHeader({title}: TimelineSectionHeaderProps) {
   return (

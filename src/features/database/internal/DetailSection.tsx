@@ -52,7 +52,7 @@ export function DetailSection({
           {items.map((item, index) => (
             <div key={item.key}>
               {index > 0 ? (
-                <div className='mx-4 h-px bg-gradient-to-r from-slate-600/50 via-slate-600/20 to-transparent' />
+                <div className='mx-4 h-px bg-linear-to-r from-slate-600/50 via-slate-600/20 to-transparent' />
               ) : null}
               <div className='px-4 py-2.5'>
                 <div className='flex items-start justify-between gap-3'>
