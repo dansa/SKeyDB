@@ -10,6 +10,14 @@ interface ScrollToTopButtonProps {
   routeKey: string
 }
 
+function scrollToTop() {
+  const reducedMotion =
+    typeof window.matchMedia === 'function' &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+  window.scrollTo({behavior: reducedMotion ? 'auto' : 'smooth', top: 0})
+}
+
 export function ScrollToTopButton({routeKey}: ScrollToTopButtonProps) {
   const [visible, setVisible] = useState(false)
 
@@ -55,14 +63,6 @@ export function ScrollToTopButton({routeKey}: ScrollToTopButtonProps) {
       resizeObserver?.disconnect()
     }
   }, [routeKey, updateVisibility])
-
-  const scrollToTop = () => {
-    const reducedMotion =
-      typeof window.matchMedia === 'function' &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches
-
-    window.scrollTo({behavior: reducedMotion ? 'auto' : 'smooth', top: 0})
-  }
 
   return (
     <button
