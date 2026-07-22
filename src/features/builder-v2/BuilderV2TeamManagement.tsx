@@ -30,6 +30,7 @@ import {
   type BuilderV2DropTargetDescriptor,
   type BuilderV2TeamDragPreviewDescriptor,
 } from './builder-v2-dnd'
+import type {BuilderV2TeamSlotEditTarget} from './builder-v2-editing-mode'
 import {useBuilderV2DndEnabled} from './BuilderV2DndCapability'
 import {formatBuilderV2EnlightenLabel} from './BuilderV2EnlightenLabel'
 import type {
@@ -77,11 +78,6 @@ const teamPreviewModeOptions = [
   {value: 'compact', label: 'Compact'},
   {value: 'expanded', label: 'Expanded'},
 ] as const
-
-export type BuilderV2TeamSlotEditTarget =
-  | {kind: 'awakener'}
-  | {kind: 'wheel'; wheelIndex: WheelSlotIndex}
-  | {kind: 'covenant'}
 
 const teamSortTransition = {
   duration: 180,

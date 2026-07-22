@@ -16,6 +16,11 @@ import {BuilderTransferConfirmDialog} from '../builder/BuilderTransferConfirmDia
 import {allAwakeners} from '../builder/constants'
 import type {BuilderV2DropTargetDescriptor} from './builder-v2-dnd'
 import {
+  selectBuilderV2TeamPosseEditTarget,
+  selectBuilderV2TeamSlotEditTarget,
+  type BuilderV2TeamSlotEditTarget,
+} from './builder-v2-editing-mode'
+import {
   getBuilderV2ActiveWorkspaceClassName,
   getBuilderV2TeamRailDensity,
 } from './builder-v2-team-rail-density'
@@ -28,7 +33,7 @@ import {BuilderV2DragOverlay} from './BuilderV2DragOverlay'
 import {BuilderV2ImportExportActions} from './BuilderV2ImportExportActions'
 import {BuilderV2MobileLayout} from './BuilderV2MobileLayout'
 import type {BuilderV2TeamSummary, BuilderV2TeamSummarySlot} from './BuilderV2ModelTypes'
-import {BuilderV2TeamManagement, type BuilderV2TeamSlotEditTarget} from './BuilderV2TeamManagement'
+import {BuilderV2TeamManagement} from './BuilderV2TeamManagement'
 import {BuilderV2TeamRail} from './BuilderV2TeamRail'
 import {BuilderV2TeamSlots} from './BuilderV2TeamSlots'
 import {useBuilderV2Dnd} from './useBuilderV2Dnd'
@@ -124,24 +129,18 @@ export function BuilderV2Page() {
       _restoreTarget: HTMLElement | null,
       target: BuilderV2TeamSlotEditTarget = {kind: 'awakener'},
     ) => {
-      const isCurrentTarget = isTeamSlotEditTargetSelected({
-        activeSelection,
-        activeTeamId,
+      selectBuilderV2TeamSlotEditTarget({
+        commands: {
+          selectAwakenerSlot,
+          selectCovenantSlot,
+          selectWheelSlot,
+          setActiveTeam,
+        },
         slotId: slot.slotId,
+        state: {activeSelection, activeTeamId},
         target,
         teamId: team.id,
       })
-
-      if (activeTeamId !== team.id) {
-        setActiveTeam(team.id)
-      }
-      if (!isCurrentTarget) {
-        selectBuilderV2TeamSlotTarget(
-          {selectAwakenerSlot, selectCovenantSlot, selectWheelSlot},
-          slot.slotId,
-          target,
-        )
-      }
     },
     [
       activeSelection,
@@ -154,14 +153,11 @@ export function BuilderV2Page() {
   )
   const selectTeamListPosse = useCallback(
     (team: BuilderV2TeamSummary) => {
-      const isCurrentTarget = activeTeamId === team.id && activeTeamTarget?.kind === 'posse'
-
-      if (activeTeamId !== team.id) {
-        setActiveTeam(team.id)
-      }
-      if (!isCurrentTarget) {
-        selectPosse()
-      }
+      selectBuilderV2TeamPosseEditTarget({
+        commands: {selectPosse, setActiveTeam},
+        state: {activeTeamId, activeTeamTarget},
+        teamId: team.id,
+      })
     },
     [activeTeamId, activeTeamTarget, selectPosse, setActiveTeam],
   )
@@ -426,54 +422,6 @@ function BuilderV2DndBoundary({
       />
     </DndContext>
   )
-}
-
-function isTeamSlotEditTargetSelected({
-  activeSelection,
-  activeTeamId,
-  slotId,
-  target,
-  teamId,
-}: {
-  activeSelection: ReturnType<typeof useBuilderV2Model>['activeSelection']
-  activeTeamId: string
-  slotId: string
-  target: BuilderV2TeamSlotEditTarget
-  teamId: string
-}) {
-  if (activeTeamId !== teamId || activeSelection?.slotId !== slotId) {
-    return false
-  }
-
-  switch (target.kind) {
-    case 'awakener':
-      return activeSelection.kind === 'awakener'
-    case 'covenant':
-      return activeSelection.kind === 'covenant'
-    case 'wheel':
-      return activeSelection.kind === 'wheel' && activeSelection.wheelIndex === target.wheelIndex
-  }
-}
-
-function selectBuilderV2TeamSlotTarget(
-  commands: Pick<
-    ReturnType<typeof useBuilderV2Model>,
-    'selectAwakenerSlot' | 'selectCovenantSlot' | 'selectWheelSlot'
-  >,
-  slotId: string,
-  target: BuilderV2TeamSlotEditTarget,
-) {
-  switch (target.kind) {
-    case 'awakener':
-      commands.selectAwakenerSlot(slotId)
-      return
-    case 'covenant':
-      commands.selectCovenantSlot(slotId)
-      return
-    case 'wheel':
-      commands.selectWheelSlot(slotId, target.wheelIndex)
-      return
-  }
 }
 
 function useBuilderV2ViewportMode() {

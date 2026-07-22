@@ -5,6 +5,11 @@ import {FaChevronDown, FaChevronUp} from 'react-icons/fa6'
 import type {WheelSlotIndex} from '../builder/types'
 import type {BuilderV2DropTargetDescriptor} from './builder-v2-dnd'
 import {
+  selectBuilderV2TeamPosseEditTarget,
+  selectBuilderV2TeamSlotEditTarget,
+  type BuilderV2TeamSlotEditTarget,
+} from './builder-v2-editing-mode'
+import {
   getBuilderV2ActiveWorkspaceClassName,
   getBuilderV2TeamRailDensity,
 } from './builder-v2-team-rail-density'
@@ -16,7 +21,7 @@ import type {
   BuilderV2TeamSummary,
   BuilderV2TeamSummarySlot,
 } from './BuilderV2ModelTypes'
-import {BuilderV2TeamManagement, type BuilderV2TeamSlotEditTarget} from './BuilderV2TeamManagement'
+import {BuilderV2TeamManagement} from './BuilderV2TeamManagement'
 import {BuilderV2TeamRail} from './BuilderV2TeamRail'
 import {BuilderV2TeamSlots} from './BuilderV2TeamSlots'
 
@@ -359,24 +364,18 @@ function useAdaptiveTeamManagementShortcuts(
       restoreTarget: HTMLElement | null,
       target: BuilderV2TeamSlotEditTarget = {kind: 'awakener'},
     ) => {
-      const isCurrentTarget = isTeamSlotEditTargetSelected({
-        activeSelection,
-        activeTeamId,
+      selectBuilderV2TeamSlotEditTarget({
+        commands: {
+          selectAwakenerSlot,
+          selectCovenantSlot,
+          selectWheelSlot,
+          setActiveTeam,
+        },
         slotId: slot.slotId,
+        state: {activeSelection, activeTeamId},
         target,
         teamId: team.id,
       })
-
-      if (activeTeamId !== team.id) {
-        setActiveTeam(team.id)
-      }
-      if (!isCurrentTarget) {
-        selectBuilderV2TeamSlotTarget(
-          {selectAwakenerSlot, selectCovenantSlot, selectWheelSlot},
-          slot.slotId,
-          target,
-        )
-      }
       openPicker(restoreTarget, {ensureTarget: false})
     },
     [
@@ -392,63 +391,15 @@ function useAdaptiveTeamManagementShortcuts(
 
   const selectTeamListPosseAndOpenPicker = useCallback(
     (team: BuilderV2TeamSummary, restoreTarget: HTMLElement | null) => {
-      const isCurrentTarget = activeTeamId === team.id && activeTeamTarget?.kind === 'posse'
-
-      if (activeTeamId !== team.id) {
-        setActiveTeam(team.id)
-      }
-      if (!isCurrentTarget) {
-        selectPosse()
-      }
+      selectBuilderV2TeamPosseEditTarget({
+        commands: {selectPosse, setActiveTeam},
+        state: {activeTeamId, activeTeamTarget},
+        teamId: team.id,
+      })
       openPicker(restoreTarget, {ensureTarget: false})
     },
     [activeTeamId, activeTeamTarget, openPicker, selectPosse, setActiveTeam],
   )
 
   return {selectTeamListPosseAndOpenPicker, selectTeamListSlotAndOpenPicker}
-}
-
-function isTeamSlotEditTargetSelected({
-  activeSelection,
-  activeTeamId,
-  slotId,
-  target,
-  teamId,
-}: {
-  activeSelection: BuilderV2Model['activeSelection']
-  activeTeamId: string
-  slotId: string
-  target: BuilderV2TeamSlotEditTarget
-  teamId: string
-}) {
-  if (activeTeamId !== teamId || activeSelection?.slotId !== slotId) {
-    return false
-  }
-
-  switch (target.kind) {
-    case 'awakener':
-      return activeSelection.kind === 'awakener'
-    case 'covenant':
-      return activeSelection.kind === 'covenant'
-    case 'wheel':
-      return activeSelection.kind === 'wheel' && activeSelection.wheelIndex === target.wheelIndex
-  }
-}
-
-function selectBuilderV2TeamSlotTarget(
-  commands: Pick<BuilderV2Model, 'selectAwakenerSlot' | 'selectCovenantSlot' | 'selectWheelSlot'>,
-  slotId: string,
-  target: BuilderV2TeamSlotEditTarget,
-) {
-  switch (target.kind) {
-    case 'awakener':
-      commands.selectAwakenerSlot(slotId)
-      return
-    case 'covenant':
-      commands.selectCovenantSlot(slotId)
-      return
-    case 'wheel':
-      commands.selectWheelSlot(slotId, target.wheelIndex)
-      return
-  }
 }
