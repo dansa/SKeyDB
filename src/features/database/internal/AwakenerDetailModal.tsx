@@ -245,7 +245,7 @@ function AwakenerDetailMobilePortrait({
   onOpenFullArt,
   portrait,
 }: AwakenerDetailMobilePortraitProps) {
-  const className = `h-14 w-14 shrink-0 overflow-hidden border border-slate-500/40 bg-gradient-to-b from-slate-800 to-slate-900 ${
+  const className = `h-14 w-14 shrink-0 overflow-hidden border border-slate-500/40 bg-linear-to-b from-slate-800 to-slate-900 ${
     isMobileHeader ? '' : 'hidden'
   }`
   const portraitContent = portrait ? (

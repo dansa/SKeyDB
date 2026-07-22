@@ -57,7 +57,7 @@
   "devDependencies": {
     "@playwright/test": "^1.61.1",
     "@tailwindcss/vite": "^4.3.2",
-    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/jest-dom": "7.0.0",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^14.6.1",
     "@types/node": "^26.1.1",
@@ -68,18 +68,13 @@
     "oxfmt": "0.59.0",
     "oxlint": "1.74.0",
     "oxlint-tsgolint": "0.25.0",
-    "react-doctor": "0.8.1",
+    "react-doctor": "0.8.3",
     "sharp": "^0.35.3",
     "simple-git-hooks": "^2.13.1",
     "tailwindcss": "^4.3.2",
     "typescript": "^7.0.2",
     "vite": "^8.1.4",
     "vitest": "^4.1.10"
-  },
-  "overrides": {
-    "brace-expansion": "5.0.6",
-    "flatted": "3.4.2",
-    "rollup": "^4.59.0"
   },
   "simple-git-hooks": {
     "pre-commit": "npm run verify:pre-commit"

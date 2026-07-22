@@ -1,5 +1,6 @@
 import {createEmptyTeamSlots} from '@/features/builder/constants'
 import type {Team, TeamSlot} from '@/features/builder/types'
+import {createUuid} from '@/lib/uuid'
 
 import {getAwakeners} from './awakeners'
 import {buildIngameTokenDictionaries} from './ingame-token-dictionaries'
@@ -445,7 +446,7 @@ export function decodeIngameTeamCode(code: string): DecodedIngameTeamCode {
 
   return {
     team: {
-      id: `ingame-import-${crypto.randomUUID()}`,
+      id: `ingame-import-${createUuid()}`,
       name: 'Imported Team',
       slots,
       posseId,

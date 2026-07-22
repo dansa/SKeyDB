@@ -62,6 +62,24 @@
 
 .database-grid-card-frame {
   min-width: 0;
+  content-visibility: auto;
+  contain-intrinsic-block-size: auto 10rem;
+}
+
+.database-grid-card-frame[data-near-viewport] {
+  content-visibility: visible;
+}
+
+.database-grid-card-frame[data-card-variant='square-art'] {
+  contain-intrinsic-block-size: auto 9rem;
+}
+
+.database-grid-card-frame[data-card-variant='dossier'] {
+  contain-intrinsic-block-size: auto 5.5rem;
+}
+
+.database-grid-card-frame[data-card-variant='poster'] {
+  contain-intrinsic-block-size: auto 13rem;
 }
 
 .database-grid-card__surface {
@@ -318,18 +336,21 @@
 }
 
 .database-card-grid[data-grid-layout='square-art'] {
-  --database-square-art-card-min: clamp(5.5rem, 24%, 6.5rem);
+  --database-square-art-card-min: 6.75rem;
   --database-square-art-card-max: 9.0625rem;
   --database-square-art-gap: clamp(0.5rem, 1.4vw, 0.75rem);
 
   grid-template-columns: repeat(
     auto-fit,
-    minmax(
-      min(100%, var(--database-square-art-card-min)),
-      min(100%, var(--database-square-art-card-max))
-    )
+    minmax(min(100%, var(--database-square-art-card-min)), 1fr)
   );
   gap: var(--database-square-art-gap);
+}
+
+.database-grid-card-frame[data-card-variant='square-art'] {
+  width: 100%;
+  max-width: var(--database-square-art-card-max);
+  justify-self: center;
 }
 
 .database-grid-card-frame[data-card-variant='square-art'] .database-grid-card__surface {

@@ -17,6 +17,7 @@ import {DatabaseRouteElements} from './features/database/routes'
 import {FeedbackControl} from './features/feedback/FeedbackMenu'
 import {DomainMigrationNotice} from './features/migration/DomainMigrationNotice'
 import {HomePage} from './pages/HomePage'
+import {ScrollToTopButton} from './ui/navigation/ScrollToTopButton'
 
 const BuilderPage = lazy(() =>
   import('./features/builder/BuilderPage').then((module) => ({default: module.BuilderPage})),
@@ -375,6 +376,7 @@ function App() {
           </Suspense>
         </StaleChunkErrorBoundary>
       </main>
+      <ScrollToTopButton routeKey={locationKey} />
     </div>
   )
 }

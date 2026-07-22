@@ -1,5 +1,6 @@
 import {createEmptyTeamSlots} from '@/features/builder/constants'
 import type {Team, TeamSlot} from '@/features/builder/types'
+import {createUuid} from '@/lib/uuid'
 
 import {getAwakeners} from './awakeners'
 import {getCovenants} from './covenants'
@@ -429,7 +430,7 @@ function decodeTeam(
 
   return {
     team: {
-      id: `imported-team-${String(teamIndex)}-${crypto.randomUUID()}`,
+      id: `imported-team-${String(teamIndex)}-${createUuid()}`,
       name: `Team ${String(teamIndex + 1)}`,
       slots,
       posseId,

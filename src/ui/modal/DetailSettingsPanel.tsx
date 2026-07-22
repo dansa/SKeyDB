@@ -113,7 +113,10 @@ export function DetailSettingsPanel({
                   event.currentTarget.value = String(accountLevel)
                 }}
                 onChange={(event) => {
-                  onAccountLevelChange(Number(event.target.value))
+                  const nextAccountLevel = event.currentTarget.valueAsNumber
+                  if (Number.isFinite(nextAccountLevel)) {
+                    onAccountLevelChange(nextAccountLevel)
+                  }
                 }}
                 step={1}
                 type='number'

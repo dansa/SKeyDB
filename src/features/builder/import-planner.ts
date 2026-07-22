@@ -1,5 +1,6 @@
 import {getAwakenerIdentityKeyById} from '@/domain/awakener-identity'
 import type {DecodedImport} from '@/domain/import-export'
+import {createUuid} from '@/lib/uuid'
 
 import {createEmptyTeamSlots} from './constants'
 import {MAX_TEAMS} from './team-collection'
@@ -169,7 +170,7 @@ function withFreshImportedTeam(currentTeams: Team[], team: Team): Team {
   }))
   return {
     ...team,
-    id: `team-${crypto.randomUUID()}`,
+    id: `team-${createUuid()}`,
     name: normalizeImportedTeamName(currentTeams, team.name),
     slots: nextSlots,
   }

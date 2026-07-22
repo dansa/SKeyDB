@@ -1,3 +1,5 @@
+import {createUuid} from '@/lib/uuid'
+
 import {createEmptyTeamSlots} from './constants'
 import type {Team} from './types'
 
@@ -38,7 +40,7 @@ function getHighestTeamNumber(teams: Team[]) {
 
 function createTeam(name: string): Team {
   return {
-    id: `team-${crypto.randomUUID()}`,
+    id: `team-${createUuid()}`,
     name,
     slots: createEmptyTeamSlots(),
   }

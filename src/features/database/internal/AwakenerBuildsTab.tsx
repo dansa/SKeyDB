@@ -350,7 +350,7 @@ function WheelRecommendations({build}: {build: AwakenerBuild}) {
       </div>
       {hasGoodOptions ? (
         <>
-          <div className='h-px bg-gradient-to-r from-slate-600/40 via-slate-600/15 to-transparent' />
+          <div className='h-px bg-linear-to-r from-slate-600/40 via-slate-600/15 to-transparent' />
           <div>
             <p className='text-slate-300/75' style={scaledFontStyle(11)}>
               Good Options

@@ -138,7 +138,7 @@ export function HomePage() {
               {index < visibleChangelogItems.length - 1 ? (
                 <span
                   aria-hidden
-                  className='col-span-2 mt-1.5 block h-px w-full bg-gradient-to-r from-amber-200/25 via-slate-300/15 to-transparent'
+                  className='col-span-2 mt-1.5 block h-px w-full bg-linear-to-r from-amber-200/25 via-slate-300/15 to-transparent'
                 />
               ) : null}
             </li>
@@ -170,7 +170,7 @@ export function HomePage() {
             Special omega-thanks to the contributors who have helped make this project possible.
             <span
               aria-hidden
-              className='col-span-2 mt-1.5 block h-px w-full bg-gradient-to-r from-amber-200/25 via-slate-300/15 to-transparent'
+              className='col-span-2 mt-1.5 block h-px w-full bg-linear-to-r from-amber-200/25 via-slate-300/15 to-transparent'
             />
           </li>
           {[
@@ -234,7 +234,7 @@ export function HomePage() {
             It has helped us get going a lot quicker than we would have otherwise.
           </li>
           <li aria-hidden className='py-1'>
-            <span className='block h-px w-48 bg-gradient-to-r from-amber-200/45 via-slate-300/35 to-transparent' />
+            <span className='block h-px w-48 bg-linear-to-r from-amber-200/45 via-slate-300/35 to-transparent' />
           </li>
           <li>SKeyDB is an unofficial fan project and is not affiliated with Qookka Games.</li>
           <li>
