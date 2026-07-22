@@ -404,6 +404,77 @@ body,
   z-index: 1;
 }
 
+.scroll-to-top-button {
+  position: fixed;
+  right: max(1rem, calc((100vw - 1240px) / 2 + 1rem));
+  bottom: calc(1rem + env(safe-area-inset-bottom));
+  z-index: 40;
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  border: 1px solid var(--ui-control-border);
+  border-radius: var(--ui-radius-xs);
+  background:
+    linear-gradient(180deg, oklch(15% 0.032 248 / 0.96), oklch(8% 0.026 248 / 0.94)),
+    var(--ui-control-surface-strong);
+  box-shadow: var(--ui-surface-hairline);
+  color: var(--ui-control-text-hover);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(0.5rem);
+  transition:
+    opacity var(--ui-motion-duration-base) var(--ui-motion-ease),
+    transform var(--ui-motion-duration-base) var(--ui-motion-ease),
+    border-color var(--ui-motion-duration-fast) var(--ui-motion-ease-soft),
+    box-shadow var(--ui-motion-duration-fast) var(--ui-motion-ease-soft),
+    color var(--ui-motion-duration-fast) var(--ui-motion-ease-soft);
+}
+
+.scroll-to-top-button > svg {
+  width: 0.88rem;
+  height: 0.88rem;
+}
+
+.scroll-to-top-button--visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .scroll-to-top-button:hover {
+    border-color: var(--ui-control-border-hover);
+    box-shadow:
+      var(--ui-surface-hairline),
+      0 0.45rem 1rem oklch(0% 0 0 / 0.24);
+    color: var(--ui-accent-gold-soft);
+  }
+}
+
+.scroll-to-top-button:focus-visible {
+  border-color: var(--ui-control-border-hover);
+  outline: 2px solid var(--ui-focus-ring-strong);
+  outline-offset: 3px;
+  color: var(--ui-accent-gold-soft);
+}
+
+.scroll-to-top-button:active {
+  transform: translateY(0) scale(0.97);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-to-top-button {
+    transform: none;
+    transition:
+      opacity 80ms linear,
+      border-color 80ms linear,
+      box-shadow 80ms linear,
+      color 80ms linear;
+  }
+}
+
 .app-shell > [data-detail-modal-overlay] {
   position: fixed;
   z-index: 1200;

@@ -1,4 +1,4 @@
-import {useId, type CSSProperties, type ReactNode} from 'react'
+import {useEffect, useId, useRef, type CSSProperties, type ReactNode} from 'react'
 
 export type DatabaseGridCardImageTreatment = 'badge' | 'cover-top' | 'emblem' | 'wheel'
 export type DatabaseCardVariant = 'poster' | 'dossier' | 'square-art'
@@ -7,6 +7,57 @@ export type HybridDatabaseCardMode = Extract<DatabaseCardVariant, 'poster' | 'do
 type DatabaseGridCardDetailVisibility = 'all' | 'dossier' | 'poster'
 
 type RealmAccentStyle = CSSProperties & {'--realm-accent': string}
+
+const DATABASE_CARD_RENDER_ROOT_MARGIN = '900px 0px'
+let databaseCardRenderObserver: IntersectionObserver | null | undefined
+
+function getDatabaseCardRenderObserver() {
+  if (databaseCardRenderObserver !== undefined) {
+    return databaseCardRenderObserver
+  }
+
+  if (typeof IntersectionObserver === 'undefined') {
+    databaseCardRenderObserver = null
+    return databaseCardRenderObserver
+  }
+
+  databaseCardRenderObserver = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        entry.target.toggleAttribute('data-near-viewport', entry.isIntersecting)
+      }
+    },
+    {rootMargin: DATABASE_CARD_RENDER_ROOT_MARGIN},
+  )
+  return databaseCardRenderObserver
+}
+
+function useDatabaseCardRenderWindow() {
+  const frameRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const frame = frameRef.current
+    if (!frame) {
+      return
+    }
+
+    const observer = getDatabaseCardRenderObserver()
+    if (!observer) {
+      frame.setAttribute('data-near-viewport', '')
+      return () => {
+        frame.removeAttribute('data-near-viewport')
+      }
+    }
+
+    observer.observe(frame)
+    return () => {
+      observer.unobserve(frame)
+      frame.removeAttribute('data-near-viewport')
+    }
+  }, [])
+
+  return frameRef
+}
 
 interface DatabaseGridCardDetail {
   body: ReactNode
@@ -134,6 +185,7 @@ export function DatabaseGridCardFrame({
   realmAccent,
   variant,
 }: DatabaseGridCardFrameProps) {
+  const frameRef = useDatabaseCardRenderWindow()
   const titleId = useId()
   const accentStyle: RealmAccentStyle = {'--realm-accent': realmAccent}
   const resolvedDossierSrc = media.dossierSrc ?? media.posterSrc
@@ -154,6 +206,7 @@ export function DatabaseGridCardFrame({
       className='database-grid-card-frame'
       data-card-variant={variant}
       data-has-meta={content.meta ? '' : undefined}
+      ref={frameRef}
       style={accentStyle}
     >
       <div className='database-grid-card__surface'>
