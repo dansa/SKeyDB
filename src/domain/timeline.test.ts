@@ -197,6 +197,33 @@ describe('sortBannersByRelevance', () => {
 
     expect(sortedIds).toEqual(['pinned-active', 'active', 'recent-ended', 'older-pinned-ended'])
   })
+
+  it('prefers the newer active banner when pinned entries end together', () => {
+    const now = new Date('2026-07-27T01:00:00.000Z')
+    const banners: BannerEntry[] = [
+      {
+        id: 'older-collab',
+        title: 'Older Collab',
+        type: 'limited',
+        startDate: '2026-05-30T01:00:00.000Z',
+        endDate: '2026-08-24T01:00:00.000Z',
+        pinned: true,
+      },
+      {
+        id: 'new-rate-up',
+        title: 'New Rate-Up',
+        type: 'limited',
+        startDate: '2026-07-27T01:00:00.000Z',
+        endDate: '2026-08-24T01:00:00.000Z',
+        pinned: true,
+      },
+    ]
+
+    expect(sortBannersByRelevance(banners, now).map((banner) => banner.id)).toEqual([
+      'new-rate-up',
+      'older-collab',
+    ])
+  })
 })
 
 describe('sortEventsByRelevance', () => {
@@ -239,6 +266,33 @@ describe('sortEventsByRelevance', () => {
 
     const sortedIds = sortEventsByRelevance(events, now).map((event) => event.id)
     expect(sortedIds).toEqual(['pinned-active', 'active', 'upcoming', 'pinned-upcoming', 'ended'])
+  })
+
+  it('prefers the newer active event when pinned entries end together', () => {
+    const now = new Date('2026-07-27T01:00:00.000Z')
+    const events: EventEntry[] = [
+      {
+        id: 'older-collab',
+        title: 'Older Collab',
+        category: 'gameplay-event',
+        startDate: '2026-05-30T01:00:00.000Z',
+        endDate: '2026-08-24T01:00:00.000Z',
+        pinned: true,
+      },
+      {
+        id: 'new-story',
+        title: 'New Story',
+        category: 'gameplay-event',
+        startDate: '2026-07-27T01:00:00.000Z',
+        endDate: '2026-08-24T01:00:00.000Z',
+        pinned: true,
+      },
+    ]
+
+    expect(sortEventsByRelevance(events, now).map((event) => event.id)).toEqual([
+      'new-story',
+      'older-collab',
+    ])
   })
 
   it('sorts ended events by most recent end date before category priority or pinned state', () => {
