@@ -230,5 +230,47 @@
     "startDate": "2026/07/13 09:00",
     "endDate": "2026/08/10 09:00",
     "featured": ["Drowning in Crimson", "Flamebound Navigator", "Twisted Knight Ballad"]
+  },
+  {
+    "id": "banner-lotan-cetarchon",
+    "title": "Astral Reaver / Leviathan's Descent",
+    "type": "awaken",
+    "description": "Featured rate-up banners for Lotan: Cetarchon and her SSR Wheel 'Cetus Occasus'.",
+    "startDate": "2026/07/27 09:00",
+    "endDate": "2026/08/24 09:00",
+    "featured": [
+      {
+        "name": "Lotan: Cetarchon",
+        "kind": "awakener",
+        "customArt": "/banners/lotan-char-prelim.webp",
+        "detailLink": false
+      },
+      {
+        "name": "Cetus Occasus",
+        "kind": "wheel",
+        "customArt": "/banners/lotan-wheel-prelim.webp",
+        "detailLink": false
+      }
+    ],
+    "pinned": true
+  },
+  {
+    "id": "banner-triune-verdant-aug",
+    "title": "Triune Verdant",
+    "type": "rerun",
+    "description": "Three rerun banners, featuring the awakeners Horla, Doresain and Mouchette.",
+    "startDate": "2026/08/10 09:00",
+    "endDate": "2026/09/07 09:00",
+    "featured": ["Horla", "Doresain", "Mouchette"]
+  },
+  {
+    "id": "banner-sylvan-omen-aug",
+    "title": "Sylvan Omen",
+    "type": "rerun",
+    "tags": ["rerun", "wheel"],
+    "description": "Three rerun banners, featuring the Wheels The Last Verse, Kiss of Repose and Doomsday Rampage.",
+    "startDate": "2026/08/10 09:00",
+    "endDate": "2026/09/07 09:00",
+    "featured": ["The Last Verse", "Kiss of Repose", "Doomsday Rampage"]
   }
 ]

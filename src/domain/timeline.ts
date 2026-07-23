@@ -372,7 +372,11 @@ export function sortBannersByRelevance(banners: BannerEntry[], now?: Date): Bann
     if (statusA === 'ended') {
       return new Date(b.endDate).getTime() - new Date(a.endDate).getTime()
     }
-    return new Date(a.endDate).getTime() - new Date(b.endDate).getTime()
+    const endDateDiff = new Date(a.endDate).getTime() - new Date(b.endDate).getTime()
+    if (endDateDiff !== 0) {
+      return endDateDiff
+    }
+    return new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
   })
 }
 
@@ -407,6 +411,10 @@ export function sortEventsByRelevance(events: EventEntry[], now?: Date): EventEn
     if (statusA === 'upcoming') {
       return new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
     }
-    return new Date(a.endDate).getTime() - new Date(b.endDate).getTime()
+    const endDateDiff = new Date(a.endDate).getTime() - new Date(b.endDate).getTime()
+    if (endDateDiff !== 0) {
+      return endDateDiff
+    }
+    return new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
   })
 }

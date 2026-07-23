@@ -31,7 +31,7 @@ Array of event objects. Each event appears as a card in the Events section.
 | `endDate` | string | **yes** | End time in `YYYY/MM/DD HH:MM` UTC+8 |
 | `pinned` | boolean | no | Pinned events sort to the top |
 | `preliminary` | boolean | no | Marks dates, rewards, or details as provisional and shows a `Preliminary` metadata label |
-| `featured` | string | no | Awakener or wheel name — shows their art as decoration on the right edge of the card. Auto-detected: if the name matches a wheel it renders as a wheel, otherwise as an awakener |
+| `featured` | string, object, or array | no | One or more featured awakeners or wheels. Uses the same item forms as banner [`featured`](#featured-units), including explicit kinds, custom art, and detail-link opt-outs |
 | `customArt` | string | no | Custom art URL or path. Overrides `featured` art if both are set. Use for skins, special promo art, raid art, etc. Non-URL values like `"TBD"` are ignored. Paths starting with `/events/` are resolved against `src/assets/events/*` (bundled), e.g. `/events/arachne.png` |
 | `pricing` | string | no | Displays a silver pricing badge, e.g. `"960 Silver Prime"`, `"$24.99"` |
 | `artAlign` | string | no | Overrides the default art positioning. Accepts any CSS `object-position` value. See [Art Alignment](#art-alignment) below |
