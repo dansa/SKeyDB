@@ -17,7 +17,7 @@
   "acquisitionSource": "Clear Psyche Deepdive: One Step Away",
   "realm": "CHAOS",
   "lineupToken": "p",
-  "descriptionTemplate": "Search your Draw Pile for [Arg1] {plural:[Arg1]|card|cards} to put into your hand, and reduce their Arithmetica Cost by [Arg2].",
+  "descriptionTemplate": "Search your Draw Pile for [Arg1] {plural:[Arg1]|card|cards} to put into hand, and reduce their Arithmetica Cost by [Arg2].",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",

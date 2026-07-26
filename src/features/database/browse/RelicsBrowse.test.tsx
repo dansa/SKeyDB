@@ -56,7 +56,7 @@ describe('RelicsBrowse display-scope recovery', () => {
     fireEvent.click(screen.getByRole('button', {name: 'Show hidden matches'}))
 
     await waitFor(() => {
-      expect(getResultsSummary('50 of 286')).toBeInTheDocument()
+      expect(getResultsSummary('50 of 287')).toBeInTheDocument()
     })
     expect(screen.queryByText(/hidden by Display/)).not.toBeInTheDocument()
   })
@@ -80,7 +80,7 @@ describe('RelicsBrowse display-scope recovery', () => {
       `${String(defaultEventMatches.hiddenByDisplayCount)} matching relics are hidden by Display.`,
     )
     expect(
-      getResultsSummary(`${String(defaultEventMatches.relics.length)} of 286`),
+      getResultsSummary(`${String(defaultEventMatches.relics.length)} of 287`),
     ).toBeInTheDocument()
     expect(allEventMatches.relics).toHaveLength(41)
   })
@@ -99,7 +99,7 @@ describe('RelicsBrowse display-scope recovery', () => {
     fireEvent.click(screen.getByRole('button', {name: 'Show hidden matches'}))
 
     await waitFor(() => {
-      expect(getResultsSummary(`${String(allMatches.relics.length)} of 286`)).toBeInTheDocument()
+      expect(getResultsSummary(`${String(allMatches.relics.length)} of 287`)).toBeInTheDocument()
     })
     expect(screen.getByRole('button', {name: /^Events$/})).toHaveAttribute('aria-pressed', 'true')
     expect(screen.getByRole('button', {name: 'Gold'})).toHaveAttribute('aria-pressed', 'true')

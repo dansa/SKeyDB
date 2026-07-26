@@ -120,10 +120,6 @@ function addDescribedReferenceInfos<TRecord extends DescribedRecord>(
   }
 }
 
-function getDerivedSkillLabel(record: DerivedSkillRecord): string {
-  return `Derived · ${record.displayName}`
-}
-
 export {buildDatabaseOverlayLabel as buildAwakenerDatabaseOverlayLabel} from './database-reference-layer'
 
 function buildReferenceLookups(
@@ -172,7 +168,6 @@ function buildReferenceLookups(
   for (const record of globalDerivedSkills) {
     accumulator.add(
       buildDatabaseDerivedSkillReferenceInfo(record, shellView.formulaContext, {
-        label: getDerivedSkillLabel(record),
         rank: shellView.skillLevel,
         stats: shellView.stats,
       }),

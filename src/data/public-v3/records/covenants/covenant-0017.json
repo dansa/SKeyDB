@@ -26,7 +26,7 @@
     },
     {
       "set": 6,
-      "descriptionTemplate": "Team Unique: Lose 8 Black Sigils after the battle ends. At the start of the battle, shuffle a Basic Copy of each of the wielder's Basic Command Cards (except for Strike and Defense) into the Draw Pile.",
+      "descriptionTemplate": "Team Unique: Lose 8 Black Sigils after the battle ends. At the start of battle, shuffle 1 Basic Copy of each of the wielder's Command Cards, except Strike and Defense, into the Draw Pile.",
       "descriptionArgs": {}
     }
   ],

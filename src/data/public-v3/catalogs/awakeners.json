@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "awakeners",
   "kind": "awakener",
-  "recordCount": 58,
+  "recordCount": 59,
   "records": [
     {
       "kind": "awakener",
@@ -3191,6 +3191,61 @@
       "lineupToken": "xr",
       "aliases": ["pontos"],
       "searchTags": ["Tentacle DMG", "Fixed DMG", "Dispel"]
+    },
+    {
+      "kind": "awakener",
+      "id": "awakener-0059",
+      "name": "Lotan: Cetarchon",
+      "route": {
+        "slug": "lotan-cetarchon",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon"
+      },
+      "assets": {
+        "icon": "asset-awakener-0059-icon"
+      },
+      "numericId": 59,
+      "ingameId": "C04EX",
+      "realm": "CHAOS",
+      "rarity": "Genesis",
+      "type": "ASSAULT",
+      "availabilityType": "LIMITED_ASTRAL_REIGN",
+      "releaseDate": "2026-07-27",
+      "faction": "TBD",
+      "primaryScalingBase": 20,
+      "defaultPrimaryStatBonusLevel": 10,
+      "baseStatsLv1": {
+        "CON": 28,
+        "ATK": 48,
+        "DEF": 29
+      },
+      "substatsLv1": {
+        "CritRate": 5,
+        "CritDamage": 50,
+        "AliemusRegen": 0,
+        "KeyflareRegen": 15,
+        "RealmMastery": 0,
+        "SigilYield": 1.2,
+        "DamageAmplification": 0,
+        "DeathResistance": 2.8
+      },
+      "statScaling": {
+        "CON": 1.3,
+        "ATK": 2.25,
+        "DEF": 1.35
+      },
+      "substatScaling": {
+        "CritRate": 0,
+        "CritDamage": 0,
+        "AliemusRegen": 0,
+        "KeyflareRegen": 0,
+        "RealmMastery": 0,
+        "SigilYield": 1.2,
+        "DamageAmplification": 0,
+        "DeathResistance": 2.8
+      },
+      "lineupToken": "xt",
+      "aliases": ["lotan cetarchon", "cetarchon", "glotan", "rotan"],
+      "searchTags": ["STR Up"]
     }
   ]
 }

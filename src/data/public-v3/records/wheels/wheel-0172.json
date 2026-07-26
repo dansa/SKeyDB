@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 3,
+  "kind": "wheel",
+  "id": "wheel-0172",
+  "name": "Cetus Occasus",
+  "route": {
+    "slug": "cetus-occasus",
+    "canonicalPath": "/database/wheels/cetus-occasus"
+  },
+  "assets": {
+    "icon": "asset-wheel-0172-icon"
+  },
+  "rarity": "SSR",
+  "realm": "CHAOS",
+  "mainstatKey": "SIGIL_YIELD",
+  "ownerAwakenerId": "awakener-0059",
+  "ownerAwakenerName": "Lotan: Cetarchon",
+  "lineupToken": "ze",
+  "descriptionTemplate": "Team Unique: Wielder's \"Strike\" Crit. DMG increased by [StateArg1]%. At the end of the turn, the wielder's next Exalt Crit. DMG is increased by a percentage equal to [StateArg2]% of their Base Aliemus, stacking up to 5 times.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": ["30", "45", "60", "75"],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": ["11", "14", "17", "20"],
+      "suffix": "%"
+    }
+  },
+  "lore": "Since the day of its birth, It had been trapped in eternal hunger.\nCarcasses of stars cracked between Its teeth; the wreckage of civilizations rotted in Its belly. Its hunger was a curse older than time itself. Again and again It devoured power, driving Its slaves through endless games of power and desire—yet never once did It understand what Its own existence meant.\nUntil the warrior named Lotan came before It.\n\"Leviathan.\"\nIt could not remember the last time Its name had been spoken. Kneeling kings dared not utter it; mad priests could only veil it in hymns.\nBut she spoke It with ease—as if hailing a long-awaited rival.\n\"Your turn.\"\nIt had existed for twelve thousand years. Through that vast eternity, planets were sustenance, living beings mere ants, and even the mightiest warriors no more than fleeting amusements. Nothing had ever sated it. Nothing had ever made it afraid.\nUntil today.\nThis mortal, this warrior, raised her greatblade and struck like a storm.\nThe blade tore through its scales. In its ears echoed the roar of Its birth from the chaos. Its wrath sundered celestial bodies; Its hunger swallowed nebulae whole.\nThe blade severed its claws. It remembered—the goddess in the white veil, who had come before It and torn Its power from Its will.\nAnd the instant the blade pierced Its heart, Leviathan laughed.\nTwelve millennia. Its lost will had finally returned to It—to shatter, conquer, and devour It. Now she would lead It onward, across every domain and into the farther reaches of the cosmos, to conquer every power that dared stand in their way.\nOn that day, the ancient Beast of Chaos was reborn. In the instant It returned to her, It finally understood: both of them had been born of one thing alone—pure, absolute strength.\nStrength itself was the only meaning there had ever been.",
+  "searchTags": ["Aliemus", "Strike", "Crit DMG"]
+}

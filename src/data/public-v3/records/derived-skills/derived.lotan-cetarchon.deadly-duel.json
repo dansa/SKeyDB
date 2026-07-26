@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.lotan-cetarchon.deadly-duel",
+  "name": "Deadly Duel",
+  "route": {
+    "slug": "deadly-duel",
+    "canonicalPath": "/database/awakeners/lotan-cetarchon/derived-skills/deadly-duel"
+  },
+  "ownerAwakenerId": "awakener-0059",
+  "descriptionTemplate": "Draw 1 card. Lotan: Cetarchon steals up to [Arg1] Aliemus from every other Awakener on your team.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "10"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.lotan-cetarchon.uncrowned-storm.derived.lotan-cetarchon.deadly-duel",
+      "operation": "override_cost",
+      "upgraderId": "enlighten.lotan-cetarchon.uncrowned-storm",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "E3",
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "patch": {
+        "cost": "0"
+      }
+    }
+  ],
+  "ownerAwakenerName": "Lotan: Cetarchon"
+}

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 3,
+  "kind": "enlighten",
+  "id": "enlighten.lotan-cetarchon.uncrowned-storm",
+  "name": "Uncrowned Storm",
+  "route": {
+    "slug": "uncrowned-storm",
+    "canonicalPath": "/database/awakeners/lotan-cetarchon/enlightens/uncrowned-storm"
+  },
+  "ownerAwakenerId": "awakener-0059",
+  "slot": "E3",
+  "descriptionTemplate": "Doubles the DMG Bonus {Great Blade: Whalefall} provides for {Mundus Severance}. The first {Deadly Duel} played each turn no longer consumes Arithmetica.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Lotan: Cetarchon"
+}

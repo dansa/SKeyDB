@@ -59,7 +59,8 @@
       "awakener-0055",
       "awakener-0056",
       "awakener-0057",
-      "awakener-0058"
+      "awakener-0058",
+      "awakener-0059"
     ],
     "covenants": [
       "covenant-0001",
@@ -136,7 +137,8 @@
       "posse-0049",
       "posse-0050",
       "posse-0051",
-      "posse-0052"
+      "posse-0052",
+      "posse-0053"
     ],
     "relics": [
       "relic-0001",
@@ -424,7 +426,8 @@
       "relic-0302",
       "relic-0303",
       "relic-0304",
-      "relic-0305"
+      "relic-0305",
+      "relic-0306"
     ],
     "wheels": [
       "wheel-0001",
@@ -563,7 +566,10 @@
       "wheel-0168",
       "wheel-0169",
       "wheel-0170",
-      "wheel-0171"
+      "wheel-0171",
+      "wheel-0172",
+      "wheel-0173",
+      "wheel-0174"
     ]
   },
   "content": {
@@ -677,7 +683,8 @@
         "awakener-0039",
         "awakener-0042",
         "awakener-0043",
-        "awakener-0047"
+        "awakener-0047",
+        "awakener-0059"
       ],
       "ULTRA": [
         "awakener-0007",
@@ -696,7 +703,7 @@
       ]
     },
     "awakenersByRarity": {
-      "Genesis": ["awakener-0018", "awakener-0019", "awakener-0020", "awakener-0035"],
+      "Genesis": ["awakener-0018", "awakener-0019", "awakener-0020", "awakener-0035", "awakener-0059"],
       "SR": ["awakener-0013", "awakener-0031", "awakener-0038", "awakener-0042"],
       "SSR": [
         "awakener-0001",
@@ -766,7 +773,19 @@
         "posse-0047",
         "posse-0051"
       ],
-      "CHAOS": ["posse-0009", "posse-0016", "posse-0018", "posse-0022", "posse-0027", "posse-0028", "posse-0029", "posse-0030", "posse-0038", "posse-0046"],
+      "CHAOS": [
+        "posse-0009",
+        "posse-0016",
+        "posse-0018",
+        "posse-0022",
+        "posse-0027",
+        "posse-0028",
+        "posse-0029",
+        "posse-0030",
+        "posse-0038",
+        "posse-0046",
+        "posse-0053"
+      ],
       "FADED_LEGACY": ["posse-0001", "posse-0002", "posse-0003", "posse-0004", "posse-0005", "posse-0006", "posse-0008"],
       "OTHER": ["posse-0007", "posse-0033", "posse-0041", "posse-0043", "posse-0045", "posse-0048"],
       "ULTRA": ["posse-0012", "posse-0013", "posse-0017", "posse-0026", "posse-0032", "posse-0034", "posse-0036", "posse-0039", "posse-0050"]
@@ -1042,7 +1061,8 @@
         "relic-0293",
         "relic-0295",
         "relic-0301",
-        "relic-0303"
+        "relic-0303",
+        "relic-0306"
       ]
     },
     "wheelsByRealm": {
@@ -1094,7 +1114,8 @@
         "wheel-0027",
         "wheel-0028",
         "wheel-0029",
-        "wheel-0040"
+        "wheel-0040",
+        "wheel-0172"
       ],
       "NEUTRAL": [
         "wheel-0043",
@@ -1176,7 +1197,9 @@
         "wheel-0166",
         "wheel-0168",
         "wheel-0169",
-        "wheel-0170"
+        "wheel-0170",
+        "wheel-0173",
+        "wheel-0174"
       ],
       "ULTRA": [
         "wheel-0030",
@@ -1260,7 +1283,8 @@
         "wheel-0132",
         "wheel-0137",
         "wheel-0168",
-        "wheel-0169"
+        "wheel-0169",
+        "wheel-0173"
       ],
       "SSR": [
         "wheel-0001",
@@ -1335,7 +1359,9 @@
         "wheel-0166",
         "wheel-0167",
         "wheel-0170",
-        "wheel-0171"
+        "wheel-0171",
+        "wheel-0172",
+        "wheel-0174"
       ]
     }
   }

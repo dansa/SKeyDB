@@ -36,7 +36,7 @@
       "ownerAwakenerId": "awakener-0031",
       "ownerAwakenerName": "Lotan",
       "patch": {
-        "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies, gain [Power:Arg2] {STR}. Treated as \"Strike\".",
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies, gain [Power:Arg2] {STR}. Counts as a \"Strike\".",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

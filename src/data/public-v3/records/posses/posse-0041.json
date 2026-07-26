@@ -19,8 +19,7 @@
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
-      "value": "20",
-      "suffix": "%"
+      "value": "20"
     }
   },
   "lore": "Every party has its end, but the memories etched in the soul never cease. No matter how many times, when recalling this frozen moment, longing will surge like a tide."

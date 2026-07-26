@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "wheels",
   "kind": "wheel",
-  "recordCount": 137,
+  "recordCount": 140,
   "records": [
     {
       "kind": "wheel",
@@ -2498,6 +2498,60 @@
       "ownerAwakenerName": "Pontos",
       "lineupToken": "y9",
       "searchTags": ["Aliemus", "Crit DMG"]
+    },
+    {
+      "kind": "wheel",
+      "id": "wheel-0172",
+      "name": "Cetus Occasus",
+      "route": {
+        "slug": "cetus-occasus",
+        "canonicalPath": "/database/wheels/cetus-occasus"
+      },
+      "assets": {
+        "icon": "asset-wheel-0172-icon"
+      },
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "mainstatKey": "SIGIL_YIELD",
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "lineupToken": "ze",
+      "searchTags": ["Aliemus", "Strike", "Crit DMG"]
+    },
+    {
+      "kind": "wheel",
+      "id": "wheel-0173",
+      "name": "Undying Hungerbone",
+      "route": {
+        "slug": "undying-hungerbone",
+        "canonicalPath": "/database/wheels/undying-hungerbone"
+      },
+      "assets": {
+        "icon": "asset-wheel-0173-icon"
+      },
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "SIGIL_YIELD",
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "lineupToken": "zd",
+      "searchTags": ["Strike", "Crit DMG"]
+    },
+    {
+      "kind": "wheel",
+      "id": "wheel-0174",
+      "name": "Falling Upward",
+      "route": {
+        "slug": "falling-upward",
+        "canonicalPath": "/database/wheels/falling-upward"
+      },
+      "assets": {
+        "icon": "asset-wheel-0174-icon"
+      },
+      "realm": "NEUTRAL",
+      "rarity": "SSR",
+      "mainstatKey": "REALM_MASTERY",
+      "lineupToken": "zc"
     }
   ]
 }

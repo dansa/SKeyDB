@@ -3437,6 +3437,46 @@
         "faction": "TBD",
         "tags": ["dispel", "fixed-dmg", "tentacle-dmg"]
       }
+    },
+    {
+      "kind": "awakener",
+      "id": "awakener-0059",
+      "name": "Lotan: Cetarchon",
+      "aliases": ["lotan cetarchon", "cetarchon", "glotan", "rotan"],
+      "tokens": [
+        "assault",
+        "astral",
+        "cetarchon",
+        "chaos",
+        "genesis",
+        "glotan",
+        "limited",
+        "limited astral reign",
+        "lotan",
+        "lotan cetarchon",
+        "reign",
+        "rotan",
+        "str",
+        "str up",
+        "strength",
+        "strength up",
+        "tbd",
+        "up"
+      ],
+      "fields": {
+        "name": ["Lotan: Cetarchon", "lotan-cetarchon"],
+        "alias": ["lotan cetarchon", "cetarchon", "glotan", "rotan"],
+        "tag": ["str-up", "STR Up", "strength up"],
+        "facet": ["CHAOS", "Genesis", "ASSAULT", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "TBD"]
+      },
+      "facets": {
+        "realm": "CHAOS",
+        "rarity": "Genesis",
+        "type": "ASSAULT",
+        "availabilityType": "LIMITED_ASTRAL_REIGN",
+        "faction": "TBD",
+        "tags": ["str-up"]
+      }
     }
   ]
 }

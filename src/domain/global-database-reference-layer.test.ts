@@ -5,6 +5,7 @@ import {
   resolveDatabaseReferenceInfoByKindAndName,
 } from './database-reference-info'
 import {
+  buildDatabaseDerivedSkillReferenceInfo,
   buildDatabaseOverlayReferenceInfo,
   type DatabaseReferenceInfo,
 } from './database-reference-layer'
@@ -214,6 +215,32 @@ describe('hydrateGlobalDatabaseReferenceInfo', () => {
     expect(renderedText).toContain('3 Set')
     expect(renderedText).toContain('6 Set')
     expect(renderedText).toContain('Gain 1 Arithmetica')
+  })
+})
+
+describe('buildDatabaseDerivedSkillReferenceInfo', () => {
+  const record = {
+    id: 'derived.global.falling-upward',
+    displayName: 'Falling Upward',
+    aliases: [],
+    descriptionTemplate: 'Gain Aliemus.',
+    descriptionArgs: {},
+    cardKeywords: [],
+    childDerivedSkillIds: [],
+    variants: [],
+  }
+
+  it.each([
+    ['0', 'Card · Derived · Cost 0'],
+    ['3', 'Card · Derived · Cost 3'],
+  ])('includes cost %s without repeating the card name', (cost, expectedLabel) => {
+    expect(buildDatabaseDerivedSkillReferenceInfo({...record, cost}).label).toBe(expectedLabel)
+  })
+
+  it('labels synthetic groups without presenting a fake cost', () => {
+    expect(buildDatabaseDerivedSkillReferenceInfo({...record, nodeKind: 'group'}).label).toBe(
+      'Card · Derived Group',
+    )
   })
 })
 

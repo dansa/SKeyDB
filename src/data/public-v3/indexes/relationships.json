@@ -1524,6 +1524,34 @@
       ],
       "ownedOverlays": ["overlay.pontos.pack-hunt"]
     },
+    "awakener-0059": {
+      "ownedWheels": ["wheel-0172", "wheel-0173"],
+      "ownedRelics": ["relic-0306"],
+      "ownedPosses": ["posse-0053"],
+      "ownedSkills": [
+        "skill.lotan-cetarchon.defense",
+        "skill.lotan-cetarchon.long-blade-perish",
+        "skill.lotan-cetarchon.mundus-severance",
+        "skill.lotan-cetarchon.night-of-whalefall",
+        "skill.lotan-cetarchon.primeval-return",
+        "skill.lotan-cetarchon.short-blade-devour",
+        "skill.lotan-cetarchon.strike"
+      ],
+      "ownedDerivedSkills": ["derived.lotan-cetarchon.deadly-duel", "derived.lotan-cetarchon.great-blade-whalefall", "derived.lotan-cetarchon.netherblade"],
+      "ownedTalents": [
+        "talent.lotan-cetarchon.primordial-breath",
+        "talent.lotan-cetarchon.madness-omen",
+        "talent.lotan-cetarchon.soulforge-aptitude",
+        "talent.lotan-cetarchon.gnostic-potential"
+      ],
+      "ownedEnlightens": [
+        "enlighten.lotan-cetarchon.ceaseless-warlust",
+        "enlighten.lotan-cetarchon.night-of-whalefall",
+        "enlighten.lotan-cetarchon.rotting-remains",
+        "enlighten.lotan-cetarchon.the-unrivaled",
+        "enlighten.lotan-cetarchon.uncrowned-storm"
+      ]
+    },
     "awakener-build-0001": {},
     "awakener-build-0002": {},
     "awakener-build-0003": {},
@@ -1670,6 +1698,7 @@
     "derived.global.echoes-of-lost-shadows": {},
     "derived.global.echoes-of-the-past": {},
     "derived.global.embryo": {},
+    "derived.global.falling-upward": {},
     "derived.global.fleeting-beauty": {},
     "derived.global.flicker-of-humanity": {},
     "derived.global.forbidden-truth": {},
@@ -1693,6 +1722,7 @@
     "derived.global.memories-seed-of-abundance": {},
     "derived.global.memories-unfinished-wax-sculpture": {},
     "derived.global.memories-utopian-veil": {},
+    "derived.global.mortal-sojourn": {},
     "derived.global.one-way": {},
     "derived.global.palette": {},
     "derived.global.parasol": {},
@@ -1737,6 +1767,9 @@
     "derived.kathigu-ra.hyperflare": {},
     "derived.liz.corrupted-flames": {},
     "derived.liz.deadly-flames": {},
+    "derived.lotan-cetarchon.deadly-duel": {},
+    "derived.lotan-cetarchon.great-blade-whalefall": {},
+    "derived.lotan-cetarchon.netherblade": {},
     "derived.miryam.call-of-the-divine-realm": {},
     "derived.miryam.divine-realms-descent": {},
     "derived.miryam.divine-realms-illusion": {},
@@ -1934,6 +1967,11 @@
     "enlighten.liz.last-dawnlight": {},
     "enlighten.liz.omens-descent": {},
     "enlighten.liz.verdant-spark": {},
+    "enlighten.lotan-cetarchon.ceaseless-warlust": {},
+    "enlighten.lotan-cetarchon.night-of-whalefall": {},
+    "enlighten.lotan-cetarchon.rotting-remains": {},
+    "enlighten.lotan-cetarchon.the-unrivaled": {},
+    "enlighten.lotan-cetarchon.uncrowned-storm": {},
     "enlighten.lotan.primal-leviathan": {},
     "enlighten.lotan.surging-warlust": {},
     "enlighten.lotan.swords-unleashed": {},
@@ -2270,6 +2308,7 @@
     "posse-0050": {},
     "posse-0051": {},
     "posse-0052": {},
+    "posse-0053": {},
     "relic-0001": {},
     "relic-0002": {},
     "relic-0003": {},
@@ -2556,6 +2595,7 @@
     "relic-0303": {},
     "relic-0304": {},
     "relic-0305": {},
+    "relic-0306": {},
     "skill.24.aberrant-vivisection": {},
     "skill.24.defense": {},
     "skill.24.frenzied-slash": {},
@@ -2766,6 +2806,13 @@
     "skill.liz.moth-trapping-fire": {},
     "skill.liz.omens-descent": {},
     "skill.liz.strike": {},
+    "skill.lotan-cetarchon.defense": {},
+    "skill.lotan-cetarchon.long-blade-perish": {},
+    "skill.lotan-cetarchon.mundus-severance": {},
+    "skill.lotan-cetarchon.night-of-whalefall": {},
+    "skill.lotan-cetarchon.primeval-return": {},
+    "skill.lotan-cetarchon.short-blade-devour": {},
+    "skill.lotan-cetarchon.strike": {},
     "skill.lotan.battle-thirst": {},
     "skill.lotan.beast-of-chaos": {},
     "skill.lotan.blade-of-defiance": {},
@@ -3074,6 +3121,10 @@
     "talent.liz.gnostic-potential": {},
     "talent.liz.madness-omen": {},
     "talent.liz.soulforge-aptitude": {},
+    "talent.lotan-cetarchon.gnostic-potential": {},
+    "talent.lotan-cetarchon.madness-omen": {},
+    "talent.lotan-cetarchon.primordial-breath": {},
+    "talent.lotan-cetarchon.soulforge-aptitude": {},
     "talent.lotan.gnostic-potential": {},
     "talent.lotan.madness-omen": {},
     "talent.lotan.soulforge-aptitude": {},
@@ -3316,7 +3367,10 @@
     "wheel-0168": {},
     "wheel-0169": {},
     "wheel-0170": {},
-    "wheel-0171": {}
+    "wheel-0171": {},
+    "wheel-0172": {},
+    "wheel-0173": {},
+    "wheel-0174": {}
   },
   "reverse": {
     "awakener-0001": {},
@@ -3377,6 +3431,7 @@
     "awakener-0056": {},
     "awakener-0057": {},
     "awakener-0058": {},
+    "awakener-0059": {},
     "awakener-build-0001": {
       "awakenerId": "awakener-0001"
     },
@@ -3729,6 +3784,7 @@
     "derived.global.echoes-of-lost-shadows": {},
     "derived.global.echoes-of-the-past": {},
     "derived.global.embryo": {},
+    "derived.global.falling-upward": {},
     "derived.global.fleeting-beauty": {},
     "derived.global.flicker-of-humanity": {},
     "derived.global.forbidden-truth": {},
@@ -3752,6 +3808,7 @@
     "derived.global.memories-seed-of-abundance": {},
     "derived.global.memories-unfinished-wax-sculpture": {},
     "derived.global.memories-utopian-veil": {},
+    "derived.global.mortal-sojourn": {},
     "derived.global.one-way": {},
     "derived.global.palette": {},
     "derived.global.parasol": {},
@@ -3825,6 +3882,15 @@
     },
     "derived.liz.deadly-flames": {
       "ownerAwakenerId": "awakener-0030"
+    },
+    "derived.lotan-cetarchon.deadly-duel": {
+      "ownerAwakenerId": "awakener-0059"
+    },
+    "derived.lotan-cetarchon.great-blade-whalefall": {
+      "ownerAwakenerId": "awakener-0059"
+    },
+    "derived.lotan-cetarchon.netherblade": {
+      "ownerAwakenerId": "awakener-0059"
     },
     "derived.miryam.call-of-the-divine-realm": {
       "ownerAwakenerId": "awakener-0032"
@@ -4416,6 +4482,21 @@
     },
     "enlighten.liz.verdant-spark": {
       "ownerAwakenerId": "awakener-0030"
+    },
+    "enlighten.lotan-cetarchon.ceaseless-warlust": {
+      "ownerAwakenerId": "awakener-0059"
+    },
+    "enlighten.lotan-cetarchon.night-of-whalefall": {
+      "ownerAwakenerId": "awakener-0059"
+    },
+    "enlighten.lotan-cetarchon.rotting-remains": {
+      "ownerAwakenerId": "awakener-0059"
+    },
+    "enlighten.lotan-cetarchon.the-unrivaled": {
+      "ownerAwakenerId": "awakener-0059"
+    },
+    "enlighten.lotan-cetarchon.uncrowned-storm": {
+      "ownerAwakenerId": "awakener-0059"
     },
     "enlighten.lotan.primal-leviathan": {
       "ownerAwakenerId": "awakener-0031"
@@ -5217,6 +5298,9 @@
     "posse-0052": {
       "ownerAwakenerId": "awakener-0058"
     },
+    "posse-0053": {
+      "ownerAwakenerId": "awakener-0059"
+    },
     "relic-0001": {
       "ownerAwakenerId": "awakener-0001"
     },
@@ -5619,6 +5703,9 @@
     "relic-0303": {},
     "relic-0304": {},
     "relic-0305": {},
+    "relic-0306": {
+      "ownerAwakenerId": "awakener-0059"
+    },
     "skill.24.aberrant-vivisection": {
       "ownerAwakenerId": "awakener-0001"
     },
@@ -6248,6 +6335,27 @@
     },
     "skill.liz.strike": {
       "ownerAwakenerId": "awakener-0030"
+    },
+    "skill.lotan-cetarchon.defense": {
+      "ownerAwakenerId": "awakener-0059"
+    },
+    "skill.lotan-cetarchon.long-blade-perish": {
+      "ownerAwakenerId": "awakener-0059"
+    },
+    "skill.lotan-cetarchon.mundus-severance": {
+      "ownerAwakenerId": "awakener-0059"
+    },
+    "skill.lotan-cetarchon.night-of-whalefall": {
+      "ownerAwakenerId": "awakener-0059"
+    },
+    "skill.lotan-cetarchon.primeval-return": {
+      "ownerAwakenerId": "awakener-0059"
+    },
+    "skill.lotan-cetarchon.short-blade-devour": {
+      "ownerAwakenerId": "awakener-0059"
+    },
+    "skill.lotan-cetarchon.strike": {
+      "ownerAwakenerId": "awakener-0059"
     },
     "skill.lotan.battle-thirst": {
       "ownerAwakenerId": "awakener-0031"
@@ -7173,6 +7281,18 @@
     "talent.liz.soulforge-aptitude": {
       "ownerAwakenerId": "awakener-0030"
     },
+    "talent.lotan-cetarchon.gnostic-potential": {
+      "ownerAwakenerId": "awakener-0059"
+    },
+    "talent.lotan-cetarchon.madness-omen": {
+      "ownerAwakenerId": "awakener-0059"
+    },
+    "talent.lotan-cetarchon.primordial-breath": {
+      "ownerAwakenerId": "awakener-0059"
+    },
+    "talent.lotan-cetarchon.soulforge-aptitude": {
+      "ownerAwakenerId": "awakener-0059"
+    },
     "talent.lotan.gnostic-potential": {
       "ownerAwakenerId": "awakener-0031"
     },
@@ -7803,6 +7923,13 @@
     },
     "wheel-0171": {
       "ownerAwakenerId": "awakener-0058"
-    }
+    },
+    "wheel-0172": {
+      "ownerAwakenerId": "awakener-0059"
+    },
+    "wheel-0173": {
+      "ownerAwakenerId": "awakener-0059"
+    },
+    "wheel-0174": {}
   }
 }

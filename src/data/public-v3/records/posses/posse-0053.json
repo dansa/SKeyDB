@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 3,
+  "kind": "posse",
+  "id": "posse-0053",
+  "name": "Cetus-Devouring Storm",
+  "route": {
+    "slug": "cetus-devouring-storm",
+    "canonicalPath": "/database/posses/cetus-devouring-storm"
+  },
+  "assets": {
+    "icon": "asset-posse-0053-icon",
+    "crystal": "asset-posse-0053-crystal",
+    "badge": "asset-posse-0053-badge"
+  },
+  "ownerAwakenerId": "awakener-0059",
+  "ownerAwakenerName": "Lotan: Cetarchon",
+  "acquisitionSource": "Clear Psyche Deepdive: Till the Cetus Falls",
+  "realm": "CHAOS",
+  "lineupToken": "7",
+  "descriptionTemplate": "Gain [Arg2] {STR}. Choose 1 Awakener to {Steal} up to [Arg1] Aliemus from other Awakeners. If Lotan: Cetarchon is in the party, the next \"Strike\" of Lotan: Cetarchon takes effect 1 additional time.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "10"
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.03,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "The storm shatters to ruin. The storm never looks back."
+}

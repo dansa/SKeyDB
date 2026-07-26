@@ -15,7 +15,7 @@
   "aliases": [],
   "iconId": "IconS_Buff_077",
   "textColor": "damage",
-  "descriptionTemplate": "When Pickman has 10 stacks of {Creativity} and uses Exalt, he consumes all {Creativity} stacks to gain one stack of {Fantasia}. This also grants 15 Aliemus to all teammates. His {Creativity} can stack up to 10 and is preserved between battles.",
+  "descriptionTemplate": "When Pickman has 10 stacks of {Creativity} and uses Exalt, he consumes all {Creativity} stacks to gain one stack of {Fantasia}, this also grants 15 Aliemus to all teammates. His {Creativity} can stack up to 10 and is preserved between battles.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Pickman"
 }

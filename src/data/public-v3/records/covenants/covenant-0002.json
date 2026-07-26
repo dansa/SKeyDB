@@ -25,7 +25,7 @@
     },
     {
       "set": 6,
-      "descriptionTemplate": "Team Unique: Gain 35 Aliemus at the start of exploration. After using Exalt in this battle, gain 2 Aliemus at turn end. This effect can stack up to 3 times.",
+      "descriptionTemplate": "Team Unique: Gain 35 Aliemus at the start of exploration. After the wielder uses Exalt, gain 2 Aliemus at the end of each turn for the rest of the battle. This effect can stack up to 3 times.",
       "descriptionArgs": {}
     }
   ],

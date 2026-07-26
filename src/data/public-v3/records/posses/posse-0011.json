@@ -32,8 +32,7 @@
     },
     "Arg4": {
       "kind": "fixed",
-      "value": "20",
-      "suffix": "%"
+      "value": "20"
     }
   },
   "lore": "Crimson twilight, swirling sand.\n\nUpon the boundless dunes, a warrior born without hesitation bites into his wrist, returning his blood to the sky and earth."

@@ -47,7 +47,7 @@ describe('buildIngameTokenDictionaries', () => {
     expect(result.awakeners.byIdToken.size).toBeGreaterThan(40)
     expect(result.wheels.byIdToken.size).toBeGreaterThan(100)
     expect(result.covenants.byIdToken.size).toBe(21)
-    expect(result.posses.byIdToken.size).toBe(52)
+    expect(result.posses.byIdToken.size).toBe(53)
     expect(result.issues).toEqual([])
   })
 

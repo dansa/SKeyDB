@@ -26,7 +26,7 @@
     },
     {
       "set": 6,
-      "descriptionTemplate": "Team Unique: After the wielder's Command Card enters {Ultra Space}, grants {Embryo Fusion} +25~50. The lower the current HP, the higher the {Embryo Fusion} gained.",
+      "descriptionTemplate": "Team Unique: After one of the wielder's Command Cards enters {Ultra Space}, {Embryo Fusion} +25~50. The lower your current HP, the more {Embryo Fusion} is gained.",
       "descriptionArgs": {}
     }
   ],

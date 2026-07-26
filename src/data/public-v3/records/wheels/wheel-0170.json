@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0029",
   "ownerAwakenerName": "Lily",
   "lineupToken": "y0",
-  "descriptionTemplate": "Team Unique: After exploration starts, add 1 {Dreaming of Wonderland} to the deck. {Dreaming of Wonderland}: Consume 2 Arithmetica, grant the wielder [StateArg1] Aliemus and 3 stacks of {Mental Interference}. {Retain}. {Exhaust}.",
+  "descriptionTemplate": "Team Unique: After exploration starts, add 1 {derived:Dreaming of Wonderland} to the deck. {derived:Dreaming of Wonderland}: Consume 2 Arithmetica, grant the wielder [StateArg1] Aliemus and 3 stacks of {Mental Interference}. {Retain}. {Exhaust}.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

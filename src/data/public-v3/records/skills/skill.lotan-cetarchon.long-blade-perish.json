@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 3,
+  "kind": "skill",
+  "id": "skill.lotan-cetarchon.long-blade-perish",
+  "name": "Long Blade: Perish",
+  "route": {
+    "slug": "long-blade-perish",
+    "canonicalPath": "/database/awakeners/lotan-cetarchon/skills/long-blade-perish"
+  },
+  "ownerAwakenerId": "awakener-0059",
+  "slot": "Skill1",
+  "descriptionTemplate": "Counts as a \"Strike\". Deal [Damage:Arg1] DMG to all enemies [Arg3] times, which enjoys a [Arg2]% {STR} Bonus. For each \"Strike\" played this turn, the next {Long Blade: Perish} costs 1 less Arithmetica.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": ["150", "180", "210", "240", "270", "300"],
+      "stat": "ATK",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "500",
+      "suffix": "%"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "4",
+  "ownerAwakenerName": "Lotan: Cetarchon"
+}

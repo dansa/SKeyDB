@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 3,
+  "kind": "enlighten",
+  "id": "enlighten.lotan-cetarchon.rotting-remains",
+  "name": "Rotting Remains",
+  "route": {
+    "slug": "rotting-remains",
+    "canonicalPath": "/database/awakeners/lotan-cetarchon/enlightens/rotting-remains"
+  },
+  "ownerAwakenerId": "awakener-0059",
+  "slot": "E1",
+  "descriptionTemplate": "Lotan: Cetarchon's \"Strike\" Crit. Rate +10%, Base DMG +20%.\nFor every 1% Sigil Yield provided by Lotan: Cetarchon and her equipped WoD & Covenant, the Crit. Rate of \"Strike\" additionally +0.5%, and the Base DMG of \"Strike\" additionally +1%.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Lotan: Cetarchon"
+}

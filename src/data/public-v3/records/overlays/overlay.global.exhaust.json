@@ -10,6 +10,6 @@
   "overlayType": "mechanic",
   "aliases": ["Exhausted"],
   "textColor": "misc",
-  "descriptionTemplate": "After playing, This card is removed from deck instead of discarded.",
+  "descriptionTemplate": "After playing, this card is removed from deck instead of discarded.",
   "descriptionArgs": {}
 }

@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0020",
   "slot": "Exalt",
-  "descriptionTemplate": "Obtain [Arg1] Keyflare. Place the temporary copies of the last 3 different non-Derived Command Cards played in the previous turn into your hand, with -1 Arithmetica Cost, {Exhaust}, {Fleeting}. If there are not enough Command Cards to place into your hand, draw a card for each Command Card missing.",
+  "descriptionTemplate": "Obtain [Arg1] Keyflare. Place the temporary copies of the last 3 different non-Derived Command Cards played in the previous turn into hand, with -1 Arithmetica Cost, {Exhaust}, {Fleeting}. If there are not enough Command Cards to place into hand, draw a card for each Command Card missing.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -28,7 +28,7 @@
       "ownerAwakenerId": "awakener-0020",
       "ownerAwakenerName": "Ramona: Timeworn",
       "patch": {
-        "descriptionTemplate": "Obtain [Arg1] Keyflare. Place the temporary copies of the last 3 different non-Derived Command Cards played in the previous turn into your hand, with -1 Arithmetica Cost, {Exhaust}, {Fleeting}. If there are not enough Command Cards to place into your hand, draw a card for each Command Card missing. Choose 1 unlocked Posse to replace your current Posse. Your current Posse will be restored after using a Posse or at the End of Battle."
+        "descriptionTemplate": "Obtain [Arg1] Keyflare. Place the temporary copies of the last 3 different non-Derived Command Cards played in the previous turn into hand, with -1 Arithmetica Cost, {Exhaust}, {Fleeting}. If there are not enough Command Cards to place into hand, draw a card for each Command Card missing. Choose 1 unlocked Posse to replace your current Posse. Your current Posse will be restored after using a Posse or at the End of Battle."
       }
     }
   ],

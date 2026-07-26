@@ -349,6 +349,12 @@
       "legacyId": 58,
       "legacyName": "pontos",
       "id": "awakener-0058"
+    },
+    {
+      "codecIndex": 59,
+      "legacyId": 59,
+      "legacyName": "lotan-cetarchon",
+      "id": "awakener-0059"
     }
   ],
   "wheels": [
@@ -1036,6 +1042,21 @@
       "codecIndex": 137,
       "legacyId": "wheel-0171",
       "id": "wheel-0171"
+    },
+    {
+      "codecIndex": 138,
+      "legacyId": "wheel-0172",
+      "id": "wheel-0172"
+    },
+    {
+      "codecIndex": 139,
+      "legacyId": "wheel-0173",
+      "id": "wheel-0173"
+    },
+    {
+      "codecIndex": 140,
+      "legacyId": "wheel-0174",
+      "id": "wheel-0174"
     }
   ],
   "covenants": [
@@ -1405,6 +1426,11 @@
       "codecIndex": 54,
       "legacyId": "posse-0052",
       "id": "posse-0052"
+    },
+    {
+      "codecIndex": 55,
+      "legacyId": "posse-0053",
+      "id": "posse-0053"
     }
   ]
 }

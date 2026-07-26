@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 3,
+  "kind": "skill",
+  "id": "skill.lotan-cetarchon.primeval-return",
+  "name": "Primeval Return",
+  "route": {
+    "slug": "primeval-return",
+    "canonicalPath": "/database/awakeners/lotan-cetarchon/skills/primeval-return"
+  },
+  "ownerAwakenerId": "awakener-0059",
+  "slot": "Rouse",
+  "descriptionTemplate": "Lotan: Cetarchon gains [Arg2]% Base Aliemus. {Rouse}: Lotan: Cetarchon's Command Cards deal +1 instance of DMG.\nAt turn start, if {Great Blade: Whalefall} is in hand:\nThe first {Deadly Duel} played that turn empowers your next {Mundus Severance}—for each 1 Aliemus it steals, {Mundus Severance} deals +1% Final DMG (max 90%).",
+  "descriptionArgs": {
+    "Arg2": {
+      "kind": "scaling",
+      "values": ["25", "30", "35", "40", "45", "50"],
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "3",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.lotan-cetarchon.the-unrivaled.skill.lotan-cetarchon.primeval-return",
+      "operation": "replace_description",
+      "upgraderId": "enlighten.lotan-cetarchon.the-unrivaled",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "AbsoluteAxiom",
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "patch": {
+        "descriptionTemplate": "Lotan: Cetarchon gains [Arg2]% Base Aliemus. {Rouse}: Lotan: Cetarchon's Command Cards deal +1 instance of DMG.\nLotan: Cetarchon receives +50% Aliemus through {Deadly Duel}. At turn start, if {Great Blade: Whalefall} is in hand:\nThe first {Deadly Duel} played that turn empowers your next {Mundus Severance}—for each 1 Aliemus it steals, {Mundus Severance} deals +1.5% Final DMG (max 135%)."
+      }
+    }
+  ],
+  "ownerAwakenerName": "Lotan: Cetarchon"
+}

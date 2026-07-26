@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0024",
   "slot": "Strike",
-  "descriptionTemplate": "Deal [Damage:Arg1] DMG. Horla obtains [Energy:Arg3] Aliemus. Considered as a \"Strike\". {Leap}: Switch {Emotion} state to {Anger}. For each stack of {Anger} {Metaphor} consumed, deal an additional 2 instances of DMG.",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG. Horla obtains [Energy:Arg3] Aliemus. Counts as a \"Strike\". {Leap}: Switch {Emotion} state to {Anger}. For each stack of {Anger} {Metaphor} consumed, deal an additional 2 instances of DMG.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -34,7 +34,7 @@
       "ownerAwakenerId": "awakener-0024",
       "ownerAwakenerName": "Horla",
       "patch": {
-        "descriptionTemplate": "Deal [Damage:Arg1] DMG. Horla obtains [Energy:Arg3] Aliemus. Inflict 1 stack of {Vulnerable} on all enemies. Considered as a \"Strike\". {Leap}: Switch {Emotion} state to {Anger}. For each stack of {Anger} {Metaphor} consumed, deal an additional 2 instances of DMG."
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG. Horla obtains [Energy:Arg3] Aliemus. Inflict 1 stack of {Vulnerable} on all enemies. Counts as a \"Strike\". {Leap}: Switch {Emotion} state to {Anger}. For each stack of {Anger} {Metaphor} consumed, deal an additional 2 instances of DMG."
       }
     },
     {
@@ -46,7 +46,7 @@
       "ownerAwakenerId": "awakener-0024",
       "ownerAwakenerName": "Horla",
       "patch": {
-        "descriptionTemplate": "Deal [Damage:Arg1] DMG. Horla obtains [Energy:Arg3] Aliemus. Inflict 1 stack of {Vulnerable} on all enemies. Considered as a \"Strike\". {Leap}: Switch {Emotion} state to {Anger}. For each stack of {Anger} {Metaphor} consumed, deal an additional 2 instances of DMG.",
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG. Horla obtains [Energy:Arg3] Aliemus. Inflict 1 stack of {Vulnerable} on all enemies. Counts as a \"Strike\". {Leap}: Switch {Emotion} state to {Anger}. For each stack of {Anger} {Metaphor} consumed, deal an additional 2 instances of DMG.",
         "cardKeywords": [
           {
             "id": "mechanic.retain"
@@ -63,7 +63,7 @@
       "ownerAwakenerId": "awakener-0024",
       "ownerAwakenerName": "Horla",
       "patch": {
-        "descriptionTemplate": "Deal [Damage:Arg1] DMG. Horla obtains [Energy:Arg3] Aliemus. Inflict 1 stack of {Vulnerable} on all enemies. Considered as a \"Strike\". {Leap}: Switch {Emotion} state to {Anger}. For each stack of {Anger} {Metaphor} consumed, deal an additional 2 instances of DMG.",
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG. Horla obtains [Energy:Arg3] Aliemus. Inflict 1 stack of {Vulnerable} on all enemies. Counts as a \"Strike\". {Leap}: Switch {Emotion} state to {Anger}. For each stack of {Anger} {Metaphor} consumed, deal an additional 2 instances of DMG.",
         "cardKeywords": [
           {
             "id": "mechanic.retain"

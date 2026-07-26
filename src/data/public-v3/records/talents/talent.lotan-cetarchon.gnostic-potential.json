@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 3,
+  "kind": "talent",
+  "id": "talent.lotan-cetarchon.gnostic-potential",
+  "name": "Gnostic Potential",
+  "route": {
+    "slug": "gnostic-potential",
+    "canonicalPath": "/database/awakeners/lotan-cetarchon/talents/gnostic-potential"
+  },
+  "ownerAwakenerId": "awakener-0059",
+  "family": "gnostic_potential",
+  "maxLevel": 5,
+  "defaultMaxed": true,
+  "descriptionTemplate": "This Awakener gains [Arg1] Levels of Base Attributes.\n·CON +[Talent_Attr_Lv_physique]\n·ATK +[Talent_Attr_Lv_atk]\n·DEF +[Talent_Attr_Lv_def]",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "linear",
+      "base": "2",
+      "gainPerLevel": "2"
+    },
+    "Talent_Attr_Lv_physique": {
+      "kind": "scaling",
+      "values": ["3", "6", "8", "11", "13"]
+    },
+    "Talent_Attr_Lv_atk": {
+      "kind": "scaling",
+      "values": ["5", "9", "14", "18", "23"]
+    },
+    "Talent_Attr_Lv_def": {
+      "kind": "scaling",
+      "values": ["3", "6", "9", "11", "14"]
+    }
+  },
+  "ownerAwakenerName": "Lotan: Cetarchon"
+}

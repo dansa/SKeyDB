@@ -34,7 +34,7 @@
       "ownerAwakenerId": "awakener-0031",
       "ownerAwakenerName": "Lotan",
       "patch": {
-        "descriptionTemplate": "Deal [Damage:Arg1] DMG to a random enemy, repeat [Arg3] {plural:[Arg3]|time|times}. Each \"Strike\" played this turn reduces Arithmetica Cost by 1. Counts as \"Strike\"."
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG to a random enemy, repeat [Arg3] {plural:[Arg3]|time|times}. Each \"Strike\" played this turn reduces Arithmetica Cost by 1. Counts as a \"Strike\"."
       }
     }
   ],

@@ -36,7 +36,7 @@
       "ownerAwakenerId": "awakener-0005",
       "ownerAwakenerName": "Aurita",
       "patch": {
-        "descriptionTemplate": "Aurita gains [Energy:Arg1] Aliemus. {Rouse}: Gain 1 Tentacle, put 2 {Gland Division} into your hand. When Aurita deals DMG, [Arg2] Tentacle(s) Attack 1 time. Aurita's \"Strike\" becomes {Pierce DMG}, and deals 3 additional instances of DMG."
+        "descriptionTemplate": "Aurita gains [Energy:Arg1] Aliemus. {Rouse}: Gain 1 Tentacle, put 2 {Gland Division} into hand. When Aurita deals DMG, [Arg2] {plural:[Arg2]|Tentacle attacks|Tentacles attack} 1 time. Aurita's \"Strike\" becomes {Pierce DMG}, and deals 3 additional instances of DMG."
       }
     }
   ],

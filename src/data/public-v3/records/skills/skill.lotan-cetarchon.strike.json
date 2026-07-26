@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 3,
+  "kind": "skill",
+  "id": "skill.lotan-cetarchon.strike",
+  "name": "Strike",
+  "route": {
+    "slug": "strike",
+    "canonicalPath": "/database/awakeners/lotan-cetarchon/skills/strike"
+  },
+  "ownerAwakenerId": "awakener-0059",
+  "slot": "Strike",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG [Arg3] times. Lotan: Cetarchon gains [Energy:Arg2] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": ["10", "12", "14", "16", "18", "20"],
+      "stat": "ATK",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": ["5", "6", "7", "8", "9", "10"]
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.lotan-cetarchon.ceaseless-warlust.skill.lotan-cetarchon.strike",
+      "operation": "replace_description",
+      "upgraderId": "enlighten.lotan-cetarchon.ceaseless-warlust",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "E2",
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "patch": {
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG [Arg3] times. Lotan: Cetarchon gains [Energy:Arg2] Aliemus. Draw 1 {Short Blade: Devour} the first time this card is played each turn."
+      }
+    }
+  ],
+  "ownerAwakenerName": "Lotan: Cetarchon"
+}

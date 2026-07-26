@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 3,
+  "kind": "awakener",
+  "id": "awakener-0059",
+  "name": "Lotan: Cetarchon",
+  "route": {
+    "slug": "lotan-cetarchon",
+    "canonicalPath": "/database/awakeners/lotan-cetarchon"
+  },
+  "assets": {
+    "icon": "asset-awakener-0059-icon"
+  },
+  "numericId": 59,
+  "ingameId": "C04EX",
+  "lineupToken": "xt",
+  "realm": "CHAOS",
+  "rarity": "Genesis",
+  "type": "ASSAULT",
+  "availabilityType": "LIMITED_ASTRAL_REIGN",
+  "releaseDate": "2026-07-27",
+  "faction": "TBD",
+  "aliases": ["lotan cetarchon", "cetarchon", "glotan", "rotan"],
+  "searchTags": ["STR Up"],
+  "primaryScalingBase": 20,
+  "baseStatsLv1": {
+    "CON": 28,
+    "ATK": 48,
+    "DEF": 29
+  },
+  "substatsLv1": {
+    "CritRate": 5,
+    "CritDamage": 50,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 15,
+    "RealmMastery": 0,
+    "SigilYield": 1.2,
+    "DamageAmplification": 0,
+    "DeathResistance": 2.8
+  },
+  "statScaling": {
+    "CON": 1.3,
+    "ATK": 2.25,
+    "DEF": 1.35
+  },
+  "substatScaling": {
+    "CritRate": 0,
+    "CritDamage": 0,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 0,
+    "RealmMastery": 0,
+    "SigilYield": 1.2,
+    "DamageAmplification": 0,
+    "DeathResistance": 2.8
+  },
+  "profile": {
+    "title": "Lotan: Cetarchon",
+    "birthday": "11-Aug",
+    "gender": "Female",
+    "height": "5'6''",
+    "weight": "30 tons",
+    "gnosticIndex": "39.03",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "unlockCondition": "Awakener Level 1",
+        "content": "No matter which dimension she's from, Lotan has little use for words—Lotan: Cetarchon even less so. Words mean nothing to her. Strength itself is the ultimate eloquence.\nBeneath a regal, unhurried composure lies her truest hunger, burning in heterochromatic eyes like dying stars—she is an ancient force risen from the abyss of the universe, a bone blade forged in the wrath of chaos. To her, all things fall into two categories: those worthy of a fight, and those not.\nCarved from the bones of the Astral Cetus, her twin blades hunger endlessly—just like her own unquenchable thirst for the zenith of strength."
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "unlockCondition": "Affinity Level 3",
+        "content": "Mythag University Astronomical Observatory: Anomaly Report\n\nSince A.F.@3, several observatories across the northern hemisphere have reported anomalous spectral attenuation at the galactic rim. Initial data showed that at least three catalogued stars vanished from the observable range within an extremely brief span, and their residual spectra matched no known stellar death models. No supernova radiation signature, no gravitational lensing from black hole accretion. The stars were simply swallowed whole—clean, swift, leaving no trace.\nIn March of A.F.@3, the Committee's Celestial Anomaly Task Force detected a series of extremely low-frequency Gnostic Fluctuations at the coordinates of the fourth vanished star. That August, following the fifth disappearance, the observatory finally captured a fleeting visual signal through the upgraded Silver-Core Long-Range Detection Array: a colossal, whale-like creature composed of bone, its abdomen bristling with spikes, its oral cavity emitting a high-temperature spectrum incompatible with the material plane. The instant it opened its maw, the stars' light poured in like water into the abyss—gone without a sound.\nThe footage lasted only 0.7 seconds before the array overloaded and cut out. Subsequent examination revealed irreversible structural collapse in one-third of the array's Silver-Core components.\nIn the winter of A.F.@3, the observatory detected a sudden shift in the Gnostic pulse's trajectory; its destination was our exact location.\nThe Committee was put on maximum alert, yet the anticipated catastrophe never came. The signal condensed into a harmless state upon approaching low orbit, ultimately settling on an uninhabited volcanic island in the northwestern seas. When the first survey team landed, they found twin massive blades of some unknown bone-like material deeply embedded in the basalt wall of the crater, and beside them, a humanoid figure \nseated cross-legged, as if she had long been waiting.\nThe entity appeared female, clad in bone-plated armor bearing alien motifs, with heterochromatic eyes. As the team approached, she opened her eyes.\n\"Any of you worth a strike?\"\nHer tone carried no hostility, only a calm bordering on arrogance.\nThe team exchanged glances. No one answered. After a moment's silence, she closed her eyes again.\n\"Then go find one. I'll wait.\"\nThereafter, the Committee and Mythag University jointly designated the island a Special Surveillance Zone, dispatching several Awakeners to assist in the investigation. After months of remote observation and cautious contact, the entity finally concurred with a state of loose supervision and was registered in the Committee's Awakener list—on the condition of being provided \"a truly worthy opponent.\"\nThe stellar disappearances ceased entirely following her containment. But detection data suggested the energy of the devoured stars remained stored within her body. During prolonged observation, her Gnostic Index continued to climb, showing no sign of decline."
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "unlockCondition": "Affinity Level 5",
+        "content": "Upon her arrival at Mythag, Lotan: Cetarchon remained quiet for two days. At dusk on the third, she appeared at the public training grounds, bone blades in hand.\nThe Awakeners of Mythag had every reason to be proud, especially those who frequented the training grounds. Yet they remained highly wary of this insolent, uninvited guest. Word of what happened on the volcanic island had already spread among the Awakeners; they knew exactly what kind of opponent awaited them.\nTheir caution, as it turned out, wasn't nearly enough.\nWhen the first challenger was swatted out of the training grounds by a single strike, shattering a stone wall twenty meters away, the entire crowd erupted into an unprecedented frenzy. A second challenger stepped up, then a third... On that ordinary dusk in A.F.@3, nine Awakeners challenged Lotan: Cetarchon in succession.\nAccording to campus reporter Hannah, who witnessed the events firsthand, Lotan: Cetarchon did not utter a single word throughout. She stood like a silent, unbreakable lighthouse amidst the crashing tides of assault. Her twin bone blades gleamed like light through the dusk, their elegant arcs ending every offensive with absolute precision.\nBy the end of that day, over 80% of Lotan's armor was shattered. She bore two severe wounds on her shoulder and abdomen, and a massive notch was gouged into her bone blade, leaving it on the verge of snapping. At the cost of all this, she became the only one left standing on the training grounds.\nLooking at the deep gouges carved into the walls, the huge craters left on the ground, and the Awakeners watching her with conflicted expressions, she gave her first smile since arriving in this world.\n\"A pleasure meeting you all. You may call me Lotan: Cetarchon.\""
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "unlockCondition": "Affinity Level 7",
+        "content": "Her earliest memory was nothing but rage.\nThere was no face, no form, only an endless, boiling instinct for violence. She was chaos coalesced in the depths of the cosmos, a calamity brewed over billions of years. She tore, she burned, she devoured—it was the only thing she knew.\nUntil the \"goddess\" in the white veil arrived. Like a star split in half from its core, she felt her power ebb away, her flesh and bone uprooted from her spirit, her surging fury torn raw from her soul.\nUnable to quell her rage, the goddess chose to sever her spirit from her flesh. The Beast of Chaos was no more; her body became Leviathan, sinking into the void with all her strength. And she, a mere mental remnant, awoke in an empty consciousness.\nYet her wrath had not died. It had transformed into something more enduring and terrifying: hunger. An endless hunger for strength drove her back to her feet.\nShe began to walk, to fight. She wandered the desolate sea of stars, challenging every formidable being that stood in her way. Each victory was like a handful of sand filled into her hollow shell—and grain by grain, she ground out a shape, a will, the very contour of \"Lotan: Cetarchon.\"\nThen she heard the whale's song.\nThe Astral Cetus, Its body an entire world, a colossus that bound and enslaved countless living beings—in It she saw neither desire nor fear, but kinship. Her memories began to return. She knew that was her strength. She knew that, from the very beginning, It had belonged to her.\nSo she came before It.\nSo she drew her sword against It.\nThe whale's power surged into her body like an unleashed torrent, nearly tearing her apart. Yet she remained standing—and when the tide receded, nothing was left of the whale but a carcass drifting in the void.\nThe enslaved planet was freed. The souls lost to desire looked up, calling her savior, guardian goddess, offering the Crown at her feet.\nLotan: Cetarchon did not respond to their praises. She simply stood atop the great whale's remains, feeling the newborn power surging within her, listening to the call deep in her soul growing clearer than ever.\nIt was the voice of the Astral Cetus. It was her own flesh and blood calling out to her. She placed her hand upon Leviathan's skull. Spirit and flesh, severed for countless eons, fused once more. Bone-plated armor clad her body; strength welled up within her.\nThe Beast of Chaos was reborn—but she was no longer the calamity who had known only fury. The long wandering, the countless battles, all those who had bested her and been bested by her—all had forged that pure chaos into a blade with a will of its own. She closed her eyes, savoring the surging, complete power within. But she also knew clearly that this was not the end.\nThe power of the Astral Cetus, the strength of Leviathan, all the stars she had devoured... all of it was but stepping stones beneath her feet. She lifted her bone blades, and turned toward the next unknown expanse of the universe.\nShe yearned for the next battle that would set her blood aflame."
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "unlockCondition": "Affinity Level 9",
+        "content": "Lotan: Cetarchon never looks back at the corpses left in her wake.\nDefeated opponents. Shattered wastelands. Devoured stars. One by one she steps over them all, seeking her next destination.\nSomeone once asked her what she'd do after reaching the summit of strength. She did not answer. The question was meaningless; fire never contemplates where it goes once it burns out. Fire has no \"after.\" Burning is the whole of its existence.\nShe walks. She fights. She raises her blades again and again—never to prove, to protect, to avenge, or to satisfy any petty desire.\nShe does it simply because, in the clash of blades and the collision of raw strength, she can feel most vividly that she is alive.\nThe path toward strength has no end.\nAnd she wouldn't have it any other way."
+      }
+    ]
+  }
+}

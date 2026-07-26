@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "enlightens",
   "kind": "enlighten",
-  "recordCount": 290,
+  "recordCount": 295,
   "records": [
     {
       "kind": "enlighten",
@@ -1803,6 +1803,66 @@
       "ownerAwakenerId": "awakener-0030",
       "ownerAwakenerName": "Liz",
       "slot": "E1"
+    },
+    {
+      "kind": "enlighten",
+      "id": "enlighten.lotan-cetarchon.ceaseless-warlust",
+      "name": "Ceaseless Warlust",
+      "route": {
+        "slug": "ceaseless-warlust",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/enlightens/ceaseless-warlust"
+      },
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "slot": "E2"
+    },
+    {
+      "kind": "enlighten",
+      "id": "enlighten.lotan-cetarchon.night-of-whalefall",
+      "name": "Night of Whalefall",
+      "route": {
+        "slug": "night-of-whalefall",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/enlightens/night-of-whalefall"
+      },
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "slot": "OverExalt"
+    },
+    {
+      "kind": "enlighten",
+      "id": "enlighten.lotan-cetarchon.rotting-remains",
+      "name": "Rotting Remains",
+      "route": {
+        "slug": "rotting-remains",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/enlightens/rotting-remains"
+      },
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "slot": "E1"
+    },
+    {
+      "kind": "enlighten",
+      "id": "enlighten.lotan-cetarchon.the-unrivaled",
+      "name": "The Unrivaled",
+      "route": {
+        "slug": "the-unrivaled",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/enlightens/the-unrivaled"
+      },
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "kind": "enlighten",
+      "id": "enlighten.lotan-cetarchon.uncrowned-storm",
+      "name": "Uncrowned Storm",
+      "route": {
+        "slug": "uncrowned-storm",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/enlightens/uncrowned-storm"
+      },
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "slot": "E3"
     },
     {
       "kind": "enlighten",

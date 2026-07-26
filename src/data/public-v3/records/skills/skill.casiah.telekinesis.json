@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0007",
   "slot": "Skill1",
-  "descriptionTemplate": "Treated as \"Strike\". Choose any 1 card from {Ultra Space} and add it to your hand, reducing its Arithmetica Cost by 2. Randomly deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times}, and gain [Power:Arg3] Temporary {STR}.",
+  "descriptionTemplate": "Counts as a \"Strike\". Choose any 1 card from {Ultra Space} and add it to your hand, reducing its Arithmetica Cost by 2. Randomly deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times}, and gain [Power:Arg3] Temporary {STR}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -40,7 +40,7 @@
       "ownerAwakenerId": "awakener-0007",
       "ownerAwakenerName": "Casiah",
       "patch": {
-        "descriptionTemplate": "Treated as \"Strike\". Choose any 1 card from {Ultra Space} and add it to your hand, reducing its Arithmetica Cost by 2. Randomly deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times}, and gain [Power:Arg3] Temporary {STR}. {Aftershock}: Shuffle 1 {derived:Insight} into the Draw Pile."
+        "descriptionTemplate": "Counts as a \"Strike\". Choose any 1 card from {Ultra Space} and add it to your hand, reducing its Arithmetica Cost by 2. Randomly deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times}, and gain [Power:Arg3] Temporary {STR}. {Aftershock}: Shuffle 1 {derived:Insight} into the Draw Pile."
       }
     }
   ],

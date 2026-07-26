@@ -113,7 +113,6 @@ describe('awakener-talents', () => {
     expect(xuSoulforge).toEqual(
       expect.objectContaining({
         maxLevel: 10,
-        hasLevelScaledDescription: true,
         descriptionArgs: expect.objectContaining({
           Arg1: {
             kind: 'linear',

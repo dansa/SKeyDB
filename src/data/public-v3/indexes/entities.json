@@ -987,6 +987,23 @@
       "availabilityType": "LIMITED_ASTRAL_REIGN",
       "releaseDate": "2026-06-29"
     },
+    "awakener-0059": {
+      "kind": "awakener",
+      "id": "awakener-0059",
+      "name": "Lotan: Cetarchon",
+      "route": {
+        "slug": "lotan-cetarchon",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon"
+      },
+      "assets": {
+        "icon": "asset-awakener-0059-icon"
+      },
+      "realm": "CHAOS",
+      "rarity": "Genesis",
+      "type": "ASSAULT",
+      "availabilityType": "LIMITED_ASTRAL_REIGN",
+      "releaseDate": "2026-07-27"
+    },
     "awakener-build-0001": {
       "kind": "awakenerBuild",
       "id": "awakener-build-0001",
@@ -2630,6 +2647,15 @@
         "canonicalPath": "/database/derived-skills/embryo"
       }
     },
+    "derived.global.falling-upward": {
+      "kind": "derivedSkill",
+      "id": "derived.global.falling-upward",
+      "name": "Falling Upward",
+      "route": {
+        "slug": "falling-upward",
+        "canonicalPath": "/database/derived-skills/falling-upward"
+      }
+    },
     "derived.global.fleeting-beauty": {
       "kind": "derivedSkill",
       "id": "derived.global.fleeting-beauty",
@@ -2835,6 +2861,15 @@
       "route": {
         "slug": "remembrance-utopian-veil",
         "canonicalPath": "/database/derived-skills/remembrance-utopian-veil"
+      }
+    },
+    "derived.global.mortal-sojourn": {
+      "kind": "derivedSkill",
+      "id": "derived.global.mortal-sojourn",
+      "name": "Mortal Sojourn",
+      "route": {
+        "slug": "mortal-sojourn",
+        "canonicalPath": "/database/derived-skills/mortal-sojourn"
       }
     },
     "derived.global.one-way": {
@@ -3263,6 +3298,39 @@
       },
       "ownerAwakenerId": "awakener-0030",
       "ownerAwakenerName": "Liz"
+    },
+    "derived.lotan-cetarchon.deadly-duel": {
+      "kind": "derivedSkill",
+      "id": "derived.lotan-cetarchon.deadly-duel",
+      "name": "Deadly Duel",
+      "route": {
+        "slug": "deadly-duel",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/derived-skills/deadly-duel"
+      },
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon"
+    },
+    "derived.lotan-cetarchon.great-blade-whalefall": {
+      "kind": "derivedSkill",
+      "id": "derived.lotan-cetarchon.great-blade-whalefall",
+      "name": "Great Blade: Whalefall",
+      "route": {
+        "slug": "great-blade-whalefall",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/derived-skills/great-blade-whalefall"
+      },
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon"
+    },
+    "derived.lotan-cetarchon.netherblade": {
+      "kind": "derivedSkill",
+      "id": "derived.lotan-cetarchon.netherblade",
+      "name": "Netherblade",
+      "route": {
+        "slug": "netherblade",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/derived-skills/netherblade"
+      },
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon"
     },
     "derived.miryam.call-of-the-divine-realm": {
       "kind": "derivedSkill",
@@ -5583,6 +5651,66 @@
       "ownerAwakenerId": "awakener-0030",
       "ownerAwakenerName": "Liz",
       "slot": "E1"
+    },
+    "enlighten.lotan-cetarchon.ceaseless-warlust": {
+      "kind": "enlighten",
+      "id": "enlighten.lotan-cetarchon.ceaseless-warlust",
+      "name": "Ceaseless Warlust",
+      "route": {
+        "slug": "ceaseless-warlust",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/enlightens/ceaseless-warlust"
+      },
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "slot": "E2"
+    },
+    "enlighten.lotan-cetarchon.night-of-whalefall": {
+      "kind": "enlighten",
+      "id": "enlighten.lotan-cetarchon.night-of-whalefall",
+      "name": "Night of Whalefall",
+      "route": {
+        "slug": "night-of-whalefall",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/enlightens/night-of-whalefall"
+      },
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "slot": "OverExalt"
+    },
+    "enlighten.lotan-cetarchon.rotting-remains": {
+      "kind": "enlighten",
+      "id": "enlighten.lotan-cetarchon.rotting-remains",
+      "name": "Rotting Remains",
+      "route": {
+        "slug": "rotting-remains",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/enlightens/rotting-remains"
+      },
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "slot": "E1"
+    },
+    "enlighten.lotan-cetarchon.the-unrivaled": {
+      "kind": "enlighten",
+      "id": "enlighten.lotan-cetarchon.the-unrivaled",
+      "name": "The Unrivaled",
+      "route": {
+        "slug": "the-unrivaled",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/enlightens/the-unrivaled"
+      },
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "slot": "AbsoluteAxiom"
+    },
+    "enlighten.lotan-cetarchon.uncrowned-storm": {
+      "kind": "enlighten",
+      "id": "enlighten.lotan-cetarchon.uncrowned-storm",
+      "name": "Uncrowned Storm",
+      "route": {
+        "slug": "uncrowned-storm",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/enlightens/uncrowned-storm"
+      },
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "slot": "E3"
     },
     "enlighten.lotan.primal-leviathan": {
       "kind": "enlighten",
@@ -9864,6 +9992,23 @@
       "ownerAwakenerId": "awakener-0058",
       "ownerAwakenerName": "Pontos"
     },
+    "posse-0053": {
+      "kind": "posse",
+      "id": "posse-0053",
+      "name": "Cetus-Devouring Storm",
+      "route": {
+        "slug": "cetus-devouring-storm",
+        "canonicalPath": "/database/posses/cetus-devouring-storm"
+      },
+      "assets": {
+        "icon": "asset-posse-0053-icon",
+        "crystal": "asset-posse-0053-crystal",
+        "badge": "asset-posse-0053-badge"
+      },
+      "realm": "CHAOS",
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon"
+    },
     "relic-0001": {
       "kind": "relic",
       "id": "relic-0001",
@@ -13678,6 +13823,21 @@
       },
       "rarity": "N"
     },
+    "relic-0306": {
+      "kind": "relic",
+      "id": "relic-0306",
+      "name": "Dimensional Image: Lotan: Cetarchon",
+      "route": {
+        "slug": "dimensional-image-lotan-cetarchon",
+        "canonicalPath": "/database/relics/dimensional-image-lotan-cetarchon"
+      },
+      "assets": {
+        "icon": "asset-relic-0306-icon"
+      },
+      "rarity": "SSR",
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon"
+    },
     "skill.24.aberrant-vivisection": {
       "kind": "skill",
       "id": "skill.24.aberrant-vivisection",
@@ -16196,6 +16356,90 @@
       },
       "ownerAwakenerId": "awakener-0030",
       "ownerAwakenerName": "Liz",
+      "slot": "Strike"
+    },
+    "skill.lotan-cetarchon.defense": {
+      "kind": "skill",
+      "id": "skill.lotan-cetarchon.defense",
+      "name": "Defense",
+      "route": {
+        "slug": "defense",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/skills/defense"
+      },
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "slot": "Defense"
+    },
+    "skill.lotan-cetarchon.long-blade-perish": {
+      "kind": "skill",
+      "id": "skill.lotan-cetarchon.long-blade-perish",
+      "name": "Long Blade: Perish",
+      "route": {
+        "slug": "long-blade-perish",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/skills/long-blade-perish"
+      },
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "slot": "Skill1"
+    },
+    "skill.lotan-cetarchon.mundus-severance": {
+      "kind": "skill",
+      "id": "skill.lotan-cetarchon.mundus-severance",
+      "name": "Mundus Severance",
+      "route": {
+        "slug": "mundus-severance",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/skills/mundus-severance"
+      },
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "slot": "Exalt"
+    },
+    "skill.lotan-cetarchon.night-of-whalefall": {
+      "kind": "skill",
+      "id": "skill.lotan-cetarchon.night-of-whalefall",
+      "name": "Night of Whalefall",
+      "route": {
+        "slug": "night-of-whalefall",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/skills/night-of-whalefall"
+      },
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "slot": "OverExalt"
+    },
+    "skill.lotan-cetarchon.primeval-return": {
+      "kind": "skill",
+      "id": "skill.lotan-cetarchon.primeval-return",
+      "name": "Primeval Return",
+      "route": {
+        "slug": "primeval-return",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/skills/primeval-return"
+      },
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "slot": "Rouse"
+    },
+    "skill.lotan-cetarchon.short-blade-devour": {
+      "kind": "skill",
+      "id": "skill.lotan-cetarchon.short-blade-devour",
+      "name": "Short Blade: Devour",
+      "route": {
+        "slug": "short-blade-devour",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/skills/short-blade-devour"
+      },
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "slot": "Skill2"
+    },
+    "skill.lotan-cetarchon.strike": {
+      "kind": "skill",
+      "id": "skill.lotan-cetarchon.strike",
+      "name": "Strike",
+      "route": {
+        "slug": "strike",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/skills/strike"
+      },
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
       "slot": "Strike"
     },
     "skill.lotan.battle-thirst": {
@@ -19997,6 +20241,58 @@
       "family": "soulforge_aptitude",
       "maxLevel": 10
     },
+    "talent.lotan-cetarchon.gnostic-potential": {
+      "kind": "talent",
+      "id": "talent.lotan-cetarchon.gnostic-potential",
+      "name": "Gnostic Potential",
+      "route": {
+        "slug": "gnostic-potential",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/talents/gnostic-potential"
+      },
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "family": "gnostic_potential",
+      "maxLevel": 5,
+      "defaultMaxed": true
+    },
+    "talent.lotan-cetarchon.madness-omen": {
+      "kind": "talent",
+      "id": "talent.lotan-cetarchon.madness-omen",
+      "name": "Madness Omen",
+      "route": {
+        "slug": "madness-omen",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/talents/madness-omen"
+      },
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    "talent.lotan-cetarchon.primordial-breath": {
+      "kind": "talent",
+      "id": "talent.lotan-cetarchon.primordial-breath",
+      "name": "Primordial Breath",
+      "route": {
+        "slug": "primordial-breath",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/talents/primordial-breath"
+      },
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "family": "passive"
+    },
+    "talent.lotan-cetarchon.soulforge-aptitude": {
+      "kind": "talent",
+      "id": "talent.lotan-cetarchon.soulforge-aptitude",
+      "name": "Soulforge Aptitude",
+      "route": {
+        "slug": "soulforge-aptitude",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/talents/soulforge-aptitude"
+      },
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
     "talent.lotan.gnostic-potential": {
       "kind": "talent",
       "id": "talent.lotan.gnostic-potential",
@@ -23600,6 +23896,55 @@
       "mainstatKey": "CRIT_DMG",
       "ownerAwakenerId": "awakener-0058",
       "ownerAwakenerName": "Pontos"
+    },
+    "wheel-0172": {
+      "kind": "wheel",
+      "id": "wheel-0172",
+      "name": "Cetus Occasus",
+      "route": {
+        "slug": "cetus-occasus",
+        "canonicalPath": "/database/wheels/cetus-occasus"
+      },
+      "assets": {
+        "icon": "asset-wheel-0172-icon"
+      },
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "mainstatKey": "SIGIL_YIELD",
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon"
+    },
+    "wheel-0173": {
+      "kind": "wheel",
+      "id": "wheel-0173",
+      "name": "Undying Hungerbone",
+      "route": {
+        "slug": "undying-hungerbone",
+        "canonicalPath": "/database/wheels/undying-hungerbone"
+      },
+      "assets": {
+        "icon": "asset-wheel-0173-icon"
+      },
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "SIGIL_YIELD",
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon"
+    },
+    "wheel-0174": {
+      "kind": "wheel",
+      "id": "wheel-0174",
+      "name": "Falling Upward",
+      "route": {
+        "slug": "falling-upward",
+        "canonicalPath": "/database/wheels/falling-upward"
+      },
+      "assets": {
+        "icon": "asset-wheel-0174-icon"
+      },
+      "realm": "NEUTRAL",
+      "rarity": "SSR",
+      "mainstatKey": "REALM_MASTERY"
     }
   },
   "scopes": {
@@ -23719,7 +24064,8 @@
       "awakener-0055",
       "awakener-0056",
       "awakener-0057",
-      "awakener-0058"
+      "awakener-0058",
+      "awakener-0059"
     ],
     "covenants": [
       "covenant-0001",
@@ -23814,6 +24160,7 @@
       "derived.global.echoes-of-lost-shadows",
       "derived.global.echoes-of-the-past",
       "derived.global.embryo",
+      "derived.global.falling-upward",
       "derived.global.fleeting-beauty",
       "derived.global.flicker-of-humanity",
       "derived.global.forbidden-truth",
@@ -23837,6 +24184,7 @@
       "derived.global.memories-seed-of-abundance",
       "derived.global.memories-unfinished-wax-sculpture",
       "derived.global.memories-utopian-veil",
+      "derived.global.mortal-sojourn",
       "derived.global.one-way",
       "derived.global.palette",
       "derived.global.parasol",
@@ -23881,6 +24229,9 @@
       "derived.kathigu-ra.hyperflare",
       "derived.liz.corrupted-flames",
       "derived.liz.deadly-flames",
+      "derived.lotan-cetarchon.deadly-duel",
+      "derived.lotan-cetarchon.great-blade-whalefall",
+      "derived.lotan-cetarchon.netherblade",
       "derived.miryam.call-of-the-divine-realm",
       "derived.miryam.divine-realms-descent",
       "derived.miryam.divine-realms-illusion",
@@ -24080,6 +24431,11 @@
       "enlighten.liz.last-dawnlight",
       "enlighten.liz.omens-descent",
       "enlighten.liz.verdant-spark",
+      "enlighten.lotan-cetarchon.ceaseless-warlust",
+      "enlighten.lotan-cetarchon.night-of-whalefall",
+      "enlighten.lotan-cetarchon.rotting-remains",
+      "enlighten.lotan-cetarchon.the-unrivaled",
+      "enlighten.lotan-cetarchon.uncrowned-storm",
       "enlighten.lotan.primal-leviathan",
       "enlighten.lotan.surging-warlust",
       "enlighten.lotan.swords-unleashed",
@@ -24419,7 +24775,8 @@
       "posse-0049",
       "posse-0050",
       "posse-0051",
-      "posse-0052"
+      "posse-0052",
+      "posse-0053"
     ],
     "relics": [
       "relic-0001",
@@ -24707,7 +25064,8 @@
       "relic-0302",
       "relic-0303",
       "relic-0304",
-      "relic-0305"
+      "relic-0305",
+      "relic-0306"
     ],
     "skills": [
       "skill.24.aberrant-vivisection",
@@ -24920,6 +25278,13 @@
       "skill.liz.moth-trapping-fire",
       "skill.liz.omens-descent",
       "skill.liz.strike",
+      "skill.lotan-cetarchon.defense",
+      "skill.lotan-cetarchon.long-blade-perish",
+      "skill.lotan-cetarchon.mundus-severance",
+      "skill.lotan-cetarchon.night-of-whalefall",
+      "skill.lotan-cetarchon.primeval-return",
+      "skill.lotan-cetarchon.short-blade-devour",
+      "skill.lotan-cetarchon.strike",
       "skill.lotan.battle-thirst",
       "skill.lotan.beast-of-chaos",
       "skill.lotan.blade-of-defiance",
@@ -25230,6 +25595,10 @@
       "talent.liz.gnostic-potential",
       "talent.liz.madness-omen",
       "talent.liz.soulforge-aptitude",
+      "talent.lotan-cetarchon.gnostic-potential",
+      "talent.lotan-cetarchon.madness-omen",
+      "talent.lotan-cetarchon.primordial-breath",
+      "talent.lotan-cetarchon.soulforge-aptitude",
       "talent.lotan.gnostic-potential",
       "talent.lotan.madness-omen",
       "talent.lotan.soulforge-aptitude",
@@ -25474,7 +25843,10 @@
       "wheel-0168",
       "wheel-0169",
       "wheel-0170",
-      "wheel-0171"
+      "wheel-0171",
+      "wheel-0172",
+      "wheel-0173",
+      "wheel-0174"
     ]
   }
 }

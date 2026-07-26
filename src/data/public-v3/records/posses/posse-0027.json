@@ -21,8 +21,7 @@
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
-      "value": "15",
-      "suffix": "%"
+      "value": "15"
     }
   },
   "lore": "Bang—\nA gunshot that splits the sky pierces the heart of the mastermind behind the conspiracy.\n\nDeath is not the end of life, but merely the peak of the puzzle's twist."

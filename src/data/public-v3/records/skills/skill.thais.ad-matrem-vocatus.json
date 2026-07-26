@@ -32,7 +32,7 @@
       "ownerAwakenerId": "awakener-0048",
       "ownerAwakenerName": "Thais",
       "patch": {
-        "descriptionTemplate": "Thais gains [Energy:Arg1] Aliemus. {Rouse}: Immediately gain 1 {Scion of Purity}. Whenever a Posse is released, transform 1 {Embryo} in hand into 1 {Scion of Purity}. {Ritual of Abundance} additionally places 1 extra copy into your hand."
+        "descriptionTemplate": "Thais gains [Energy:Arg1] Aliemus. {Rouse}: Immediately gain 1 {Scion of Purity}. Whenever a Posse is released, transform 1 {Embryo} in hand into 1 {Scion of Purity}. {Ritual of Abundance} additionally places 1 extra copy into hand."
       }
     }
   ],

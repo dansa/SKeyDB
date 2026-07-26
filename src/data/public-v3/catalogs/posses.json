@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "posses",
   "kind": "posse",
-  "recordCount": 52,
+  "recordCount": 53,
   "records": [
     {
       "kind": "posse",
@@ -897,6 +897,24 @@
       "ownerAwakenerId": "awakener-0058",
       "ownerAwakenerName": "Pontos",
       "lineupToken": "6"
+    },
+    {
+      "kind": "posse",
+      "id": "posse-0053",
+      "name": "Cetus-Devouring Storm",
+      "route": {
+        "slug": "cetus-devouring-storm",
+        "canonicalPath": "/database/posses/cetus-devouring-storm"
+      },
+      "assets": {
+        "icon": "asset-posse-0053-icon",
+        "crystal": "asset-posse-0053-crystal",
+        "badge": "asset-posse-0053-badge"
+      },
+      "realm": "CHAOS",
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "lineupToken": "7"
     }
   ]
 }

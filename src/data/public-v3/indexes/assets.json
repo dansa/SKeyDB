@@ -985,6 +985,23 @@
         ]
       }
     },
+    "asset-awakener-0059-icon": {
+      "id": "asset-awakener-0059-icon",
+      "slot": "icon",
+      "kind": "awakener",
+      "ownerId": "awakener-0059",
+      "assetId": "lotan-cetarchon",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/awk-cards/lotan-cetarchon.webp",
+        "candidates": [
+          "src/assets/awk-cards/lotan-cetarchon.webp",
+          "src/assets/awk-cards/lotan-cetarchon.png",
+          "src/assets/awk-portraits/lotan-cetarchon.webp",
+          "src/assets/awk-portraits/lotan-cetarchon.png"
+        ]
+      }
+    },
     "asset-wheel-0001-icon": {
       "id": "asset-wheel-0001-icon",
       "slot": "icon",
@@ -2627,6 +2644,42 @@
         "status": "available",
         "path": "src/assets/wheels/Weapon_Full_O13.webp",
         "candidates": ["src/assets/wheels/Weapon_Full_O13.webp", "src/assets/wheels/Weapon_Full_O13.png"]
+      }
+    },
+    "asset-wheel-0172-icon": {
+      "id": "asset-wheel-0172-icon",
+      "slot": "icon",
+      "kind": "wheel",
+      "ownerId": "wheel-0172",
+      "assetId": "Weapon_Full_C04EX",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/wheels/Weapon_Full_C04EX.webp",
+        "candidates": ["src/assets/wheels/Weapon_Full_C04EX.webp", "src/assets/wheels/Weapon_Full_C04EX.png"]
+      }
+    },
+    "asset-wheel-0173-icon": {
+      "id": "asset-wheel-0173-icon",
+      "slot": "icon",
+      "kind": "wheel",
+      "ownerId": "wheel-0173",
+      "assetId": "Weapon_Full_SR47",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/wheels/Weapon_Full_SR47.webp",
+        "candidates": ["src/assets/wheels/Weapon_Full_SR47.webp", "src/assets/wheels/Weapon_Full_SR47.png"]
+      }
+    },
+    "asset-wheel-0174-icon": {
+      "id": "asset-wheel-0174-icon",
+      "slot": "icon",
+      "kind": "wheel",
+      "ownerId": "wheel-0174",
+      "assetId": "Weapon_Full_JP09",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/wheels/Weapon_Full_JP09.webp",
+        "candidates": ["src/assets/wheels/Weapon_Full_JP09.webp", "src/assets/wheels/Weapon_Full_JP09.png"]
       }
     },
     "asset-relic-0001-icon": {
@@ -7491,6 +7544,23 @@
         ]
       }
     },
+    "asset-relic-0306-icon": {
+      "id": "asset-relic-0306-icon",
+      "slot": "icon",
+      "kind": "relic",
+      "ownerId": "relic-0306",
+      "assetId": "Icon_Creation_Unique_C04EX",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/relics/Icon_Creation_Unique_C04EX.webp",
+        "candidates": [
+          "src/assets/relics/Icon_Creation_Unique_C04EX.webp",
+          "src/assets/relics/Icon_Creation_Unique_C04EX.png",
+          "src/assets/relics/portraits/Icon_Creation_Unique_C04EX.webp",
+          "src/assets/relics/portraits/Icon_Creation_Unique_C04EX.png"
+        ]
+      }
+    },
     "asset-covenant-0001-icon": {
       "id": "asset-covenant-0001-icon",
       "slot": "icon",
@@ -9615,6 +9685,42 @@
         "candidates": ["src/assets/posse/Icon/KeyToken_Skill_54.webp", "src/assets/posse/Icon/KeyToken_Skill_54.png"]
       }
     },
+    "asset-posse-0053-badge": {
+      "id": "asset-posse-0053-badge",
+      "slot": "badge",
+      "kind": "posse",
+      "ownerId": "posse-0053",
+      "assetId": "KeyToken_Props_55",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/Badge/KeyToken_Props_55.webp",
+        "candidates": ["src/assets/posse/Badge/KeyToken_Props_55.webp", "src/assets/posse/Badge/KeyToken_Props_55.png"]
+      }
+    },
+    "asset-posse-0053-crystal": {
+      "id": "asset-posse-0053-crystal",
+      "slot": "crystal",
+      "kind": "posse",
+      "ownerId": "posse-0053",
+      "assetId": "KeyToken_Crystal_55",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/FullArt/KeyToken_Crystal_55.webp",
+        "candidates": ["src/assets/posse/FullArt/KeyToken_Crystal_55.webp", "src/assets/posse/FullArt/KeyToken_Crystal_55.png"]
+      }
+    },
+    "asset-posse-0053-icon": {
+      "id": "asset-posse-0053-icon",
+      "slot": "icon",
+      "kind": "posse",
+      "ownerId": "posse-0053",
+      "assetId": "KeyToken_Skill_55",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/Icon/KeyToken_Skill_55.webp",
+        "candidates": ["src/assets/posse/Icon/KeyToken_Skill_55.webp", "src/assets/posse/Icon/KeyToken_Skill_55.png"]
+      }
+    },
     "asset-overlay.aigis.petrify-icon": {
       "id": "asset-overlay.aigis.petrify-icon",
       "slot": "icon",
@@ -10571,6 +10677,9 @@
     "awakener-0058": {
       "icon": "asset-awakener-0058-icon"
     },
+    "awakener-0059": {
+      "icon": "asset-awakener-0059-icon"
+    },
     "wheel-0001": {
       "icon": "asset-wheel-0001-icon"
     },
@@ -10981,6 +11090,15 @@
     },
     "wheel-0171": {
       "icon": "asset-wheel-0171-icon"
+    },
+    "wheel-0172": {
+      "icon": "asset-wheel-0172-icon"
+    },
+    "wheel-0173": {
+      "icon": "asset-wheel-0173-icon"
+    },
+    "wheel-0174": {
+      "icon": "asset-wheel-0174-icon"
     },
     "relic-0001": {
       "icon": "asset-relic-0001-icon"
@@ -11840,6 +11958,9 @@
     "relic-0305": {
       "icon": "asset-relic-0305-icon"
     },
+    "relic-0306": {
+      "icon": "asset-relic-0306-icon"
+    },
     "covenant-0001": {
       "icon": "asset-covenant-0001-icon"
     },
@@ -12162,6 +12283,11 @@
       "icon": "asset-posse-0052-icon",
       "crystal": "asset-posse-0052-crystal",
       "badge": "asset-posse-0052-badge"
+    },
+    "posse-0053": {
+      "icon": "asset-posse-0053-icon",
+      "crystal": "asset-posse-0053-crystal",
+      "badge": "asset-posse-0053-badge"
     },
     "overlay.aigis.petrify": {
       "icon": "asset-overlay.aigis.petrify-icon"

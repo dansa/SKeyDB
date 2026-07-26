@@ -10,7 +10,7 @@
   "ownerAwakenerId": "awakener-0021",
   "derivedFromId": "skill.goliath.abyssal-depths-power",
   "rootSkillId": "skill.goliath.abyssal-depths-power",
-  "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies. {STR} has [Arg2] {plural:[Arg2]|time|times} the effect on {Blade's Dominion}. This card is considered \"Strike.\"",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies. {STR} has [Arg2] {plural:[Arg2]|time|times} the effect on {Blade's Dominion}, this card counts as a \"Strike\".",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
