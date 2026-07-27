@@ -71,7 +71,7 @@
       "section": "affix",
       "aliases": ["strength up"],
       "order": 210,
-      "count": 48
+      "count": 49
     },
     {
       "id": "str-down",
@@ -239,7 +239,7 @@
       "section": "archetype",
       "aliases": ["aliemus generation"],
       "order": 975,
-      "count": 45
+      "count": 46
     },
     {
       "id": "max-hp-dmg",
@@ -279,7 +279,7 @@
       "section": "archetype",
       "aliases": [],
       "order": 1010,
-      "count": 20
+      "count": 22
     },
     {
       "id": "defense",
@@ -319,7 +319,7 @@
       "section": "archetype",
       "aliases": ["crit. dmg", "crit damage", "critical damage"],
       "order": 1050,
-      "count": 27
+      "count": 29
     },
     {
       "id": "temporary-realm-mastery",

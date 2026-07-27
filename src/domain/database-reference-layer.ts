@@ -208,7 +208,9 @@ export function buildDatabaseDerivedSkillReferenceInfo(
   record: DerivedSkillRecord,
   formulaContext?: PublicFormulaContext,
   {
-    label = `Derived · ${record.displayName}`,
+    label = record.nodeKind === 'group'
+      ? 'Card · Derived Group'
+      : `Card · Derived · Cost ${record.cost ?? '—'}`,
     rank = 1,
     maxRank = 6,
     stats = null,

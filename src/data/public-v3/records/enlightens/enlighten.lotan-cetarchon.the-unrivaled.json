@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 3,
+  "kind": "enlighten",
+  "id": "enlighten.lotan-cetarchon.the-unrivaled",
+  "name": "The Unrivaled",
+  "route": {
+    "slug": "the-unrivaled",
+    "canonicalPath": "/database/awakeners/lotan-cetarchon/enlightens/the-unrivaled"
+  },
+  "ownerAwakenerId": "awakener-0059",
+  "slot": "AbsoluteAxiom",
+  "descriptionTemplate": "{Rouse} {Primeval Return} is enhanced. {Deadly Duel} now grants Lotan: Cetarchon +50% additional Aliemus, and the per-Aliemus Final DMG Bonus from {Deadly Duel} and its maximum cap are both increased by 50%.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Lotan: Cetarchon"
+}

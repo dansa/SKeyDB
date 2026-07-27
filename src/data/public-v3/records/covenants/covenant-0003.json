@@ -26,7 +26,7 @@
     },
     {
       "set": 6,
-      "descriptionTemplate": "the wielder gains 35 Keyflare when dealing Damage, or 70 Keyflare for Crit. DMG. This effect can trigger up to 3 times per turn.",
+      "descriptionTemplate": "The wielder gains 35 Keyflare when dealing Damage, or 70 Keyflare for Crit. DMG. This effect can trigger up to 3 times per turn.",
       "descriptionArgs": {}
     }
   ],

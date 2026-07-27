@@ -30,7 +30,7 @@
       "ownerAwakenerId": "awakener-0002",
       "ownerAwakenerName": "Agrippa",
       "patch": {
-        "descriptionTemplate": "Deal [Damage:Arg1] DMG and apply equal {Poison}. {Embryo Fusion} +[Blood:Arg2]. Whenever {Devour} is triggered, place {Colorless Spiral} from the Discard Pile into your hand.",
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG and apply equal {Poison}. {Embryo Fusion} +[Blood:Arg2]. Whenever {Devour} is triggered, place {Colorless Spiral} from the Discard Pile into hand.",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

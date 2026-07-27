@@ -10,6 +10,6 @@
   "overlayType": "mechanic",
   "aliases": [],
   "textColor": "misc",
-  "descriptionTemplate": "When {Embryo Fusion} reaches its limit, place an {Embryo} into your hand.",
+  "descriptionTemplate": "When {Embryo Fusion} reaches its limit, place an {Embryo} into hand.",
   "descriptionArgs": {}
 }

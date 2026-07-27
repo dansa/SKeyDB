@@ -26,7 +26,7 @@
     },
     {
       "set": 6,
-      "descriptionTemplate": "At the start of the exploration, gain 10 Black Sigils. The wielder's \"Defense\" Shield Generation +60%.",
+      "descriptionTemplate": "At exploration start, gain 10 Black Sigils. The wielder's \"Defense\" Shield Generation +60%.",
       "descriptionArgs": {}
     }
   ],

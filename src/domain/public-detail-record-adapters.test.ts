@@ -101,12 +101,38 @@ describe('public-detail-record-adapters', () => {
 
   it('maps promoted derived cards into the existing promoted extras surface', async () => {
     const castor = await loadPublicAwakenerDetailById('awakener-0008')
+    const cetarchon = await loadPublicAwakenerDetailById('awakener-0059')
 
     expect(castor?.cards.promotedExtras.map((entry) => entry.id)).toEqual([
       'derived.castor.onyx-plume',
     ])
     expect(castor?.derivedSkills.map((entry) => entry.id)).not.toContain(
       'derived.castor.onyx-plume',
+    )
+    expect(cetarchon?.cards.promotedExtras.map((entry) => entry.id)).toEqual([
+      'derived.lotan-cetarchon.deadly-duel',
+      'derived.lotan-cetarchon.great-blade-whalefall',
+    ])
+    expect(cetarchon?.derivedSkills.map((entry) => entry.id)).toContain(
+      'derived.lotan-cetarchon.netherblade',
+    )
+  })
+
+  it('keeps description arg upgrades on the upgraded target record', async () => {
+    const arachne = await loadPublicAwakenerDetailById('awakener-0056')
+
+    expect(arachne?.cards.C4.upgrades).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          upgraderId: 'enlighten.arachne.universe-as-i-conceive',
+          operation: 'override_args',
+          patch: expect.objectContaining({
+            descriptionArgs: expect.objectContaining({
+              Arg1: expect.objectContaining({kind: 'scaling'}),
+            }),
+          }),
+        }),
+      ]),
     )
   })
 
@@ -118,9 +144,9 @@ describe('public-detail-record-adapters', () => {
         expect.objectContaining({
           upgraderId: 'enlighten.arachne.universe-as-i-conceive',
           operation: 'override_card_keywords',
-          patch: expect.objectContaining({
+          patch: {
             cardKeywords: [{id: 'mechanic.prepare', value: 1}, {id: 'mechanic.retain'}],
-          }),
+          },
         }),
       ]),
     )

@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0033",
   "slot": "Skill1",
-  "descriptionTemplate": "Counts as \"Strike\". Deal [Damage:Arg1] DMG to all enemies [Arg2] {plural:[Arg2]|time|times},",
+  "descriptionTemplate": "Counts as a \"Strike\". Deal [Damage:Arg1] DMG to all enemies [Arg2] {plural:[Arg2]|time|times},",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -38,7 +38,7 @@
       "ownerAwakenerId": "awakener-0033",
       "ownerAwakenerName": "Mouchette",
       "patch": {
-        "descriptionTemplate": "Counts as \"Strike\". Deal [Damage:Arg1] DMG to all enemies [Arg2] {plural:[Arg2]|time|times}, generate 1 temporary copy of the last played other \"Strike\" and reduce its Arithmetica Cost by 1."
+        "descriptionTemplate": "Counts as a \"Strike\". Deal [Damage:Arg1] DMG to all enemies [Arg2] {plural:[Arg2]|time|times}, generate 1 temporary copy of the last played other \"Strike\" and reduce its Arithmetica Cost by 1."
       }
     }
   ],

@@ -791,6 +791,22 @@
         "realm": "AEQUOR",
         "owner": "awakener-0058"
       }
+    },
+    {
+      "kind": "posse",
+      "id": "posse-0053",
+      "name": "Cetus-Devouring Storm",
+      "aliases": [],
+      "tokens": ["cetarchon", "cetus", "cetus devouring storm", "chaos", "devouring", "glotan", "lotan", "lotan cetarchon", "rotan", "storm"],
+      "fields": {
+        "name": ["Cetus-Devouring Storm", "cetus-devouring-storm"],
+        "owner": ["Lotan: Cetarchon", "lotan-cetarchon", "lotan cetarchon", "cetarchon", "glotan", "rotan"],
+        "facet": ["CHAOS"]
+      },
+      "facets": {
+        "realm": "CHAOS",
+        "owner": "awakener-0059"
+      }
     }
   ]
 }

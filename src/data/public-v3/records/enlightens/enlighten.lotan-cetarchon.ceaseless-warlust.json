@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 3,
+  "kind": "enlighten",
+  "id": "enlighten.lotan-cetarchon.ceaseless-warlust",
+  "name": "Ceaseless Warlust",
+  "route": {
+    "slug": "ceaseless-warlust",
+    "canonicalPath": "/database/awakeners/lotan-cetarchon/enlightens/ceaseless-warlust"
+  },
+  "ownerAwakenerId": "awakener-0059",
+  "slot": "E2",
+  "descriptionTemplate": "When Basic \"Strike\" is played, draw 1 {Short Blade: Devour}. When Basic \"Defense\" is played, draw 1 {Long Blade: Perish}. Each takes effect up to once per turn.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Lotan: Cetarchon"
+}

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 3,
+  "kind": "talent",
+  "id": "talent.lotan-cetarchon.madness-omen",
+  "name": "Madness Omen",
+  "route": {
+    "slug": "madness-omen",
+    "canonicalPath": "/database/awakeners/lotan-cetarchon/talents/madness-omen"
+  },
+  "ownerAwakenerId": "awakener-0059",
+  "family": "madness_omen",
+  "maxLevel": 12,
+  "descriptionTemplate": "Obtain [Arg1] Aliemus after the start of exploration.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "linear",
+      "base": "5",
+      "gainPerLevel": "5"
+    }
+  },
+  "ownerAwakenerName": "Lotan: Cetarchon"
+}

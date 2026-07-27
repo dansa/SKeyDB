@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.falling-upward",
+  "name": "Falling Upward",
+  "route": {
+    "slug": "falling-upward",
+    "canonicalPath": "/database/derived-skills/falling-upward"
+  },
+  "descriptionTemplate": "The wielder gains [Arg1] fixed Aliemus and removes the {Perception Warp} effect from all Command Cards.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": ["70", "80", "90", "100"]
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    },
+    {
+      "id": "mechanic.prepare",
+      "value": 1
+    },
+    {
+      "id": "mechanic.exhaust"
+    }
+  ],
+  "cost": "3"
+}

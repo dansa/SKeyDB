@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0050",
   "slot": "Skill1",
-  "descriptionTemplate": "Deal [Damage:Arg1] {Pierce DMG} to all enemies, additionally gaining [Arg3]% {Tentacle DMG} and {STR} bonus. Cause all Tentacles to Attack [Arg2] time(s), dealing [Arg4]% {Pierce DMG}. {Aftershock}: Command 1 Tentacle to attack.",
+  "descriptionTemplate": "Deal [Damage:Arg1] {Pierce DMG} to all enemies, additionally gaining [Arg3]% {Tentacle DMG} and {STR} bonus. Command all Tentacles to attack [Arg2] {plural:[Arg2]|time|times}, dealing [Arg4]% {Pierce DMG}. {Aftershock}: Command 1 Tentacle to attack.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -48,7 +48,7 @@
       "ownerAwakenerId": "awakener-0050",
       "ownerAwakenerName": "Tulu",
       "patch": {
-        "descriptionTemplate": "Deal [Damage:Arg1] {Pierce DMG} to all enemies, additionally gaining [Arg3]% {Tentacle DMG} and {STR} bonus. Cause all Tentacles to attack all enemies [Arg2] times, dealing [Arg4]% {Pierce DMG}. If the current stance is {Tranquil Sea}, Arithmetica Cost -2. {Aftershock}: Command 1 Tentacle to attack."
+        "descriptionTemplate": "Deal [Damage:Arg1] {Pierce DMG} to all enemies, additionally gaining [Arg3]% {Tentacle DMG} and {STR} bonus. Command all Tentacles to attack all enemies [Arg2] {plural:[Arg2]|time|times}, dealing [Arg4]% {Pierce DMG}. If the current stance is {Tranquil Sea}, Arithmetica Cost -2. {Aftershock}: Command 1 Tentacle to attack."
       }
     },
     {

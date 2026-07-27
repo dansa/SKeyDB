@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 3,
+  "kind": "wheel",
+  "id": "wheel-0173",
+  "name": "Undying Hungerbone",
+  "route": {
+    "slug": "undying-hungerbone",
+    "canonicalPath": "/database/wheels/undying-hungerbone"
+  },
+  "assets": {
+    "icon": "asset-wheel-0173-icon"
+  },
+  "rarity": "SR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "SIGIL_YIELD",
+  "ownerAwakenerId": "awakener-0059",
+  "ownerAwakenerName": "Lotan: Cetarchon",
+  "lineupToken": "zd",
+  "descriptionTemplate": "Team Unique: Wielder's \"Strike\" Crit. DMG increased by [StateArg1]%.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": ["20", "30", "40", "50"],
+      "suffix": "%"
+    }
+  },
+  "lore": "On the most agonizing yet fulfilling day of her life, Lotan's blades raged like a storm against the god before her. In the storm, her greatblades and Leviathan's planetary bulk shattered together, splinter by splinter.\nShe gifted the blood-drenched Crown to the knightly order's slave. In exchange, she asked for but one thing: a new weapon.\nAwed and terrified, the new king ordered the bones of Leviathan harvested and forged into a pair of peerless bone blades. Wrought and quenched day and night by the Six Kingdoms' finest blacksmiths, the remains of a dead deity were reborn in the hands of its slayer.\nA worthy rival once witnessed these undying blades. His warhammer shattered Lotan's armor and her bone blades. Spiderweb cracks raced across the blade, ivory shards scattering into the crimson air—just as they had on the day she struck down Leviathan. He thought he'd found an opening. Then he watched her rise again before him. The blade that should have been broken drove through his chest, drinking his blood, devouring his flesh. From the fractures, new bone erupted—sharper, denser, splintering outward like wild thorns in the wasteland. He felt, with perfect clarity, his life being chewed and swallowed by the bone-forged blade.\nAs it turned out, the star-devouring beast had never truly died. From the moment their pact was sealed, It had become one with her. Each time Lotan raises her blades, bone spines erupt along the edges, their razor tips shrieking in cruel triumph.\nIt is her weapon. She is its stride. From beginning to end, she and it have shared the same hunger. Bound as one, they are undying and insatiable.\nAnd the eternal battlefield is their only home.",
+  "searchTags": ["Strike", "Crit DMG"]
+}

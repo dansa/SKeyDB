@@ -25,7 +25,7 @@
     },
     {
       "set": 6,
-      "descriptionTemplate": "The wielder's Shield and HP Recovery increase by 12%.",
+      "descriptionTemplate": "The wielder's Shield Generation and HP Recovery +12%.",
       "descriptionArgs": {}
     }
   ],

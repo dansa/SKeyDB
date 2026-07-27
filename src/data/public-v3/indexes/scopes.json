@@ -7,7 +7,7 @@
       "idPrefix": "awakener",
       "capabilities": ["catalog", "detailRecord", "search", "snapshot"],
       "searchable": true,
-      "recordCount": 58
+      "recordCount": 59
     },
     {
       "scope": "wheels",
@@ -15,7 +15,7 @@
       "idPrefix": "wheel",
       "capabilities": ["catalog", "detailRecord", "search", "snapshot"],
       "searchable": true,
-      "recordCount": 137
+      "recordCount": 140
     },
     {
       "scope": "relics",
@@ -23,7 +23,7 @@
       "idPrefix": "relic",
       "capabilities": ["catalog", "detailRecord", "search", "snapshot"],
       "searchable": true,
-      "recordCount": 286
+      "recordCount": 287
     },
     {
       "scope": "covenants",
@@ -39,7 +39,7 @@
       "idPrefix": "posse",
       "capabilities": ["catalog", "detailRecord", "search", "snapshot"],
       "searchable": true,
-      "recordCount": 52
+      "recordCount": 53
     },
     {
       "scope": "skills",
@@ -47,7 +47,7 @@
       "idPrefix": "skill",
       "capabilities": ["catalog", "detailRecord", "snapshot"],
       "searchable": false,
-      "recordCount": 406
+      "recordCount": 413
     },
     {
       "scope": "derived-skills",
@@ -55,7 +55,7 @@
       "idPrefix": "derived",
       "capabilities": ["catalog", "detailRecord", "snapshot"],
       "searchable": false,
-      "recordCount": 183
+      "recordCount": 188
     },
     {
       "scope": "talents",
@@ -63,7 +63,7 @@
       "idPrefix": "talent",
       "capabilities": ["catalog", "detailRecord", "snapshot"],
       "searchable": false,
-      "recordCount": 218
+      "recordCount": 222
     },
     {
       "scope": "enlightens",
@@ -71,7 +71,7 @@
       "idPrefix": "enlighten",
       "capabilities": ["catalog", "detailRecord", "snapshot"],
       "searchable": false,
-      "recordCount": 290
+      "recordCount": 295
     },
     {
       "scope": "overlays",
@@ -97,7 +97,7 @@
       "idPrefix": "awakener",
       "capabilities": ["catalog", "detailRecord", "search", "snapshot"],
       "searchable": true,
-      "recordCount": 58
+      "recordCount": 59
     },
     "wheels": {
       "scope": "wheels",
@@ -105,7 +105,7 @@
       "idPrefix": "wheel",
       "capabilities": ["catalog", "detailRecord", "search", "snapshot"],
       "searchable": true,
-      "recordCount": 137
+      "recordCount": 140
     },
     "relics": {
       "scope": "relics",
@@ -113,7 +113,7 @@
       "idPrefix": "relic",
       "capabilities": ["catalog", "detailRecord", "search", "snapshot"],
       "searchable": true,
-      "recordCount": 286
+      "recordCount": 287
     },
     "covenants": {
       "scope": "covenants",
@@ -129,7 +129,7 @@
       "idPrefix": "posse",
       "capabilities": ["catalog", "detailRecord", "search", "snapshot"],
       "searchable": true,
-      "recordCount": 52
+      "recordCount": 53
     },
     "skills": {
       "scope": "skills",
@@ -137,7 +137,7 @@
       "idPrefix": "skill",
       "capabilities": ["catalog", "detailRecord", "snapshot"],
       "searchable": false,
-      "recordCount": 406
+      "recordCount": 413
     },
     "derived-skills": {
       "scope": "derived-skills",
@@ -145,7 +145,7 @@
       "idPrefix": "derived",
       "capabilities": ["catalog", "detailRecord", "snapshot"],
       "searchable": false,
-      "recordCount": 183
+      "recordCount": 188
     },
     "talents": {
       "scope": "talents",
@@ -153,7 +153,7 @@
       "idPrefix": "talent",
       "capabilities": ["catalog", "detailRecord", "snapshot"],
       "searchable": false,
-      "recordCount": 218
+      "recordCount": 222
     },
     "enlightens": {
       "scope": "enlightens",
@@ -161,7 +161,7 @@
       "idPrefix": "enlighten",
       "capabilities": ["catalog", "detailRecord", "snapshot"],
       "searchable": false,
-      "recordCount": 290
+      "recordCount": 295
     },
     "overlays": {
       "scope": "overlays",

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.lotan-cetarchon.great-blade-whalefall",
+  "name": "Great Blade: Whalefall",
+  "route": {
+    "slug": "great-blade-whalefall",
+    "canonicalPath": "/database/awakeners/lotan-cetarchon/derived-skills/great-blade-whalefall"
+  },
+  "ownerAwakenerId": "awakener-0059",
+  "descriptionTemplate": "Unplayable. While in hand:\nAll enemies deal 25% more DMG to your team.\nAll of Lotan: Cetarchon's Command Cards become {Deadly Duel}.\nAt the start of each turn, draw 1 {Deadly Duel}.",
+  "descriptionArgs": {},
+  "cardKeywords": [],
+  "ownerAwakenerName": "Lotan: Cetarchon"
+}

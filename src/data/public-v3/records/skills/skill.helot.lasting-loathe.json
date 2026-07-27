@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0023",
   "slot": "Skill2",
-  "descriptionTemplate": "Lose [Arg1]% Current HP. Deal [Damage:Arg2] DMG to all enemies and an equal amount of {Bleed}. Generate 2 random Awakeners' \"Strike\" cards, place them into hand, and attach {Exhaust}. This card is considered \"Strike\".",
+  "descriptionTemplate": "Lose [Arg1]% Current HP. Deal [Damage:Arg2] DMG to all enemies and an equal amount of {Bleed}. Generate 2 random Awakeners' \"Strike\" cards, place them into hand, and attach {Exhaust}. This card counts as a \"Strike\".",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",

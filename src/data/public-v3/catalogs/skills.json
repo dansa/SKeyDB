@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "skills",
   "kind": "skill",
-  "recordCount": 406,
+  "recordCount": 413,
   "records": [
     {
       "kind": "skill",
@@ -2522,6 +2522,90 @@
       },
       "ownerAwakenerId": "awakener-0030",
       "ownerAwakenerName": "Liz",
+      "slot": "Strike"
+    },
+    {
+      "kind": "skill",
+      "id": "skill.lotan-cetarchon.defense",
+      "name": "Defense",
+      "route": {
+        "slug": "defense",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/skills/defense"
+      },
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "slot": "Defense"
+    },
+    {
+      "kind": "skill",
+      "id": "skill.lotan-cetarchon.long-blade-perish",
+      "name": "Long Blade: Perish",
+      "route": {
+        "slug": "long-blade-perish",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/skills/long-blade-perish"
+      },
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "slot": "Skill1"
+    },
+    {
+      "kind": "skill",
+      "id": "skill.lotan-cetarchon.mundus-severance",
+      "name": "Mundus Severance",
+      "route": {
+        "slug": "mundus-severance",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/skills/mundus-severance"
+      },
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "slot": "Exalt"
+    },
+    {
+      "kind": "skill",
+      "id": "skill.lotan-cetarchon.night-of-whalefall",
+      "name": "Night of Whalefall",
+      "route": {
+        "slug": "night-of-whalefall",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/skills/night-of-whalefall"
+      },
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "slot": "OverExalt"
+    },
+    {
+      "kind": "skill",
+      "id": "skill.lotan-cetarchon.primeval-return",
+      "name": "Primeval Return",
+      "route": {
+        "slug": "primeval-return",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/skills/primeval-return"
+      },
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "slot": "Rouse"
+    },
+    {
+      "kind": "skill",
+      "id": "skill.lotan-cetarchon.short-blade-devour",
+      "name": "Short Blade: Devour",
+      "route": {
+        "slug": "short-blade-devour",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/skills/short-blade-devour"
+      },
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "slot": "Skill2"
+    },
+    {
+      "kind": "skill",
+      "id": "skill.lotan-cetarchon.strike",
+      "name": "Strike",
+      "route": {
+        "slug": "strike",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/skills/strike"
+      },
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
       "slot": "Strike"
     },
     {

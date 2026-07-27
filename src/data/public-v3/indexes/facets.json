@@ -822,6 +822,11 @@
         "value": "awakener-0058",
         "label": "Pontos",
         "order": 57
+      },
+      {
+        "value": "awakener-0059",
+        "label": "Lotan: Cetarchon",
+        "order": 58
       }
     ]
   },
@@ -1143,6 +1148,11 @@
         "value": "awakener-0058",
         "label": "Pontos",
         "order": 57
+      },
+      {
+        "value": "awakener-0059",
+        "label": "Lotan: Cetarchon",
+        "order": 58
       }
     ]
   },
@@ -1485,6 +1495,11 @@
         "value": "awakener-0058",
         "label": "Pontos",
         "order": 57
+      },
+      {
+        "value": "awakener-0059",
+        "label": "Lotan: Cetarchon",
+        "order": 58
       }
     ]
   },
@@ -1881,6 +1896,11 @@
         "value": "awakener-0058",
         "label": "Pontos",
         "order": 57
+      },
+      {
+        "value": "awakener-0059",
+        "label": "Lotan: Cetarchon",
+        "order": 58
       }
     ]
   },
@@ -2212,6 +2232,11 @@
         "value": "awakener-0058",
         "label": "Pontos",
         "order": 57
+      },
+      {
+        "value": "awakener-0059",
+        "label": "Lotan: Cetarchon",
+        "order": 58
       }
     ]
   },
@@ -2528,6 +2553,11 @@
         "value": "awakener-0058",
         "label": "Pontos",
         "order": 57
+      },
+      {
+        "value": "awakener-0059",
+        "label": "Lotan: Cetarchon",
+        "order": 58
       }
     ]
   },
@@ -2908,6 +2938,11 @@
         "value": "awakener-0058",
         "label": "Pontos",
         "order": 57
+      },
+      {
+        "value": "awakener-0059",
+        "label": "Lotan: Cetarchon",
+        "order": 58
       }
     ],
     "tags": [

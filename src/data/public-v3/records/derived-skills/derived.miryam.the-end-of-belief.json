@@ -11,7 +11,7 @@
   "derivedFromId": "derived.miryam.heretical-faith",
   "rootSkillId": "skill.miryam.testament-of-faith",
   "childDerivedSkillIds": ["derived.miryam.divine-realms-illusion"],
-  "descriptionTemplate": "Miryam gains [Energy:Arg1] Aliemus.{Rouse}: Apply 1 stack of {Weakness} and {Vulnerable} to all enemies. Tentacle Limit and Tentacle Count +1. At turn end, randomly place 1 {Divine Realm's Illusion} into your hand.",
+  "descriptionTemplate": "Miryam gains [Energy:Arg1] Aliemus.{Rouse}: Apply 1 stack of {Weakness} and {Vulnerable} to all enemies. Tentacle Limit and Tentacle Count +1. At turn end, randomly place 1 {Divine Realm's Illusion} into hand.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

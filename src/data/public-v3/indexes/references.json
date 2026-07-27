@@ -1153,6 +1153,12 @@
         "id": "relic-0085"
       }
     ],
+    "ceaseless warlust": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.lotan-cetarchon.ceaseless-warlust"
+      }
+    ],
     "celeste": [
       {
         "kind": "awakener",
@@ -1187,6 +1193,24 @@
       {
         "kind": "enlighten",
         "id": "enlighten.pickman.centered-composition"
+      }
+    ],
+    "cetarchon": [
+      {
+        "kind": "awakener",
+        "id": "awakener-0059"
+      }
+    ],
+    "cetus devouring storm": [
+      {
+        "kind": "posse",
+        "id": "posse-0053"
+      }
+    ],
+    "cetus occasus": [
+      {
+        "kind": "wheel",
+        "id": "wheel-0172"
       }
     ],
     "ceylon tea": [
@@ -1885,6 +1909,12 @@
         "id": "enlighten.daffodil.dead-souls"
       }
     ],
+    "deadly duel": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.lotan-cetarchon.deadly-duel"
+      }
+    ],
     "deadly flames": [
       {
         "kind": "derivedSkill",
@@ -2297,6 +2327,12 @@
       {
         "kind": "relic",
         "id": "relic-0031"
+      }
+    ],
+    "dimensional image lotan cetarchon": [
+      {
+        "kind": "relic",
+        "id": "relic-0306"
       }
     ],
     "dimensional image miryam": [
@@ -3703,6 +3739,12 @@
         "id": "skill.aurita.gland-division"
       }
     ],
+    "glotan": [
+      {
+        "kind": "awakener",
+        "id": "awakener-0059"
+      }
+    ],
     "glow of humanity": [
       {
         "kind": "derivedSkill",
@@ -3767,6 +3809,12 @@
       {
         "kind": "wheel",
         "id": "wheel-0024"
+      }
+    ],
+    "great blade whalefall": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.lotan-cetarchon.great-blade-whalefall"
       }
     ],
     "greed": [
@@ -4795,6 +4843,12 @@
         "id": "relic-0203"
       }
     ],
+    "long blade perish": [
+      {
+        "kind": "skill",
+        "id": "skill.lotan-cetarchon.long-blade-perish"
+      }
+    ],
     "loop": [
       {
         "kind": "overlay",
@@ -4817,6 +4871,12 @@
       {
         "kind": "awakenerBuild",
         "id": "awakener-build-0031"
+      }
+    ],
+    "lotan cetarchon": [
+      {
+        "kind": "awakener",
+        "id": "awakener-0059"
       }
     ],
     "lucky rabbits paw": [
@@ -5275,6 +5335,12 @@
         "id": "skill.mouchette.mortal-blast"
       }
     ],
+    "mortal sojourn": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.mortal-sojourn"
+      }
+    ],
     "moth trapping fire": [
       {
         "kind": "skill",
@@ -5309,6 +5375,12 @@
       {
         "kind": "skill",
         "id": "skill.ramona.mundus-decree"
+      }
+    ],
+    "mundus severance": [
+      {
+        "kind": "skill",
+        "id": "skill.lotan-cetarchon.mundus-severance"
       }
     ],
     "murmur": [
@@ -5417,6 +5489,12 @@
       {
         "kind": "overlay",
         "id": "overlay.ramona-timeworn.negentropy"
+      }
+    ],
+    "netherblade": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.lotan-cetarchon.netherblade"
       }
     ],
     "netherward path": [
@@ -6235,6 +6313,18 @@
         "id": "enlighten.lotan.primal-leviathan"
       }
     ],
+    "primeval return": [
+      {
+        "kind": "skill",
+        "id": "skill.lotan-cetarchon.primeval-return"
+      }
+    ],
+    "primordial breath": [
+      {
+        "kind": "talent",
+        "id": "talent.lotan-cetarchon.primordial-breath"
+      }
+    ],
     "princess of delusions": [
       {
         "kind": "skill",
@@ -6823,10 +6913,22 @@
         "id": "wheel-0132"
       }
     ],
+    "rotan": [
+      {
+        "kind": "awakener",
+        "id": "awakener-0059"
+      }
+    ],
     "rotting blood abyss serum": [
       {
         "kind": "relic",
         "id": "relic-0257"
+      }
+    ],
+    "rotting remains": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.lotan-cetarchon.rotting-remains"
       }
     ],
     "rouse": [
@@ -7175,6 +7277,12 @@
       {
         "kind": "skill",
         "id": "skill.mouchette.shining-tornado"
+      }
+    ],
+    "short blade devour": [
+      {
+        "kind": "skill",
+        "id": "skill.lotan-cetarchon.short-blade-devour"
       }
     ],
     "short term memory": [
@@ -8101,6 +8209,12 @@
         "id": "enlighten.miryam.the-ultimate-descent"
       }
     ],
+    "the unrivaled": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.lotan-cetarchon.the-unrivaled"
+      }
+    ],
     "the usurper": [
       {
         "kind": "enlighten",
@@ -8485,6 +8599,12 @@
         "id": "relic-0294"
       }
     ],
+    "uncrowned storm": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.lotan-cetarchon.uncrowned-storm"
+      }
+    ],
     "undying bird of paradise": [
       {
         "kind": "skill",
@@ -8495,6 +8615,12 @@
       {
         "kind": "skill",
         "id": "skill.lily.undying-flower-upon-slime"
+      }
+    ],
+    "undying hungerbone": [
+      {
+        "kind": "wheel",
+        "id": "wheel-0173"
       }
     ],
     "undying sun": [
@@ -9426,6 +9552,10 @@
       },
       {
         "kind": "skill",
+        "id": "skill.lotan-cetarchon.defense"
+      },
+      {
+        "kind": "skill",
         "id": "skill.lotan.defense"
       },
       {
@@ -9659,6 +9789,16 @@
         "id": "skill.corposant.face-death-in-fiery-resolve"
       }
     ],
+    "falling upward": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.falling-upward"
+      },
+      {
+        "kind": "wheel",
+        "id": "wheel-0174"
+      }
+    ],
     "fettered malice": [
       {
         "kind": "enlighten",
@@ -9829,6 +9969,10 @@
       {
         "kind": "talent",
         "id": "talent.liz.gnostic-potential"
+      },
+      {
+        "kind": "talent",
+        "id": "talent.lotan-cetarchon.gnostic-potential"
       },
       {
         "kind": "talent",
@@ -10200,6 +10344,10 @@
       },
       {
         "kind": "talent",
+        "id": "talent.lotan-cetarchon.madness-omen"
+      },
+      {
+        "kind": "talent",
         "id": "talent.lotan.madness-omen"
       },
       {
@@ -10329,6 +10477,16 @@
       {
         "kind": "skill",
         "id": "skill.erica.multiple-calculations"
+      }
+    ],
+    "night of whalefall": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.lotan-cetarchon.night-of-whalefall"
+      },
+      {
+        "kind": "skill",
+        "id": "skill.lotan-cetarchon.night-of-whalefall"
       }
     ],
     "oath of liberation": [
@@ -10641,6 +10799,10 @@
       {
         "kind": "talent",
         "id": "talent.liz.soulforge-aptitude"
+      },
+      {
+        "kind": "talent",
+        "id": "talent.lotan-cetarchon.soulforge-aptitude"
       },
       {
         "kind": "talent",
@@ -11075,6 +11237,10 @@
       {
         "kind": "skill",
         "id": "skill.liz.strike"
+      },
+      {
+        "kind": "skill",
+        "id": "skill.lotan-cetarchon.strike"
       },
       {
         "kind": "skill",

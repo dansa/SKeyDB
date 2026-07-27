@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 3,
+  "kind": "skill",
+  "id": "skill.lotan-cetarchon.mundus-severance",
+  "name": "Mundus Severance",
+  "route": {
+    "slug": "mundus-severance",
+    "canonicalPath": "/database/awakeners/lotan-cetarchon/skills/mundus-severance"
+  },
+  "ownerAwakenerId": "awakener-0059",
+  "slot": "Exalt",
+  "descriptionTemplate": "Consumes {Great Blade: Whalefall} to unleash. Deal [Damage:Arg1] guaranteed Critical Hit DMG to the enemy with the highest DMG, which enjoys a [Arg2]% {STR} Bonus. For each +1 DMG {Great Blade: Whalefall} is causing the target to deal to you, {Mundus Severance} deals +75 DMG.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": ["400", "480", "560", "640", "720", "800"],
+      "stat": "ATK",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": ["1000", "1100", "1200", "1300", "1400", "1500"],
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "200",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.lotan-cetarchon.uncrowned-storm.skill.lotan-cetarchon.mundus-severance",
+      "operation": "replace_description",
+      "upgraderId": "enlighten.lotan-cetarchon.uncrowned-storm",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "E3",
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "patch": {
+        "descriptionTemplate": "Consumes {Great Blade: Whalefall} to unleash. Deal [Damage:Arg1] guaranteed Critical Hit DMG to the enemy with the highest DMG, which enjoys a [Arg2]% {STR} Bonus. For each +1 DMG {Great Blade: Whalefall} is causing the target to deal to you, {Mundus Severance} deals +150 DMG."
+      }
+    }
+  ],
+  "ownerAwakenerName": "Lotan: Cetarchon"
+}

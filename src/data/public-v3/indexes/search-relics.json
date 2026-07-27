@@ -5961,6 +5961,37 @@
         "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
         "variantTiers": ["Silver", "Gold"]
       }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0306",
+      "name": "Dimensional Image: Lotan: Cetarchon",
+      "aliases": [],
+      "tokens": [
+        "cetarchon",
+        "dimensional",
+        "dimensional image",
+        "dimensional image lotan cetarchon",
+        "glotan",
+        "image",
+        "lotan",
+        "lotan cetarchon",
+        "rotan",
+        "ssr",
+        "unique"
+      ],
+      "fields": {
+        "name": ["Dimensional Image: Lotan: Cetarchon", "dimensional-image-lotan-cetarchon"],
+        "owner": ["Lotan: Cetarchon", "lotan-cetarchon", "lotan cetarchon", "cetarchon", "glotan", "rotan"],
+        "facet": ["SSR", "Dimensional Image", "DIMENSIONAL_IMAGE", "Unique"]
+      },
+      "facets": {
+        "rarity": "SSR",
+        "relicType": "Dimensional Image",
+        "categories": ["DIMENSIONAL_IMAGE"],
+        "variantTiers": ["Unique"],
+        "owner": "awakener-0059"
+      }
     }
   ]
 }

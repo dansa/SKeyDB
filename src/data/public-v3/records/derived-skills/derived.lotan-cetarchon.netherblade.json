@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.lotan-cetarchon.netherblade",
+  "name": "Netherblade",
+  "route": {
+    "slug": "netherblade",
+    "canonicalPath": "/database/awakeners/lotan-cetarchon/derived-skills/netherblade"
+  },
+  "ownerAwakenerId": "awakener-0059",
+  "descriptionTemplate": "At the start of the turn after releasing {Mundus Severance}, deal [Damage:Arg1] DMG to all enemies. For each 1 additional DMG {Great Blade: Whalefall} causes the highest-DMG enemy to deal, this {Pursuit} deals +[Arg2] DMG. Counts as a Strike.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "400",
+      "stat": "ATK",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "75"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "0",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.lotan-cetarchon.uncrowned-storm.derived.lotan-cetarchon.netherblade",
+      "operation": "override_args",
+      "upgraderId": "enlighten.lotan-cetarchon.uncrowned-storm",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "E3",
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "fixed",
+            "value": "400",
+            "stat": "ATK",
+            "suffix": "%"
+          },
+          "Arg2": {
+            "kind": "fixed",
+            "value": "150",
+            "omitsCombatScaling": true
+          }
+        }
+      }
+    }
+  ],
+  "ownerAwakenerName": "Lotan: Cetarchon"
+}

@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0042",
   "slot": "E1",
-  "descriptionTemplate": "{Queen's Sword} deals +1 instance of DMG and gains Temporary {STR} equal to [Arg1]% of ATK with each DMG dealt. (effect scales with {Queen's Sword} skill level). When discarded, obtain an equal amount of Keyflare.",
+  "descriptionTemplate": "{Queen's Sword} deals +1 instance of DMG and gains Temporary {STR} equal to [Arg1]% of ATK with each DMG dealt. (effect scales with {Queen's Sword} skill level). When discarded, obtain Keyflare equal to 300% Ramona's Keyflare Regen.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

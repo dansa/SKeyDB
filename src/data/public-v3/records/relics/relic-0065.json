@@ -26,7 +26,7 @@
       "inputs": ["accountLevel", "ownedPosseCount"]
     }
   },
-  "lore": "The End of Fate",
+  "lore": "The end of fate.",
   "variants": [
     {
       "id": "relic-variant-0070",
@@ -46,7 +46,7 @@
           "inputs": ["accountLevel", "ownedPosseCount"]
         }
       },
-      "lore": "The End of Fate"
+      "lore": "The end of fate."
     },
     {
       "id": "relic-variant-0071",
@@ -65,7 +65,7 @@
           "inputs": ["accountLevel", "ownedPosseCount"]
         }
       },
-      "lore": "The End of Fate"
+      "lore": "The end of fate."
     },
     {
       "id": "relic-variant-0069",

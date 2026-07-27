@@ -38,7 +38,7 @@
   "upgrades": [
     {
       "id": "upgrade.enlighten.celeste.solitary-mast.skill.celeste.everlasting-phantasm",
-      "operation": "override_args",
+      "operation": "mixed",
       "upgraderId": "enlighten.celeste.solitary-mast",
       "upgraderType": "enlighten",
       "upgraderSlot": "E1",
@@ -67,7 +67,12 @@
               "multiplier": "0.5"
             }
           }
-        }
+        },
+        "cardKeywords": [
+          {
+            "id": "mechanic.retain"
+          }
+        ]
       }
     },
     {

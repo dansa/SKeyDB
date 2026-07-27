@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0306",
+  "name": "Dimensional Image: Lotan: Cetarchon",
+  "route": {
+    "slug": "dimensional-image-lotan-cetarchon",
+    "canonicalPath": "/database/relics/dimensional-image-lotan-cetarchon"
+  },
+  "assets": {
+    "icon": "asset-relic-0306-icon"
+  },
+  "relicType": "Dimensional Image",
+  "categories": ["DIMENSIONAL_IMAGE"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0554",
+  "ownerAwakenerId": "awakener-0059",
+  "ownerAwakenerName": "Lotan: Cetarchon",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "At turn start, gain [Arg1] Aliemus. After releasing {Mundus Severance}, perform {Pursuit}: {Netherblade} at the start of next turn: Deal DMG equal to 400% Lotan: Cetarchon's ATK to all enemies. This {Pursuit} benefits from the DMG Bonus that {Mundus Severance} enjoys through {Great Blade: Whalefall} and counts as a \"Strike\".",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0554",
+      "name": "Dimensional Image: Lotan: Cetarchon",
+      "label": "Dimensional Image",
+      "variantType": "DIMENSIONAL_IMAGE",
+      "tier": "Unique",
+      "category": "DIMENSIONAL_IMAGE",
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "rarity": "SSR",
+      "descriptionTemplate": "At turn start, gain [Arg1] Aliemus. After releasing {Mundus Severance}, perform {Pursuit}: {Netherblade} at the start of next turn: Deal DMG equal to 400% Lotan: Cetarchon's ATK to all enemies. This {Pursuit} benefits from the DMG Bonus that {Mundus Severance} enjoys through {Great Blade: Whalefall} and counts as a \"Strike\".",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        }
+      }
+    }
+  ]
+}

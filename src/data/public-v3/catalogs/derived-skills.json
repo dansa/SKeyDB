@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "derived-skills",
   "kind": "derivedSkill",
-  "recordCount": 183,
+  "recordCount": 188,
   "records": [
     {
       "kind": "derivedSkill",
@@ -869,6 +869,15 @@
     },
     {
       "kind": "derivedSkill",
+      "id": "derived.global.falling-upward",
+      "name": "Falling Upward",
+      "route": {
+        "slug": "falling-upward",
+        "canonicalPath": "/database/derived-skills/falling-upward"
+      }
+    },
+    {
+      "kind": "derivedSkill",
       "id": "derived.global.fleeting-beauty",
       "name": "Fleeting Beauty",
       "route": {
@@ -1081,6 +1090,15 @@
         "canonicalPath": "/database/derived-skills/remembrance-utopian-veil"
       },
       "derivedFromId": "derived.global.twilight-utopian-veil"
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.global.mortal-sojourn",
+      "name": "Mortal Sojourn",
+      "route": {
+        "slug": "mortal-sojourn",
+        "canonicalPath": "/database/derived-skills/mortal-sojourn"
+      }
     },
     {
       "kind": "derivedSkill",
@@ -1551,6 +1569,39 @@
       "ownerAwakenerName": "Liz",
       "derivedFromId": "skill.liz.omens-descent",
       "rootSkillId": "skill.liz.omens-descent"
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.lotan-cetarchon.deadly-duel",
+      "name": "Deadly Duel",
+      "route": {
+        "slug": "deadly-duel",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/derived-skills/deadly-duel"
+      },
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon"
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.lotan-cetarchon.great-blade-whalefall",
+      "name": "Great Blade: Whalefall",
+      "route": {
+        "slug": "great-blade-whalefall",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/derived-skills/great-blade-whalefall"
+      },
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon"
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.lotan-cetarchon.netherblade",
+      "name": "Netherblade",
+      "route": {
+        "slug": "netherblade",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/derived-skills/netherblade"
+      },
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon"
     },
     {
       "kind": "derivedSkill",

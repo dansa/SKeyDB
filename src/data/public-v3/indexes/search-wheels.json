@@ -4187,6 +4187,103 @@
         "owner": "awakener-0058",
         "tags": ["aliemus", "crit-dmg"]
       }
+    },
+    {
+      "kind": "wheel",
+      "id": "wheel-0172",
+      "name": "Cetus Occasus",
+      "aliases": [],
+      "tokens": [
+        "aliemus",
+        "aliemus generation",
+        "cetarchon",
+        "cetus",
+        "cetus occasus",
+        "chaos",
+        "crit",
+        "crit damage",
+        "crit dmg",
+        "critical",
+        "critical damage",
+        "damage",
+        "dmg",
+        "generation",
+        "glotan",
+        "lotan",
+        "lotan cetarchon",
+        "occasus",
+        "rotan",
+        "ssr",
+        "strike"
+      ],
+      "fields": {
+        "name": ["Cetus Occasus", "cetus-occasus"],
+        "owner": ["Lotan: Cetarchon", "lotan-cetarchon", "lotan cetarchon", "cetarchon", "glotan", "rotan"],
+        "tag": ["aliemus", "strike", "crit-dmg", "aliemus generation", "Crit DMG", "crit. dmg", "crit damage", "critical damage"],
+        "facet": ["CHAOS", "SSR"]
+      },
+      "facets": {
+        "realm": "CHAOS",
+        "rarity": "SSR",
+        "mainstatKey": "SIGIL_YIELD",
+        "owner": "awakener-0059",
+        "tags": ["aliemus", "crit-dmg", "strike"]
+      }
+    },
+    {
+      "kind": "wheel",
+      "id": "wheel-0173",
+      "name": "Undying Hungerbone",
+      "aliases": [],
+      "tokens": [
+        "cetarchon",
+        "crit",
+        "crit damage",
+        "crit dmg",
+        "critical",
+        "critical damage",
+        "damage",
+        "dmg",
+        "glotan",
+        "hungerbone",
+        "lotan",
+        "lotan cetarchon",
+        "neutral",
+        "rotan",
+        "sr",
+        "strike",
+        "undying",
+        "undying hungerbone"
+      ],
+      "fields": {
+        "name": ["Undying Hungerbone", "undying-hungerbone"],
+        "owner": ["Lotan: Cetarchon", "lotan-cetarchon", "lotan cetarchon", "cetarchon", "glotan", "rotan"],
+        "tag": ["strike", "crit-dmg", "Crit DMG", "crit. dmg", "crit damage", "critical damage"],
+        "facet": ["NEUTRAL", "SR"]
+      },
+      "facets": {
+        "realm": "NEUTRAL",
+        "rarity": "SR",
+        "mainstatKey": "SIGIL_YIELD",
+        "owner": "awakener-0059",
+        "tags": ["crit-dmg", "strike"]
+      }
+    },
+    {
+      "kind": "wheel",
+      "id": "wheel-0174",
+      "name": "Falling Upward",
+      "aliases": [],
+      "tokens": ["falling", "falling upward", "neutral", "ssr", "upward"],
+      "fields": {
+        "name": ["Falling Upward", "falling-upward"],
+        "facet": ["NEUTRAL", "SSR"]
+      },
+      "facets": {
+        "realm": "NEUTRAL",
+        "rarity": "SSR",
+        "mainstatKey": "REALM_MASTERY"
+      }
     }
   ]
 }

@@ -188,6 +188,12 @@
         "canonicalSlug": "lotan",
         "canonicalPath": "/database/awakeners/lotan"
       },
+      "lotan-cetarchon": {
+        "kind": "awakener",
+        "id": "awakener-0059",
+        "canonicalSlug": "lotan-cetarchon",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon"
+      },
       "miryam": {
         "kind": "awakener",
         "id": "awakener-0032",
@@ -448,6 +454,12 @@
         "canonicalSlug": "celestial-beast",
         "canonicalPath": "/database/wheels/celestial-beast"
       },
+      "cetus-occasus": {
+        "kind": "wheel",
+        "id": "wheel-0172",
+        "canonicalSlug": "cetus-occasus",
+        "canonicalPath": "/database/wheels/cetus-occasus"
+      },
       "chains-unbound": {
         "kind": "wheel",
         "id": "wheel-0005",
@@ -603,6 +615,12 @@
         "id": "wheel-0072",
         "canonicalSlug": "exile",
         "canonicalPath": "/database/wheels/exile"
+      },
+      "falling-upward": {
+        "kind": "wheel",
+        "id": "wheel-0174",
+        "canonicalSlug": "falling-upward",
+        "canonicalPath": "/database/wheels/falling-upward"
       },
       "fate-roulette": {
         "kind": "wheel",
@@ -1107,6 +1125,12 @@
         "id": "wheel-0039",
         "canonicalSlug": "unbearable-freedom",
         "canonicalPath": "/database/wheels/unbearable-freedom"
+      },
+      "undying-hungerbone": {
+        "kind": "wheel",
+        "id": "wheel-0173",
+        "canonicalSlug": "undying-hungerbone",
+        "canonicalPath": "/database/wheels/undying-hungerbone"
       },
       "unsent-flowers": {
         "kind": "wheel",
@@ -1871,6 +1895,12 @@
         "id": "relic-0031",
         "canonicalSlug": "dimensional-image-lotan",
         "canonicalPath": "/database/relics/dimensional-image-lotan"
+      },
+      "dimensional-image-lotan-cetarchon": {
+        "kind": "relic",
+        "id": "relic-0306",
+        "canonicalSlug": "dimensional-image-lotan-cetarchon",
+        "canonicalPath": "/database/relics/dimensional-image-lotan-cetarchon"
       },
       "dimensional-image-miryam": {
         "kind": "relic",
@@ -3081,6 +3111,12 @@
         "id": "posse-0014",
         "canonicalSlug": "bone-chilling-embrace",
         "canonicalPath": "/database/posses/bone-chilling-embrace"
+      },
+      "cetus-devouring-storm": {
+        "kind": "posse",
+        "id": "posse-0053",
+        "canonicalSlug": "cetus-devouring-storm",
+        "canonicalPath": "/database/posses/cetus-devouring-storm"
       },
       "cruel-homage": {
         "kind": "posse",
@@ -4595,6 +4631,48 @@
         "id": "skill.liz.strike",
         "canonicalSlug": "strike",
         "canonicalPath": "/database/awakeners/liz/skills/strike"
+      },
+      "lotan-cetarchon/defense": {
+        "kind": "skill",
+        "id": "skill.lotan-cetarchon.defense",
+        "canonicalSlug": "defense",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/skills/defense"
+      },
+      "lotan-cetarchon/long-blade-perish": {
+        "kind": "skill",
+        "id": "skill.lotan-cetarchon.long-blade-perish",
+        "canonicalSlug": "long-blade-perish",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/skills/long-blade-perish"
+      },
+      "lotan-cetarchon/mundus-severance": {
+        "kind": "skill",
+        "id": "skill.lotan-cetarchon.mundus-severance",
+        "canonicalSlug": "mundus-severance",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/skills/mundus-severance"
+      },
+      "lotan-cetarchon/night-of-whalefall": {
+        "kind": "skill",
+        "id": "skill.lotan-cetarchon.night-of-whalefall",
+        "canonicalSlug": "night-of-whalefall",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/skills/night-of-whalefall"
+      },
+      "lotan-cetarchon/primeval-return": {
+        "kind": "skill",
+        "id": "skill.lotan-cetarchon.primeval-return",
+        "canonicalSlug": "primeval-return",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/skills/primeval-return"
+      },
+      "lotan-cetarchon/short-blade-devour": {
+        "kind": "skill",
+        "id": "skill.lotan-cetarchon.short-blade-devour",
+        "canonicalSlug": "short-blade-devour",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/skills/short-blade-devour"
+      },
+      "lotan-cetarchon/strike": {
+        "kind": "skill",
+        "id": "skill.lotan-cetarchon.strike",
+        "canonicalSlug": "strike",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/skills/strike"
       },
       "lotan/battle-thirst": {
         "kind": "skill",
@@ -6188,6 +6266,12 @@
         "canonicalSlug": "retract-mecha",
         "canonicalPath": "/database/awakeners/erica/derived-skills/retract-mecha"
       },
+      "falling-upward": {
+        "kind": "derivedSkill",
+        "id": "derived.global.falling-upward",
+        "canonicalSlug": "falling-upward",
+        "canonicalPath": "/database/derived-skills/falling-upward"
+      },
       "fleeting-beauty": {
         "kind": "derivedSkill",
         "id": "derived.global.fleeting-beauty",
@@ -6368,6 +6452,24 @@
         "canonicalSlug": "deadly-flames",
         "canonicalPath": "/database/awakeners/liz/derived-skills/deadly-flames"
       },
+      "lotan-cetarchon/deadly-duel": {
+        "kind": "derivedSkill",
+        "id": "derived.lotan-cetarchon.deadly-duel",
+        "canonicalSlug": "deadly-duel",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/derived-skills/deadly-duel"
+      },
+      "lotan-cetarchon/great-blade-whalefall": {
+        "kind": "derivedSkill",
+        "id": "derived.lotan-cetarchon.great-blade-whalefall",
+        "canonicalSlug": "great-blade-whalefall",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/derived-skills/great-blade-whalefall"
+      },
+      "lotan-cetarchon/netherblade": {
+        "kind": "derivedSkill",
+        "id": "derived.lotan-cetarchon.netherblade",
+        "canonicalSlug": "netherblade",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/derived-skills/netherblade"
+      },
       "luster-of-humanity": {
         "kind": "derivedSkill",
         "id": "derived.global.luster-of-humanity",
@@ -6457,6 +6559,12 @@
         "id": "derived.miryam.the-end-of-belief",
         "canonicalSlug": "the-end-of-belief",
         "canonicalPath": "/database/awakeners/miryam/derived-skills/the-end-of-belief"
+      },
+      "mortal-sojourn": {
+        "kind": "derivedSkill",
+        "id": "derived.global.mortal-sojourn",
+        "canonicalSlug": "mortal-sojourn",
+        "canonicalPath": "/database/derived-skills/mortal-sojourn"
       },
       "mouchette/dramatic-encounter": {
         "kind": "derivedSkill",
@@ -7545,6 +7653,30 @@
         "id": "talent.liz.soulforge-aptitude",
         "canonicalSlug": "soulforge-aptitude",
         "canonicalPath": "/database/awakeners/liz/talents/soulforge-aptitude"
+      },
+      "lotan-cetarchon/gnostic-potential": {
+        "kind": "talent",
+        "id": "talent.lotan-cetarchon.gnostic-potential",
+        "canonicalSlug": "gnostic-potential",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/talents/gnostic-potential"
+      },
+      "lotan-cetarchon/madness-omen": {
+        "kind": "talent",
+        "id": "talent.lotan-cetarchon.madness-omen",
+        "canonicalSlug": "madness-omen",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/talents/madness-omen"
+      },
+      "lotan-cetarchon/primordial-breath": {
+        "kind": "talent",
+        "id": "talent.lotan-cetarchon.primordial-breath",
+        "canonicalSlug": "primordial-breath",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/talents/primordial-breath"
+      },
+      "lotan-cetarchon/soulforge-aptitude": {
+        "kind": "talent",
+        "id": "talent.lotan-cetarchon.soulforge-aptitude",
+        "canonicalSlug": "soulforge-aptitude",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/talents/soulforge-aptitude"
       },
       "lotan/gnostic-potential": {
         "kind": "talent",
@@ -9083,6 +9215,36 @@
         "id": "enlighten.liz.verdant-spark",
         "canonicalSlug": "verdant-spark",
         "canonicalPath": "/database/awakeners/liz/enlightens/verdant-spark"
+      },
+      "lotan-cetarchon/ceaseless-warlust": {
+        "kind": "enlighten",
+        "id": "enlighten.lotan-cetarchon.ceaseless-warlust",
+        "canonicalSlug": "ceaseless-warlust",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/enlightens/ceaseless-warlust"
+      },
+      "lotan-cetarchon/night-of-whalefall": {
+        "kind": "enlighten",
+        "id": "enlighten.lotan-cetarchon.night-of-whalefall",
+        "canonicalSlug": "night-of-whalefall",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/enlightens/night-of-whalefall"
+      },
+      "lotan-cetarchon/rotting-remains": {
+        "kind": "enlighten",
+        "id": "enlighten.lotan-cetarchon.rotting-remains",
+        "canonicalSlug": "rotting-remains",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/enlightens/rotting-remains"
+      },
+      "lotan-cetarchon/the-unrivaled": {
+        "kind": "enlighten",
+        "id": "enlighten.lotan-cetarchon.the-unrivaled",
+        "canonicalSlug": "the-unrivaled",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/enlightens/the-unrivaled"
+      },
+      "lotan-cetarchon/uncrowned-storm": {
+        "kind": "enlighten",
+        "id": "enlighten.lotan-cetarchon.uncrowned-storm",
+        "canonicalSlug": "uncrowned-storm",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/enlightens/uncrowned-storm"
       },
       "lotan/primal-leviathan": {
         "kind": "enlighten",

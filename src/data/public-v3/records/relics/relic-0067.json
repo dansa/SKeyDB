@@ -121,7 +121,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SR",
-      "descriptionTemplate": "At the start of the battle, choose 3 cards to grant them \"{Aftershock}: Draw a card and gain [Arg3] Temporary {STR}\". At the start of the turn, draw 2 cards with {Aftershock}, all {Aftershock} effects trigger an additional time. After triggering {Aftershock} 10 times, put 1 {Echoes of Lost Shadows} into your hand.",
+      "descriptionTemplate": "At the start of the battle, choose 3 cards to grant them \"{Aftershock}: Draw a card and gain [Arg3] Temporary {STR}\". At the start of the turn, draw 2 cards with {Aftershock}, all {Aftershock} effects trigger an additional time. After triggering {Aftershock} 10 times, put 1 {Echoes of Lost Shadows} into hand.",
       "descriptionArgs": {
         "Arg3": {
           "kind": "computed",

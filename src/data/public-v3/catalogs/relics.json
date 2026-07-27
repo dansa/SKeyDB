@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "relics",
   "kind": "relic",
-  "recordCount": 286,
+  "recordCount": 287,
   "records": [
     {
       "kind": "relic",
@@ -8127,6 +8127,33 @@
         {
           "category": "FADED_LEGACY",
           "tier": "Silver"
+        }
+      ]
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0306",
+      "name": "Dimensional Image: Lotan: Cetarchon",
+      "route": {
+        "slug": "dimensional-image-lotan-cetarchon",
+        "canonicalPath": "/database/relics/dimensional-image-lotan-cetarchon"
+      },
+      "assets": {
+        "icon": "asset-relic-0306-icon"
+      },
+      "rarity": "SSR",
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "relicType": "Dimensional Image",
+      "categories": ["DIMENSIONAL_IMAGE"],
+      "variantCount": 1,
+      "defaultVariantId": "relic-variant-0554",
+      "aliases": [],
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
         }
       ]
     }

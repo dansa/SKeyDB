@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 3,
+  "kind": "wheel",
+  "id": "wheel-0174",
+  "name": "Falling Upward",
+  "route": {
+    "slug": "falling-upward",
+    "canonicalPath": "/database/wheels/falling-upward"
+  },
+  "assets": {
+    "icon": "asset-wheel-0174-icon"
+  },
+  "rarity": "SSR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "REALM_MASTERY",
+  "lineupToken": "zc",
+  "descriptionTemplate": "Team Unique: After the exploration begins, add 1 {derived:Mortal Sojourn} to the deck. {Mortal Sojourn}: Costs 0 Arithmetica. Deal fixed {Corrosion} DMG to all enemies equal to [StateArg1]% of the wielder's ATK and [Float:StateArg4]% of their Max HP, apply {Perception Warp} to Command Cards of other Awakeners on the field, and Shuffle 1 {derived:Falling Upward} into the Draw Pile. {Retain}. {Consume}.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": ["1500", "2000", "2500", "3000"],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": ["70", "80", "90", "100"]
+    },
+    "StateArg3": {
+      "kind": "scaling",
+      "values": ["1", "2", "3", "4"]
+    },
+    "StateArg4": {
+      "kind": "scaling",
+      "values": ["0.4", "0.6", "0.8", "1"]
+    }
+  },
+  "lore": "In the long eons of her vigil, Tawil once set foot upon a mortal realm.\nUnseen, she walked the fringes of the mortal world, quietly observing the deeds of every living thing.\n\nOn an ordinary nightfall, a dense sea of lights in the city's outskirts caught her eye.\nStage settings, songs and dances, vendors hawking pastries, children frolicking, idlers raising cups in hearty toasts. It was the very breath of life, a fleeting moment of respite.\nEnchanted, she could not help but take mortal form.\n\n\"Greetings. One sugar painting, please.\"\n\"Right away, miss. What shall I draw for you?\"\nTawil tilted her head gently. She only remembered to offer the unclaimed coins she had chanced upon, forgetting entirely that she could voice a wish of her own.\n\"If you can't decide, how about I draw one in your likeness? You're as beautiful as a goddess.\"\nTawil smiled and nodded. The vendor called out cheerfully, raised a ladle of melted sugar and began to paint.\n\n<Italic:Drip. Drip.>\nWhat fell upon the stone slab was not honey-colored syrup.\nBut rain—black rain.\nBlack ichor dripped from an unfathomable height, melting open a horrific rift across the sky.\n\nThen, Tawil began to fall upward.\nIt was the world that was sinking. The vendor's smile froze in her memory, then drowned along with all else in the black ocean. All reduced to a mere speck among countless dead stars, fading into a past forever beyond her reach.\nThis was the upheaval she had caused, and the retribution she was meant to bear.\nShe gazed into the distance, silent and still. She simply kept falling upward.\nFor this was the place she was meant to guard—the Silver Gate that \"transcends time and space\".\nHere she would keep watch, for all eternity."
+}

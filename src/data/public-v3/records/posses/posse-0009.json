@@ -21,8 +21,7 @@
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
-      "value": "25",
-      "suffix": "%"
+      "value": "25"
     },
     "Arg2": {
       "kind": "computed",

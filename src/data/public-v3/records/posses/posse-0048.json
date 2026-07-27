@@ -15,8 +15,12 @@
   "acquisitionSource": "Clear Special Ops: Spring Festival Express",
   "realm": "OTHER",
   "lineupToken": "3",
-  "descriptionTemplate": "Gain 1 Arithmetica and +15% Temporary Crit. Rate. The first time this is unleashed each battle, inflict [Arg3] {Ancient Embers} on all enemies.",
+  "descriptionTemplate": "Gain 1 Arithmetica and +[Arg1]% Temporary Crit. Rate. The first time this is unleashed each battle, inflict [Arg3] {Ancient Embers} on all enemies.",
   "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    },
     "Arg3": {
       "kind": "computed",
       "formulaKey": "scaled",

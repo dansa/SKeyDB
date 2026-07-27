@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0033",
   "slot": "Skill2",
-  "descriptionTemplate": "Counts as \"Strike\". Deal [Damage:Arg1] DMG to a random enemy [Arg2] {plural:[Arg2]|time|times}, gain [Energy:Arg3] Aliemus.",
+  "descriptionTemplate": "Counts as a \"Strike\". Deal [Damage:Arg1] DMG to a random enemy [Arg2] {plural:[Arg2]|time|times}, gain [Energy:Arg3] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

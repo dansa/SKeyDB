@@ -7,6 +7,8 @@ const LEGACY_PROMOTED_DERIVED_EXTRA_IDS = new Set([
   'derived.jenkins.swarm-impact',
   'derived.kathigu-ra.hyperflare',
   'derived.liz.corrupted-flames',
+  'derived.lotan-cetarchon.deadly-duel',
+  'derived.lotan-cetarchon.great-blade-whalefall',
   'derived.pollux.sacred-heart',
   'derived.tawil.four-wings',
   'derived.tawil.six-wings',
