@@ -111,7 +111,7 @@
       "section": "mechanic",
       "aliases": ["steal", "str steal", "strength steal"],
       "order": 245,
-      "count": 5
+      "count": 6
     },
     {
       "id": "pierce-dmg",
