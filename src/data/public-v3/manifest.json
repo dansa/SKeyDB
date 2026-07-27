@@ -1,10 +1,10 @@
 {
   "schemaVersion": 3,
-  "gameDataVersion": "compiled-sha256-774e57c17142f2a0",
-  "generatedAt": "2026-07-26T23:06:42Z",
-  "buildId": "public-v3-sha256-2469e7cb0d9bbaf6",
+  "gameDataVersion": "compiled-sha256-e90d4c8e7c5f77ff",
+  "generatedAt": "2026-07-27T11:45:06Z",
+  "buildId": "public-v3-sha256-1c642e8ff73f9786",
   "build": {
-    "gameDataVersion": "compiled-sha256-774e57c17142f2a0",
+    "gameDataVersion": "compiled-sha256-e90d4c8e7c5f77ff",
     "recordCount": 1878,
     "scopes": ["awakeners", "wheels", "relics", "covenants", "posses", "skills", "derived-skills", "talents", "enlightens", "overlays", "awakener-builds"]
   },
@@ -663,7 +663,7 @@
     },
     "records/awakeners/awakener-0059.json": {
       "bytes": 11396,
-      "sha256": "4ab1b1fedd7806397d7d020839fdfd79f6e2289a173c1121c3abea40ba635bfa"
+      "sha256": "8a9cedab7b3fa4c88491b8a8622626e5b550e0f95b01f0b05900c59f65c330b5"
     },
     "records/covenants/covenant-0001.json": {
       "bytes": 926,
@@ -1302,16 +1302,16 @@
       "sha256": "10e3e3be21699c76825ef1d0b4d2054ec5f4a6a94e2ecb548e7868d096b99bf0"
     },
     "records/derived-skills/derived.lotan-cetarchon.deadly-duel.json": {
-      "bytes": 1021,
-      "sha256": "3fd37af042d106931f138d4d4dcd71639ba3dc4385ed493ba3e4de08e79baed1"
+      "bytes": 985,
+      "sha256": "0ef11a19db0cc669a2cafe4cbc2f1d5579cd0496b0ee51927657255e905d6cde"
     },
     "records/derived-skills/derived.lotan-cetarchon.great-blade-whalefall.json": {
       "bytes": 636,
       "sha256": "53ec1fc22a1b7c283ef7552fcd2d38a47322374a7e9f42338a4b534844d9c611"
     },
     "records/derived-skills/derived.lotan-cetarchon.netherblade.json": {
-      "bytes": 1563,
-      "sha256": "c2f3281c57ebdae3ecf3821c0ce320515dfffb58ecbc09bee50a1b8a5d70af24"
+      "bytes": 1548,
+      "sha256": "0d4342f98efba9a85e2231a251684d6c2fb876cccb875cb841d18568f99cffc3"
     },
     "records/derived-skills/derived.miryam.call-of-the-divine-realm.json": {
       "bytes": 773,
@@ -3466,8 +3466,8 @@
       "sha256": "e5c0a7edc9d1666c83eabbba68f561dc62426190233478560052f4c380a97f3a"
     },
     "records/posses/posse-0053.json": {
-      "bytes": 1137,
-      "sha256": "fef9739237af8496ad4fb59815a6ceae508b80dbf0d79df821932dc68e055e11"
+      "bytes": 1135,
+      "sha256": "8c42416a9a2d41769d1d7855698ded61513360cae03805334d02765ce7b85470"
     },
     "records/relics/relic-0001.json": {
       "bytes": 1834,
@@ -7715,7 +7715,7 @@
     },
     "records/wheels/wheel-0174.json": {
       "bytes": 2968,
-      "sha256": "f1dcf23aea6142969cd62f678ca940fde4188b082fd2c2cef34b84c97ff3b5be"
+      "sha256": "a5dfe567681a2bd48ad93988c3308da207e5df29c714a00fd700a23652f5794f"
     }
   }
 }
