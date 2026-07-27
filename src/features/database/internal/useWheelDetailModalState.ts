@@ -51,9 +51,17 @@ export function useWheelDetailModalState({
       buildPublicFormulaContext({
         accountLevel: preferences.shared.accountLevel,
         collectionOwnership,
+        primordiaAllChaosTeam: preferences.shared.primordiaAllChaosTeam,
+        realmMasteryFinal: preferences.shared.realmMasteryFinal,
         wheelEnhanceLevel: enhanceLevel,
       }),
-    [collectionOwnership, enhanceLevel, preferences.shared.accountLevel],
+    [
+      collectionOwnership,
+      enhanceLevel,
+      preferences.shared.accountLevel,
+      preferences.shared.primordiaAllChaosTeam,
+      preferences.shared.realmMasteryFinal,
+    ],
   )
   const referenceLayer = useMemo(
     () =>

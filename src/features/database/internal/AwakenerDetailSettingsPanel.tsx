@@ -61,6 +61,14 @@ export function AwakenerDetailSettingsPanel({
       onShowTagIconsChange={(nextShowTagIcons) => {
         onUpdateSharedPreferences({showTagIcons: nextShowTagIcons})
       }}
+      onPrimordiaAllChaosTeamChange={(primordiaAllChaosTeam) => {
+        onUpdateSharedPreferences({primordiaAllChaosTeam})
+      }}
+      onRealmMasteryFinalChange={(realmMasteryFinal) => {
+        onUpdateSharedPreferences({realmMasteryFinal})
+      }}
+      primordiaAllChaosTeam={sharedPreferences.primordiaAllChaosTeam}
+      realmMasteryFinal={sharedPreferences.realmMasteryFinal}
       showTagIcons={sharedPreferences.showTagIcons}
     >
       <div className='space-y-3'>

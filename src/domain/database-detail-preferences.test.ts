@@ -34,6 +34,8 @@ describe('database-detail-preferences', () => {
           clickOutsideClosesPopovers: false,
           fontScale: 'large',
           accountLevel: 999,
+          primordiaAllChaosTeam: true,
+          realmMasteryFinal: 12,
         },
         awakener: {
           showVisibleScaling: false,
@@ -57,6 +59,8 @@ describe('database-detail-preferences', () => {
         clickOutsideClosesPopovers: false,
         fontScale: 'large',
         accountLevel: 100,
+        primordiaAllChaosTeam: true,
+        realmMasteryFinal: 12,
       },
       awakener: {
         showVisibleScaling: false,
@@ -85,6 +89,8 @@ describe('database-detail-preferences', () => {
           clickOutsideClosesPopovers: false,
           fontScale: 'medium',
           accountLevel: 77,
+          primordiaAllChaosTeam: true,
+          realmMasteryFinal: 21,
         },
         awakener: {
           showVisibleScaling: false,
@@ -110,6 +116,8 @@ describe('database-detail-preferences', () => {
         clickOutsideClosesPopovers: false,
         fontScale: 'medium',
         accountLevel: 77,
+        primordiaAllChaosTeam: true,
+        realmMasteryFinal: 21,
       },
       awakener: {
         showVisibleScaling: false,
@@ -148,6 +156,8 @@ describe('database-detail-preferences', () => {
             clickOutsideClosesPopovers: false,
             fontScale: 'medium',
             accountLevel: 42,
+            primordiaAllChaosTeam: true,
+            realmMasteryFinal: 34,
           },
           awakener: {
             showVisibleScaling: false,
@@ -176,6 +186,8 @@ describe('database-detail-preferences', () => {
         clickOutsideClosesPopovers: false,
         fontScale: 'medium',
         accountLevel: 42,
+        primordiaAllChaosTeam: true,
+        realmMasteryFinal: 34,
       },
       awakener: {
         showVisibleScaling: false,
@@ -205,6 +217,8 @@ describe('database-detail-preferences', () => {
         clickOutsideClosesPopovers: false,
         fontScale: 'medium',
         accountLevel: 22,
+        primordiaAllChaosTeam: false,
+        realmMasteryFinal: 0,
         defaultSelection: {
           awakenerLevel: 90,
           psycheSurgeOffset: 2,
@@ -223,6 +237,8 @@ describe('database-detail-preferences', () => {
         clickOutsideClosesPopovers: false,
         fontScale: 'medium',
         accountLevel: 22,
+        primordiaAllChaosTeam: false,
+        realmMasteryFinal: 0,
       },
       awakener: {
         showVisibleScaling: false,

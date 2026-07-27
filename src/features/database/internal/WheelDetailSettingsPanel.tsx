@@ -38,6 +38,14 @@ export function WheelDetailSettingsPanel({
       onShowTagIconsChange={(nextShowTagIcons) => {
         onUpdateSharedPreferences({showTagIcons: nextShowTagIcons})
       }}
+      onPrimordiaAllChaosTeamChange={(primordiaAllChaosTeam) => {
+        onUpdateSharedPreferences({primordiaAllChaosTeam})
+      }}
+      onRealmMasteryFinalChange={(realmMasteryFinal) => {
+        onUpdateSharedPreferences({realmMasteryFinal})
+      }}
+      primordiaAllChaosTeam={sharedPreferences.primordiaAllChaosTeam}
+      realmMasteryFinal={sharedPreferences.realmMasteryFinal}
       showTagIcons={sharedPreferences.showTagIcons}
     >
       <label className='flex items-start gap-3 border border-slate-700/45 bg-slate-900/40 p-3'>

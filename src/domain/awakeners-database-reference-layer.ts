@@ -192,7 +192,7 @@ function buildReferenceLookups(
   for (const wheelInfo of wheelReferenceInfos) {
     accumulator.add(wheelInfo)
   }
-  accumulator.addMany(buildPosseReferenceEntries(getPosses()))
+  accumulator.addMany(buildPosseReferenceEntries(getPosses(), shellView.formulaContext))
 
   return accumulator.toLookups()
 }

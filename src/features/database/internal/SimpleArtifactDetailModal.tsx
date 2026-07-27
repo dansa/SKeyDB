@@ -67,8 +67,15 @@ function SimpleArtifactDetailModalInner({
       buildPublicFormulaContext({
         accountLevel: preferences.shared.accountLevel,
         collectionOwnership,
+        primordiaAllChaosTeam: preferences.shared.primordiaAllChaosTeam,
+        realmMasteryFinal: preferences.shared.realmMasteryFinal,
       }),
-    [collectionOwnership, preferences.shared.accountLevel],
+    [
+      collectionOwnership,
+      preferences.shared.accountLevel,
+      preferences.shared.primordiaAllChaosTeam,
+      preferences.shared.realmMasteryFinal,
+    ],
   )
   const descriptions = useMemo(() => {
     if (kind === 'posse') {

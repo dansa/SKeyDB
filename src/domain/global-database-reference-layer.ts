@@ -244,9 +244,10 @@ function buildOverlayNameSet(overlays: AwakenerOverlayRecord[]): Set<string> {
 
 export function buildPosseReferenceEntries(
   records: Posse[],
+  formulaContext?: PublicFormulaContext,
 ): DatabaseReferenceInfo<ArtifactDescriptionRecord>[] {
   return records.map((record) =>
-    buildArtifactReferenceStub(
+    buildArtifactReferenceInfo(
       {
         id: record.id,
         kind: 'posse',
@@ -255,6 +256,7 @@ export function buildPosseReferenceEntries(
         descriptionArgs: record.descriptionArgs ?? {},
       },
       `Posse · ${getRealmLabel(record.realm)}`,
+      formulaContext,
     ),
   )
 }
@@ -326,7 +328,7 @@ export function buildGlobalDatabaseReferenceLayer({
     buildArtifactReferenceInfo(entry.record, entry.label, formulaContext),
   )
   const wheelInfos = buildWheelReferenceEntries(wheels)
-  const posseInfos = buildPosseReferenceEntries(posses)
+  const posseInfos = buildPosseReferenceEntries(posses, formulaContext)
   const covenantInfos = buildCovenantReferenceEntries(covenants)
 
   referenceInfos.addMany([...extraReferenceInfos, ...wheelInfos, ...posseInfos, ...covenantInfos])

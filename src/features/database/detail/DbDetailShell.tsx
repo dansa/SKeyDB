@@ -153,6 +153,14 @@ export function DbDetailShell({
               onShowTagIconsChange={(nextShowTagIcons) => {
                 updateSharedPreferences({showTagIcons: nextShowTagIcons})
               }}
+              onPrimordiaAllChaosTeamChange={(primordiaAllChaosTeam) => {
+                updateSharedPreferences({primordiaAllChaosTeam})
+              }}
+              onRealmMasteryFinalChange={(realmMasteryFinal) => {
+                updateSharedPreferences({realmMasteryFinal})
+              }}
+              primordiaAllChaosTeam={preferences.shared.primordiaAllChaosTeam}
+              realmMasteryFinal={preferences.shared.realmMasteryFinal}
               showTagIcons={preferences.shared.showTagIcons}
             />
           ) : null}
