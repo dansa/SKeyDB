@@ -1,10 +1,10 @@
 {
   "schemaVersion": 3,
-  "gameDataVersion": "compiled-sha256-ac585665ca607dc3",
-  "generatedAt": "2026-07-27T11:21:13Z",
-  "buildId": "public-v3-sha256-4aea18e60efb1bb2",
+  "gameDataVersion": "compiled-sha256-e90d4c8e7c5f77ff",
+  "generatedAt": "2026-07-27T11:45:06Z",
+  "buildId": "public-v3-sha256-1c642e8ff73f9786",
   "build": {
-    "gameDataVersion": "compiled-sha256-ac585665ca607dc3",
+    "gameDataVersion": "compiled-sha256-e90d4c8e7c5f77ff",
     "recordCount": 1878,
     "scopes": ["awakeners", "wheels", "relics", "covenants", "posses", "skills", "derived-skills", "talents", "enlightens", "overlays", "awakener-builds"]
   },
@@ -1302,8 +1302,8 @@
       "sha256": "10e3e3be21699c76825ef1d0b4d2054ec5f4a6a94e2ecb548e7868d096b99bf0"
     },
     "records/derived-skills/derived.lotan-cetarchon.deadly-duel.json": {
-      "bytes": 987,
-      "sha256": "60de44938e73229a1da1ca29005acca556558de5c29fa2c765ccd59740cc1c57"
+      "bytes": 985,
+      "sha256": "0ef11a19db0cc669a2cafe4cbc2f1d5579cd0496b0ee51927657255e905d6cde"
     },
     "records/derived-skills/derived.lotan-cetarchon.great-blade-whalefall.json": {
       "bytes": 636,
@@ -3466,8 +3466,8 @@
       "sha256": "e5c0a7edc9d1666c83eabbba68f561dc62426190233478560052f4c380a97f3a"
     },
     "records/posses/posse-0053.json": {
-      "bytes": 1137,
-      "sha256": "fef9739237af8496ad4fb59815a6ceae508b80dbf0d79df821932dc68e055e11"
+      "bytes": 1135,
+      "sha256": "8c42416a9a2d41769d1d7855698ded61513360cae03805334d02765ce7b85470"
     },
     "records/relics/relic-0001.json": {
       "bytes": 1834,
