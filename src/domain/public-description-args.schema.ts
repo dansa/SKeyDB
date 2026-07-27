@@ -7,6 +7,7 @@ const publicFormulaKeySchema = z.enum([
   'ownedPosseCount',
   'wheelRefinementLevel',
   'realmMasteryFinal',
+  'primordiaAllChaosTeam',
 ])
 
 const publicScaledBaseFormulaSchema = z.enum([
@@ -114,6 +115,28 @@ export const publicDescriptionArgSchema = z.discriminatedUnion('kind', [
       stat: publicDescriptionArgStatSchema.optional(),
       substatBonus: publicDescriptionArgSubstatBonusSchema.optional(),
     }),
+    z
+      .strictObject({
+        kind: z.literal('computed'),
+        formulaKey: z.literal('primordiaPosseScaled'),
+        baseFormula: z.union([z.literal('fixed'), publicScaledBaseFormulaSchema]),
+        baseValue: z.number().optional(),
+        multiplier: z.number().optional(),
+        scalingBucket: z.enum(['utility', 'offensive']),
+        rounding: z.literal('ceil'),
+        inputs: z.array(publicFormulaKeySchema).min(2),
+        channel: nonEmptyStringSchema.optional(),
+        suffix: nonEmptyStringSchema.optional(),
+        stat: publicDescriptionArgStatSchema.optional(),
+      })
+      .superRefine((arg, ctx) => {
+        if (arg.baseFormula !== 'fixed' || typeof arg.baseValue === 'number') return
+        ctx.addIssue({
+          code: 'custom',
+          message: 'Fixed Primordia bases require baseValue.',
+          path: ['baseValue'],
+        })
+      }),
   ]),
 ])
 
@@ -151,4 +174,8 @@ export type PublicWheelRefinementLinearComputedDescriptionArg = Extract<
 export type PublicRealmMasteryLinearComputedDescriptionArg = Extract<
   PublicComputedDescriptionArg,
   {formulaKey: 'realmMasteryLinear'}
+>
+export type PublicPrimordiaPosseScaledComputedDescriptionArg = Extract<
+  PublicComputedDescriptionArg,
+  {formulaKey: 'primordiaPosseScaled'}
 >

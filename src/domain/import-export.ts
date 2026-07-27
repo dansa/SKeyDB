@@ -11,7 +11,7 @@ import {
   migratePosseIdV1ToCurrent,
   migrateWheelIdV1ToCurrent,
 } from './persistence-id-migration'
-import {getPosses} from './posses'
+import {getEquippablePosses} from './posses'
 import standardCodeContract from './standard-code-contract.v1.json'
 import {getWheels} from './wheels'
 
@@ -40,7 +40,7 @@ const levelValueMask = 0x7f
 
 const awakeners = getAwakeners()
 const covenants = getCovenants()
-const posses = getPosses()
+const posses = getEquippablePosses()
 const wheels = getWheels()
 
 const awakenerIdByName = new Map(awakeners.map((awakener) => [awakener.name, awakener.id]))

@@ -2,6 +2,12 @@ import {z} from 'zod'
 
 import {getPublicPosseCatalogRecords} from '@/data-access/public-data/catalogScopes/possesCatalog'
 
+import {posseClassificationSchema, type PosseClassification} from './posse-classification'
+import {
+  publicDescriptionArgsSchema,
+  type PublicDescriptionArg,
+} from './public-description-args.schema'
+
 const nonEmptyStringSchema = z.string().trim().min(1)
 
 const publicV3PosseCatalogRecordSchema = z
@@ -14,7 +20,12 @@ const publicV3PosseCatalogRecordSchema = z
       .regex(/^awakener-\d{4}$/)
       .optional(),
     ownerAwakenerName: nonEmptyStringSchema.optional(),
-    lineupToken: nonEmptyStringSchema,
+    lineupToken: z.string().default(''),
+    classification: posseClassificationSchema.default('STANDARD'),
+    equippable: z.boolean().default(true),
+    collectible: z.boolean().default(true),
+    descriptionTemplate: z.string().default(''),
+    descriptionArgs: publicDescriptionArgsSchema.default({}),
   })
   .loose()
 
@@ -27,6 +38,11 @@ export interface Posse {
   ownerAwakenerName?: string
   isFadedLegacy: boolean
   lineupToken: string
+  classification?: PosseClassification
+  equippable?: boolean
+  collectible?: boolean
+  descriptionTemplate?: string
+  descriptionArgs?: Record<string, PublicDescriptionArg>
 }
 
 function getPosseIndex(publicId: string): number {
@@ -48,9 +64,26 @@ const parsedPosses = getPublicPosseCatalogRecords().map((record): Posse => {
     ownerAwakenerName: posse.ownerAwakenerName,
     isFadedLegacy: posse.realm === 'FADED_LEGACY',
     lineupToken: posse.lineupToken,
+    classification: posse.classification,
+    equippable: posse.equippable,
+    collectible: posse.collectible,
+    descriptionTemplate: posse.descriptionTemplate,
+    descriptionArgs: posse.descriptionArgs,
   }
 })
 
 export function getPosses(): Posse[] {
   return parsedPosses
+}
+
+export function getEquippablePosses(): Posse[] {
+  return parsedPosses.filter((posse) => posse.equippable !== false)
+}
+
+export function getCollectiblePosses(): Posse[] {
+  return parsedPosses.filter((posse) => posse.collectible !== false)
+}
+
+export function isPrimordialMemoryPosse(posse: Posse): boolean {
+  return posse.classification === 'PRIMORDIAL_MEMORY'
 }

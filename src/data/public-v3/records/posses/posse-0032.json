@@ -17,15 +17,26 @@
   "acquisitionSource": "Clear Psyche Deepdive: Passion to Dust",
   "realm": "ULTRA",
   "lineupToken": "B",
-  "descriptionTemplate": "Grant a chosen Awakener [Arg2] Aliemus. The Crit. Rate & Crit. DMG of their Command Cards +[Arg1]% this turn. If Liz is in the team, create 1 {Corrupted Flames} with {Exhaust}.",
+  "descriptionTemplate": "Grant a chosen Awakener [Arg2] Aliemus. The Crit. Rate & Crit. DMG of their Command Cards +[Arg1] this turn. If Liz is in the team, create 1 {Corrupted Flames} with {Exhaust}.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
-      "kind": "fixed",
-      "value": "15"
+      "kind": "computed",
+      "formulaKey": "primordiaPosseScaled",
+      "baseFormula": "fixed",
+      "baseValue": 15.0,
+      "rounding": "ceil",
+      "inputs": ["realmMasteryFinal", "primordiaAllChaosTeam"],
+      "suffix": "%",
+      "scalingBucket": "utility"
     },
     "Arg2": {
-      "kind": "fixed",
-      "value": "15"
+      "kind": "computed",
+      "formulaKey": "primordiaPosseScaled",
+      "baseFormula": "fixed",
+      "baseValue": 15.0,
+      "rounding": "ceil",
+      "inputs": ["realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "utility"
     }
   },
   "lore": "Light steps. A sharp turn. A spin. At the crescendo of the music, she dives headlong into flames. Burn. Burning is the only answer her dance can give."

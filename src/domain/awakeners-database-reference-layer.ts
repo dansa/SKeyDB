@@ -17,6 +17,8 @@ import {
 } from './database-reference-layer'
 import {getDerivedSkills} from './derived-skills'
 import {type DescribedRecord} from './description-records'
+import {buildPosseReferenceEntries} from './global-database-reference-layer'
+import {getPosses} from './posses'
 import {buildWheelReferenceInfoEntries} from './wheels-database-reference-layer'
 
 type DatabaseReferenceKind = DatabaseReferenceInfo['kind']
@@ -190,6 +192,7 @@ function buildReferenceLookups(
   for (const wheelInfo of wheelReferenceInfos) {
     accumulator.add(wheelInfo)
   }
+  accumulator.addMany(buildPosseReferenceEntries(getPosses(), shellView.formulaContext))
 
   return accumulator.toLookups()
 }

@@ -17,21 +17,25 @@
   "acquisitionSource": "Clear Special Ops: Tribute to the Rose",
   "realm": "CARO",
   "lineupToken": "u",
-  "descriptionTemplate": "Draw 2 cards and gain [Arg1] Temp. {STR}. If the Realm includes {Caro}, consume 10% of your HP to gain another [Arg2] Temp. {STR}, and another [Arg2] Temp. {STR} for each {Embryo} in your hand.",
+  "descriptionTemplate": "Draw 2 cards and gain [Arg1] Temp. {STR}. If the Realm includes {Caro}, consume 10% of your HP to gain another [Arg2] Temp. {STR}, and another [Arg2] Temp. {STR} for each {Embryo} in your hand.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
-      "formulaKey": "scaled",
+      "formulaKey": "primordiaPosseScaled",
       "baseFormula": "esotericResearchDepth",
+      "rounding": "ceil",
       "multiplier": 0.045,
-      "inputs": ["accountLevel", "ownedPosseCount"]
+      "inputs": ["accountLevel", "ownedPosseCount", "realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "offensive"
     },
     "Arg2": {
       "kind": "computed",
-      "formulaKey": "scaled",
+      "formulaKey": "primordiaPosseScaled",
       "baseFormula": "esotericResearchDepth",
+      "rounding": "ceil",
       "multiplier": 0.015,
-      "inputs": ["accountLevel", "ownedPosseCount"]
+      "inputs": ["accountLevel", "ownedPosseCount", "realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "offensive"
     }
   },
   "lore": "The graceful rose has achieved her complete victory.\n\nShe has returned to the noble rose surrounded by the crowd like stars around the moon, with only the gaze directed at you proclaiming the secret adventure experienced with you at the opera house."

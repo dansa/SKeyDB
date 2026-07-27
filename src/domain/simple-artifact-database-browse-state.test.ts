@@ -8,15 +8,19 @@ import {
   patchPosseDatabaseBrowseState,
   POSSE_DATABASE_BROWSE_DEFAULTS,
   POSSE_DATABASE_REALM_FILTER_IDS,
+  POSSE_DATABASE_TYPE_FILTER_IDS,
 } from './simple-artifact-database-browse-state'
 
 describe('simple-artifact-database-browse-state', () => {
   it('parses posse browse params and falls back safely for invalid values', () => {
-    const state = parsePosseDatabaseBrowseState(new URLSearchParams('q=sigil&realm=CHAOS'))
+    const state = parsePosseDatabaseBrowseState(
+      new URLSearchParams('q=sigil&realm=CHAOS&type=PRIMORDIAL_MEMORY'),
+    )
 
     expect(state).toEqual({
       query: 'sigil',
       realmFilter: 'CHAOS',
+      typeFilter: 'PRIMORDIAL_MEMORY',
     })
     expect(parsePosseDatabaseBrowseState(new URLSearchParams('realm=missing'))).toEqual(
       POSSE_DATABASE_BROWSE_DEFAULTS,
@@ -56,5 +60,10 @@ describe('simple-artifact-database-browse-state', () => {
       'FADED_LEGACY',
       'OTHER',
     ])
+  })
+
+  it('defaults posse type filtering to all and orders its controls consistently', () => {
+    expect(POSSE_DATABASE_BROWSE_DEFAULTS.typeFilter).toBe('ALL')
+    expect(POSSE_DATABASE_TYPE_FILTER_IDS).toEqual(['ALL', 'NORMAL', 'PRIMORDIAL_MEMORY'])
   })
 })

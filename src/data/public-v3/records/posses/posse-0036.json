@@ -17,19 +17,30 @@
   "acquisitionSource": "Clear Dreamscape: Beyond the Skies: Part I",
   "realm": "ULTRA",
   "lineupToken": "O",
-  "descriptionTemplate": "Grant a chosen Awakener [Energy:Arg3] Aliemus. Draw [Arg2] {plural:[Arg2]|card|cards} with the lowest Arithmetica Cost from the Draw Pile. If Castor is in the team, increase his Temp. DMG Amplification by [Arg1]%.",
+  "descriptionTemplate": "Grant a chosen Awakener [Energy:Arg3] Aliemus. Draw [Arg2] {plural:[Arg2]|card|cards} with the lowest Arithmetica Cost from the Draw Pile. If Castor is in the team, increase his Temp. DMG Amplification by [Arg1].\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
-      "kind": "fixed",
-      "value": "30"
+      "kind": "computed",
+      "formulaKey": "primordiaPosseScaled",
+      "baseFormula": "fixed",
+      "baseValue": 30.0,
+      "rounding": "ceil",
+      "inputs": ["realmMasteryFinal", "primordiaAllChaosTeam"],
+      "suffix": "%",
+      "scalingBucket": "utility"
     },
     "Arg2": {
       "kind": "fixed",
       "value": "2"
     },
     "Arg3": {
-      "kind": "fixed",
-      "value": "15"
+      "kind": "computed",
+      "formulaKey": "primordiaPosseScaled",
+      "baseFormula": "fixed",
+      "baseValue": 15.0,
+      "rounding": "ceil",
+      "inputs": ["realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "utility"
     }
   },
   "lore": "They always brush past fleeting hopes at the wrong time.\nOnce, that tender hand guided him towards the light of freedom.\nAs he desperately flapped his wings and broke free from the prison of fate once more, why did that familiar hand pierce through his chest at this moment?"

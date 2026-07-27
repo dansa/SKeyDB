@@ -10,21 +10,25 @@
   "overlayType": "tag",
   "ownerAwakenerId": "awakener-0024",
   "aliases": ["Poetry Pages", "Poems"],
-  "descriptionTemplate": "Rain's Dirge: Recover [DescArg1] HP.\nWind's Psalm: Gain [DescArg2] {STR}.\nFloral Hymn: Grant all Awakeners [DescArg3] Aliemus.\nMoon's Anthem: Crit. Rate +[DescArg4]% this turn.",
+  "descriptionTemplate": "Rain's Dirge: Recover [DescArg1] HP.\nWind's Psalm: Gain [DescArg2] {STR}.\nFloral Hymn: Grant all Awakeners [DescArg3] Aliemus.\nMoon's Anthem: Crit. Rate +[DescArg4]% this turn.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "DescArg1": {
       "kind": "computed",
-      "formulaKey": "scaled",
+      "formulaKey": "primordiaPosseScaled",
       "baseFormula": "esotericResearchDepth",
+      "rounding": "ceil",
       "multiplier": 0.12,
-      "inputs": ["accountLevel", "ownedPosseCount"]
+      "inputs": ["accountLevel", "ownedPosseCount", "realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "utility"
     },
     "DescArg2": {
       "kind": "computed",
-      "formulaKey": "scaled",
+      "formulaKey": "primordiaPosseScaled",
       "baseFormula": "esotericResearchDepth",
+      "rounding": "ceil",
       "multiplier": 0.035,
-      "inputs": ["accountLevel", "ownedPosseCount"]
+      "inputs": ["accountLevel", "ownedPosseCount", "realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "offensive"
     },
     "DescArg3": {
       "kind": "fixed",

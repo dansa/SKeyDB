@@ -17,18 +17,25 @@
   "acquisitionSource": "Clear Psyche Deepdive: The Fall of Giant",
   "realm": "AEQUOR",
   "lineupToken": "s",
-  "descriptionTemplate": "Gain 1 Arithmetica and [Arg1] {STR}, then grant a chosen Awakener [Arg2] Aliemus. If your Tentacle Stance is {Raging Waves}, instead gain +15% Temporary Crit. Rate & Crit. DMG.",
+  "descriptionTemplate": "Gain 1 Arithmetica and [Arg1] {STR}, then grant a chosen Awakener [Arg2] Aliemus. If your Tentacle Stance is {Raging Waves}, instead gain +15% Temporary Crit. Rate & Crit. DMG.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
-      "formulaKey": "scaled",
+      "formulaKey": "primordiaPosseScaled",
       "baseFormula": "esotericResearchDepth",
+      "rounding": "ceil",
       "multiplier": 0.015,
-      "inputs": ["accountLevel", "ownedPosseCount"]
+      "inputs": ["accountLevel", "ownedPosseCount", "realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "offensive"
     },
     "Arg2": {
-      "kind": "fixed",
-      "value": "15"
+      "kind": "computed",
+      "formulaKey": "primordiaPosseScaled",
+      "baseFormula": "fixed",
+      "baseValue": 15.0,
+      "rounding": "ceil",
+      "inputs": ["realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "utility"
     }
   },
   "lore": "The way of the conqueror is to never give up, to never admit defeat.\n\nEven if the horizon has devoured the light, he will still lift the unquenchable sun with brawn."

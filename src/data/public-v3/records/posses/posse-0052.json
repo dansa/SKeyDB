@@ -17,18 +17,26 @@
   "acquisitionSource": "Clear Psyche Deepdive: Ebwynnos Evermore",
   "realm": "AEQUOR",
   "lineupToken": "6",
-  "descriptionTemplate": "Temporary Crit. DMG +[Arg1]%, temporarily reduce all enemies' {STR▼} by [Arg2]. If Pontos is in the party, gain 1 stack of {Pack Hunt}.",
+  "descriptionTemplate": "Temporary Crit. DMG +[Arg1], temporarily reduce all enemies' {STR▼} by [Arg2]. If Pontos is in the party, gain 1 stack of {Pack Hunt}.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
-      "kind": "fixed",
-      "value": "30"
+      "kind": "computed",
+      "formulaKey": "primordiaPosseScaled",
+      "baseFormula": "fixed",
+      "baseValue": 30.0,
+      "rounding": "ceil",
+      "inputs": ["realmMasteryFinal", "primordiaAllChaosTeam"],
+      "suffix": "%",
+      "scalingBucket": "utility"
     },
     "Arg2": {
       "kind": "computed",
-      "formulaKey": "scaled",
+      "formulaKey": "primordiaPosseScaled",
       "baseFormula": "esotericResearchDepth",
+      "rounding": "ceil",
       "multiplier": 0.045,
-      "inputs": ["accountLevel", "ownedPosseCount"]
+      "inputs": ["accountLevel", "ownedPosseCount", "realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "utility"
     }
   },
   "lore": "Let us recount the tale of your life—a story that shall echo no more.\nLike the sea surging into the abyss, to slumber there for all eternity."

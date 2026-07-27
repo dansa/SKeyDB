@@ -17,15 +17,25 @@
   "acquisitionSource": "Clear Special Ops: Serene Fission",
   "realm": "CHAOS",
   "lineupToken": "t",
-  "descriptionTemplate": "Increase Realm Mastery by [Arg1]. Grant a chosen Awakener [Energy:Arg2] Aliemus.",
+  "descriptionTemplate": "Increase Realm Mastery by [Arg1]. Grant a chosen Awakener [Energy:Arg2] Aliemus.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
-      "kind": "fixed",
-      "value": "24"
+      "kind": "computed",
+      "formulaKey": "primordiaPosseScaled",
+      "baseFormula": "fixed",
+      "baseValue": 24.0,
+      "rounding": "ceil",
+      "inputs": ["realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "utility"
     },
     "Arg2": {
-      "kind": "fixed",
-      "value": "24"
+      "kind": "computed",
+      "formulaKey": "primordiaPosseScaled",
+      "baseFormula": "fixed",
+      "baseValue": 24.0,
+      "rounding": "ceil",
+      "inputs": ["realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "utility"
     }
   },
   "lore": "All 24 merge into one, dissolving into starlight.\n\nHer personality becomes whole through division, and her body endures through fission.\n\nThere is only one 24 in this world, and she embodies them all."

@@ -17,18 +17,26 @@
   "acquisitionSource": "Clear Psyche Deepdive: The Knight's Wish",
   "realm": "CHAOS",
   "lineupToken": "l",
-  "descriptionTemplate": "Gain +[Arg1]% Temporary Crit. Rate and [Arg2] Temporary {STR}. If you're in a Boss Battle and have played no cards this turn, attempt to trigger {Death Resistance} [Arg3] {plural:[Arg3]|time|times}. If successful, gain [Block:Arg4] Shield. This effect can only trigger [Arg5] {plural:[Arg5]|time|times} per battle.",
+  "descriptionTemplate": "Gain +[Arg1] Temporary Crit. Rate and [Arg2] Temporary {STR}. If you're in a Boss Battle and have played no cards this turn, attempt to trigger {Death Resistance} [Arg3] {plural:[Arg3]|time|times}. If successful, gain [Block:Arg4] Shield. This effect can only trigger [Arg5] {plural:[Arg5]|time|times} per battle.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
-      "kind": "fixed",
-      "value": "25"
+      "kind": "computed",
+      "formulaKey": "primordiaPosseScaled",
+      "baseFormula": "fixed",
+      "baseValue": 25.0,
+      "rounding": "ceil",
+      "inputs": ["realmMasteryFinal", "primordiaAllChaosTeam"],
+      "suffix": "%",
+      "scalingBucket": "utility"
     },
     "Arg2": {
       "kind": "computed",
-      "formulaKey": "scaled",
+      "formulaKey": "primordiaPosseScaled",
       "baseFormula": "esotericResearchDepth",
+      "rounding": "ceil",
       "multiplier": 0.02,
-      "inputs": ["accountLevel", "ownedPosseCount"]
+      "inputs": ["accountLevel", "ownedPosseCount", "realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "offensive"
     },
     "Arg3": {
       "kind": "fixed",

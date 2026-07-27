@@ -96,6 +96,7 @@ export type PublicV3EnlightenRecord = PublicV3OwnedRecord & {
 export type PublicV3DerivedSkillRecord = PublicV3OwnedRecord & {
   cardKeywords?: CardKeyword[]
   childDerivedSkillIds?: string[]
+  childPosseIds?: string[]
   descriptionArgs?: Record<string, DescriptionArg>
   descriptionTemplate?: string
   upgrades?: PublicV3UpgradeEntry[]
@@ -136,6 +137,7 @@ const publicV3DerivedSkillRecordShape = {
   kind: z.literal('derivedSkill'),
   cardKeywords: cardKeywordsSchema.optional(),
   childDerivedSkillIds: z.array(z.string()).optional(),
+  childPosseIds: z.array(z.string()).optional(),
   descriptionArgs: descriptionArgsSchema.optional(),
   descriptionTemplate: z.string().optional(),
   upgrades: z.array(publicV3UpgradeEntrySchema).optional(),
@@ -306,6 +308,7 @@ export function adaptPublicV3DerivedSkillRecord(
     ownerAwakenerId: optionalNumericAwakenerId(record.ownerAwakenerId),
     displayName: record.name,
     childDerivedSkillIds: record.childDerivedSkillIds ?? [],
+    childPosseIds: record.childPosseIds ?? [],
     cardKeywords: record.cardKeywords ?? [],
     descriptionTemplate: record.descriptionTemplate ?? '',
     descriptionArgs: record.descriptionArgs ?? {},

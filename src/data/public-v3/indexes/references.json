@@ -2599,6 +2599,12 @@
         "id": "overlay.global.divine-realm-aequor-mastery"
       }
     ],
+    "divine realm chaos": [
+      {
+        "kind": "overlay",
+        "id": "overlay.global.primordia-chaos"
+      }
+    ],
     "divine realm raging waves": [
       {
         "kind": "overlay",
@@ -6319,10 +6325,94 @@
         "id": "skill.lotan-cetarchon.primeval-return"
       }
     ],
+    "primordia chaos": [
+      {
+        "kind": "overlay",
+        "id": "overlay.global.primordia-chaos"
+      }
+    ],
+    "primordia chaos mastery scaling": [
+      {
+        "kind": "overlay",
+        "id": "overlay.global.primordia-mastery-scaling"
+      }
+    ],
+    "primordia mastery scaling": [
+      {
+        "kind": "overlay",
+        "id": "overlay.global.primordia-mastery-scaling"
+      }
+    ],
+    "primordia posse scaling": [
+      {
+        "kind": "overlay",
+        "id": "overlay.global.primordia-mastery-scaling"
+      }
+    ],
     "primordial breath": [
       {
         "kind": "talent",
         "id": "talent.lotan-cetarchon.primordial-breath"
+      }
+    ],
+    "primordial memories": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.lotan-cetarchon.primordial-memory"
+      }
+    ],
+    "primordial memory": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.lotan-cetarchon.primordial-memory"
+      }
+    ],
+    "primordial memorybastion": [
+      {
+        "kind": "posse",
+        "id": "posse-0060"
+      }
+    ],
+    "primordial memorycatalyst": [
+      {
+        "kind": "posse",
+        "id": "posse-0055"
+      }
+    ],
+    "primordial memorydrain": [
+      {
+        "kind": "posse",
+        "id": "posse-0054"
+      }
+    ],
+    "primordial memoryfury": [
+      {
+        "kind": "posse",
+        "id": "posse-0061"
+      }
+    ],
+    "primordial memoryhealing": [
+      {
+        "kind": "posse",
+        "id": "posse-0056"
+      }
+    ],
+    "primordial memorymight": [
+      {
+        "kind": "posse",
+        "id": "posse-0059"
+      }
+    ],
+    "primordial memoryspike": [
+      {
+        "kind": "posse",
+        "id": "posse-0058"
+      }
+    ],
+    "primordial memorytoxin": [
+      {
+        "kind": "posse",
+        "id": "posse-0057"
       }
     ],
     "princess of delusions": [

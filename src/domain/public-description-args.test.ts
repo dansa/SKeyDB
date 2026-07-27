@@ -22,7 +22,11 @@ describe('public-description-args', () => {
       },
     })
 
-    expect(evaluatePublicFormulaExpression(args.DescArg1, {wheelRefinementLevel: 2})).toEqual({
+    expect(
+      evaluatePublicFormulaExpression(args.DescArg1, {
+        wheelRefinementLevel: 2,
+      }),
+    ).toEqual({
       resolved: true,
       value: 8,
     })
@@ -120,7 +124,10 @@ describe('public-description-args', () => {
     }
 
     expect(
-      evaluatePublicFormulaExpression(arg, {accountLevel: 33, ownedPosseCount: 0}),
+      evaluatePublicFormulaExpression(arg, {
+        accountLevel: 33,
+        ownedPosseCount: 0,
+      }),
     ).toStrictEqual({
       resolved: true,
       value: 4,
@@ -163,7 +170,12 @@ describe('public-description-args', () => {
       },
     }).Arg1
 
-    expect(evaluatePublicFormulaExpression(arg, {accountLevel: 33, ownedPosseCount: 0})).toEqual({
+    expect(
+      evaluatePublicFormulaExpression(arg, {
+        accountLevel: 33,
+        ownedPosseCount: 0,
+      }),
+    ).toEqual({
       resolved: true,
       value: 15,
     })
@@ -197,7 +209,12 @@ describe('public-description-args', () => {
       },
     }).Arg1
 
-    expect(evaluatePublicFormulaExpression(arg, {accountLevel: 33, ownedPosseCount: 0})).toEqual({
+    expect(
+      evaluatePublicFormulaExpression(arg, {
+        accountLevel: 33,
+        ownedPosseCount: 0,
+      }),
+    ).toEqual({
       resolved: true,
       value: 6,
     })
@@ -238,13 +255,18 @@ describe('public-description-args', () => {
     }
 
     expect(
-      evaluatePublicFormulaExpression(arg, {accountLevel: 1, ownedPosseCount: 100}),
+      evaluatePublicFormulaExpression(arg, {
+        accountLevel: 1,
+        ownedPosseCount: 100,
+      }),
     ).toStrictEqual({
       resolved: true,
       value: 71,
     })
     expect(
-      resolveDescriptionArg(arg, {formulaContext: {accountLevel: 1, ownedPosseCount: 100}}),
+      resolveDescriptionArg(arg, {
+        formulaContext: {accountLevel: 1, ownedPosseCount: 100},
+      }),
     ).toMatchObject({
       formattedTotalValue: '71 (106)',
     })
@@ -271,7 +293,10 @@ describe('public-description-args', () => {
       inputs: ['accountLevel', 'ownedPosseCount'],
     }
 
-    const result = evaluatePublicFormulaExpression(arg, {accountLevel: 1, ownedPosseCount: 0})
+    const result = evaluatePublicFormulaExpression(arg, {
+      accountLevel: 1,
+      ownedPosseCount: 0,
+    })
     expect(result.resolved).toBe(true)
     if (result.resolved) expect(result.value).toBeCloseTo(56.5)
     expect(
@@ -300,7 +325,11 @@ describe('public-description-args', () => {
     ).toStrictEqual({resolved: true, value: 9.5})
     expect(
       buildDescriptionArgHover(arg, {
-        formulaContext: {accountLevel: 100, ownedPosseCount: 0, wheelRefinementLevel: 3},
+        formulaContext: {
+          accountLevel: 100,
+          ownedPosseCount: 0,
+          wheelRefinementLevel: 3,
+        },
       }),
     ).toBe(
       [
@@ -337,7 +366,11 @@ describe('public-description-args', () => {
         },
       ),
     ).toBe('Gain 42 stacks.')
-    expect(buildDescriptionArgHover(arg, {formulaContext: {realmMasteryFinal: 100}})).toBe(
+    expect(
+      buildDescriptionArgHover(arg, {
+        formulaContext: {realmMasteryFinal: 100},
+      }),
+    ).toBe(
       [
         'Realm Mastery Scaling',
         'Final Realm Mastery: 100',
@@ -347,6 +380,107 @@ describe('public-description-args', () => {
         '40 + (100 × 0.02) = 42',
       ].join('\n'),
     )
+  })
+
+  it('resolves Primordia Posse scaling and doubles it for all-Chaos teams', () => {
+    const arg: PublicDescriptionArg = {
+      kind: 'computed',
+      formulaKey: 'primordiaPosseScaled',
+      baseFormula: 'fixed',
+      baseValue: 50,
+      scalingBucket: 'utility',
+      rounding: 'ceil',
+      inputs: ['realmMasteryFinal', 'primordiaAllChaosTeam'],
+      suffix: '%',
+    }
+
+    expect(evaluatePublicFormulaExpression(arg, {realmMasteryFinal: 0})).toStrictEqual({
+      resolved: true,
+      value: 50,
+    })
+    expect(evaluatePublicFormulaExpression(arg, {realmMasteryFinal: 100})).toStrictEqual({
+      resolved: true,
+      value: 53,
+    })
+    expect(
+      evaluatePublicFormulaExpression(arg, {
+        realmMasteryFinal: 100,
+        primordiaAllChaosTeam: true,
+      }).value,
+    ).toBe(55)
+    expect(
+      buildDescriptionArgHover(arg, {
+        formulaContext: {realmMasteryFinal: 100},
+      }),
+    ).toBe(
+      [
+        'Primordia Scaling',
+        'Utility: +0.05% per Realm Mastery (+0.1% with an all-Chaos lineup)',
+        'Base effect: 50%',
+        'Current bonus: +5% from 100 Realm Mastery',
+        '',
+        'ceil(50% x (1 + 5%)) = 53%',
+      ].join('\n'),
+    )
+  })
+
+  it('preserves Forbidden Lore and Astral Reign values under Primordia scaling', () => {
+    const arg: PublicDescriptionArg = {
+      kind: 'computed',
+      formulaKey: 'primordiaPosseScaled',
+      baseFormula: 'esotericResearchDepth',
+      multiplier: 0.04,
+      scalingBucket: 'offensive',
+      rounding: 'ceil',
+      inputs: ['accountLevel', 'ownedPosseCount', 'realmMasteryFinal', 'primordiaAllChaosTeam'],
+    }
+    const context = {
+      formulaContext: {
+        accountLevel: 67,
+        ownedPosseCount: 28,
+        realmMasteryFinal: 10,
+      },
+    }
+
+    expect(resolveDescriptionTemplate('{Steal} [Arg1] {STR}', {Arg1: arg}, context)).toBe(
+      '{Steal} 37 (47) {STR}',
+    )
+    expect(buildDescriptionArgHover(arg, context)).toBe(
+      [
+        'Forbidden Lore + Primordia Scaling',
+        'Base (Account Lv 67): Esoteric Research 897 × 4% = 36',
+        'Astral Reign: 28 Posses add +28% to Research → 46',
+        '',
+        'Offensive Primordia: +0.1% per Realm Mastery (+0.2% with an all-Chaos lineup)',
+        'Current Primordia bonus: +1%',
+        'Final effect: 37 (Astral Reign 47)',
+      ].join('\n'),
+    )
+  })
+
+  it('applies Primordia after the normal Posse effect is rounded up', () => {
+    const arg: PublicDescriptionArg = {
+      kind: 'computed',
+      formulaKey: 'primordiaPosseScaled',
+      baseFormula: 'esotericResearchDepth',
+      multiplier: 0.03,
+      scalingBucket: 'offensive',
+      rounding: 'ceil',
+      inputs: ['accountLevel', 'ownedPosseCount', 'realmMasteryFinal', 'primordiaAllChaosTeam'],
+    }
+
+    expect(
+      evaluatePublicFormulaExpression(arg, {
+        accountLevel: 1,
+        ownedPosseCount: 0,
+        realmMasteryFinal: 1,
+      }),
+    ).toStrictEqual({resolved: true, value: 3})
+    expect(
+      buildDescriptionArgHover(arg, {
+        formulaContext: {accountLevel: 1, ownedPosseCount: 0, realmMasteryFinal: 1},
+      }),
+    ).toContain('Final effect: 3')
   })
 
   it('falls back gracefully when computed arg context is missing', () => {
@@ -369,14 +503,19 @@ describe('public-description-args', () => {
     expect(resolved.baseValue).toBeNull()
     expect(resolved.totalValue).toBeNull()
     expect(resolved.formattedTotalValue).toBe('—%')
-    expect(resolveDescriptionTemplate('Increase final DMG by [Arg1].', {Arg1: arg})).toBe(
-      'Increase final DMG by [Arg1].',
-    )
+    expect(
+      resolveDescriptionTemplate('Increase final DMG by [Arg1].', {
+        Arg1: arg,
+      }),
+    ).toBe('Increase final DMG by [Arg1].')
   })
 
   it('treats unknown computed formula keys as unresolved', () => {
     expect(
-      evaluatePublicFormulaExpression({kind: 'computed', formulaKey: 'unknown'}),
+      evaluatePublicFormulaExpression({
+        kind: 'computed',
+        formulaKey: 'unknown',
+      }),
     ).toStrictEqual({
       resolved: false,
       value: null,

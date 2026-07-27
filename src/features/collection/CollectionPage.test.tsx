@@ -64,8 +64,8 @@ vi.mock('@/domain/wheels', () => ({
   getWheelMainstatLabel: () => '',
 }))
 
-vi.mock('@/domain/posses', () => ({
-  getPosses: () => [
+vi.mock('@/domain/posses', () => {
+  const posses = [
     {
       id: 'posse-0047',
       index: 1,
@@ -75,8 +75,13 @@ vi.mock('@/domain/posses', () => ({
       awakenerName: 'ramona',
     },
     {id: 'posse-0005', index: 2, name: 'Faded Legacy', realm: 'NEUTRAL', isFadedLegacy: true},
-  ],
-}))
+  ]
+  return {
+    getPosses: () => posses,
+    getCollectiblePosses: () => posses,
+    getEquippablePosses: () => posses,
+  }
+})
 
 vi.mock('@/domain/awakener-assets', () => ({
   getAwakenerCardAsset: () => null,

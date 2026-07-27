@@ -17,14 +17,16 @@
   "acquisitionSource": "Clear Special Ops: Phantom of the Rainy Town",
   "realm": "ULTRA",
   "lineupToken": "v",
-  "descriptionTemplate": "Gain [Arg1] {STR} and create [Arg2] {derived:Insight}. If in an {Ultra Round}, instead create [Arg3] {derived:Insight}.",
+  "descriptionTemplate": "Gain [Arg1] {STR} and create [Arg2] {derived:Insight}. If in an {Ultra Round}, instead create [Arg3] {derived:Insight}.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
-      "formulaKey": "scaled",
+      "formulaKey": "primordiaPosseScaled",
       "baseFormula": "esotericResearchDepth",
+      "rounding": "ceil",
       "multiplier": 0.015,
-      "inputs": ["accountLevel", "ownedPosseCount"]
+      "inputs": ["accountLevel", "ownedPosseCount", "realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "offensive"
     },
     "Arg2": {
       "kind": "fixed",

@@ -15,18 +15,26 @@
   "acquisitionSource": "Clear Special Ops: Spring Festival Express",
   "realm": "OTHER",
   "lineupToken": "3",
-  "descriptionTemplate": "Gain 1 Arithmetica and +[Arg1]% Temporary Crit. Rate. The first time this is unleashed each battle, inflict [Arg3] {Ancient Embers} on all enemies.",
+  "descriptionTemplate": "Gain 1 Arithmetica and +[Arg1] Temporary Crit. Rate. The first time this is unleashed each battle, inflict [Arg3] {Ancient Embers} on all enemies.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
-      "kind": "fixed",
-      "value": "15"
+      "kind": "computed",
+      "formulaKey": "primordiaPosseScaled",
+      "baseFormula": "fixed",
+      "baseValue": 15.0,
+      "rounding": "ceil",
+      "inputs": ["realmMasteryFinal", "primordiaAllChaosTeam"],
+      "suffix": "%",
+      "scalingBucket": "utility"
     },
     "Arg3": {
       "kind": "computed",
-      "formulaKey": "scaled",
+      "formulaKey": "primordiaPosseScaled",
       "baseFormula": "occultResearchDepth",
+      "rounding": "ceil",
       "multiplier": 0.3,
-      "inputs": ["accountLevel", "ownedPosseCount"]
+      "inputs": ["accountLevel", "ownedPosseCount", "realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "offensive"
     }
   },
   "lore": "Year after year, the blossoms return unchanged;\nSeason after season, I long for our reunion.\n\nThis Spring Festival is so brief, so sweet, like a beautiful dream. My dear, when you stand beside your beloved, hand in hand,\ngazing upon the countless fireworks lighting the sky... pray, do not forget the devotion of this humble heart."

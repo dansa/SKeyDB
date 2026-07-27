@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 3,
+  "kind": "posse",
+  "id": "posse-0061",
+  "name": "Primordial Memory·Fury",
+  "route": {
+    "slug": "primordial-memoryfury",
+    "canonicalPath": "/database/posses/primordial-memoryfury"
+  },
+  "assets": {
+    "icon": "asset-posse-0061-icon",
+    "crystal": "asset-posse-0061-crystal",
+    "badge": "asset-posse-0061-badge"
+  },
+  "realm": "OTHER",
+  "classification": "PRIMORDIAL_MEMORY",
+  "equippable": false,
+  "collectible": false,
+  "descriptionTemplate": "Gain [Arg1] Temporary DMG Amplification.\nScaling guide: {Primordia Mastery Scaling}",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "primordiaPosseScaled",
+      "baseFormula": "fixed",
+      "baseValue": 50.0,
+      "rounding": "ceil",
+      "inputs": ["realmMasteryFinal", "primordiaAllChaosTeam"],
+      "suffix": "%",
+      "scalingBucket": "utility"
+    }
+  }
+}

@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "posses",
   "kind": "posse",
-  "recordCount": 53,
+  "recordCount": 61,
   "records": [
     {
       "kind": "posse",
@@ -915,6 +915,247 @@
       "ownerAwakenerId": "awakener-0059",
       "ownerAwakenerName": "Lotan: Cetarchon",
       "lineupToken": "7"
+    },
+    {
+      "kind": "posse",
+      "id": "posse-0054",
+      "name": "Primordial Memory·Drain",
+      "route": {
+        "slug": "primordial-memorydrain",
+        "canonicalPath": "/database/posses/primordial-memorydrain"
+      },
+      "assets": {
+        "icon": "asset-posse-0054-icon",
+        "crystal": "asset-posse-0054-crystal",
+        "badge": "asset-posse-0054-badge"
+      },
+      "realm": "OTHER",
+      "classification": "PRIMORDIAL_MEMORY",
+      "equippable": false,
+      "collectible": false,
+      "descriptionTemplate": "Temporarily reduce all enemies' {STR▼} by [Arg1].\nScaling guide: {Primordia Mastery Scaling}",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "primordiaPosseScaled",
+          "baseFormula": "esotericResearchDepth",
+          "rounding": "ceil",
+          "multiplier": 0.04,
+          "inputs": ["accountLevel", "ownedPosseCount", "realmMasteryFinal", "primordiaAllChaosTeam"],
+          "scalingBucket": "utility"
+        }
+      }
+    },
+    {
+      "kind": "posse",
+      "id": "posse-0055",
+      "name": "Primordial Memory·Catalyst",
+      "route": {
+        "slug": "primordial-memorycatalyst",
+        "canonicalPath": "/database/posses/primordial-memorycatalyst"
+      },
+      "assets": {
+        "icon": "asset-posse-0055-icon",
+        "crystal": "asset-posse-0055-crystal",
+        "badge": "asset-posse-0055-badge"
+      },
+      "realm": "OTHER",
+      "classification": "PRIMORDIAL_MEMORY",
+      "equippable": false,
+      "collectible": false,
+      "descriptionTemplate": "All Awakeners gain [Arg1] Aliemus.\nScaling guide: {Primordia Mastery Scaling}",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "primordiaPosseScaled",
+          "baseFormula": "fixed",
+          "baseValue": 5.0,
+          "rounding": "ceil",
+          "inputs": ["realmMasteryFinal", "primordiaAllChaosTeam"],
+          "scalingBucket": "utility"
+        }
+      }
+    },
+    {
+      "kind": "posse",
+      "id": "posse-0056",
+      "name": "Primordial Memory·Healing",
+      "route": {
+        "slug": "primordial-memoryhealing",
+        "canonicalPath": "/database/posses/primordial-memoryhealing"
+      },
+      "assets": {
+        "icon": "asset-posse-0056-icon",
+        "crystal": "asset-posse-0056-crystal",
+        "badge": "asset-posse-0056-badge"
+      },
+      "realm": "OTHER",
+      "classification": "PRIMORDIAL_MEMORY",
+      "equippable": false,
+      "collectible": false,
+      "descriptionTemplate": "Restore [Arg1] HP\nScaling guide: {Primordia Mastery Scaling}",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "primordiaPosseScaled",
+          "baseFormula": "esotericResearchDepth",
+          "rounding": "ceil",
+          "multiplier": 0.08,
+          "inputs": ["accountLevel", "ownedPosseCount", "realmMasteryFinal", "primordiaAllChaosTeam"],
+          "scalingBucket": "utility"
+        }
+      }
+    },
+    {
+      "kind": "posse",
+      "id": "posse-0057",
+      "name": "Primordial Memory·Toxin",
+      "route": {
+        "slug": "primordial-memorytoxin",
+        "canonicalPath": "/database/posses/primordial-memorytoxin"
+      },
+      "assets": {
+        "icon": "asset-posse-0057-icon",
+        "crystal": "asset-posse-0057-crystal",
+        "badge": "asset-posse-0057-badge"
+      },
+      "realm": "OTHER",
+      "classification": "PRIMORDIAL_MEMORY",
+      "equippable": false,
+      "collectible": false,
+      "descriptionTemplate": "Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Poison} on all enemies.\nScaling guide: {Primordia Mastery Scaling}",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "primordiaPosseScaled",
+          "baseFormula": "occultResearchDepth",
+          "rounding": "ceil",
+          "multiplier": 0.3,
+          "inputs": ["accountLevel", "ownedPosseCount", "realmMasteryFinal", "primordiaAllChaosTeam"],
+          "scalingBucket": "offensive"
+        }
+      }
+    },
+    {
+      "kind": "posse",
+      "id": "posse-0058",
+      "name": "Primordial Memory·Spike",
+      "route": {
+        "slug": "primordial-memoryspike",
+        "canonicalPath": "/database/posses/primordial-memoryspike"
+      },
+      "assets": {
+        "icon": "asset-posse-0058-icon",
+        "crystal": "asset-posse-0058-crystal",
+        "badge": "asset-posse-0058-badge"
+      },
+      "realm": "OTHER",
+      "classification": "PRIMORDIAL_MEMORY",
+      "equippable": false,
+      "collectible": false,
+      "descriptionTemplate": "Gain [Arg1] stack(s) of {Temporary Counter}.\nScaling guide: {Primordia Mastery Scaling}",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "primordiaPosseScaled",
+          "baseFormula": "occultResearchDepth",
+          "rounding": "ceil",
+          "multiplier": 0.6,
+          "inputs": ["accountLevel", "ownedPosseCount", "realmMasteryFinal", "primordiaAllChaosTeam"],
+          "scalingBucket": "offensive"
+        }
+      }
+    },
+    {
+      "kind": "posse",
+      "id": "posse-0059",
+      "name": "Primordial Memory·Might",
+      "route": {
+        "slug": "primordial-memorymight",
+        "canonicalPath": "/database/posses/primordial-memorymight"
+      },
+      "assets": {
+        "icon": "asset-posse-0059-icon",
+        "crystal": "asset-posse-0059-crystal",
+        "badge": "asset-posse-0059-badge"
+      },
+      "realm": "OTHER",
+      "classification": "PRIMORDIAL_MEMORY",
+      "equippable": false,
+      "collectible": false,
+      "descriptionTemplate": "Gain [Arg1] {STR}.\nScaling guide: {Primordia Mastery Scaling}",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "primordiaPosseScaled",
+          "baseFormula": "esotericResearchDepth",
+          "rounding": "ceil",
+          "multiplier": 0.03,
+          "inputs": ["accountLevel", "ownedPosseCount", "realmMasteryFinal", "primordiaAllChaosTeam"],
+          "scalingBucket": "offensive"
+        }
+      }
+    },
+    {
+      "kind": "posse",
+      "id": "posse-0060",
+      "name": "Primordial Memory·Bastion",
+      "route": {
+        "slug": "primordial-memorybastion",
+        "canonicalPath": "/database/posses/primordial-memorybastion"
+      },
+      "assets": {
+        "icon": "asset-posse-0060-icon",
+        "crystal": "asset-posse-0060-crystal",
+        "badge": "asset-posse-0060-badge"
+      },
+      "realm": "OTHER",
+      "classification": "PRIMORDIAL_MEMORY",
+      "equippable": false,
+      "collectible": false,
+      "descriptionTemplate": "Gain [Arg1] Shield.\nScaling guide: {Primordia Mastery Scaling}",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "primordiaPosseScaled",
+          "baseFormula": "esotericResearchDepth",
+          "rounding": "ceil",
+          "multiplier": 0.1,
+          "inputs": ["accountLevel", "ownedPosseCount", "realmMasteryFinal", "primordiaAllChaosTeam"],
+          "scalingBucket": "utility"
+        }
+      }
+    },
+    {
+      "kind": "posse",
+      "id": "posse-0061",
+      "name": "Primordial Memory·Fury",
+      "route": {
+        "slug": "primordial-memoryfury",
+        "canonicalPath": "/database/posses/primordial-memoryfury"
+      },
+      "assets": {
+        "icon": "asset-posse-0061-icon",
+        "crystal": "asset-posse-0061-crystal",
+        "badge": "asset-posse-0061-badge"
+      },
+      "realm": "OTHER",
+      "classification": "PRIMORDIAL_MEMORY",
+      "equippable": false,
+      "collectible": false,
+      "descriptionTemplate": "Gain [Arg1] Temporary DMG Amplification.\nScaling guide: {Primordia Mastery Scaling}",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "primordiaPosseScaled",
+          "baseFormula": "fixed",
+          "baseValue": 50.0,
+          "rounding": "ceil",
+          "inputs": ["realmMasteryFinal", "primordiaAllChaosTeam"],
+          "suffix": "%",
+          "scalingBucket": "utility"
+        }
+      }
     }
   ]
 }

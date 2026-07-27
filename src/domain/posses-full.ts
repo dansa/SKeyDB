@@ -6,6 +6,7 @@ import {
 } from '@/data-access/public-data/assetRepository'
 import {getPublicPosseCatalogRecords} from '@/data-access/public-data/catalogScopes/possesCatalog'
 
+import {posseClassificationSchema, type PosseClassification} from './posse-classification'
 import {
   publicDescriptionArgsSchema,
   type PublicDescriptionArg,
@@ -24,6 +25,9 @@ export interface PosseFullRecord {
   descriptionArgs: Record<string, PublicDescriptionArg>
   lore?: string
   acquisitionSource?: string
+  classification?: PosseClassification
+  equippable?: boolean
+  collectible?: boolean
 }
 
 const publicPosseRecordSchema = z.object({
@@ -36,6 +40,9 @@ const publicPosseRecordSchema = z.object({
   descriptionArgs: publicDescriptionArgsSchema.default({}),
   lore: z.string().optional(),
   acquisitionSource: z.string().optional(),
+  classification: posseClassificationSchema.default('STANDARD'),
+  equippable: z.boolean().default(true),
+  collectible: z.boolean().default(true),
 })
 
 const publicPosseRecordsSchema = z.array(publicPosseRecordSchema)

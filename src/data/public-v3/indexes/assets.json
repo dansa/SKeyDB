@@ -9721,6 +9721,294 @@
         "candidates": ["src/assets/posse/Icon/KeyToken_Skill_55.webp", "src/assets/posse/Icon/KeyToken_Skill_55.png"]
       }
     },
+    "asset-posse-0054-badge": {
+      "id": "asset-posse-0054-badge",
+      "slot": "badge",
+      "kind": "posse",
+      "ownerId": "posse-0054",
+      "assetId": "KeyToken_Props_00",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/Badge/KeyToken_Props_00.webp",
+        "candidates": ["src/assets/posse/Badge/KeyToken_Props_00.webp", "src/assets/posse/Badge/KeyToken_Props_00.png"]
+      }
+    },
+    "asset-posse-0054-crystal": {
+      "id": "asset-posse-0054-crystal",
+      "slot": "crystal",
+      "kind": "posse",
+      "ownerId": "posse-0054",
+      "assetId": "KeyToken_Crystal_00",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/FullArt/KeyToken_Crystal_00.webp",
+        "candidates": ["src/assets/posse/FullArt/KeyToken_Crystal_00.webp", "src/assets/posse/FullArt/KeyToken_Crystal_00.png"]
+      }
+    },
+    "asset-posse-0054-icon": {
+      "id": "asset-posse-0054-icon",
+      "slot": "icon",
+      "kind": "posse",
+      "ownerId": "posse-0054",
+      "assetId": "KeyToken_Skill_00",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/Icon/KeyToken_Skill_00.webp",
+        "candidates": ["src/assets/posse/Icon/KeyToken_Skill_00.webp", "src/assets/posse/Icon/KeyToken_Skill_00.png"]
+      }
+    },
+    "asset-posse-0055-badge": {
+      "id": "asset-posse-0055-badge",
+      "slot": "badge",
+      "kind": "posse",
+      "ownerId": "posse-0055",
+      "assetId": "KeyToken_Props_00",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/Badge/KeyToken_Props_00.webp",
+        "candidates": ["src/assets/posse/Badge/KeyToken_Props_00.webp", "src/assets/posse/Badge/KeyToken_Props_00.png"]
+      }
+    },
+    "asset-posse-0055-crystal": {
+      "id": "asset-posse-0055-crystal",
+      "slot": "crystal",
+      "kind": "posse",
+      "ownerId": "posse-0055",
+      "assetId": "KeyToken_Crystal_00",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/FullArt/KeyToken_Crystal_00.webp",
+        "candidates": ["src/assets/posse/FullArt/KeyToken_Crystal_00.webp", "src/assets/posse/FullArt/KeyToken_Crystal_00.png"]
+      }
+    },
+    "asset-posse-0055-icon": {
+      "id": "asset-posse-0055-icon",
+      "slot": "icon",
+      "kind": "posse",
+      "ownerId": "posse-0055",
+      "assetId": "KeyToken_Skill_00",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/Icon/KeyToken_Skill_00.webp",
+        "candidates": ["src/assets/posse/Icon/KeyToken_Skill_00.webp", "src/assets/posse/Icon/KeyToken_Skill_00.png"]
+      }
+    },
+    "asset-posse-0056-badge": {
+      "id": "asset-posse-0056-badge",
+      "slot": "badge",
+      "kind": "posse",
+      "ownerId": "posse-0056",
+      "assetId": "KeyToken_Props_00",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/Badge/KeyToken_Props_00.webp",
+        "candidates": ["src/assets/posse/Badge/KeyToken_Props_00.webp", "src/assets/posse/Badge/KeyToken_Props_00.png"]
+      }
+    },
+    "asset-posse-0056-crystal": {
+      "id": "asset-posse-0056-crystal",
+      "slot": "crystal",
+      "kind": "posse",
+      "ownerId": "posse-0056",
+      "assetId": "KeyToken_Crystal_00",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/FullArt/KeyToken_Crystal_00.webp",
+        "candidates": ["src/assets/posse/FullArt/KeyToken_Crystal_00.webp", "src/assets/posse/FullArt/KeyToken_Crystal_00.png"]
+      }
+    },
+    "asset-posse-0056-icon": {
+      "id": "asset-posse-0056-icon",
+      "slot": "icon",
+      "kind": "posse",
+      "ownerId": "posse-0056",
+      "assetId": "KeyToken_Skill_00",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/Icon/KeyToken_Skill_00.webp",
+        "candidates": ["src/assets/posse/Icon/KeyToken_Skill_00.webp", "src/assets/posse/Icon/KeyToken_Skill_00.png"]
+      }
+    },
+    "asset-posse-0057-badge": {
+      "id": "asset-posse-0057-badge",
+      "slot": "badge",
+      "kind": "posse",
+      "ownerId": "posse-0057",
+      "assetId": "KeyToken_Props_00",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/Badge/KeyToken_Props_00.webp",
+        "candidates": ["src/assets/posse/Badge/KeyToken_Props_00.webp", "src/assets/posse/Badge/KeyToken_Props_00.png"]
+      }
+    },
+    "asset-posse-0057-crystal": {
+      "id": "asset-posse-0057-crystal",
+      "slot": "crystal",
+      "kind": "posse",
+      "ownerId": "posse-0057",
+      "assetId": "KeyToken_Crystal_00",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/FullArt/KeyToken_Crystal_00.webp",
+        "candidates": ["src/assets/posse/FullArt/KeyToken_Crystal_00.webp", "src/assets/posse/FullArt/KeyToken_Crystal_00.png"]
+      }
+    },
+    "asset-posse-0057-icon": {
+      "id": "asset-posse-0057-icon",
+      "slot": "icon",
+      "kind": "posse",
+      "ownerId": "posse-0057",
+      "assetId": "KeyToken_Skill_00",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/Icon/KeyToken_Skill_00.webp",
+        "candidates": ["src/assets/posse/Icon/KeyToken_Skill_00.webp", "src/assets/posse/Icon/KeyToken_Skill_00.png"]
+      }
+    },
+    "asset-posse-0058-badge": {
+      "id": "asset-posse-0058-badge",
+      "slot": "badge",
+      "kind": "posse",
+      "ownerId": "posse-0058",
+      "assetId": "KeyToken_Props_00",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/Badge/KeyToken_Props_00.webp",
+        "candidates": ["src/assets/posse/Badge/KeyToken_Props_00.webp", "src/assets/posse/Badge/KeyToken_Props_00.png"]
+      }
+    },
+    "asset-posse-0058-crystal": {
+      "id": "asset-posse-0058-crystal",
+      "slot": "crystal",
+      "kind": "posse",
+      "ownerId": "posse-0058",
+      "assetId": "KeyToken_Crystal_00",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/FullArt/KeyToken_Crystal_00.webp",
+        "candidates": ["src/assets/posse/FullArt/KeyToken_Crystal_00.webp", "src/assets/posse/FullArt/KeyToken_Crystal_00.png"]
+      }
+    },
+    "asset-posse-0058-icon": {
+      "id": "asset-posse-0058-icon",
+      "slot": "icon",
+      "kind": "posse",
+      "ownerId": "posse-0058",
+      "assetId": "KeyToken_Skill_00",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/Icon/KeyToken_Skill_00.webp",
+        "candidates": ["src/assets/posse/Icon/KeyToken_Skill_00.webp", "src/assets/posse/Icon/KeyToken_Skill_00.png"]
+      }
+    },
+    "asset-posse-0059-badge": {
+      "id": "asset-posse-0059-badge",
+      "slot": "badge",
+      "kind": "posse",
+      "ownerId": "posse-0059",
+      "assetId": "KeyToken_Props_00",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/Badge/KeyToken_Props_00.webp",
+        "candidates": ["src/assets/posse/Badge/KeyToken_Props_00.webp", "src/assets/posse/Badge/KeyToken_Props_00.png"]
+      }
+    },
+    "asset-posse-0059-crystal": {
+      "id": "asset-posse-0059-crystal",
+      "slot": "crystal",
+      "kind": "posse",
+      "ownerId": "posse-0059",
+      "assetId": "KeyToken_Crystal_00",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/FullArt/KeyToken_Crystal_00.webp",
+        "candidates": ["src/assets/posse/FullArt/KeyToken_Crystal_00.webp", "src/assets/posse/FullArt/KeyToken_Crystal_00.png"]
+      }
+    },
+    "asset-posse-0059-icon": {
+      "id": "asset-posse-0059-icon",
+      "slot": "icon",
+      "kind": "posse",
+      "ownerId": "posse-0059",
+      "assetId": "KeyToken_Skill_00",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/Icon/KeyToken_Skill_00.webp",
+        "candidates": ["src/assets/posse/Icon/KeyToken_Skill_00.webp", "src/assets/posse/Icon/KeyToken_Skill_00.png"]
+      }
+    },
+    "asset-posse-0060-badge": {
+      "id": "asset-posse-0060-badge",
+      "slot": "badge",
+      "kind": "posse",
+      "ownerId": "posse-0060",
+      "assetId": "KeyToken_Props_00",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/Badge/KeyToken_Props_00.webp",
+        "candidates": ["src/assets/posse/Badge/KeyToken_Props_00.webp", "src/assets/posse/Badge/KeyToken_Props_00.png"]
+      }
+    },
+    "asset-posse-0060-crystal": {
+      "id": "asset-posse-0060-crystal",
+      "slot": "crystal",
+      "kind": "posse",
+      "ownerId": "posse-0060",
+      "assetId": "KeyToken_Crystal_00",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/FullArt/KeyToken_Crystal_00.webp",
+        "candidates": ["src/assets/posse/FullArt/KeyToken_Crystal_00.webp", "src/assets/posse/FullArt/KeyToken_Crystal_00.png"]
+      }
+    },
+    "asset-posse-0060-icon": {
+      "id": "asset-posse-0060-icon",
+      "slot": "icon",
+      "kind": "posse",
+      "ownerId": "posse-0060",
+      "assetId": "KeyToken_Skill_00",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/Icon/KeyToken_Skill_00.webp",
+        "candidates": ["src/assets/posse/Icon/KeyToken_Skill_00.webp", "src/assets/posse/Icon/KeyToken_Skill_00.png"]
+      }
+    },
+    "asset-posse-0061-badge": {
+      "id": "asset-posse-0061-badge",
+      "slot": "badge",
+      "kind": "posse",
+      "ownerId": "posse-0061",
+      "assetId": "KeyToken_Props_00",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/Badge/KeyToken_Props_00.webp",
+        "candidates": ["src/assets/posse/Badge/KeyToken_Props_00.webp", "src/assets/posse/Badge/KeyToken_Props_00.png"]
+      }
+    },
+    "asset-posse-0061-crystal": {
+      "id": "asset-posse-0061-crystal",
+      "slot": "crystal",
+      "kind": "posse",
+      "ownerId": "posse-0061",
+      "assetId": "KeyToken_Crystal_00",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/FullArt/KeyToken_Crystal_00.webp",
+        "candidates": ["src/assets/posse/FullArt/KeyToken_Crystal_00.webp", "src/assets/posse/FullArt/KeyToken_Crystal_00.png"]
+      }
+    },
+    "asset-posse-0061-icon": {
+      "id": "asset-posse-0061-icon",
+      "slot": "icon",
+      "kind": "posse",
+      "ownerId": "posse-0061",
+      "assetId": "KeyToken_Skill_00",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/Icon/KeyToken_Skill_00.webp",
+        "candidates": ["src/assets/posse/Icon/KeyToken_Skill_00.webp", "src/assets/posse/Icon/KeyToken_Skill_00.png"]
+      }
+    },
     "asset-overlay.aigis.petrify-icon": {
       "id": "asset-overlay.aigis.petrify-icon",
       "slot": "icon",
@@ -12288,6 +12576,46 @@
       "icon": "asset-posse-0053-icon",
       "crystal": "asset-posse-0053-crystal",
       "badge": "asset-posse-0053-badge"
+    },
+    "posse-0054": {
+      "icon": "asset-posse-0054-icon",
+      "crystal": "asset-posse-0054-crystal",
+      "badge": "asset-posse-0054-badge"
+    },
+    "posse-0055": {
+      "icon": "asset-posse-0055-icon",
+      "crystal": "asset-posse-0055-crystal",
+      "badge": "asset-posse-0055-badge"
+    },
+    "posse-0056": {
+      "icon": "asset-posse-0056-icon",
+      "crystal": "asset-posse-0056-crystal",
+      "badge": "asset-posse-0056-badge"
+    },
+    "posse-0057": {
+      "icon": "asset-posse-0057-icon",
+      "crystal": "asset-posse-0057-crystal",
+      "badge": "asset-posse-0057-badge"
+    },
+    "posse-0058": {
+      "icon": "asset-posse-0058-icon",
+      "crystal": "asset-posse-0058-crystal",
+      "badge": "asset-posse-0058-badge"
+    },
+    "posse-0059": {
+      "icon": "asset-posse-0059-icon",
+      "crystal": "asset-posse-0059-crystal",
+      "badge": "asset-posse-0059-badge"
+    },
+    "posse-0060": {
+      "icon": "asset-posse-0060-icon",
+      "crystal": "asset-posse-0060-crystal",
+      "badge": "asset-posse-0060-badge"
+    },
+    "posse-0061": {
+      "icon": "asset-posse-0061-icon",
+      "crystal": "asset-posse-0061-crystal",
+      "badge": "asset-posse-0061-badge"
     },
     "overlay.aigis.petrify": {
       "icon": "asset-overlay.aigis.petrify-icon"

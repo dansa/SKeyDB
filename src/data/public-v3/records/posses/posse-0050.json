@@ -15,7 +15,7 @@
   "acquisitionSource": "Clear Operation: Astral Reign - Ch. 5 - Fated Theater",
   "realm": "ULTRA",
   "lineupToken": "1",
-  "descriptionTemplate": "Gain [Block:Arg1] Shield and +[Arg2]% Temporary DMG Amplification. If Arachne is in the party, draw 1 {Eternal Loom} and reduce its Arithmetica Cost by 1.",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield and +[Arg2] Temporary DMG Amplification. If Arachne is in the party, draw 1 {Eternal Loom} and reduce its Arithmetica Cost by 1.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
@@ -25,8 +25,14 @@
       "inputs": ["accountLevel", "ownedPosseCount"]
     },
     "Arg2": {
-      "kind": "fixed",
-      "value": "50"
+      "kind": "computed",
+      "formulaKey": "primordiaPosseScaled",
+      "baseFormula": "fixed",
+      "baseValue": 50.0,
+      "rounding": "ceil",
+      "inputs": ["realmMasteryFinal", "primordiaAllChaosTeam"],
+      "suffix": "%",
+      "scalingBucket": "utility"
     }
   },
   "lore": "Spin, measure, sever.\nThe goddess of destiny knows neither joy nor sorrow; the wheel of fate turns for all eternity."

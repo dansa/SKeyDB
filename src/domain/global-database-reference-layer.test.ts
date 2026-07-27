@@ -15,6 +15,7 @@ import {
   buildCovenantDatabaseDescriptionRecord,
   buildGlobalDatabaseReferenceLayer,
   buildPosseDatabaseDescriptionRecord,
+  buildPosseReferenceEntries,
   hydrateGlobalDatabaseReferenceInfo,
 } from './global-database-reference-layer'
 import * as publicDetailRecordAdapters from './public-detail-record-adapters'
@@ -215,6 +216,28 @@ describe('hydrateGlobalDatabaseReferenceInfo', () => {
     expect(renderedText).toContain('3 Set')
     expect(renderedText).toContain('6 Set')
     expect(renderedText).toContain('Gain 1 Arithmetica')
+  })
+})
+
+describe('buildPosseReferenceEntries', () => {
+  it('resolves catalog descriptions for related-reference previews', () => {
+    const [info] = buildPosseReferenceEntries(
+      [
+        {
+          id: 'posse-memory-test',
+          index: 999,
+          name: 'Primordial Memory·Catalyst',
+          realm: 'OTHER',
+          isFadedLegacy: false,
+          lineupToken: 'I',
+          descriptionTemplate: 'All Awakeners gain [Arg1] Aliemus.',
+          descriptionArgs: {Arg1: {kind: 'fixed', value: '5'}},
+        },
+      ],
+      {primordiaAllChaosTeam: true},
+    )
+
+    expect(info.description).toBe('All Awakeners gain 5 Aliemus.')
   })
 })
 

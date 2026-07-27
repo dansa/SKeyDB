@@ -1537,7 +1537,12 @@
         "skill.lotan-cetarchon.short-blade-devour",
         "skill.lotan-cetarchon.strike"
       ],
-      "ownedDerivedSkills": ["derived.lotan-cetarchon.deadly-duel", "derived.lotan-cetarchon.great-blade-whalefall", "derived.lotan-cetarchon.netherblade"],
+      "ownedDerivedSkills": [
+        "derived.lotan-cetarchon.deadly-duel",
+        "derived.lotan-cetarchon.great-blade-whalefall",
+        "derived.lotan-cetarchon.netherblade",
+        "derived.lotan-cetarchon.primordial-memory"
+      ],
       "ownedTalents": [
         "talent.lotan-cetarchon.primordial-breath",
         "talent.lotan-cetarchon.madness-omen",
@@ -1770,6 +1775,7 @@
     "derived.lotan-cetarchon.deadly-duel": {},
     "derived.lotan-cetarchon.great-blade-whalefall": {},
     "derived.lotan-cetarchon.netherblade": {},
+    "derived.lotan-cetarchon.primordial-memory": {},
     "derived.miryam.call-of-the-divine-realm": {},
     "derived.miryam.divine-realms-descent": {},
     "derived.miryam.divine-realms-illusion": {},
@@ -2184,6 +2190,8 @@
     "overlay.global.pierce-dmg": {},
     "overlay.global.poison": {},
     "overlay.global.prepare": {},
+    "overlay.global.primordia-chaos": {},
+    "overlay.global.primordia-mastery-scaling": {},
     "overlay.global.propagation-caro": {},
     "overlay.global.propagation-frenzy": {},
     "overlay.global.pure-ultra": {},
@@ -2309,6 +2317,14 @@
     "posse-0051": {},
     "posse-0052": {},
     "posse-0053": {},
+    "posse-0054": {},
+    "posse-0055": {},
+    "posse-0056": {},
+    "posse-0057": {},
+    "posse-0058": {},
+    "posse-0059": {},
+    "posse-0060": {},
+    "posse-0061": {},
     "relic-0001": {},
     "relic-0002": {},
     "relic-0003": {},
@@ -3892,6 +3908,9 @@
     "derived.lotan-cetarchon.netherblade": {
       "ownerAwakenerId": "awakener-0059"
     },
+    "derived.lotan-cetarchon.primordial-memory": {
+      "ownerAwakenerId": "awakener-0059"
+    },
     "derived.miryam.call-of-the-divine-realm": {
       "ownerAwakenerId": "awakener-0032"
     },
@@ -5030,6 +5049,8 @@
     "overlay.global.pierce-dmg": {},
     "overlay.global.poison": {},
     "overlay.global.prepare": {},
+    "overlay.global.primordia-chaos": {},
+    "overlay.global.primordia-mastery-scaling": {},
     "overlay.global.propagation-caro": {},
     "overlay.global.propagation-frenzy": {},
     "overlay.global.pure-ultra": {},
@@ -5301,6 +5322,14 @@
     "posse-0053": {
       "ownerAwakenerId": "awakener-0059"
     },
+    "posse-0054": {},
+    "posse-0055": {},
+    "posse-0056": {},
+    "posse-0057": {},
+    "posse-0058": {},
+    "posse-0059": {},
+    "posse-0060": {},
+    "posse-0061": {},
     "relic-0001": {
       "ownerAwakenerId": "awakener-0001"
     },
