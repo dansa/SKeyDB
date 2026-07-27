@@ -8,14 +8,10 @@ interface DetailSettingsPanelProps {
   clickOutsideClosesPopovers: boolean
   fontScale: DetailSettingsFontScale
   showTagIcons: boolean
-  primordiaAllChaosTeam: boolean
-  realmMasteryFinal: number
   onAccountLevelChange: (nextAccountLevel: number) => void
   onClickOutsideClosesPopoversChange: (nextClickOutsideClosesPopovers: boolean) => void
   onFontScaleChange: (nextFontScale: DetailSettingsFontScale) => void
   onShowTagIconsChange: (nextShowTagIcons: boolean) => void
-  onPrimordiaAllChaosTeamChange: (nextAllChaosTeam: boolean) => void
-  onRealmMasteryFinalChange: (nextRealmMastery: number) => void
 }
 
 const FONT_SCALE_OPTIONS: {id: DetailSettingsFontScale; label: string}[] = [
@@ -30,14 +26,10 @@ export function DetailSettingsPanel({
   clickOutsideClosesPopovers,
   fontScale,
   showTagIcons,
-  primordiaAllChaosTeam,
-  realmMasteryFinal,
   onAccountLevelChange,
   onClickOutsideClosesPopoversChange,
   onFontScaleChange,
   onShowTagIconsChange,
-  onPrimordiaAllChaosTeamChange,
-  onRealmMasteryFinalChange,
 }: DetailSettingsPanelProps) {
   return (
     <div className='absolute top-[calc(100%+0.45rem)] right-0 z-[905] w-[min(24rem,calc(100vw-2rem))] border border-amber-200/40 bg-slate-950/[.985] p-3 shadow-[0_16px_36px_rgba(2,6,23,0.64)]'>
@@ -57,23 +49,6 @@ export function DetailSettingsPanel({
               <span className='block text-[10px] leading-relaxed text-slate-500'>
                 Show overlay icons inline with colored mechanic tags in skills, popovers, and
                 descriptions.
-              </span>
-            </span>
-          </label>
-
-          <label className='flex items-start gap-2 text-left'>
-            <input
-              checked={primordiaAllChaosTeam}
-              className='mt-0.5 size-3.5 accent-amber-200'
-              onChange={(event) => {
-                onPrimordiaAllChaosTeamChange(event.target.checked)
-              }}
-              type='checkbox'
-            />
-            <span>
-              <span className='block text-[11px] text-slate-200'>All-Chaos Primordia team</span>
-              <span className='block text-[10px] leading-relaxed text-slate-500'>
-                Double Primordia mastery scaling for a lineup containing only Chaos Awakeners.
               </span>
             </span>
           </label>
@@ -100,7 +75,7 @@ export function DetailSettingsPanel({
         </div>
 
         <div>
-          <div className='grid gap-3 sm:grid-cols-[minmax(0,1fr)_7rem_7rem] sm:items-end'>
+          <div className='grid gap-3 sm:grid-cols-[minmax(0,1fr)_7rem] sm:items-end'>
             <div>
               <p className='mb-1 text-[10px] tracking-[0.16em] text-slate-500 uppercase'>
                 Default text size
@@ -146,29 +121,6 @@ export function DetailSettingsPanel({
                 step={1}
                 type='number'
                 value={accountLevel}
-              />
-            </label>
-
-            <label>
-              <span className='mb-1 block text-[10px] tracking-[0.16em] text-slate-500 uppercase'>
-                Realm mastery
-              </span>
-              <input
-                aria-label='Final Realm Mastery'
-                className='database-account-level-input w-full border border-slate-600/45 bg-slate-950/70 px-2 py-1 text-right text-[12px] text-amber-100 outline-none focus:border-amber-200/60'
-                min={0}
-                onBlur={(event) => {
-                  event.currentTarget.value = String(realmMasteryFinal)
-                }}
-                onChange={(event) => {
-                  const nextRealmMastery = event.currentTarget.valueAsNumber
-                  if (Number.isFinite(nextRealmMastery)) {
-                    onRealmMasteryFinalChange(Math.max(0, Math.floor(nextRealmMastery)))
-                  }
-                }}
-                step={1}
-                type='number'
-                value={realmMasteryFinal}
               />
             </label>
           </div>

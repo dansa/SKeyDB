@@ -32,8 +32,6 @@ export interface DatabaseDetailSharedPreferences {
   clickOutsideClosesPopovers: boolean
   fontScale: DatabaseDetailFontScale
   accountLevel: number
-  primordiaAllChaosTeam: boolean
-  realmMasteryFinal: number
 }
 
 export interface DatabaseAwakenerDetailPreferences {
@@ -64,8 +62,6 @@ const DEFAULT_DATABASE_DETAIL_SHARED_PREFERENCES: DatabaseDetailSharedPreference
   clickOutsideClosesPopovers: true,
   fontScale: 'small',
   accountLevel: 50,
-  primordiaAllChaosTeam: false,
-  realmMasteryFinal: 0,
 }
 
 const DEFAULT_DATABASE_DETAIL_AWAKENER_PREFERENCES: DatabaseAwakenerDetailPreferences = {
@@ -86,12 +82,6 @@ const databaseDetailSharedPreferencesSchema = z.object({
     .default(DEFAULT_DATABASE_DETAIL_SHARED_PREFERENCES.clickOutsideClosesPopovers),
   fontScale: fontScaleSchema.default(DEFAULT_DATABASE_DETAIL_SHARED_PREFERENCES.fontScale),
   accountLevel: z.number().default(DEFAULT_DATABASE_DETAIL_SHARED_PREFERENCES.accountLevel),
-  primordiaAllChaosTeam: z
-    .boolean()
-    .default(DEFAULT_DATABASE_DETAIL_SHARED_PREFERENCES.primordiaAllChaosTeam),
-  realmMasteryFinal: z
-    .number()
-    .default(DEFAULT_DATABASE_DETAIL_SHARED_PREFERENCES.realmMasteryFinal),
 })
 
 const databaseDetailAwakenerPreferencesSchema = z.object({
@@ -143,8 +133,6 @@ function extractLegacyPreferences(input: Record<string, unknown>) {
       clickOutsideClosesPopovers: input.clickOutsideClosesPopovers,
       fontScale: input.fontScale,
       accountLevel: input.accountLevel,
-      primordiaAllChaosTeam: input.primordiaAllChaosTeam,
-      realmMasteryFinal: input.realmMasteryFinal,
     },
     awakener: {
       showVisibleScaling: input.showVisibleScaling,
@@ -172,8 +160,6 @@ export function normalizeDatabaseDetailPreferences(input: unknown = {}): Databas
       clickOutsideClosesPopovers: parsed.shared.clickOutsideClosesPopovers,
       fontScale: parsed.shared.fontScale,
       accountLevel: clampAccountLevel(parsed.shared.accountLevel),
-      primordiaAllChaosTeam: parsed.shared.primordiaAllChaosTeam,
-      realmMasteryFinal: Math.max(0, Math.floor(parsed.shared.realmMasteryFinal)),
     },
     awakener: {
       showVisibleScaling: parsed.awakener.showVisibleScaling,

@@ -114,15 +114,8 @@ export function RelicDetailModal({
       buildPublicFormulaContext({
         accountLevel: preferences.shared.accountLevel,
         collectionOwnership,
-        primordiaAllChaosTeam: preferences.shared.primordiaAllChaosTeam,
-        realmMasteryFinal: preferences.shared.realmMasteryFinal,
       }),
-    [
-      collectionOwnership,
-      preferences.shared.accountLevel,
-      preferences.shared.primordiaAllChaosTeam,
-      preferences.shared.realmMasteryFinal,
-    ],
+    [collectionOwnership, preferences.shared.accountLevel],
   )
   const selectedVariant =
     (selectedVariantId ? getRelicVariantById(fullData, selectedVariantId) : undefined) ??

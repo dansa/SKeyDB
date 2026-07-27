@@ -137,8 +137,6 @@ describe('useDatabaseDetailPreferences', () => {
         showTagIcons: true,
         clickOutsideClosesPopovers: true,
         fontScale: 'large',
-        primordiaAllChaosTeam: false,
-        realmMasteryFinal: 0,
         accountLevel: 50,
       },
       awakener: {
