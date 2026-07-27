@@ -97,6 +97,7 @@ function cloneDerivedSkillRecord(record: DerivedSkillRecord): DerivedSkillRecord
     ...record,
     descriptionArgs: cloneDescriptionArgs(record.descriptionArgs),
     childDerivedSkillIds: [...record.childDerivedSkillIds],
+    childPosseIds: record.childPosseIds ? [...record.childPosseIds] : undefined,
     cardKeywords: cloneCardKeywords(record.cardKeywords),
     variants: record.variants.map((variant) => ({
       ...variant,

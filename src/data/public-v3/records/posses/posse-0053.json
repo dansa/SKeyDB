@@ -17,7 +17,7 @@
   "acquisitionSource": "Clear Psyche Deepdive: Till the Cetus Falls",
   "realm": "CHAOS",
   "lineupToken": "7",
-  "descriptionTemplate": "Gain [Arg2] {STR}. Choose 1 Awakener to Steal up to [Arg1] Aliemus from other Awakeners. If Lotan: Cetarchon is in the party, the next \"Strike\" of Lotan: Cetarchon takes effect 1 additional time.",
+  "descriptionTemplate": "Gain [Arg2] {STR}. Choose 1 Awakener to Steal up to [Arg1] Aliemus from other Awakeners. If Lotan: Cetarchon is in the party, the next \"Strike\" of Lotan: Cetarchon takes effect 1 additional time.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -25,10 +25,12 @@
     },
     "Arg2": {
       "kind": "computed",
-      "formulaKey": "scaled",
+      "formulaKey": "primordiaPosseScaled",
       "baseFormula": "esotericResearchDepth",
+      "rounding": "ceil",
       "multiplier": 0.03,
-      "inputs": ["accountLevel", "ownedPosseCount"]
+      "inputs": ["accountLevel", "ownedPosseCount", "realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "offensive"
     }
   },
   "lore": "The storm shatters to ruin. The storm never looks back."

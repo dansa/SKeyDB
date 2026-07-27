@@ -15,11 +15,16 @@
   "acquisitionSource": "Clear Operation: Faded Legacy - Ch. 7 - Desire's Flow",
   "realm": "CARO",
   "lineupToken": "G",
-  "descriptionTemplate": "Choose a non-Derived Command Card in hand and create a Basic Copy of it. The copy has {Exhaust}. Grant its Awakener [Arg1] Aliemus.",
+  "descriptionTemplate": "Choose a non-Derived Command Card in hand and create a Basic Copy of it. The copy has {Exhaust}. Grant its Awakener [Arg1] Aliemus.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
-      "kind": "fixed",
-      "value": "15"
+      "kind": "computed",
+      "formulaKey": "primordiaPosseScaled",
+      "baseFormula": "fixed",
+      "baseValue": 15.0,
+      "rounding": "ceil",
+      "inputs": ["realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "utility"
     }
   },
   "lore": "She will pass the Lone Seed to your tongue.\nThe strength of blood, the faith of inheritance, the courage to transcend, and deep affection... she entrusts everything to you."

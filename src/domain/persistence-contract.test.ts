@@ -12,7 +12,7 @@ import {
   migratePosseIdV1ToCurrent,
   migrateWheelIdV1ToCurrent,
 } from './persistence-id-migration'
-import {getPosses} from './posses'
+import {getEquippablePosses} from './posses'
 import standardCodeContract from './standard-code-contract.v1.json'
 import {getWheels} from './wheels'
 
@@ -60,7 +60,7 @@ function buildCurrentContract(): PersistenceContract {
       .map((awakener) => ({name: awakener.name, id: awakener.id}))
       .sort((left, right) => left.name.localeCompare(right.name)),
     wheels: getWheels().map((wheel) => wheel.id),
-    posses: getPosses()
+    posses: getEquippablePosses()
       .map((posse) => ({id: posse.id, index: posse.index}))
       .sort((left, right) => left.id.localeCompare(right.id)),
     covenants: getCovenants().map((covenant) => covenant.id),
@@ -69,6 +69,12 @@ function buildCurrentContract(): PersistenceContract {
 
 function publicCatalogIds(scope: Parameters<typeof getPublicCatalogRecords>[0]): string[] {
   return getPublicCatalogRecords(scope).map((record) => record.id)
+}
+
+function publicEquippablePosseIds(): string[] {
+  return getPublicCatalogRecords('posses')
+    .filter((record) => record.equippable !== false)
+    .map((record) => record.id)
 }
 
 function contractIds(records: CurrentContractEntry[]): string[] {
@@ -119,7 +125,7 @@ describe('persistence contract', () => {
     expect(contractIds(contract.awakeners)).toEqual(publicCatalogIds('awakeners'))
     expect(contractIds(contract.wheels)).toEqual(publicCatalogIds('wheels'))
     expect(contractIds(contract.covenants)).toEqual(publicCatalogIds('covenants'))
-    expect(contractIds(contract.posses)).toEqual(publicCatalogIds('posses'))
+    expect(contractIds(contract.posses)).toEqual(publicEquippablePosseIds())
   })
 
   it('preserves V1 standard-code codec indices as unique byte meanings', () => {

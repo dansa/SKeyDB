@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.lotan-cetarchon.primordial-memory",
+  "name": "Primordial Memory",
+  "route": {
+    "slug": "primordial-memory",
+    "canonicalPath": "/database/awakeners/lotan-cetarchon/derived-skills/primordial-memory"
+  },
+  "ownerAwakenerId": "awakener-0059",
+  "nodeKind": "group",
+  "rootSkillId": "talent.lotan-cetarchon.primordial-breath",
+  "childPosseIds": ["posse-0054", "posse-0055", "posse-0056", "posse-0057", "posse-0058", "posse-0059", "posse-0060", "posse-0061"],
+  "descriptionTemplate": "Primordia: Dual Recurrence and Primordia: Triad {Revelation} can {Discover} these eight generated Posse effects.",
+  "descriptionArgs": {},
+  "cardKeywords": [],
+  "aliases": ["Primordial Memories"],
+  "ownerAwakenerName": "Lotan: Cetarchon"
+}

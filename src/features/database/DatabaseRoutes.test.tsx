@@ -88,6 +88,10 @@ vi.mock('@/domain/wheels', () => ({
 
 vi.mock('@/domain/posses', () => ({
   getPosses: () => mockPublicCatalog.posses,
+  getCollectiblePosses: () => mockPublicCatalog.posses,
+  getEquippablePosses: () => mockPublicCatalog.posses,
+  isPrimordialMemoryPosse: (posse: {classification?: string}) =>
+    posse.classification === 'PRIMORDIAL_MEMORY',
 }))
 
 vi.mock('@/domain/covenants', () => ({

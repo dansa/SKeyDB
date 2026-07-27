@@ -15,18 +15,25 @@
   "acquisitionSource": "Clear Operation: Astral Reign - Ch. 1 - Return to the Big Smoke",
   "realm": "CHAOS",
   "lineupToken": "J",
-  "descriptionTemplate": "Grant a chosen Awakener [Arg1] Aliemus, and inflict [Arg2] {Poison} on each enemy. For each 1% of HP each enemy is missing, trigger 1% of their {Poison}, up to 50%.",
+  "descriptionTemplate": "Grant a chosen Awakener [Arg1] Aliemus, and inflict [Arg2] {Poison} on each enemy. For each 1% of HP each enemy is missing, trigger 1% of their {Poison}, up to 50%.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
-      "kind": "fixed",
-      "value": "20"
+      "kind": "computed",
+      "formulaKey": "primordiaPosseScaled",
+      "baseFormula": "fixed",
+      "baseValue": 20.0,
+      "rounding": "ceil",
+      "inputs": ["realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "utility"
     },
     "Arg2": {
       "kind": "computed",
-      "formulaKey": "scaled",
+      "formulaKey": "primordiaPosseScaled",
       "baseFormula": "occultResearchDepth",
+      "rounding": "ceil",
       "multiplier": 0.045,
-      "inputs": ["accountLevel", "ownedPosseCount"]
+      "inputs": ["accountLevel", "ownedPosseCount", "realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "offensive"
     }
   },
   "lore": "The Void is a plague brought by the Hidden Truth, erasing all colors and painting everything gray.\nDo not look directly into those mad Eyes; be careful, she may have already infected you."

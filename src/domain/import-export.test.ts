@@ -5,7 +5,7 @@ import type {Team} from '@/features/builder/types'
 import {getAwakeners} from './awakeners'
 import {getCovenants} from './covenants'
 import {decodeImportCode, encodeMultiTeamCode, encodeSingleTeamCode} from './import-export'
-import {getPosses} from './posses'
+import {getEquippablePosses} from './posses'
 import standardCodeContract from './standard-code-contract.v1.json'
 import {getWheels} from './wheels'
 
@@ -64,7 +64,7 @@ describe('import-export codec', () => {
       },
       {
         name: 'posses',
-        currentIds: getPosses().map((posse) => posse.id),
+        currentIds: getEquippablePosses().map((posse) => posse.id),
         contractIds: standardCodeContract.posses.map((entry) => entry.id),
       },
     ]

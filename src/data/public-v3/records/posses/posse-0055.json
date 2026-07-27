@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 3,
+  "kind": "posse",
+  "id": "posse-0055",
+  "name": "Primordial Memory·Catalyst",
+  "route": {
+    "slug": "primordial-memorycatalyst",
+    "canonicalPath": "/database/posses/primordial-memorycatalyst"
+  },
+  "assets": {
+    "icon": "asset-posse-0055-icon",
+    "crystal": "asset-posse-0055-crystal",
+    "badge": "asset-posse-0055-badge"
+  },
+  "realm": "OTHER",
+  "classification": "PRIMORDIAL_MEMORY",
+  "equippable": false,
+  "collectible": false,
+  "descriptionTemplate": "All Awakeners gain [Arg1] Aliemus.\nScaling guide: {Primordia Mastery Scaling}",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "primordiaPosseScaled",
+      "baseFormula": "fixed",
+      "baseValue": 5.0,
+      "rounding": "ceil",
+      "inputs": ["realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "utility"
+    }
+  }
+}

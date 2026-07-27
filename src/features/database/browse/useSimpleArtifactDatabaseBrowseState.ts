@@ -8,6 +8,7 @@ import {
   type CovenantDatabaseBrowseState,
   type PosseDatabaseBrowseState,
   type PosseDatabaseRealmFilterId,
+  type PosseDatabaseTypeFilterId,
 } from '@/domain/simple-artifact-database-browse-state'
 
 import {useBrowseQueryActions} from './useBrowseQueryActions'
@@ -18,7 +19,7 @@ export function usePosseDatabaseBrowseState() {
     parseState: parsePosseDatabaseBrowseState,
     patchState: patchPosseDatabaseBrowseState,
   })
-  const {query, realmFilter} = browseState
+  const {query, realmFilter, typeFilter} = browseState
   const {setQuery, appendSearchCharacter, removeSearchCharacter, clearQuery} =
     useBrowseQueryActions(query, commitBrowseState)
 
@@ -28,19 +29,27 @@ export function usePosseDatabaseBrowseState() {
     },
     [commitBrowseState],
   )
+  const setTypeFilter = useCallback(
+    (next: PosseDatabaseTypeFilterId) => {
+      commitBrowseState({typeFilter: next}, 'push')
+    },
+    [commitBrowseState],
+  )
 
   const resetFilters = useCallback(() => {
-    commitBrowseState({query: '', realmFilter: 'ALL'}, 'push')
+    commitBrowseState({query: '', realmFilter: 'ALL', typeFilter: 'ALL'}, 'push')
   }, [commitBrowseState])
 
   return {
     query,
     realmFilter,
+    typeFilter,
     setQuery,
     appendSearchCharacter,
     removeSearchCharacter,
     clearQuery,
     setRealmFilter,
+    setTypeFilter,
     resetFilters,
   }
 }

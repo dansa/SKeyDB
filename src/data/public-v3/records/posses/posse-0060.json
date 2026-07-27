@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 3,
+  "kind": "posse",
+  "id": "posse-0060",
+  "name": "Primordial Memory·Bastion",
+  "route": {
+    "slug": "primordial-memorybastion",
+    "canonicalPath": "/database/posses/primordial-memorybastion"
+  },
+  "assets": {
+    "icon": "asset-posse-0060-icon",
+    "crystal": "asset-posse-0060-crystal",
+    "badge": "asset-posse-0060-badge"
+  },
+  "realm": "OTHER",
+  "classification": "PRIMORDIAL_MEMORY",
+  "equippable": false,
+  "collectible": false,
+  "descriptionTemplate": "Gain [Arg1] Shield.\nScaling guide: {Primordia Mastery Scaling}",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "primordiaPosseScaled",
+      "baseFormula": "esotericResearchDepth",
+      "rounding": "ceil",
+      "multiplier": 0.1,
+      "inputs": ["accountLevel", "ownedPosseCount", "realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "utility"
+    }
+  }
+}

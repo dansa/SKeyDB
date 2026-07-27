@@ -1,6 +1,6 @@
 import type {CollectionOwnershipState} from './collection-ownership'
 import {clampAccountLevel} from './gameplay-math-metadata'
-import {getPosses} from './posses'
+import {getCollectiblePosses} from './posses'
 import {resolveWheelDescriptionFormulaLevel} from './wheel-enhance'
 
 export interface PublicFormulaContext {
@@ -8,6 +8,7 @@ export interface PublicFormulaContext {
   ownedPosseCount?: number
   wheelRefinementLevel?: number
   realmMasteryFinal?: number
+  primordiaAllChaosTeam?: boolean
 }
 
 export interface PublicFormulaContextInput {
@@ -17,9 +18,10 @@ export interface PublicFormulaContextInput {
   ownedPosseCount?: number | null
   wheelRefinementLevel?: number | null
   realmMasteryFinal?: number | null
+  primordiaAllChaosTeam?: boolean | null
 }
 
-const CURRENT_PUBLIC_POSSE_IDS = new Set(getPosses().map((posse) => posse.id))
+const CURRENT_PUBLIC_POSSE_IDS = new Set(getCollectiblePosses().map((posse) => posse.id))
 const DEFAULT_PUBLIC_ACCOUNT_LEVEL = 50
 const MIN_OWNED_POSSE_COUNT = 0
 const MIN_WHEEL_REFINEMENT_LEVEL = 0
@@ -69,6 +71,7 @@ export function buildPublicFormulaContext(
       ? countOwnedCurrentPublicPosses(input.collectionOwnership)
       : normalizeOwnedPosseCount(input.ownedPosseCount),
     realmMasteryFinal: normalizeRealmMasteryFinal(input.realmMasteryFinal),
+    primordiaAllChaosTeam: input.primordiaAllChaosTeam === true,
   }
 
   if (typeof input.wheelEnhanceLevel === 'number') {

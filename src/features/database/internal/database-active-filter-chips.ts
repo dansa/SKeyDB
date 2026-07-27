@@ -22,9 +22,11 @@ import {
 } from '@/domain/relic-database-browse-state'
 import {
   getPosseDatabaseRealmFilterLabel,
+  getPosseDatabaseTypeFilterLabel,
   type CovenantDatabaseBrowseState,
   type PosseDatabaseBrowseState,
   type PosseDatabaseRealmFilterId,
+  type PosseDatabaseTypeFilterId,
 } from '@/domain/simple-artifact-database-browse-state'
 import {wheelMainstatFilterOptions} from '@/domain/wheel-mainstat-filters'
 import type {
@@ -47,6 +49,7 @@ interface AwakenerActiveFilterActions {
 interface PosseActiveFilterActions {
   clearQuery: () => void
   setRealmFilter: (next: PosseDatabaseRealmFilterId) => void
+  setTypeFilter: (next: PosseDatabaseTypeFilterId) => void
 }
 
 interface CovenantActiveFilterActions {
@@ -176,6 +179,16 @@ export function buildPosseActiveFilterChips(
       label: getPosseDatabaseRealmFilterLabel(state.realmFilter),
       onClear: () => {
         actions.setRealmFilter('ALL')
+      },
+    })
+  }
+
+  if (state.typeFilter !== 'ALL') {
+    chips.push({
+      key: 'type',
+      label: getPosseDatabaseTypeFilterLabel(state.typeFilter),
+      onClear: () => {
+        actions.setTypeFilter('ALL')
       },
     })
   }

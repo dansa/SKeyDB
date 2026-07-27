@@ -17,7 +17,7 @@
   "acquisitionSource": "Clear Psyche Deepdive: Eadem Omnia",
   "realm": "AEQUOR",
   "lineupToken": "j",
-  "descriptionTemplate": "Draw [Arg1] {plural:[Arg1]|card|cards} with the lowest Arithmetica Cost from the Draw Pile. Gain [Arg2] {Tentacle DMG}.",
+  "descriptionTemplate": "Draw [Arg1] {plural:[Arg1]|card|cards} with the lowest Arithmetica Cost from the Draw Pile. Gain [Arg2] {Tentacle DMG}.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -25,10 +25,12 @@
     },
     "Arg2": {
       "kind": "computed",
-      "formulaKey": "scaled",
+      "formulaKey": "primordiaPosseScaled",
       "baseFormula": "esotericResearchDepth",
+      "rounding": "ceil",
       "multiplier": 0.01,
-      "inputs": ["accountLevel", "ownedPosseCount"]
+      "inputs": ["accountLevel", "ownedPosseCount", "realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "offensive"
     }
   },
   "lore": "Glass tank. Fish tank. Palace.\n\nCall it whatever you like. It is a small paradise where Aurita's friends reside, free from Dissolution and suffering."

@@ -8,6 +8,8 @@ import {
 import {
   evaluatePublicFormulaExpression,
   getPublicScaledFormulaBreakdown,
+  resolveScaledBaseFormula,
+  resolvePrimordiaPosseScaledValue,
   resolvePublicScaledFormulaValue,
   type PublicDescriptionArg,
   type PublicFormulaContext,
@@ -480,6 +482,100 @@ function buildRealmMasteryFormulaHover(
   )
 }
 
+function buildPrimordiaNormalPosseArg(
+  arg: Extract<PublicDescriptionArg, {kind: 'computed'; formulaKey: 'primordiaPosseScaled'}>,
+): Extract<PublicDescriptionArg, {kind: 'computed'; formulaKey: 'scaled'}> {
+  if (arg.baseFormula === 'fixed') {
+    throw new Error('Fixed Primordia effects do not have a normal Posse scaling formula.')
+  }
+  return {
+    kind: 'computed',
+    formulaKey: 'scaled',
+    baseFormula: arg.baseFormula,
+    multiplier: arg.multiplier,
+    rounding: 'ceil',
+    inputs: arg.inputs.filter(
+      (input): input is 'accountLevel' | 'ownedPosseCount' =>
+        input === 'accountLevel' || input === 'ownedPosseCount',
+    ),
+  }
+}
+
+function buildPrimordiaPosseFormulaHover(
+  arg: Extract<PublicDescriptionArg, {kind: 'computed'; formulaKey: 'primordiaPosseScaled'}>,
+  resolved: ResolvedDescriptionArg,
+  formulaContext: PublicFormulaContext = {},
+): string {
+  const context = buildPublicFormulaContext(formulaContext)
+  const realmMastery = context.realmMasteryFinal ?? 0
+  const perPointPercent = arg.scalingBucket === 'offensive' ? 0.1 : 0.05
+  const teamMultiplier = context.primordiaAllChaosTeam ? 2 : 1
+  const effectivePerPointPercent = perPointPercent * teamMultiplier
+  const currentBonusPercent = realmMastery * effectivePerPointPercent
+  const baseValue =
+    arg.baseFormula === 'fixed'
+      ? (arg.baseValue ?? 0)
+      : (resolveScaledBaseFormula(arg.baseFormula, context).value ?? 0) * (arg.multiplier ?? 1)
+  const baseText = formatHoverComputedValue(baseValue, inferSuffix(arg))
+  const bucketLabel = arg.scalingBucket === 'offensive' ? 'Offensive' : 'Utility'
+  const allChaosPerPointPercent = perPointPercent * 2
+
+  if (arg.baseFormula !== 'fixed') {
+    const baseArg = buildPrimordiaNormalPosseArg(arg)
+    const breakdown = getPublicScaledFormulaBreakdown(baseArg, context)
+    const multiplierText =
+      breakdown.multiplier === null ? null : formatHoverEffectMultiplier(breakdown.multiplier)
+    const baseValueText = formatHoverFormulaNumber(breakdown.baseValue)
+    const baseContextText =
+      breakdown.baseLabelPlacement === 'before'
+        ? `${breakdown.baseLabel} ${baseValueText}`
+        : `${baseValueText} ${breakdown.baseLabel}`
+    const baseFormulaText =
+      multiplierText === null
+        ? baseContextText
+        : `${baseContextText} × ${multiplierText.formulaValue}`
+    const normalBase = resolvePublicScaledFormulaValue(baseArg, breakdown.baseValue) ?? 0
+    const normalFinal = resolvePrimordiaPosseScaledValue(arg, normalBase, context)
+    const rows = [
+      'Forbidden Lore + Primordia Scaling',
+      `Base (Account Lv ${String(breakdown.accountLevel)}): ${baseFormulaText} = ${formatScaledFormulaResultText(normalBase, resolved.suffix)}`,
+    ]
+
+    if (hasAstralReignResearchBonus(breakdown)) {
+      const astralResearchValue = breakdown.baseValue * breakdown.ownedPosseMultiplier
+      const astralBase = resolvePublicScaledFormulaValue(baseArg, astralResearchValue) ?? 0
+      const astralFinal = resolvePrimordiaPosseScaledValue(arg, astralBase, context)
+      rows.push(
+        `Astral Reign: ${String(breakdown.ownedPosseCount)} Posses add +${String(breakdown.ownedPosseCount)}% to Research → ${formatScaledFormulaResultText(astralBase, resolved.suffix)}`,
+        '',
+        `${bucketLabel} Primordia: +${formatHoverFormulaFactor(perPointPercent)}% per Realm Mastery (+${formatHoverFormulaFactor(allChaosPerPointPercent)}% with an all-Chaos lineup)`,
+        `Current Primordia bonus: +${formatHoverFormulaFactor(currentBonusPercent)}%`,
+        `Final effect: ${formatHoverComputedValue(normalFinal, resolved.suffix)} (Astral Reign ${formatHoverComputedValue(astralFinal, resolved.suffix)})`,
+      )
+    } else {
+      rows.push(
+        '',
+        `${bucketLabel} Primordia: +${formatHoverFormulaFactor(perPointPercent)}% per Realm Mastery (+${formatHoverFormulaFactor(allChaosPerPointPercent)}% with an all-Chaos lineup)`,
+        `Current Primordia bonus: +${formatHoverFormulaFactor(currentBonusPercent)}%`,
+        `Final effect: ${formatHoverComputedValue(normalFinal, resolved.suffix)}`,
+      )
+    }
+
+    return formatHoverDisplayText(rows.join('\n'))
+  }
+
+  return formatHoverDisplayText(
+    [
+      'Primordia Scaling',
+      `${bucketLabel}: +${formatHoverFormulaFactor(perPointPercent)}% per Realm Mastery (+${formatHoverFormulaFactor(allChaosPerPointPercent)}% with an all-Chaos lineup)`,
+      `Base effect: ${baseText}`,
+      `Current bonus: +${formatHoverFormulaFactor(currentBonusPercent)}% from ${formatHoverFormulaNumber(realmMastery)} Realm Mastery`,
+      '',
+      `ceil(${baseText} x (1 + ${formatHoverFormulaFactor(currentBonusPercent)}%)) = ${resolved.formattedTotalValue}`,
+    ].join('\n'),
+  )
+}
+
 function shouldCeilDisplayedTotalValue(
   arg: PublicDescriptionArg,
   baseValue: number | null,
@@ -543,10 +639,37 @@ function formatDescriptionArgTotalValue(
   if (
     totalValue === null ||
     arg.kind !== 'computed' ||
-    (arg.formulaKey !== 'scaled' && arg.formulaKey !== 'scaledCeilThenMultiply') ||
+    (arg.formulaKey !== 'scaled' &&
+      arg.formulaKey !== 'scaledCeilThenMultiply' &&
+      arg.formulaKey !== 'primordiaPosseScaled') ||
     getSubstatBonus(arg)
   ) {
     return primaryValue
+  }
+
+  if (arg.formulaKey === 'primordiaPosseScaled') {
+    if (arg.baseFormula === 'fixed') {
+      return primaryValue
+    }
+    const baseArg = buildPrimordiaNormalPosseArg(arg)
+    const breakdown = getPublicScaledFormulaBreakdown(
+      baseArg,
+      buildPublicFormulaContext(formulaContext),
+    )
+    if (!hasAstralReignResearchBonus(breakdown)) {
+      return primaryValue
+    }
+    const astralResearchValue = breakdown.baseValue * breakdown.ownedPosseMultiplier
+    const astralBaseValue = resolvePublicScaledFormulaValue(baseArg, astralResearchValue)
+    if (astralBaseValue === null) {
+      return primaryValue
+    }
+    const astralValue = formatResolvedValue(
+      resolvePrimordiaPosseScaledValue(arg, astralBaseValue, formulaContext),
+      suffix,
+      stat,
+    )
+    return astralValue === primaryValue ? primaryValue : `${primaryValue} (${astralValue})`
   }
 
   const breakdown = getPublicScaledFormulaBreakdown(arg, buildPublicFormulaContext(formulaContext))
@@ -737,6 +860,10 @@ function buildDescriptionArgFormula(
     return buildRealmMasteryFormulaHover(arg, resolved, formulaContext)
   }
 
+  if (arg.kind === 'computed' && arg.formulaKey === 'primordiaPosseScaled') {
+    return buildPrimordiaPosseFormulaHover(arg, resolved, formulaContext)
+  }
+
   if (!('substatBonus' in arg) || !arg.substatBonus) {
     return formatHoverDisplayText(resolved.formattedTotalValue)
   }
@@ -819,13 +946,22 @@ export function buildDescriptionArgHover(
     return buildWheelEnlightenFormulaHover(arg, resolved, context.formulaContext)
   }
 
-  if (arg.kind === 'computed') {
+  if (arg.kind === 'computed' && arg.formulaKey === 'realmMasteryLinear') {
     const resolved = resolveDescriptionArg(arg, {
       rank: context.rank,
       stats: context.stats,
       formulaContext: context.formulaContext,
     })
     return buildRealmMasteryFormulaHover(arg, resolved, context.formulaContext)
+  }
+
+  if (arg.kind === 'computed') {
+    const resolved = resolveDescriptionArg(arg, {
+      rank: context.rank,
+      stats: context.stats,
+      formulaContext: context.formulaContext,
+    })
+    return buildPrimordiaPosseFormulaHover(arg, resolved, context.formulaContext)
   }
 
   const progression = getDescriptionArgProgression(arg, context)

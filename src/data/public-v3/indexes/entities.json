@@ -3332,6 +3332,18 @@
       "ownerAwakenerId": "awakener-0059",
       "ownerAwakenerName": "Lotan: Cetarchon"
     },
+    "derived.lotan-cetarchon.primordial-memory": {
+      "kind": "derivedSkill",
+      "id": "derived.lotan-cetarchon.primordial-memory",
+      "name": "Primordial Memory",
+      "route": {
+        "slug": "primordial-memory",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/derived-skills/primordial-memory"
+      },
+      "ownerAwakenerId": "awakener-0059",
+      "ownerAwakenerName": "Lotan: Cetarchon",
+      "nodeKind": "group"
+    },
     "derived.miryam.call-of-the-divine-realm": {
       "kind": "derivedSkill",
       "id": "derived.miryam.call-of-the-divine-realm",
@@ -8248,6 +8260,16 @@
       },
       "overlayType": "mechanic"
     },
+    "overlay.global.primordia-mastery-scaling": {
+      "kind": "overlay",
+      "id": "overlay.global.primordia-mastery-scaling",
+      "name": "Primordia Mastery Scaling",
+      "route": {
+        "slug": "primordia-mastery-scaling",
+        "canonicalPath": "/database/overlays/primordia-mastery-scaling"
+      },
+      "overlayType": "help"
+    },
     "overlay.global.propagation-caro": {
       "kind": "overlay",
       "id": "overlay.global.propagation-caro",
@@ -10008,6 +10030,126 @@
       "realm": "CHAOS",
       "ownerAwakenerId": "awakener-0059",
       "ownerAwakenerName": "Lotan: Cetarchon"
+    },
+    "posse-0054": {
+      "kind": "posse",
+      "id": "posse-0054",
+      "name": "Primordial Memory·Drain",
+      "route": {
+        "slug": "primordial-memorydrain",
+        "canonicalPath": "/database/posses/primordial-memorydrain"
+      },
+      "assets": {
+        "icon": "asset-posse-0054-icon",
+        "crystal": "asset-posse-0054-crystal",
+        "badge": "asset-posse-0054-badge"
+      },
+      "realm": "OTHER"
+    },
+    "posse-0055": {
+      "kind": "posse",
+      "id": "posse-0055",
+      "name": "Primordial Memory·Catalyst",
+      "route": {
+        "slug": "primordial-memorycatalyst",
+        "canonicalPath": "/database/posses/primordial-memorycatalyst"
+      },
+      "assets": {
+        "icon": "asset-posse-0055-icon",
+        "crystal": "asset-posse-0055-crystal",
+        "badge": "asset-posse-0055-badge"
+      },
+      "realm": "OTHER"
+    },
+    "posse-0056": {
+      "kind": "posse",
+      "id": "posse-0056",
+      "name": "Primordial Memory·Healing",
+      "route": {
+        "slug": "primordial-memoryhealing",
+        "canonicalPath": "/database/posses/primordial-memoryhealing"
+      },
+      "assets": {
+        "icon": "asset-posse-0056-icon",
+        "crystal": "asset-posse-0056-crystal",
+        "badge": "asset-posse-0056-badge"
+      },
+      "realm": "OTHER"
+    },
+    "posse-0057": {
+      "kind": "posse",
+      "id": "posse-0057",
+      "name": "Primordial Memory·Toxin",
+      "route": {
+        "slug": "primordial-memorytoxin",
+        "canonicalPath": "/database/posses/primordial-memorytoxin"
+      },
+      "assets": {
+        "icon": "asset-posse-0057-icon",
+        "crystal": "asset-posse-0057-crystal",
+        "badge": "asset-posse-0057-badge"
+      },
+      "realm": "OTHER"
+    },
+    "posse-0058": {
+      "kind": "posse",
+      "id": "posse-0058",
+      "name": "Primordial Memory·Spike",
+      "route": {
+        "slug": "primordial-memoryspike",
+        "canonicalPath": "/database/posses/primordial-memoryspike"
+      },
+      "assets": {
+        "icon": "asset-posse-0058-icon",
+        "crystal": "asset-posse-0058-crystal",
+        "badge": "asset-posse-0058-badge"
+      },
+      "realm": "OTHER"
+    },
+    "posse-0059": {
+      "kind": "posse",
+      "id": "posse-0059",
+      "name": "Primordial Memory·Might",
+      "route": {
+        "slug": "primordial-memorymight",
+        "canonicalPath": "/database/posses/primordial-memorymight"
+      },
+      "assets": {
+        "icon": "asset-posse-0059-icon",
+        "crystal": "asset-posse-0059-crystal",
+        "badge": "asset-posse-0059-badge"
+      },
+      "realm": "OTHER"
+    },
+    "posse-0060": {
+      "kind": "posse",
+      "id": "posse-0060",
+      "name": "Primordial Memory·Bastion",
+      "route": {
+        "slug": "primordial-memorybastion",
+        "canonicalPath": "/database/posses/primordial-memorybastion"
+      },
+      "assets": {
+        "icon": "asset-posse-0060-icon",
+        "crystal": "asset-posse-0060-crystal",
+        "badge": "asset-posse-0060-badge"
+      },
+      "realm": "OTHER"
+    },
+    "posse-0061": {
+      "kind": "posse",
+      "id": "posse-0061",
+      "name": "Primordial Memory·Fury",
+      "route": {
+        "slug": "primordial-memoryfury",
+        "canonicalPath": "/database/posses/primordial-memoryfury"
+      },
+      "assets": {
+        "icon": "asset-posse-0061-icon",
+        "crystal": "asset-posse-0061-crystal",
+        "badge": "asset-posse-0061-badge"
+      },
+      "realm": "OTHER"
     },
     "relic-0001": {
       "kind": "relic",
@@ -24232,6 +24374,7 @@
       "derived.lotan-cetarchon.deadly-duel",
       "derived.lotan-cetarchon.great-blade-whalefall",
       "derived.lotan-cetarchon.netherblade",
+      "derived.lotan-cetarchon.primordial-memory",
       "derived.miryam.call-of-the-divine-realm",
       "derived.miryam.divine-realms-descent",
       "derived.miryam.divine-realms-illusion",
@@ -24650,6 +24793,7 @@
       "overlay.global.pierce-dmg",
       "overlay.global.poison",
       "overlay.global.prepare",
+      "overlay.global.primordia-mastery-scaling",
       "overlay.global.propagation-caro",
       "overlay.global.propagation-frenzy",
       "overlay.global.pure-ultra",
@@ -24776,7 +24920,15 @@
       "posse-0050",
       "posse-0051",
       "posse-0052",
-      "posse-0053"
+      "posse-0053",
+      "posse-0054",
+      "posse-0055",
+      "posse-0056",
+      "posse-0057",
+      "posse-0058",
+      "posse-0059",
+      "posse-0060",
+      "posse-0061"
     ],
     "relics": [
       "relic-0001",

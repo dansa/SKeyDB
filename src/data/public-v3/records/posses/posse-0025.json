@@ -17,14 +17,16 @@
   "acquisitionSource": "Clear Dreamscape: Desecrate",
   "realm": "AEQUOR",
   "lineupToken": "C",
-  "descriptionTemplate": "Draw 2 cards. Gain 2 Arithmetica. All Awakeners lose 5 Aliemus. If your Tentacle Stance is {Tranquil Sea}, inflict [Arg1] {Poison} on all enemies. Inflict 3× that much {Poison} instead in Boss Battles.",
+  "descriptionTemplate": "Draw 2 cards. Gain 2 Arithmetica. All Awakeners lose 5 Aliemus. If your Tentacle Stance is {Tranquil Sea}, inflict [Arg1] {Poison} on all enemies. Inflict 3× that much {Poison} instead in Boss Battles.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
-      "formulaKey": "scaled",
+      "formulaKey": "primordiaPosseScaled",
       "baseFormula": "occultResearchDepth",
+      "rounding": "ceil",
       "multiplier": 0.08,
-      "inputs": ["accountLevel", "ownedPosseCount"]
+      "inputs": ["accountLevel", "ownedPosseCount", "realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "offensive"
     }
   },
   "lore": "The High Priestess of Lemuria never expects a response from the ocean.\n\nShe offers everything to the ocean, which has nothing to do with the ocean."

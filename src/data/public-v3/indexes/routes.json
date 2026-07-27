@@ -3232,6 +3232,54 @@
         "canonicalSlug": "plague-of-illusions",
         "canonicalPath": "/database/posses/plague-of-illusions"
       },
+      "primordial-memorybastion": {
+        "kind": "posse",
+        "id": "posse-0060",
+        "canonicalSlug": "primordial-memorybastion",
+        "canonicalPath": "/database/posses/primordial-memorybastion"
+      },
+      "primordial-memorycatalyst": {
+        "kind": "posse",
+        "id": "posse-0055",
+        "canonicalSlug": "primordial-memorycatalyst",
+        "canonicalPath": "/database/posses/primordial-memorycatalyst"
+      },
+      "primordial-memorydrain": {
+        "kind": "posse",
+        "id": "posse-0054",
+        "canonicalSlug": "primordial-memorydrain",
+        "canonicalPath": "/database/posses/primordial-memorydrain"
+      },
+      "primordial-memoryfury": {
+        "kind": "posse",
+        "id": "posse-0061",
+        "canonicalSlug": "primordial-memoryfury",
+        "canonicalPath": "/database/posses/primordial-memoryfury"
+      },
+      "primordial-memoryhealing": {
+        "kind": "posse",
+        "id": "posse-0056",
+        "canonicalSlug": "primordial-memoryhealing",
+        "canonicalPath": "/database/posses/primordial-memoryhealing"
+      },
+      "primordial-memorymight": {
+        "kind": "posse",
+        "id": "posse-0059",
+        "canonicalSlug": "primordial-memorymight",
+        "canonicalPath": "/database/posses/primordial-memorymight"
+      },
+      "primordial-memoryspike": {
+        "kind": "posse",
+        "id": "posse-0058",
+        "canonicalSlug": "primordial-memoryspike",
+        "canonicalPath": "/database/posses/primordial-memoryspike"
+      },
+      "primordial-memorytoxin": {
+        "kind": "posse",
+        "id": "posse-0057",
+        "canonicalSlug": "primordial-memorytoxin",
+        "canonicalPath": "/database/posses/primordial-memorytoxin"
+      },
       "reunion-wish": {
         "kind": "posse",
         "id": "posse-0045",
@@ -6469,6 +6517,12 @@
         "id": "derived.lotan-cetarchon.netherblade",
         "canonicalSlug": "netherblade",
         "canonicalPath": "/database/awakeners/lotan-cetarchon/derived-skills/netherblade"
+      },
+      "lotan-cetarchon/primordial-memory": {
+        "kind": "derivedSkill",
+        "id": "derived.lotan-cetarchon.primordial-memory",
+        "canonicalSlug": "primordial-memory",
+        "canonicalPath": "/database/awakeners/lotan-cetarchon/derived-skills/primordial-memory"
       },
       "luster-of-humanity": {
         "kind": "derivedSkill",
@@ -10687,6 +10741,12 @@
         "id": "overlay.global.prepare",
         "canonicalSlug": "prepare",
         "canonicalPath": "/database/overlays/prepare"
+      },
+      "primordia-mastery-scaling": {
+        "kind": "overlay",
+        "id": "overlay.global.primordia-mastery-scaling",
+        "canonicalSlug": "primordia-mastery-scaling",
+        "canonicalPath": "/database/overlays/primordia-mastery-scaling"
       },
       "propagation-caro": {
         "kind": "overlay",

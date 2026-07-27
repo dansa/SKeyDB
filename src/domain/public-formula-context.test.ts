@@ -1,7 +1,7 @@
 import {describe, expect, it} from 'vitest'
 
 import type {CollectionOwnershipState} from './collection-ownership'
-import {getPosses} from './posses'
+import {getCollectiblePosses, getPosses} from './posses'
 import {buildPublicFormulaContext, type PublicFormulaContext} from './public-formula-context'
 
 function createOwnership(ownedPosses: Record<string, number>): CollectionOwnershipState {
@@ -25,12 +25,14 @@ describe('public-formula-context', () => {
     expect(Object.keys(context).sort()).toEqual([
       'accountLevel',
       'ownedPosseCount',
+      'primordiaAllChaosTeam',
       'realmMasteryFinal',
       'wheelRefinementLevel',
     ])
     expect(context).toEqual({
       accountLevel: 33,
       ownedPosseCount: 1,
+      primordiaAllChaosTeam: false,
       realmMasteryFinal: 0,
       wheelRefinementLevel: 3,
     })
@@ -51,9 +53,9 @@ describe('public-formula-context', () => {
   })
 
   it('defaults owned posse count to all current public posses without collection ownership', () => {
-    expect(buildPublicFormulaContext().ownedPosseCount).toBe(getPosses().length)
+    expect(buildPublicFormulaContext().ownedPosseCount).toBe(getCollectiblePosses().length)
     expect(buildPublicFormulaContext({collectionOwnership: null}).ownedPosseCount).toBe(
-      getPosses().length,
+      getCollectiblePosses().length,
     )
   })
 
@@ -82,6 +84,7 @@ describe('public-formula-context', () => {
     ).toEqual({
       accountLevel: 70,
       ownedPosseCount: 7,
+      primordiaAllChaosTeam: false,
       realmMasteryFinal: 4,
       wheelRefinementLevel: 2,
     })

@@ -15,14 +15,16 @@
   "acquisitionSource": "Clear Operation: Faded Legacy - Ch. 5 - Eye of the Storm",
   "realm": "FADED_LEGACY",
   "lineupToken": "g",
-  "descriptionTemplate": "Gain [Arg1] {STR}, then gain Temporary {STR} equal to 25% of your Permanent {STR}.",
+  "descriptionTemplate": "Gain [Arg1] {STR}, then gain Temporary {STR} equal to 25% of your Permanent {STR}.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
-      "formulaKey": "scaled",
+      "formulaKey": "primordiaPosseScaled",
       "baseFormula": "esotericResearchDepth",
+      "rounding": "ceil",
       "multiplier": 0.03,
-      "inputs": ["accountLevel", "ownedPosseCount"]
+      "inputs": ["accountLevel", "ownedPosseCount", "realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "offensive"
     }
   },
   "lore": "Given her obsession, I have a vague feeling that this millennia-spanning ritual has yet to reach its end..."

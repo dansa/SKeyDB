@@ -14,15 +14,19 @@ export const POSSE_DATABASE_REALM_FILTER_IDS = [
   'OTHER',
 ] as const
 export type PosseDatabaseRealmFilterId = (typeof POSSE_DATABASE_REALM_FILTER_IDS)[number]
+export const POSSE_DATABASE_TYPE_FILTER_IDS = ['ALL', 'NORMAL', 'PRIMORDIAL_MEMORY'] as const
+export type PosseDatabaseTypeFilterId = (typeof POSSE_DATABASE_TYPE_FILTER_IDS)[number]
 
 export interface PosseDatabaseBrowseState {
   query: string
   realmFilter: PosseDatabaseRealmFilterId
+  typeFilter: PosseDatabaseTypeFilterId
 }
 
 export const POSSE_DATABASE_BROWSE_DEFAULTS: PosseDatabaseBrowseState = {
   query: '',
   realmFilter: 'ALL',
+  typeFilter: 'ALL',
 }
 
 export interface CovenantDatabaseBrowseState {
@@ -73,6 +77,17 @@ export function getPosseDatabaseRealmFilterLabel(realmFilter: PosseDatabaseRealm
   return realmFilter
 }
 
+export function getPosseDatabaseTypeFilterLabel(typeFilter: PosseDatabaseTypeFilterId): string {
+  switch (typeFilter) {
+    case 'NORMAL':
+      return 'Normal Posses'
+    case 'PRIMORDIAL_MEMORY':
+      return 'Primordial Memories'
+    case 'ALL':
+      return 'All'
+  }
+}
+
 export function parsePosseDatabaseBrowseState(
   searchParams: URLSearchParams,
 ): PosseDatabaseBrowseState {
@@ -82,6 +97,11 @@ export function parsePosseDatabaseBrowseState(
       searchParams.get('realm'),
       POSSE_DATABASE_REALM_FILTER_IDS,
       POSSE_DATABASE_BROWSE_DEFAULTS.realmFilter,
+    ),
+    typeFilter: parseEnumSearchParam(
+      searchParams.get('type'),
+      POSSE_DATABASE_TYPE_FILTER_IDS,
+      POSSE_DATABASE_BROWSE_DEFAULTS.typeFilter,
     ),
   }
 }
@@ -101,6 +121,13 @@ export function patchPosseDatabaseBrowseState(
         nextState.realmFilter === POSSE_DATABASE_BROWSE_DEFAULTS.realmFilter
           ? undefined
           : nextState.realmFilter,
+      )
+      setSearchParam(
+        nextParams,
+        'type',
+        nextState.typeFilter === POSSE_DATABASE_BROWSE_DEFAULTS.typeFilter
+          ? undefined
+          : nextState.typeFilter,
       )
     },
   )

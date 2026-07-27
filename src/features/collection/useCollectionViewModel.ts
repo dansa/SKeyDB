@@ -25,7 +25,7 @@ import {
   type CollectionSortDirection,
 } from '@/domain/collection-sorting'
 import {formatAwakenerNameForUi} from '@/domain/name-format'
-import {getPosses} from '@/domain/posses'
+import {getCollectiblePosses} from '@/domain/posses'
 import {searchPosses} from '@/domain/posses-search'
 import {
   getBrowserLocalStorage,
@@ -270,7 +270,7 @@ export function useCollectionViewModel() {
     () => new Map(wheels.map((wheel, index) => [wheel.id, index])),
     [wheels],
   )
-  const posses = useMemo(() => [...getPosses()], [])
+  const posses = useMemo(() => [...getCollectiblePosses()], [])
 
   const activeQuery = queryByTab[tab]
   const awakenerIdByName = useMemo(

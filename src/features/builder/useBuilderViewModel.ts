@@ -13,7 +13,7 @@ import {getCovenants} from '@/domain/covenants'
 import {searchCovenants} from '@/domain/covenants-search'
 import {formatAwakenerNameForUi} from '@/domain/name-format'
 import {getPosseAssetById} from '@/domain/posse-assets'
-import {getPosses} from '@/domain/posses'
+import {getEquippablePosses} from '@/domain/posses'
 import {searchPosses} from '@/domain/posses-search'
 import {getBrowserLocalStorage} from '@/domain/storage'
 import {compareWheelsForUi} from '@/domain/wheel-sort'
@@ -211,7 +211,7 @@ export function useBuilderViewModel({searchInputRef}: UseBuilderViewModelOptions
     [],
   )
   const pickerPosses = useMemo(
-    () => getPosses().toSorted((left, right) => left.name.localeCompare(right.name)),
+    () => getEquippablePosses().toSorted((left, right) => left.name.localeCompare(right.name)),
     [],
   )
   const pickerCovenants = useMemo(

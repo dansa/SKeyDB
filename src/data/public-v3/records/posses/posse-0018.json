@@ -17,11 +17,16 @@
   "acquisitionSource": "Clear Special Ops: The Magic of Storytelling",
   "realm": "CHAOS",
   "lineupToken": "w",
-  "descriptionTemplate": "Draw 1 card; if the drawn card is a Command or {Rouse} card, reduce its Arithmetica Cost to 0 and grant its Awakener [Arg1] Aliemus. Otherwise, discard that card and repeat this process.",
+  "descriptionTemplate": "Draw 1 card; if the drawn card is a Command or {Rouse} card, reduce its Arithmetica Cost to 0 and grant its Awakener [Arg1] Aliemus. Otherwise, discard that card and repeat this process.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
-      "kind": "fixed",
-      "value": "20"
+      "kind": "computed",
+      "formulaKey": "primordiaPosseScaled",
+      "baseFormula": "fixed",
+      "baseValue": 20.0,
+      "rounding": "ceil",
+      "inputs": ["realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "utility"
     }
   },
   "lore": "It was a fleeting, ethereal dream of a night, light and soft, not captured on film but flowing through the memory of every photographer."

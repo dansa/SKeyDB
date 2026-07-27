@@ -807,6 +807,118 @@
         "realm": "CHAOS",
         "owner": "awakener-0059"
       }
+    },
+    {
+      "kind": "posse",
+      "id": "posse-0054",
+      "name": "Primordial Memory·Drain",
+      "aliases": [],
+      "tokens": ["memorydrain", "other", "primordial", "primordial memorydrain"],
+      "fields": {
+        "name": ["Primordial Memory·Drain", "primordial-memorydrain"],
+        "facet": ["OTHER"]
+      },
+      "facets": {
+        "realm": "OTHER"
+      }
+    },
+    {
+      "kind": "posse",
+      "id": "posse-0055",
+      "name": "Primordial Memory·Catalyst",
+      "aliases": [],
+      "tokens": ["memorycatalyst", "other", "primordial", "primordial memorycatalyst"],
+      "fields": {
+        "name": ["Primordial Memory·Catalyst", "primordial-memorycatalyst"],
+        "facet": ["OTHER"]
+      },
+      "facets": {
+        "realm": "OTHER"
+      }
+    },
+    {
+      "kind": "posse",
+      "id": "posse-0056",
+      "name": "Primordial Memory·Healing",
+      "aliases": [],
+      "tokens": ["memoryhealing", "other", "primordial", "primordial memoryhealing"],
+      "fields": {
+        "name": ["Primordial Memory·Healing", "primordial-memoryhealing"],
+        "facet": ["OTHER"]
+      },
+      "facets": {
+        "realm": "OTHER"
+      }
+    },
+    {
+      "kind": "posse",
+      "id": "posse-0057",
+      "name": "Primordial Memory·Toxin",
+      "aliases": [],
+      "tokens": ["memorytoxin", "other", "primordial", "primordial memorytoxin"],
+      "fields": {
+        "name": ["Primordial Memory·Toxin", "primordial-memorytoxin"],
+        "facet": ["OTHER"]
+      },
+      "facets": {
+        "realm": "OTHER"
+      }
+    },
+    {
+      "kind": "posse",
+      "id": "posse-0058",
+      "name": "Primordial Memory·Spike",
+      "aliases": [],
+      "tokens": ["memoryspike", "other", "primordial", "primordial memoryspike"],
+      "fields": {
+        "name": ["Primordial Memory·Spike", "primordial-memoryspike"],
+        "facet": ["OTHER"]
+      },
+      "facets": {
+        "realm": "OTHER"
+      }
+    },
+    {
+      "kind": "posse",
+      "id": "posse-0059",
+      "name": "Primordial Memory·Might",
+      "aliases": [],
+      "tokens": ["memorymight", "other", "primordial", "primordial memorymight"],
+      "fields": {
+        "name": ["Primordial Memory·Might", "primordial-memorymight"],
+        "facet": ["OTHER"]
+      },
+      "facets": {
+        "realm": "OTHER"
+      }
+    },
+    {
+      "kind": "posse",
+      "id": "posse-0060",
+      "name": "Primordial Memory·Bastion",
+      "aliases": [],
+      "tokens": ["memorybastion", "other", "primordial", "primordial memorybastion"],
+      "fields": {
+        "name": ["Primordial Memory·Bastion", "primordial-memorybastion"],
+        "facet": ["OTHER"]
+      },
+      "facets": {
+        "realm": "OTHER"
+      }
+    },
+    {
+      "kind": "posse",
+      "id": "posse-0061",
+      "name": "Primordial Memory·Fury",
+      "aliases": [],
+      "tokens": ["memoryfury", "other", "primordial", "primordial memoryfury"],
+      "fields": {
+        "name": ["Primordial Memory·Fury", "primordial-memoryfury"],
+        "facet": ["OTHER"]
+      },
+      "facets": {
+        "realm": "OTHER"
+      }
     }
   ]
 }

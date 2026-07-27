@@ -152,6 +152,8 @@ vi.mock('../../domain/wheels', () => ({
 
 vi.mock('../../domain/posses', () => ({
   getPosses: () => createBuilderMockPublicCatalog().posses,
+  getCollectiblePosses: () => createBuilderMockPublicCatalog().posses,
+  getEquippablePosses: () => createBuilderMockPublicCatalog().posses,
 }))
 
 vi.mock('../../domain/covenants', () => ({

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 3,
+  "kind": "overlay",
+  "id": "overlay.global.primordia-mastery-scaling",
+  "name": "Primordia Mastery Scaling",
+  "route": {
+    "slug": "primordia-mastery-scaling",
+    "canonicalPath": "/database/overlays/primordia-mastery-scaling"
+  },
+  "overlayType": "help",
+  "aliases": ["Primordia: Chaos Mastery Scaling", "Primordia Posse Scaling"],
+  "descriptionTemplate": "Primordia scaling is applied after a Posse's normal effect is calculated. That base effect may already include {Forbidden Lore}, {Astral Reign}, or other regular Posse scaling.\n\nPrimordia: {Chaos} Mastery applies an additional bonus to affected Posse effects based on Final Realm Mastery. Effects are divided into two scaling groups.\n\nUtility effects gain +0.05% per Realm Mastery:\nShield, HP Recovery, {STR▼}, Crit. Rate, Crit. DMG, DMG Amplification, Realm Mastery, Aliemus, {Embryo Fusion}, and Keyflare.\n\nOffensive effects gain +0.1% per Realm Mastery:\n{Poison}, {Counter}, {STR}, {Tentacle DMG}, and {Ancient Embers}.\n\nIf every Awakener in the lineup is {Chaos}, these Primordia bonuses are doubled to +0.1% and +0.2% per Realm Mastery respectively.\n\nFinal effect = ceil(Base effect x (1 + Primordia bonus)).",
+  "descriptionArgs": {}
+}

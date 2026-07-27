@@ -17,14 +17,16 @@
   "acquisitionSource": "Clear Special Ops: The Color of Blood",
   "realm": "CARO",
   "lineupToken": "r",
-  "descriptionTemplate": "Gain [Arg1] {STR}. Until your next turn, whenever you take Active DMG, gain Delayed Shield equal to [Arg2]% of that DMG. If the Realms includes {Caro}, instead accumulate {Crimson Furnace} equal to 10% of that DMG.",
+  "descriptionTemplate": "Gain [Arg1] {STR}. Until your next turn, whenever you take Active DMG, gain Delayed Shield equal to [Arg2]% of that DMG. If the Realms includes {Caro}, instead accumulate {Crimson Furnace} equal to 10% of that DMG.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
-      "formulaKey": "scaled",
+      "formulaKey": "primordiaPosseScaled",
       "baseFormula": "esotericResearchDepth",
+      "rounding": "ceil",
       "multiplier": 0.02,
-      "inputs": ["accountLevel", "ownedPosseCount"]
+      "inputs": ["accountLevel", "ownedPosseCount", "realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "offensive"
     },
     "Arg2": {
       "kind": "fixed",

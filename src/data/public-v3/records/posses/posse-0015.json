@@ -17,7 +17,7 @@
   "acquisitionSource": "Clear Psyche Deepdive: Pale Descendant",
   "realm": "CARO",
   "lineupToken": "o",
-  "descriptionTemplate": "Inflict [Arg2] {Poison} on the highest HP enemy, and gain [Block:Arg1] Shield. If {Devour} has been triggered this turn, trigger half of that enemy's {Poison} instead of gaining Shield.",
+  "descriptionTemplate": "Inflict [Arg2] {Poison} on the highest HP enemy, and gain [Block:Arg1] Shield. If {Devour} has been triggered this turn, trigger half of that enemy's {Poison} instead of gaining Shield.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
@@ -28,10 +28,12 @@
     },
     "Arg2": {
       "kind": "computed",
-      "formulaKey": "scaled",
+      "formulaKey": "primordiaPosseScaled",
       "baseFormula": "occultResearchDepth",
+      "rounding": "ceil",
       "multiplier": 0.14,
-      "inputs": ["accountLevel", "ownedPosseCount"]
+      "inputs": ["accountLevel", "ownedPosseCount", "realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "offensive"
     }
   },
   "lore": "The lake in Cambrian Valley shimmers with crystal-clear waters.\n\nThe clamor of the maze gradually fades away, leaving only you and the newly freed girl to savor this tranquil moment."

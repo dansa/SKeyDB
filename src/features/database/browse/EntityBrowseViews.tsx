@@ -2,6 +2,7 @@ import {useMemo, type ComponentType, type ReactNode} from 'react'
 
 import {searchCovenants} from '@/domain/covenants-search'
 import {DATABASE_SORT_OPTIONS} from '@/domain/database-browse-state'
+import {isPrimordialMemoryPosse} from '@/domain/posses'
 import {searchPosses} from '@/domain/posses-search'
 import {RELIC_DATABASE_SORT_OPTIONS} from '@/domain/relic-database-browse-state'
 import {mergeRelicDisplayScopesForMatches} from '@/domain/relic-database-display-scopes'
@@ -545,13 +546,28 @@ export function PossesBrowse({
   const browseState = usePosseDatabaseBrowseState()
   const records = useMemo(() => {
     const searched = searchPosses(databasePosses, browseState.query)
-    return browseState.realmFilter === 'ALL'
-      ? searched
-      : searched.filter((posse) => posse.realm === browseState.realmFilter)
-  }, [browseState.query, browseState.realmFilter])
+    const byType = searched.filter((posse) => {
+      if (browseState.typeFilter === 'ALL') return true
+      if (browseState.typeFilter === 'PRIMORDIAL_MEMORY') {
+        return isPrimordialMemoryPosse(posse)
+      }
+      return !isPrimordialMemoryPosse(posse)
+    })
+    const byRealm =
+      browseState.realmFilter === 'ALL'
+        ? byType
+        : byType.filter((posse) => posse.realm === browseState.realmFilter)
+    return browseState.typeFilter === 'ALL'
+      ? byRealm.toSorted(
+          (left, right) =>
+            Number(isPrimordialMemoryPosse(left)) - Number(isPrimordialMemoryPosse(right)),
+        )
+      : byRealm
+  }, [browseState.query, browseState.realmFilter, browseState.typeFilter])
   const activeFilterChips = buildPosseActiveFilterChips(browseState, {
     clearQuery: browseState.clearQuery,
     setRealmFilter: browseState.setRealmFilter,
+    setTypeFilter: browseState.setTypeFilter,
   })
   const detailResultSet = useMemo(() => createPosseDetailResultSet(records), [records])
 
@@ -562,16 +578,20 @@ export function PossesBrowse({
       <PosseDatabaseFilters
         onQueryChange={browseState.setQuery}
         onRealmFilterChange={browseState.setRealmFilter}
+        onTypeFilterChange={browseState.setTypeFilter}
         query={browseState.query}
         realmFilter={browseState.realmFilter}
+        typeFilter={browseState.typeFilter}
         searchInputRef={controller.searchInputRef}
       />
     ),
     [
       browseState.query,
       browseState.realmFilter,
+      browseState.typeFilter,
       browseState.setQuery,
       browseState.setRealmFilter,
+      browseState.setTypeFilter,
       controller.searchInputRef,
     ],
   )

@@ -64,6 +64,7 @@ const publicFormulaKeySchema = z.enum([
   'ownedPosseCount',
   'wheelRefinementLevel',
   'realmMasteryFinal',
+  'primordiaAllChaosTeam',
 ])
 const publicScaledBaseFormulaSchema = z.enum([
   'accountStageGrowth',
@@ -164,6 +165,29 @@ export const descriptionArgSchema = z.discriminatedUnion('kind', [
       stat: z.enum(SCALING_ARG_STAT_KEYS).optional(),
       substatBonus: descriptionArgSubstatBonusSchema.optional(),
     }),
+    z
+      .object({
+        kind: z.literal('computed'),
+        formulaKey: z.literal('primordiaPosseScaled'),
+        baseFormula: z.union([z.literal('fixed'), publicScaledBaseFormulaSchema]),
+        baseValue: z.number().optional(),
+        multiplier: z.number().optional(),
+        scalingBucket: z.enum(['utility', 'offensive']),
+        rounding: z.literal('ceil'),
+        inputs: z.array(publicFormulaKeySchema).min(2),
+        channel: descriptionArgChannelSchema.optional(),
+        suffix: nonEmptyStringSchema.optional(),
+        stat: z.enum(SCALING_ARG_STAT_KEYS).optional(),
+        substatBonus: descriptionArgSubstatBonusSchema.optional(),
+      })
+      .superRefine((arg, ctx) => {
+        if (arg.baseFormula !== 'fixed' || typeof arg.baseValue === 'number') return
+        ctx.addIssue({
+          code: 'custom',
+          message: 'Fixed Primordia bases require baseValue.',
+          path: ['baseValue'],
+        })
+      }),
   ]),
 ])
 
@@ -353,6 +377,7 @@ export const derivedSkillSchema = describedRecordSchema.extend({
   derivedFromId: nonEmptyStringSchema.optional(),
   rootSkillId: nonEmptyStringSchema.optional(),
   childDerivedSkillIds: z.array(nonEmptyStringSchema).default([]),
+  childPosseIds: z.array(nonEmptyStringSchema).optional(),
   cardKeywords: cardKeywordsSchema,
   variants: z.array(cardVariantSchema).default([]),
 })

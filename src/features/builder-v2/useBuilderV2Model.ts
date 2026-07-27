@@ -8,7 +8,7 @@ import {getCovenantAssetById} from '@/domain/covenant-assets'
 import {getCovenants} from '@/domain/covenants'
 import {formatAwakenerNameForUi} from '@/domain/name-format'
 import {getPosseAssetById} from '@/domain/posse-assets'
-import {getPosses, type Posse} from '@/domain/posses'
+import {getEquippablePosses, type Posse} from '@/domain/posses'
 import {getBrowserLocalStorage} from '@/domain/storage'
 import {loadoutHasWheelInOtherSocket} from '@/domain/team-rules'
 import {getWheelAssetById, getWheelMiniAssetById} from '@/domain/wheel-assets'
@@ -229,7 +229,7 @@ export function useBuilderV2Model({
     [allCovenants],
   )
   const allPosses = useMemo(
-    () => getPosses().toSorted((left, right) => left.name.localeCompare(right.name)),
+    () => getEquippablePosses().toSorted((left, right) => left.name.localeCompare(right.name)),
     [],
   )
   const posseById = useMemo(() => new Map(allPosses.map((posse) => [posse.id, posse])), [allPosses])

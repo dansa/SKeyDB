@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 3,
+  "kind": "posse",
+  "id": "posse-0054",
+  "name": "Primordial Memory·Drain",
+  "route": {
+    "slug": "primordial-memorydrain",
+    "canonicalPath": "/database/posses/primordial-memorydrain"
+  },
+  "assets": {
+    "icon": "asset-posse-0054-icon",
+    "crystal": "asset-posse-0054-crystal",
+    "badge": "asset-posse-0054-badge"
+  },
+  "realm": "OTHER",
+  "classification": "PRIMORDIAL_MEMORY",
+  "equippable": false,
+  "collectible": false,
+  "descriptionTemplate": "Temporarily reduce all enemies' {STR▼} by [Arg1].\nScaling guide: {Primordia Mastery Scaling}",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "primordiaPosseScaled",
+      "baseFormula": "esotericResearchDepth",
+      "rounding": "ceil",
+      "multiplier": 0.04,
+      "inputs": ["accountLevel", "ownedPosseCount", "realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "utility"
+    }
+  }
+}

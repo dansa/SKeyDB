@@ -65,7 +65,7 @@ function getRelatedReferences(
     return []
   }
 
-  return record.childDerivedSkillIds
+  return [...record.childDerivedSkillIds, ...(record.childPosseIds ?? [])]
     .map((childId) => resolveDatabaseReferenceInfoById(referenceLayer, childId))
     .filter((entry): entry is DatabaseReferenceInfo => entry !== null)
 }

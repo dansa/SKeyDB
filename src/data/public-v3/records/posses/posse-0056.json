@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 3,
+  "kind": "posse",
+  "id": "posse-0056",
+  "name": "Primordial Memory·Healing",
+  "route": {
+    "slug": "primordial-memoryhealing",
+    "canonicalPath": "/database/posses/primordial-memoryhealing"
+  },
+  "assets": {
+    "icon": "asset-posse-0056-icon",
+    "crystal": "asset-posse-0056-crystal",
+    "badge": "asset-posse-0056-badge"
+  },
+  "realm": "OTHER",
+  "classification": "PRIMORDIAL_MEMORY",
+  "equippable": false,
+  "collectible": false,
+  "descriptionTemplate": "Restore [Arg1] HP\nScaling guide: {Primordia Mastery Scaling}",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "primordiaPosseScaled",
+      "baseFormula": "esotericResearchDepth",
+      "rounding": "ceil",
+      "multiplier": 0.08,
+      "inputs": ["accountLevel", "ownedPosseCount", "realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "utility"
+    }
+  }
+}

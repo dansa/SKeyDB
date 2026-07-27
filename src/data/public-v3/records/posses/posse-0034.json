@@ -15,7 +15,7 @@
   "acquisitionSource": "Clear Operation: Astral Reign - Ch. 2 - Metamorphosis",
   "realm": "ULTRA",
   "lineupToken": "M",
-  "descriptionTemplate": "Recover [Heal:Arg1] HP and gain [Arg2] {STR}. If Clementine is in the team, add 1 additional instance of the following effects to her next Command Card: DMG, Shield, HP Recovery, Aliemus, and Keyflare.",
+  "descriptionTemplate": "Recover [Heal:Arg1] HP and gain [Arg2] {STR}. If Clementine is in the team, add 1 additional instance of the following effects to her next Command Card: DMG, Shield, HP Recovery, Aliemus, and Keyflare.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
@@ -26,10 +26,12 @@
     },
     "Arg2": {
       "kind": "computed",
-      "formulaKey": "scaled",
+      "formulaKey": "primordiaPosseScaled",
       "baseFormula": "esotericResearchDepth",
+      "rounding": "ceil",
       "multiplier": 0.02,
-      "inputs": ["accountLevel", "ownedPosseCount"]
+      "inputs": ["accountLevel", "ownedPosseCount", "realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "offensive"
     }
   },
   "lore": "She has healed countless patients, guiding them toward rebirth, and everything now is just a psychological therapy.\nThe only special thing is that the patient is herself."

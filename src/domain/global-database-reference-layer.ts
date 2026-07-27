@@ -242,7 +242,7 @@ function buildOverlayNameSet(overlays: AwakenerOverlayRecord[]): Set<string> {
   return names
 }
 
-function buildPosseReferenceEntries(
+export function buildPosseReferenceEntries(
   records: Posse[],
 ): DatabaseReferenceInfo<ArtifactDescriptionRecord>[] {
   return records.map((record) =>
@@ -251,8 +251,8 @@ function buildPosseReferenceEntries(
         id: record.id,
         kind: 'posse',
         displayName: record.name,
-        descriptionTemplate: '',
-        descriptionArgs: {},
+        descriptionTemplate: record.descriptionTemplate ?? '',
+        descriptionArgs: record.descriptionArgs ?? {},
       },
       `Posse · ${getRealmLabel(record.realm)}`,
     ),

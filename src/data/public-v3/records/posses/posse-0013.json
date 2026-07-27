@@ -17,21 +17,25 @@
   "acquisitionSource": "Clear Psyche Deepdive: Feast of Flames",
   "realm": "ULTRA",
   "lineupToken": "q",
-  "descriptionTemplate": "Gain [Arg1] {Counter} and temporarily inflict [Arg2] {STR▼} on all enemies. If in an {Ultra Round}, deal DMG equal to your {Counter} to all enemies instead of inflicting {STR▼}.",
+  "descriptionTemplate": "Gain [Arg1] {Counter} and temporarily inflict [Arg2] {STR▼} on all enemies. If in an {Ultra Round}, deal DMG equal to your {Counter} to all enemies instead of inflicting {STR▼}.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
-      "formulaKey": "scaled",
+      "formulaKey": "primordiaPosseScaled",
       "baseFormula": "occultResearchDepth",
+      "rounding": "ceil",
       "multiplier": 0.06,
-      "inputs": ["accountLevel", "ownedPosseCount"]
+      "inputs": ["accountLevel", "ownedPosseCount", "realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "offensive"
     },
     "Arg2": {
       "kind": "computed",
-      "formulaKey": "scaled",
+      "formulaKey": "primordiaPosseScaled",
       "baseFormula": "esotericResearchDepth",
+      "rounding": "ceil",
       "multiplier": 0.03,
-      "inputs": ["accountLevel", "ownedPosseCount"]
+      "inputs": ["accountLevel", "ownedPosseCount", "realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "utility"
     }
   },
   "lore": "The feast has reached its peak. The queen of Cambrian laughed heartily, raising her glass to you amidst the revelry and D-Slime."

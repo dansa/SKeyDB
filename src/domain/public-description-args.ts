@@ -1,6 +1,7 @@
 import {resolveAccountLevelCurveEntry} from './gameplay-math-metadata'
 import type {
   PublicComputedDescriptionArg,
+  PublicPrimordiaPosseScaledComputedDescriptionArg,
   PublicScaledFormulaDescriptionArg,
   PublicScaledBaseFormula,
 } from './public-description-args.schema'
@@ -16,6 +17,7 @@ export type {
   PublicFormulaKey,
   PublicLinearDescriptionArg,
   PublicRealmMasteryLinearComputedDescriptionArg,
+  PublicPrimordiaPosseScaledComputedDescriptionArg,
   PublicScaledFormulaDescriptionArg,
   PublicScaledBaseFormula,
   PublicScaledCeilThenMultiplyComputedDescriptionArg,
@@ -69,11 +71,12 @@ function isPublicComputedDescriptionArg(value: unknown): value is PublicComputed
     (candidate.formulaKey === 'scaled' ||
       candidate.formulaKey === 'scaledCeilThenMultiply' ||
       candidate.formulaKey === 'wheelRefinementLinear' ||
-      candidate.formulaKey === 'realmMasteryLinear')
+      candidate.formulaKey === 'realmMasteryLinear' ||
+      candidate.formulaKey === 'primordiaPosseScaled')
   )
 }
 
-function resolveScaledBaseFormula(
+export function resolveScaledBaseFormula(
   baseFormula: PublicScaledBaseFormula,
   context: PublicFormulaContext,
 ): PublicFormulaEvaluation {
@@ -192,6 +195,18 @@ export function resolvePublicScaledFormulaValue(
   return Number.isFinite(value) ? value : null
 }
 
+export function resolvePrimordiaPosseScaledValue(
+  arg: PublicPrimordiaPosseScaledComputedDescriptionArg,
+  baseValue: number,
+  context: PublicFormulaContext = {},
+): number {
+  const resolvedContext = {...buildPublicFormulaContext(), ...context}
+  const realmMastery = resolvedContext.realmMasteryFinal ?? 0
+  const bucketRate = arg.scalingBucket === 'offensive' ? 0.001 : 0.0005
+  const teamMultiplier = resolvedContext.primordiaAllChaosTeam ? 2 : 1
+  return Math.ceil(baseValue * (1 + realmMastery * bucketRate * teamMultiplier) - 1e-9)
+}
+
 export function evaluatePublicFormulaExpression(
   arg: unknown,
   context: PublicFormulaContext = {},
@@ -219,6 +234,19 @@ export function evaluatePublicFormulaExpression(
 
     const value = arg.baseValue + realmMasteryFinal * arg.perPoint
     return resolved(arg.rounding === 'ceil' ? Math.ceil(value) : value)
+  }
+
+  if (arg.formulaKey === 'primordiaPosseScaled') {
+    const base =
+      arg.baseFormula === 'fixed'
+        ? resolved(arg.baseValue ?? 0)
+        : resolveScaledBaseFormula(arg.baseFormula, context)
+    if (!base.resolved || base.value === null) {
+      return unresolved()
+    }
+    const scaledBaseValue = base.value * (arg.multiplier ?? 1)
+    const baseValue = arg.baseFormula === 'fixed' ? scaledBaseValue : Math.ceil(scaledBaseValue)
+    return resolved(resolvePrimordiaPosseScaledValue(arg, baseValue, context))
   }
 
   const wheelRefinementLevel = context.wheelRefinementLevel

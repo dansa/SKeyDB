@@ -1,6 +1,6 @@
 import {describe, expect, it} from 'vitest'
 
-import {getPosses} from './posses'
+import {getCollectiblePosses, getEquippablePosses, getPosses} from './posses'
 import {loadPublicPosseDetailById} from './public-detail-record-adapters'
 
 describe('getPosses', () => {
@@ -44,6 +44,14 @@ describe('getPosses', () => {
     const uniqueIndices = new Set(indices)
 
     expect(uniqueIndices.size).toBe(indices.length)
+  })
+
+  it('keeps Primordial Memories browsable but out of equipment and ownership pools', () => {
+    const memory = getPosses().find((posse) => posse.classification === 'PRIMORDIAL_MEMORY')
+
+    expect(memory).toMatchObject({equippable: false, collectible: false})
+    expect(getEquippablePosses()).not.toContainEqual(memory)
+    expect(getCollectiblePosses()).not.toContainEqual(memory)
   })
 
   it('loads acquisition copy lazily from V3 detail records', async () => {
