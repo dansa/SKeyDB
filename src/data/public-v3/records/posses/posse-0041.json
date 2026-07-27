@@ -15,7 +15,7 @@
   "acquisitionSource": "Clear Dreamscape: See You in Neverland",
   "realm": "OTHER",
   "lineupToken": "T",
-  "descriptionTemplate": "Choose an Awakener; create 1 of their basic Strike Commands. It has {Exhaust}. Every {ordinal:3rd} time this is unleashed, instead create 1 {derived:Fleeting Beauty} and gain +[Arg1]% Temp. Crit. Rate.\nScaling guide: {Primordia Mastery Scaling}",
+  "descriptionTemplate": "Choose an Awakener; create 1 of their basic Strike Commands. It has {Exhaust}. Every {ordinal:3rd} time this is unleashed, instead create 1 {derived:Fleeting Beauty} and gain +[Arg1] Temp. Crit. Rate.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
@@ -24,6 +24,7 @@
       "baseValue": 20.0,
       "rounding": "ceil",
       "inputs": ["realmMasteryFinal", "primordiaAllChaosTeam"],
+      "suffix": "%",
       "scalingBucket": "utility"
     }
   },

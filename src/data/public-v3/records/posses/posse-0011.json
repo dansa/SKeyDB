@@ -17,7 +17,7 @@
   "acquisitionSource": "Clear Psyche Deepdive: Blood and Sand",
   "realm": "CARO",
   "lineupToken": "k",
-  "descriptionTemplate": "Grant a chosen Awakener [Arg2] Aliemus. Gain [Arg3] {STR}. If the Realm includes {Caro}, consume 10% of your HP to increase {Embryo Fusion} by +[Arg4]%.\nScaling guide: {Primordia Mastery Scaling}",
+  "descriptionTemplate": "Grant a chosen Awakener [Arg2] Aliemus. Gain [Arg3] {STR}. If the Realm includes {Caro}, consume 10% of your HP to increase {Embryo Fusion} by +[Arg4].\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg2": {
       "kind": "computed",
@@ -44,6 +44,7 @@
       "baseValue": 20.0,
       "rounding": "ceil",
       "inputs": ["realmMasteryFinal", "primordiaAllChaosTeam"],
+      "suffix": "%",
       "scalingBucket": "utility"
     }
   },

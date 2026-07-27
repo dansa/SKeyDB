@@ -10742,6 +10742,12 @@
         "canonicalSlug": "prepare",
         "canonicalPath": "/database/overlays/prepare"
       },
+      "primordia-chaos": {
+        "kind": "overlay",
+        "id": "overlay.global.primordia-chaos",
+        "canonicalSlug": "primordia-chaos",
+        "canonicalPath": "/database/overlays/primordia-chaos"
+      },
       "primordia-mastery-scaling": {
         "kind": "overlay",
         "id": "overlay.global.primordia-mastery-scaling",

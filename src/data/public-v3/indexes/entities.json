@@ -8260,6 +8260,16 @@
       },
       "overlayType": "mechanic"
     },
+    "overlay.global.primordia-chaos": {
+      "kind": "overlay",
+      "id": "overlay.global.primordia-chaos",
+      "name": "Primordia: Chaos",
+      "route": {
+        "slug": "primordia-chaos",
+        "canonicalPath": "/database/overlays/primordia-chaos"
+      },
+      "overlayType": "realm"
+    },
     "overlay.global.primordia-mastery-scaling": {
       "kind": "overlay",
       "id": "overlay.global.primordia-mastery-scaling",
@@ -24793,6 +24803,7 @@
       "overlay.global.pierce-dmg",
       "overlay.global.poison",
       "overlay.global.prepare",
+      "overlay.global.primordia-chaos",
       "overlay.global.primordia-mastery-scaling",
       "overlay.global.propagation-caro",
       "overlay.global.propagation-frenzy",

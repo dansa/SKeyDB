@@ -17,7 +17,7 @@
   "acquisitionSource": "Clear Psyche Deepdive: Ebwynnos Evermore",
   "realm": "AEQUOR",
   "lineupToken": "6",
-  "descriptionTemplate": "Temporary Crit. DMG +[Arg1]%, temporarily reduce all enemies' {STR▼} by [Arg2]. If Pontos is in the party, gain 1 stack of {Pack Hunt}.\nScaling guide: {Primordia Mastery Scaling}",
+  "descriptionTemplate": "Temporary Crit. DMG +[Arg1], temporarily reduce all enemies' {STR▼} by [Arg2]. If Pontos is in the party, gain 1 stack of {Pack Hunt}.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
@@ -26,6 +26,7 @@
       "baseValue": 30.0,
       "rounding": "ceil",
       "inputs": ["realmMasteryFinal", "primordiaAllChaosTeam"],
+      "suffix": "%",
       "scalingBucket": "utility"
     },
     "Arg2": {

@@ -17,7 +17,7 @@
   "acquisitionSource": "Clear Special Ops: Happy Hunting!",
   "realm": "CHAOS",
   "lineupToken": "D",
-  "descriptionTemplate": "Create 1 {Shining Octahedron Dice} and gain [Arg1]% Temporary Crit. Rate.\nScaling guide: {Primordia Mastery Scaling}",
+  "descriptionTemplate": "Create 1 {Shining Octahedron Dice} and gain [Arg1] Temporary Crit. Rate.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
@@ -26,6 +26,7 @@
       "baseValue": 15.0,
       "rounding": "ceil",
       "inputs": ["realmMasteryFinal", "primordiaAllChaosTeam"],
+      "suffix": "%",
       "scalingBucket": "utility"
     }
   },

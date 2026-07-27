@@ -17,7 +17,7 @@
   "acquisitionSource": "Clear Psyche Deepdive: Passion to Dust",
   "realm": "ULTRA",
   "lineupToken": "B",
-  "descriptionTemplate": "Grant a chosen Awakener [Arg2] Aliemus. The Crit. Rate & Crit. DMG of their Command Cards +[Arg1]% this turn. If Liz is in the team, create 1 {Corrupted Flames} with {Exhaust}.\nScaling guide: {Primordia Mastery Scaling}",
+  "descriptionTemplate": "Grant a chosen Awakener [Arg2] Aliemus. The Crit. Rate & Crit. DMG of their Command Cards +[Arg1] this turn. If Liz is in the team, create 1 {Corrupted Flames} with {Exhaust}.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
@@ -26,6 +26,7 @@
       "baseValue": 15.0,
       "rounding": "ceil",
       "inputs": ["realmMasteryFinal", "primordiaAllChaosTeam"],
+      "suffix": "%",
       "scalingBucket": "utility"
     },
     "Arg2": {

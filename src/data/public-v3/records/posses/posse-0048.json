@@ -15,7 +15,7 @@
   "acquisitionSource": "Clear Special Ops: Spring Festival Express",
   "realm": "OTHER",
   "lineupToken": "3",
-  "descriptionTemplate": "Gain 1 Arithmetica and +[Arg1]% Temporary Crit. Rate. The first time this is unleashed each battle, inflict [Arg3] {Ancient Embers} on all enemies.\nScaling guide: {Primordia Mastery Scaling}",
+  "descriptionTemplate": "Gain 1 Arithmetica and +[Arg1] Temporary Crit. Rate. The first time this is unleashed each battle, inflict [Arg3] {Ancient Embers} on all enemies.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
@@ -24,6 +24,7 @@
       "baseValue": 15.0,
       "rounding": "ceil",
       "inputs": ["realmMasteryFinal", "primordiaAllChaosTeam"],
+      "suffix": "%",
       "scalingBucket": "utility"
     },
     "Arg3": {

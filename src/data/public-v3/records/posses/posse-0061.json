@@ -16,7 +16,7 @@
   "classification": "PRIMORDIAL_MEMORY",
   "equippable": false,
   "collectible": false,
-  "descriptionTemplate": "Gain [Arg1]% Temporary DMG Amplification.\nScaling guide: {Primordia Mastery Scaling}",
+  "descriptionTemplate": "Gain [Arg1] Temporary DMG Amplification.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
@@ -25,6 +25,7 @@
       "baseValue": 50.0,
       "rounding": "ceil",
       "inputs": ["realmMasteryFinal", "primordiaAllChaosTeam"],
+      "suffix": "%",
       "scalingBucket": "utility"
     }
   }

@@ -2599,6 +2599,12 @@
         "id": "overlay.global.divine-realm-aequor-mastery"
       }
     ],
+    "divine realm chaos": [
+      {
+        "kind": "overlay",
+        "id": "overlay.global.primordia-chaos"
+      }
+    ],
     "divine realm raging waves": [
       {
         "kind": "overlay",
@@ -6317,6 +6323,12 @@
       {
         "kind": "skill",
         "id": "skill.lotan-cetarchon.primeval-return"
+      }
+    ],
+    "primordia chaos": [
+      {
+        "kind": "overlay",
+        "id": "overlay.global.primordia-chaos"
       }
     ],
     "primordia chaos mastery scaling": [

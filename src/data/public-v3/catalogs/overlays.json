@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "overlays",
   "kind": "overlay",
-  "recordCount": 145,
+  "recordCount": 146,
   "records": [
     {
       "kind": "overlay",
@@ -977,6 +977,17 @@
       "overlayType": "mechanic",
       "textColor": "misc",
       "aliases": ["Prepare 1", "Prepare 2", "Prepare 3", "Prepare 4", "Prepare 5"]
+    },
+    {
+      "kind": "overlay",
+      "id": "overlay.global.primordia-chaos",
+      "name": "Primordia: Chaos",
+      "route": {
+        "slug": "primordia-chaos",
+        "canonicalPath": "/database/overlays/primordia-chaos"
+      },
+      "overlayType": "realm",
+      "aliases": ["Divine Realm: Chaos", "Primordia Chaos"]
     },
     {
       "kind": "overlay",
