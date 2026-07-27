@@ -20,7 +20,7 @@
   "releaseDate": "2026-07-27",
   "faction": "TBD",
   "aliases": ["lotan cetarchon", "cetarchon", "glotan", "rotan"],
-  "searchTags": ["STR Up", "Steal STR"],
+  "searchTags": ["STR Up"],
   "primaryScalingBase": 20,
   "baseStatsLv1": {
     "CON": 28,

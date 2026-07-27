@@ -1,10 +1,10 @@
 {
   "schemaVersion": 3,
-  "gameDataVersion": "compiled-sha256-ff3983c6081a73f4",
-  "generatedAt": "2026-07-27T11:07:56Z",
-  "buildId": "public-v3-sha256-579e9caa8cbbf11f",
+  "gameDataVersion": "compiled-sha256-ac585665ca607dc3",
+  "generatedAt": "2026-07-27T11:21:13Z",
+  "buildId": "public-v3-sha256-4aea18e60efb1bb2",
   "build": {
-    "gameDataVersion": "compiled-sha256-ff3983c6081a73f4",
+    "gameDataVersion": "compiled-sha256-ac585665ca607dc3",
     "recordCount": 1878,
     "scopes": ["awakeners", "wheels", "relics", "covenants", "posses", "skills", "derived-skills", "talents", "enlightens", "overlays", "awakener-builds"]
   },
@@ -102,8 +102,8 @@
       "sha256": "051415f92022be9fab49efffc436c7dc280a8875cec68f7d9c96b42e24a84d53"
     },
     "catalogs/awakeners.json": {
-      "bytes": 82787,
-      "sha256": "39a35d4335955e902c010b4243906e6ccb29537a8dd177414de968b8240a5f20"
+      "bytes": 82774,
+      "sha256": "613a6c41bb5ed5bf90de9c3e691fbdd99a57731226a305c6bb3a92714a2590de"
     },
     "catalogs/covenants.json": {
       "bytes": 7413,
@@ -178,8 +178,8 @@
       "sha256": "78a0d92258798e2b6518fa92b8a1bc0bbe326e51da4d980377821cd713e26a9e"
     },
     "indexes/search-awakeners.json": {
-      "bytes": 82810,
-      "sha256": "9809fbb45ef103fee14fd5f7265d2a3758bce5e8227eedee71e13102cf33fd31"
+      "bytes": 82646,
+      "sha256": "f15e6cddb785430c34e1269bfe6eede53496e9deeb59263fac44f213218c0a83"
     },
     "indexes/search-covenants.json": {
       "bytes": 5517,
@@ -195,7 +195,7 @@
     },
     "indexes/search-tags.json": {
       "bytes": 7285,
-      "sha256": "0fe58848ecf9c3eb7fbc0f752ac3a6840cfb9e8c7860d0d4d9126f88669536e2"
+      "sha256": "a7c010d8fb6976733b60d2032f4e0f5188f24a74c39d028f257571da862807a1"
     },
     "indexes/search-wheels.json": {
       "bytes": 110406,
@@ -662,8 +662,8 @@
       "sha256": "2d01dbf39d31117005a3dc25763fd5be29be28a83378f869835d0e1ac4c3b00d"
     },
     "records/awakeners/awakener-0059.json": {
-      "bytes": 11409,
-      "sha256": "12370304b8377f54c47404ef26600296861058a522772fe5dc37a740f8822ef3"
+      "bytes": 11396,
+      "sha256": "8a9cedab7b3fa4c88491b8a8622626e5b550e0f95b01f0b05900c59f65c330b5"
     },
     "records/covenants/covenant-0001.json": {
       "bytes": 926,

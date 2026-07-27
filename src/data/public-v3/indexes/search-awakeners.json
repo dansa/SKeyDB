@@ -3456,13 +3456,9 @@
         "lotan cetarchon",
         "reign",
         "rotan",
-        "steal",
-        "steal str",
         "str",
-        "str steal",
         "str up",
         "strength",
-        "strength steal",
         "strength up",
         "tbd",
         "up"
@@ -3470,7 +3466,7 @@
       "fields": {
         "name": ["Lotan: Cetarchon", "lotan-cetarchon"],
         "alias": ["lotan cetarchon", "cetarchon", "glotan", "rotan"],
-        "tag": ["str-up", "steal-str", "STR Up", "strength up", "Steal STR", "steal", "str steal", "strength steal"],
+        "tag": ["str-up", "STR Up", "strength up"],
         "facet": ["CHAOS", "Genesis", "ASSAULT", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "TBD"]
       },
       "facets": {
@@ -3479,7 +3475,7 @@
         "type": "ASSAULT",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "TBD",
-        "tags": ["steal-str", "str-up"]
+        "tags": ["str-up"]
       }
     }
   ]
