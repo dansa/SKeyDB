@@ -73,13 +73,23 @@ Asset: /assets/DatabasePage.js`)
       origin: 'https://skeydb.com',
       request: async () =>
         new Response('<!doctype html>', {
-          headers: {'content-type': 'text/html; charset=utf-8'},
+          headers: {
+            age: '42',
+            'cache-control': 'public, max-age=14400',
+            'cf-cache-status': 'HIT',
+            'content-type': 'text/html; charset=utf-8',
+            etag: 'W/"asset-html"',
+          },
           status: 200,
         }),
     })
 
     expect(probe).toEqual({
+      age: '42',
+      cacheControl: 'public, max-age=14400',
+      cacheStatus: 'HIT',
       contentType: 'text/html',
+      etag: 'W/"asset-html"',
       outcome: 'html-response',
       status: 200,
     })
@@ -100,7 +110,9 @@ Asset: /assets/DatabasePage.js`)
 
     expect(
       formatLoadingIncidentDiagnostics(attachLoadingIncidentAssetProbe(incident, probe)),
-    ).toContain('Asset probe: 200 text/html (HTML response)')
+    ).toContain(
+      'Asset probe: 200 text/html (HTML response; cache-control=public, max-age=14400; cache-status=HIT; age=42; etag=W/"asset-html")',
+    )
   })
 
   it('does not probe an asset outside the SKeyDB origin', async () => {

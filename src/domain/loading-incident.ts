@@ -52,7 +52,11 @@ export interface LoadingIncident {
 }
 
 export interface LoadingIncidentAssetProbe {
+  age?: string
+  cacheControl?: string
+  cacheStatus?: string
   contentType?: string
+  etag?: string
   outcome:
     | 'html-response'
     | 'http-error'
@@ -232,10 +236,17 @@ export function attachLoadingIncidentAssetProbe(
   return {
     ...incident,
     assetProbe: {
-      ...assetProbe,
+      outcome: assetProbe.outcome,
+      ...(assetProbe.age ? {age: sanitizeProbeHeader(assetProbe.age)} : {}),
+      ...(assetProbe.cacheControl
+        ? {cacheControl: sanitizeProbeHeader(assetProbe.cacheControl)}
+        : {}),
+      ...(assetProbe.cacheStatus ? {cacheStatus: sanitizeProbeHeader(assetProbe.cacheStatus)} : {}),
       ...(assetProbe.contentType
         ? {contentType: sanitizeSingleLine(assetProbe.contentType, 80).toLowerCase()}
         : {}),
+      ...(assetProbe.etag ? {etag: sanitizeProbeHeader(assetProbe.etag)} : {}),
+      ...(assetProbe.status !== undefined ? {status: assetProbe.status} : {}),
     },
   }
 }
@@ -284,7 +295,19 @@ export async function probeLoadingIncidentAsset({
     ? sanitizeSingleLine(rawContentType, 80).toLowerCase()
     : undefined
   const responseDetails = {
+    ...(getProbeHeader(response.headers, 'age')
+      ? {age: getProbeHeader(response.headers, 'age')}
+      : {}),
+    ...(getProbeHeader(response.headers, 'cache-control')
+      ? {cacheControl: getProbeHeader(response.headers, 'cache-control')}
+      : {}),
+    ...(getProbeHeader(response.headers, 'cf-cache-status')
+      ? {cacheStatus: getProbeHeader(response.headers, 'cf-cache-status')}
+      : {}),
     ...(contentType ? {contentType} : {}),
+    ...(getProbeHeader(response.headers, 'etag')
+      ? {etag: getProbeHeader(response.headers, 'etag')}
+      : {}),
     status: response.status,
   }
 
@@ -434,6 +457,15 @@ function formatReportField(label: string, value: string, maxLength = 240): strin
 function formatAssetProbe(probe: LoadingIncidentAssetProbe): string {
   const contentType = probe.contentType ? sanitizeSingleLine(probe.contentType, 80) : undefined
   const response = [probe.status, contentType].filter((value) => value !== undefined).join(' ')
+  const metadata = [
+    ['cache-control', probe.cacheControl],
+    ['cache-status', probe.cacheStatus],
+    ['age', probe.age],
+    ['etag', probe.etag],
+  ]
+    .filter((entry): entry is [string, string] => typeof entry[1] === 'string')
+    .map(([label, value]) => `${label}=${sanitizeSingleLine(value, 120)}`)
+  const metadataSuffix = metadata.length > 0 ? `; ${metadata.join('; ')}` : ''
   const outcome = {
     'html-response': 'HTML response',
     'http-error': 'HTTP error',
@@ -444,7 +476,16 @@ function formatAssetProbe(probe: LoadingIncidentAssetProbe): string {
     redirect: 'redirect blocked',
     'unexpected-mime': 'unexpected MIME type',
   }[probe.outcome]
-  return response ? `${response} (${outcome})` : outcome
+  return response ? `${response} (${outcome}${metadataSuffix})` : `${outcome}${metadataSuffix}`
+}
+
+function getProbeHeader(headers: Headers, name: string): string | undefined {
+  const value = headers.get(name)
+  return value ? sanitizeProbeHeader(value) : undefined
+}
+
+function sanitizeProbeHeader(value: string): string {
+  return sanitizeSingleLine(value, 160)
 }
 
 function areIncidentsWithinWindow(

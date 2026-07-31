@@ -3,6 +3,8 @@ export interface AppVersionSnapshot {
   generatedAt?: string
 }
 
+const LOADING_INCIDENT_RECOVERY_PARAM = 'skeydb-reload'
+
 const STALE_CHUNK_ERROR_PATTERNS = [
   'error loading dynamically imported module',
   'failed to fetch dynamically imported module',
@@ -13,6 +15,64 @@ const STALE_CHUNK_ERROR_PATTERNS = [
 
 export function getAppVersionUrl(basePath: string, origin: string): string {
   return new URL('version.json', new URL(basePath, origin)).toString()
+}
+
+export function getLoadingIncidentRecoveryUrl(href: string): string {
+  try {
+    const url = new URL(href)
+    url.searchParams.set(LOADING_INCIDENT_RECOVERY_PARAM, '1')
+    return url.toString()
+  } catch {
+    return href
+  }
+}
+
+export function hasLoadingIncidentRecoveryMarker(href: string): boolean {
+  try {
+    return new URL(href).searchParams.get(LOADING_INCIDENT_RECOVERY_PARAM) === '1'
+  } catch {
+    return false
+  }
+}
+
+export function removeLoadingIncidentRecoveryMarker(href: string): string {
+  try {
+    const url = new URL(href)
+    url.searchParams.delete(LOADING_INCIDENT_RECOVERY_PARAM)
+    return url.toString()
+  } catch {
+    return href
+  }
+}
+
+interface RecoverFromNewerBuildOptions {
+  currentBuildId: string
+  onReload: (url: string) => void
+  pageUrl: string
+  request: (input: string, init?: RequestInit) => Promise<Response>
+  versionUrl: string
+}
+
+export async function recoverFromNewerBuild({
+  currentBuildId,
+  onReload,
+  pageUrl,
+  request,
+  versionUrl,
+}: RecoverFromNewerBuildOptions): Promise<boolean> {
+  try {
+    const response = await request(withCacheBuster(versionUrl), {
+      cache: 'no-store',
+      credentials: 'same-origin',
+    })
+    if (!response.ok) return false
+    const snapshot = parseAppVersionSnapshot(await response.json())
+    if (!isDifferentAppVersion(currentBuildId, snapshot)) return false
+    onReload(getLoadingIncidentRecoveryUrl(pageUrl))
+    return true
+  } catch {
+    return false
+  }
 }
 
 export function parseAppVersionSnapshot(value: unknown): AppVersionSnapshot | null {
@@ -51,4 +111,10 @@ function getErrorMessage(error: unknown): string {
     return typeof message === 'string' ? message : ''
   }
   return ''
+}
+
+export function withCacheBuster(url: string): string {
+  const parsedUrl = new URL(url)
+  parsedUrl.searchParams.set('check', Date.now().toString())
+  return parsedUrl.toString()
 }

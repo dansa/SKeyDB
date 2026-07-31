@@ -9,6 +9,34 @@ afterEach(() => {
 })
 
 describe('useLoadingIncident', () => {
+  it('checks the current version after a failed asset probe', async () => {
+    const request = vi
+      .fn()
+      .mockResolvedValueOnce(
+        new Response('export {}', {
+          headers: {'content-type': 'application/javascript'},
+          status: 200,
+        }),
+      )
+      .mockResolvedValueOnce(
+        new Response(JSON.stringify({buildId: 'dev'}), {
+          headers: {'content-type': 'application/json'},
+          status: 200,
+        }),
+      )
+    vi.stubGlobal('fetch', request)
+
+    renderHook(() => useLoadingIncident({pathname: '/database'}))
+    dispatchPreloadError(
+      new TypeError('Failed to fetch dynamically imported module: /assets/shared.js'),
+    )
+
+    await waitFor(() => {
+      expect(request).toHaveBeenCalledTimes(2)
+    })
+    expect(request.mock.calls[1]?.[0]).toContain('/version.json')
+  })
+
   it('does not attach an earlier same-path probe to a replacement incident', async () => {
     const firstProbe = deferred<Response>()
     const secondProbe = deferred<Response>()
@@ -16,6 +44,7 @@ describe('useLoadingIncident', () => {
       .fn()
       .mockImplementationOnce(async () => await firstProbe.promise)
       .mockImplementationOnce(async () => await secondProbe.promise)
+      .mockResolvedValue(new Response(JSON.stringify({buildId: 'dev'}), {status: 200}))
     vi.stubGlobal('fetch', request)
 
     const {result} = renderHook(() => useLoadingIncident({pathname: '/database'}))

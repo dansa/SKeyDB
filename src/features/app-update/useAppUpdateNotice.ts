@@ -4,6 +4,7 @@ import {
   getAppVersionUrl,
   isDifferentAppVersion,
   parseAppVersionSnapshot,
+  withCacheBuster,
 } from '@/domain/app-version'
 
 const VERSION_CHECK_INTERVAL_MS = 10 * 60 * 1000
@@ -69,12 +70,6 @@ export function useAppUpdateNotice(): AppUpdateNoticeState {
       window.location.reload()
     },
   }
-}
-
-function withCacheBuster(url: string): string {
-  const parsedUrl = new URL(url)
-  parsedUrl.searchParams.set('check', Date.now().toString())
-  return parsedUrl.toString()
 }
 
 function getCurrentBuildId(): string {

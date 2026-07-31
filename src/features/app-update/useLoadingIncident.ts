@@ -1,6 +1,12 @@
-import {useCallback, useEffect, useState} from 'react'
+import {useCallback, useEffect, useRef, useState} from 'react'
 
-import {isLikelyStaleChunkError} from '@/domain/app-version'
+import {
+  getAppVersionUrl,
+  hasLoadingIncidentRecoveryMarker,
+  isLikelyStaleChunkError,
+  recoverFromNewerBuild,
+  removeLoadingIncidentRecoveryMarker,
+} from '@/domain/app-version'
 import {
   attachLoadingIncidentAssetProbe,
   coalesceLoadingIncident,
@@ -25,6 +31,17 @@ export interface LoadingIncidentState {
 
 export function useLoadingIncident({pathname}: {pathname: string}): LoadingIncidentState {
   const [incident, setIncident] = useState<LoadingIncident | null>(null)
+  const recoveryAttemptedRef = useRef(false)
+
+  useEffect(() => {
+    const currentUrl = window.location.href
+    if (!hasLoadingIncidentRecoveryMarker(currentUrl)) return
+    recoveryAttemptedRef.current = true
+    const cleanUrl = removeLoadingIncidentRecoveryMarker(currentUrl)
+    if (cleanUrl !== currentUrl) {
+      window.history.replaceState(window.history.state, '', cleanUrl)
+    }
+  }, [])
 
   const reportLoadingError = useCallback(
     (error: unknown, source: LoadingIncidentSource, componentStack?: string | null) => {
@@ -55,6 +72,8 @@ export function useLoadingIncident({pathname}: {pathname: string}): LoadingIncid
   const incidentId = incident?.incidentId
   const assetPath = incident?.assetPath
   const hasAssetProbe = incident?.assetProbe !== undefined
+  const assetProbe = incident?.assetProbe
+  const incidentCategory = incident?.category
   useEffect(() => {
     if (!incidentId || !assetPath || hasAssetProbe || typeof fetch !== 'function') return
     let active = true
@@ -75,6 +94,29 @@ export function useLoadingIncident({pathname}: {pathname: string}): LoadingIncid
       active = false
     }
   }, [assetPath, hasAssetProbe, incidentId])
+
+  useEffect(() => {
+    if (
+      !incidentId ||
+      incidentCategory !== 'asset-load' ||
+      !assetProbe ||
+      recoveryAttemptedRef.current ||
+      typeof fetch !== 'function'
+    ) {
+      return
+    }
+    recoveryAttemptedRef.current = true
+    void recoverFromNewerBuild({
+      currentBuildId: CURRENT_BUILD_ID,
+      onReload: (url) => {
+        window.history.replaceState(window.history.state, '', url)
+        window.location.reload()
+      },
+      pageUrl: window.location.href,
+      request: (input, init) => fetch(input, init),
+      versionUrl: getAppVersionUrl(getBaseUrl(), window.location.origin),
+    })
+  }, [assetProbe, incidentCategory, incidentId])
 
   useEffect(() => {
     const handlePreloadError = (event: Event) => {
