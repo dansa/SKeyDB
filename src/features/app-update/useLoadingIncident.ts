@@ -117,7 +117,7 @@ export function useLoadingIncident({pathname}: {pathname: string}): LoadingIncid
       request: (input, init) => fetch(input, init),
       versionUrl: getAppVersionUrl(getBaseUrl(), window.location.origin),
     })
-  }, [assetProbe, incidentCategory, incidentId])
+  }, [assetPath, assetProbe, incidentCategory, incidentId])
 
   useEffect(() => {
     const handlePreloadError = (event: Event) => {
