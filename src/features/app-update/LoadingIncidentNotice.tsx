@@ -59,12 +59,12 @@ export function LoadingIncidentNotice({incident, onRefresh}: LoadingIncidentNoti
             <textarea readOnly rows={10} value={currentCopyResult.diagnostics} />
           </label>
         ) : null}
+        {currentCopyResult?.state === 'copied' ? (
+          <span aria-live='polite' className='app-update-notice__copy-status'>
+            Diagnostics copied.
+          </span>
+        ) : null}
       </section>
-      {currentCopyResult?.state === 'copied' ? (
-        <span aria-live='polite' className='app-update-notice__copy-status'>
-          Diagnostics copied.
-        </span>
-      ) : null}
     </div>
   )
 }

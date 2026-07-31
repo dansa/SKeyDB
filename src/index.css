@@ -570,11 +570,17 @@ dialog[data-modal-frame-dialog]::backdrop {
 }
 
 .app-update-notice__copy-status {
+  display: block;
+  width: 100%;
+  flex: 1 0 100%;
   color: var(--ui-text-muted);
 }
 
 .app-update-notice__diagnostics {
   display: grid;
+  width: 100%;
+  min-width: 0;
+  flex: 1 0 100%;
   gap: 0.4rem;
   color: var(--ui-text-muted);
   font-size: 0.64rem;
@@ -668,10 +674,6 @@ dialog[data-modal-frame-dialog]::backdrop {
 
   .app-update-notice__actions {
     flex: 0 0 auto;
-  }
-
-  .app-update-notice__diagnostics {
-    flex: 1 0 100%;
   }
 }
 
