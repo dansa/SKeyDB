@@ -5,8 +5,13 @@ import {afterEach, vi} from 'vitest'
 import App from './App'
 import {createTestMediaQueryList} from './test/domLayoutMocks'
 
+const appShellTestState = vi.hoisted(() => ({builderError: null as Error | null}))
+
 vi.mock('./features/builder/BuilderPage', () => ({
-  BuilderPage: () => <h2>Builder page</h2>,
+  BuilderPage: () => {
+    if (appShellTestState.builderError) throw appShellTestState.builderError
+    return <h2>Builder page</h2>
+  },
 }))
 
 vi.mock('./features/builder-v2/BuilderV2Page', () => ({
@@ -40,10 +45,18 @@ interface MatchMediaEntry {
 }
 
 const originalMatchMedia = window.matchMedia
+const originalClipboard = Object.getOwnPropertyDescriptor(navigator, 'clipboard')
 
 afterEach(() => {
+  appShellTestState.builderError = null
   window.localStorage.clear()
   window.matchMedia = originalMatchMedia
+  if (originalClipboard) {
+    Object.defineProperty(navigator, 'clipboard', originalClipboard)
+  } else {
+    Reflect.deleteProperty(navigator, 'clipboard')
+  }
+  vi.unstubAllGlobals()
   vi.restoreAllMocks()
 })
 
@@ -79,6 +92,74 @@ function mockMatchMedia(initialMatches: Record<string, boolean> = {}) {
 }
 
 describe('App shell', () => {
+  it('shows one copyable incident when a failed preload also reaches the route boundary', async () => {
+    const error = new TypeError(
+      `Failed to fetch dynamically imported module: ${window.location.origin}/assets/BuilderPage.js?migration=secret-value`,
+    )
+    const writeText = vi.fn().mockResolvedValue(undefined)
+    vi.spyOn(window.navigator, 'userAgent', 'get').mockReturnValue(
+      'Mozilla/5.0 (Linux; Android 11) AppleWebKit/537.36 Chrome/109.0.0.0 Mobile Safari/537.36',
+    )
+    Object.defineProperty(navigator, 'clipboard', {
+      configurable: true,
+      value: {writeText},
+    })
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(async (input: string | URL | Request) => {
+        const url = input instanceof Request ? input.url : input.toString()
+        if (url.includes('version.json')) {
+          return new Response(JSON.stringify({buildId: 'dev'}), {
+            headers: {'content-type': 'application/json'},
+            status: 200,
+          })
+        }
+        return new Response('<!doctype html>', {
+          headers: {'content-type': 'text/html; charset=utf-8'},
+          status: 200,
+        })
+      }),
+    )
+
+    const {rerender} = render(
+      <MemoryRouter initialEntries={['/builder']}>
+        <App />
+      </MemoryRouter>,
+    )
+    expect(await screen.findByRole('heading', {name: /builder page/i})).toBeInTheDocument()
+
+    const preloadError = new Event('vite:preloadError', {cancelable: true})
+    Object.defineProperty(preloadError, 'payload', {value: error})
+    act(() => {
+      window.dispatchEvent(preloadError)
+    })
+
+    appShellTestState.builderError = error
+    rerender(
+      <MemoryRouter initialEntries={['/builder']}>
+        <App />
+      </MemoryRouter>,
+    )
+
+    const incident = await screen.findByRole('alert')
+    expect(incident).toHaveTextContent(/required page file could not be loaded/i)
+    expect(incident).toHaveTextContent(/Reference: MODULE-/i)
+    expect(incident).toHaveTextContent(/below.*supported chrome 110/i)
+    expect(await within(incident).findByText(/returned HTML instead of JavaScript/i)).toBeVisible()
+    expect(screen.getAllByRole('alert')).toHaveLength(1)
+    expect(screen.queryByText(/unexpected loading problem/i)).not.toBeInTheDocument()
+
+    fireEvent.click(within(incident).getByRole('button', {name: /copy diagnostics/i}))
+
+    await waitFor(() => {
+      expect(writeText).toHaveBeenCalledTimes(1)
+    })
+    expect(writeText.mock.calls[0]?.[0]).toContain('Category: asset-load')
+    expect(writeText.mock.calls[0]?.[0]).toContain('Asset: /assets/BuilderPage.js')
+    expect(writeText.mock.calls[0]?.[0]).toContain('Asset probe: 200 text/html (HTML response)')
+    expect(writeText.mock.calls[0]?.[0]).not.toContain('secret-value')
+  })
+
   it('renders app navigation and title', () => {
     render(
       <MemoryRouter>

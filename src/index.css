@@ -535,6 +535,19 @@ dialog[data-modal-frame-dialog]::backdrop {
   border-color: oklch(78% 0.1 36 / 0.42);
 }
 
+.loading-incident-notice {
+  display: grid;
+  width: calc(100% - 2rem);
+  max-width: 1240px;
+  margin: 0.75rem auto 0;
+  gap: 0.4rem;
+}
+
+.loading-incident-notice .app-update-notice {
+  width: 100%;
+  margin: 0;
+}
+
 .app-update-notice__copy {
   display: grid;
   gap: 0.2rem;
@@ -549,6 +562,48 @@ dialog[data-modal-frame-dialog]::backdrop {
 
 .app-update-notice__copy span {
   color: var(--ui-text-muted);
+}
+
+.app-update-notice__reference,
+.app-update-notice__copy-status {
+  font-size: 0.64rem;
+}
+
+.app-update-notice__copy-status {
+  color: var(--ui-text-muted);
+}
+
+.app-update-notice__diagnostics {
+  display: grid;
+  gap: 0.4rem;
+  color: var(--ui-text-muted);
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.app-update-notice__diagnostics textarea {
+  width: 100%;
+  min-height: 10rem;
+  max-height: 18rem;
+  resize: vertical;
+  border: 1px solid var(--ui-control-border);
+  border-radius: var(--ui-radius-xs);
+  background: var(--ui-control-surface);
+  padding: 0.65rem;
+  color: var(--ui-text-main);
+  font-family: inherit;
+  font-size: 0.86rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.app-update-notice__diagnostics textarea:focus-visible {
+  border-color: var(--ui-control-border-hover);
+  outline: 2px solid var(--ui-focus-ring);
+  outline-offset: 2px;
 }
 
 .app-update-notice__actions {
@@ -579,6 +634,11 @@ dialog[data-modal-frame-dialog]::backdrop {
   color: var(--ui-control-text);
 }
 
+.app-update-notice__dismiss:disabled {
+  opacity: 0.62;
+  cursor: wait;
+}
+
 .app-update-notice__button:hover,
 .app-update-notice__button:focus-visible {
   border-color: oklch(88% 0.1 84 / 0.78);
@@ -597,19 +657,9 @@ dialog[data-modal-frame-dialog]::backdrop {
   outline-offset: 2px;
 }
 
-.app-update-fallback {
-  display: grid;
-  min-height: 18rem;
-  align-items: start;
-}
-
-.app-update-fallback .app-update-notice {
-  width: 100%;
-  margin-inline: 0;
-}
-
 @media (min-width: 40rem) {
   .app-update-notice {
+    flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
@@ -618,6 +668,10 @@ dialog[data-modal-frame-dialog]::backdrop {
 
   .app-update-notice__actions {
     flex: 0 0 auto;
+  }
+
+  .app-update-notice__diagnostics {
+    flex: 1 0 100%;
   }
 }
 

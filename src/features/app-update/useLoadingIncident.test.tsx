@@ -1,0 +1,75 @@
+import {act, renderHook, waitFor} from '@testing-library/react'
+import {afterEach, describe, expect, it, vi} from 'vitest'
+
+import {useLoadingIncident} from './useLoadingIncident'
+
+afterEach(() => {
+  vi.unstubAllGlobals()
+  vi.restoreAllMocks()
+})
+
+describe('useLoadingIncident', () => {
+  it('does not attach an earlier same-path probe to a replacement incident', async () => {
+    const firstProbe = deferred<Response>()
+    const secondProbe = deferred<Response>()
+    const request = vi
+      .fn()
+      .mockImplementationOnce(async () => await firstProbe.promise)
+      .mockImplementationOnce(async () => await secondProbe.promise)
+    vi.stubGlobal('fetch', request)
+
+    const {result} = renderHook(() => useLoadingIncident({pathname: '/database'}))
+    dispatchPreloadError(
+      new TypeError('Failed to fetch dynamically imported module: /assets/shared.js first'),
+    )
+    await waitFor(() => {
+      expect(request).toHaveBeenCalledTimes(1)
+    })
+    const firstIncidentId = result.current.incident?.incidentId
+
+    dispatchPreloadError(
+      new TypeError('Failed to fetch dynamically imported module: /assets/shared.js second'),
+    )
+    await waitFor(() => {
+      expect(request).toHaveBeenCalledTimes(2)
+    })
+    expect(result.current.incident?.incidentId).not.toBe(firstIncidentId)
+
+    await act(async () => {
+      firstProbe.resolve(
+        new Response('<!doctype html>', {headers: {'content-type': 'text/html'}, status: 200}),
+      )
+      await firstProbe.promise
+    })
+    expect(result.current.incident?.assetProbe).toBeUndefined()
+
+    await act(async () => {
+      secondProbe.resolve(
+        new Response('export {}', {
+          headers: {'content-type': 'application/javascript'},
+          status: 200,
+        }),
+      )
+      await secondProbe.promise
+    })
+    await waitFor(() => {
+      expect(result.current.incident?.assetProbe?.outcome).toBe('javascript-response')
+    })
+  })
+})
+
+function dispatchPreloadError(error: Error) {
+  const event = new Event('vite:preloadError', {cancelable: true})
+  Object.defineProperty(event, 'payload', {value: error})
+  act(() => {
+    window.dispatchEvent(event)
+  })
+}
+
+function deferred<T>() {
+  let resolve!: (value: T) => void
+  const promise = new Promise<T>((complete) => {
+    resolve = complete
+  })
+  return {promise, resolve}
+}
