@@ -141,7 +141,7 @@ describe('App shell', () => {
       </MemoryRouter>,
     )
 
-    const incident = await screen.findByRole('alert')
+    const incident = await screen.findByRole('region', {name: 'SKeyDB loading incident'})
     expect(incident).toHaveTextContent(/required page file could not be loaded/i)
     expect(incident).toHaveTextContent(/Reference: MODULE-/i)
     expect(incident).toHaveTextContent(/below.*supported chrome 110/i)
