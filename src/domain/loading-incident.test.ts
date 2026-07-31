@@ -248,6 +248,28 @@ Asset: /assets/DatabasePage.js`)
     expect(incident.errorFingerprint).toMatch(/^ERR-/)
   })
 
+  it('keeps a no-URL module-load signal in the asset category across error sources', () => {
+    const incident = createLoadingIncident({
+      buildId: 'build-1',
+      componentStack: '\n    at DatabasePage (<anonymous>)',
+      environment: {
+        browser: {family: 'Safari', major: 18},
+        online: true,
+        origin: 'https://skeydb.com',
+        pathname: '/database',
+        platform: 'iOS',
+      },
+      error: new TypeError('Importing a module script failed'),
+      incidentId: 'MODULE-NOURL',
+      occurredAt: '2026-07-31T10:00:00.000Z',
+      source: 'react-boundary',
+    })
+
+    expect(incident.category).toBe('asset-load')
+    expect(incident.assetPath).toBeUndefined()
+    expect(incident.componentNames).toBeUndefined()
+  })
+
   it('deduplicates only equivalent incidents inside the short correlation window', () => {
     const first = createRuntimeIncident({
       error: 'first failure',

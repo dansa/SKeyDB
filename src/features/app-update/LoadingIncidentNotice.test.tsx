@@ -68,6 +68,7 @@ describe('LoadingIncidentNotice', () => {
 
     const copiedStatus = await screen.findByText(/diagnostics copied/i)
     expect(copiedStatus).toHaveAttribute('aria-live', 'polite')
+    expect(copiedStatus).toHaveAttribute('role', 'status')
     expect(copiedStatus.closest('section')).toHaveAttribute('aria-label', 'SKeyDB loading incident')
     expect(writeText).toHaveBeenCalledWith(expect.stringContaining('MODULE-7F2A'))
     expect(screen.queryByRole('textbox')).not.toBeInTheDocument()

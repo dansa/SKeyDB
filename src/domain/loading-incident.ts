@@ -110,7 +110,10 @@ export function createLoadingIncident({
     environment.origin,
     environment.assetBasePath ?? '/assets/',
   )
-  const isAssetFailure = source === 'vite-preload' || Boolean(assetPath)
+  const isKnownModuleLoadFailure = DYNAMIC_IMPORT_ERROR_SUMMARIES.some((summary) =>
+    errorMessage.toLowerCase().includes(summary.toLowerCase()),
+  )
+  const isAssetFailure = source === 'vite-preload' || Boolean(assetPath) || isKnownModuleLoadFailure
   const category: LoadingIncidentCategory = isAssetFailure
     ? environment.online
       ? 'asset-load'

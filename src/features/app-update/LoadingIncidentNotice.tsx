@@ -32,9 +32,8 @@ export function LoadingIncidentNotice({incident, onRefresh}: LoadingIncidentNoti
       <section
         aria-label='SKeyDB loading incident'
         className='app-update-notice app-update-notice--urgent'
-        role='alert'
       >
-        <div className='app-update-notice__copy'>
+        <div className='app-update-notice__copy' role='alert'>
           <strong>{getIncidentTitle(incident)}</strong>
           <span>{getIncidentExplanation(incident)}</span>
           {incident.compatibilityConcern ? <span>{incident.compatibilityConcern}.</span> : null}
@@ -59,11 +58,14 @@ export function LoadingIncidentNotice({incident, onRefresh}: LoadingIncidentNoti
             <textarea readOnly rows={10} value={currentCopyResult.diagnostics} />
           </label>
         ) : null}
-        {currentCopyResult?.state === 'copied' ? (
-          <span aria-live='polite' className='app-update-notice__copy-status'>
-            Diagnostics copied.
-          </span>
-        ) : null}
+        <span
+          aria-atomic='true'
+          aria-live='polite'
+          className='app-update-notice__copy-status'
+          role='status'
+        >
+          {currentCopyResult?.state === 'copied' ? 'Diagnostics copied.' : ''}
+        </span>
       </section>
     </div>
   )

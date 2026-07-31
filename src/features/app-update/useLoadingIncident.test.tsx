@@ -37,6 +37,29 @@ describe('useLoadingIncident', () => {
     expect(request.mock.calls[1]?.[0]).toContain('/version.json')
   })
 
+  it('checks the current version for a known module failure without a probeable URL', async () => {
+    const request = vi.fn().mockResolvedValue(
+      new Response(JSON.stringify({buildId: 'dev'}), {
+        headers: {'content-type': 'application/json'},
+        status: 200,
+      }),
+    )
+    vi.stubGlobal('fetch', request)
+
+    const {result} = renderHook(() => useLoadingIncident({pathname: '/database'}))
+    act(() => {
+      result.current.reportLoadingError(
+        new TypeError('Importing a module script failed'),
+        'react-boundary',
+      )
+    })
+
+    await waitFor(() => {
+      expect(request).toHaveBeenCalledTimes(1)
+    })
+    expect(request.mock.calls[0]?.[0]).toContain('/version.json')
+  })
+
   it('does not attach an earlier same-path probe to a replacement incident', async () => {
     const firstProbe = deferred<Response>()
     const secondProbe = deferred<Response>()

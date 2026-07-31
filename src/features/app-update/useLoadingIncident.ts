@@ -96,10 +96,11 @@ export function useLoadingIncident({pathname}: {pathname: string}): LoadingIncid
   }, [assetPath, hasAssetProbe, incidentId])
 
   useEffect(() => {
+    const hasRecoveryEvidence = assetProbe !== undefined || !assetPath
     if (
       !incidentId ||
       incidentCategory !== 'asset-load' ||
-      !assetProbe ||
+      !hasRecoveryEvidence ||
       recoveryAttemptedRef.current ||
       typeof fetch !== 'function'
     ) {
