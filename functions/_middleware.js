@@ -7,13 +7,13 @@ export async function onRequest(context) {
   const response = await context.env.ASSETS.fetch(context.request)
   if (!isHtmlResponse(response)) return response
 
-  return new Response('SKeyDB asset not found.', {
+  return new Response(response.ok ? 'SKeyDB asset not found.' : 'SKeyDB asset service error.', {
     headers: {
       'cache-control': 'no-store',
       'content-type': 'text/plain; charset=utf-8',
       'x-content-type-options': 'nosniff',
     },
-    status: 404,
+    status: response.ok ? 404 : response.status,
   })
 }
 

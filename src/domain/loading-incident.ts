@@ -306,6 +306,7 @@ export async function probeLoadingIncidentAsset({
       : {}),
     status: response.status,
   }
+  await cancelProbeResponseBody(response)
 
   if (response.type === 'opaqueredirect' || (response.status >= 300 && response.status < 400)) {
     return {outcome: 'redirect', status: response.status}
@@ -319,6 +320,15 @@ export async function probeLoadingIncidentAsset({
     return {...responseDetails, outcome: 'unexpected-mime'}
   }
   return {...responseDetails, outcome: 'javascript-response'}
+}
+
+async function cancelProbeResponseBody(response: Response): Promise<void> {
+  if (!response.body) return
+  try {
+    await response.body.cancel()
+  } catch {
+    // The diagnostic only needs response metadata; a body-cancellation failure is non-fatal.
+  }
 }
 
 function getErrorMessage(error: unknown): string {

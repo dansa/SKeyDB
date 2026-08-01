@@ -115,6 +115,25 @@ Asset: /assets/DatabasePage.js`)
     )
   })
 
+  it('cancels a probe response body after collecting headers', async () => {
+    const response = new Response('export {}', {
+      headers: {'content-type': 'application/javascript'},
+      status: 200,
+    })
+    const body = response.body
+    if (!body) throw new Error('Expected a probe response body')
+    const cancel = vi.spyOn(body, 'cancel')
+
+    const probe = await probeLoadingIncidentAsset({
+      assetPath: '/assets/DatabasePage.js',
+      origin: 'https://skeydb.com',
+      request: async () => response,
+    })
+
+    expect(probe.outcome).toBe('javascript-response')
+    expect(cancel).toHaveBeenCalledOnce()
+  })
+
   it('does not probe an asset outside the SKeyDB origin', async () => {
     const request = vi.fn()
 
