@@ -181,6 +181,24 @@ Asset: /assets/DatabasePage.js`)
     })
   })
 
+  it('accepts a CSS response as healthy for a stylesheet asset', async () => {
+    const probe = await probeLoadingIncidentAsset({
+      assetPath: '/assets/BuilderV2Page-Bx3.css?version=1',
+      origin: 'https://skeydb.com',
+      request: async () =>
+        new Response('body {}', {
+          headers: {'content-type': 'text/css; charset=utf-8'},
+          status: 200,
+        }),
+    })
+
+    expect(probe).toEqual({
+      contentType: 'text/css',
+      outcome: 'stylesheet-response',
+      status: 200,
+    })
+  })
+
   it('distinguishes missing assets, redirects, and healthy JavaScript responses', async () => {
     const missing = await probeLoadingIncidentAsset({
       assetPath: '/assets/missing.js',

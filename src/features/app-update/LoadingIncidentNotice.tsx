@@ -118,7 +118,13 @@ function getIncidentExplanation(incident: LoadingIncident): string {
     }
     if (incident.assetProbe?.outcome === 'unexpected-mime') {
       const contentType = incident.assetProbe.contentType ?? 'an unexpected response type'
-      return `The requested page file returned ${contentType} instead of JavaScript. Refresh once and copy diagnostics if it continues.`
+      const expectedType = incident.assetPath?.toLowerCase().split(/[?#]/, 1)[0].endsWith('.css')
+        ? 'a stylesheet'
+        : 'JavaScript'
+      return `The requested page file returned ${contentType} instead of ${expectedType}. Refresh once and copy diagnostics if it continues.`
+    }
+    if (incident.assetProbe?.outcome === 'stylesheet-response') {
+      return 'The requested stylesheet is available now, but the browser could not load it. Refresh once and copy diagnostics if it continues.'
     }
     if (incident.assetProbe?.outcome === 'javascript-response') {
       return 'The requested file is available now, but the browser could not load it. Refresh once and copy diagnostics if it continues.'

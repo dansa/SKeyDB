@@ -66,6 +66,7 @@ export interface LoadingIncidentAssetProbe {
     | 'network-error'
     | 'not-probed'
     | 'redirect'
+    | 'stylesheet-response'
     | 'unexpected-mime'
   status?: number
 }
@@ -267,6 +268,7 @@ export async function probeLoadingIncidentAsset({
   ) {
     return {outcome: 'not-probed'}
   }
+  const isStylesheetAsset = /\.css$/i.test(assetUrl.pathname)
 
   const abortController = new AbortController()
   const timeoutId = window.setTimeout(() => {
@@ -316,7 +318,15 @@ export async function probeLoadingIncidentAsset({
   }
   if (!response.ok) return {...responseDetails, outcome: 'http-error'}
   if (contentType === 'text/html') return {...responseDetails, outcome: 'html-response'}
-  if (!contentType || !/(?:java|ecma)script|wasm/i.test(contentType)) {
+  if (isStylesheetAsset && contentType === 'text/css') {
+    return {...responseDetails, outcome: 'stylesheet-response'}
+  }
+  if (
+    !contentType ||
+    (isStylesheetAsset
+      ? contentType !== 'text/css'
+      : !/(?:java|ecma)script|wasm/i.test(contentType))
+  ) {
     return {...responseDetails, outcome: 'unexpected-mime'}
   }
   return {...responseDetails, outcome: 'javascript-response'}
@@ -480,6 +490,7 @@ function formatAssetProbe(probe: LoadingIncidentAssetProbe): string {
     'network-error': 'network request failed',
     'not-probed': 'not probed',
     redirect: 'redirect blocked',
+    'stylesheet-response': 'stylesheet available',
     'unexpected-mime': 'unexpected MIME type',
   }[probe.outcome]
   return response ? `${response} (${outcome}${metadataSuffix})` : `${outcome}${metadataSuffix}`

@@ -30,6 +30,21 @@ describe('LoadingIncidentNotice', () => {
     expect(screen.getByRole('button', {name: /copy diagnostics/i})).toBeEnabled()
   })
 
+  it('describes a healthy stylesheet probe as a stylesheet', () => {
+    const incident = createIncident()
+    incident.assetPath = '/assets/DatabasePage.css'
+    incident.assetProbe = {
+      contentType: 'text/css',
+      outcome: 'stylesheet-response',
+      status: 200,
+    }
+
+    render(<LoadingIncidentNotice incident={incident} onRefresh={() => undefined} />)
+
+    expect(screen.getByText(/requested stylesheet is available now/i)).toBeInTheDocument()
+    expect(screen.queryByText(/instead of JavaScript/i)).not.toBeInTheDocument()
+  })
+
   it('reveals selectable diagnostics when clipboard access is denied', async () => {
     Object.defineProperty(navigator, 'clipboard', {
       configurable: true,
