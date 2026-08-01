@@ -1,4 +1,5 @@
 import {PRODUCTION_BROWSER_MINIMUMS} from './browser-support'
+import {isLikelyModuleLoadError, MODULE_LOAD_ERROR_SUMMARIES} from './loading-error-patterns'
 
 export type LoadingIncidentSource =
   | 'react-boundary'
@@ -87,12 +88,6 @@ interface ProbeLoadingIncidentAssetOptions {
   timeoutMs?: number
 }
 
-const DYNAMIC_IMPORT_ERROR_SUMMARIES = [
-  'Failed to fetch dynamically imported module',
-  'Error loading dynamically imported module',
-  'Importing a module script failed',
-]
-
 const INCIDENT_CORRELATION_WINDOW_MS = 2500
 
 export function createLoadingIncident({
@@ -110,9 +105,7 @@ export function createLoadingIncident({
     environment.origin,
     environment.assetBasePath ?? '/assets/',
   )
-  const isKnownModuleLoadFailure = DYNAMIC_IMPORT_ERROR_SUMMARIES.some((summary) =>
-    errorMessage.toLowerCase().includes(summary.toLowerCase()),
-  )
+  const isKnownModuleLoadFailure = isLikelyModuleLoadError(errorMessage)
   const isAssetFailure = source === 'vite-preload' || Boolean(assetPath) || isKnownModuleLoadFailure
   const category: LoadingIncidentCategory = isAssetFailure
     ? environment.online
@@ -154,9 +147,9 @@ export function coalesceLoadingIncident(
   if (!current || !areIncidentsWithinWindow(current, next, windowMs)) return next
 
   const sameAsset =
-    Boolean(current.assetPath) &&
+    current.category === 'asset-load' &&
+    next.category === 'asset-load' &&
     current.assetPath === next.assetPath &&
-    current.category === next.category &&
     current.pathname === next.pathname &&
     current.errorFingerprint === next.errorFingerprint
   const sameRuntime =
@@ -414,7 +407,7 @@ function getSameOriginAssetPath(
 }
 
 function getSafeErrorSummary(message: string, category: LoadingIncidentCategory): string {
-  const knownSummary = DYNAMIC_IMPORT_ERROR_SUMMARIES.find((summary) =>
+  const knownSummary = MODULE_LOAD_ERROR_SUMMARIES.find((summary) =>
     message.toLowerCase().includes(summary.toLowerCase()),
   )
   if (knownSummary) return knownSummary

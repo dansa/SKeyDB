@@ -43,6 +43,7 @@ describe('LoadingIncidentNotice', () => {
     const fallback = await screen.findByRole('textbox', {
       name: /copy these diagnostic details manually/i,
     })
+    expect(screen.getByRole('status')).toHaveTextContent(/clipboard unavailable/i)
     expect((fallback as HTMLTextAreaElement).value).toContain('MODULE-7F2A')
     expect(fallback).toHaveAttribute('readonly')
   })

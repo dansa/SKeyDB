@@ -64,11 +64,19 @@ export function LoadingIncidentNotice({incident, onRefresh}: LoadingIncidentNoti
           className='app-update-notice__copy-status'
           role='status'
         >
-          {currentCopyResult?.state === 'copied' ? 'Diagnostics copied.' : ''}
+          {getCopyStatus(currentCopyResult)}
         </span>
       </section>
     </div>
   )
+}
+
+function getCopyStatus(copyResult: CopyResult | null): string {
+  if (copyResult?.state === 'copied') return 'Diagnostics copied.'
+  if (copyResult?.state === 'fallback') {
+    return 'Clipboard unavailable. Select the diagnostic details below to copy them manually.'
+  }
+  return ''
 }
 
 function isClipboardWriter(value: unknown): value is {writeText: (text: string) => Promise<void>} {

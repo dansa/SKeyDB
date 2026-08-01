@@ -1,17 +1,11 @@
+import {isLikelyModuleLoadError} from './loading-error-patterns'
+
 export interface AppVersionSnapshot {
   buildId: string
   generatedAt?: string
 }
 
 const LOADING_INCIDENT_RECOVERY_PARAM = 'skeydb-reload'
-
-const STALE_CHUNK_ERROR_PATTERNS = [
-  'error loading dynamically imported module',
-  'failed to fetch dynamically imported module',
-  'importing a module script failed',
-  'loading module from',
-  'disallowed mime type',
-]
 
 export function getAppVersionUrl(basePath: string, origin: string): string {
   return new URL('version.json', new URL(basePath, origin)).toString()
@@ -99,18 +93,7 @@ export function isDifferentAppVersion(
 }
 
 export function isLikelyStaleChunkError(error: unknown): boolean {
-  const message = getErrorMessage(error).toLowerCase()
-  return STALE_CHUNK_ERROR_PATTERNS.some((pattern) => message.includes(pattern))
-}
-
-function getErrorMessage(error: unknown): string {
-  if (typeof error === 'string') return error
-  if (error instanceof Error) return error.message
-  if (error && typeof error === 'object' && 'message' in error) {
-    const message = (error as {message?: unknown}).message
-    return typeof message === 'string' ? message : ''
-  }
-  return ''
+  return isLikelyModuleLoadError(error)
 }
 
 export function withCacheBuster(url: string): string {

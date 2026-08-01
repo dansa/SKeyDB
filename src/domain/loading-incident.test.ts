@@ -270,6 +270,64 @@ Asset: /assets/DatabasePage.js`)
     expect(incident.componentNames).toBeUndefined()
   })
 
+  it('deduplicates equivalent URL-less module signals across error sources', () => {
+    const first = createLoadingIncident({
+      buildId: 'build-1',
+      environment: {
+        browser: {family: 'Safari', major: 18},
+        online: true,
+        origin: 'https://skeydb.com',
+        pathname: '/database',
+        platform: 'iOS',
+      },
+      error: new TypeError('Importing a module script failed'),
+      incidentId: 'MODULE-FIRST',
+      occurredAt: '2026-07-31T10:00:00.000Z',
+      source: 'vite-preload',
+    })
+    const duplicate = createLoadingIncident({
+      buildId: 'build-1',
+      environment: {
+        browser: {family: 'Safari', major: 18},
+        online: true,
+        origin: 'https://skeydb.com',
+        pathname: '/database',
+        platform: 'iOS',
+      },
+      error: new TypeError('Importing a module script failed'),
+      incidentId: 'MODULE-DUPLICATE',
+      occurredAt: '2026-07-31T10:00:01.000Z',
+      source: 'react-boundary',
+    })
+
+    expect(coalesceLoadingIncident(first, duplicate)).toMatchObject({
+      incidentId: 'MODULE-FIRST',
+      source: 'vite-preload',
+    })
+  })
+
+  it.each([
+    'Loading module from "module.js" was blocked because of a disallowed MIME type',
+    'Disallowed MIME type',
+  ])('classifies URL-less browser module message as an asset failure: %s', (error) => {
+    const incident = createLoadingIncident({
+      buildId: 'build-1',
+      environment: {
+        browser: {family: 'Chrome', major: 138},
+        online: true,
+        origin: 'https://skeydb.com',
+        pathname: '/database',
+        platform: 'Android',
+      },
+      error,
+      incidentId: 'MODULE-MIME',
+      occurredAt: '2026-07-31T10:00:00.000Z',
+      source: 'window-error',
+    })
+
+    expect(incident.category).toBe('asset-load')
+  })
+
   it('deduplicates only equivalent incidents inside the short correlation window', () => {
     const first = createRuntimeIncident({
       error: 'first failure',
