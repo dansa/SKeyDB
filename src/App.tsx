@@ -352,7 +352,7 @@ function App() {
         id='main-content'
       >
         <RouteErrorBoundary
-          key={locationKey}
+          key={pathname}
           onError={(error, errorInfo) => {
             loadingIncident.reportLoadingError(error, 'react-boundary', errorInfo.componentStack)
           }}

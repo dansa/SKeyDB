@@ -9,6 +9,16 @@ afterEach(() => {
 })
 
 describe('useLoadingIncident', () => {
+  it('lets Vite preload failures reach the lazy route boundary', () => {
+    const {result} = renderHook(() => useLoadingIncident({pathname: '/database'}))
+    const event = dispatchPreloadError(
+      new TypeError('Failed to fetch dynamically imported module: /assets/shared.js'),
+    )
+
+    expect(event.defaultPrevented).toBe(false)
+    expect(result.current.incident?.source).toBe('vite-preload')
+  })
+
   it('checks the current version after a failed asset probe', async () => {
     const request = vi
       .fn()
@@ -110,12 +120,13 @@ describe('useLoadingIncident', () => {
   })
 })
 
-function dispatchPreloadError(error: Error) {
+function dispatchPreloadError(error: Error): Event {
   const event = new Event('vite:preloadError', {cancelable: true})
   Object.defineProperty(event, 'payload', {value: error})
   act(() => {
     window.dispatchEvent(event)
   })
+  return event
 }
 
 function deferred<T>() {

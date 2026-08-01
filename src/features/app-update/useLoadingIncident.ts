@@ -121,7 +121,6 @@ export function useLoadingIncident({pathname}: {pathname: string}): LoadingIncid
 
   useEffect(() => {
     const handlePreloadError = (event: Event) => {
-      event.preventDefault()
       reportLoadingError(getPreloadErrorPayload(event), 'vite-preload')
     }
     const handleUnhandledRejection = (event: PromiseRejectionEvent) => {

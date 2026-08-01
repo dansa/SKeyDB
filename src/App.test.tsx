@@ -1,5 +1,7 @@
+import {useState} from 'react'
+
 import {act, fireEvent, render, screen, waitFor, within} from '@testing-library/react'
-import {MemoryRouter, useNavigate} from 'react-router-dom'
+import {MemoryRouter, useNavigate, useSearchParams} from 'react-router-dom'
 import {afterEach, vi} from 'vitest'
 
 import App from './App'
@@ -36,7 +38,34 @@ vi.mock('./pages/DZoneHistoryPage', () => ({
 }))
 
 vi.mock('./pages/TimelinePage', () => ({
-  TimelinePage: () => <h2>Events page</h2>,
+  TimelinePage: () => {
+    const [searchParams, setSearchParams] = useSearchParams()
+    const [priceMode, setPriceMode] = useState('silver-prime')
+    return (
+      <>
+        <h2>Events page</h2>
+        <span data-testid='timeline-price-mode'>{priceMode}</span>
+        <button
+          onClick={() => {
+            setPriceMode('usd-estimate')
+          }}
+          type='button'
+        >
+          Set USD price mode
+        </button>
+        <button
+          onClick={() => {
+            const nextParams = new URLSearchParams(searchParams)
+            nextParams.set('view', 'banners')
+            setSearchParams(nextParams, {replace: true})
+          }}
+          type='button'
+        >
+          Change timeline view
+        </button>
+      </>
+    )
+  },
 }))
 
 interface MatchMediaEntry {
@@ -173,6 +202,24 @@ describe('App shell', () => {
     expect(within(desktopNav).getByRole('link', {name: /d-zone/i})).toBeInTheDocument()
     expect(within(desktopNav).getByRole('link', {name: /^builder$/i})).toBeInTheDocument()
     expect(within(desktopNav).getByRole('link', {name: /collection/i})).toBeInTheDocument()
+  })
+
+  it('preserves timeline state when only the search parameters change', async () => {
+    render(
+      <MemoryRouter initialEntries={['/timeline']}>
+        <App />
+      </MemoryRouter>,
+    )
+
+    expect(await screen.findByRole('heading', {name: /events page/i})).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', {name: /set usd price mode/i}))
+    expect(screen.getByTestId('timeline-price-mode')).toHaveTextContent('usd-estimate')
+
+    fireEvent.click(screen.getByRole('button', {name: /change timeline view/i}))
+
+    await waitFor(() => {
+      expect(screen.getByTestId('timeline-price-mode')).toHaveTextContent('usd-estimate')
+    })
   })
 
   it('uses separate desktop and mobile navigation surfaces', () => {
