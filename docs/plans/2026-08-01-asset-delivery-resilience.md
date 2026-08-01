@@ -80,7 +80,7 @@ silently clear user state.
 21. As a maintainer, I want existing healthy newer-version notices to remain separate from actual loading incidents, so that update availability is not reported as a crash.
 22. As a maintainer, I want the feature to work without an issue tracker, support email, telemetry service, or backend endpoint, so that the copied report remains useful under the project's current contact model.
 23. As a maintainer, I want the hardening change to preserve direct asset URLs used by legitimate consumers, so that a fix does not depend on renaming the asset namespace or breaking hotlinks.
-24. As a maintainer, I want deployment verification to make custom-domain and GitHub Pages artifact differences visible, so that we do not assume two hosts are serving the same build when their manifests disagree.
+24. As a maintainer, I want deployment verification to validate each host's own build and delivery contract, so that a healthy response on one host is not treated as proof for the other.
 25. As a maintainer, I want uncertainty preserved in user-facing wording, so that an observed HTML response is not presented as proof of a specific CDN or browser cause.
 
 ## Implementation Decisions
@@ -120,9 +120,10 @@ silently clear user state.
 - Reuse the existing loading-incident model, classifier, sanitization, clipboard fallback, and
   accessibility behavior. This companion work adds delivery evidence and recovery behavior; it
   does not create a second error panel or a second diagnostics schema.
-- Keep custom-domain and GitHub Pages artifact identity explicit in deployment verification. A
-  successful check on one host must not be treated as proof that the other host serves the same
-  build unless their build identifiers and referenced manifests agree.
+- Verify custom-domain and GitHub Pages builds independently. Their base paths, build environment,
+  or deployment timing may legitimately produce different hashed manifests; compare source
+  revisions or build identifiers only when investigating an unexpected release drift, not as a
+  prerequisite for edge-health verification.
 - Preserve uncertainty in the UI: an HTML response is an observed response-type mismatch, while
   stale cache, routing fallback, deployment skew, filtering, and network interruption remain
   possible explanations unless the evidence distinguishes them.
@@ -187,9 +188,10 @@ silently clear user state.
   JavaScript responses with revalidation metadata, and the Database route loaded normally. That
   demonstrates the contract can be healthy from one path today; it does not establish that every
   edge or user sees the same response.
-- GitHub Pages currently uses different hashed chunk filenames from the custom domain. Deployment
-  verification should therefore compare build identifiers and manifests rather than treating the
-  two hosts as interchangeable copies.
+- GitHub Pages currently uses different hashed chunk filenames from the custom domain, which is
+  expected for independently configured deployments. Each host's own document references and
+  response contract should be verified; cross-host identity comparison is optional diagnostic
+  context rather than a correctness gate.
 - The existing diagnostics plan remains the companion user-facing work. This plan is the
   preventive and deployment-integrity layer that makes its asset evidence more actionable.
 - No issue-tracker integration or triage vocabulary is configured in this repository's local
