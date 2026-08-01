@@ -4,6 +4,8 @@ import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 import {defineConfig, type Plugin} from 'vite'
 
+import {PRODUCTION_BUILD_TARGETS} from './src/domain/browser-support'
+
 interface AppVersionSnapshot {
   buildId: string
   generatedAt: string
@@ -57,7 +59,7 @@ export default defineConfig({
 
   build: {
     assetsInlineLimit: 0,
-    target: ['chrome110', 'edge110', 'firefox115', 'safari16'],
+    target: [...PRODUCTION_BUILD_TARGETS],
   },
 
   define: {

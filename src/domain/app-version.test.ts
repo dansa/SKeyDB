@@ -1,10 +1,14 @@
-import {describe, expect, it} from 'vitest'
+import {describe, expect, it, vi} from 'vitest'
 
 import {
   getAppVersionUrl,
+  getLoadingIncidentRecoveryUrl,
+  hasLoadingIncidentRecoveryMarker,
   isDifferentAppVersion,
   isLikelyStaleChunkError,
   parseAppVersionSnapshot,
+  recoverFromNewerBuild,
+  removeLoadingIncidentRecoveryMarker,
 } from './app-version'
 
 describe('app-version', () => {
@@ -47,5 +51,53 @@ describe('app-version', () => {
       ),
     ).toBe(true)
     expect(isLikelyStaleChunkError(new Error('ordinary render failure'))).toBe(false)
+  })
+
+  it('adds and removes a one-shot loading recovery marker without changing route data', () => {
+    const marked = getLoadingIncidentRecoveryUrl(
+      'https://skeydb.com/database?filter=owned#awakener-24',
+    )
+
+    expect(marked).toBe('https://skeydb.com/database?filter=owned&skeydb-reload=1#awakener-24')
+    expect(hasLoadingIncidentRecoveryMarker(marked)).toBe(true)
+    expect(removeLoadingIncidentRecoveryMarker(marked)).toBe(
+      'https://skeydb.com/database?filter=owned#awakener-24',
+    )
+    expect(hasLoadingIncidentRecoveryMarker('https://skeydb.com/database')).toBe(false)
+  })
+
+  it('reloads through the supplied callback only when the version document is newer', async () => {
+    const request = vi.fn().mockResolvedValue(
+      new Response(JSON.stringify({buildId: 'next'}), {
+        headers: {'content-type': 'application/json'},
+        status: 200,
+      }),
+    )
+    const reload = vi.fn()
+
+    await expect(
+      recoverFromNewerBuild({
+        currentBuildId: 'current',
+        onReload: reload,
+        pageUrl: 'https://skeydb.com/database?filter=owned#awakener-24',
+        request,
+        versionUrl: 'https://skeydb.com/version.json',
+      }),
+    ).resolves.toBe(true)
+    expect(reload).toHaveBeenCalledWith(
+      'https://skeydb.com/database?filter=owned&skeydb-reload=1#awakener-24',
+    )
+
+    request.mockResolvedValueOnce(new Response(JSON.stringify({buildId: 'current'}), {status: 200}))
+    await expect(
+      recoverFromNewerBuild({
+        currentBuildId: 'current',
+        onReload: reload,
+        pageUrl: 'https://skeydb.com/database?filter=owned#awakener-24',
+        request,
+        versionUrl: 'https://skeydb.com/version.json',
+      }),
+    ).resolves.toBe(false)
+    expect(reload).toHaveBeenCalledTimes(1)
   })
 })

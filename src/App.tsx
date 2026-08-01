@@ -5,8 +5,10 @@ import {Link, Navigate, NavLink, Route, Routes, useLocation} from 'react-router-
 import {getBrowserLocalStorage} from '@/domain/storage'
 
 import {AppUpdateNotice} from './features/app-update/AppUpdateNotice'
-import {StaleChunkErrorBoundary} from './features/app-update/StaleChunkErrorBoundary'
+import {LoadingIncidentNotice} from './features/app-update/LoadingIncidentNotice'
+import {RouteErrorBoundary} from './features/app-update/RouteErrorBoundary'
 import {useAppUpdateNotice} from './features/app-update/useAppUpdateNotice'
+import {useLoadingIncident} from './features/app-update/useLoadingIncident'
 import {
   dismissBuilderV2BetaBanner,
   isBuilderV2BetaBannerDismissed,
@@ -107,6 +109,7 @@ const COMPACT_MOBILE_VISIBLE_ITEM_COUNT = 3
 function App() {
   const {key: locationKey, pathname, search} = useLocation()
   const appUpdateNotice = useAppUpdateNotice()
+  const loadingIncident = useLoadingIncident({pathname})
   const [storage] = useState(() => getBrowserLocalStorage())
   const [builderV2Default, setBuilderV2DefaultState] = useState(() => isBuilderV2Default(storage))
   const [dismissedBuilderV2Surfaces, setDismissedBuilderV2Surfaces] = useState(() => ({
@@ -325,13 +328,15 @@ function App() {
       </header>
 
       <DomainMigrationNotice routePathname={pathname} />
-      {appUpdateNotice.reason && (
-        <AppUpdateNotice
-          onDismiss={appUpdateNotice.dismiss}
-          onRefresh={appUpdateNotice.refresh}
-          reason={appUpdateNotice.reason}
-        />
+      {appUpdateNotice.available && (
+        <AppUpdateNotice onDismiss={appUpdateNotice.dismiss} onRefresh={appUpdateNotice.refresh} />
       )}
+      {loadingIncident.incident ? (
+        <LoadingIncidentNotice
+          incident={loadingIncident.incident}
+          onRefresh={loadingIncident.refresh}
+        />
+      ) : null}
       {builderV2BannerSurface ? (
         <BuilderV2BetaNotice
           builderV2Default={builderV2Default}
@@ -346,7 +351,12 @@ function App() {
         className='mx-auto w-full max-w-[1240px] px-4 py-4 sm:px-5 md:py-5 lg:px-8'
         id='main-content'
       >
-        <StaleChunkErrorBoundary>
+        <RouteErrorBoundary
+          key={pathname}
+          onError={(error, errorInfo) => {
+            loadingIncident.reportLoadingError(error, 'react-boundary', errorInfo.componentStack)
+          }}
+        >
           <Suspense
             fallback={<div className='px-2 py-6 text-sm text-slate-300'>Loading page…</div>}
           >
@@ -373,7 +383,7 @@ function App() {
               <Route element={<Navigate replace to='/' />} path='*' />
             </Routes>
           </Suspense>
-        </StaleChunkErrorBoundary>
+        </RouteErrorBoundary>
       </main>
       <ScrollToTopButton routeKey={locationKey} />
     </div>

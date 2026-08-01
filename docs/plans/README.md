@@ -16,5 +16,6 @@ This folder is for active implementation plans only.
 
 Current state:
 
+- `2026-07-31-actionable-loading-error-diagnostics.md` - in-progress implementation of one deduplicated loading incident surface with sanitized, user-copied diagnostics.
 - `2026-05-16-refactor-heavy-slices.md` - draft ledger for larger refactor slices discovered during the May 2026 scout pass.
 - `2026-05-17-domain-storage-migration.md` - draft plan for moving existing browser-local SKeyDB data from GitHub Pages to `skeydb.com`.
