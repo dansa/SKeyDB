@@ -2,16 +2,16 @@
 
 **Status:** In progress
 
-**Last updated:** 2026-08-01
+**Last updated:** 2026-08-02
 
 ## Progress Snapshot
 
-- Done: asset-safe Pages middleware, build-reference verification, bounded cache metadata, and
+- Done: static asset fallback contract, build-reference verification, bounded cache metadata, and
   one-shot newer-build recovery.
-- In progress: local review and commit preparation.
+- In progress: local Pages runtime validation of the nested asset 404 behavior.
 - Next: production deployment and live custom-domain verification remain separately authorized
   steps.
-- Blockers: none.
+- Blockers: Cloudflare preview validation is still required before production adoption.
 
 ## Problem Statement
 
@@ -88,9 +88,12 @@ silently clear user state.
 - Define the generated asset namespace as a protected delivery surface. Requests under that
   namespace must bypass the document fallback and must not be rewritten to the SPA shell.
 - Preserve the document fallback for extensionless application routes and other explicitly
-  supported navigational requests. The exact Cloudflare Pages mechanism may be a supported
-  exclusion rule, a Pages Function, or an equivalent front-controller rule; the implementation
-  must be verified against the deployed platform rather than relying on redirect ordering alone.
+  supported navigational requests by relying on Pages' SPA behavior when no top-level `404.html`
+  is present. Do not use a broad `_redirects` rewrite, because it can rewrite missing asset URLs
+  to the SPA shell before the closest asset 404 can be selected.
+- Place a static `assets/404.html` in the final build output so Pages can use the closest asset
+  fallback for missing generated assets without invoking a Pages Function. This combined nested
+  404 and SPA behavior must be verified against the deployed platform before production adoption.
 - Keep the current asset URL namespace and Vite content-hash naming. This work must not rename
   `/assets/` or otherwise invalidate legitimate direct asset links as a cache-busting shortcut.
 - Treat an unavailable generated asset as a real not-found or unavailable response. It must not be
@@ -103,6 +106,8 @@ silently clear user state.
 - Add a production-like routing smoke check around the hosting contract. It must prove that a
   valid deep link returns the SPA document, a known generated asset returns its expected static
   content type, and an unknown generated asset does not return the SPA document.
+- Fail the build if `dist/assets/404.html` is missing, if a top-level `dist/404.html` appears, or
+  if `dist/_redirects` reintroduces a broad rewrite that can turn an asset miss into `index.html`.
 - Extend the existing bounded asset probe with an allowlist of response headers: normalized
   `content-type`, HTTP status, `cache-control`, CDN cache status when present, `age` when present,
   and `etag` when present. Header values must be length-limited and control-character-free.
