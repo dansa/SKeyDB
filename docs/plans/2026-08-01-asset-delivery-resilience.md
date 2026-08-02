@@ -6,12 +6,13 @@
 
 ## Progress Snapshot
 
-- Done: static asset fallback contract, build-reference verification, bounded cache metadata, and
-  one-shot newer-build recovery.
-- In progress: local Pages runtime validation of the nested asset 404 behavior.
+- Done: static asset fallback contract, build-reference verification, bounded cache metadata,
+  one-shot newer-build recovery, and Cloudflare Pages preview validation.
+- In progress: production adoption decision and live custom-domain verification remain separately
+  authorized steps.
 - Next: production deployment and live custom-domain verification remain separately authorized
   steps.
-- Blockers: Cloudflare preview validation is still required before production adoption.
+- Blockers: none.
 
 ## Problem Statement
 
