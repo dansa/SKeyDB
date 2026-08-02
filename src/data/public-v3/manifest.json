@@ -1,10 +1,10 @@
 {
   "schemaVersion": 3,
-  "gameDataVersion": "compiled-sha256-33aeba8435b85130",
-  "generatedAt": "2026-07-27T22:36:51Z",
-  "buildId": "public-v3-sha256-239a655c17b833f7",
+  "gameDataVersion": "compiled-sha256-4bac87d928a778f8",
+  "generatedAt": "2026-08-02T13:41:19Z",
+  "buildId": "public-v3-sha256-a707a48bc898f556",
   "build": {
-    "gameDataVersion": "compiled-sha256-33aeba8435b85130",
+    "gameDataVersion": "compiled-sha256-4bac87d928a778f8",
     "recordCount": 1889,
     "scopes": ["awakeners", "wheels", "relics", "covenants", "posses", "skills", "derived-skills", "talents", "enlightens", "overlays", "awakener-builds"]
   },
@@ -1178,8 +1178,8 @@
       "sha256": "762e7a5399a69f44bb3072e0773bbcb18a231ce994bca2cdbd9450aa0c4126d0"
     },
     "records/derived-skills/derived.global.slumber.json": {
-      "bytes": 768,
-      "sha256": "2b59e963df8ca68f7dc3ac502646666ba0b993d5f34092e8204a0bb083c1b749"
+      "bytes": 762,
+      "sha256": "a16fe2abf7c534d97fbb4f2ce9e65f248beec3a7437952d8f0b4bddc5cb83274"
     },
     "records/derived-skills/derived.global.solidify.json": {
       "bytes": 807,
@@ -6771,7 +6771,7 @@
     },
     "records/talents/talent.lotan-cetarchon.primordial-breath.json": {
       "bytes": 2623,
-      "sha256": "f29bbdeed64a2afeb92d9ea5381edc92bddf64cd0b5f6cfd72c14795ea826040"
+      "sha256": "84cb079a38f3f70ebb6a3818efea3c308fa3ee1b7ee1955b4b109a720f3ad823"
     },
     "records/talents/talent.lotan-cetarchon.soulforge-aptitude.json": {
       "bytes": 1294,
@@ -7262,8 +7262,8 @@
       "sha256": "40cb8523812ae8f1f14d2ac48943cb8f42c8217e15ce76d563ad6bc610ae3002"
     },
     "records/wheels/wheel-0016.json": {
-      "bytes": 2105,
-      "sha256": "28181227a1d6f1381bc06495092b0452125f1f8873f6e93534d4e3a7b588bb6f"
+      "bytes": 2112,
+      "sha256": "57980e8a60ee4a8d686bee0e1cbf98f608f8e668c1743e9128cea6b7c1e43a32"
     },
     "records/wheels/wheel-0017.json": {
       "bytes": 3188,
@@ -7278,8 +7278,8 @@
       "sha256": "6fab28e7aac78e6457a4dd1f03c4687cae5a66fb525b0e8e0f0efd4f4c7335d6"
     },
     "records/wheels/wheel-0020.json": {
-      "bytes": 3089,
-      "sha256": "7515c2ba236404d7e48260ec19570feb3515458c4d53c10253565ecdcbef3bea"
+      "bytes": 3103,
+      "sha256": "282e7ed51620091e0d0887657e3415d1d61e153d95a9a55acf7a5f16754fad9b"
     },
     "records/wheels/wheel-0021.json": {
       "bytes": 2541,
@@ -7306,8 +7306,8 @@
       "sha256": "086c4eff57fdb6b13a49a146b59cd7c1608d3e157e908ee29a5cff0592c12d9a"
     },
     "records/wheels/wheel-0027.json": {
-      "bytes": 2354,
-      "sha256": "6cb0581264d86acc5cf3c27a1106564d3e83b90d0f9c3929ba4a4ab5d929d77b"
+      "bytes": 2361,
+      "sha256": "9adeb50890ddaeb400403fdcd08b0602eb08431c2beac2420a335845b71eb026"
     },
     "records/wheels/wheel-0028.json": {
       "bytes": 3841,
@@ -7706,8 +7706,8 @@
       "sha256": "b933c3a890b233a4f961dc3735b5fdb05601c28020aa9f06d0e0c3dc84eba130"
     },
     "records/wheels/wheel-0131.json": {
-      "bytes": 2444,
-      "sha256": "7a5e7ef8ade6df5ec7b2a616a3dbbfca310119cf9c35cd2a54d17fc3bf12d99c"
+      "bytes": 2451,
+      "sha256": "a90fcf6931cb73277281421b0ac2760c4af02a0eb6c0460fd7e24422215906a4"
     },
     "records/wheels/wheel-0132.json": {
       "bytes": 4132,
