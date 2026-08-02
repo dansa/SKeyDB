@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "scope": "enemy-characteristics",
-  "recordCount": 19,
+  "recordCount": 20,
   "records": [
     {
       "id": "enemy-characteristic-0013",
@@ -52,6 +52,11 @@
       "id": "enemy-characteristic-0009",
       "name": "Insectoid",
       "descriptionTemplate": "They are insectoid beings, embodying a single, shared hive mind."
+    },
+    {
+      "id": "enemy-characteristic-0020",
+      "name": "Kindreds of Rapture",
+      "descriptionTemplate": "Benefits of joining the Kindreds of Rapture: No matter how absurd your actions may be, they will never be condemned as out of place. ...If you don't understand—well, you're simply not rapturous enough yet!"
     },
     {
       "id": "enemy-characteristic-0011",

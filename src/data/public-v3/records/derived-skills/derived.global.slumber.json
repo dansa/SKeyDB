@@ -7,7 +7,7 @@
     "slug": "slumber",
     "canonicalPath": "/database/derived-skills/slumber"
   },
-  "descriptionTemplate": "Gain [Block:Arg1] Shield and 1 stack of {Stellar Protection}. Max 5 stacks. Stacks persist between battles.\nScaling guide: {Primordia Mastery Scaling}",
+  "descriptionTemplate": "Gain [Arg1] Shield and 1 stack of {Stellar Protection}. Max 5 stacks. Stacks persist between battles.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",

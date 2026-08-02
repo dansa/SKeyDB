@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0018",
   "ownerAwakenerName": "Doll: Inferno",
   "lineupToken": "xW",
-  "descriptionTemplate": "{Poison} inflicted, Aliemus generated, and HP recovered by the wielder each +[StateArg1]%.\nAfter the wielder Exalts, they gain Aliemus equal to [StateArg2]% of the Aliemus consumed by that Exalt. {(Aliemus generation bonuses, such as this Wheel, can affect this amount.)}",
+  "descriptionTemplate": "{Poison} inflicted, Aliemus generated, and HP recovered by the wielder each +[StateArg1]%.\nAfter the wielder Exalts, they gain Aliemus equal to [StateArg2]% of the Aliemus consumed by that Exalt. <Italic:(Aliemus generation bonuses, such as this Wheel, can affect this amount.)>",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",
