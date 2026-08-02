@@ -9,8 +9,8 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && node scripts/verify-build-assets.mjs",
-    "build:quiet": "tsc -b && vite build --logLevel error && node scripts/verify-build-assets.mjs",
+    "build": "tsc -b && vite build && node scripts/verify-build-assets.mjs && node scripts/verify-cloudflare-pages-static-fallback.mjs",
+    "build:quiet": "tsc -b && vite build --logLevel error && node scripts/verify-build-assets.mjs && node scripts/verify-cloudflare-pages-static-fallback.mjs",
     "format": "oxfmt --write \"src/**/*.{ts,tsx,css}\" \"scripts/**/*.{js,mjs,cjs}\" \"functions/**/*.{js,mjs,cjs}\" \"src/data/**/*.json\" \"src/domain/*.json\" \"package.json\" \".oxfmtrc.json\" \".oxlintrc.json\" \"doctor.config.ts\" \"vite.config.ts\" \"vitest.config.ts\" \"tsconfig*.json\" \".github/workflows/*.yml\"",
     "format:changed": "node scripts/format-changed-files.mjs",
     "format:check": "oxfmt --check \"src/**/*.{ts,tsx,css}\" \"scripts/**/*.{js,mjs,cjs}\" \"functions/**/*.{js,mjs,cjs}\" \"src/data/**/*.json\" \"src/domain/*.json\" \"package.json\" \".oxfmtrc.json\" \".oxlintrc.json\" \"doctor.config.ts\" \"vite.config.ts\" \"vitest.config.ts\" \"tsconfig*.json\" \".github/workflows/*.yml\"",
@@ -25,6 +25,7 @@
     "test": "vitest run",
     "test:bounded": "vitest run --run --pool=forks --maxWorkers=4",
     "test:scripts": "node --test scripts/*.test.mjs",
+    "verify:cloudflare-pages-static-fallback": "node scripts/verify-cloudflare-pages-static-fallback.mjs",
     "test:unit": "vitest run --run --exclude src/features/builder/BuilderPage*.test.tsx",
     "test:integration:builder": "vitest run --run src/features/builder/BuilderPage.awakener-basics.test.tsx src/features/builder/BuilderPage.team-management.test.tsx src/features/builder/BuilderPage.quick-lineup.test.tsx src/features/builder/BuilderPage.import-export.test.tsx src/features/builder/BuilderPage.selection.test.tsx src/features/builder/BuilderPage.covenants.test.tsx src/features/builder/BuilderPage.wheels.test.tsx",
     "test:integration:builder-v2": "vitest run --run src/features/builder-v2/BuilderV2Page.test.tsx src/features/builder-v2/useBuilderV2Model.test.ts src/features/builder-v2/builder-v2-dnd.test.ts",
