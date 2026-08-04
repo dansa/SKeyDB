@@ -1,4 +1,4 @@
-import {useEffect, useMemo, useReducer, useRef, useSyncExternalStore, type RefObject} from 'react'
+import {useEffect, useMemo, useReducer, useSyncExternalStore} from 'react'
 
 import type {BannerFeaturedUnit, BannerPoolSlot} from '@/domain/timeline'
 
@@ -34,8 +34,6 @@ type PoolCycleAction =
       slotIdx: number
       cycleKey: string
     }
-
-type PendingTransitionMap = Map<number, ReturnType<typeof setTimeout>>
 
 function getPoolFingerprint(pool: BannerFeaturedUnit[]): string {
   return pool
@@ -102,26 +100,6 @@ function subscribeToReducedMotion(onStoreChange: () => void): () => void {
   return () => {
     mediaQuery.removeEventListener('change', onStoreChange)
   }
-}
-
-function clearPendingTransition(pendingBySlot: PendingTransitionMap, slotIdx: number) {
-  const pending = pendingBySlot.get(slotIdx)
-  if (!pending) return
-
-  clearTimeout(pending)
-  pendingBySlot.delete(slotIdx)
-}
-
-function clearAllPendingTransitions(pendingBySlot: PendingTransitionMap) {
-  pendingBySlot.forEach((pending) => {
-    clearTimeout(pending)
-  })
-  pendingBySlot.clear()
-}
-
-function getPendingTransitionMap(ref: RefObject<PendingTransitionMap | null>) {
-  ref.current ??= new Map()
-  return ref.current
 }
 
 function poolCycleReducer(state: PoolCycleState, action: PoolCycleAction): PoolCycleState {
@@ -197,15 +175,16 @@ export function usePoolCycling(
     cycleKey: poolCycleKey,
   })
 
-  const pendingBySlotRef = useRef<PendingTransitionMap | null>(null)
-
   const frames =
     reducedMotion || cycleState.cycleKey !== poolCycleKey ? initialFrames : cycleState.frames
 
+  // react-doctor-disable-next-line react-doctor/effect-needs-cleanup -- The timer is created by this effect-owned interval and cleared by the teardown below.
   useEffect(() => {
     if (!enabled || reducedMotion) return
 
-    const pendingTransitions = getPendingTransitionMap(pendingBySlotRef)
+    // The cycle interval is longer than the transition duration, so only one
+    // completion timer can be pending at a time.
+    let pendingTransition: ReturnType<typeof setTimeout> | undefined
     const cyclableSlots: number[] = []
     for (const [index, slot] of poolSlots.entries()) {
       if (slot.pool.length > 1) {
@@ -244,17 +223,17 @@ export function usePoolCycling(
         cycleKey: poolCycleKey,
       })
 
-      clearPendingTransition(pendingTransitions, slotIdx)
-      const pending = setTimeout(() => {
+      pendingTransition = setTimeout(() => {
         dispatch({type: 'completeTransition', slotIdx, cycleKey: poolCycleKey})
-        pendingTransitions.delete(slotIdx)
+        pendingTransition = undefined
       }, TRANSITION_DURATION_MS)
-      pendingTransitions.set(slotIdx, pending)
     }, CYCLE_INTERVAL_MS)
 
     return () => {
       clearInterval(interval)
-      clearAllPendingTransitions(pendingTransitions)
+      if (pendingTransition !== undefined) {
+        clearTimeout(pendingTransition)
+      }
     }
   }, [enabled, fingerprints, initialFrames, poolCycleKey, poolSlots, reducedMotion, sharedGroups])
 

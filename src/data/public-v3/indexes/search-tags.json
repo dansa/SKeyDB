@@ -7,7 +7,7 @@
       "section": "affix",
       "aliases": ["weak"],
       "order": 100,
-      "count": 21
+      "count": 22
     },
     {
       "id": "vulnerable",
@@ -15,7 +15,7 @@
       "section": "affix",
       "aliases": ["vulnerability", "vuln"],
       "order": 110,
-      "count": 21
+      "count": 25
     },
     {
       "id": "poison",
@@ -79,7 +79,7 @@
       "section": "affix",
       "aliases": ["strength down", "str down"],
       "order": 220,
-      "count": 12
+      "count": 13
     },
     {
       "id": "tentacle-dmg",

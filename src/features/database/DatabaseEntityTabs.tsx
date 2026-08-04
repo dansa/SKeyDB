@@ -1,4 +1,4 @@
-import {NavLink} from 'react-router-dom'
+import {NavLink} from 'react-router'
 
 import {buildDatabaseEntityBrowsePath, type DatabaseEntityId} from '@/domain/database-entity-paths'
 

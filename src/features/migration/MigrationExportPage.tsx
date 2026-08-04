@@ -1,7 +1,7 @@
 import {useEffect, useMemo, useRef} from 'react'
 
 import {FaArrowRight} from 'react-icons/fa6'
-import {useSearchParams} from 'react-router-dom'
+import {useSearchParams} from 'react-router'
 
 import {getBrowserLocalStorage, type StorageLike} from '@/domain/storage'
 import {

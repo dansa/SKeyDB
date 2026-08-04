@@ -1,5 +1,6 @@
 import {act, render, screen, waitFor} from '@testing-library/react'
-import {createMemoryRouter, MemoryRouter, RouterProvider} from 'react-router-dom'
+import {createMemoryRouter, MemoryRouter} from 'react-router'
+import {RouterProvider} from 'react-router/dom'
 import {describe, expect, it, vi} from 'vitest'
 
 import {type StorageLike} from '@/domain/storage'

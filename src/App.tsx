@@ -1,6 +1,6 @@
 import {lazy, Suspense, useCallback, useEffect, useState, useSyncExternalStore} from 'react'
 
-import {Link, Navigate, NavLink, Route, Routes, useLocation} from 'react-router-dom'
+import {Link, Navigate, NavLink, Route, Routes, useLocation} from 'react-router'
 
 import {getBrowserLocalStorage} from '@/domain/storage'
 

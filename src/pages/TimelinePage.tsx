@@ -1,6 +1,6 @@
 import {useState} from 'react'
 
-import {useSearchParams} from 'react-router-dom'
+import {useSearchParams} from 'react-router'
 
 import {getAwakeners} from '@/domain/awakeners'
 import type {EntityRef} from '@/domain/entities/types'

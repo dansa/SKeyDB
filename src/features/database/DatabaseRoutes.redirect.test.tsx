@@ -2,7 +2,7 @@ import '@testing-library/jest-dom/vitest'
 import {Suspense} from 'react'
 
 import {render, screen, waitFor} from '@testing-library/react'
-import {MemoryRouter, Routes, useLocation} from 'react-router-dom'
+import {MemoryRouter, Routes, useLocation} from 'react-router'
 import {describe, expect, it, vi} from 'vitest'
 
 import {DatabaseRouteElements} from './routes'

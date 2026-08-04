@@ -20,7 +20,7 @@
   "releaseDate": "2023-11-29",
   "faction": "Outlanders",
   "aliases": ["karen"],
-  "searchTags": ["Weakness", "Poison", "Dispel", "Arithmetica", "Draw", "Heal", "Keyflare"],
+  "searchTags": ["Weakness", "Vulnerable", "Poison", "Dispel", "Arithmetica", "Draw", "Heal", "Keyflare"],
   "primaryScalingBase": 20,
   "baseStatsLv1": {
     "CON": 30,

@@ -10,7 +10,7 @@
   "ownerAwakenerId": "awakener-0054",
   "derivedFromId": "skill.xu.mist-bound-vow",
   "rootSkillId": "skill.xu.mist-bound-vow",
-  "descriptionTemplate": "Remove all enemies' {Spellbound}. For each stack removed: {Crimson Furnace} +[Arg3]; cause {Fixed DMG} equal to [Arg1]% of the target's Max HP; trigger [Arg2]% {Poison}.",
+  "descriptionTemplate": "Remove all enemies' {Spellbound}. Each stack removed causes {Fixed DMG} equal to [Arg1]% of the target's Max HP and triggers [Arg2]% {Poison}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -20,12 +20,6 @@
     "Arg2": {
       "kind": "fixed",
       "value": "40",
-      "suffix": "%"
-    },
-    "Arg3": {
-      "kind": "fixed",
-      "value": "20",
-      "stat": "CON",
       "suffix": "%"
     }
   },
@@ -40,7 +34,7 @@
       "ownerAwakenerId": "awakener-0054",
       "ownerAwakenerName": "Xu",
       "patch": {
-        "descriptionTemplate": "Remove all enemies' {Spellbound}. For each stack removed: {Crimson Furnace} +[Arg3]; cause {Fixed DMG} equal to [Arg1]% of the target's Max HP; trigger [Arg2]% {Poison}."
+        "descriptionTemplate": "Remove all enemies' {Spellbound}. Each stack removed causes {Fixed DMG} equal to [Arg1]% of the target's Max HP and triggers [Arg2]% {Poison}."
       }
     }
   ],

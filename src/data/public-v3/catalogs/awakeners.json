@@ -340,7 +340,7 @@
       },
       "lineupToken": "M",
       "aliases": ["caecus"],
-      "searchTags": ["Counter", "STR Up", "Tentacle DMG", "Dispel", "Heal", "Tentacle Generation"]
+      "searchTags": ["Vulnerable", "Counter", "STR Up", "Tentacle DMG", "Dispel", "Heal", "Tentacle Generation"]
     },
     {
       "kind": "awakener",
@@ -558,7 +558,7 @@
       },
       "lineupToken": "9",
       "aliases": ["clementine"],
-      "searchTags": ["Bleed", "STR Up", "Dispel", "Keyflare"]
+      "searchTags": ["Bleed", "STR Up", "STR Down", "Dispel", "Keyflare"]
     },
     {
       "kind": "awakener",
@@ -613,7 +613,7 @@
       },
       "lineupToken": "6",
       "aliases": ["corposant"],
-      "searchTags": ["Weakness", "STR Up", "Tentacle DMG", "Aftershock", "Death Resistance", "Discard", "Draw", "Tentacle Generation"]
+      "searchTags": ["Weakness", "Vulnerable", "STR Up", "Tentacle DMG", "Aftershock", "Death Resistance", "Discard", "Draw", "Tentacle Generation"]
     },
     {
       "kind": "awakener",
@@ -1429,7 +1429,7 @@
       },
       "lineupToken": "m",
       "aliases": ["karen"],
-      "searchTags": ["Weakness", "Poison", "Dispel", "Arithmetica", "Draw", "Heal", "Keyflare"]
+      "searchTags": ["Weakness", "Vulnerable", "Poison", "Dispel", "Arithmetica", "Draw", "Heal", "Keyflare"]
     },
     {
       "kind": "awakener",
@@ -2205,7 +2205,7 @@
       },
       "lineupToken": "0",
       "aliases": ["pickman"],
-      "searchTags": ["STR Up", "Steal STR", "Discover", "Arithmetica", "Draw"]
+      "searchTags": ["Weakness", "Vulnerable", "STR Up", "Steal STR", "Discover", "Arithmetica", "Draw"]
     },
     {
       "kind": "awakener",

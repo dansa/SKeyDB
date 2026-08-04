@@ -4,7 +4,7 @@ import '@testing-library/jest-dom/vitest'
 import {Suspense, useState} from 'react'
 
 import {act, fireEvent, render, screen, waitFor} from '@testing-library/react'
-import {MemoryRouter, Routes, useLocation, useNavigate} from 'react-router-dom'
+import {MemoryRouter, Routes, useLocation, useNavigate} from 'react-router'
 import {afterEach, beforeAll, describe, expect, it, vi} from 'vitest'
 
 import {createMockPublicCatalog, createMockPublicDetailLoaders} from '@/test/publicCatalogFixtures'
