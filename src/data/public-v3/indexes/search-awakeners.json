@@ -347,18 +347,24 @@
         "tentacle limit",
         "tentacles",
         "up",
+        "vuln",
+        "vulnerability",
+        "vulnerable",
         "warden"
       ],
       "fields": {
         "name": ["Caecus"],
         "alias": ["caecus"],
         "tag": [
+          "vulnerable",
           "counter",
           "str-up",
           "tentacle-dmg",
           "dispel",
           "heal",
           "tentacles",
+          "vulnerability",
+          "vuln",
           "STR Up",
           "strength up",
           "Tentacle DMG",
@@ -380,7 +386,7 @@
         "type": "WARDEN",
         "availabilityType": "PERMANENT",
         "faction": "Hybrid",
-        "tags": ["counter", "dispel", "heal", "str-up", "tentacle-dmg", "tentacles"]
+        "tags": ["counter", "dispel", "heal", "str-up", "tentacle-dmg", "tentacles", "vulnerable"]
       }
     },
     {
@@ -542,6 +548,7 @@
         "clear",
         "clementine",
         "dispel",
+        "down",
         "keyflare",
         "limited",
         "limited astral reign",
@@ -549,8 +556,10 @@
         "remove",
         "ssr",
         "str",
+        "str down",
         "str up",
         "strength",
+        "strength down",
         "strength up",
         "the",
         "the unknowable",
@@ -561,7 +570,7 @@
       "fields": {
         "name": ["Clementine"],
         "alias": ["clementine"],
-        "tag": ["bleed", "str-up", "dispel", "keyflare", "STR Up", "strength up", "cleanse", "clear", "remove"],
+        "tag": ["bleed", "str-up", "str-down", "dispel", "keyflare", "STR Up", "strength up", "STR Down", "strength down", "cleanse", "clear", "remove"],
         "facet": ["ULTRA", "SSR", "CHORUS", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "The Unknowable"]
       },
       "facets": {
@@ -570,7 +579,7 @@
         "type": "CHORUS",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "The Unknowable",
-        "tags": ["bleed", "dispel", "keyflare", "str-up"]
+        "tags": ["bleed", "dispel", "keyflare", "str-down", "str-up"]
       }
     },
     {
@@ -612,6 +621,9 @@
         "the",
         "the fools",
         "up",
+        "vuln",
+        "vulnerability",
+        "vulnerable",
         "warden",
         "weak",
         "weakness"
@@ -621,6 +633,7 @@
         "alias": ["corposant"],
         "tag": [
           "weakness",
+          "vulnerable",
           "str-up",
           "tentacle-dmg",
           "aftershock",
@@ -629,6 +642,8 @@
           "draw",
           "tentacles",
           "weak",
+          "vulnerability",
+          "vuln",
           "STR Up",
           "strength up",
           "Tentacle DMG",
@@ -647,7 +662,7 @@
         "type": "WARDEN",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "The Fools",
-        "tags": ["aftershock", "death-resistance", "discard", "draw", "str-up", "tentacle-dmg", "tentacles", "weakness"]
+        "tags": ["aftershock", "death-resistance", "discard", "draw", "str-up", "tentacle-dmg", "tentacles", "vulnerable", "weakness"]
       }
     },
     {
@@ -1578,13 +1593,33 @@
         "recovery",
         "remove",
         "ssr",
+        "vuln",
+        "vulnerability",
+        "vulnerable",
         "weak",
         "weakness"
       ],
       "fields": {
         "name": ["Karen"],
         "alias": ["karen"],
-        "tag": ["weakness", "poison", "dispel", "arithmetica", "draw", "heal", "keyflare", "weak", "cleanse", "clear", "remove", "healing", "hp recovery"],
+        "tag": [
+          "weakness",
+          "vulnerable",
+          "poison",
+          "dispel",
+          "arithmetica",
+          "draw",
+          "heal",
+          "keyflare",
+          "weak",
+          "vulnerability",
+          "vuln",
+          "cleanse",
+          "clear",
+          "remove",
+          "healing",
+          "hp recovery"
+        ],
         "facet": ["CHAOS", "SSR", "CHORUS", "PERMANENT", "Outlanders"]
       },
       "facets": {
@@ -1593,7 +1628,7 @@
         "type": "CHORUS",
         "availabilityType": "PERMANENT",
         "faction": "Outlanders",
-        "tags": ["arithmetica", "dispel", "draw", "heal", "keyflare", "poison", "weakness"]
+        "tags": ["arithmetica", "dispel", "draw", "heal", "keyflare", "poison", "vulnerable", "weakness"]
       }
     },
     {
@@ -2399,12 +2434,34 @@
         "strength up",
         "the",
         "the fools",
-        "up"
+        "up",
+        "vuln",
+        "vulnerability",
+        "vulnerable",
+        "weak",
+        "weakness"
       ],
       "fields": {
         "name": ["Pickman"],
         "alias": ["pickman"],
-        "tag": ["str-up", "steal-str", "discover", "arithmetica", "draw", "STR Up", "strength up", "Steal STR", "steal", "str steal", "strength steal"],
+        "tag": [
+          "weakness",
+          "vulnerable",
+          "str-up",
+          "steal-str",
+          "discover",
+          "arithmetica",
+          "draw",
+          "weak",
+          "vulnerability",
+          "vuln",
+          "STR Up",
+          "strength up",
+          "Steal STR",
+          "steal",
+          "str steal",
+          "strength steal"
+        ],
         "facet": ["CARO", "SSR", "CHORUS", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "The Fools"]
       },
       "facets": {
@@ -2413,7 +2470,7 @@
         "type": "CHORUS",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "The Fools",
-        "tags": ["arithmetica", "discover", "draw", "steal-str", "str-up"]
+        "tags": ["arithmetica", "discover", "draw", "steal-str", "str-up", "vulnerable", "weakness"]
       }
     },
     {

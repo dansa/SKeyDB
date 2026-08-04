@@ -10,11 +10,11 @@
   "ownerAwakenerId": "awakener-0054",
   "derivedFromId": "skill.xu.mist-bound-vow",
   "rootSkillId": "skill.xu.mist-bound-vow",
-  "descriptionTemplate": "Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Spellbound} on all enemies. {Poison} inflicted +200%.",
+  "descriptionTemplate": "Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Spellbound} on all enemies.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
-      "value": "6"
+      "value": "2"
     }
   },
   "cardKeywords": [],
@@ -28,7 +28,7 @@
       "ownerAwakenerId": "awakener-0054",
       "ownerAwakenerName": "Xu",
       "patch": {
-        "descriptionTemplate": "Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Spellbound} on all enemies. {Poison} inflicted +200%."
+        "descriptionTemplate": "Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Spellbound} on all enemies."
       }
     }
   ],

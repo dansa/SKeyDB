@@ -20,7 +20,7 @@
   "releaseDate": "2025-04-07",
   "faction": "The Unknowable",
   "aliases": ["clementine"],
-  "searchTags": ["Bleed", "STR Up", "Dispel", "Keyflare"],
+  "searchTags": ["Bleed", "STR Up", "STR Down", "Dispel", "Keyflare"],
   "primaryScalingBase": 20,
   "baseStatsLv1": {
     "CON": 30,

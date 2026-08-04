@@ -20,7 +20,7 @@
   "releaseDate": "2025-09-08",
   "faction": "The Fools",
   "aliases": ["pickman"],
-  "searchTags": ["STR Up", "Steal STR", "Discover", "Arithmetica", "Draw"],
+  "searchTags": ["Weakness", "Vulnerable", "STR Up", "Steal STR", "Discover", "Arithmetica", "Draw"],
   "primaryScalingBase": 20,
   "baseStatsLv1": {
     "CON": 34,

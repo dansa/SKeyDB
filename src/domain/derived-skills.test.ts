@@ -588,7 +588,7 @@ describe('derived-skills', () => {
     expect(getDerivedSkillById('derived.xu.betroth', derivedSkills)).toEqual(
       expect.objectContaining({
         descriptionArgs: {
-          Arg1: {kind: 'fixed', value: '6'},
+          Arg1: {kind: 'fixed', value: '2'},
         },
       }),
     )
