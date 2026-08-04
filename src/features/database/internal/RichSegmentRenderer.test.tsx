@@ -598,13 +598,11 @@ describe('RichSegmentRenderer', () => {
     const icon = container.querySelector('img')
     expect(icon).not.toBeNull()
     expect(icon).toHaveAttribute('src', expect.stringContaining('Battle_Card_Buff_019'))
-    expect(icon).toHaveStyle({
-      display: 'inline',
-      objectFit: 'contain',
-      verticalAlign: 'middle',
-      position: 'relative',
-      top: '-0.04em',
-    })
+    expect(icon?.style.display).toBe('inline')
+    expect(icon?.style.objectFit).toBe('contain')
+    expect(icon?.style.verticalAlign).toBe('middle')
+    expect(icon?.style.position).toBe('relative')
+    expect(icon?.style.top).toBe('-0.04em')
     expect(screen.getByText('Counter')).toBeInTheDocument()
   })
 
