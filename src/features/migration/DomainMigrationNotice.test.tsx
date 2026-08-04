@@ -1,5 +1,5 @@
 import {fireEvent, render, screen, within} from '@testing-library/react'
-import {MemoryRouter} from 'react-router-dom'
+import {MemoryRouter} from 'react-router'
 import {describe, expect, it} from 'vitest'
 
 import {type StorageLike} from '@/domain/storage'

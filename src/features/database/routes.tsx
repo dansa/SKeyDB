@@ -1,6 +1,6 @@
 import {lazy} from 'react'
 
-import {Navigate, Route, useLocation, useParams} from 'react-router-dom'
+import {Navigate, Route, useLocation, useParams} from 'react-router'
 
 import type {DatabaseEntityId} from '@/domain/database-entity-paths'
 import {sanitizeDatabaseEntitySearch} from '@/domain/database-entity-search'

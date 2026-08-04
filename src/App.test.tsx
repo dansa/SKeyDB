@@ -1,7 +1,7 @@
 import {useState} from 'react'
 
 import {act, fireEvent, render, screen, waitFor, within} from '@testing-library/react'
-import {MemoryRouter, useNavigate, useSearchParams} from 'react-router-dom'
+import {MemoryRouter, useNavigate, useSearchParams} from 'react-router'
 import {afterEach, vi} from 'vitest'
 
 import App from './App'

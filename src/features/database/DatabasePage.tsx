@@ -1,6 +1,6 @@
 import {useCallback, useEffect, useMemo, type ComponentType, type ReactNode} from 'react'
 
-import {useLocation, useNavigate, useParams, type NavigateFunction} from 'react-router-dom'
+import {useLocation, useNavigate, useParams, type NavigateFunction} from 'react-router'
 
 import './database.css'
 

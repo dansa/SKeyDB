@@ -1,6 +1,6 @@
 import {useEffect, useMemo, useReducer, useRef, type MouseEvent} from 'react'
 
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router'
 
 import type {EntityRef} from '@/domain/entities/types'
 import type {BannerFeaturedUnit, BannerPoolSlot} from '@/domain/timeline'

@@ -9,7 +9,7 @@ import {
 } from 'react'
 
 import {FaMagnifyingGlass, FaXmark} from 'react-icons/fa6'
-import {Navigate, useLocation, useNavigate} from 'react-router-dom'
+import {Navigate, useLocation, useNavigate} from 'react-router'
 
 import type {Awakener} from '@/domain/awakeners'
 import type {Covenant} from '@/domain/covenants'

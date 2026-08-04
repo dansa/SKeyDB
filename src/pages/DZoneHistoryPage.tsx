@@ -1,7 +1,7 @@
 import {useState} from 'react'
 
 import {FaChevronLeft, FaChevronRight} from 'react-icons/fa6'
-import {Link, useSearchParams} from 'react-router-dom'
+import {Link, useSearchParams} from 'react-router'
 
 import {getDzoneSeasonSummaries} from '@/domain/dzone'
 import {getDzoneMonsterPreviewAsset} from '@/domain/dzone-assets'

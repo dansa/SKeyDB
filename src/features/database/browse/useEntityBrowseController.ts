@@ -1,6 +1,6 @@
 import {useCallback, useEffect, useMemo, useRef} from 'react'
 
-import type {NavigateFunction} from 'react-router-dom'
+import type {NavigateFunction} from 'react-router'
 
 import {buildDatabaseEntityBrowsePath, type DatabaseEntityId} from '@/domain/database-entity-paths'
 import {sanitizeDatabaseEntitySearch} from '@/domain/database-entity-search'

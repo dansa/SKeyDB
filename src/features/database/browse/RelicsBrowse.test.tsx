@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom/vitest'
 import {render, screen, fireEvent, waitFor} from '@testing-library/react'
-import {MemoryRouter, Route, Routes, useLocation, useNavigate} from 'react-router-dom'
+import {MemoryRouter, Route, Routes, useLocation, useNavigate} from 'react-router'
 import {afterEach, describe, expect, it} from 'vitest'
 
 import {RELIC_DATABASE_BROWSE_DEFAULTS} from '@/domain/relic-database-browse-state'

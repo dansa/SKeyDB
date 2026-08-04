@@ -1,5 +1,5 @@
 import {act, fireEvent, render, screen} from '@testing-library/react'
-import {MemoryRouter} from 'react-router-dom'
+import {MemoryRouter} from 'react-router'
 import {vi} from 'vitest'
 
 import {BannerCard} from './BannerCard'

@@ -1,5 +1,5 @@
 import {act, fireEvent, render, screen} from '@testing-library/react'
-import {MemoryRouter, Route, Routes, useLocation, useNavigate} from 'react-router-dom'
+import {MemoryRouter, Route, Routes, useLocation, useNavigate} from 'react-router'
 import {beforeEach, describe, expect, it} from 'vitest'
 
 import {useDatabaseBrowseState} from './useDatabaseBrowseState'

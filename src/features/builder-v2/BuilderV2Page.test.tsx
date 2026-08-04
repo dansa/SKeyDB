@@ -2,7 +2,7 @@ import {useMemo, useState} from 'react'
 
 import {DndContext} from '@dnd-kit/core'
 import {act, cleanup, fireEvent, render, screen, waitFor, within} from '@testing-library/react'
-import {MemoryRouter} from 'react-router-dom'
+import {MemoryRouter} from 'react-router'
 import {afterEach, beforeEach, describe, expect, it, vi} from 'vitest'
 
 import './builder-v2-test-mocks'
