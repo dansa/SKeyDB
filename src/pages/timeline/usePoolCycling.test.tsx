@@ -90,6 +90,26 @@ describe('usePoolCycling', () => {
     }
   })
 
+  it('clears the cycle and pending transition timers when unmounted', () => {
+    vi.useFakeTimers()
+    const slots = [poolSlot(['Arachne', 'Tulu'])]
+    const {unmount} = renderHook(() => usePoolCycling(slots))
+
+    try {
+      act(() => {
+        vi.advanceTimersByTime(CYCLE_INTERVAL_MS)
+      })
+
+      expect(vi.getTimerCount()).toBe(2)
+
+      unmount()
+
+      expect(vi.getTimerCount()).toBe(0)
+    } finally {
+      vi.useRealTimers()
+    }
+  })
+
   it('does not warn about render-phase updates when the pool signature changes', () => {
     const consoleError = vi.spyOn(console, 'error').mockImplementation(() => undefined)
     const sharedPool = ['Arachne', 'Tulu', 'Kuma']
