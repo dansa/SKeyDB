@@ -7,6 +7,7 @@ import {
   buildDatabaseOverlayReferenceInfo,
   DatabaseReferenceLookupAccumulator,
   getDatabaseDerivedSkillAliases,
+  usesWheelRefinementScaling,
   type DatabaseReferenceInfo,
   type ResolvedDatabaseReferenceLayer,
 } from './database-reference-layer'
@@ -55,12 +56,6 @@ function buildWheelReferenceInfo(
     influencingTalentIds: [],
     influenceBadges: [],
   }
-}
-
-function usesWheelRefinementScaling(record: DerivedSkillRecord): boolean {
-  return Object.values(record.descriptionArgs).some(
-    (arg) => arg.kind === 'scaling' && arg.scalingContext === 'wheelRefinement',
-  )
 }
 
 interface BuildWheelReferenceInfoEntriesOptions {

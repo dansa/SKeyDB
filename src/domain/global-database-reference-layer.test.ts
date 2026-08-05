@@ -129,6 +129,39 @@ describe('hydrateGlobalDatabaseReferenceInfo', () => {
     expect(hydrated.kind).toBe('derived-skill')
   })
 
+  it('preserves wheel refinement when hydrating a derived skill from a catalog stub', async () => {
+    const info: DatabaseReferenceInfo = {
+      kind: 'derived-skill',
+      id: 'derived.global.falling-upward',
+      name: 'Falling Upward',
+      label: 'Card · Derived · Cost —',
+      record: {
+        id: 'derived.global.falling-upward',
+        displayName: 'Falling Upward',
+        aliases: [],
+        descriptionTemplate: '',
+        descriptionArgs: {},
+        cardKeywords: [],
+        childDerivedSkillIds: [],
+        variants: [],
+      },
+      description: '',
+      keywordFooterText: undefined,
+      descriptionRank: 1,
+      descriptionMaxRank: 6,
+      influencingEnlightenSlots: [],
+      influencingTalentIds: [],
+      influenceBadges: [],
+    }
+
+    const hydrated = await hydrateGlobalDatabaseReferenceInfo(info, {
+      wheelRefinementLevel: 3,
+    })
+
+    expect(hydrated.description).toContain('100 fixed Aliemus')
+    expect(hydrated.descriptionRank).toBe(4)
+  })
+
   it('hydrates posse descriptions through per-record detail loading', async () => {
     const loadPublicPosseDetailById = vi.spyOn(
       publicDetailRecordAdapters,

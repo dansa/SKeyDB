@@ -204,6 +204,31 @@ export interface BuildDatabaseDerivedSkillReferenceInfoOptions {
   stats?: FullStats | null
 }
 
+export function usesWheelRefinementScaling(record: DerivedSkillRecord): boolean {
+  return Object.values(record.descriptionArgs).some(
+    (arg) => arg.kind === 'scaling' && arg.scalingContext === 'wheelRefinement',
+  )
+}
+
+function resolveDerivedSkillRank(
+  record: DerivedSkillRecord,
+  formulaContext: PublicFormulaContext | undefined,
+  rank: number | undefined,
+): number {
+  if (rank !== undefined) {
+    return rank
+  }
+
+  if (
+    usesWheelRefinementScaling(record) &&
+    typeof formulaContext?.wheelRefinementLevel === 'number'
+  ) {
+    return Math.max(1, Math.floor(formulaContext.wheelRefinementLevel) + 1)
+  }
+
+  return 1
+}
+
 export function buildDatabaseDerivedSkillReferenceInfo(
   record: DerivedSkillRecord,
   formulaContext?: PublicFormulaContext,
@@ -211,14 +236,15 @@ export function buildDatabaseDerivedSkillReferenceInfo(
     label = record.nodeKind === 'group'
       ? 'Card · Derived Group'
       : `Card · Derived · Cost ${record.cost ?? '—'}`,
-    rank = 1,
+    rank,
     maxRank = 6,
     stats = null,
   }: BuildDatabaseDerivedSkillReferenceInfoOptions = {},
 ): DatabaseReferenceInfo<DerivedSkillRecord> {
+  const resolvedRank = resolveDerivedSkillRank(record, formulaContext, rank)
   const resolved = resolveDescribedRecord(
     record,
-    {rank, stats, formulaContext},
+    {rank: resolvedRank, stats, formulaContext},
     {maxRank, stats, formulaContext},
   )
 
@@ -230,7 +256,7 @@ export function buildDatabaseDerivedSkillReferenceInfo(
     record,
     description: resolved.description,
     keywordFooterText: buildCardKeywordFooterText(record.cardKeywords),
-    descriptionRank: rank,
+    descriptionRank: resolvedRank,
     descriptionMaxRank: maxRank,
     influencingEnlightenSlots: [],
     influencingTalentIds: [],
