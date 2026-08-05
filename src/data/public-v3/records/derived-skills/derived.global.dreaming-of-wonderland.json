@@ -11,7 +11,8 @@
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
-      "values": ["20", "30", "40", "50"]
+      "values": ["20", "30", "40", "50"],
+      "scalingContext": "wheelRefinement"
     }
   },
   "cardKeywords": [

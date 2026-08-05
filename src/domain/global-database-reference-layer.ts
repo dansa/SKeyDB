@@ -400,7 +400,8 @@ export async function hydrateGlobalDatabaseReferenceInfo(
   if (info.kind === 'derived-skill') {
     const {loadPublicDerivedSkillDetailById} = await import('./public-detail-record-adapters')
     const record = await loadPublicDerivedSkillDetailById(info.id)
-    return record ? buildDatabaseDerivedSkillReferenceInfo(record, formulaContext) : info
+    const rank = info.descriptionRank === 1 ? undefined : info.descriptionRank
+    return record ? buildDatabaseDerivedSkillReferenceInfo(record, formulaContext, {rank}) : info
   }
 
   if (info.kind === 'overlay') {

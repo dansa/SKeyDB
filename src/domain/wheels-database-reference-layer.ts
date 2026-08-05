@@ -7,6 +7,7 @@ import {
   buildDatabaseOverlayReferenceInfo,
   DatabaseReferenceLookupAccumulator,
   getDatabaseDerivedSkillAliases,
+  usesWheelRefinementScaling,
   type DatabaseReferenceInfo,
   type ResolvedDatabaseReferenceLayer,
 } from './database-reference-layer'
@@ -116,7 +117,11 @@ export function buildWheelDatabaseReferenceLayer({
   const overlayByName = buildDatabaseOverlayLookup(accessibleOverlays)
   const globalDerivedSkillInfos = derivedSkills
     .filter((record) => record.ownerAwakenerId === undefined)
-    .map((record) => buildDatabaseDerivedSkillReferenceInfo(record, formulaContext))
+    .map((record) =>
+      buildDatabaseDerivedSkillReferenceInfo(record, formulaContext, {
+        rank: activeWheelId && usesWheelRefinementScaling(record) ? activeDescriptionRank : 1,
+      }),
+    )
 
   wheelInfos.forEach((info, index) => {
     const sourceRecord = wheelRecords[index]

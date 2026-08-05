@@ -3459,11 +3459,15 @@
       "aliases": ["pontos"],
       "tokens": [
         "aequor",
+        "alt",
+        "alt realm",
         "astral",
         "cleanse",
         "clear",
         "damage",
         "dispel",
+        "divine",
+        "divine realm",
         "dmg",
         "fixed",
         "fixed damage",
@@ -3471,6 +3475,7 @@
         "limited",
         "limited astral reign",
         "pontos",
+        "realm",
         "reign",
         "remove",
         "ssr",
@@ -3483,7 +3488,21 @@
       "fields": {
         "name": ["Pontos"],
         "alias": ["pontos"],
-        "tag": ["tentacle-dmg", "fixed-dmg", "dispel", "Tentacle DMG", "tentacle damage", "Fixed DMG", "fixed damage", "cleanse", "clear", "remove"],
+        "tag": [
+          "tentacle-dmg",
+          "fixed-dmg",
+          "dispel",
+          "divine-realm",
+          "Tentacle DMG",
+          "tentacle damage",
+          "Fixed DMG",
+          "fixed damage",
+          "cleanse",
+          "clear",
+          "remove",
+          "Divine Realm",
+          "alt realm"
+        ],
         "facet": ["AEQUOR", "SSR", "WARDEN", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "TBD"]
       },
       "facets": {
@@ -3492,7 +3511,7 @@
         "type": "WARDEN",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "TBD",
-        "tags": ["dispel", "fixed-dmg", "tentacle-dmg"]
+        "tags": ["dispel", "divine-realm", "fixed-dmg", "tentacle-dmg"]
       }
     },
     {
@@ -3501,16 +3520,21 @@
       "name": "Lotan: Cetarchon",
       "aliases": ["lotan cetarchon", "cetarchon", "glotan", "rotan"],
       "tokens": [
+        "alt",
+        "alt realm",
         "assault",
         "astral",
         "cetarchon",
         "chaos",
+        "divine",
+        "divine realm",
         "genesis",
         "glotan",
         "limited",
         "limited astral reign",
         "lotan",
         "lotan cetarchon",
+        "realm",
         "reign",
         "rotan",
         "str",
@@ -3523,7 +3547,7 @@
       "fields": {
         "name": ["Lotan: Cetarchon", "lotan-cetarchon"],
         "alias": ["lotan cetarchon", "cetarchon", "glotan", "rotan"],
-        "tag": ["str-up", "STR Up", "strength up"],
+        "tag": ["str-up", "divine-realm", "STR Up", "strength up", "Divine Realm", "alt realm"],
         "facet": ["CHAOS", "Genesis", "ASSAULT", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "TBD"]
       },
       "facets": {
@@ -3532,7 +3556,7 @@
         "type": "ASSAULT",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "TBD",
-        "tags": ["str-up"]
+        "tags": ["divine-realm", "str-up"]
       }
     }
   ]
