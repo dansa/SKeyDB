@@ -110,6 +110,7 @@ export const descriptionArgSchema = z.discriminatedUnion('kind', [
     .object({
       kind: z.literal('scaling'),
       values: z.array(nonEmptyStringSchema).min(1),
+      scalingContext: z.literal('wheelRefinement').optional(),
       channel: descriptionArgChannelSchema.optional(),
       suffix: nonEmptyStringSchema.optional(),
       stat: z.enum(SCALING_ARG_STAT_KEYS).optional(),

@@ -1,10 +1,10 @@
 {
   "schemaVersion": 3,
-  "gameDataVersion": "compiled-sha256-de5b7fc0e02744e3",
-  "generatedAt": "2026-08-03T19:13:03Z",
-  "buildId": "public-v3-sha256-c63dbd0830def339",
+  "gameDataVersion": "compiled-sha256-1789663621dbbb3e",
+  "generatedAt": "2026-08-05T11:28:09Z",
+  "buildId": "public-v3-sha256-e4daa3f6bca452d6",
   "build": {
-    "gameDataVersion": "compiled-sha256-de5b7fc0e02744e3",
+    "gameDataVersion": "compiled-sha256-1789663621dbbb3e",
     "recordCount": 1889,
     "scopes": ["awakeners", "wheels", "relics", "covenants", "posses", "skills", "derived-skills", "talents", "enlightens", "overlays", "awakener-builds"]
   },
@@ -102,8 +102,8 @@
       "sha256": "051415f92022be9fab49efffc436c7dc280a8875cec68f7d9c96b42e24a84d53"
     },
     "catalogs/awakeners.json": {
-      "bytes": 82854,
-      "sha256": "34957c1380b72d7bdeffcc8b34480facc4cc523da83cc32dc4e3dcfa6292eacc"
+      "bytes": 82886,
+      "sha256": "e0652105b74876badad480b2cdf995df0da62d95251b1ffc3e5f1281d385adf8"
     },
     "catalogs/covenants.json": {
       "bytes": 7413,
@@ -178,8 +178,8 @@
       "sha256": "88605e2b27ab9118ca83bd4c66719cfc2dff0b05b66d8a75089a5aed74f8eb75"
     },
     "indexes/search-awakeners.json": {
-      "bytes": 83692,
-      "sha256": "b31f7c6cc21eb060cb59a70b150da3acf449f97413e9693bec372429f86ceac7"
+      "bytes": 84144,
+      "sha256": "12933b53a6ca9e7ccc1b3871ca705808d40e81f7e3e80d1eedceed45181ba87a"
     },
     "indexes/search-covenants.json": {
       "bytes": 5517,
@@ -195,7 +195,7 @@
     },
     "indexes/search-tags.json": {
       "bytes": 7285,
-      "sha256": "187260b6c1253772e12d95a4107b74b2900f33d38eb78b059c4c1f0256988f9c"
+      "sha256": "1d36a5e95ccfbd7cf95c90b08162bcb08b512fde00840c9955f6ffe7fd96af41"
     },
     "indexes/search-wheels.json": {
       "bytes": 110406,
@@ -658,12 +658,12 @@
       "sha256": "9a3727b9f25b9995a07391cc906aa644892b5fc99d2c9b95adadacd1482ebb40"
     },
     "records/awakeners/awakener-0058.json": {
-      "bytes": 6472,
-      "sha256": "2d01dbf39d31117005a3dc25763fd5be29be28a83378f869835d0e1ac4c3b00d"
+      "bytes": 6488,
+      "sha256": "b1fe852a340a3bbd212be4e5b6d81e4fa654f5e0104179ec032656da31bbbfb4"
     },
     "records/awakeners/awakener-0059.json": {
-      "bytes": 11396,
-      "sha256": "8a9cedab7b3fa4c88491b8a8622626e5b550e0f95b01f0b05900c59f65c330b5"
+      "bytes": 11412,
+      "sha256": "e4683cbd1d6ddda4157ab6fcfb51846e6138a7e2090aff326c7af61ec78870c6"
     },
     "records/covenants/covenant-0001.json": {
       "bytes": 926,
@@ -1010,8 +1010,8 @@
       "sha256": "0361e2a28bd5827df75cbe21cb8bad79192828072e9540f76253834238da5576"
     },
     "records/derived-skills/derived.global.dreaming-of-wonderland.json": {
-      "bytes": 591,
-      "sha256": "3e6cbcedb311a25934e0b82cca7bd0a9315233b25599a7946962da7c72bb8558"
+      "bytes": 634,
+      "sha256": "3cde3cac814c86a76bf2a1459ec902cfdc53b9cd04f2af904188491e0b31f40d"
     },
     "records/derived-skills/derived.global.echoes-of-lost-shadows.json": {
       "bytes": 483,
@@ -1026,8 +1026,8 @@
       "sha256": "d66311c11bc2e8f91e6acab521125e9110c8a8d3e7779d50eacf53ab5ca7d43b"
     },
     "records/derived-skills/derived.global.falling-upward.json": {
-      "bytes": 666,
-      "sha256": "22279dc55dd99adb9ab47de26e211ad0a4126dbfcf6f20c8058663b0ad8b3654"
+      "bytes": 709,
+      "sha256": "2fc3c60a6a9b8f8758c470d92005305b862fcc80af5746f9e471de223e77d76d"
     },
     "records/derived-skills/derived.global.fleeting-beauty.json": {
       "bytes": 609,
@@ -1122,8 +1122,8 @@
       "sha256": "9b628699b40ffaeeacad30188b176701336e9763381271928528818d94ca22cc"
     },
     "records/derived-skills/derived.global.mortal-sojourn.json": {
-      "bytes": 871,
-      "sha256": "d5b448ad843fc42929c7c280d2b4e23b9765110ee44d6aa2d676c2e28855fc18"
+      "bytes": 957,
+      "sha256": "83e706a2609c03b29d9986264afa94c3804e92e1e7fec78089d095b030dc5d48"
     },
     "records/derived-skills/derived.global.one-way.json": {
       "bytes": 435,
@@ -1142,8 +1142,8 @@
       "sha256": "cce3d5f7fa5d3b6239c31a716c349950eb4e6caec84420f5660c72fc20d92000"
     },
     "records/derived-skills/derived.global.private-afternoon.json": {
-      "bytes": 562,
-      "sha256": "035844e143775e567fcbc26697d04becdd78eb054291ec704ac37423e9255d53"
+      "bytes": 605,
+      "sha256": "9badecfbf5a109fe230abe9c2bc67d516f324f82a0a3b77b6aa8c26649f9519a"
     },
     "records/derived-skills/derived.global.propagule-embryo.json": {
       "bytes": 994,
@@ -1190,8 +1190,8 @@
       "sha256": "14e20f2fbf232025ad94869036f6ed59ad11aab288c32a84dac618f1f6a53ad2"
     },
     "records/derived-skills/derived.global.stakes-of-wisdom.json": {
-      "bytes": 725,
-      "sha256": "cb978a3e1721a6b6a9f377437b23163209688236a84f517c28dec300d318ec2d"
+      "bytes": 768,
+      "sha256": "54fd3b377d30e70bec1b0c22c42df2de6c79589e7a8163ac3e472add4aa26284"
     },
     "records/derived-skills/derived.global.suspicion.json": {
       "bytes": 903,

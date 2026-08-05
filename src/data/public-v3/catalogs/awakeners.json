@@ -3190,7 +3190,7 @@
       },
       "lineupToken": "xr",
       "aliases": ["pontos"],
-      "searchTags": ["Tentacle DMG", "Fixed DMG", "Dispel"]
+      "searchTags": ["Tentacle DMG", "Fixed DMG", "Dispel", "Divine Realm"]
     },
     {
       "kind": "awakener",
@@ -3245,7 +3245,7 @@
       },
       "lineupToken": "xt",
       "aliases": ["lotan cetarchon", "cetarchon", "glotan", "rotan"],
-      "searchTags": ["STR Up"]
+      "searchTags": ["STR Up", "Divine Realm"]
     }
   ]
 }

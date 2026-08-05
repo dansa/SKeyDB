@@ -58,6 +58,27 @@ function buildDerivedSkillRecords(): DerivedSkillRecord[] {
   ]
 }
 
+function buildWheelVariantDerivedSkillRecord(
+  scalingContext?: 'wheelRefinement',
+): DerivedSkillRecord {
+  return {
+    id: scalingContext ? 'derived.global.falling-upward' : 'derived.global.plain-scaling',
+    displayName: scalingContext ? 'Falling Upward' : 'Plain Scaling',
+    aliases: [],
+    descriptionTemplate: 'The wielder gains [Arg1] Aliemus.',
+    descriptionArgs: {
+      Arg1: {
+        kind: 'scaling',
+        values: ['70', '80', '90', '100'],
+        ...(scalingContext ? {scalingContext} : {}),
+      },
+    },
+    cardKeywords: [],
+    childDerivedSkillIds: [],
+    variants: [],
+  }
+}
+
 describe('wheels-database-reference-layer', () => {
   it('resolves overlay aliases through the neutral reference contract with shared labels', () => {
     const referenceLayer = buildWheelDatabaseReferenceLayer({
@@ -109,6 +130,32 @@ describe('wheels-database-reference-layer', () => {
       expect.objectContaining({
         kind: 'derived-skill',
         id: 'derived.global.embryo',
+      }),
+    )
+  })
+
+  it('uses the active wheel refinement for source-variant derived cards only', () => {
+    const referenceLayer = buildWheelDatabaseReferenceLayer({
+      activeDescriptionRank: 4,
+      activeWheelId: 'wheel-0001',
+      derivedSkills: [
+        buildWheelVariantDerivedSkillRecord('wheelRefinement'),
+        buildWheelVariantDerivedSkillRecord(),
+      ],
+      overlays: [],
+      wheelRecords: [buildWheelRecord()],
+    })
+
+    expect(resolveDatabaseReferenceInfo(referenceLayer, 'Falling Upward')).toEqual(
+      expect.objectContaining({
+        description: 'The wielder gains 100 Aliemus.',
+        descriptionRank: 4,
+      }),
+    )
+    expect(resolveDatabaseReferenceInfo(referenceLayer, 'Plain Scaling')).toEqual(
+      expect.objectContaining({
+        description: 'The wielder gains 70 Aliemus.',
+        descriptionRank: 1,
       }),
     )
   })

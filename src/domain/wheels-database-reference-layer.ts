@@ -57,6 +57,12 @@ function buildWheelReferenceInfo(
   }
 }
 
+function usesWheelRefinementScaling(record: DerivedSkillRecord): boolean {
+  return Object.values(record.descriptionArgs).some(
+    (arg) => arg.kind === 'scaling' && arg.scalingContext === 'wheelRefinement',
+  )
+}
+
 interface BuildWheelReferenceInfoEntriesOptions {
   wheelRecords?: WheelFullRecord[]
   activeWheelId?: string
@@ -116,7 +122,11 @@ export function buildWheelDatabaseReferenceLayer({
   const overlayByName = buildDatabaseOverlayLookup(accessibleOverlays)
   const globalDerivedSkillInfos = derivedSkills
     .filter((record) => record.ownerAwakenerId === undefined)
-    .map((record) => buildDatabaseDerivedSkillReferenceInfo(record, formulaContext))
+    .map((record) =>
+      buildDatabaseDerivedSkillReferenceInfo(record, formulaContext, {
+        rank: activeWheelId && usesWheelRefinementScaling(record) ? activeDescriptionRank : 1,
+      }),
+    )
 
   wheelInfos.forEach((info, index) => {
     const sourceRecord = wheelRecords[index]

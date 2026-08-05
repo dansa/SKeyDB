@@ -12,11 +12,13 @@
     "Arg1": {
       "kind": "scaling",
       "values": ["1500", "2000", "2500", "3000"],
+      "scalingContext": "wheelRefinement",
       "suffix": "%"
     },
     "Arg2": {
       "kind": "scaling",
       "values": ["0.4", "0.6", "0.8", "1"],
+      "scalingContext": "wheelRefinement",
       "suffix": "%"
     }
   },

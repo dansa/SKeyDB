@@ -12,6 +12,7 @@
     "Arg1": {
       "kind": "scaling",
       "values": ["13", "17", "21", "25"],
+      "scalingContext": "wheelRefinement",
       "suffix": "%"
     }
   },
