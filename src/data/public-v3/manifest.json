@@ -1,10 +1,10 @@
 {
   "schemaVersion": 3,
-  "gameDataVersion": "compiled-sha256-6be0c2240fc79d5d",
-  "generatedAt": "2026-08-06T12:22:51Z",
-  "buildId": "public-v3-sha256-8f360fdc3ee5e8df",
+  "gameDataVersion": "compiled-sha256-db52507ef71f1f42",
+  "generatedAt": "2026-08-06T13:02:37Z",
+  "buildId": "public-v3-sha256-9488c5d0c2af01e5",
   "build": {
-    "gameDataVersion": "compiled-sha256-6be0c2240fc79d5d",
+    "gameDataVersion": "compiled-sha256-db52507ef71f1f42",
     "recordCount": 1888,
     "scopes": ["awakeners", "wheels", "relics", "covenants", "posses", "skills", "derived-skills", "talents", "enlightens", "overlays", "awakener-builds"]
   },
@@ -5010,8 +5010,8 @@
       "sha256": "73b7262a4fff99b9f4b7cc533690d3f71c908c8b21e51fb6720a213d63f1ff94"
     },
     "records/skills/skill.daffodil.sea-of-primordial-essence.json": {
-      "bytes": 1092,
-      "sha256": "262313446625c576b1a811fd8fc3f5b6cb29834eb37c3d3b6c71b7874d0c2819"
+      "bytes": 1066,
+      "sha256": "0aca07016a997f0239a99a70bfc8677643387026951098d1c7e19d2335234278"
     },
     "records/skills/skill.daffodil.skull-reaver.json": {
       "bytes": 979,
