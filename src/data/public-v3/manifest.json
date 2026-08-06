@@ -1,10 +1,10 @@
 {
   "schemaVersion": 3,
-  "gameDataVersion": "compiled-sha256-db52507ef71f1f42",
-  "generatedAt": "2026-08-06T13:02:37Z",
-  "buildId": "public-v3-sha256-9488c5d0c2af01e5",
+  "gameDataVersion": "compiled-sha256-8ebef2b259145ea5",
+  "generatedAt": "2026-08-06T13:24:02Z",
+  "buildId": "public-v3-sha256-287241d4a329fe95",
   "build": {
-    "gameDataVersion": "compiled-sha256-db52507ef71f1f42",
+    "gameDataVersion": "compiled-sha256-8ebef2b259145ea5",
     "recordCount": 1888,
     "scopes": ["awakeners", "wheels", "relics", "covenants", "posses", "skills", "derived-skills", "talents", "enlightens", "overlays", "awakener-builds"]
   },
@@ -170,8 +170,8 @@
       "sha256": "0602c2b51bd4d4c6aa2dc99e386726bb86515fd4c18b2e825fcd1725be5084d7"
     },
     "indexes/routes.json": {
-      "bytes": 431344,
-      "sha256": "80776532284ce90b12be94f5eaab38831417767099e8813c94d0c70549c6b6e9"
+      "bytes": 433096,
+      "sha256": "f3939369ba2cdf3d5c7e231b576b8216fb27daf4f367b2d2b8798fbe3287331b"
     },
     "indexes/scopes.json": {
       "bytes": 4915,

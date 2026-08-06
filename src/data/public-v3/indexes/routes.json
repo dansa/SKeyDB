@@ -11509,7 +11509,56 @@
         "canonicalPath": "/database/covenants/cocoon-of-the-maiden"
       }
     },
-    "posses": {},
+    "posses": {
+      "primordial-memorydrain": {
+        "kind": "posse",
+        "id": "posse-0054",
+        "canonicalSlug": "primordial-memory-drain",
+        "canonicalPath": "/database/posses/primordial-memory-drain"
+      },
+      "primordial-memorycatalyst": {
+        "kind": "posse",
+        "id": "posse-0055",
+        "canonicalSlug": "primordial-memory-catalysis",
+        "canonicalPath": "/database/posses/primordial-memory-catalysis"
+      },
+      "primordial-memoryhealing": {
+        "kind": "posse",
+        "id": "posse-0056",
+        "canonicalSlug": "primordial-memory-healing",
+        "canonicalPath": "/database/posses/primordial-memory-healing"
+      },
+      "primordial-memorytoxin": {
+        "kind": "posse",
+        "id": "posse-0057",
+        "canonicalSlug": "primordial-memory-toxin",
+        "canonicalPath": "/database/posses/primordial-memory-toxin"
+      },
+      "primordial-memoryspike": {
+        "kind": "posse",
+        "id": "posse-0058",
+        "canonicalSlug": "primordial-memory-spike",
+        "canonicalPath": "/database/posses/primordial-memory-spike"
+      },
+      "primordial-memorymight": {
+        "kind": "posse",
+        "id": "posse-0059",
+        "canonicalSlug": "primordial-memory-might",
+        "canonicalPath": "/database/posses/primordial-memory-might"
+      },
+      "primordial-memorybastion": {
+        "kind": "posse",
+        "id": "posse-0060",
+        "canonicalSlug": "primordial-memory-bastion",
+        "canonicalPath": "/database/posses/primordial-memory-bastion"
+      },
+      "primordial-memoryfury": {
+        "kind": "posse",
+        "id": "posse-0061",
+        "canonicalSlug": "primordial-memory-fury",
+        "canonicalPath": "/database/posses/primordial-memory-fury"
+      }
+    },
     "skills": {},
     "derived-skills": {},
     "talents": {},
