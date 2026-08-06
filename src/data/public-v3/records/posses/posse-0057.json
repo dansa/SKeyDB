@@ -2,10 +2,10 @@
   "schemaVersion": 3,
   "kind": "posse",
   "id": "posse-0057",
-  "name": "Primordial Memory·Toxin",
+  "name": "Primordial Memory: Toxin",
   "route": {
-    "slug": "primordial-memorytoxin",
-    "canonicalPath": "/database/posses/primordial-memorytoxin"
+    "slug": "primordial-memory-toxin",
+    "canonicalPath": "/database/posses/primordial-memory-toxin"
   },
   "assets": {
     "icon": "asset-posse-0057-icon",

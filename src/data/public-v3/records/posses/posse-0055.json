@@ -2,10 +2,10 @@
   "schemaVersion": 3,
   "kind": "posse",
   "id": "posse-0055",
-  "name": "Primordial Memory·Catalyst",
+  "name": "Primordial Memory: Catalysis",
   "route": {
-    "slug": "primordial-memorycatalyst",
-    "canonicalPath": "/database/posses/primordial-memorycatalyst"
+    "slug": "primordial-memory-catalysis",
+    "canonicalPath": "/database/posses/primordial-memory-catalysis"
   },
   "assets": {
     "icon": "asset-posse-0055-icon",

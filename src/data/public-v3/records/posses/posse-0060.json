@@ -2,10 +2,10 @@
   "schemaVersion": 3,
   "kind": "posse",
   "id": "posse-0060",
-  "name": "Primordial Memory·Bastion",
+  "name": "Primordial Memory: Bastion",
   "route": {
-    "slug": "primordial-memorybastion",
-    "canonicalPath": "/database/posses/primordial-memorybastion"
+    "slug": "primordial-memory-bastion",
+    "canonicalPath": "/database/posses/primordial-memory-bastion"
   },
   "assets": {
     "icon": "asset-posse-0060-icon",

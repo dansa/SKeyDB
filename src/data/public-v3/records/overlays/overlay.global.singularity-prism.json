@@ -1,21 +1,19 @@
 {
   "schemaVersion": 3,
   "kind": "overlay",
-  "id": "overlay.arachne.singularity-prism",
+  "id": "overlay.global.singularity-prism",
   "name": "Singularity Prism",
   "route": {
     "slug": "singularity-prism",
-    "canonicalPath": "/database/awakeners/arachne/overlays/singularity-prism"
+    "canonicalPath": "/database/overlays/singularity-prism"
   },
   "assets": {
-    "icon": "asset-overlay.arachne.singularity-prism-icon"
+    "icon": "asset-overlay.global.singularity-prism-icon"
   },
   "overlayType": "mechanic",
-  "ownerAwakenerId": "awakener-0056",
   "aliases": [],
   "iconId": "IconS_Buff_067",
   "textColor": "affliction",
   "descriptionTemplate": "For each stack, all Command Cards' Final DMG, {STR} & {Tentacle DMG} gain, Fixed-value {Poison} & {Counter} each +2%, and their Final Shield, HP Recovery, and {STR▼} each +1%.",
-  "descriptionArgs": {},
-  "ownerAwakenerName": "Arachne"
+  "descriptionArgs": {}
 }

@@ -20,7 +20,7 @@
   "releaseDate": "2026-06-29",
   "faction": "TBD",
   "aliases": ["pontos"],
-  "searchTags": ["Tentacle DMG", "Fixed DMG", "Dispel", "Divine Realm"],
+  "searchTags": ["STR Down", "Tentacle DMG", "Fixed DMG", "Dispel", "Divine Realm"],
   "primaryScalingBase": 20,
   "baseStatsLv1": {
     "CON": 42,

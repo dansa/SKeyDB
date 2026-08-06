@@ -34,7 +34,7 @@
       "ownerAwakenerId": "awakener-0049",
       "ownerAwakenerName": "Tinct",
       "patch": {
-        "descriptionTemplate": "Deal [Damage:Arg1] DMG twice. Tinct obtains [Energy:Arg2] Aliemus. {Leap}: Deal DMG for one more time"
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG twice. Tinct obtains [Energy:Arg2] Aliemus. {Leap}: Deal DMG for one more time."
       }
     }
   ],

@@ -2,10 +2,10 @@
   "schemaVersion": 3,
   "kind": "posse",
   "id": "posse-0059",
-  "name": "Primordial Memory·Might",
+  "name": "Primordial Memory: Might",
   "route": {
-    "slug": "primordial-memorymight",
-    "canonicalPath": "/database/posses/primordial-memorymight"
+    "slug": "primordial-memory-might",
+    "canonicalPath": "/database/posses/primordial-memory-might"
   },
   "assets": {
     "icon": "asset-posse-0059-icon",

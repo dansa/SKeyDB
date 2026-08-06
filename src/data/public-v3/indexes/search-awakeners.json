@@ -3330,7 +3330,6 @@
         "chorus",
         "cleanse",
         "clear",
-        "counter",
         "damage",
         "dispel",
         "divine",
@@ -3344,7 +3343,6 @@
         "harm",
         "limited",
         "limited astral reign",
-        "poison",
         "pursuit",
         "realm",
         "reign",
@@ -3354,29 +3352,17 @@
         "self harm",
         "spider",
         "ssr",
-        "str",
-        "str up",
-        "strength",
-        "strength up",
-        "tentacle",
-        "tentacle damage",
-        "tentacle dmg",
         "the",
         "the unknowable",
         "ultra",
         "unknowable",
-        "up",
         "verdict"
       ],
       "fields": {
         "name": ["Arachne"],
         "alias": ["arachne"],
         "tag": [
-          "poison",
-          "counter",
           "final-verdict",
-          "str-up",
-          "tentacle-dmg",
           "pursuit",
           "fixed-dmg",
           "dispel",
@@ -3385,10 +3371,6 @@
           "spider",
           "Final Verdict",
           "verdict",
-          "STR Up",
-          "strength up",
-          "Tentacle DMG",
-          "tentacle damage",
           "Fixed DMG",
           "fixed damage",
           "cleanse",
@@ -3406,7 +3388,7 @@
         "type": "CHORUS",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "The Unknowable",
-        "tags": ["counter", "dispel", "divine-realm", "final-verdict", "fixed-dmg", "poison", "pursuit", "self-harm", "spider", "str-up", "tentacle-dmg"]
+        "tags": ["dispel", "divine-realm", "final-verdict", "fixed-dmg", "pursuit", "self-harm", "spider"]
       }
     },
     {
@@ -3469,6 +3451,7 @@
         "divine",
         "divine realm",
         "dmg",
+        "down",
         "fixed",
         "fixed damage",
         "fixed dmg",
@@ -3479,6 +3462,10 @@
         "reign",
         "remove",
         "ssr",
+        "str",
+        "str down",
+        "strength",
+        "strength down",
         "tbd",
         "tentacle",
         "tentacle damage",
@@ -3489,10 +3476,13 @@
         "name": ["Pontos"],
         "alias": ["pontos"],
         "tag": [
+          "str-down",
           "tentacle-dmg",
           "fixed-dmg",
           "dispel",
           "divine-realm",
+          "STR Down",
+          "strength down",
           "Tentacle DMG",
           "tentacle damage",
           "Fixed DMG",
@@ -3511,7 +3501,7 @@
         "type": "WARDEN",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "TBD",
-        "tags": ["dispel", "divine-realm", "fixed-dmg", "tentacle-dmg"]
+        "tags": ["dispel", "divine-realm", "fixed-dmg", "str-down", "tentacle-dmg"]
       }
     },
     {

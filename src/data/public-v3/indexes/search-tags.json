@@ -23,7 +23,7 @@
       "section": "affix",
       "aliases": [],
       "order": 120,
-      "count": 27
+      "count": 26
     },
     {
       "id": "bleed",
@@ -47,7 +47,7 @@
       "section": "affix",
       "aliases": [],
       "order": 190,
-      "count": 18
+      "count": 17
     },
     {
       "id": "final-verdict",
@@ -71,7 +71,7 @@
       "section": "affix",
       "aliases": ["strength up"],
       "order": 210,
-      "count": 49
+      "count": 48
     },
     {
       "id": "str-down",
@@ -79,7 +79,7 @@
       "section": "affix",
       "aliases": ["strength down", "str down"],
       "order": 220,
-      "count": 13
+      "count": 14
     },
     {
       "id": "tentacle-dmg",
@@ -87,7 +87,7 @@
       "section": "archetype",
       "aliases": ["tentacle damage"],
       "order": 225,
-      "count": 20
+      "count": 19
     },
     {
       "id": "stun",

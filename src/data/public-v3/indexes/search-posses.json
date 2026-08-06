@@ -811,11 +811,11 @@
     {
       "kind": "posse",
       "id": "posse-0054",
-      "name": "Primordial Memory·Drain",
+      "name": "Primordial Memory: Drain",
       "aliases": [],
-      "tokens": ["memorydrain", "other", "primordial", "primordial memorydrain"],
+      "tokens": ["drain", "memory", "other", "primordial", "primordial memory drain"],
       "fields": {
-        "name": ["Primordial Memory·Drain", "primordial-memorydrain"],
+        "name": ["Primordial Memory: Drain", "primordial-memory-drain"],
         "facet": ["OTHER"]
       },
       "facets": {
@@ -825,11 +825,11 @@
     {
       "kind": "posse",
       "id": "posse-0055",
-      "name": "Primordial Memory·Catalyst",
+      "name": "Primordial Memory: Catalysis",
       "aliases": [],
-      "tokens": ["memorycatalyst", "other", "primordial", "primordial memorycatalyst"],
+      "tokens": ["catalysis", "memory", "other", "primordial", "primordial memory catalysis"],
       "fields": {
-        "name": ["Primordial Memory·Catalyst", "primordial-memorycatalyst"],
+        "name": ["Primordial Memory: Catalysis", "primordial-memory-catalysis"],
         "facet": ["OTHER"]
       },
       "facets": {
@@ -839,11 +839,11 @@
     {
       "kind": "posse",
       "id": "posse-0056",
-      "name": "Primordial Memory·Healing",
+      "name": "Primordial Memory: Healing",
       "aliases": [],
-      "tokens": ["memoryhealing", "other", "primordial", "primordial memoryhealing"],
+      "tokens": ["healing", "memory", "other", "primordial", "primordial memory healing"],
       "fields": {
-        "name": ["Primordial Memory·Healing", "primordial-memoryhealing"],
+        "name": ["Primordial Memory: Healing", "primordial-memory-healing"],
         "facet": ["OTHER"]
       },
       "facets": {
@@ -853,11 +853,11 @@
     {
       "kind": "posse",
       "id": "posse-0057",
-      "name": "Primordial Memory·Toxin",
+      "name": "Primordial Memory: Toxin",
       "aliases": [],
-      "tokens": ["memorytoxin", "other", "primordial", "primordial memorytoxin"],
+      "tokens": ["memory", "other", "primordial", "primordial memory toxin", "toxin"],
       "fields": {
-        "name": ["Primordial Memory·Toxin", "primordial-memorytoxin"],
+        "name": ["Primordial Memory: Toxin", "primordial-memory-toxin"],
         "facet": ["OTHER"]
       },
       "facets": {
@@ -867,11 +867,11 @@
     {
       "kind": "posse",
       "id": "posse-0058",
-      "name": "Primordial Memory·Spike",
+      "name": "Primordial Memory: Spike",
       "aliases": [],
-      "tokens": ["memoryspike", "other", "primordial", "primordial memoryspike"],
+      "tokens": ["memory", "other", "primordial", "primordial memory spike", "spike"],
       "fields": {
-        "name": ["Primordial Memory·Spike", "primordial-memoryspike"],
+        "name": ["Primordial Memory: Spike", "primordial-memory-spike"],
         "facet": ["OTHER"]
       },
       "facets": {
@@ -881,11 +881,11 @@
     {
       "kind": "posse",
       "id": "posse-0059",
-      "name": "Primordial Memory·Might",
+      "name": "Primordial Memory: Might",
       "aliases": [],
-      "tokens": ["memorymight", "other", "primordial", "primordial memorymight"],
+      "tokens": ["memory", "might", "other", "primordial", "primordial memory might"],
       "fields": {
-        "name": ["Primordial Memory·Might", "primordial-memorymight"],
+        "name": ["Primordial Memory: Might", "primordial-memory-might"],
         "facet": ["OTHER"]
       },
       "facets": {
@@ -895,11 +895,11 @@
     {
       "kind": "posse",
       "id": "posse-0060",
-      "name": "Primordial Memory·Bastion",
+      "name": "Primordial Memory: Bastion",
       "aliases": [],
-      "tokens": ["memorybastion", "other", "primordial", "primordial memorybastion"],
+      "tokens": ["bastion", "memory", "other", "primordial", "primordial memory bastion"],
       "fields": {
-        "name": ["Primordial Memory·Bastion", "primordial-memorybastion"],
+        "name": ["Primordial Memory: Bastion", "primordial-memory-bastion"],
         "facet": ["OTHER"]
       },
       "facets": {
@@ -909,11 +909,11 @@
     {
       "kind": "posse",
       "id": "posse-0061",
-      "name": "Primordial Memory·Fury",
+      "name": "Primordial Memory: Fury",
       "aliases": [],
-      "tokens": ["memoryfury", "other", "primordial", "primordial memoryfury"],
+      "tokens": ["fury", "memory", "other", "primordial", "primordial memory fury"],
       "fields": {
-        "name": ["Primordial Memory·Fury", "primordial-memoryfury"],
+        "name": ["Primordial Memory: Fury", "primordial-memory-fury"],
         "facet": ["OTHER"]
       },
       "facets": {

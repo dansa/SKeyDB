@@ -11,7 +11,7 @@
     "icon": "asset-overlay.global.dimension-shuttle-icon"
   },
   "overlayType": "mechanic",
-  "aliases": [],
+  "aliases": ["Singularity Shuttle"],
   "iconId": "IconS_Buff_067",
   "textColor": "affliction",
   "descriptionTemplate": "After playing the first Command Card each turn, a {Fleeting}, Basic Copy of it will be put into {Ultra Space}. This cannot trigger during {Ultra Rounds}.",
