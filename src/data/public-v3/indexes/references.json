@@ -2143,6 +2143,12 @@
         "id": "relic-0149"
       }
     ],
+    "dimension shuttle": [
+      {
+        "kind": "overlay",
+        "id": "overlay.global.dimension-shuttle"
+      }
+    ],
     "dimensional image 24": [
       {
         "kind": "relic",
@@ -7540,31 +7546,31 @@
     "singularity annihilation": [
       {
         "kind": "overlay",
-        "id": "overlay.arachne.singularity-annihilation"
+        "id": "overlay.global.singularity-annihilation"
       }
     ],
     "singularity beacon": [
       {
         "kind": "overlay",
-        "id": "overlay.arachne.singularity-beacon"
+        "id": "overlay.global.singularity-beacon"
       }
     ],
     "singularity prism": [
       {
         "kind": "overlay",
-        "id": "overlay.arachne.singularity-prism"
+        "id": "overlay.global.singularity-prism"
       }
     ],
     "singularity shuttle": [
       {
         "kind": "overlay",
-        "id": "overlay.arachne.singularity-shuttle"
+        "id": "overlay.global.dimension-shuttle"
       }
     ],
     "singularity ultra": [
       {
         "kind": "overlay",
-        "id": "overlay.arachne.singularity-ultra"
+        "id": "overlay.global.singularity-ultra"
       }
     ],
     "singularity warp": [
@@ -9765,16 +9771,6 @@
       {
         "kind": "overlay",
         "id": "overlay.global.devour"
-      }
-    ],
-    "dimension shuttle": [
-      {
-        "kind": "overlay",
-        "id": "overlay.arachne.singularity-shuttle"
-      },
-      {
-        "kind": "overlay",
-        "id": "overlay.global.dimension-shuttle"
       }
     ],
     "divine vigil": [

@@ -1465,16 +1465,7 @@
         "enlighten.arachne.moiraes-finale",
         "enlighten.arachne.universe-as-i-conceive"
       ],
-      "ownedOverlays": [
-        "overlay.arachne.final-verdict",
-        "overlay.arachne.singularity-annihilation",
-        "overlay.arachne.singularity-beacon",
-        "overlay.arachne.singularity-prism",
-        "overlay.arachne.singularity-shuttle",
-        "overlay.arachne.singularity-ultra",
-        "overlay.arachne.singularity-warp",
-        "overlay.arachne.weaver"
-      ],
+      "ownedOverlays": ["overlay.arachne.final-verdict", "overlay.arachne.singularity-warp", "overlay.arachne.weaver"],
       "awakenerBuilds": ["awakener-build-0056"]
     },
     "awakener-0057": {
@@ -2121,11 +2112,6 @@
     "overlay.24.realm-and-persona": {},
     "overlay.aigis.petrify": {},
     "overlay.arachne.final-verdict": {},
-    "overlay.arachne.singularity-annihilation": {},
-    "overlay.arachne.singularity-beacon": {},
-    "overlay.arachne.singularity-prism": {},
-    "overlay.arachne.singularity-shuttle": {},
-    "overlay.arachne.singularity-ultra": {},
     "overlay.arachne.singularity-warp": {},
     "overlay.arachne.weaver": {},
     "overlay.caecus.outcasts-anguish": {},
@@ -2203,6 +2189,10 @@
     "overlay.global.rouse": {},
     "overlay.global.sacrifice": {},
     "overlay.global.sealed": {},
+    "overlay.global.singularity-annihilation": {},
+    "overlay.global.singularity-beacon": {},
+    "overlay.global.singularity-prism": {},
+    "overlay.global.singularity-ultra": {},
     "overlay.global.stagnation": {},
     "overlay.global.steal": {},
     "overlay.global.stellar-protection": {},
@@ -4946,21 +4936,6 @@
     "overlay.arachne.final-verdict": {
       "ownerAwakenerId": "awakener-0056"
     },
-    "overlay.arachne.singularity-annihilation": {
-      "ownerAwakenerId": "awakener-0056"
-    },
-    "overlay.arachne.singularity-beacon": {
-      "ownerAwakenerId": "awakener-0056"
-    },
-    "overlay.arachne.singularity-prism": {
-      "ownerAwakenerId": "awakener-0056"
-    },
-    "overlay.arachne.singularity-shuttle": {
-      "ownerAwakenerId": "awakener-0056"
-    },
-    "overlay.arachne.singularity-ultra": {
-      "ownerAwakenerId": "awakener-0056"
-    },
     "overlay.arachne.singularity-warp": {
       "ownerAwakenerId": "awakener-0056"
     },
@@ -5062,6 +5037,10 @@
     "overlay.global.rouse": {},
     "overlay.global.sacrifice": {},
     "overlay.global.sealed": {},
+    "overlay.global.singularity-annihilation": {},
+    "overlay.global.singularity-beacon": {},
+    "overlay.global.singularity-prism": {},
+    "overlay.global.singularity-ultra": {},
     "overlay.global.stagnation": {},
     "overlay.global.steal": {},
     "overlay.global.stellar-protection": {},

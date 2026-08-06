@@ -7446,75 +7446,6 @@
       "ownerAwakenerName": "Arachne",
       "overlayType": "mechanic"
     },
-    "overlay.arachne.singularity-annihilation": {
-      "kind": "overlay",
-      "id": "overlay.arachne.singularity-annihilation",
-      "name": "Singularity Annihilation",
-      "route": {
-        "slug": "singularity-annihilation",
-        "canonicalPath": "/database/awakeners/arachne/overlays/singularity-annihilation"
-      },
-      "ownerAwakenerId": "awakener-0056",
-      "ownerAwakenerName": "Arachne",
-      "overlayType": "mechanic"
-    },
-    "overlay.arachne.singularity-beacon": {
-      "kind": "overlay",
-      "id": "overlay.arachne.singularity-beacon",
-      "name": "Singularity Beacon",
-      "route": {
-        "slug": "singularity-beacon",
-        "canonicalPath": "/database/awakeners/arachne/overlays/singularity-beacon"
-      },
-      "assets": {
-        "icon": "asset-overlay.arachne.singularity-beacon-icon"
-      },
-      "ownerAwakenerId": "awakener-0056",
-      "ownerAwakenerName": "Arachne",
-      "overlayType": "mechanic"
-    },
-    "overlay.arachne.singularity-prism": {
-      "kind": "overlay",
-      "id": "overlay.arachne.singularity-prism",
-      "name": "Singularity Prism",
-      "route": {
-        "slug": "singularity-prism",
-        "canonicalPath": "/database/awakeners/arachne/overlays/singularity-prism"
-      },
-      "assets": {
-        "icon": "asset-overlay.arachne.singularity-prism-icon"
-      },
-      "ownerAwakenerId": "awakener-0056",
-      "ownerAwakenerName": "Arachne",
-      "overlayType": "mechanic"
-    },
-    "overlay.arachne.singularity-shuttle": {
-      "kind": "overlay",
-      "id": "overlay.arachne.singularity-shuttle",
-      "name": "Dimension Shuttle",
-      "route": {
-        "slug": "dimension-shuttle",
-        "canonicalPath": "/database/awakeners/arachne/overlays/dimension-shuttle"
-      },
-      "assets": {
-        "icon": "asset-overlay.arachne.singularity-shuttle-icon"
-      },
-      "ownerAwakenerId": "awakener-0056",
-      "ownerAwakenerName": "Arachne",
-      "overlayType": "mechanic"
-    },
-    "overlay.arachne.singularity-ultra": {
-      "kind": "overlay",
-      "id": "overlay.arachne.singularity-ultra",
-      "name": "Singularity: Ultra",
-      "route": {
-        "slug": "singularity-ultra",
-        "canonicalPath": "/database/awakeners/arachne/overlays/singularity-ultra"
-      },
-      "ownerAwakenerId": "awakener-0056",
-      "ownerAwakenerName": "Arachne",
-      "overlayType": "mechanic"
-    },
     "overlay.arachne.singularity-warp": {
       "kind": "overlay",
       "id": "overlay.arachne.singularity-warp",
@@ -8398,6 +8329,52 @@
         "icon": "asset-overlay.global.sealed-icon"
       },
       "overlayType": "mechanic"
+    },
+    "overlay.global.singularity-annihilation": {
+      "kind": "overlay",
+      "id": "overlay.global.singularity-annihilation",
+      "name": "Singularity Annihilation",
+      "route": {
+        "slug": "singularity-annihilation",
+        "canonicalPath": "/database/overlays/singularity-annihilation"
+      },
+      "overlayType": "mechanic"
+    },
+    "overlay.global.singularity-beacon": {
+      "kind": "overlay",
+      "id": "overlay.global.singularity-beacon",
+      "name": "Singularity Beacon",
+      "route": {
+        "slug": "singularity-beacon",
+        "canonicalPath": "/database/overlays/singularity-beacon"
+      },
+      "assets": {
+        "icon": "asset-overlay.global.singularity-beacon-icon"
+      },
+      "overlayType": "mechanic"
+    },
+    "overlay.global.singularity-prism": {
+      "kind": "overlay",
+      "id": "overlay.global.singularity-prism",
+      "name": "Singularity Prism",
+      "route": {
+        "slug": "singularity-prism",
+        "canonicalPath": "/database/overlays/singularity-prism"
+      },
+      "assets": {
+        "icon": "asset-overlay.global.singularity-prism-icon"
+      },
+      "overlayType": "mechanic"
+    },
+    "overlay.global.singularity-ultra": {
+      "kind": "overlay",
+      "id": "overlay.global.singularity-ultra",
+      "name": "Singularity: Ultra",
+      "route": {
+        "slug": "singularity-ultra",
+        "canonicalPath": "/database/overlays/singularity-ultra"
+      },
+      "overlayType": "realm"
     },
     "overlay.global.stagnation": {
       "kind": "overlay",
@@ -24734,11 +24711,6 @@
       "overlay.24.realm-and-persona",
       "overlay.aigis.petrify",
       "overlay.arachne.final-verdict",
-      "overlay.arachne.singularity-annihilation",
-      "overlay.arachne.singularity-beacon",
-      "overlay.arachne.singularity-prism",
-      "overlay.arachne.singularity-shuttle",
-      "overlay.arachne.singularity-ultra",
       "overlay.arachne.singularity-warp",
       "overlay.arachne.weaver",
       "overlay.caecus.outcasts-anguish",
@@ -24816,6 +24788,10 @@
       "overlay.global.rouse",
       "overlay.global.sacrifice",
       "overlay.global.sealed",
+      "overlay.global.singularity-annihilation",
+      "overlay.global.singularity-beacon",
+      "overlay.global.singularity-prism",
+      "overlay.global.singularity-ultra",
       "overlay.global.stagnation",
       "overlay.global.steal",
       "overlay.global.stellar-protection",

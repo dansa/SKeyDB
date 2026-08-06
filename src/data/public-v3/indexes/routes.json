@@ -10184,41 +10184,11 @@
         "canonicalSlug": "annihilation",
         "canonicalPath": "/database/overlays/annihilation"
       },
-      "arachne/dimension-shuttle": {
-        "kind": "overlay",
-        "id": "overlay.arachne.singularity-shuttle",
-        "canonicalSlug": "dimension-shuttle",
-        "canonicalPath": "/database/awakeners/arachne/overlays/dimension-shuttle"
-      },
       "arachne/final-verdict": {
         "kind": "overlay",
         "id": "overlay.arachne.final-verdict",
         "canonicalSlug": "final-verdict",
         "canonicalPath": "/database/awakeners/arachne/overlays/final-verdict"
-      },
-      "arachne/singularity-annihilation": {
-        "kind": "overlay",
-        "id": "overlay.arachne.singularity-annihilation",
-        "canonicalSlug": "singularity-annihilation",
-        "canonicalPath": "/database/awakeners/arachne/overlays/singularity-annihilation"
-      },
-      "arachne/singularity-beacon": {
-        "kind": "overlay",
-        "id": "overlay.arachne.singularity-beacon",
-        "canonicalSlug": "singularity-beacon",
-        "canonicalPath": "/database/awakeners/arachne/overlays/singularity-beacon"
-      },
-      "arachne/singularity-prism": {
-        "kind": "overlay",
-        "id": "overlay.arachne.singularity-prism",
-        "canonicalSlug": "singularity-prism",
-        "canonicalPath": "/database/awakeners/arachne/overlays/singularity-prism"
-      },
-      "arachne/singularity-ultra": {
-        "kind": "overlay",
-        "id": "overlay.arachne.singularity-ultra",
-        "canonicalSlug": "singularity-ultra",
-        "canonicalPath": "/database/awakeners/arachne/overlays/singularity-ultra"
       },
       "arachne/singularity-warp": {
         "kind": "overlay",
@@ -10855,6 +10825,30 @@
         "id": "overlay.global.sealed",
         "canonicalSlug": "sealed",
         "canonicalPath": "/database/overlays/sealed"
+      },
+      "singularity-annihilation": {
+        "kind": "overlay",
+        "id": "overlay.global.singularity-annihilation",
+        "canonicalSlug": "singularity-annihilation",
+        "canonicalPath": "/database/overlays/singularity-annihilation"
+      },
+      "singularity-beacon": {
+        "kind": "overlay",
+        "id": "overlay.global.singularity-beacon",
+        "canonicalSlug": "singularity-beacon",
+        "canonicalPath": "/database/overlays/singularity-beacon"
+      },
+      "singularity-prism": {
+        "kind": "overlay",
+        "id": "overlay.global.singularity-prism",
+        "canonicalSlug": "singularity-prism",
+        "canonicalPath": "/database/overlays/singularity-prism"
+      },
+      "singularity-ultra": {
+        "kind": "overlay",
+        "id": "overlay.global.singularity-ultra",
+        "canonicalSlug": "singularity-ultra",
+        "canonicalPath": "/database/overlays/singularity-ultra"
       },
       "stagnation": {
         "kind": "overlay",

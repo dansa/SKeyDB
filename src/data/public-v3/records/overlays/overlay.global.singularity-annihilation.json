@@ -1,16 +1,14 @@
 {
   "schemaVersion": 3,
   "kind": "overlay",
-  "id": "overlay.arachne.singularity-annihilation",
+  "id": "overlay.global.singularity-annihilation",
   "name": "Singularity Annihilation",
   "route": {
     "slug": "singularity-annihilation",
-    "canonicalPath": "/database/awakeners/arachne/overlays/singularity-annihilation"
+    "canonicalPath": "/database/overlays/singularity-annihilation"
   },
   "overlayType": "mechanic",
-  "ownerAwakenerId": "awakener-0056",
   "aliases": [],
   "descriptionTemplate": "Draw the leftmost card from {Ultra Space}. 3 turns cooldown.",
-  "descriptionArgs": {},
-  "ownerAwakenerName": "Arachne"
+  "descriptionArgs": {}
 }

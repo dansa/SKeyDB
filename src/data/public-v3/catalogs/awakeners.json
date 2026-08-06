@@ -3080,20 +3080,7 @@
       },
       "lineupToken": "4",
       "aliases": ["arachne"],
-      "searchTags": [
-        "Poison",
-        "Counter",
-        "Final Verdict",
-        "STR Up",
-        "STR Down",
-        "Tentacle DMG",
-        "Pursuit",
-        "Fixed DMG",
-        "Dispel",
-        "Divine Realm",
-        "Self-Damage",
-        "Spider"
-      ]
+      "searchTags": ["Final Verdict", "Pursuit", "Fixed DMG", "Dispel", "Divine Realm", "Self-Damage", "Spider"]
     },
     {
       "kind": "awakener",
@@ -3203,7 +3190,7 @@
       },
       "lineupToken": "xr",
       "aliases": ["pontos"],
-      "searchTags": ["Tentacle DMG", "Fixed DMG", "Dispel", "Divine Realm"]
+      "searchTags": ["STR Down", "Tentacle DMG", "Fixed DMG", "Dispel", "Divine Realm"]
     },
     {
       "kind": "awakener",

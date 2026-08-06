@@ -1,11 +1,11 @@
 {
   "schemaVersion": 3,
-  "gameDataVersion": "compiled-sha256-87011fdea0ad273a",
-  "generatedAt": "2026-08-06T08:50:53Z",
-  "buildId": "public-v3-sha256-478409af4af129c5",
+  "gameDataVersion": "compiled-sha256-6be0c2240fc79d5d",
+  "generatedAt": "2026-08-06T12:22:51Z",
+  "buildId": "public-v3-sha256-8f360fdc3ee5e8df",
   "build": {
-    "gameDataVersion": "compiled-sha256-87011fdea0ad273a",
-    "recordCount": 1889,
+    "gameDataVersion": "compiled-sha256-6be0c2240fc79d5d",
+    "recordCount": 1888,
     "scopes": ["awakeners", "wheels", "relics", "covenants", "posses", "skills", "derived-skills", "talents", "enlightens", "overlays", "awakener-builds"]
   },
   "scopes": {
@@ -67,7 +67,7 @@
       "kind": "overlay",
       "catalog": "catalogs/overlays.json",
       "recordPattern": "records/overlays/{id}.json",
-      "count": 146
+      "count": 145
     },
     "awakener-builds": {
       "kind": "awakenerBuild",
@@ -102,8 +102,8 @@
       "sha256": "051415f92022be9fab49efffc436c7dc280a8875cec68f7d9c96b42e24a84d53"
     },
     "catalogs/awakeners.json": {
-      "bytes": 83002,
-      "sha256": "7f396381f8bdff5031f9628d294c069ac27e90ed337ae1165c74dd124e7844df"
+      "bytes": 82851,
+      "sha256": "cbaa04eddf6f0c1e20fdc3aeb6e84adb04d756d3493048513870112a958e9aa1"
     },
     "catalogs/covenants.json": {
       "bytes": 7413,
@@ -118,8 +118,8 @@
       "sha256": "f7c420bda5711a79e1c390414f5e07a960949caf25bc1f6472b86d21a4538a12"
     },
     "catalogs/overlays.json": {
-      "bytes": 56307,
-      "sha256": "18561340c8f622f446e10580bbfbbbd1fe79fbc153d1c6ea6f3c7ad136a78563"
+      "bytes": 55379,
+      "sha256": "76e10a1b1cdcd061b029273ca1f7e69110e0077596b99f4ccb20e2a0ac9ec797"
     },
     "catalogs/posses.json": {
       "bytes": 33391,
@@ -142,8 +142,8 @@
       "sha256": "3c257b265720bd237f80a5a91b91af6107bb55cc85444c04b60b1376e98db15a"
     },
     "indexes/assets.json": {
-      "bytes": 428261,
-      "sha256": "5dd2fb842013b08558645827f2c1219a06b72a0056b8ad7a39359dfb7bacbd35"
+      "bytes": 427652,
+      "sha256": "647046cbcdf7c8d7d961b97917aafcd1a9f0f1023d220a2d5853478a481de729"
     },
     "indexes/builder-catalog.json": {
       "bytes": 23105,
@@ -154,32 +154,32 @@
       "sha256": "285651d5615fbf07eb228ff76542941465f49ddfe9d64c2d3e562759eb224566"
     },
     "indexes/entities.json": {
-      "bytes": 797064,
-      "sha256": "b425732a18f7212d1eef917923634e1b4a4420ae44ee6105b0af7481f34261ed"
+      "bytes": 796098,
+      "sha256": "bede95a0f59d025d0afa25d72f5395730fdb08afe756cc285f48569e97580810"
     },
     "indexes/facets.json": {
       "bytes": 60572,
       "sha256": "92ad97781dc88f9922e820f4523c48a3782e0637ca0210dee7b1a83b0ea8ad0d"
     },
     "indexes/references.json": {
-      "bytes": 229062,
-      "sha256": "179d6ec9ca151e602af127d9dc1d36003687f9571cdc7a4a655f43ab6d315566"
+      "bytes": 228959,
+      "sha256": "f420d6b57da7f30e0d948c6c3c5dfe4e54a5d0474be23c469ebada8ccf266c17"
     },
     "indexes/relationships.json": {
-      "bytes": 258404,
-      "sha256": "f7a6da333d41329bddcac87d8116e8086080876baa30c2745da9a0df58a8ee61"
+      "bytes": 257805,
+      "sha256": "0602c2b51bd4d4c6aa2dc99e386726bb86515fd4c18b2e825fcd1725be5084d7"
     },
     "indexes/routes.json": {
-      "bytes": 431706,
-      "sha256": "9a4557523a6a8772d0d73aaec011aee1da58ec122f29d47d6e940c53dc803c23"
+      "bytes": 431344,
+      "sha256": "80776532284ce90b12be94f5eaab38831417767099e8813c94d0c70549c6b6e9"
     },
     "indexes/scopes.json": {
       "bytes": 4915,
-      "sha256": "88605e2b27ab9118ca83bd4c66719cfc2dff0b05b66d8a75089a5aed74f8eb75"
+      "sha256": "ba043c89d57d7e0242b031a897117c6d9fc0597d72a6ccc9c69186fb6ce5c07c"
     },
     "indexes/search-awakeners.json": {
-      "bytes": 84418,
-      "sha256": "b4dfa1a0ecf9a445d3b6694caa632dfd106119e6d4996676ec3e748eae38b564"
+      "bytes": 83891,
+      "sha256": "45e16082c3e04149a774b47fa891fcd5fe71e9021791def8acb5aad164b43964"
     },
     "indexes/search-covenants.json": {
       "bytes": 5517,
@@ -195,7 +195,7 @@
     },
     "indexes/search-tags.json": {
       "bytes": 7285,
-      "sha256": "895450faee6f60bfe5d00f5e72982cca2e6c0987c0a9b82cf0070513392c0fcb"
+      "sha256": "e47ec4acad077892c157a0f45aa139f013d92458b4cfa03666a3b5e97a3bf839"
     },
     "indexes/search-wheels.json": {
       "bytes": 110406,
@@ -650,16 +650,16 @@
       "sha256": "a55968314e949c299eed645a3395f3a4b04f9fbf921d963cc1fd192940b445cb"
     },
     "records/awakeners/awakener-0056.json": {
-      "bytes": 12436,
-      "sha256": "1730123e5edf3d6aea7dddecc4ac0064394f39e18f732b4700e4dbb420636164"
+      "bytes": 12325,
+      "sha256": "25c5da81a58fd4b8e624fc25a227a57515d6a941595146600e60da4a0bfde327"
     },
     "records/awakeners/awakener-0057.json": {
       "bytes": 5672,
       "sha256": "9a3727b9f25b9995a07391cc906aa644892b5fc99d2c9b95adadacd1482ebb40"
     },
     "records/awakeners/awakener-0058.json": {
-      "bytes": 6488,
-      "sha256": "b1fe852a340a3bbd212be4e5b6d81e4fa654f5e0104179ec032656da31bbbfb4"
+      "bytes": 6500,
+      "sha256": "74178dcf89f991423cfcaa0a85bd0edad2d9b836c777385d2b6d96ee5e63c9c3"
     },
     "records/awakeners/awakener-0059.json": {
       "bytes": 11412,
@@ -2697,26 +2697,6 @@
       "bytes": 653,
       "sha256": "33e2d6baa8505c51539befa0d006eba3d3bf418566fe0cb3928876dc47f9df7e"
     },
-    "records/overlays/overlay.arachne.singularity-annihilation.json": {
-      "bytes": 511,
-      "sha256": "8aec3a7e31d9cd680fadb9d0941defceaeed3047ede36d26a96bb2068d07d200"
-    },
-    "records/overlays/overlay.arachne.singularity-beacon.json": {
-      "bytes": 789,
-      "sha256": "a9ed2d13cdd9d9a90b6429fadb3a40cabf168baabed20118eb2810b5eee0ef02"
-    },
-    "records/overlays/overlay.arachne.singularity-prism.json": {
-      "bytes": 738,
-      "sha256": "40aa420fa2e72ae82bb016b2733bdc413e08152f7f3d43774ce4cb99b42629f7"
-    },
-    "records/overlays/overlay.arachne.singularity-shuttle.json": {
-      "bytes": 738,
-      "sha256": "de465ec064cd83babcd94abb5841dc697d60b2c0568a750e1c34d8463cc13d4a"
-    },
-    "records/overlays/overlay.arachne.singularity-ultra.json": {
-      "bytes": 1802,
-      "sha256": "3e41623b81174272dbef44f499c77403c68718e66be681af6117c0f27af8450d"
-    },
     "records/overlays/overlay.arachne.singularity-warp.json": {
       "bytes": 783,
       "sha256": "9438b07532cd91467afab2c99b3ee306a5333d60c095b23dafa852f4c07e367b"
@@ -2850,8 +2830,8 @@
       "sha256": "e582969d286d9abdadbc0155b05602f87bfe602ba0abc6b6070a882a38d7c242"
     },
     "records/overlays/overlay.global.dimension-shuttle.json": {
-      "bytes": 621,
-      "sha256": "b20e18206bdcbe9da110689de61111dbf5059384def123c893b515f843ce8550"
+      "bytes": 642,
+      "sha256": "5efa8bba4194f83365cde9ab8ae91aebb88a457e1d241ab52259ed52bd12e3fb"
     },
     "records/overlays/overlay.global.discover.json": {
       "bytes": 359,
@@ -3024,6 +3004,22 @@
     "records/overlays/overlay.global.sealed.json": {
       "bytes": 463,
       "sha256": "9061cf90041cc10d4620a3f219b05203ecb93bce02b2674dc9686e4e2b99d38f"
+    },
+    "records/overlays/overlay.global.singularity-annihilation.json": {
+      "bytes": 420,
+      "sha256": "5d61ec41851f319d36b0a1873590c18eca6dc1cd5cd5914626335812b339213c"
+    },
+    "records/overlays/overlay.global.singularity-beacon.json": {
+      "bytes": 697,
+      "sha256": "9c965d2766e54fd4cae1f541fb5af6e40c09b0201ddc72a16dd29ef3a884e2ca"
+    },
+    "records/overlays/overlay.global.singularity-prism.json": {
+      "bytes": 646,
+      "sha256": "62009f554147bb337a672c972ba8c22866b170a57c293abbc227958a541ecb7d"
+    },
+    "records/overlays/overlay.global.singularity-ultra.json": {
+      "bytes": 1708,
+      "sha256": "996cf707de8d98dc87a19468959e44a2dbcd7c4eca671c30a728b7d7c1d4df0c"
     },
     "records/overlays/overlay.global.stagnation.json": {
       "bytes": 468,

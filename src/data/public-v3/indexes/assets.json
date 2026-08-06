@@ -10033,42 +10033,6 @@
         "candidates": ["src/assets/icons/IconS_Buff_055.webp", "src/assets/icons/IconS_Buff_055.png"]
       }
     },
-    "asset-overlay.arachne.singularity-beacon-icon": {
-      "id": "asset-overlay.arachne.singularity-beacon-icon",
-      "slot": "icon",
-      "kind": "overlay",
-      "ownerId": "overlay.arachne.singularity-beacon",
-      "assetId": "IconS_Buff_067",
-      "availability": {
-        "status": "available",
-        "path": "src/assets/icons/IconS_Buff_067.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_067.webp", "src/assets/icons/IconS_Buff_067.png"]
-      }
-    },
-    "asset-overlay.arachne.singularity-prism-icon": {
-      "id": "asset-overlay.arachne.singularity-prism-icon",
-      "slot": "icon",
-      "kind": "overlay",
-      "ownerId": "overlay.arachne.singularity-prism",
-      "assetId": "IconS_Buff_067",
-      "availability": {
-        "status": "available",
-        "path": "src/assets/icons/IconS_Buff_067.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_067.webp", "src/assets/icons/IconS_Buff_067.png"]
-      }
-    },
-    "asset-overlay.arachne.singularity-shuttle-icon": {
-      "id": "asset-overlay.arachne.singularity-shuttle-icon",
-      "slot": "icon",
-      "kind": "overlay",
-      "ownerId": "overlay.arachne.singularity-shuttle",
-      "assetId": "IconS_Buff_067",
-      "availability": {
-        "status": "available",
-        "path": "src/assets/icons/IconS_Buff_067.webp",
-        "candidates": ["src/assets/icons/IconS_Buff_067.webp", "src/assets/icons/IconS_Buff_067.png"]
-      }
-    },
     "asset-overlay.arachne.singularity-warp-icon": {
       "id": "asset-overlay.arachne.singularity-warp-icon",
       "slot": "icon",
@@ -10427,6 +10391,30 @@
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_027.webp",
         "candidates": ["src/assets/icons/IconS_Buff_027.webp", "src/assets/icons/IconS_Buff_027.png"]
+      }
+    },
+    "asset-overlay.global.singularity-beacon-icon": {
+      "id": "asset-overlay.global.singularity-beacon-icon",
+      "slot": "icon",
+      "kind": "overlay",
+      "ownerId": "overlay.global.singularity-beacon",
+      "assetId": "IconS_Buff_067",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/IconS_Buff_067.webp",
+        "candidates": ["src/assets/icons/IconS_Buff_067.webp", "src/assets/icons/IconS_Buff_067.png"]
+      }
+    },
+    "asset-overlay.global.singularity-prism-icon": {
+      "id": "asset-overlay.global.singularity-prism-icon",
+      "slot": "icon",
+      "kind": "overlay",
+      "ownerId": "overlay.global.singularity-prism",
+      "assetId": "IconS_Buff_067",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/IconS_Buff_067.webp",
+        "candidates": ["src/assets/icons/IconS_Buff_067.webp", "src/assets/icons/IconS_Buff_067.png"]
       }
     },
     "asset-overlay.global.stagnation-icon": {
@@ -12623,15 +12611,6 @@
     "overlay.arachne.final-verdict": {
       "icon": "asset-overlay.arachne.final-verdict-icon"
     },
-    "overlay.arachne.singularity-beacon": {
-      "icon": "asset-overlay.arachne.singularity-beacon-icon"
-    },
-    "overlay.arachne.singularity-prism": {
-      "icon": "asset-overlay.arachne.singularity-prism-icon"
-    },
-    "overlay.arachne.singularity-shuttle": {
-      "icon": "asset-overlay.arachne.singularity-shuttle-icon"
-    },
     "overlay.arachne.singularity-warp": {
       "icon": "asset-overlay.arachne.singularity-warp-icon"
     },
@@ -12721,6 +12700,12 @@
     },
     "overlay.global.sealed": {
       "icon": "asset-overlay.global.sealed-icon"
+    },
+    "overlay.global.singularity-beacon": {
+      "icon": "asset-overlay.global.singularity-beacon-icon"
+    },
+    "overlay.global.singularity-prism": {
+      "icon": "asset-overlay.global.singularity-prism-icon"
     },
     "overlay.global.stagnation": {
       "icon": "asset-overlay.global.stagnation-icon"
