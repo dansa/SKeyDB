@@ -3080,7 +3080,20 @@
       },
       "lineupToken": "4",
       "aliases": ["arachne"],
-      "searchTags": ["Poison", "Counter", "Final Verdict", "STR Up", "Tentacle DMG", "Pursuit", "Fixed DMG", "Dispel", "Divine Realm", "Self-Damage", "Spider"]
+      "searchTags": [
+        "Poison",
+        "Counter",
+        "Final Verdict",
+        "STR Up",
+        "STR Down",
+        "Tentacle DMG",
+        "Pursuit",
+        "Fixed DMG",
+        "Dispel",
+        "Divine Realm",
+        "Self-Damage",
+        "Spider"
+      ]
     },
     {
       "kind": "awakener",

@@ -3336,6 +3336,7 @@
         "divine",
         "divine realm",
         "dmg",
+        "down",
         "final",
         "final verdict",
         "fixed",
@@ -3355,8 +3356,10 @@
         "spider",
         "ssr",
         "str",
+        "str down",
         "str up",
         "strength",
+        "strength down",
         "strength up",
         "tentacle",
         "tentacle damage",
@@ -3376,6 +3379,7 @@
           "counter",
           "final-verdict",
           "str-up",
+          "str-down",
           "tentacle-dmg",
           "pursuit",
           "fixed-dmg",
@@ -3387,6 +3391,8 @@
           "verdict",
           "STR Up",
           "strength up",
+          "STR Down",
+          "strength down",
           "Tentacle DMG",
           "tentacle damage",
           "Fixed DMG",
@@ -3406,7 +3412,20 @@
         "type": "CHORUS",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "The Unknowable",
-        "tags": ["counter", "dispel", "divine-realm", "final-verdict", "fixed-dmg", "poison", "pursuit", "self-harm", "spider", "str-up", "tentacle-dmg"]
+        "tags": [
+          "counter",
+          "dispel",
+          "divine-realm",
+          "final-verdict",
+          "fixed-dmg",
+          "poison",
+          "pursuit",
+          "self-harm",
+          "spider",
+          "str-down",
+          "str-up",
+          "tentacle-dmg"
+        ]
       }
     },
     {

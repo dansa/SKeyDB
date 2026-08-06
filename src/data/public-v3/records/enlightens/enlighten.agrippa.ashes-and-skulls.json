@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0002",
   "slot": "E2",
-  "descriptionTemplate": "\"Basic Strike\" and \"Basic Defense\" triggers 10% {Poison} on all enemies.",
+  "descriptionTemplate": "\"Basic Strike\" and \"Basic Defense\" triggers 20% {Poison} on all enemies.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Agrippa"
 }

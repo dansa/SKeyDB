@@ -25,8 +25,11 @@
       "value": "15"
     },
     "Arg2": {
-      "kind": "fixed",
-      "value": "8"
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.01,
+      "inputs": ["accountLevel", "ownedPosseCount"]
     },
     "Arg3": {
       "kind": "fixed",
@@ -51,8 +54,11 @@
           "value": "15"
         },
         "Arg2": {
-          "kind": "fixed",
-          "value": "8"
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.01,
+          "inputs": ["accountLevel", "ownedPosseCount"]
         },
         "Arg3": {
           "kind": "fixed",

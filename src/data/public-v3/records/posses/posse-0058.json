@@ -2,10 +2,10 @@
   "schemaVersion": 3,
   "kind": "posse",
   "id": "posse-0058",
-  "name": "Primordial Memory·Spike",
+  "name": "Primordial Memory: Spike",
   "route": {
-    "slug": "primordial-memoryspike",
-    "canonicalPath": "/database/posses/primordial-memoryspike"
+    "slug": "primordial-memory-spike",
+    "canonicalPath": "/database/posses/primordial-memory-spike"
   },
   "assets": {
     "icon": "asset-posse-0058-icon",
@@ -16,7 +16,7 @@
   "classification": "PRIMORDIAL_MEMORY",
   "equippable": false,
   "collectible": false,
-  "descriptionTemplate": "Gain [Arg1] stack(s) of {Temporary Counter}.\nScaling guide: {Primordia Mastery Scaling}",
+  "descriptionTemplate": "Gain [Arg1] {plural:[Arg1]|stack|stacks} of {Temporary Counter}.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",

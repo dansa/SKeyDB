@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0012",
   "slot": "Exalt",
-  "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies, this DMG enjoys [Arg4]x {STR} bonus. Create 1 Customized {Thousand Mirage} and place it into hand. If it is not an {Ultra Round} and there is no {Thousand Mirage} in the {Ultra Space}, copy it and place it into the {Ultra Space}. Otherwise, place 1 {Insight} into hand.",
+  "descriptionTemplate": "Deal [Damage:Arg1] damage to all enemies; this damage enjoys a [Arg4]-times Strength bonus. Create one custom {Thousand Mirage} and place it into your hand. If it is not an {Ultra}-dimensional turn and {Ultra Dimension} does not have a {Thousand Mirage}, copy it into {Ultra Dimension} (considered as triggering {Dimensional Shuttle} once); otherwise, place one <DerivativeCardKeywords_4: \"Inspiration\"> into your hand.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

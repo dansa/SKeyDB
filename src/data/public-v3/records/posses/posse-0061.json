@@ -2,10 +2,10 @@
   "schemaVersion": 3,
   "kind": "posse",
   "id": "posse-0061",
-  "name": "Primordial Memory·Fury",
+  "name": "Primordial Memory: Fury",
   "route": {
-    "slug": "primordial-memoryfury",
-    "canonicalPath": "/database/posses/primordial-memoryfury"
+    "slug": "primordial-memory-fury",
+    "canonicalPath": "/database/posses/primordial-memory-fury"
   },
   "assets": {
     "icon": "asset-posse-0061-icon",

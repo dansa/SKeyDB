@@ -3232,53 +3232,53 @@
         "canonicalSlug": "plague-of-illusions",
         "canonicalPath": "/database/posses/plague-of-illusions"
       },
-      "primordial-memorybastion": {
+      "primordial-memory-bastion": {
         "kind": "posse",
         "id": "posse-0060",
-        "canonicalSlug": "primordial-memorybastion",
-        "canonicalPath": "/database/posses/primordial-memorybastion"
+        "canonicalSlug": "primordial-memory-bastion",
+        "canonicalPath": "/database/posses/primordial-memory-bastion"
       },
-      "primordial-memorycatalyst": {
+      "primordial-memory-catalysis": {
         "kind": "posse",
         "id": "posse-0055",
-        "canonicalSlug": "primordial-memorycatalyst",
-        "canonicalPath": "/database/posses/primordial-memorycatalyst"
+        "canonicalSlug": "primordial-memory-catalysis",
+        "canonicalPath": "/database/posses/primordial-memory-catalysis"
       },
-      "primordial-memorydrain": {
+      "primordial-memory-drain": {
         "kind": "posse",
         "id": "posse-0054",
-        "canonicalSlug": "primordial-memorydrain",
-        "canonicalPath": "/database/posses/primordial-memorydrain"
+        "canonicalSlug": "primordial-memory-drain",
+        "canonicalPath": "/database/posses/primordial-memory-drain"
       },
-      "primordial-memoryfury": {
+      "primordial-memory-fury": {
         "kind": "posse",
         "id": "posse-0061",
-        "canonicalSlug": "primordial-memoryfury",
-        "canonicalPath": "/database/posses/primordial-memoryfury"
+        "canonicalSlug": "primordial-memory-fury",
+        "canonicalPath": "/database/posses/primordial-memory-fury"
       },
-      "primordial-memoryhealing": {
+      "primordial-memory-healing": {
         "kind": "posse",
         "id": "posse-0056",
-        "canonicalSlug": "primordial-memoryhealing",
-        "canonicalPath": "/database/posses/primordial-memoryhealing"
+        "canonicalSlug": "primordial-memory-healing",
+        "canonicalPath": "/database/posses/primordial-memory-healing"
       },
-      "primordial-memorymight": {
+      "primordial-memory-might": {
         "kind": "posse",
         "id": "posse-0059",
-        "canonicalSlug": "primordial-memorymight",
-        "canonicalPath": "/database/posses/primordial-memorymight"
+        "canonicalSlug": "primordial-memory-might",
+        "canonicalPath": "/database/posses/primordial-memory-might"
       },
-      "primordial-memoryspike": {
+      "primordial-memory-spike": {
         "kind": "posse",
         "id": "posse-0058",
-        "canonicalSlug": "primordial-memoryspike",
-        "canonicalPath": "/database/posses/primordial-memoryspike"
+        "canonicalSlug": "primordial-memory-spike",
+        "canonicalPath": "/database/posses/primordial-memory-spike"
       },
-      "primordial-memorytoxin": {
+      "primordial-memory-toxin": {
         "kind": "posse",
         "id": "posse-0057",
-        "canonicalSlug": "primordial-memorytoxin",
-        "canonicalPath": "/database/posses/primordial-memorytoxin"
+        "canonicalSlug": "primordial-memory-toxin",
+        "canonicalPath": "/database/posses/primordial-memory-toxin"
       },
       "reunion-wish": {
         "kind": "posse",

@@ -919,10 +919,10 @@
     {
       "kind": "posse",
       "id": "posse-0054",
-      "name": "Primordial Memory·Drain",
+      "name": "Primordial Memory: Drain",
       "route": {
-        "slug": "primordial-memorydrain",
-        "canonicalPath": "/database/posses/primordial-memorydrain"
+        "slug": "primordial-memory-drain",
+        "canonicalPath": "/database/posses/primordial-memory-drain"
       },
       "assets": {
         "icon": "asset-posse-0054-icon",
@@ -949,10 +949,10 @@
     {
       "kind": "posse",
       "id": "posse-0055",
-      "name": "Primordial Memory·Catalyst",
+      "name": "Primordial Memory: Catalysis",
       "route": {
-        "slug": "primordial-memorycatalyst",
-        "canonicalPath": "/database/posses/primordial-memorycatalyst"
+        "slug": "primordial-memory-catalysis",
+        "canonicalPath": "/database/posses/primordial-memory-catalysis"
       },
       "assets": {
         "icon": "asset-posse-0055-icon",
@@ -979,10 +979,10 @@
     {
       "kind": "posse",
       "id": "posse-0056",
-      "name": "Primordial Memory·Healing",
+      "name": "Primordial Memory: Healing",
       "route": {
-        "slug": "primordial-memoryhealing",
-        "canonicalPath": "/database/posses/primordial-memoryhealing"
+        "slug": "primordial-memory-healing",
+        "canonicalPath": "/database/posses/primordial-memory-healing"
       },
       "assets": {
         "icon": "asset-posse-0056-icon",
@@ -1009,10 +1009,10 @@
     {
       "kind": "posse",
       "id": "posse-0057",
-      "name": "Primordial Memory·Toxin",
+      "name": "Primordial Memory: Toxin",
       "route": {
-        "slug": "primordial-memorytoxin",
-        "canonicalPath": "/database/posses/primordial-memorytoxin"
+        "slug": "primordial-memory-toxin",
+        "canonicalPath": "/database/posses/primordial-memory-toxin"
       },
       "assets": {
         "icon": "asset-posse-0057-icon",
@@ -1039,10 +1039,10 @@
     {
       "kind": "posse",
       "id": "posse-0058",
-      "name": "Primordial Memory·Spike",
+      "name": "Primordial Memory: Spike",
       "route": {
-        "slug": "primordial-memoryspike",
-        "canonicalPath": "/database/posses/primordial-memoryspike"
+        "slug": "primordial-memory-spike",
+        "canonicalPath": "/database/posses/primordial-memory-spike"
       },
       "assets": {
         "icon": "asset-posse-0058-icon",
@@ -1053,7 +1053,7 @@
       "classification": "PRIMORDIAL_MEMORY",
       "equippable": false,
       "collectible": false,
-      "descriptionTemplate": "Gain [Arg1] stack(s) of {Temporary Counter}.\nScaling guide: {Primordia Mastery Scaling}",
+      "descriptionTemplate": "Gain [Arg1] {plural:[Arg1]|stack|stacks} of {Temporary Counter}.\nScaling guide: {Primordia Mastery Scaling}",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -1069,10 +1069,10 @@
     {
       "kind": "posse",
       "id": "posse-0059",
-      "name": "Primordial Memory·Might",
+      "name": "Primordial Memory: Might",
       "route": {
-        "slug": "primordial-memorymight",
-        "canonicalPath": "/database/posses/primordial-memorymight"
+        "slug": "primordial-memory-might",
+        "canonicalPath": "/database/posses/primordial-memory-might"
       },
       "assets": {
         "icon": "asset-posse-0059-icon",
@@ -1099,10 +1099,10 @@
     {
       "kind": "posse",
       "id": "posse-0060",
-      "name": "Primordial Memory·Bastion",
+      "name": "Primordial Memory: Bastion",
       "route": {
-        "slug": "primordial-memorybastion",
-        "canonicalPath": "/database/posses/primordial-memorybastion"
+        "slug": "primordial-memory-bastion",
+        "canonicalPath": "/database/posses/primordial-memory-bastion"
       },
       "assets": {
         "icon": "asset-posse-0060-icon",
@@ -1129,10 +1129,10 @@
     {
       "kind": "posse",
       "id": "posse-0061",
-      "name": "Primordial Memory·Fury",
+      "name": "Primordial Memory: Fury",
       "route": {
-        "slug": "primordial-memoryfury",
-        "canonicalPath": "/database/posses/primordial-memoryfury"
+        "slug": "primordial-memory-fury",
+        "canonicalPath": "/database/posses/primordial-memory-fury"
       },
       "assets": {
         "icon": "asset-posse-0061-icon",
