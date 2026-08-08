@@ -449,13 +449,15 @@
       "id": "posse-0030",
       "name": "Plague of Illusions",
       "aliases": [],
-      "tokens": ["chaos", "illusions", "of", "plague", "plague of illusions"],
+      "tokens": ["chaos", "doll", "doll inferno", "g", "g doll", "illusions", "inferno", "of", "plague", "plague of illusions"],
       "fields": {
         "name": ["Plague of Illusions", "plague-of-illusions"],
+        "owner": ["Doll: Inferno", "doll-inferno", "g-doll"],
         "facet": ["CHAOS"]
       },
       "facets": {
-        "realm": "CHAOS"
+        "realm": "CHAOS",
+        "owner": "awakener-0018"
       }
     },
     {
@@ -509,13 +511,15 @@
       "id": "posse-0034",
       "name": "Sacred Mending",
       "aliases": [],
-      "tokens": ["mending", "sacred", "sacred mending", "ultra"],
+      "tokens": ["clementine", "mending", "sacred", "sacred mending", "ultra"],
       "fields": {
         "name": ["Sacred Mending", "sacred-mending"],
+        "owner": ["Clementine"],
         "facet": ["ULTRA"]
       },
       "facets": {
-        "realm": "ULTRA"
+        "realm": "ULTRA",
+        "owner": "awakener-0010"
       }
     },
     {
@@ -555,13 +559,15 @@
       "id": "posse-0037",
       "name": "Cruel Homage",
       "aliases": [],
-      "tokens": ["caro", "cruel", "cruel homage", "homage"],
+      "tokens": ["caro", "cruel", "cruel homage", "doresain", "homage"],
       "fields": {
         "name": ["Cruel Homage", "cruel-homage"],
+        "owner": ["Doresain"],
         "facet": ["CARO"]
       },
       "facets": {
-        "realm": "CARO"
+        "realm": "CARO",
+        "owner": "awakener-0014"
       }
     },
     {
@@ -659,13 +665,15 @@
       "id": "posse-0044",
       "name": "Wayward Ship",
       "aliases": [],
-      "tokens": ["aequor", "ship", "wayward", "wayward ship"],
+      "tokens": ["aequor", "fauxborn", "g", "g murphy", "murphy", "murphy fauxborn", "ship", "wayward", "wayward ship"],
       "fields": {
         "name": ["Wayward Ship", "wayward-ship"],
+        "owner": ["Murphy: Fauxborn", "murphy-fauxborn", "g-murphy"],
         "facet": ["AEQUOR"]
       },
       "facets": {
-        "realm": "AEQUOR"
+        "realm": "AEQUOR",
+        "owner": "awakener-0035"
       }
     },
     {
@@ -751,13 +759,15 @@
       "id": "posse-0050",
       "name": "Orbis Fatum",
       "aliases": [],
-      "tokens": ["fatum", "orbis", "orbis fatum", "ultra"],
+      "tokens": ["arachne", "fatum", "orbis", "orbis fatum", "ultra"],
       "fields": {
         "name": ["Orbis Fatum", "orbis-fatum"],
+        "owner": ["Arachne"],
         "facet": ["ULTRA"]
       },
       "facets": {
-        "realm": "ULTRA"
+        "realm": "ULTRA",
+        "owner": "awakener-0056"
       }
     },
     {

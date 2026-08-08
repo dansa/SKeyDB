@@ -1362,6 +1362,11 @@
         "order": 7
       },
       {
+        "value": "awakener-0010",
+        "label": "Clementine",
+        "order": 9
+      },
+      {
         "value": "awakener-0011",
         "label": "Corposant",
         "order": 10
@@ -1372,9 +1377,19 @@
         "order": 11
       },
       {
+        "value": "awakener-0014",
+        "label": "Doresain",
+        "order": 13
+      },
+      {
         "value": "awakener-0015",
         "label": "Erica",
         "order": 14
+      },
+      {
+        "value": "awakener-0018",
+        "label": "Doll: Inferno",
+        "order": 17
       },
       {
         "value": "awakener-0019",
@@ -1420,6 +1435,11 @@
         "value": "awakener-0033",
         "label": "Mouchette",
         "order": 32
+      },
+      {
+        "value": "awakener-0035",
+        "label": "Murphy: Fauxborn",
+        "order": 34
       },
       {
         "value": "awakener-0038",
@@ -1485,6 +1505,11 @@
         "value": "awakener-0055",
         "label": "Vortice",
         "order": 54
+      },
+      {
+        "value": "awakener-0056",
+        "label": "Arachne",
+        "order": 55
       },
       {
         "value": "awakener-0057",

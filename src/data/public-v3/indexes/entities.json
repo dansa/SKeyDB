@@ -9643,7 +9643,9 @@
         "crystal": "asset-posse-0030-crystal",
         "badge": "asset-posse-0030-badge"
       },
-      "realm": "CHAOS"
+      "realm": "CHAOS",
+      "ownerAwakenerId": "awakener-0018",
+      "ownerAwakenerName": "Doll: Inferno"
     },
     "posse-0031": {
       "kind": "posse",
@@ -9707,7 +9709,9 @@
         "crystal": "asset-posse-0034-crystal",
         "badge": "asset-posse-0034-badge"
       },
-      "realm": "ULTRA"
+      "realm": "ULTRA",
+      "ownerAwakenerId": "awakener-0010",
+      "ownerAwakenerName": "Clementine"
     },
     "posse-0035": {
       "kind": "posse",
@@ -9756,7 +9760,9 @@
         "crystal": "asset-posse-0037-crystal",
         "badge": "asset-posse-0037-badge"
       },
-      "realm": "CARO"
+      "realm": "CARO",
+      "ownerAwakenerId": "awakener-0014",
+      "ownerAwakenerName": "Doresain"
     },
     "posse-0038": {
       "kind": "posse",
@@ -9867,7 +9873,9 @@
         "crystal": "asset-posse-0044-crystal",
         "badge": "asset-posse-0044-badge"
       },
-      "realm": "AEQUOR"
+      "realm": "AEQUOR",
+      "ownerAwakenerId": "awakener-0035",
+      "ownerAwakenerName": "Murphy: Fauxborn"
     },
     "posse-0045": {
       "kind": "posse",
@@ -9965,7 +9973,9 @@
         "crystal": "asset-posse-0050-crystal",
         "badge": "asset-posse-0050-badge"
       },
-      "realm": "ULTRA"
+      "realm": "ULTRA",
+      "ownerAwakenerId": "awakener-0056",
+      "ownerAwakenerName": "Arachne"
     },
     "posse-0051": {
       "kind": "posse",
