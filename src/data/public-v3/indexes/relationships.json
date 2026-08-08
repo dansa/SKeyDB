@@ -216,6 +216,7 @@
     "awakener-0010": {
       "ownedWheels": ["wheel-0041", "wheel-0137"],
       "ownedRelics": ["relic-0010"],
+      "ownedPosses": ["posse-0034"],
       "ownedSkills": [
         "skill.clementine.call-of-shaggai",
         "skill.clementine.defense",
@@ -355,6 +356,7 @@
     "awakener-0014": {
       "ownedWheels": ["wheel-0011", "wheel-0109"],
       "ownedRelics": ["relic-0014"],
+      "ownedPosses": ["posse-0037"],
       "ownedSkills": [
         "skill.doresain.crimson-invite",
         "skill.doresain.defense",
@@ -454,6 +456,7 @@
     "awakener-0018": {
       "ownedWheels": ["wheel-0016", "wheel-0106"],
       "ownedRelics": ["relic-0018"],
+      "ownedPosses": ["posse-0030"],
       "ownedSkills": [
         "skill.doll-inferno.defense",
         "skill.doll-inferno.fates-descent",
@@ -900,6 +903,7 @@
     "awakener-0035": {
       "ownedWheels": ["wheel-0111", "wheel-0131"],
       "ownedRelics": ["relic-0035"],
+      "ownedPosses": ["posse-0044"],
       "ownedSkills": [
         "skill.murphy-fauxborn.abyss-hymns",
         "skill.murphy-fauxborn.aetherial-loop",
@@ -1442,6 +1446,7 @@
     "awakener-0056": {
       "ownedWheels": ["wheel-0128", "wheel-0132"],
       "ownedRelics": ["relic-0056"],
+      "ownedPosses": ["posse-0050"],
       "ownedSkills": [
         "skill.arachne.defense",
         "skill.arachne.elegy-over-fate",
@@ -5249,7 +5254,9 @@
     },
     "posse-0028": {},
     "posse-0029": {},
-    "posse-0030": {},
+    "posse-0030": {
+      "ownerAwakenerId": "awakener-0018"
+    },
     "posse-0031": {
       "ownerAwakenerId": "awakener-0050"
     },
@@ -5257,14 +5264,18 @@
       "ownerAwakenerId": "awakener-0030"
     },
     "posse-0033": {},
-    "posse-0034": {},
+    "posse-0034": {
+      "ownerAwakenerId": "awakener-0010"
+    },
     "posse-0035": {
       "ownerAwakenerId": "awakener-0011"
     },
     "posse-0036": {
       "ownerAwakenerId": "awakener-0008"
     },
-    "posse-0037": {},
+    "posse-0037": {
+      "ownerAwakenerId": "awakener-0014"
+    },
     "posse-0038": {
       "ownerAwakenerId": "awakener-0027"
     },
@@ -5277,7 +5288,9 @@
       "ownerAwakenerId": "awakener-0040"
     },
     "posse-0043": {},
-    "posse-0044": {},
+    "posse-0044": {
+      "ownerAwakenerId": "awakener-0035"
+    },
     "posse-0045": {
       "ownerAwakenerId": "awakener-0042"
     },
@@ -5291,7 +5304,9 @@
     "posse-0049": {
       "ownerAwakenerId": "awakener-0055"
     },
-    "posse-0050": {},
+    "posse-0050": {
+      "ownerAwakenerId": "awakener-0056"
+    },
     "posse-0051": {
       "ownerAwakenerId": "awakener-0057"
     },

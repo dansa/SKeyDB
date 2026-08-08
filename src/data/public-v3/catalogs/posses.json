@@ -518,6 +518,8 @@
         "badge": "asset-posse-0030-badge"
       },
       "realm": "CHAOS",
+      "ownerAwakenerId": "awakener-0018",
+      "ownerAwakenerName": "Doll: Inferno",
       "lineupToken": "J"
     },
     {
@@ -586,6 +588,8 @@
         "badge": "asset-posse-0034-badge"
       },
       "realm": "ULTRA",
+      "ownerAwakenerId": "awakener-0010",
+      "ownerAwakenerName": "Clementine",
       "lineupToken": "M"
     },
     {
@@ -638,6 +642,8 @@
         "badge": "asset-posse-0037-badge"
       },
       "realm": "CARO",
+      "ownerAwakenerId": "awakener-0014",
+      "ownerAwakenerName": "Doresain",
       "lineupToken": "S"
     },
     {
@@ -756,6 +762,8 @@
         "badge": "asset-posse-0044-badge"
       },
       "realm": "AEQUOR",
+      "ownerAwakenerId": "awakener-0035",
+      "ownerAwakenerName": "Murphy: Fauxborn",
       "lineupToken": "X"
     },
     {
@@ -860,6 +868,8 @@
         "badge": "asset-posse-0050-badge"
       },
       "realm": "ULTRA",
+      "ownerAwakenerId": "awakener-0056",
+      "ownerAwakenerName": "Arachne",
       "lineupToken": "1"
     },
     {
