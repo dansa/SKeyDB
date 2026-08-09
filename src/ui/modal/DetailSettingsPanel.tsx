@@ -108,7 +108,7 @@ export function DetailSettingsPanel({
               </span>
               <BufferedLevelInput
                 ariaLabel='Account level'
-                className='database-account-level-input w-full border border-slate-600/45 bg-slate-950/70 px-2 py-1 text-right text-[12px] text-amber-100 outline-none focus:border-amber-200/60'
+                className='w-full border border-slate-600/45 bg-slate-950/70 px-2 py-1 text-right text-[12px] text-amber-100 outline-none focus:border-amber-200/60'
                 max={100}
                 min={1}
                 onCommit={onAccountLevelChange}

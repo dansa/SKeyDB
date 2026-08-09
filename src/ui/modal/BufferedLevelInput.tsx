@@ -16,20 +16,19 @@ function clampInteger(value: number, min: number, max: number): number {
   return Math.min(max, Math.max(min, Math.floor(value)))
 }
 
-export function BufferedLevelInput({value, ...props}: BufferedLevelInputProps) {
-  return <BufferedLevelInputDraft key={value} value={value} {...props} />
-}
+export function BufferedLevelInput(props: BufferedLevelInputProps) {
+  const {ariaLabel, className, max, min, onCommit, title, value} = props
+  const [editState, setEditState] = useState({draft: String(value), syncedValue: value})
 
-function BufferedLevelInputDraft({
-  ariaLabel,
-  className,
-  max,
-  min,
-  onCommit,
-  title,
-  value,
-}: BufferedLevelInputProps) {
-  const [draft, setDraft] = useState(String(value))
+  if (editState.syncedValue !== value) {
+    setEditState({draft: String(value), syncedValue: value})
+  }
+
+  const draft = editState.draft
+
+  function setDraft(nextDraft: string) {
+    setEditState({draft: nextDraft, syncedValue: value})
+  }
 
   function restoreCommittedValue() {
     setDraft(String(value))
@@ -49,10 +48,21 @@ function BufferedLevelInputDraft({
     }
   }
 
+  function stepDraft(direction: -1 | 1) {
+    const parsed = Number(draft)
+    const stepBase = draft.trim() !== '' && Number.isFinite(parsed) ? parsed : value
+    const nextValue = clampInteger(stepBase + direction, min, max)
+
+    setDraft(String(nextValue))
+    if (nextValue !== value) {
+      onCommit(nextValue)
+    }
+  }
+
   return (
     <input
       aria-label={ariaLabel}
-      className={className}
+      className={`database-buffered-level-input ${className}`}
       inputMode='numeric'
       max={max}
       min={min}
@@ -71,6 +81,14 @@ function BufferedLevelInputDraft({
           event.stopPropagation()
           restoreCommittedValue()
         }
+      }}
+      onWheel={(event) => {
+        if (event.currentTarget !== document.activeElement || event.deltaY === 0) {
+          return
+        }
+
+        event.preventDefault()
+        stepDraft(event.deltaY < 0 ? 1 : -1)
       }}
       step={1}
       title={title}

@@ -3071,13 +3071,13 @@ a {
   background: rgba(244, 234, 196, 0.98);
 }
 
-.database-account-level-input {
+.database-buffered-level-input {
   appearance: textfield;
   -moz-appearance: textfield;
 }
 
-.database-account-level-input::-webkit-outer-spin-button,
-.database-account-level-input::-webkit-inner-spin-button {
+.database-buffered-level-input::-webkit-outer-spin-button,
+.database-buffered-level-input::-webkit-inner-spin-button {
   margin: 0;
   appearance: none;
   -webkit-appearance: none;
