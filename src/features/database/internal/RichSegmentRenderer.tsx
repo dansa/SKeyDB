@@ -3,8 +3,8 @@ import {resolveDescriptionArg} from '@/domain/description-args'
 import type {PublicDescriptionArg} from '@/domain/public-description-args'
 import type {PublicFormulaContext} from '@/domain/public-formula-context'
 import type {RichSegment} from '@/domain/rich-text'
+import {GameLoreMarkupText} from '@/ui/game-content/GameLoreMarkupText'
 
-import {DatabaseLoreMarkupText} from './DatabaseLoreMarkupText'
 import {RichDescriptionArgSegment} from './RichDescriptionArgSegment'
 import {RichScalingSegment} from './RichScalingSegment'
 import {MechanicToken, RealmToken, SkillToken, type ActivationEvent} from './RichSegmentTokens'
@@ -50,7 +50,7 @@ export function RichSegmentRenderer({
 }: RichSegmentRendererProps) {
   switch (segment.type) {
     case 'text':
-      return <DatabaseLoreMarkupText text={segment.value} />
+      return <GameLoreMarkupText text={segment.value} />
 
     case 'skill':
       return (
