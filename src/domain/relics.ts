@@ -6,7 +6,6 @@ import {
 } from '@/data-access/public-data/assetRepository'
 import {getPublicAwakenerCatalogRecords} from '@/data-access/public-data/catalogScopes/awakenersCatalog'
 import {getPublicRelicCatalogRecords} from '@/data-access/public-data/catalogScopes/relicsCatalog'
-import {loadPublicRecord} from '@/data-access/public-data/recordRepository'
 
 import {resolveDescriptionTemplate} from './description-args'
 import {publicDescriptionArgsSchema} from './public-description-args.schema'
@@ -361,6 +360,7 @@ export function resolvePreferredRelicVariant(
 }
 
 export async function loadRelicRecordById(relicId: string): Promise<PublicRelicRecord | undefined> {
+  const {loadPublicRecord} = await import('@/data-access/public-data/recordRepository')
   const record = await loadPublicRecord('relics', relicId)
   if (!record) return undefined
 
