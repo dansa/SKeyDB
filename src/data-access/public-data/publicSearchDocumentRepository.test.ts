@@ -18,7 +18,7 @@ function createDocument(id: string) {
   }
 }
 
-describe('createPublicSearchDocumentRepository', () => {
+describe('public search document repository', () => {
   it('validates lazily and reuses document identity across reads', () => {
     const repository = createPublicSearchDocumentRepository(
       'awakeners',
