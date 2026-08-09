@@ -22,14 +22,7 @@ async function loadHarness() {
   const {DeferredDbDetailModalHost} = await import('./DeferredDbDetailModalHost')
   const props: ComponentProps<typeof DeferredDbDetailModalHost> = {
     awakeners: [],
-    callbacks: {
-      onClose: vi.fn(),
-      onSelectAwakener: vi.fn(),
-      onSelectCovenant: vi.fn(),
-      onSelectPosse: vi.fn(),
-      onSelectWheel: vi.fn(),
-      onTabChange: vi.fn(),
-    },
+    navigationPort: {close: vi.fn(), select: vi.fn(), updateState: vi.fn()},
     routeItem: null,
     wheels: [],
   }

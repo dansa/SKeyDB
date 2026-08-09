@@ -1,11 +1,14 @@
 /* oxlint-disable react/only-export-components -- This registry intentionally colocates lazy detail components with the non-component routing and preload API that owns them. */
 import {lazy, type ReactNode} from 'react'
 
+import {getAwakenerPortraitAsset} from '@/domain/awakener-assets'
 import type {Awakener} from '@/domain/awakeners'
 import type {AwakenerFullRecord} from '@/domain/awakeners-full'
+import {getCovenantAssetById} from '@/domain/covenant-assets'
 import {getCovenants, type Covenant} from '@/domain/covenants'
 import type {CovenantFullRecord} from '@/domain/covenants-full'
 import {
+  DATABASE_ENTITY_DEFINITIONS,
   getDatabaseDetailKindForEntity,
   type DatabaseDetailKind,
 } from '@/domain/database-entity-definitions'
@@ -17,9 +20,13 @@ import {
   type DatabaseAwakenerTab,
 } from '@/domain/database-paths'
 import type {EntityRef} from '@/domain/entities/types'
+import {formatAwakenerNameForUi} from '@/domain/name-format'
+import {getPosseAssetById} from '@/domain/posse-assets'
 import {getPosses, type Posse} from '@/domain/posses'
 import type {PosseFullRecord} from '@/domain/posses-full'
+import {getRelicAssetByAssetId} from '@/domain/relic-assets'
 import type {PublicRelicRecord, Relic} from '@/domain/relics'
+import {getWheelMiniAssetById} from '@/domain/wheel-assets'
 import type {Wheel} from '@/domain/wheels'
 import type {WheelFullRecord} from '@/domain/wheels-full'
 import {preloadDatabaseDetailRecord as preloadDetailRecord} from '@/features/database/internal/useDatabaseDetailRouteRecord'
@@ -27,6 +34,8 @@ import {preloadDatabaseDetailRecord as preloadDetailRecord} from '@/features/dat
 import type {
   DatabaseDetailResultNavigation,
   DatabaseDetailResultSelectRef,
+  DatabaseDetailResultSet,
+  DatabaseDetailResultSetItem,
 } from './database-detail-result-navigation'
 
 function loadAwakenerDetailModalModule() {
@@ -66,15 +75,17 @@ const RelicDetailModal = lazy(() =>
 
 export type {DatabaseDetailKind} from '@/domain/database-entity-definitions'
 
-export interface DatabaseDetailRenderCallbacks {
-  onClose: () => void
-  onSelectAwakener: (awakener: Pick<Awakener, 'id' | 'name'>, tab?: DatabaseAwakenerTab) => void
-  onSelectWheel: (wheel: Pick<Wheel, 'id' | 'name'>) => void
-  onSelectPosse: (posse: Pick<Posse, 'id' | 'name'>) => void
-  onSelectCovenant: (covenant: Pick<Covenant, 'id' | 'name'>) => void
-  onRelicVariantChange?: (variantId?: string) => void
-  onSelectRelic?: (relic: Pick<Relic, 'id' | 'name'>) => void
-  onTabChange: (tab: DatabaseAwakenerTab) => void
+export type DatabaseDetailNavigationState = Readonly<
+  | {tab: DatabaseAwakenerTab; variant?: never}
+  | {tab?: never; variant: string | undefined}
+  | {tab?: never; variant?: never}
+>
+
+/** Generic navigation boundary shared by route-backed and owner-scoped overlay details. */
+export interface DatabaseDetailNavigationPort {
+  close: () => void
+  select: (ref: EntityRef, state?: DatabaseDetailNavigationState) => void
+  updateState: (state: DatabaseDetailNavigationState) => void
 }
 
 export type DatabaseDetailRouteItem =
@@ -107,6 +118,7 @@ interface DatabaseDetailCatalogItemByKind {
 interface DatabaseDetailCatalogIndex<Kind extends DatabaseDetailKind> {
   byId: Map<string, DatabaseDetailCatalogItemByKind[Kind]>
   byName: Map<string, DatabaseDetailCatalogItemByKind[Kind]>
+  items: readonly DatabaseDetailCatalogItemByKind[Kind][]
 }
 
 export type DatabaseDetailCatalogLookup = {
@@ -120,12 +132,11 @@ interface DatabaseDetailCatalogs {
 }
 
 interface DatabaseDetailRenderOptions<Kind extends DatabaseDetailKind> {
-  awakeners: Awakener[]
-  callbacks: DatabaseDetailRenderCallbacks
   item: DatabaseDetailRouteItemByKind[Kind]
+  lookup: DatabaseDetailCatalogLookup
   navigation: DatabaseDetailResultNavigation | null
+  navigationPort: DatabaseDetailNavigationPort
   record: DatabaseDetailRecordByKind[Kind]
-  wheels: Wheel[]
 }
 
 interface DatabaseDetailRegistryEntry<Kind extends DatabaseDetailKind> {
@@ -140,15 +151,16 @@ interface DatabaseDetailRegistryEntry<Kind extends DatabaseDetailKind> {
   loadingMaxWidth: 'standard' | 'wide'
   loadingSearchPlaceholder: string | null
   missingBrowsePath: string
+  presentResult: (item: DatabaseDetailCatalogItemByKind[Kind]) => DatabaseDetailResultSetItem
   render: (options: DatabaseDetailRenderOptions<Kind>) => ReactNode
   resolveReference: (
     lookup: DatabaseDetailCatalogLookup,
     reference: {id?: string; name: string},
   ) => EntityRef | null
   selectResult: (
-    callbacks: DatabaseDetailRenderCallbacks,
+    navigation: DatabaseDetailNavigationPort,
     ref: DatabaseDetailResultSelectRef,
-    activeAwakenerTab: DatabaseAwakenerTab,
+    item: DatabaseDetailRouteItem,
   ) => void
 }
 
@@ -181,7 +193,7 @@ function normalizeDetailName(name: string): string {
 function createCatalogIndex<Kind extends DatabaseDetailKind>(
   items: readonly DatabaseDetailCatalogItemByKind[Kind][],
 ): DatabaseDetailCatalogIndex<Kind> {
-  const index: DatabaseDetailCatalogIndex<Kind> = {byId: new Map(), byName: new Map()}
+  const index: DatabaseDetailCatalogIndex<Kind> = {byId: new Map(), byName: new Map(), items}
   for (const item of items) {
     if (!index.byId.has(item.id)) index.byId.set(item.id, item)
     const normalizedName = normalizeDetailName(item.name)
@@ -234,10 +246,29 @@ export function resolveDatabaseDetailReference(
 
 export function selectDatabaseDetailResult(
   ref: DatabaseDetailResultSelectRef,
-  callbacks: DatabaseDetailRenderCallbacks,
-  activeAwakenerTab: DatabaseAwakenerTab,
+  navigation: DatabaseDetailNavigationPort,
+  item: DatabaseDetailRouteItem,
 ): void {
-  dbDetailRegistry[ref.kind].selectResult(callbacks, ref, activeAwakenerTab)
+  if (ref.kind !== item.kind) return
+  dbDetailRegistry[ref.kind].selectResult(navigation, ref, item)
+}
+
+export function createDatabaseDetailResultSet<Kind extends DatabaseDetailKind>(
+  kind: Kind,
+  items: readonly DatabaseDetailCatalogItemByKind[Kind][],
+): DatabaseDetailResultSet {
+  return {kind, items: items.map(dbDetailRegistry[kind].presentResult)}
+}
+
+function selectReference(
+  kind: DatabaseDetailKind,
+  lookup: DatabaseDetailCatalogLookup,
+  navigation: DatabaseDetailNavigationPort,
+  reference: {id?: string; name: string},
+  state?: DatabaseDetailNavigationState,
+): void {
+  const ref = resolveCatalogReference(kind, lookup, reference)
+  if (ref) navigation.select(ref, state)
 }
 
 async function loadAwakenerDetailRecord(id: string) {
@@ -281,26 +312,39 @@ export const dbDetailRegistry: DatabaseDetailRegistry = {
     loadingMaxWidth: 'wide',
     loadingSearchPlaceholder: 'Jump to awakener…',
     missingBrowsePath: buildDatabaseEntityBrowsePath('awakeners'),
-    render: ({awakeners, callbacks, item, navigation, record}) => {
+    presentResult: (awakener) => ({
+      id: awakener.id,
+      imageSrc: getAwakenerPortraitAsset(awakener.name),
+      name: formatAwakenerNameForUi(awakener.name),
+    }),
+    render: ({item, lookup, navigation, navigationPort, record}) => {
       return (
         <AwakenerDetailModal
           activeTab={item.activeTab}
           awakener={item.item}
-          awakeners={awakeners}
+          awakeners={[...lookup.awakener.items]}
           fullData={record}
           key={item.item.id}
           navigation={navigation}
-          onClose={callbacks.onClose}
-          onSelectAwakener={callbacks.onSelectAwakener}
-          onSelectCovenant={callbacks.onSelectCovenant}
-          onSelectWheel={callbacks.onSelectWheel}
-          onTabChange={callbacks.onTabChange}
+          onClose={navigationPort.close}
+          onSelectAwakener={(awakener, tab) => {
+            selectReference('awakener', lookup, navigationPort, awakener, {tab})
+          }}
+          onSelectCovenant={(covenant) => {
+            selectReference('covenant', lookup, navigationPort, covenant)
+          }}
+          onSelectWheel={(wheel) => {
+            selectReference('wheel', lookup, navigationPort, wheel)
+          }}
+          onTabChange={(tab) => {
+            navigationPort.updateState({tab})
+          }}
         />
       )
     },
     resolveReference: (lookup, reference) => resolveCatalogReference('awakener', lookup, reference),
-    selectResult: (callbacks, ref, activeAwakenerTab) => {
-      callbacks.onSelectAwakener(ref, activeAwakenerTab)
+    selectResult: (navigation, ref, item) => {
+      navigation.select(ref, item.kind === 'awakener' ? {tab: item.activeTab} : undefined)
     },
   },
   wheel: {
@@ -314,23 +358,33 @@ export const dbDetailRegistry: DatabaseDetailRegistry = {
     loadingMaxWidth: 'wide',
     loadingSearchPlaceholder: 'Jump to wheel…',
     missingBrowsePath: buildDatabaseWheelBrowsePath(),
-    render: ({callbacks, item, navigation, record, wheels}) => {
+    presentResult: (wheel) => ({
+      id: wheel.id,
+      imageSrc: getWheelMiniAssetById(wheel.id),
+      imageTreatment: 'icon',
+      name: wheel.name,
+    }),
+    render: ({item, lookup, navigation, navigationPort, record}) => {
       return (
         <WheelDetailModal
           fullData={record}
           key={item.item.id}
           navigation={navigation}
-          onClose={callbacks.onClose}
-          onSelectAwakener={callbacks.onSelectAwakener}
-          onSelectWheel={callbacks.onSelectWheel}
+          onClose={navigationPort.close}
+          onSelectAwakener={(awakener) => {
+            selectReference('awakener', lookup, navigationPort, awakener)
+          }}
+          onSelectWheel={(wheel) => {
+            selectReference('wheel', lookup, navigationPort, wheel)
+          }}
           wheel={item.item}
-          wheels={wheels}
+          wheels={[...lookup.wheel.items]}
         />
       )
     },
     resolveReference: (lookup, reference) => resolveCatalogReference('wheel', lookup, reference),
-    selectResult: (callbacks, ref) => {
-      callbacks.onSelectWheel(ref)
+    selectResult: (navigation, ref) => {
+      navigation.select(ref)
     },
   },
   posse: {
@@ -344,21 +398,29 @@ export const dbDetailRegistry: DatabaseDetailRegistry = {
     loadingMaxWidth: 'standard',
     loadingSearchPlaceholder: null,
     missingBrowsePath: buildDatabasePosseBrowsePath(),
-    render: ({callbacks, item, navigation, record}) => {
+    presentResult: (posse) => ({
+      id: posse.id,
+      imageSrc: getPosseAssetById(posse.id),
+      imageTreatment: 'icon',
+      name: posse.name,
+    }),
+    render: ({item, lookup, navigation, navigationPort, record}) => {
       return (
         <SimpleArtifactDetailModal
           fullData={record}
           item={item.item}
           kind='posse'
           navigation={navigation}
-          onClose={callbacks.onClose}
-          onSelectAwakener={callbacks.onSelectAwakener}
+          onClose={navigationPort.close}
+          onSelectAwakener={(awakener) => {
+            selectReference('awakener', lookup, navigationPort, awakener)
+          }}
         />
       )
     },
     resolveReference: (lookup, reference) => resolveCatalogReference('posse', lookup, reference),
-    selectResult: (callbacks, ref) => {
-      callbacks.onSelectPosse(ref)
+    selectResult: (navigation, ref) => {
+      navigation.select(ref)
     },
   },
   covenant: {
@@ -372,20 +434,26 @@ export const dbDetailRegistry: DatabaseDetailRegistry = {
     loadingMaxWidth: 'standard',
     loadingSearchPlaceholder: null,
     missingBrowsePath: buildDatabaseCovenantBrowsePath(),
-    render: ({callbacks, item, navigation, record}) => {
+    presentResult: (covenant) => ({
+      id: covenant.id,
+      imageSrc: getCovenantAssetById(covenant.id),
+      imageTreatment: 'covenant-icon',
+      name: covenant.name,
+    }),
+    render: ({item, navigation, navigationPort, record}) => {
       return (
         <SimpleArtifactDetailModal
           fullData={record}
           item={item.item}
           kind='covenant'
           navigation={navigation}
-          onClose={callbacks.onClose}
+          onClose={navigationPort.close}
         />
       )
     },
     resolveReference: (lookup, reference) => resolveCatalogReference('covenant', lookup, reference),
-    selectResult: (callbacks, ref) => {
-      callbacks.onSelectCovenant(ref)
+    selectResult: (navigation, ref) => {
+      navigation.select(ref)
     },
   },
   relic: {
@@ -399,20 +467,38 @@ export const dbDetailRegistry: DatabaseDetailRegistry = {
     loadingMaxWidth: 'standard',
     loadingSearchPlaceholder: null,
     missingBrowsePath: buildDatabaseEntityBrowsePath('relics'),
-    render: ({callbacks, item, navigation, record}) => (
+    presentResult: (relic) => ({
+      id: relic.id,
+      imageSrc: getRelicAssetByAssetId(relic.assetId),
+      imageTreatment: 'icon',
+      name: relic.name,
+    }),
+    render: ({item, lookup, navigation, navigationPort, record}) => (
       <RelicDetailModal
         fullData={record}
         item={item.item}
         navigation={navigation}
-        onClose={callbacks.onClose}
-        onRelicVariantChange={callbacks.onRelicVariantChange}
-        onSelectAwakener={callbacks.onSelectAwakener}
+        onClose={navigationPort.close}
+        onRelicVariantChange={(variantId) => {
+          navigationPort.updateState({variant: variantId})
+        }}
+        onSelectAwakener={(awakener) => {
+          selectReference('awakener', lookup, navigationPort, awakener)
+        }}
         selectedVariantId={item.variantId}
       />
     ),
     resolveReference: (lookup, reference) => resolveCatalogReference('relic', lookup, reference),
-    selectResult: (callbacks, ref) => {
-      callbacks.onSelectRelic?.(ref)
+    selectResult: (navigation, ref) => {
+      navigation.select(ref)
     },
   },
+}
+
+const expectedDetailKinds = DATABASE_ENTITY_DEFINITIONS.map(({detailKind}) => detailKind).sort()
+const registeredDetailKinds = Object.keys(dbDetailRegistry).sort()
+if (expectedDetailKinds.join('\u0000') !== registeredDetailKinds.join('\u0000')) {
+  throw new Error(
+    `Database detail registry coverage mismatch: expected ${expectedDetailKinds.join(', ')}, received ${registeredDetailKinds.join(', ')}`,
+  )
 }

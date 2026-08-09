@@ -12,13 +12,13 @@ import {clearDatabaseDetailRecordCacheForTests} from '@/features/database/intern
 import {createDatabaseDetailOverlaySession} from '@/stores/dbDetailStore'
 
 import {DbDetailModalHost} from './DbDetailModalHost'
-import {dbDetailRegistry} from './dbDetailRegistry'
+import {dbDetailRegistry, type DatabaseDetailNavigationState} from './dbDetailRegistry'
 
 interface MockDetailRenderOptions {
-  callbacks: {
-    onClose: () => void
-    onTabChange: (tab: 'overview' | 'upgrades' | 'skills' | 'builds' | 'teams' | 'lore') => void
-    onSelectWheel: (wheel: {id?: string; name: string}) => void
+  navigationPort: {
+    close: () => void
+    select: (ref: {kind: string; id: string}) => void
+    updateState: (state: DatabaseDetailNavigationState) => void
   }
   item: {
     activeTab?: string
@@ -38,14 +38,14 @@ vi.mock('./dbDetailRegistry', async () => {
       loadRecord: vi.fn(async (_id: string) => ({id: 'record-awakener'})),
       loadingLabel: 'Loading awakener details...',
       missingBrowsePath: '/database',
-      render: vi.fn(({callbacks, item}: MockDetailRenderOptions) => (
+      render: vi.fn(({navigationPort, item}: MockDetailRenderOptions) => (
         <dialog aria-label={`${item.item.name} details`} open>
-          <button onClick={callbacks.onClose} type='button'>
+          <button onClick={navigationPort.close} type='button'>
             Close overlay
           </button>
           <button
             onClick={() => {
-              callbacks.onSelectWheel({id: 'wheel-0050', name: 'Merciful Nurturing'})
+              navigationPort.select({kind: 'wheel', id: 'wheel-0050'})
             }}
             type='button'
           >
@@ -53,7 +53,7 @@ vi.mock('./dbDetailRegistry', async () => {
           </button>
           <button
             onClick={() => {
-              callbacks.onSelectWheel({name: ' Merciful Nurturing '})
+              navigationPort.select({kind: 'wheel', id: 'wheel-0050'})
             }}
             type='button'
           >
@@ -62,7 +62,7 @@ vi.mock('./dbDetailRegistry', async () => {
           <span>Active tab: {item.activeTab}</span>
           <button
             onClick={() => {
-              callbacks.onTabChange('skills')
+              navigationPort.updateState({tab: 'skills'})
             }}
             type='button'
           >
@@ -76,9 +76,9 @@ vi.mock('./dbDetailRegistry', async () => {
       loadRecord: vi.fn(async (_id: string) => ({id: 'record-wheel'})),
       loadingLabel: 'Loading wheel details...',
       missingBrowsePath: '/database/wheels',
-      render: vi.fn(({callbacks, item}: MockDetailRenderOptions) => (
+      render: vi.fn(({navigationPort, item}: MockDetailRenderOptions) => (
         <dialog aria-label={`${item.item.name} details`} open>
-          <button onClick={callbacks.onClose} type='button'>
+          <button onClick={navigationPort.close} type='button'>
             Close overlay
           </button>
         </dialog>
@@ -89,9 +89,9 @@ vi.mock('./dbDetailRegistry', async () => {
       loadRecord: vi.fn(async (_id: string) => ({id: 'record-posse'})),
       loadingLabel: 'Loading posse details...',
       missingBrowsePath: '/database/posses',
-      render: vi.fn(({callbacks, item}: MockDetailRenderOptions) => (
+      render: vi.fn(({navigationPort, item}: MockDetailRenderOptions) => (
         <dialog aria-label={`${item.item.name} details`} open>
-          <button onClick={callbacks.onClose} type='button'>
+          <button onClick={navigationPort.close} type='button'>
             Close overlay
           </button>
         </dialog>
@@ -102,9 +102,9 @@ vi.mock('./dbDetailRegistry', async () => {
       loadRecord: vi.fn(async (_id: string) => ({id: 'record-covenant'})),
       loadingLabel: 'Loading covenant details...',
       missingBrowsePath: '/database/covenants',
-      render: vi.fn(({callbacks, item}: MockDetailRenderOptions) => (
+      render: vi.fn(({navigationPort, item}: MockDetailRenderOptions) => (
         <dialog aria-label={`${item.item.name} details`} open>
-          <button onClick={callbacks.onClose} type='button'>
+          <button onClick={navigationPort.close} type='button'>
             Close overlay
           </button>
         </dialog>
@@ -115,9 +115,9 @@ vi.mock('./dbDetailRegistry', async () => {
       loadRecord: vi.fn(async (_id: string) => ({id: 'record-relic'})),
       loadingLabel: 'Loading relic details...',
       missingBrowsePath: '/database/relics',
-      render: vi.fn(({callbacks, item}: MockDetailRenderOptions) => (
+      render: vi.fn(({navigationPort, item}: MockDetailRenderOptions) => (
         <dialog aria-label={`${item.item.name} details`} open>
-          <button onClick={callbacks.onClose} type='button'>
+          <button onClick={navigationPort.close} type='button'>
             Close overlay
           </button>
         </dialog>
@@ -285,22 +285,19 @@ function LocationSearchProbe() {
   return <span data-testid='location-search'>{location.search}</span>
 }
 
+function createNavigationPort() {
+  return {close: vi.fn(), select: vi.fn(), updateState: vi.fn()}
+}
+
 describe('DbDetailModalHost overlay entries', () => {
   it('renders an overlay without a route item and closes by popping the overlay stack', async () => {
-    const callbacks = {
-      onClose: vi.fn(),
-      onSelectAwakener: vi.fn(),
-      onSelectCovenant: vi.fn(),
-      onSelectPosse: vi.fn(),
-      onSelectWheel: vi.fn(),
-      onTabChange: vi.fn(),
-    }
+    const navigationPort = createNavigationPort()
 
     render(
       <MemoryRouter initialEntries={['/builder']}>
         <DbDetailModalHost
           awakeners={awakeners}
-          callbacks={callbacks}
+          navigationPort={navigationPort}
           overlaySession={overlaySession}
           routeItem={null}
           wheels={wheels}
@@ -321,7 +318,7 @@ describe('DbDetailModalHost overlay entries', () => {
       expect(screen.queryByRole('dialog', {name: /goliath details/i})).not.toBeInTheDocument()
     })
     expect(overlaySession.isOpen()).toBe(false)
-    expect(callbacks.onClose).not.toHaveBeenCalled()
+    expect(navigationPort.close).not.toHaveBeenCalled()
   })
 
   it('pushes overlay references from overlay modal callbacks', async () => {
@@ -329,14 +326,7 @@ describe('DbDetailModalHost overlay entries', () => {
       <MemoryRouter initialEntries={['/builder']}>
         <DbDetailModalHost
           awakeners={awakeners}
-          callbacks={{
-            onClose: vi.fn(),
-            onSelectAwakener: vi.fn(),
-            onSelectCovenant: vi.fn(),
-            onSelectPosse: vi.fn(),
-            onSelectWheel: vi.fn(),
-            onTabChange: vi.fn(),
-          }}
+          navigationPort={createNavigationPort()}
           overlaySession={overlaySession}
           routeItem={null}
           wheels={wheels}
@@ -358,14 +348,7 @@ describe('DbDetailModalHost overlay entries', () => {
       <MemoryRouter initialEntries={['/builder']}>
         <DbDetailModalHost
           awakeners={awakeners}
-          callbacks={{
-            onClose: vi.fn(),
-            onSelectAwakener: vi.fn(),
-            onSelectCovenant: vi.fn(),
-            onSelectPosse: vi.fn(),
-            onSelectWheel: vi.fn(),
-            onTabChange: vi.fn(),
-          }}
+          navigationPort={createNavigationPort()}
           overlaySession={overlaySession}
           routeItem={null}
           wheels={wheels}
@@ -383,20 +366,11 @@ describe('DbDetailModalHost overlay entries', () => {
   })
 
   it('keeps awakener overlay tab state local to the modal host', async () => {
-    const onTabChange = vi.fn()
-
     render(
       <MemoryRouter initialEntries={['/builder']}>
         <DbDetailModalHost
           awakeners={awakeners}
-          callbacks={{
-            onClose: vi.fn(),
-            onSelectAwakener: vi.fn(),
-            onSelectCovenant: vi.fn(),
-            onSelectPosse: vi.fn(),
-            onSelectWheel: vi.fn(),
-            onTabChange,
-          }}
+          navigationPort={createNavigationPort()}
           overlaySession={overlaySession}
           routeItem={null}
           wheels={wheels}
@@ -410,7 +384,6 @@ describe('DbDetailModalHost overlay entries', () => {
     fireEvent.click(screen.getByRole('button', {name: /show skills tab/i}))
 
     expect(await screen.findByText('Active tab: skills')).toBeInTheDocument()
-    expect(onTabChange).not.toHaveBeenCalled()
   })
 
   it('pops missing overlay records without navigating away from the current page', async () => {
@@ -421,14 +394,7 @@ describe('DbDetailModalHost overlay entries', () => {
         <LocationProbe />
         <DbDetailModalHost
           awakeners={awakeners}
-          callbacks={{
-            onClose: vi.fn(),
-            onSelectAwakener: vi.fn(),
-            onSelectCovenant: vi.fn(),
-            onSelectPosse: vi.fn(),
-            onSelectWheel: vi.fn(),
-            onTabChange: vi.fn(),
-          }}
+          navigationPort={createNavigationPort()}
           overlaySession={overlaySession}
           routeItem={null}
           wheels={wheels}
@@ -450,14 +416,7 @@ describe('DbDetailModalHost overlay entries', () => {
         <LocationProbe />
         <DbDetailModalHost
           awakeners={awakeners}
-          callbacks={{
-            onClose: vi.fn(),
-            onSelectAwakener: vi.fn(),
-            onSelectCovenant: vi.fn(),
-            onSelectPosse: vi.fn(),
-            onSelectWheel: vi.fn(),
-            onTabChange: vi.fn(),
-          }}
+          navigationPort={createNavigationPort()}
           overlaySession={overlaySession}
           relics={relics}
           routeItem={null}
@@ -517,14 +476,7 @@ describe('DbDetailModalHost route entries', () => {
       <MemoryRouter initialEntries={['/database/relics/dimensional-image-24?tier=GOLD']}>
         <DbDetailModalHost
           awakeners={awakeners}
-          callbacks={{
-            onClose: vi.fn(),
-            onSelectAwakener: vi.fn(),
-            onSelectCovenant: vi.fn(),
-            onSelectPosse: vi.fn(),
-            onSelectWheel: vi.fn(),
-            onTabChange: vi.fn(),
-          }}
+          navigationPort={createNavigationPort()}
           relics={relics}
           routeItem={{kind: 'relic', item: relics[0]}}
           wheels={wheels}
@@ -550,14 +502,7 @@ describe('DbDetailModalHost route entries', () => {
       >
         <DbDetailModalHost
           awakeners={awakeners}
-          callbacks={{
-            onClose: vi.fn(),
-            onSelectAwakener: vi.fn(),
-            onSelectCovenant: vi.fn(),
-            onSelectPosse: vi.fn(),
-            onSelectWheel: vi.fn(),
-            onTabChange: vi.fn(),
-          }}
+          navigationPort={createNavigationPort()}
           relics={relics}
           routeItem={{kind: 'relic', item: relics[0], variantId: 'relic-variant-9999'}}
           wheels={wheels}
@@ -575,21 +520,14 @@ describe('DbDetailModalHost route entries', () => {
 
   it('keeps the relic modal mounted while canonicalizing its default variant', async () => {
     vi.mocked(dbDetailRegistry.relic.loadRecord).mockResolvedValue(mockRelicRecord)
-    const callbacks = {
-      onClose: vi.fn(),
-      onSelectAwakener: vi.fn(),
-      onSelectCovenant: vi.fn(),
-      onSelectPosse: vi.fn(),
-      onSelectWheel: vi.fn(),
-      onTabChange: vi.fn(),
-    }
+    const navigationPort = createNavigationPort()
 
     render(
       <MemoryRouter initialEntries={['/database/relics/dimensional-image-24']}>
         <LocationSearchProbe />
         <DbDetailModalHost
           awakeners={awakeners}
-          callbacks={callbacks}
+          navigationPort={navigationPort}
           relics={relics}
           routeItem={{kind: 'relic', item: relics[0]}}
           wheels={wheels}
@@ -614,20 +552,13 @@ describe('DbDetailModalHost route entries', () => {
       resolveRecord = resolve
     })
     vi.mocked(dbDetailRegistry.wheel.loadRecord).mockReturnValue(pendingRecord)
-    const callbacks = {
-      onClose: vi.fn(),
-      onSelectAwakener: vi.fn(),
-      onSelectCovenant: vi.fn(),
-      onSelectPosse: vi.fn(),
-      onSelectWheel: vi.fn(),
-      onTabChange: vi.fn(),
-    }
+    const navigationPort = createNavigationPort()
 
     render(
       <MemoryRouter initialEntries={['/database/wheels/merciful-nurturing']}>
         <DbDetailModalHost
           awakeners={awakeners}
-          callbacks={callbacks}
+          navigationPort={navigationPort}
           resultSet={{
             kind: 'wheel',
             items: [
@@ -659,20 +590,13 @@ describe('DbDetailModalHost route entries', () => {
     wheelLoadRecord
       .mockRejectedValueOnce(new Error('controlled route-record failure'))
       .mockResolvedValueOnce(mockWheelRecord)
-    const callbacks = {
-      onClose: vi.fn(),
-      onSelectAwakener: vi.fn(),
-      onSelectCovenant: vi.fn(),
-      onSelectPosse: vi.fn(),
-      onSelectWheel: vi.fn(),
-      onTabChange: vi.fn(),
-    }
+    const navigationPort = createNavigationPort()
 
     render(
       <MemoryRouter initialEntries={['/database/wheels/merciful-nurturing']}>
         <DbDetailModalHost
           awakeners={awakeners}
-          callbacks={callbacks}
+          navigationPort={navigationPort}
           routeItem={{kind: 'wheel', item: wheels[0]}}
           wheels={wheels}
         />
@@ -691,20 +615,13 @@ describe('DbDetailModalHost route entries', () => {
 
   it('closes the route-loading modal with Escape', () => {
     vi.mocked(dbDetailRegistry.wheel.loadRecord).mockReturnValue(new Promise(() => undefined))
-    const callbacks = {
-      onClose: vi.fn(),
-      onSelectAwakener: vi.fn(),
-      onSelectCovenant: vi.fn(),
-      onSelectPosse: vi.fn(),
-      onSelectWheel: vi.fn(),
-      onTabChange: vi.fn(),
-    }
+    const navigationPort = createNavigationPort()
 
     render(
       <MemoryRouter initialEntries={['/database/wheels/merciful-nurturing']}>
         <DbDetailModalHost
           awakeners={awakeners}
-          callbacks={callbacks}
+          navigationPort={navigationPort}
           routeItem={{kind: 'wheel', item: wheels[0]}}
           wheels={wheels}
         />
@@ -713,7 +630,7 @@ describe('DbDetailModalHost route entries', () => {
 
     fireEvent.keyDown(screen.getByRole('dialog'), {key: 'Escape'})
 
-    expect(callbacks.onClose).toHaveBeenCalledTimes(1)
+    expect(navigationPort.close).toHaveBeenCalledTimes(1)
   })
 
   it('waits for the selected route record before preloading neighboring result records', async () => {
@@ -732,20 +649,13 @@ describe('DbDetailModalHost route entries', () => {
         name: 'Shared Dream',
       })
     })
-    const callbacks = {
-      onClose: vi.fn(),
-      onSelectAwakener: vi.fn(),
-      onSelectCovenant: vi.fn(),
-      onSelectPosse: vi.fn(),
-      onSelectWheel: vi.fn(),
-      onTabChange: vi.fn(),
-    }
+    const navigationPort = createNavigationPort()
 
     render(
       <MemoryRouter initialEntries={['/database/wheels/merciful-nurturing']}>
         <DbDetailModalHost
           awakeners={awakeners}
-          callbacks={callbacks}
+          navigationPort={navigationPort}
           resultSet={{
             kind: 'wheel',
             items: [

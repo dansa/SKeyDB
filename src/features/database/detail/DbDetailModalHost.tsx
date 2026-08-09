@@ -1,19 +1,10 @@
-import {
-  Suspense,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-  useSyncExternalStore,
-  type ReactNode,
-} from 'react'
+import {Suspense, useEffect, useMemo, useState, useSyncExternalStore, type ReactNode} from 'react'
 
 import {FaMagnifyingGlass, FaXmark} from 'react-icons/fa6'
 import {Navigate, useLocation, useNavigate} from 'react-router'
 
 import type {Awakener} from '@/domain/awakeners'
 import {getAwakeners} from '@/domain/awakeners'
-import type {Covenant} from '@/domain/covenants'
 import {
   buildDatabaseAwakenerPath,
   DEFAULT_DATABASE_AWAKENER_TAB,
@@ -45,11 +36,11 @@ import {
   dbDetailRegistry,
   preloadDatabaseDetailRecordByKind,
   resolveDatabaseDetailOverlayRouteItem,
-  resolveDatabaseDetailReference,
   selectDatabaseDetailResult,
   type DatabaseDetailKind,
+  type DatabaseDetailCatalogLookup,
+  type DatabaseDetailNavigationPort,
   type DatabaseDetailRecordByKind,
-  type DatabaseDetailRenderCallbacks,
   type DatabaseDetailRouteItem,
   type DatabaseDetailRouteItemByKind,
 } from './dbDetailRegistry'
@@ -65,7 +56,7 @@ interface OverlayAwakenerTabState {
 
 export interface DbDetailModalHostProps {
   awakeners: Awakener[]
-  callbacks?: DatabaseDetailRenderCallbacks
+  navigationPort?: DatabaseDetailNavigationPort
   overlaySession?: DatabaseDetailOverlaySession
   resultSet?: DatabaseDetailResultSet | null
   routeItem: DatabaseDetailRouteItem | null
@@ -286,7 +277,7 @@ function DbDetailRouteLoadingModal({
 
 export function DbDetailModalHost({
   awakeners,
-  callbacks,
+  navigationPort,
   overlaySession,
   relics = EMPTY_RELICS,
   resultSet = null,
@@ -294,24 +285,28 @@ export function DbDetailModalHost({
   tabSlug,
   wheels,
 }: DbDetailModalHostProps) {
+  const detailLookup = useMemo(
+    () => createDatabaseDetailCatalogLookup({awakeners, relics, wheels}),
+    [awakeners, relics, wheels],
+  )
   const overlayRef = useOverlaySessionTop(overlaySession)
   const activeRef: DatabaseDetailRef | null = routeItem
     ? {kind: routeItem.kind, id: routeItem.item.id}
     : overlayRef?.kind && isDatabaseDetailKind(overlayRef.kind)
       ? {kind: overlayRef.kind, id: overlayRef.id}
       : null
-  const activeAwakenerTab =
-    routeItem?.kind === 'awakener' ? routeItem.activeTab : DEFAULT_DATABASE_AWAKENER_TAB
   const routeNavigation = useMemo(
     () =>
       createDatabaseDetailResultNavigation({
         currentRef: routeItem ? {kind: routeItem.kind, id: routeItem.item.id} : null,
         onSelect: (ref) => {
-          if (callbacks) selectDatabaseDetailResult(ref, callbacks, activeAwakenerTab)
+          if (navigationPort && routeItem) {
+            selectDatabaseDetailResult(ref, navigationPort, routeItem)
+          }
         },
         resultSet,
       }),
-    [activeAwakenerTab, callbacks, resultSet, routeItem],
+    [navigationPort, resultSet, routeItem],
   )
 
   if (!routeItem || activeRef?.kind !== routeItem.kind) {
@@ -322,10 +317,8 @@ export function DbDetailModalHost({
         >
           <DbDetailOverlayModal
             activeRef={activeRef}
-            awakeners={awakeners}
-            relics={relics}
+            lookup={detailLookup}
             session={overlaySession}
-            wheels={wheels}
           />
         </Suspense>
       )
@@ -333,8 +326,8 @@ export function DbDetailModalHost({
     return null
   }
 
-  if (!callbacks) {
-    throw new Error('Route detail hosts require route callbacks.')
+  if (!navigationPort) {
+    throw new Error('Route detail hosts require a navigation port.')
   }
 
   return (
@@ -343,19 +336,18 @@ export function DbDetailModalHost({
         <DbDetailRouteLoadingModal
           loadingLabel={dbDetailRegistry[routeItem.kind].loadingLabel}
           navigation={routeNavigation}
-          onClose={callbacks.onClose}
+          onClose={navigationPort.close}
           routeItem={routeItem}
         />
       }
     >
       <DbDetailRouteModal
         activeRef={activeRef}
-        awakeners={awakeners}
-        callbacks={callbacks}
+        lookup={detailLookup}
+        navigationPort={navigationPort}
         navigation={routeNavigation}
         routeItem={routeItem}
         tabSlug={tabSlug}
-        wheels={wheels}
       />
     </Suspense>
   )
@@ -363,19 +355,11 @@ export function DbDetailModalHost({
 
 interface DbDetailOverlayModalProps {
   activeRef: DatabaseDetailRef
-  awakeners: Awakener[]
-  relics: readonly Relic[]
+  lookup: DatabaseDetailCatalogLookup
   session: DatabaseDetailOverlaySession
-  wheels: Wheel[]
 }
 
-function DbDetailOverlayModal({
-  activeRef,
-  awakeners,
-  relics,
-  session,
-  wheels,
-}: DbDetailOverlayModalProps) {
+function DbDetailOverlayModal({activeRef, lookup, session}: DbDetailOverlayModalProps) {
   const activeRefKey = `${activeRef.kind}:${activeRef.id}`
   const [overlayAwakenerTabState, setOverlayAwakenerTabState] = useState<OverlayAwakenerTabState>(
     () => ({
@@ -385,15 +369,7 @@ function DbDetailOverlayModal({
   )
   // Overlay refs can outlive the current public catalog; stale refs are pruned below.
   const overlayAwakenerTab = resolveOverlayAwakenerTab(activeRefKey, overlayAwakenerTabState)
-  const detailRefLookup = useMemo(
-    () => createDatabaseDetailCatalogLookup({awakeners, relics, wheels}),
-    [awakeners, relics, wheels],
-  )
-  const routeItem = resolveDatabaseDetailOverlayRouteItem(
-    activeRef,
-    detailRefLookup,
-    overlayAwakenerTab,
-  )
+  const routeItem = resolveDatabaseDetailOverlayRouteItem(activeRef, lookup, overlayAwakenerTab)
 
   useEffect(() => {
     if (!routeItem) {
@@ -401,56 +377,23 @@ function DbDetailOverlayModal({
     }
   }, [routeItem, session])
 
-  const onClose = session.close
-  const onTabChange = useCallback(
-    (nextTab: DatabaseAwakenerTab) => {
-      setOverlayAwakenerTabState({activeTab: nextTab, refKey: activeRefKey})
-    },
-    [activeRefKey],
-  )
-  const onSelectAwakener = useCallback(
-    (awakener: Pick<Awakener, 'id' | 'name'>) => {
-      const ref = resolveDatabaseDetailReference('awakener', detailRefLookup, awakener)
-      if (ref) {
-        session.followReference(ref)
-      }
-    },
-    [detailRefLookup, session],
-  )
-  const onSelectWheel = useCallback(
-    (wheel: Pick<Wheel, 'name'> & Partial<Pick<Wheel, 'id'>>) => {
-      const ref = resolveDatabaseDetailReference('wheel', detailRefLookup, wheel)
-      if (ref) {
-        session.followReference(ref)
-      }
-    },
-    [detailRefLookup, session],
-  )
-  const onSelectCovenant = useCallback(
-    (covenant: Pick<Covenant, 'name'> & Partial<Pick<Covenant, 'id'>>) => {
-      const ref = resolveDatabaseDetailReference('covenant', detailRefLookup, covenant)
-      if (ref) {
-        session.followReference(ref)
-      }
-    },
-    [detailRefLookup, session],
-  )
-  const onSelectPosse = useCallback(
-    (posse: {id: string}) => {
-      session.followReference({kind: 'posse', id: posse.id})
-    },
-    [session],
-  )
-  const overlayCallbacks = useMemo<DatabaseDetailRenderCallbacks>(
+  const overlayNavigationPort = useMemo<DatabaseDetailNavigationPort>(
     () => ({
-      onClose,
-      onSelectAwakener,
-      onSelectCovenant,
-      onSelectPosse,
-      onSelectWheel,
-      onTabChange,
+      close: session.close,
+      select: (ref) => {
+        session.followReference(ref)
+      },
+      updateState: (state) => {
+        const nextTab = state.tab
+        if (nextTab) {
+          setOverlayAwakenerTabState({
+            activeTab: resolveDatabaseAwakenerTab(nextTab) ?? DEFAULT_DATABASE_AWAKENER_TAB,
+            refKey: activeRefKey,
+          })
+        }
+      },
     }),
-    [onClose, onSelectAwakener, onSelectCovenant, onSelectPosse, onSelectWheel, onTabChange],
+    [activeRefKey, session],
   )
 
   if (!routeItem) {
@@ -459,35 +402,32 @@ function DbDetailOverlayModal({
 
   return (
     <DbDetailOverlayModalContent
-      awakeners={awakeners}
-      callbacks={overlayCallbacks}
       id={activeRef.id}
       kind={routeItem.kind}
+      lookup={lookup}
+      navigationPort={overlayNavigationPort}
       routeItem={routeItem}
       session={session}
-      wheels={wheels}
     />
   )
 }
 
 interface DbDetailOverlayModalContentProps<Kind extends DatabaseDetailKind> {
-  awakeners: Awakener[]
-  callbacks: DatabaseDetailRenderCallbacks
   id: string
   kind: Kind
+  lookup: DatabaseDetailCatalogLookup
+  navigationPort: DatabaseDetailNavigationPort
   routeItem: DatabaseDetailRouteItemByKind[Kind]
   session: DatabaseDetailOverlaySession
-  wheels: Wheel[]
 }
 
 function DbDetailOverlayModalContent<Kind extends DatabaseDetailKind>({
-  awakeners,
-  callbacks,
   id,
   kind,
+  lookup,
+  navigationPort,
   routeItem,
   session,
-  wheels,
 }: DbDetailOverlayModalContentProps<Kind>) {
   // Public detail records can disappear between overlay open and async load completion.
   const registryEntry = dbDetailRegistry[kind]
@@ -512,7 +452,7 @@ function DbDetailOverlayModalContent<Kind extends DatabaseDetailKind>({
         error={error}
         loadingLabel={registryEntry.loadingLabel}
         navigation={null}
-        onClose={callbacks.onClose}
+        onClose={navigationPort.close}
         onRetry={retry}
         routeItem={routeItem}
       />
@@ -524,44 +464,40 @@ function DbDetailOverlayModalContent<Kind extends DatabaseDetailKind>({
   }
 
   return registryEntry.render({
-    awakeners,
-    callbacks,
     item: routeItem,
+    lookup,
     navigation: null,
+    navigationPort,
     record,
-    wheels,
   })
 }
 
 interface DbDetailRouteModalProps {
   activeRef: EntityRef
-  awakeners: Awakener[]
-  callbacks: DatabaseDetailRenderCallbacks
+  lookup: DatabaseDetailCatalogLookup
+  navigationPort: DatabaseDetailNavigationPort
   navigation: DatabaseDetailResultNavigation | null
   routeItem: DatabaseDetailRouteItem
   tabSlug?: string
-  wheels: Wheel[]
 }
 
 function DbDetailRouteModal({
   activeRef,
-  awakeners,
-  callbacks,
+  lookup,
+  navigationPort,
   navigation,
   routeItem,
   tabSlug,
-  wheels,
 }: DbDetailRouteModalProps) {
   if (routeItem.kind === 'awakener') {
     return (
       <DbDetailAwakenerRouteModal
         activeRef={activeRef}
-        awakeners={awakeners}
-        callbacks={callbacks}
+        lookup={lookup}
+        navigationPort={navigationPort}
         navigation={navigation}
         routeItem={routeItem}
         tabSlug={tabSlug}
-        wheels={wheels}
       />
     )
   }
@@ -569,35 +505,32 @@ function DbDetailRouteModal({
     return (
       <DbDetailRelicRouteModal
         activeRef={activeRef}
-        awakeners={awakeners}
-        callbacks={callbacks}
+        lookup={lookup}
+        navigationPort={navigationPort}
         navigation={navigation}
         routeItem={routeItem}
-        wheels={wheels}
       />
     )
   }
   return (
     <DbDetailNonAwakenerRouteModal
       activeRef={activeRef}
-      awakeners={awakeners}
-      callbacks={callbacks}
+      lookup={lookup}
+      navigationPort={navigationPort}
       kind={routeItem.kind}
       navigation={navigation}
       routeItem={routeItem}
-      wheels={wheels}
     />
   )
 }
 
 interface DbDetailKindRouteModalProps<Kind extends DatabaseDetailKind> {
   activeRef: EntityRef
-  awakeners: Awakener[]
-  callbacks: DatabaseDetailRenderCallbacks
+  lookup: DatabaseDetailCatalogLookup
+  navigationPort: DatabaseDetailNavigationPort
   navigation: DatabaseDetailResultNavigation | null
   routeItem: DatabaseDetailRouteItemByKind[Kind]
   tabSlug?: string
-  wheels: Wheel[]
 }
 
 interface DbDetailNonAwakenerRouteModalProps<
@@ -608,19 +541,19 @@ interface DbDetailNonAwakenerRouteModalProps<
 
 interface DbDetailRouteRecordBoundaryProps<Kind extends Exclude<DatabaseDetailKind, 'awakener'>> {
   activeRef: EntityRef
-  callbacks: DatabaseDetailRenderCallbacks
   children: (record: DatabaseDetailRecordByKind[Kind]) => ReactNode
   kind: Kind
   navigation: DatabaseDetailResultNavigation | null
+  navigationPort: DatabaseDetailNavigationPort
   routeItem: DatabaseDetailRouteItemByKind[Kind]
 }
 
 function DbDetailRouteRecordBoundary<Kind extends Exclude<DatabaseDetailKind, 'awakener'>>({
   activeRef,
-  callbacks,
   children,
   kind,
   navigation,
+  navigationPort,
   routeItem,
 }: DbDetailRouteRecordBoundaryProps<Kind>) {
   const registryEntry = dbDetailRegistry[kind]
@@ -636,7 +569,7 @@ function DbDetailRouteRecordBoundary<Kind extends Exclude<DatabaseDetailKind, 'a
       <DbDetailRouteLoadingModal
         loadingLabel={registryEntry.loadingLabel}
         navigation={navigation}
-        onClose={callbacks.onClose}
+        onClose={navigationPort.close}
         routeItem={routeItem}
       />
     )
@@ -648,7 +581,7 @@ function DbDetailRouteRecordBoundary<Kind extends Exclude<DatabaseDetailKind, 'a
         error={error}
         loadingLabel={registryEntry.loadingLabel}
         navigation={navigation}
-        onClose={callbacks.onClose}
+        onClose={navigationPort.close}
         onRetry={retry}
         routeItem={routeItem}
       />
@@ -660,12 +593,11 @@ function DbDetailRouteRecordBoundary<Kind extends Exclude<DatabaseDetailKind, 'a
 
 function DbDetailAwakenerRouteModal({
   activeRef,
-  awakeners,
-  callbacks,
+  lookup,
+  navigationPort,
   navigation,
   routeItem,
   tabSlug,
-  wheels,
 }: DbDetailKindRouteModalProps<'awakener'>) {
   const routerLocation = useLocation()
   const navigate = useNavigate()
@@ -705,7 +637,7 @@ function DbDetailAwakenerRouteModal({
       <DbDetailRouteLoadingModal
         loadingLabel={registryEntry.loadingLabel}
         navigation={navigation}
-        onClose={callbacks.onClose}
+        onClose={navigationPort.close}
         routeItem={routeItem}
       />
     )
@@ -717,7 +649,7 @@ function DbDetailAwakenerRouteModal({
         error={error}
         loadingLabel={registryEntry.loadingLabel}
         navigation={navigation}
-        onClose={callbacks.onClose}
+        onClose={navigationPort.close}
         onRetry={retry}
         routeItem={routeItem}
       />
@@ -729,12 +661,11 @@ function DbDetailAwakenerRouteModal({
   }
 
   return registryEntry.render({
-    awakeners,
-    callbacks,
     item: routeItem,
+    lookup,
     navigation,
+    navigationPort,
     record,
-    wheels,
   })
 }
 
@@ -742,30 +673,28 @@ function DbDetailNonAwakenerRouteModal<
   Kind extends Exclude<DatabaseDetailKind, 'awakener' | 'relic'>,
 >({
   activeRef,
-  awakeners,
-  callbacks,
+  lookup,
+  navigationPort,
   kind,
   navigation,
   routeItem,
-  wheels,
 }: DbDetailNonAwakenerRouteModalProps<Kind>) {
   const registryEntry = dbDetailRegistry[kind]
   return (
     <DbDetailRouteRecordBoundary
       activeRef={activeRef}
-      callbacks={callbacks}
       kind={kind}
       navigation={navigation}
+      navigationPort={navigationPort}
       routeItem={routeItem}
     >
       {(record) =>
         registryEntry.render({
-          awakeners,
-          callbacks,
           item: routeItem,
+          lookup,
           navigation,
+          navigationPort,
           record,
-          wheels,
         })
       }
     </DbDetailRouteRecordBoundary>
@@ -774,11 +703,10 @@ function DbDetailNonAwakenerRouteModal<
 
 function DbDetailRelicRouteModal({
   activeRef,
-  awakeners,
-  callbacks,
+  lookup,
+  navigationPort,
   navigation,
   routeItem,
-  wheels,
 }: DbDetailKindRouteModalProps<'relic'>) {
   const location = useLocation()
   const locationState: unknown = location.state
@@ -786,9 +714,9 @@ function DbDetailRelicRouteModal({
   return (
     <DbDetailRouteRecordBoundary
       activeRef={activeRef}
-      callbacks={callbacks}
       kind='relic'
       navigation={navigation}
+      navigationPort={navigationPort}
       routeItem={routeItem}
     >
       {(record) => {
@@ -800,12 +728,11 @@ function DbDetailRelicRouteModal({
               <Navigate replace state={locationState} to={resolution.replaceTarget} />
             ) : null}
             {registryEntry.render({
-              awakeners,
-              callbacks,
               item: resolution.renderItem,
+              lookup,
               navigation,
+              navigationPort,
               record,
-              wheels,
             })}
           </>
         )

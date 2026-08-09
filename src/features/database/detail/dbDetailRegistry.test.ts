@@ -1,5 +1,6 @@
 import {describe, expect, it, vi} from 'vitest'
 
+import {DATABASE_ENTITY_DEFINITIONS} from '@/domain/database-entity-definitions'
 import {DEFAULT_DATABASE_AWAKENER_TAB} from '@/domain/database-paths'
 
 import {
@@ -11,22 +12,20 @@ import {
 } from '../data'
 import {
   createDatabaseDetailCatalogLookup,
+  createDatabaseDetailResultSet,
+  dbDetailRegistry,
   getDatabaseDetailKindForEntity,
   resolveDatabaseDetailOverlayRouteItem,
   resolveDatabaseDetailReference,
   selectDatabaseDetailResult,
-  type DatabaseDetailRenderCallbacks,
+  type DatabaseDetailNavigationPort,
 } from './dbDetailRegistry'
 
-function createCallbacks(): DatabaseDetailRenderCallbacks {
+function createNavigationPort(): DatabaseDetailNavigationPort {
   return {
-    onClose: vi.fn(),
-    onSelectAwakener: vi.fn(),
-    onSelectCovenant: vi.fn(),
-    onSelectPosse: vi.fn(),
-    onSelectRelic: vi.fn(),
-    onSelectWheel: vi.fn(),
-    onTabChange: vi.fn(),
+    close: vi.fn(),
+    select: vi.fn(),
+    updateState: vi.fn(),
   }
 }
 
@@ -43,6 +42,12 @@ describe('database detail registry adapters', () => {
     expect(getDatabaseDetailKindForEntity('posses')).toBe('posse')
     expect(getDatabaseDetailKindForEntity('covenants')).toBe('covenant')
     expect(getDatabaseDetailKindForEntity('relics')).toBe('relic')
+  })
+
+  it('has exact registry coverage for every declared detail kind', () => {
+    expect(Object.keys(dbDetailRegistry).sort()).toEqual(
+      DATABASE_ENTITY_DEFINITIONS.map(({detailKind}) => detailKind).sort(),
+    )
   })
 
   it('resolves overlay route items through the matching catalog adapter', () => {
@@ -72,40 +77,38 @@ describe('database detail registry adapters', () => {
     ).toEqual({kind: 'wheel', id: wheel.id})
   })
 
-  it('dispatches result navigation through each entity callback', () => {
+  it('dispatches every result through the generic navigation port', () => {
     const refs = [
-      {kind: 'awakener', item: databaseAwakeners[0], callbackKey: 'onSelectAwakener'},
-      {kind: 'wheel', item: databaseWheels[0], callbackKey: 'onSelectWheel'},
-      {kind: 'posse', item: databasePosses[0], callbackKey: 'onSelectPosse'},
-      {kind: 'covenant', item: databaseCovenants[0], callbackKey: 'onSelectCovenant'},
-      {kind: 'relic', item: databaseRelics[0], callbackKey: 'onSelectRelic'},
+      {kind: 'awakener', item: databaseAwakeners[0]},
+      {kind: 'wheel', item: databaseWheels[0]},
+      {kind: 'posse', item: databasePosses[0]},
+      {kind: 'covenant', item: databaseCovenants[0]},
+      {kind: 'relic', item: databaseRelics[0]},
     ] as const
 
-    for (const {callbackKey, item, kind} of refs) {
-      const callbacks = createCallbacks()
+    for (const {item, kind} of refs) {
+      const navigation = createNavigationPort()
       const ref = {kind, id: item.id, name: item.name}
-      selectDatabaseDetailResult(ref, callbacks, DEFAULT_DATABASE_AWAKENER_TAB)
+      const routeItem =
+        kind === 'awakener'
+          ? ({kind, item, activeTab: DEFAULT_DATABASE_AWAKENER_TAB} as const)
+          : ({kind, item} as Exclude<
+              Parameters<typeof selectDatabaseDetailResult>[2],
+              {kind: 'awakener'} | {kind: 'relic'}
+            >)
+      selectDatabaseDetailResult(ref, navigation, routeItem)
 
-      const expectedCallback = callbacks[callbackKey]
-      expect(expectedCallback).toHaveBeenCalledTimes(1)
-      expect(expectedCallback).toHaveBeenCalledWith(
+      expect(navigation.select).toHaveBeenCalledWith(
         ref,
-        ...(kind === 'awakener' ? [DEFAULT_DATABASE_AWAKENER_TAB] : []),
+        ...(kind === 'awakener' ? [{tab: DEFAULT_DATABASE_AWAKENER_TAB}] : []),
       )
-
-      const selectionCallbacks = [
-        callbacks.onSelectAwakener,
-        callbacks.onSelectWheel,
-        callbacks.onSelectPosse,
-        callbacks.onSelectCovenant,
-        callbacks.onSelectRelic,
-      ]
-      expect(
-        selectionCallbacks.reduce(
-          (total, callback) => total + (callback ? vi.mocked(callback).mock.calls.length : 0),
-          0,
-        ),
-      ).toBe(1)
     }
+  })
+
+  it('keeps result presentation in the registered entity adapter', () => {
+    expect(createDatabaseDetailResultSet('wheel', [databaseWheels[0]])).toMatchObject({
+      kind: 'wheel',
+      items: [{id: databaseWheels[0].id, imageTreatment: 'icon'}],
+    })
   })
 })
