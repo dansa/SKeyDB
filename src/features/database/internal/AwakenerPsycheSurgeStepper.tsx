@@ -3,6 +3,7 @@ import type {ReactNode} from 'react'
 import {FaMinus, FaPlus} from 'react-icons/fa6'
 
 import {useHoldRepeatAction} from '@/components/ui/useHoldRepeatAction'
+import {CALCULATION_CONTEXT_CONTROL_PROPS} from '@/ui/modal/calculationContextControl'
 
 interface AwakenerPsycheSurgeStepperProps {
   offset: number
@@ -47,7 +48,7 @@ export function AwakenerPsycheSurgeStepper({
     <div
       aria-label='Psyche Surge'
       className='flex items-center gap-1.5'
-      data-detail-modal-popover-preserve=''
+      {...CALCULATION_CONTEXT_CONTROL_PROPS}
       title='Psyche Surge substat bonus'
     >
       <StepButton ariaLabel='Decrease Psyche Surge' disabled={offset <= 0} onStep={onDecrease}>

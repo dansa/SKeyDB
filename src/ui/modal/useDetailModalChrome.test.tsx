@@ -87,11 +87,13 @@ describe('useDetailModalChrome', () => {
     expect(document.documentElement.style.overflow).toBe('scroll')
   })
 
-  it('keeps popovers open when marked controls bubble to the overlay', () => {
+  it('keeps popovers open when calculation-context controls bubble to the overlay', () => {
     const {closeAllPopovers, hook, onClose, panelButton} = renderChrome()
-    panelButton.dataset.detailModalPopoverPreserve = ''
+    const nestedControlLabel = document.createElement('span')
+    panelButton.dataset.detailModalCalculationControl = ''
+    panelButton.appendChild(nestedControlLabel)
 
-    clickTarget(hook.result.current, panelButton)
+    clickTarget(hook.result.current, nestedControlLabel)
 
     expect(closeAllPopovers).not.toHaveBeenCalled()
     expect(onClose).not.toHaveBeenCalled()

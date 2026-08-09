@@ -641,6 +641,29 @@ describe('useDatabasePopoverController', () => {
     expect(screen.queryByText('—')).not.toBeInTheDocument()
   })
 
+  it('live updates open popovers when Wheel refinement formula inputs change', async () => {
+    const referenceLayer = buildReferenceLayer('Base text.')
+    const {rerender} = render(
+      <ControllerHarness
+        formulaContext={{wheelRefinementLevel: 1}}
+        referenceLayer={referenceLayer}
+      />,
+    )
+
+    fireEvent.click(screen.getByRole('button', {name: 'Open Computed'}))
+    expect(await screen.findByTitle(/Wheel Enlighten Bonus/)).toHaveTextContent('3')
+
+    rerender(
+      <ControllerHarness
+        formulaContext={{wheelRefinementLevel: 4}}
+        referenceLayer={referenceLayer}
+      />,
+    )
+
+    expect(await screen.findByTitle(/Wheel Enlighten Bonus/)).toHaveTextContent('12')
+    expect(screen.getByRole('dialog', {name: 'Database reference details'})).toBeInTheDocument()
+  })
+
   it('routes skill reference entries to the skills view from title navigation', async () => {
     const onNavigateToSkills = vi.fn()
 

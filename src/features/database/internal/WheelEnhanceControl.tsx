@@ -4,6 +4,7 @@ import {
   formatWheelEnhanceLevelLabel,
   getWheelEnhancePlusLevel,
 } from '@/domain/wheel-enhance'
+import {CALCULATION_CONTEXT_CONTROL_PROPS} from '@/ui/modal/calculationContextControl'
 
 interface WheelEnhanceControlProps {
   enhanceLevel: number
@@ -16,7 +17,7 @@ export function WheelEnhanceControl({enhanceLevel, onChange}: WheelEnhanceContro
   const enhanceValueLabel = formatWheelEnhanceLevelLabel(normalizedLevel)
 
   return (
-    <div className='flex flex-col gap-2.5'>
+    <div className='flex flex-col gap-2.5' {...CALCULATION_CONTEXT_CONTROL_PROPS}>
       <div className='flex flex-wrap items-center gap-x-4 gap-y-2'>
         <span className='ui-title text-[11px] tracking-[0.22em] text-amber-100/80 uppercase'>
           Enlighten

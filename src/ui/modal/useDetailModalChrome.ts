@@ -1,5 +1,6 @@
 import {useCallback, useEffect, useRef, useState, useSyncExternalStore, type RefObject} from 'react'
 
+import {isCalculationContextControl} from './calculationContextControl'
 import {getFocusableElements} from './focus-scope'
 import {acquirePageScrollLock, releasePageScrollLock} from './pageScrollLock'
 
@@ -100,14 +101,12 @@ export function useDetailModalChrome({
       }
 
       const clickedInsidePopover = Boolean(target.closest('[data-skill-popover]'))
-      const clickedInsidePopoverPreservingControl = Boolean(
-        target.closest('[data-detail-modal-popover-preserve]'),
-      )
+      const clickedInsideCalculationContextControl = isCalculationContextControl(target)
       if (
         hasOpenPopovers &&
         clickOutsideClosesPopovers &&
         !clickedInsidePopover &&
-        !clickedInsidePopoverPreservingControl &&
+        !clickedInsideCalculationContextControl &&
         !target.closest('[data-detail-modal-external]')
       ) {
         closeAllPopovers()

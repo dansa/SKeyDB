@@ -135,24 +135,38 @@ describe('wheels-database-reference-layer', () => {
   })
 
   it('uses the active wheel refinement for source-variant derived cards only', () => {
-    const referenceLayer = buildWheelDatabaseReferenceLayer({
+    const records = [
+      buildWheelVariantDerivedSkillRecord('wheelRefinement'),
+      buildWheelVariantDerivedSkillRecord(),
+    ]
+    const baseReferenceLayer = buildWheelDatabaseReferenceLayer({
+      activeDescriptionRank: 1,
+      activeWheelId: 'wheel-0001',
+      derivedSkills: records,
+      overlays: [],
+      wheelRecords: [buildWheelRecord()],
+    })
+    const maxReferenceLayer = buildWheelDatabaseReferenceLayer({
       activeDescriptionRank: 4,
       activeWheelId: 'wheel-0001',
-      derivedSkills: [
-        buildWheelVariantDerivedSkillRecord('wheelRefinement'),
-        buildWheelVariantDerivedSkillRecord(),
-      ],
+      derivedSkills: records,
       overlays: [],
       wheelRecords: [buildWheelRecord()],
     })
 
-    expect(resolveDatabaseReferenceInfo(referenceLayer, 'Falling Upward')).toEqual(
+    expect(resolveDatabaseReferenceInfo(baseReferenceLayer, 'Falling Upward')).toEqual(
+      expect.objectContaining({
+        description: 'The wielder gains 70 Aliemus.',
+        descriptionRank: 1,
+      }),
+    )
+    expect(resolveDatabaseReferenceInfo(maxReferenceLayer, 'Falling Upward')).toEqual(
       expect.objectContaining({
         description: 'The wielder gains 100 Aliemus.',
         descriptionRank: 4,
       }),
     )
-    expect(resolveDatabaseReferenceInfo(referenceLayer, 'Plain Scaling')).toEqual(
+    expect(resolveDatabaseReferenceInfo(maxReferenceLayer, 'Plain Scaling')).toEqual(
       expect.objectContaining({
         description: 'The wielder gains 70 Aliemus.',
         descriptionRank: 1,
