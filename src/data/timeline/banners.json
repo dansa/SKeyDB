@@ -95,7 +95,10 @@
     "description": "Featured rate-up banners for Saya and her SSR Wheel 'Fragrant Morphogenesis'.",
     "startDate": "2026/05/30 09:00",
     "endDate": "2026/08/24 09:00",
-    "customArt": "/banners/saya-collab-prelim.webp",
+    "featured": [
+      {"name": "Saya", "kind": "awakener"},
+      {"name": "Fragrant Morphogenesis", "kind": "wheel"}
+    ],
     "pinned": true
   },
   {
@@ -242,14 +245,12 @@
       {
         "name": "Lotan: Cetarchon",
         "kind": "awakener",
-        "customArt": "/banners/lotan-char-prelim.webp",
-        "detailLink": false
+        "customArt": "/banners/lotan-char-prelim.webp"
       },
       {
         "name": "Cetus Occasus",
         "kind": "wheel",
-        "customArt": "/banners/lotan-wheel-prelim.webp",
-        "detailLink": false
+        "customArt": "/banners/lotan-wheel-prelim.webp"
       }
     ],
     "pinned": true

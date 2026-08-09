@@ -378,7 +378,7 @@
     "description": "Gameplay event featuring the new awakener Lotan: Cetarchon.\n Obtain SR-Wheel \"Undying Hungerbone\" and limited avatar \"By the Silver Key: Lotan: Cetarchon\".",
     "startDate": "2026/07/27 09:00",
     "endDate": "2026/08/24 09:00",
-    "featured": [{"name": "Lotan: Cetarchon", "kind": "awakener", "detailLink": false}],
+    "featured": [{"name": "Lotan: Cetarchon", "kind": "awakener"}],
     "customArt": "/events/lotan-event.webp",
     "pinned": true
   },
@@ -389,7 +389,7 @@
     "description": "Limited-time WoD wheel acquisition event featuring \"Falling Upward\".\n Complete various tasks to obtain 4 copies & 30 Pure Cores.\n Premium track: Grants +12 copies & 60 Luminous Cores.",
     "startDate": "2026/07/27 09:00",
     "endDate": "2026/08/24 09:00",
-    "featured": [{"name": "Falling Upward", "kind": "wheel", "detailLink": false}],
+    "featured": [{"name": "Falling Upward", "kind": "wheel"}],
     "customArt": "/events/falling-upward.webp",
     "pricing": "1680 Silver Prime"
   },

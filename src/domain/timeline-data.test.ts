@@ -17,7 +17,7 @@ describe('timeline data loading', () => {
     expect(preorder?.featured?.[0]).toMatchObject({name: 'Arachne', detailLink: false})
   })
 
-  it('loads anniversary and collab placeholder surfaces', () => {
+  it('loads anniversary and collab timeline surfaces', () => {
     const anniversaryLogin = timelineEvents.find(
       (event) => event.id === 'event-campaign-half-anniversary',
     )
@@ -83,7 +83,6 @@ describe('timeline data loading', () => {
       title: 'Inverted Rebirth',
     })
     expect(collabBanner).toMatchObject({
-      customArt: expect.stringContaining('saya-collab-prelim'),
       endDate: '2026-08-24T01:00:00.000Z',
       pinned: true,
       startDate: '2026-05-30T01:00:00.000Z',
@@ -91,7 +90,11 @@ describe('timeline data loading', () => {
       title: 'Sprout of Liebestod / Alien Crypsela',
       type: 'awaken',
     })
-    expect(collabBanner?.featured).toBeUndefined()
+    expect(collabBanner?.customArt).toBeUndefined()
+    expect(collabBanner?.featured).toMatchObject([
+      {kind: 'awakener', name: 'Saya'},
+      {kind: 'wheel', name: 'Fragrant Morphogenesis'},
+    ])
     expect(anniversaryLogin?.customArt).toContain('to-the-star')
     expect(dreamyRendezvous?.customArt).toContain('dreamy-rendezvous')
     expect(collabEvent?.customArt).toContain('saya-event')
@@ -105,6 +108,25 @@ describe('timeline data loading', () => {
     expect(collabSideStory?.customArt).toContain('forgotten-seed')
     expect(collabSideStory?.description).toContain('Permanent Multiverse Link side story')
     expect(collabBanner?.preliminary).toBeUndefined()
+  })
+
+  it('enables database details for the current Lotan and Falling Upward timeline entries', () => {
+    const lotanBanner = timelineBanners.find((banner) => banner.id === 'banner-lotan-cetarchon')
+    const lotanEvent = timelineEvents.find((event) => event.id === 'event-story-lotan-cetarchon')
+    const fallingUpwardEvent = timelineEvents.find(
+      (event) => event.id === 'event-wheel-falling-upward',
+    )
+
+    expect(lotanBanner?.featured).toMatchObject([
+      {kind: 'awakener', name: 'Lotan: Cetarchon', detailLink: undefined},
+      {kind: 'wheel', name: 'Cetus Occasus', detailLink: undefined},
+    ])
+    expect(lotanEvent?.featured).toMatchObject([
+      {kind: 'awakener', name: 'Lotan: Cetarchon', detailLink: undefined},
+    ])
+    expect(fallingUpwardEvent?.featured).toMatchObject([
+      {kind: 'wheel', name: 'Falling Upward', detailLink: undefined},
+    ])
   })
 
   it('derives Stars in Full Bloom premium pools by limited SSR awakener type', () => {
