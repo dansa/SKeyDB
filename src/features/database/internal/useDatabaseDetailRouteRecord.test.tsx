@@ -45,6 +45,46 @@ describe('useDatabaseDetailRecord', () => {
     expect(loadRecord).toHaveBeenCalledTimes(1)
   })
 
+  it('publishes a preload that resolves between render and subscription', async () => {
+    let resolveRecord!: (record: {id: string}) => void
+    let settleChained!: () => void
+    const chained = new Promise<{id: string}>((resolve) => {
+      settleChained = () => {
+        resolve({id: 'wheel-0007'})
+      }
+    })
+    const source = {
+      then: (onFulfilled: (record: {id: string}) => {id: string}) => {
+        resolveRecord = (record) => {
+          onFulfilled(record)
+          settleChained()
+        }
+        return chained
+      },
+    } as Promise<{id: string}>
+    const loadRecord = vi.fn(() => source)
+    const preload = preloadDatabaseDetailRecord({id: 'wheel-0007', loadRecord})
+    let shouldResolveDuringRender = true
+
+    const {result} = renderHook(() => {
+      const state = useDatabaseDetailRecord({id: 'wheel-0007', loadRecord})
+      if (shouldResolveDuringRender) {
+        shouldResolveDuringRender = false
+        resolveRecord({id: 'wheel-0007'})
+      }
+      return state
+    })
+
+    await preload
+    await waitFor(() => {
+      expect(result.current).toMatchObject({
+        isLoading: false,
+        record: {id: 'wheel-0007'},
+      })
+    })
+    expect(loadRecord).toHaveBeenCalledOnce()
+  })
+
   it('uses a preloaded record immediately for matching ids', async () => {
     const loadRecord = vi.fn(async (id: string) => ({id, name: 'Preloaded'}))
 

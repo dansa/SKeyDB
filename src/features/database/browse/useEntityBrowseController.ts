@@ -10,7 +10,11 @@ import {
   type DatabaseDetailBrowseOrigin,
 } from '@/features/database/detail/database-detail-history'
 
-import {preloadDatabaseDetail, type DatabaseDetailKind} from './databaseDetailPreload'
+import {
+  preloadDatabaseDetail,
+  preloadDatabaseDetailShell,
+  type DatabaseDetailKind,
+} from './databaseDetailPreload'
 
 interface UseEntityBrowseControllerOptions {
   activeEntity: DatabaseEntityId
@@ -111,6 +115,9 @@ export function useEntityBrowseController({
   const preloadDetail = useCallback((kind: DatabaseDetailKind, id: string) => {
     preloadDatabaseDetail(kind, id)
   }, [])
+  const warmDetailShell = useCallback((kind: DatabaseDetailKind) => {
+    preloadDatabaseDetailShell(kind)
+  }, [])
 
   const closeDetail = useCallback(() => {
     if (getDatabaseDetailBrowseOrigin(locationState)) {
@@ -136,6 +143,7 @@ export function useEntityBrowseController({
     searchInputRef,
     openDetail,
     preloadDetail,
+    warmDetailShell,
     closeDetail,
   }
 }

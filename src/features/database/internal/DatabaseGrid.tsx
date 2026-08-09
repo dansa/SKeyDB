@@ -15,6 +15,7 @@ interface DatabaseGridProps {
   awakeners: Awakener[]
   onPreloadAwakener?: (id: string) => void
   onSelectAwakener: (id: string) => void
+  onWarmAwakenerShell?: () => void
   rarityFilter: RarityFilterId
   scalingSubstatFilters?: readonly AwakenerScalingSubstatFilter[]
   sortKey: DatabaseSortKey
@@ -27,6 +28,7 @@ export function DatabaseGrid({
   awakeners,
   onPreloadAwakener,
   onSelectAwakener,
+  onWarmAwakenerShell,
   rarityFilter,
   scalingSubstatFilters = EMPTY_SCALING_SUBSTAT_FILTERS,
   sortKey,
@@ -51,6 +53,7 @@ export function DatabaseGrid({
           key={awakener.id}
           onPreload={onPreloadAwakener}
           onSelect={onSelectAwakener}
+          onWarmShell={onWarmAwakenerShell}
           variant={variant}
         />
       )}

@@ -23,7 +23,11 @@ export function useEntityDetailActions<TEntry extends {id: string}>(
   detailKind: Parameters<EntityBrowseController['preloadDetail']>[0],
   controller: EntityBrowseController,
 ) {
-  const {openDetail: navigateToDetail, preloadDetail: preloadDetailResource} = controller
+  const {
+    openDetail: navigateToDetail,
+    preloadDetail: preloadDetailResource,
+    warmDetailShell: warmDetailShellResource,
+  } = controller
   const openDetail = useCallback(
     (entryId: string) => {
       const entry = entries.find((candidate) => candidate.id === entryId)
@@ -39,6 +43,9 @@ export function useEntityDetailActions<TEntry extends {id: string}>(
     },
     [detailKind, preloadDetailResource],
   )
+  const warmDetailShell = useCallback(() => {
+    warmDetailShellResource(detailKind)
+  }, [detailKind, warmDetailShellResource])
 
-  return {openDetail, preloadDetail}
+  return {openDetail, preloadDetail, warmDetailShell}
 }

@@ -4,16 +4,19 @@ import {afterEach, beforeEach, describe, expect, it, vi} from 'vitest'
 
 import {useEntityBrowseController} from './useEntityBrowseController'
 
-const {preloadDatabaseDetail} = vi.hoisted(() => ({
+const {preloadDatabaseDetail, preloadDatabaseDetailShell} = vi.hoisted(() => ({
   preloadDatabaseDetail: vi.fn(),
+  preloadDatabaseDetailShell: vi.fn(),
 }))
 
 vi.mock('./databaseDetailPreload', () => ({
   preloadDatabaseDetail,
+  preloadDatabaseDetailShell,
 }))
 
 beforeEach(() => {
   preloadDatabaseDetail.mockClear()
+  preloadDatabaseDetailShell.mockClear()
   vi.useFakeTimers()
 })
 
@@ -46,6 +49,11 @@ describe('useEntityBrowseController detail loading', () => {
       result.current.preloadDetail('wheel', 'wheel-test')
     })
     expect(preloadDatabaseDetail).toHaveBeenCalledWith('wheel', 'wheel-test')
+
+    act(() => {
+      result.current.warmDetailShell('wheel')
+    })
+    expect(preloadDatabaseDetailShell).toHaveBeenCalledWith('wheel')
 
     unmount()
   })

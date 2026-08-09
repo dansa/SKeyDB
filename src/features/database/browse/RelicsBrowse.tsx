@@ -24,7 +24,7 @@ export function RelicsBrowse({
 }: EntityBrowseProps): ReactNode {
   const browseState = useRelicsDatabaseBrowseState()
   const {displayScopes, query, setDisplayScopes} = browseState
-  const {openDetail, preloadDetail} = useEntityDetailActions(
+  const {openDetail, preloadDetail, warmDetailShell} = useEntityDetailActions(
     databaseRelics,
     buildDatabaseRelicPath,
     'relic',
@@ -118,6 +118,7 @@ export function RelicsBrowse({
           awakeners={databaseAwakeners}
           onPreloadRelic={preloadDetail}
           onSelectRelic={openDetail}
+          onWarmRelicShell={warmDetailShell}
           relics={relics}
         />
       </div>
@@ -127,6 +128,7 @@ export function RelicsBrowse({
       hasExplicitMatchRequest,
       openDetail,
       preloadDetail,
+      warmDetailShell,
       relics,
       setDisplayScopes,
       viewModel.hiddenByDisplay,

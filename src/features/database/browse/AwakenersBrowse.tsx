@@ -23,7 +23,7 @@ export function AwakenersBrowse({
 }: EntityBrowseProps): ReactNode {
   const browseState = useDatabaseBrowseState()
   const viewModel = useDatabaseViewModel(databaseAwakeners, browseState)
-  const {openDetail, preloadDetail} = useEntityDetailActions(
+  const {openDetail, preloadDetail, warmDetailShell} = useEntityDetailActions(
     databaseAwakeners,
     buildDatabaseAwakenerPath,
     'awakener',
@@ -94,6 +94,7 @@ export function AwakenersBrowse({
         awakeners={viewModel.awakeners}
         onPreloadAwakener={preloadDetail}
         onSelectAwakener={openDetail}
+        onWarmAwakenerShell={warmDetailShell}
         rarityFilter={browseState.rarityFilter}
         scalingSubstatFilters={browseState.scalingSubstatFilters}
         sortKey={browseState.sortKey}
@@ -106,6 +107,7 @@ export function AwakenersBrowse({
       browseState.sortKey,
       openDetail,
       preloadDetail,
+      warmDetailShell,
       viewModel.awakeners,
     ],
   )

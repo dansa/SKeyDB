@@ -68,6 +68,7 @@ interface DatabaseGridCardBaseProps {
   actionLabel?: string
   onPreload?: () => void
   onSelect: () => void
+  onWarmShell?: () => void
   realmAccent: string
 }
 
@@ -182,6 +183,7 @@ export function DatabaseGridCardFrame({
   media,
   onPreload,
   onSelect,
+  onWarmShell,
   realmAccent,
   variant,
 }: DatabaseGridCardFrameProps) {
@@ -216,7 +218,7 @@ export function DatabaseGridCardFrame({
           onFocus={onPreload}
           onClick={onSelect}
           onPointerDown={onPreload}
-          onPointerEnter={onPreload}
+          onPointerEnter={onWarmShell}
           type='button'
         >
           <span className='sr-only' id={`${titleId}-action`}>

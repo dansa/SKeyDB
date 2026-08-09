@@ -23,7 +23,7 @@ export function WheelsBrowse({
 }: EntityBrowseProps): ReactNode {
   const browseState = useWheelsDatabaseBrowseState()
   const viewModel = useWheelsDatabaseViewModel(databaseWheels, browseState)
-  const {openDetail, preloadDetail} = useEntityDetailActions(
+  const {openDetail, preloadDetail, warmDetailShell} = useEntityDetailActions(
     databaseWheels,
     buildDatabaseWheelPath,
     'wheel',
@@ -73,10 +73,11 @@ export function WheelsBrowse({
       <WheelGrid
         onPreloadWheel={preloadDetail}
         onSelectWheel={openDetail}
+        onWarmWheelShell={warmDetailShell}
         wheels={viewModel.wheels}
       />
     ),
-    [openDetail, preloadDetail, viewModel.wheels],
+    [openDetail, preloadDetail, viewModel.wheels, warmDetailShell],
   )
   const viewControls = useMemo(
     () => (

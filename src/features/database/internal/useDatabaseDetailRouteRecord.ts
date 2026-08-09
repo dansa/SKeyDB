@@ -1,4 +1,4 @@
-import {useCallback, useEffect, useState} from 'react'
+import {useCallback, useEffect, useSyncExternalStore} from 'react'
 
 import {useLocation, useNavigate} from 'react-router'
 
@@ -16,62 +16,78 @@ interface UseDatabaseDetailRecordOptions<TRecord> {
   onMissingRecord?: () => void
 }
 
-interface DatabaseDetailRecordState<TRecord> {
+interface DatabaseDetailRecordSnapshot<TRecord> {
   error: Error | null
-  id: string
-  isLoading: boolean
-  loadRecord: DatabaseDetailRecordLoader<TRecord>
   record: TRecord | null
+  status: 'idle' | 'loading' | 'resolved' | 'rejected'
+}
+
+interface DatabaseDetailRecordResource<TRecord> {
+  listeners: Set<() => void>
+  loadPromise: Promise<TRecord | undefined> | null
+  snapshot: DatabaseDetailRecordSnapshot<TRecord>
 }
 
 function normalizeDatabaseDetailRecordError(error: unknown): Error {
   return error instanceof Error ? error : new Error('Database detail record load failed')
 }
 
-const recordCacheByLoader = new WeakMap<DatabaseDetailRecordLoader<unknown>, Map<string, unknown>>()
-const pendingRecordLoadsByLoader = new WeakMap<
+const recordResourcesByLoader = new WeakMap<
   DatabaseDetailRecordLoader<unknown>,
-  Map<string, Promise<unknown>>
+  Map<string, DatabaseDetailRecordResource<unknown>>
 >()
-const trackedRecordCaches = new Set<Map<string, unknown>>()
-const trackedPendingRecordLoads = new Set<Map<string, Promise<unknown>>>()
+const trackedRecordResourceMaps = new Set<Map<string, DatabaseDetailRecordResource<unknown>>>()
 
-function getRecordCache<TRecord>(
+function getDatabaseDetailRecordResource<TRecord>(
   loadRecord: DatabaseDetailRecordLoader<TRecord>,
-): Map<string, TRecord | null> {
-  let cache = recordCacheByLoader.get(loadRecord)
-  if (!cache) {
-    cache = new Map()
-    recordCacheByLoader.set(loadRecord, cache)
-    trackedRecordCaches.add(cache)
+  id: string,
+): DatabaseDetailRecordResource<TRecord> {
+  let resources = recordResourcesByLoader.get(loadRecord)
+  if (!resources) {
+    resources = new Map()
+    recordResourcesByLoader.set(loadRecord, resources)
+    trackedRecordResourceMaps.add(resources)
   }
-  return cache as Map<string, TRecord | null>
+
+  let resource = resources.get(id)
+  if (!resource) {
+    resource = {
+      listeners: new Set(),
+      loadPromise: null,
+      snapshot: {error: null, record: null, status: 'idle'},
+    }
+    resources.set(id, resource)
+  }
+  return resource as DatabaseDetailRecordResource<TRecord>
 }
 
-function getPendingRecordLoads<TRecord>(
-  loadRecord: DatabaseDetailRecordLoader<TRecord>,
-): Map<string, Promise<TRecord | undefined>> {
-  let pendingLoads = pendingRecordLoadsByLoader.get(loadRecord)
-  if (!pendingLoads) {
-    pendingLoads = new Map()
-    pendingRecordLoadsByLoader.set(loadRecord, pendingLoads)
-    trackedPendingRecordLoads.add(pendingLoads)
+function publishDatabaseDetailRecordSnapshot<TRecord>(
+  resource: DatabaseDetailRecordResource<TRecord>,
+  snapshot: DatabaseDetailRecordSnapshot<TRecord>,
+) {
+  resource.snapshot = snapshot
+  for (const listener of resource.listeners) {
+    listener()
   }
-  return pendingLoads as Map<string, Promise<TRecord | undefined>>
 }
 
-function loadAndCacheDatabaseDetailRecord<TRecord>({
+function loadDatabaseDetailRecordResource<TRecord>({
   id,
   loadRecord,
-}: Pick<UseDatabaseDetailRecordOptions<TRecord>, 'id' | 'loadRecord'>) {
-  const recordCache = getRecordCache<TRecord>(loadRecord)
-  const pendingLoads = getPendingRecordLoads<TRecord>(loadRecord)
-  const cacheKey = id
-  const pendingLoad = pendingLoads.get(cacheKey)
-  if (pendingLoad) {
-    return pendingLoad
+  resource,
+  retry = false,
+}: Pick<UseDatabaseDetailRecordOptions<TRecord>, 'id' | 'loadRecord'> & {
+  resource: DatabaseDetailRecordResource<TRecord>
+  retry?: boolean
+}) {
+  if (resource.loadPromise) {
+    return resource.loadPromise
+  }
+  if (!retry && resource.snapshot.status === 'resolved') {
+    return Promise.resolve(resource.snapshot.record ?? undefined)
   }
 
+  publishDatabaseDetailRecordSnapshot(resource, {error: null, record: null, status: 'loading'})
   let recordLoad: Promise<TRecord | undefined>
   try {
     recordLoad = loadRecord(id)
@@ -80,16 +96,28 @@ function loadAndCacheDatabaseDetailRecord<TRecord>({
   }
   const loadPromise = recordLoad.then(
     (nextRecord) => {
-      recordCache.set(cacheKey, nextRecord ?? null)
-      pendingLoads.delete(cacheKey)
+      resource.loadPromise = null
+      publishDatabaseDetailRecordSnapshot(resource, {
+        error: null,
+        record: nextRecord ?? null,
+        status: 'resolved',
+      })
       return nextRecord
     },
     (error: unknown) => {
-      pendingLoads.delete(cacheKey)
-      throw error
+      const normalizedError = normalizeDatabaseDetailRecordError(error)
+      resource.loadPromise = null
+      publishDatabaseDetailRecordSnapshot(resource, {
+        error: normalizedError,
+        record: null,
+        status: 'rejected',
+      })
+      throw normalizedError
     },
   )
-  pendingLoads.set(cacheKey, loadPromise)
+  if (resource.snapshot.status === 'loading') {
+    resource.loadPromise = loadPromise
+  }
   return loadPromise
 }
 
@@ -97,21 +125,13 @@ export async function preloadDatabaseDetailRecord<TRecord>({
   id,
   loadRecord,
 }: Pick<UseDatabaseDetailRecordOptions<TRecord>, 'id' | 'loadRecord'>): Promise<void> {
-  const cache = getRecordCache<TRecord>(loadRecord)
-  const cacheKey = id
-  if (cache.has(cacheKey)) {
-    return
-  }
-
-  await loadAndCacheDatabaseDetailRecord({id, loadRecord})
+  const resource = getDatabaseDetailRecordResource(loadRecord, id)
+  await loadDatabaseDetailRecordResource({id, loadRecord, resource})
 }
 
 export function clearDatabaseDetailRecordCacheForTests() {
-  for (const cache of trackedRecordCaches) {
-    cache.clear()
-  }
-  for (const pendingLoads of trackedPendingRecordLoads) {
-    pendingLoads.clear()
+  for (const resources of trackedRecordResourceMaps) {
+    resources.clear()
   }
 }
 
@@ -120,88 +140,41 @@ export function useDatabaseDetailRecord<TRecord>({
   loadRecord,
   onMissingRecord,
 }: UseDatabaseDetailRecordOptions<TRecord>) {
-  const recordCache = getRecordCache<TRecord>(loadRecord)
-  const initialCacheKey = id
-  const initialCachedRecord = recordCache.get(initialCacheKey)
-  const [retryVersion, setRetryVersion] = useState(0)
-  const [state, setState] = useState<DatabaseDetailRecordState<TRecord>>(() => ({
-    error: null,
-    id,
-    isLoading: !recordCache.has(initialCacheKey),
-    loadRecord,
-    record: initialCachedRecord ?? null,
-  }))
+  const resource = getDatabaseDetailRecordResource(loadRecord, id)
+  const subscribe = useCallback(
+    (listener: () => void) => {
+      resource.listeners.add(listener)
+      return () => {
+        resource.listeners.delete(listener)
+      }
+    },
+    [resource],
+  )
+  const getSnapshot = useCallback(() => resource.snapshot, [resource])
+  const snapshot = useSyncExternalStore(subscribe, getSnapshot, getSnapshot)
 
   const retry = useCallback(() => {
-    recordCache.delete(id)
-    setState({error: null, id, isLoading: true, loadRecord, record: null})
-    setRetryVersion((currentVersion) => currentVersion + 1)
-  }, [id, loadRecord, recordCache])
+    void loadDatabaseDetailRecordResource({id, loadRecord, resource, retry: true}).catch(
+      () => undefined,
+    )
+  }, [id, loadRecord, resource])
 
   useEffect(() => {
-    let isCancelled = false
-    const cacheKey = id
-    if (recordCache.has(cacheKey)) {
-      const cachedRecord = recordCache.get(cacheKey) ?? null
-      if (!cachedRecord) {
-        onMissingRecord?.()
-      }
-      return undefined
+    if (resource.snapshot.status === 'idle') {
+      void loadDatabaseDetailRecordResource({id, loadRecord, resource}).catch(() => undefined)
     }
+  }, [id, loadRecord, resource])
 
-    void loadAndCacheDatabaseDetailRecord({id, loadRecord}).then(
-      (nextRecord) => {
-        if (isCancelled) {
-          return
-        }
-
-        setState({
-          error: null,
-          id,
-          isLoading: false,
-          loadRecord,
-          record: nextRecord ?? null,
-        })
-
-        if (!nextRecord) {
-          onMissingRecord?.()
-        }
-      },
-      (error: unknown) => {
-        if (!isCancelled) {
-          setState({
-            error: normalizeDatabaseDetailRecordError(error),
-            id,
-            isLoading: false,
-            loadRecord,
-            record: null,
-          })
-        }
-      },
-    )
-
-    return () => {
-      isCancelled = true
+  useEffect(() => {
+    if (snapshot.status === 'resolved' && !snapshot.record) {
+      onMissingRecord?.()
     }
-  }, [id, loadRecord, onMissingRecord, recordCache, retryVersion])
-
-  if (state.id !== id || state.loadRecord !== loadRecord) {
-    const cacheKey = id
-    if (recordCache.has(cacheKey)) {
-      return {
-        error: null,
-        isLoading: false,
-        record: recordCache.get(cacheKey) ?? null,
-        retry,
-      }
-    }
-    return {error: null, isLoading: true, record: null, retry}
-  }
+  }, [onMissingRecord, snapshot.record, snapshot.status])
 
   return {
-    error: state.error,
-    isLoading: state.isLoading,
-    record: state.record,
+    error: snapshot.error,
+    isLoading: snapshot.status === 'idle' || snapshot.status === 'loading',
+    record: snapshot.record,
     retry,
   }
 }

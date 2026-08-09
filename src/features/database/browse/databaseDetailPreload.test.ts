@@ -1,9 +1,12 @@
 import {beforeEach, describe, expect, it, vi} from 'vitest'
 
-const {hostModuleLoaded, preloadRegisteredDetail} = vi.hoisted(() => ({
-  hostModuleLoaded: vi.fn(),
-  preloadRegisteredDetail: vi.fn(),
-}))
+const {hostModuleLoaded, preloadRegisteredDetailRecord, preloadRegisteredDetailShell} = vi.hoisted(
+  () => ({
+    hostModuleLoaded: vi.fn(),
+    preloadRegisteredDetailRecord: vi.fn(),
+    preloadRegisteredDetailShell: vi.fn(),
+  }),
+)
 
 vi.mock('../detail/DbDetailModalHost', () => {
   hostModuleLoaded()
@@ -11,24 +14,34 @@ vi.mock('../detail/DbDetailModalHost', () => {
 })
 
 vi.mock('../detail/dbDetailRegistry', () => ({
-  preloadDatabaseDetail: preloadRegisteredDetail,
+  preloadDatabaseDetailRecordByKind: preloadRegisteredDetailRecord,
+  preloadDatabaseDetailShell: preloadRegisteredDetailShell,
 }))
 
 beforeEach(() => {
   vi.resetModules()
   hostModuleLoaded.mockClear()
-  preloadRegisteredDetail.mockClear()
+  preloadRegisteredDetailRecord.mockClear()
+  preloadRegisteredDetailShell.mockClear()
 })
 
 describe('database detail intent preloading', () => {
-  it('preloads both the deferred host and selected detail path', async () => {
-    const {preloadDatabaseDetail} = await import('./databaseDetailPreload')
+  it('separates shell warming from committed record-fetch intent', async () => {
+    const {preloadDatabaseDetail, preloadDatabaseDetailShell} =
+      await import('./databaseDetailPreload')
+
+    preloadDatabaseDetailShell('wheel')
+
+    await vi.waitFor(() => {
+      expect(hostModuleLoaded).toHaveBeenCalledOnce()
+      expect(preloadRegisteredDetailShell).toHaveBeenCalledWith('wheel')
+    })
+    expect(preloadRegisteredDetailRecord).not.toHaveBeenCalled()
 
     preloadDatabaseDetail('wheel', 'wheel-test')
 
     await vi.waitFor(() => {
-      expect(hostModuleLoaded).toHaveBeenCalledOnce()
-      expect(preloadRegisteredDetail).toHaveBeenCalledWith('wheel', 'wheel-test')
+      expect(preloadRegisteredDetailRecord).toHaveBeenCalledWith('wheel', 'wheel-test')
     })
   })
 })

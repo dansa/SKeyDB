@@ -1,9 +1,18 @@
-export type DatabaseDetailKind = 'awakener' | 'wheel' | 'posse' | 'covenant' | 'relic'
+export type {DatabaseDetailKind} from '@/domain/database-entity-definitions'
+import type {DatabaseDetailKind} from '@/domain/database-entity-definitions'
 
 export function preloadDatabaseDetail(kind: DatabaseDetailKind, id: string): void {
   preloadDatabaseDetailHost()
   void import('../detail/dbDetailRegistry').then((module) => {
-    module.preloadDatabaseDetail(kind, id)
+    module.preloadDatabaseDetailShell(kind)
+    module.preloadDatabaseDetailRecordByKind(kind, id)
+  })
+}
+
+export function preloadDatabaseDetailShell(kind: DatabaseDetailKind): void {
+  preloadDatabaseDetailHost()
+  void import('../detail/dbDetailRegistry').then((module) => {
+    module.preloadDatabaseDetailShell(kind)
   })
 }
 

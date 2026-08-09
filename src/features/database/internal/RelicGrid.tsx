@@ -8,11 +8,13 @@ export function RelicGrid({
   awakeners,
   onPreloadRelic,
   onSelectRelic,
+  onWarmRelicShell,
   relics,
 }: {
   awakeners: readonly Awakener[]
   onPreloadRelic?: (id: string) => void
   onSelectRelic: (id: string) => void
+  onWarmRelicShell?: () => void
   relics: Relic[]
 }) {
   return (
@@ -27,6 +29,7 @@ export function RelicGrid({
           key={relic.id}
           onPreload={onPreloadRelic}
           onSelect={onSelectRelic}
+          onWarmShell={onWarmRelicShell}
           relic={relic}
         />
       )}

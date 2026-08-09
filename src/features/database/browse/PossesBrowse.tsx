@@ -23,7 +23,7 @@ export function PossesBrowse({
   renderDetailModalHost,
 }: EntityBrowseProps): ReactNode {
   const browseState = usePosseDatabaseBrowseState()
-  const {openDetail, preloadDetail} = useEntityDetailActions(
+  const {openDetail, preloadDetail, warmDetailShell} = useEntityDetailActions(
     databasePosses,
     buildDatabasePossePath,
     'posse',
@@ -80,8 +80,15 @@ export function PossesBrowse({
     ],
   )
   const results = useMemo(
-    () => <PosseGrid onPreloadPosse={preloadDetail} onSelectPosse={openDetail} posses={records} />,
-    [openDetail, preloadDetail, records],
+    () => (
+      <PosseGrid
+        onPreloadPosse={preloadDetail}
+        onSelectPosse={openDetail}
+        onWarmPosseShell={warmDetailShell}
+        posses={records}
+      />
+    ),
+    [openDetail, preloadDetail, records, warmDetailShell],
   )
 
   return (

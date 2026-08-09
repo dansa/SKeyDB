@@ -26,7 +26,7 @@ export function CovenantsBrowse({
     () => searchCovenants(databaseCovenants, browseState.query),
     [browseState.query],
   )
-  const {openDetail, preloadDetail} = useEntityDetailActions(
+  const {openDetail, preloadDetail, warmDetailShell} = useEntityDetailActions(
     databaseCovenants,
     buildDatabaseCovenantPath,
     'covenant',
@@ -55,9 +55,10 @@ export function CovenantsBrowse({
         covenants={records}
         onPreloadCovenant={preloadDetail}
         onSelectCovenant={openDetail}
+        onWarmCovenantShell={warmDetailShell}
       />
     ),
-    [openDetail, preloadDetail, records],
+    [openDetail, preloadDetail, records, warmDetailShell],
   )
 
   return (
