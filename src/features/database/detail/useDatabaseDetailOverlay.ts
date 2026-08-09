@@ -1,9 +1,11 @@
-import {useEffect, useState, useSyncExternalStore} from 'react'
+import {useCallback, useEffect, useState, useSyncExternalStore} from 'react'
 
 import {
   createDatabaseDetailOverlaySession,
   type DatabaseDetailOverlaySession,
 } from '@/stores/dbDetailStore'
+
+import {preloadDatabaseDetailOverlayOutlet} from './databaseDetailOverlayLoader'
 
 export interface DatabaseDetailOverlayController {
   close: DatabaseDetailOverlaySession['close']
@@ -18,6 +20,14 @@ export function useDatabaseDetailOverlay(): DatabaseDetailOverlayController {
   const [session] = useState(createDatabaseDetailOverlaySession)
   const isOpen = useSyncExternalStore(session.subscribe, session.isOpen, session.isOpen)
 
+  const open = useCallback<DatabaseDetailOverlaySession['open']>(
+    (ref) => {
+      void preloadDatabaseDetailOverlayOutlet()
+      session.open(ref)
+    },
+    [session],
+  )
+
   useEffect(
     () => () => {
       session.dispose()
@@ -29,7 +39,7 @@ export function useDatabaseDetailOverlay(): DatabaseDetailOverlayController {
     close: session.close,
     followReference: session.followReference,
     isOpen,
-    open: session.open,
+    open,
     session,
   }
 }

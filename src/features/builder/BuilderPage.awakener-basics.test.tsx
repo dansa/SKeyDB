@@ -98,7 +98,8 @@ describe('BuilderPage awakener basics', () => {
 
     fireEvent.click(screen.getByTitle(/open goliath details overlay/i))
 
-    expect(await screen.findByRole('dialog', {name: /goliath details/i})).toBeInTheDocument()
+    expect(screen.getByRole('dialog', {name: /goliath details/i})).toBeInTheDocument()
+    expect(screen.getByText('Loading details…')).toBeInTheDocument()
     expect(screen.queryByRole('button', {name: /change goliath/i})).not.toBeInTheDocument()
   })
 

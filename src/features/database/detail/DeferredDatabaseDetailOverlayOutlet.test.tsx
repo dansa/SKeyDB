@@ -19,14 +19,19 @@ vi.mock('./DbDetailModalHost', () => {
 })
 
 describe('DeferredDatabaseDetailOverlayOutlet', () => {
-  it('keeps the heavy detail host unloaded until its session opens', async () => {
+  it('can prewarm the heavy detail host without mounting it before its session opens', async () => {
     const {DeferredDatabaseDetailOverlayOutlet} =
       await import('./DeferredDatabaseDetailOverlayOutlet')
+    const {preloadDatabaseDetailOverlayOutlet} = await import('./databaseDetailOverlayLoader')
     const session = createDatabaseDetailOverlaySession()
     render(<DeferredDatabaseDetailOverlayOutlet session={session} />)
 
     await act(async () => undefined)
     expect(heavyOutletLoaded).not.toHaveBeenCalled()
+
+    await preloadDatabaseDetailOverlayOutlet()
+    expect(heavyOutletLoaded).toHaveBeenCalledOnce()
+    expect(heavyOutletRendered).not.toHaveBeenCalled()
 
     act(() => {
       session.open({kind: 'awakener', id: 'awakener-0001'})

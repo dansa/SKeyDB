@@ -769,7 +769,22 @@ export function BuilderPage() {
 
       <BuilderImportExportDialogs {...importExportDialogProps} />
 
-      <DeferredDatabaseDetailOverlayOutlet session={detailOverlay.session} />
+      <DeferredDatabaseDetailOverlayOutlet
+        getLoadingAriaLabel={(ref) => {
+          const name =
+            ref.kind === 'awakener'
+              ? awakenerById.get(ref.id)?.name
+              : ref.kind === 'wheel'
+                ? filteredWheels.find((wheel) => wheel.id === ref.id)?.name
+                : ref.kind === 'covenant'
+                  ? filteredCovenants.find((covenant) => covenant.id === ref.id)?.name
+                  : ref.kind === 'posse'
+                    ? filteredPosses.find((posse) => posse.id === ref.id)?.name
+                    : undefined
+          return name ? `${name} details` : undefined
+        }}
+        session={detailOverlay.session}
+      />
 
       <Toast entries={toastEntries} />
     </DndContext>
