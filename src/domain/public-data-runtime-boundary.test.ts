@@ -267,6 +267,20 @@ describe('public data runtime boundary', () => {
     expect(offenders).toEqual([])
   })
 
+  it('keeps database domain modules independent from feature runtime modules', () => {
+    const offenders = runtimeSourceFiles.flatMap((filePath) => {
+      const normalizedPath = normalizePath(filePath)
+      if (!normalizedPath.startsWith('src/domain/database-')) {
+        return []
+      }
+
+      const source = readSource(filePath)
+      return source.includes('@/features/database/') ? [normalizedPath] : []
+    })
+
+    expect(offenders).toEqual([])
+  })
+
   it('sources collection ownership catalog facts from public V3 repositories', () => {
     const source = readSource('./collection-ownership.ts')
 

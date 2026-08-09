@@ -1,5 +1,6 @@
 import type {DatabaseEntityId} from '@/domain/database-entity-paths'
-import {getDatabaseEntityRuntime} from '@/features/database/runtime/databaseEntityRuntime'
+
+import {sanitizeDatabaseEntitySearchParams} from './database-entity-query-codecs'
 
 export function sanitizeDatabaseEntitySearch(
   entity: DatabaseEntityId,
@@ -7,7 +8,7 @@ export function sanitizeDatabaseEntitySearch(
   {includeDetailState = false}: {includeDetailState?: boolean} = {},
 ): string {
   const searchParams = new URLSearchParams(search)
-  const sanitizedParams = getDatabaseEntityRuntime(entity).sanitizeSearchParams(searchParams, {
+  const sanitizedParams = sanitizeDatabaseEntitySearchParams(entity, searchParams, {
     includeDetailState,
   })
   const sanitizedSearch = sanitizedParams.toString()

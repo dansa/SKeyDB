@@ -1,11 +1,11 @@
 import type {ComponentType} from 'react'
 
 import {resolvePublicRoute} from '@/data-access/public-data/routeResolver'
-import {parseDatabaseBrowseState, patchDatabaseBrowseState} from '@/domain/database-browse-state'
 import {
   DATABASE_ENTITY_DEFINITIONS,
   type DatabaseEntityId,
 } from '@/domain/database-entity-definitions'
+import {sanitizeDatabaseEntitySearch} from '@/domain/database-entity-search'
 import {
   buildDatabaseAwakenerPath,
   buildDatabaseCovenantPath,
@@ -23,20 +23,6 @@ import {
   type DatabaseAwakenerTab,
 } from '@/domain/database-paths'
 import type {EntityRef} from '@/domain/entities/types'
-import {
-  parseRelicDatabaseBrowseState,
-  patchRelicDatabaseBrowseState,
-} from '@/domain/relic-database-browse-state'
-import {
-  parseCovenantDatabaseBrowseState,
-  parsePosseDatabaseBrowseState,
-  patchCovenantDatabaseBrowseState,
-  patchPosseDatabaseBrowseState,
-} from '@/domain/simple-artifact-database-browse-state'
-import {
-  parseWheelsDatabaseBrowseState,
-  patchWheelsDatabaseBrowseState,
-} from '@/domain/wheels-database-browse-state'
 import type {EntityBrowseProps} from '@/features/database/browse/EntityBrowseShared'
 import type {
   DatabaseDetailNavigationState,
@@ -70,10 +56,6 @@ interface DatabaseEntityRuntimeDefinition {
     options: ResolveDatabaseDetailReferenceOptions,
   ) => Promise<ResolvedDatabaseDetailReference | null>
   resolveDetailRoute: (request: DatabaseDetailRouteRequest) => Promise<ResolvedDatabaseDetailRoute>
-  sanitizeSearchParams: (
-    searchParams: URLSearchParams,
-    options: {includeDetailState: boolean},
-  ) => URLSearchParams
 }
 
 const DATABASE_ENTITY_RUNTIME_BY_ID = {
@@ -106,8 +88,6 @@ const DATABASE_ENTITY_RUNTIME_BY_ID = {
         routeItem: item ? {kind: 'awakener', item, activeTab} : null,
       }
     },
-    sanitizeSearchParams: (searchParams) =>
-      patchDatabaseBrowseState(new URLSearchParams(), parseDatabaseBrowseState(searchParams)),
     loadBrowse: () =>
       import('@/features/database/browse/AwakenersBrowse').then(({AwakenersBrowse}) => ({
         default: AwakenersBrowse,
@@ -135,11 +115,6 @@ const DATABASE_ENTITY_RUNTIME_BY_ID = {
         routeItem: item ? {kind: 'wheel', item} : null,
       }
     },
-    sanitizeSearchParams: (searchParams) =>
-      patchWheelsDatabaseBrowseState(
-        new URLSearchParams(),
-        parseWheelsDatabaseBrowseState(searchParams),
-      ),
     loadBrowse: () =>
       import('@/features/database/browse/WheelsBrowse').then(({WheelsBrowse}) => ({
         default: WheelsBrowse,
@@ -167,11 +142,6 @@ const DATABASE_ENTITY_RUNTIME_BY_ID = {
         routeItem: item ? {kind: 'posse', item} : null,
       }
     },
-    sanitizeSearchParams: (searchParams) =>
-      patchPosseDatabaseBrowseState(
-        new URLSearchParams(),
-        parsePosseDatabaseBrowseState(searchParams),
-      ),
     loadBrowse: () =>
       import('@/features/database/browse/PossesBrowse').then(({PossesBrowse}) => ({
         default: PossesBrowse,
@@ -201,11 +171,6 @@ const DATABASE_ENTITY_RUNTIME_BY_ID = {
         routeItem: item ? {kind: 'covenant', item} : null,
       }
     },
-    sanitizeSearchParams: (searchParams) =>
-      patchCovenantDatabaseBrowseState(
-        new URLSearchParams(),
-        parseCovenantDatabaseBrowseState(searchParams),
-      ),
     loadBrowse: () =>
       import('@/features/database/browse/CovenantsBrowse').then(({CovenantsBrowse}) => ({
         default: CovenantsBrowse,
@@ -240,17 +205,6 @@ const DATABASE_ENTITY_RUNTIME_BY_ID = {
         routeItem: item ? {kind: 'relic', item, variantId} : null,
       }
     },
-    sanitizeSearchParams: (searchParams, {includeDetailState}) => {
-      const sanitized = patchRelicDatabaseBrowseState(
-        new URLSearchParams(),
-        parseRelicDatabaseBrowseState(searchParams),
-      )
-      const variantId = searchParams.get('variant')?.trim()
-      if (includeDetailState && variantId && /^relic-variant-\d{4}$/.test(variantId)) {
-        sanitized.set('variant', variantId)
-      }
-      return sanitized
-    },
     loadBrowse: () =>
       import('@/features/database/browse/RelicsBrowse').then(({RelicsBrowse}) => ({
         default: RelicsBrowse,
@@ -277,11 +231,7 @@ function sanitizeRuntimeSearch(
   search: string,
   includeDetailState: boolean,
 ): string {
-  const params = getDatabaseEntityRuntime(entity).sanitizeSearchParams(
-    new URLSearchParams(search),
-    {includeDetailState},
-  )
-  return params.size ? `?${params.toString()}` : ''
+  return sanitizeDatabaseEntitySearch(entity, search, {includeDetailState})
 }
 
 function createResolvedReferenceTarget(
