@@ -1,4 +1,4 @@
-import {StrictMode} from 'react'
+import {StrictMode, useEffect} from 'react'
 
 import {act, render} from '@testing-library/react'
 import {describe, expect, it} from 'vitest'
@@ -8,7 +8,9 @@ import {useDatabaseDetailOverlay} from './useDatabaseDetailOverlay'
 
 function OverlayOwner({capture}: {capture: (value: DatabaseDetailOverlayController) => void}) {
   const overlay = useDatabaseDetailOverlay()
-  capture(overlay)
+  useEffect(() => {
+    capture(overlay)
+  }, [capture, overlay])
   return <output>{overlay.isOpen ? 'open' : 'closed'}</output>
 }
 

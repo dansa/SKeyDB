@@ -7,8 +7,8 @@ import './builder-page.integration-mocks'
 import {BuilderPage} from './BuilderPage'
 
 interface MockDetailRenderOptions {
-  callbacks: {
-    onClose: () => void
+  navigationPort: {
+    close: () => void
   }
   item: {
     item: {
@@ -30,9 +30,9 @@ vi.mock('@/features/database/detail/dbDetailRegistry', async () => {
         loadRecord: vi.fn(async () => ({id: 'record-awakener'})),
         loadingLabel: 'Loading awakener details...',
         missingBrowsePath: '/database',
-        render: vi.fn(({callbacks, item}: MockDetailRenderOptions) => (
+        render: vi.fn(({item, navigationPort}: MockDetailRenderOptions) => (
           <dialog open aria-label={`${item.item.name} details`}>
-            <button onClick={callbacks.onClose} type='button'>
+            <button onClick={navigationPort.close} type='button'>
               Close overlay
             </button>
           </dialog>
