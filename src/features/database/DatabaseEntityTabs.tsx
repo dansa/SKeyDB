@@ -1,6 +1,7 @@
 import {NavLink} from 'react-router'
 
-import {buildDatabaseEntityBrowsePath, type DatabaseEntityId} from '@/domain/database-entity-paths'
+import {DATABASE_ENTITY_DEFINITIONS} from '@/domain/database-entity-definitions'
+import type {DatabaseEntityId} from '@/domain/database-entity-paths'
 
 interface DatabaseEntityTabsProps {
   activeEntity: DatabaseEntityId
@@ -16,48 +17,20 @@ export function DatabaseEntityTabs({activeEntity, search}: DatabaseEntityTabsPro
       aria-label='Database entities'
       className='database-entity-tabs border-b border-slate-700/45'
     >
-      <NavLink
-        aria-current={activeEntity === 'awakeners' ? 'page' : undefined}
-        className={buildTabClassName(activeEntity === 'awakeners')}
-        end
-        to={{
-          pathname: buildDatabaseEntityBrowsePath('awakeners'),
-          search: getTabSearch('awakeners'),
-        }}
-      >
-        Awakeners
-      </NavLink>
-      <NavLink
-        aria-current={activeEntity === 'wheels' ? 'page' : undefined}
-        className={buildTabClassName(activeEntity === 'wheels')}
-        to={{pathname: buildDatabaseEntityBrowsePath('wheels'), search: getTabSearch('wheels')}}
-      >
-        Wheels
-      </NavLink>
-      <NavLink
-        aria-current={activeEntity === 'posses' ? 'page' : undefined}
-        className={buildTabClassName(activeEntity === 'posses')}
-        to={{pathname: buildDatabaseEntityBrowsePath('posses'), search: getTabSearch('posses')}}
-      >
-        Posses
-      </NavLink>
-      <NavLink
-        aria-current={activeEntity === 'covenants' ? 'page' : undefined}
-        className={buildTabClassName(activeEntity === 'covenants')}
-        to={{
-          pathname: buildDatabaseEntityBrowsePath('covenants'),
-          search: getTabSearch('covenants'),
-        }}
-      >
-        Covenants
-      </NavLink>
-      <NavLink
-        aria-current={activeEntity === 'relics' ? 'page' : undefined}
-        className={buildTabClassName(activeEntity === 'relics')}
-        to={{pathname: buildDatabaseEntityBrowsePath('relics'), search: getTabSearch('relics')}}
-      >
-        Relics
-      </NavLink>
+      {DATABASE_ENTITY_DEFINITIONS.map(({browsePath, entity, tab}) => {
+        const isActive = entity === activeEntity
+        return (
+          <NavLink
+            aria-current={isActive ? 'page' : undefined}
+            className={buildTabClassName(isActive)}
+            end={'end' in tab ? tab.end : undefined}
+            key={entity}
+            to={{pathname: browsePath, search: getTabSearch(entity)}}
+          >
+            {tab.label}
+          </NavLink>
+        )
+      })}
     </nav>
   )
 }

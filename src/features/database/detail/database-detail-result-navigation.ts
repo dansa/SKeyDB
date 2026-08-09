@@ -1,4 +1,6 @@
-export type DatabaseDetailResultKind = 'awakener' | 'wheel' | 'posse' | 'covenant' | 'relic'
+import type {DatabaseDetailKind} from '@/domain/database-entity-definitions'
+
+export type DatabaseDetailResultKind = DatabaseDetailKind
 
 export interface DatabaseDetailResultSetItem {
   id: string

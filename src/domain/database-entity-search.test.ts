@@ -29,4 +29,18 @@ describe('database-entity-search', () => {
       sanitizeDatabaseEntitySearch('awakeners', '?q=alpha&type=WARDEN&mainstat=KEYFLARE_REGEN'),
     ).toBe('?q=alpha&type=WARDEN')
   })
+
+  it('keeps valid relic detail state only when requested', () => {
+    const search = '?q=memory&variant=relic-variant-0004&mainstat=KEYFLARE_REGEN'
+
+    expect(sanitizeDatabaseEntitySearch('relics', search)).toBe('?q=memory')
+    expect(sanitizeDatabaseEntitySearch('relics', search, {includeDetailState: true})).toBe(
+      '?q=memory&variant=relic-variant-0004',
+    )
+    expect(
+      sanitizeDatabaseEntitySearch('relics', '?variant=relic-variant-4', {
+        includeDetailState: true,
+      }),
+    ).toBe('')
+  })
 })

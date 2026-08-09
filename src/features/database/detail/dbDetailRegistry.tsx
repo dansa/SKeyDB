@@ -5,14 +5,18 @@ import type {Awakener} from '@/domain/awakeners'
 import type {AwakenerFullRecord} from '@/domain/awakeners-full'
 import {getCovenants, type Covenant} from '@/domain/covenants'
 import type {CovenantFullRecord} from '@/domain/covenants-full'
-import {buildDatabaseEntityBrowsePath, type DatabaseEntityId} from '@/domain/database-entity-paths'
+import {
+  getDatabaseDetailKindForEntity,
+  type DatabaseDetailKind,
+} from '@/domain/database-entity-definitions'
+import {buildDatabaseEntityBrowsePath} from '@/domain/database-entity-paths'
 import {
   buildDatabaseCovenantBrowsePath,
   buildDatabasePosseBrowsePath,
   buildDatabaseWheelBrowsePath,
   type DatabaseAwakenerTab,
 } from '@/domain/database-paths'
-import type {EntityKind, EntityRef} from '@/domain/entities/types'
+import type {EntityRef} from '@/domain/entities/types'
 import {getPosses, type Posse} from '@/domain/posses'
 import type {PosseFullRecord} from '@/domain/posses-full'
 import type {PublicRelicRecord, Relic} from '@/domain/relics'
@@ -60,10 +64,7 @@ const RelicDetailModal = lazy(() =>
   loadRelicDetailModalModule().then((module) => ({default: module.RelicDetailModal})),
 )
 
-export type DatabaseDetailKind = Extract<
-  EntityKind,
-  'awakener' | 'wheel' | 'posse' | 'covenant' | 'relic'
->
+export type {DatabaseDetailKind} from '@/domain/database-entity-definitions'
 
 export interface DatabaseDetailRenderCallbacks {
   onClose: () => void
@@ -171,17 +172,7 @@ export function preloadDatabaseDetailRecordByKind(kind: DatabaseDetailKind, id: 
   }).catch(() => undefined)
 }
 
-const DATABASE_DETAIL_KIND_BY_ENTITY = {
-  awakeners: 'awakener',
-  covenants: 'covenant',
-  posses: 'posse',
-  relics: 'relic',
-  wheels: 'wheel',
-} as const satisfies Record<DatabaseEntityId, DatabaseDetailKind>
-
-export function getDatabaseDetailKindForEntity(entity: DatabaseEntityId): DatabaseDetailKind {
-  return DATABASE_DETAIL_KIND_BY_ENTITY[entity]
-}
+export {getDatabaseDetailKindForEntity}
 
 function normalizeDetailName(name: string): string {
   return name.trim().toLowerCase()
