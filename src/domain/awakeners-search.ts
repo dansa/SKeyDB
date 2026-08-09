@@ -1,24 +1,24 @@
+import {awakenerSearchDocumentRepository} from '@/data-access/public-data/awakenerSearchRepository'
+
 import type {Awakener} from './awakeners'
-import {
-  searchPublicEntities,
-  searchPublicEntityResults,
-  type PublicSearchOptions,
-  type PublicSearchResult,
-} from './public-search'
+import {createEntitySearch, type SearchOptions, type SearchResult} from './public-search'
+
+const awakenerSearch = createEntitySearch<Awakener>(getAwakenerSearchOptions())
 
 export function searchAwakeners(awakeners: Awakener[], query: string): Awakener[] {
-  return searchPublicEntities('awakeners', awakeners, query, getAwakenerSearchOptions())
+  return awakenerSearch.search(awakeners, query)
 }
 
 export function searchAwakenerResults(
   awakeners: Awakener[],
   query: string,
-): PublicSearchResult<Awakener>[] {
-  return searchPublicEntityResults('awakeners', awakeners, query, getAwakenerSearchOptions())
+): SearchResult<Awakener>[] {
+  return awakenerSearch.searchResults(awakeners, query)
 }
 
-function getAwakenerSearchOptions(): PublicSearchOptions<Awakener> {
+function getAwakenerSearchOptions(): SearchOptions<Awakener> {
   return {
+    getDocument: (id) => awakenerSearchDocumentRepository.getDocument(id),
     getFallbackFields: (awakener) => ({
       alias: toOptionalStringArray(awakener.aliases),
       tag: toOptionalStringArray(awakener.tags),

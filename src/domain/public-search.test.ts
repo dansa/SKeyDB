@@ -2,17 +2,58 @@ import {describe, expect, it, vi} from 'vitest'
 
 import type {PublicSearchDocument} from '@/data-access/public-data/contract'
 
-import {searchPublicEntities} from './public-search'
+import {searchEntities, type SearchOptions, type SearchableEntity} from './public-search'
 
 const {documentsById} = vi.hoisted(() => ({
   documentsById: new Map<string, PublicSearchDocument>(),
 }))
 
-vi.mock('@/data-access/public-data/searchRepository', () => ({
-  getPublicSearchDocument: (_scope: string, id: string) => documentsById.get(id),
-}))
+function searchPublicEntities<TEntity extends SearchableEntity>(
+  _legacyScope: string,
+  entities: TEntity[],
+  query: string,
+  options: SearchOptions<TEntity> = {},
+): TEntity[] {
+  return searchEntities(entities, query, {
+    ...options,
+    getDocument: (id) => documentsById.get(id),
+  })
+}
 
 describe('searchPublicEntities', () => {
+  it('searches an in-memory entity source without a public-data scope', () => {
+    const localDocuments = new Map([
+      [
+        'monster:17',
+        {
+          id: 'monster:17',
+          name: 'Shared Fixture',
+          aliases: ['needlebeast'],
+          fields: {name: ['Shared Fixture'], tag: ['armored']},
+        },
+      ],
+      [
+        'monster:42',
+        {
+          id: 'monster:42',
+          name: 'Shared Fixture',
+          aliases: ['shellbeast'],
+          fields: {name: ['Shared Fixture'], tag: ['flying']},
+        },
+      ],
+    ])
+    const entities = [
+      {id: 'monster:17', name: 'Shared Fixture'},
+      {id: 'monster:42', name: 'Shared Fixture'},
+    ]
+
+    expect(
+      searchEntities(entities, 'needle', {
+        getDocument: (id) => localDocuments.get(id),
+      }).map((entity) => entity.id),
+    ).toEqual(['monster:17'])
+  })
+
   it('keeps generated tag values to exact and prefix lookup matches', () => {
     documentsById.clear()
     documentsById.set('awakener-test', {

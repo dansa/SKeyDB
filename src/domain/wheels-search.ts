@@ -1,21 +1,21 @@
-import {
-  searchPublicEntities,
-  searchPublicEntityResults,
-  type PublicSearchOptions,
-  type PublicSearchResult,
-} from './public-search'
+import {wheelSearchDocumentRepository} from '@/data-access/public-data/wheelSearchRepository'
+
+import {createEntitySearch, type SearchOptions, type SearchResult} from './public-search'
 import type {Wheel} from './wheels'
 
+const wheelSearch = createEntitySearch<Wheel>(getWheelSearchOptions())
+
 export function searchWheels(wheels: Wheel[], query: string): Wheel[] {
-  return searchPublicEntities('wheels', wheels, query, getWheelSearchOptions())
+  return wheelSearch.search(wheels, query)
 }
 
-export function searchWheelResults(wheels: Wheel[], query: string): PublicSearchResult<Wheel>[] {
-  return searchPublicEntityResults('wheels', wheels, query, getWheelSearchOptions())
+export function searchWheelResults(wheels: Wheel[], query: string): SearchResult<Wheel>[] {
+  return wheelSearch.searchResults(wheels, query)
 }
 
-function getWheelSearchOptions(): PublicSearchOptions<Wheel> {
+function getWheelSearchOptions(): SearchOptions<Wheel> {
   return {
+    getDocument: (id) => wheelSearchDocumentRepository.getDocument(id),
     getFallbackFields: (wheel) => ({
       alias: wheel.aliases,
       owner: [wheel.ownerAwakenerName, wheel.awakener].filter(

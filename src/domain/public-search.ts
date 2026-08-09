@@ -1,9 +1,5 @@
 import Fuse, {type FuseResultMatch} from 'fuse.js'
 
-import type {PublicSearchDocument} from '@/data-access/public-data/contract'
-import type {SearchablePublicDataScope} from '@/data-access/public-data/scopeRegistry'
-import {getPublicSearchDocument} from '@/data-access/public-data/searchRepository'
-
 import {mergeDirectAndFuzzyMatches, toPriority} from './entities/search'
 import {
   getBestSearchFieldMatch,
@@ -12,40 +8,56 @@ import {
   type SearchFieldMatchKind,
 } from './search-utils'
 
-type SearchFieldName = 'name' | 'alias' | 'owner' | 'tag' | 'facet' | 'token'
+export type SearchFieldName = 'name' | 'alias' | 'owner' | 'tag' | 'facet' | 'token'
 
-type SearchFields = Partial<Record<SearchFieldName, string[]>>
+export type SearchFields = Partial<Record<SearchFieldName, readonly string[]>>
 type SearchFieldPriorityMap = Record<SearchFieldMatchKind, number>
 
-export interface PublicSearchableEntity {
+export interface SearchableEntity {
   id: string
   name: string
 }
 
-export interface PublicSearchOptions<TEntity extends PublicSearchableEntity> {
+export interface SearchDocument {
+  id: string
+  name: string
+  aliases?: readonly string[]
+  tokens?: readonly string[]
+  fields?: Partial<Record<string, readonly string[]>>
+}
+
+export type SearchDocumentReader = (id: string) => SearchDocument | undefined
+
+export interface SearchOptions<TEntity extends SearchableEntity> {
+  getDocument?: SearchDocumentReader
   getFallbackFields?: (entity: TEntity) => SearchFields
 }
 
-export interface PublicSearchResult<TEntity extends PublicSearchableEntity> {
+export interface SearchResult<TEntity extends SearchableEntity> {
   entity: TEntity
   relevance: number
 }
 
-interface IndexedPublicSearchRecord<TEntity extends PublicSearchableEntity> {
+export interface EntitySearch<TEntity extends SearchableEntity> {
+  search(entities: TEntity[], query: string): TEntity[]
+  searchResults(entities: TEntity[], query: string): SearchResult<TEntity>[]
+}
+
+interface IndexedSearchRecord<TEntity extends SearchableEntity> {
   entity: TEntity
   displayName: string
   fields: SearchFields
   normalizedFields: SearchFields
 }
 
-interface PublicSearchDirectMatch<TEntity extends PublicSearchableEntity> {
+interface SearchDirectMatch<TEntity extends SearchableEntity> {
   entity: TEntity
   displayName: string
   fieldName: SearchFieldName
   priority: number
 }
 
-interface PublicSearchPriority {
+interface SearchPriority {
   fieldName: SearchFieldName
   priority: number
 }
@@ -76,21 +88,28 @@ const FIELD_MATCH_PRIORITIES: Record<SearchFieldName, SearchFieldPriorityMap> = 
 const SINGLE_CHARACTER_FIELDS = new Set<SearchFieldName>(['name', 'alias'])
 const STOPWORD_BLOCKED_FIELDS = new Set<SearchFieldName>(['facet', 'token'])
 
-export function searchPublicEntities<TEntity extends PublicSearchableEntity>(
-  scope: SearchablePublicDataScope,
-  entities: TEntity[],
-  query: string,
-  options: PublicSearchOptions<TEntity> = {},
-): TEntity[] {
-  return searchPublicEntityResults(scope, entities, query, options).map((result) => result.entity)
+export function createEntitySearch<TEntity extends SearchableEntity>(
+  options: SearchOptions<TEntity> = {},
+): EntitySearch<TEntity> {
+  return {
+    search: (entities, query) => searchEntities(entities, query, options),
+    searchResults: (entities, query) => searchEntityResults(entities, query, options),
+  }
 }
 
-export function searchPublicEntityResults<TEntity extends PublicSearchableEntity>(
-  scope: SearchablePublicDataScope,
+export function searchEntities<TEntity extends SearchableEntity>(
   entities: TEntity[],
   query: string,
-  options: PublicSearchOptions<TEntity> = {},
-): PublicSearchResult<TEntity>[] {
+  options: SearchOptions<TEntity> = {},
+): TEntity[] {
+  return searchEntityResults(entities, query, options).map((result) => result.entity)
+}
+
+export function searchEntityResults<TEntity extends SearchableEntity>(
+  entities: TEntity[],
+  query: string,
+  options: SearchOptions<TEntity> = {},
+): SearchResult<TEntity>[] {
   const trimmedQuery = query.trim()
   if (trimmedQuery.length === 0) {
     return entities.map((entity) => ({entity, relevance: 0}))
@@ -101,9 +120,9 @@ export function searchPublicEntityResults<TEntity extends PublicSearchableEntity
     return entities.map((entity) => ({entity, relevance: 0}))
   }
 
-  const indexedEntities = getIndexedPublicSearchRecords(scope, entities, options)
-  const directMatchResults = collectPublicDirectMatches(indexedEntities, normalizedQuery)
-  const directMatches = getPublicSearchDirectResults(directMatchResults, normalizedQuery.length)
+  const indexedEntities = getIndexedSearchRecords(entities, options)
+  const directMatchResults = collectDirectMatches(indexedEntities, normalizedQuery)
+  const directMatches = getSearchDirectResults(directMatchResults, normalizedQuery.length)
 
   if (normalizedQuery.length < 4 && directMatches.length > 0) {
     return directMatches
@@ -117,10 +136,10 @@ export function searchPublicEntityResults<TEntity extends PublicSearchableEntity
     return directMatches
   }
 
-  const fuzzyMatches: PublicSearchResult<TEntity>[] = []
-  for (const result of getPublicSearchFuse(indexedEntities).search(normalizedQuery)) {
+  const fuzzyMatches: SearchResult<TEntity>[] = []
+  for (const result of getSearchFuse(indexedEntities).search(normalizedQuery)) {
     const score = result.score ?? 1
-    if (!isRelevantPublicFuzzyMatch(result.matches ?? [], normalizedQuery, score)) {
+    if (!isRelevantFuzzyMatch(result.matches ?? [], normalizedQuery, score)) {
       continue
     }
     if (score > 0.52) {
@@ -140,14 +159,14 @@ export function searchPublicEntityResults<TEntity extends PublicSearchableEntity
   return mergeDirectAndFuzzyMatches(directMatches, fuzzyMatches, (result) => result.entity.id)
 }
 
-function collectPublicDirectMatches<TEntity extends PublicSearchableEntity>(
-  records: IndexedPublicSearchRecord<TEntity>[],
+function collectDirectMatches<TEntity extends SearchableEntity>(
+  records: IndexedSearchRecord<TEntity>[],
   normalizedQuery: string,
-): PublicSearchDirectMatch<TEntity>[] {
-  const matches: PublicSearchDirectMatch<TEntity>[] = []
+): SearchDirectMatch<TEntity>[] {
+  const matches: SearchDirectMatch<TEntity>[] = []
 
   for (const record of records) {
-    const priorityMatch = getPublicSearchPriority(record, normalizedQuery)
+    const priorityMatch = getSearchPriority(record, normalizedQuery)
     if (priorityMatch === null) {
       continue
     }
@@ -171,13 +190,13 @@ function collectPublicDirectMatches<TEntity extends PublicSearchableEntity>(
   })
 }
 
-function getPublicSearchDirectResults<TEntity extends PublicSearchableEntity>(
-  matches: PublicSearchDirectMatch<TEntity>[],
+function getSearchDirectResults<TEntity extends SearchableEntity>(
+  matches: SearchDirectMatch<TEntity>[],
   queryLength: number,
-): PublicSearchResult<TEntity>[] {
+): SearchResult<TEntity>[] {
   const hasPrimaryMatch = matches.some(isPrimaryDirectMatch)
   if (queryLength < 3 && hasPrimaryMatch) {
-    const results: PublicSearchResult<TEntity>[] = []
+    const results: SearchResult<TEntity>[] = []
     for (const match of matches) {
       if (shouldKeepShortDirectMatch(match, queryLength, hasPrimaryMatch)) {
         results.push({entity: match.entity, relevance: match.priority})
@@ -189,14 +208,14 @@ function getPublicSearchDirectResults<TEntity extends PublicSearchableEntity>(
   return matches.map((match) => ({entity: match.entity, relevance: match.priority}))
 }
 
-function isPrimaryDirectMatch<TEntity extends PublicSearchableEntity>(
-  match: PublicSearchDirectMatch<TEntity>,
+function isPrimaryDirectMatch<TEntity extends SearchableEntity>(
+  match: SearchDirectMatch<TEntity>,
 ): boolean {
   return match.priority <= PRIMARY_DIRECT_PRIORITY_MAX
 }
 
-function shouldKeepShortDirectMatch<TEntity extends PublicSearchableEntity>(
-  match: PublicSearchDirectMatch<TEntity>,
+function shouldKeepShortDirectMatch<TEntity extends SearchableEntity>(
+  match: SearchDirectMatch<TEntity>,
   queryLength: number,
   hasPrimaryMatch: boolean,
 ): boolean {
@@ -213,13 +232,12 @@ function getFuzzySearchRelevance(score: number): number {
   return 30 + score
 }
 
-function getIndexedPublicSearchRecords<TEntity extends PublicSearchableEntity>(
-  scope: SearchablePublicDataScope,
+function getIndexedSearchRecords<TEntity extends SearchableEntity>(
   entities: TEntity[],
-  options: PublicSearchOptions<TEntity>,
-): IndexedPublicSearchRecord<TEntity>[] {
+  options: SearchOptions<TEntity>,
+): IndexedSearchRecord<TEntity>[] {
   return entities.map((entity) => {
-    const document = getPublicSearchDocument(scope, entity.id)
+    const document = options.getDocument?.(entity.id)
     const fields = mergeSearchFields(
       fieldsFromDocument(document, entity),
       options.getFallbackFields?.(entity) ?? {},
@@ -233,9 +251,9 @@ function getIndexedPublicSearchRecords<TEntity extends PublicSearchableEntity>(
   })
 }
 
-function getPublicSearchFuse<TEntity extends PublicSearchableEntity>(
-  records: IndexedPublicSearchRecord<TEntity>[],
-): Fuse<IndexedPublicSearchRecord<TEntity>> {
+function getSearchFuse<TEntity extends SearchableEntity>(
+  records: IndexedSearchRecord<TEntity>[],
+): Fuse<IndexedSearchRecord<TEntity>> {
   return new Fuse(records, {
     threshold: 0.58,
     ignoreLocation: true,
@@ -250,8 +268,8 @@ function getPublicSearchFuse<TEntity extends PublicSearchableEntity>(
 }
 
 function fieldsFromDocument(
-  document: PublicSearchDocument | undefined,
-  entity: PublicSearchableEntity,
+  document: SearchDocument | undefined,
+  entity: SearchableEntity,
 ): SearchFields {
   if (!document) {
     return {name: [entity.name]}
@@ -262,11 +280,11 @@ function fieldsFromDocument(
   }
 
   return {
-    name: uniqueSearchValues([entity.name, ...(document.fields.name ?? [document.name])]),
-    alias: document.fields.alias ?? document.aliases,
-    owner: document.fields.owner,
-    tag: document.fields.tag,
-    facet: document.fields.facet,
+    name: uniqueSearchValues([entity.name, ...(document.fields?.name ?? [document.name])]),
+    alias: document.fields?.alias ?? document.aliases,
+    owner: document.fields?.owner,
+    tag: document.fields?.tag,
+    facet: document.fields?.facet,
     token: document.tokens,
   }
 }
@@ -294,11 +312,11 @@ function normalizeSearchFields(fields: SearchFields): SearchFields {
   )
 }
 
-function getPublicSearchPriority<TEntity extends PublicSearchableEntity>(
-  record: IndexedPublicSearchRecord<TEntity>,
+function getSearchPriority<TEntity extends SearchableEntity>(
+  record: IndexedSearchRecord<TEntity>,
   normalizedQuery: string,
-): PublicSearchPriority | null {
-  let bestPriority: PublicSearchPriority | null = null
+): SearchPriority | null {
+  let bestPriority: SearchPriority | null = null
 
   for (const fieldName of DIRECT_SEARCH_FIELD_ORDER) {
     const priority = toPriority(
@@ -344,17 +362,14 @@ function getDisabledFieldPriorityMap(): SearchFieldPriorityMap {
   }
 }
 
-function documentMatchesEntity(
-  document: PublicSearchDocument,
-  entity: PublicSearchableEntity,
-): boolean {
+function documentMatchesEntity(document: SearchDocument, entity: SearchableEntity): boolean {
   const normalizedEntityName = normalizeForSearch(entity.name)
-  const documentNames = uniqueSearchValues([document.name, ...(document.fields.name ?? [])])
+  const documentNames = uniqueSearchValues([document.name, ...(document.fields?.name ?? [])])
 
   return documentNames.some((name) => normalizeForSearch(name) === normalizedEntityName)
 }
 
-function isRelevantPublicFuzzyMatch(
+function isRelevantFuzzyMatch(
   matches: readonly FuseResultMatch[],
   normalizedQuery: string,
   score: number,

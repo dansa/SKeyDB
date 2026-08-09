@@ -1,22 +1,22 @@
-import {
-  searchPublicEntities,
-  searchPublicEntityResults,
-  type PublicSearchOptions,
-  type PublicSearchResult,
-} from './public-search'
+import {relicSearchDocumentRepository} from '@/data-access/public-data/relicSearchRepository'
+
+import {createEntitySearch, type SearchOptions, type SearchResult} from './public-search'
 import {getRelicDatabaseCategoryFilterLabel} from './relic-database-browse-state'
 import type {Relic} from './relics'
 
+const relicSearch = createEntitySearch<Relic>(getRelicSearchOptions())
+
 export function searchRelics(relics: Relic[], query: string): Relic[] {
-  return searchPublicEntities('relics', relics, query, getRelicSearchOptions())
+  return relicSearch.search(relics, query)
 }
 
-export function searchRelicResults(relics: Relic[], query: string): PublicSearchResult<Relic>[] {
-  return searchPublicEntityResults('relics', relics, query, getRelicSearchOptions())
+export function searchRelicResults(relics: Relic[], query: string): SearchResult<Relic>[] {
+  return relicSearch.searchResults(relics, query)
 }
 
-function getRelicSearchOptions(): PublicSearchOptions<Relic> {
+function getRelicSearchOptions(): SearchOptions<Relic> {
   return {
+    getDocument: (id) => relicSearchDocumentRepository.getDocument(id),
     getFallbackFields: (relic) => {
       const facets: string[] = [
         relic.relicType,

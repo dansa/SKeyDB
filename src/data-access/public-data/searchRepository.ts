@@ -1,83 +1,37 @@
-import searchAwakenersJson from '@/data/public-v3/indexes/search-awakeners.json'
-import searchCovenantsJson from '@/data/public-v3/indexes/search-covenants.json'
-import searchPossesJson from '@/data/public-v3/indexes/search-posses.json'
-import searchRelicsJson from '@/data/public-v3/indexes/search-relics.json'
-import searchWheelsJson from '@/data/public-v3/indexes/search-wheels.json'
+import {awakenerSearchDocumentRepository} from './awakenerSearchRepository'
+import type {PublicSearchDocument} from './contract'
+import {covenantSearchDocumentRepository} from './covenantSearchRepository'
+import {posseSearchDocumentRepository} from './posseSearchRepository'
+import {relicSearchDocumentRepository} from './relicSearchRepository'
+import {assertPublicScopeCapability, type SearchablePublicDataScope} from './scopeRegistry'
+import {wheelSearchDocumentRepository} from './wheelSearchRepository'
 
-import {getOrCreateMapValue} from './cache'
-import type {PublicSearchDocument, PublicSearchIndex} from './contract'
-import {publicSearchIndexSchema} from './schemas'
-import {
-  assertPublicEntityForScope,
-  assertPublicScopeCapability,
-  type SearchablePublicDataScope,
-} from './scopeRegistry'
+export {
+  createPublicSearchDocumentRepository,
+  type PublicSearchDocumentRepository,
+} from './publicSearchDocumentRepository'
 
-const searchJsonByScope = {
-  awakeners: searchAwakenersJson,
-  covenants: searchCovenantsJson,
-  posses: searchPossesJson,
-  relics: searchRelicsJson,
-  wheels: searchWheelsJson,
-} satisfies Record<SearchablePublicDataScope, unknown>
+const compatibilityRepositories = {
+  awakeners: awakenerSearchDocumentRepository,
+  covenants: covenantSearchDocumentRepository,
+  posses: posseSearchDocumentRepository,
+  relics: relicSearchDocumentRepository,
+  wheels: wheelSearchDocumentRepository,
+}
 
-const searchCache = new Map<SearchablePublicDataScope, PublicSearchIndex>()
-const searchDocumentByIdCache = new Map<
-  SearchablePublicDataScope,
-  Map<string, PublicSearchDocument>
->()
-
-function getPublicSearchIndex(scope: SearchablePublicDataScope): PublicSearchIndex {
+/** @deprecated Prefer an entity-specific repository so bundlers load only that entity's index. */
+export function getPublicSearchDocuments(
+  scope: SearchablePublicDataScope,
+): readonly PublicSearchDocument[] {
   assertPublicScopeCapability(scope, 'search')
-  const searchJson = searchJsonByScope[scope]
-  return getOrCreateMapValue(searchCache, scope, () => {
-    const searchIndex = publicSearchIndexSchema.parse(searchJson)
-    if (searchIndex.scope !== scope) {
-      throw new Error(
-        `Public V3 search index scope "${searchIndex.scope}" does not match requested scope "${scope}".`,
-      )
-    }
-    assertUniqueSearchDocumentIds(scope, searchIndex.records)
-    for (const record of searchIndex.records) {
-      assertPublicEntityForScope(scope, record.kind, record.id)
-    }
-    return searchIndex
-  })
+  return compatibilityRepositories[scope].getDocuments()
 }
 
-export function getPublicSearchDocuments(scope: SearchablePublicDataScope): PublicSearchDocument[] {
-  return getPublicSearchIndex(scope).records
-}
-
+/** @deprecated Prefer an entity-specific repository so bundlers load only that entity's index. */
 export function getPublicSearchDocument(
   scope: SearchablePublicDataScope,
   id: string,
 ): PublicSearchDocument | undefined {
-  return getPublicSearchDocumentMap(scope).get(id)
-}
-
-function getPublicSearchDocumentMap(
-  scope: SearchablePublicDataScope,
-): Map<string, PublicSearchDocument> {
-  const cached = searchDocumentByIdCache.get(scope)
-  if (cached) {
-    return cached
-  }
-
-  const map = new Map(getPublicSearchDocuments(scope).map((record) => [record.id, record]))
-  searchDocumentByIdCache.set(scope, map)
-  return map
-}
-
-function assertUniqueSearchDocumentIds(
-  scope: SearchablePublicDataScope,
-  records: PublicSearchDocument[],
-) {
-  const seenIds = new Set<string>()
-  for (const record of records) {
-    if (seenIds.has(record.id)) {
-      throw new Error(`Public V3 search index "${scope}" contains duplicate id "${record.id}".`)
-    }
-    seenIds.add(record.id)
-  }
+  assertPublicScopeCapability(scope, 'search')
+  return compatibilityRepositories[scope].getDocument(id)
 }

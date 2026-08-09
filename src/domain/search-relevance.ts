@@ -1,7 +1,7 @@
-import type {PublicSearchableEntity, PublicSearchResult} from './public-search'
+import type {SearchableEntity, SearchResult} from './public-search'
 
-export function getSearchRelevanceByEntityId<TEntity extends PublicSearchableEntity>(
-  results: PublicSearchResult<TEntity>[],
+export function getSearchRelevanceByEntityId<TEntity extends SearchableEntity>(
+  results: SearchResult<TEntity>[],
   query: string,
 ): ReadonlyMap<string, number> | undefined {
   if (query.trim().length === 0) {
@@ -11,7 +11,7 @@ export function getSearchRelevanceByEntityId<TEntity extends PublicSearchableEnt
   return new Map(results.map((result) => [result.entity.id, result.relevance]))
 }
 
-export function compareSearchRelevance<TEntity extends PublicSearchableEntity>(
+export function compareSearchRelevance<TEntity extends SearchableEntity>(
   left: TEntity,
   right: TEntity,
   relevanceByEntityId: ReadonlyMap<string, number> | undefined,
