@@ -1,4 +1,4 @@
-import {fireEvent, render, screen, waitFor} from '@testing-library/react'
+import {act, fireEvent, render, screen, waitFor} from '@testing-library/react'
 import {afterEach, describe, expect, it, vi} from 'vitest'
 
 import type {
@@ -176,6 +176,20 @@ function buildReferenceLayer(
       ['overlay.global.counter', overlayReference],
     ]),
     overlayByName: new Map([['counter', overlayReference.record as AwakenerOverlayRecord]]),
+  }
+}
+
+function withTestDescription(
+  reference: DatabaseReferenceInfo,
+  description: string,
+): DatabaseReferenceInfo {
+  return {
+    ...reference,
+    description,
+    record: {
+      ...reference.record,
+      descriptionTemplate: description,
+    },
   }
 }
 
@@ -500,6 +514,141 @@ describe('useDatabasePopoverController', () => {
       expect(screen.queryByText('Hydrated counter text.')).not.toBeInTheDocument()
       expect(screen.getByText('Guard text.')).toBeInTheDocument()
     })
+  })
+
+  it('restarts pending root hydration when live formula inputs change', async () => {
+    let resolveFirstHydration: (() => void) | undefined
+    const hydrateGlobalDatabaseReferenceInfo = vi
+      .spyOn(globalDatabaseReferenceLayer, 'hydrateGlobalDatabaseReferenceInfo')
+      .mockImplementation((reference, formulaContext) => {
+        const refinementLevel = formulaContext?.wheelRefinementLevel
+        if (!resolveFirstHydration) {
+          return new Promise<DatabaseReferenceInfo>((resolve) => {
+            resolveFirstHydration = () => {
+              resolve(withTestDescription(reference, `Hydrated at ${String(refinementLevel)}.`))
+            }
+          })
+        }
+        return Promise.resolve(
+          withTestDescription(reference, `Hydrated at ${String(refinementLevel)}.`),
+        )
+      })
+    const referenceLayer = buildReferenceLayer('Base text.')
+    const wheelReference = referenceLayer.referenceInfoByName.get('merciful nurturing')
+    if (!wheelReference) {
+      throw new Error('Expected test wheel reference')
+    }
+    wheelReference.description = ''
+
+    const {rerender} = render(
+      <ControllerHarness
+        formulaContext={{wheelRefinementLevel: 1}}
+        referenceLayer={referenceLayer}
+      />,
+    )
+
+    fireEvent.click(screen.getByRole('button', {name: 'Open Wheel'}))
+    rerender(
+      <ControllerHarness
+        formulaContext={{wheelRefinementLevel: 4}}
+        referenceLayer={referenceLayer}
+      />,
+    )
+    act(() => resolveFirstHydration?.())
+
+    expect(await screen.findByText('Hydrated at 4.')).toBeInTheDocument()
+    expect(screen.queryByText('Hydrated at 1.')).not.toBeInTheDocument()
+    expect(hydrateGlobalDatabaseReferenceInfo).toHaveBeenCalledTimes(2)
+  })
+
+  it('restarts pending nested hydration when live formula inputs change', async () => {
+    let resolveFirstHydration: (() => void) | undefined
+    const hydrateGlobalDatabaseReferenceInfo = vi
+      .spyOn(globalDatabaseReferenceLayer, 'hydrateGlobalDatabaseReferenceInfo')
+      .mockImplementation((reference, formulaContext) => {
+        const refinementLevel = formulaContext?.wheelRefinementLevel
+        if (!resolveFirstHydration) {
+          return new Promise<DatabaseReferenceInfo>((resolve) => {
+            resolveFirstHydration = () => {
+              resolve(withTestDescription(reference, `Hydrated at ${String(refinementLevel)}.`))
+            }
+          })
+        }
+        return Promise.resolve(
+          withTestDescription(reference, `Hydrated at ${String(refinementLevel)}.`),
+        )
+      })
+    const referenceLayer = buildReferenceLayer('Gain {Counter}.')
+
+    const {rerender} = render(
+      <ControllerHarness
+        formulaContext={{wheelRefinementLevel: 1}}
+        referenceLayer={referenceLayer}
+      />,
+    )
+
+    fireEvent.click(screen.getByRole('button', {name: 'Open Strike'}))
+    fireEvent.click(await screen.findByRole('button', {name: 'Counter'}))
+    rerender(
+      <ControllerHarness
+        formulaContext={{wheelRefinementLevel: 4}}
+        referenceLayer={referenceLayer}
+      />,
+    )
+    act(() => resolveFirstHydration?.())
+
+    expect(await screen.findByText('Hydrated at 4.')).toBeInTheDocument()
+    expect(screen.queryByText('Hydrated at 1.')).not.toBeInTheDocument()
+    expect(hydrateGlobalDatabaseReferenceInfo).toHaveBeenCalledTimes(2)
+  })
+
+  it('quietly allows root hydration to be retried after a rejected request', async () => {
+    const hydrateGlobalDatabaseReferenceInfo = vi
+      .spyOn(globalDatabaseReferenceLayer, 'hydrateGlobalDatabaseReferenceInfo')
+      .mockRejectedValueOnce(new Error('Temporary hydration failure'))
+      .mockImplementationOnce((reference) =>
+        Promise.resolve(withTestDescription(reference, 'Recovered root hydration.')),
+      )
+    const referenceLayer = buildReferenceLayer('Base text.')
+    const wheelReference = referenceLayer.referenceInfoByName.get('merciful nurturing')
+    if (!wheelReference) {
+      throw new Error('Expected test wheel reference')
+    }
+    wheelReference.description = ''
+
+    render(<ControllerHarness referenceLayer={referenceLayer} />)
+
+    fireEvent.click(screen.getByRole('button', {name: 'Open Wheel'}))
+    await waitFor(() => {
+      expect(hydrateGlobalDatabaseReferenceInfo).toHaveBeenCalledOnce()
+    })
+    fireEvent.click(screen.getByRole('button', {name: 'Open Wheel'}))
+
+    expect(await screen.findByText('Recovered root hydration.')).toBeInTheDocument()
+    expect(hydrateGlobalDatabaseReferenceInfo).toHaveBeenCalledTimes(2)
+  })
+
+  it('quietly allows nested hydration to be retried after a rejected request', async () => {
+    const hydrateGlobalDatabaseReferenceInfo = vi
+      .spyOn(globalDatabaseReferenceLayer, 'hydrateGlobalDatabaseReferenceInfo')
+      .mockRejectedValueOnce(new Error('Temporary hydration failure'))
+      .mockImplementationOnce((reference) =>
+        Promise.resolve(withTestDescription(reference, 'Recovered nested hydration.')),
+      )
+    const referenceLayer = buildReferenceLayer('Gain {Counter}.')
+
+    render(<ControllerHarness referenceLayer={referenceLayer} />)
+
+    fireEvent.click(screen.getByRole('button', {name: 'Open Strike'}))
+    const counterTrigger = await screen.findByRole('button', {name: 'Counter'})
+    fireEvent.click(counterTrigger)
+    await waitFor(() => {
+      expect(hydrateGlobalDatabaseReferenceInfo).toHaveBeenCalledOnce()
+    })
+    fireEvent.click(counterTrigger)
+
+    expect(await screen.findByText('Recovered nested hydration.')).toBeInTheDocument()
+    expect(hydrateGlobalDatabaseReferenceInfo).toHaveBeenCalledTimes(2)
   })
 
   it('hydrates catalog-backed root overlay popovers before opening them', async () => {

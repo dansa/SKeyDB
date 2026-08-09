@@ -1,4 +1,12 @@
-import {useCallback, useMemo, useRef, useState, type Dispatch, type SetStateAction} from 'react'
+import {
+  useCallback,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+  type Dispatch,
+  type SetStateAction,
+} from 'react'
 
 import type {
   AwakenerEnlightenRecord,
@@ -43,6 +51,27 @@ interface RootHydrationRequestRef {
   current: number
 }
 
+interface HydrationInputs {
+  formulaContext?: PublicFormulaContext
+  stats: FullStats | null
+}
+
+async function hydrateReferenceWithLatestInputs(
+  reference: DatabaseReferenceInfo,
+  inputsRef: {current: HydrationInputs},
+): Promise<DatabaseReferenceInfo> {
+  const hydrationInputs = inputsRef.current
+  const hydratedReference = await hydrateGlobalDatabaseReferenceInfo(
+    reference,
+    hydrationInputs.formulaContext,
+    hydrationInputs.stats,
+  )
+  if (hydrationInputs === inputsRef.current) {
+    return hydratedReference
+  }
+  return hydrateReferenceWithLatestInputs(reference, inputsRef)
+}
+
 interface DatabasePopoverTrailActionsOptions {
   referenceLayer: ResolvedDatabaseReferenceLayer | null
   formulaContext?: PublicFormulaContext
@@ -76,6 +105,11 @@ export function useDatabasePopoverTrailActions({
   const [trailAnchorRect, setTrailAnchorRect] = useState<DOMRect | null>(null)
   const [trailAnchorElement, setTrailAnchorElement] = useState<HTMLElement | null>(null)
   const rootHydrationRequestRef = useRef(0)
+  const hydrationInputsRef = useRef<HydrationInputs>({formulaContext, stats})
+
+  useLayoutEffect(() => {
+    hydrationInputsRef.current = {formulaContext, stats}
+  }, [formulaContext, stats])
 
   const invalidateRootHydration = useCallback(() => {
     rootHydrationRequestRef.current += 1
@@ -99,8 +133,8 @@ export function useDatabasePopoverTrailActions({
 
   const hydrateReference = useCallback(
     (reference: DatabaseReferenceInfo) =>
-      hydrateGlobalDatabaseReferenceInfo(reference, formulaContext, stats),
-    [formulaContext, stats],
+      hydrateReferenceWithLatestInputs(reference, hydrationInputsRef),
+    [],
   )
 
   const rootActions = useDatabasePopoverRootActions({
@@ -257,16 +291,18 @@ function useDatabasePopoverRootActions({
       rankContext?: DatabasePopoverDescriptionRankContext,
     ) => {
       const hydrationRequest = invalidateRootHydration()
-      void hydrateReference(reference).then((hydratedReference) => {
-        if (hydrationRequest !== rootHydrationRequestRef.current) {
-          return
-        }
-        openRootTrailEntryAtAnchor(
-          withDescriptionRankContext(buildSelectedTrailEntry(hydratedReference), rankContext),
-          anchorElement,
-          anchorRect,
-        )
-      })
+      void hydrateReference(reference)
+        .then((hydratedReference) => {
+          if (hydrationRequest !== rootHydrationRequestRef.current) {
+            return
+          }
+          openRootTrailEntryAtAnchor(
+            withDescriptionRankContext(buildSelectedTrailEntry(hydratedReference), rankContext),
+            anchorElement,
+            anchorRect,
+          )
+        })
+        .catch(() => undefined)
     },
     [
       buildSelectedTrailEntry,
@@ -367,24 +403,26 @@ function useDatabasePopoverNestedActions({
       reference: DatabaseReferenceInfo,
       rankContext?: DatabasePopoverDescriptionRankContext,
     ) => {
-      void hydrateReference(reference).then((hydratedReference) => {
-        setTrail((current) => {
-          const currentSourceEntry = current.at(sourceIndex)
-          if (!sourceKey || currentSourceEntry?.key !== sourceKey) {
-            return current
-          }
-          const entry = buildTrailEntry(
-            hydratedReference,
-            currentSourceEntry.selectedEnlightenSlot ?? selectedEnlightenSlot,
-            currentSourceEntry.referenceLayerOverride ?? null,
-          )
-          return insertTrailEntryAfterIndex(
-            current,
-            sourceIndex,
-            withDescriptionRankContext(entry, rankContext),
-          )
+      void hydrateReference(reference)
+        .then((hydratedReference) => {
+          setTrail((current) => {
+            const currentSourceEntry = current.at(sourceIndex)
+            if (!sourceKey || currentSourceEntry?.key !== sourceKey) {
+              return current
+            }
+            const entry = buildTrailEntry(
+              hydratedReference,
+              currentSourceEntry.selectedEnlightenSlot ?? selectedEnlightenSlot,
+              currentSourceEntry.referenceLayerOverride ?? null,
+            )
+            return insertTrailEntryAfterIndex(
+              current,
+              sourceIndex,
+              withDescriptionRankContext(entry, rankContext),
+            )
+          })
         })
-      })
+        .catch(() => undefined)
     },
     [hydrateReference, selectedEnlightenSlot, setTrail],
   )
