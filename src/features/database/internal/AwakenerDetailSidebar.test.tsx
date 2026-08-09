@@ -118,7 +118,7 @@ describe('AwakenerDetailSidebar', () => {
 
     expect(screen.getByRole('heading', {name: 'Stats'})).toBeInTheDocument()
     expect(screen.queryByText('(Lv. 60)')).not.toBeInTheDocument()
-    expect(screen.getByText('E3+0')).toBeInTheDocument()
+    expect(screen.getByRole('spinbutton', {name: 'Psyche Surge bonus'})).toHaveValue(0)
 
     expect(screen.getByText('140')).toHaveClass('text-slate-200')
     expect(screen.getByText('135')).toHaveClass('text-slate-200')

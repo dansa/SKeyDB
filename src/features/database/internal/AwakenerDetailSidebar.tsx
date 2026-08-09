@@ -64,12 +64,11 @@ export function AwakenerDetailSidebar({
       action={
         controls.canAdjustPsycheSurge ? (
           <AwakenerPsycheSurgeStepper
+            max={controls.psycheSurgeOffsetMax}
+            min={controls.psycheSurgeOffsetMin}
             offset={selection.psycheSurgeOffset}
-            onDecrease={() => {
-              onPatchSelection({psycheSurgeOffset: selection.psycheSurgeOffset - 1})
-            }}
-            onIncrease={() => {
-              onPatchSelection({psycheSurgeOffset: selection.psycheSurgeOffset + 1})
+            onChange={(psycheSurgeOffset) => {
+              onPatchSelection({psycheSurgeOffset})
             }}
           />
         ) : null
