@@ -37,6 +37,7 @@ export function PopoverTrailPanel({
   const closeButtonRef = useRef<HTMLButtonElement>(null)
   const previouslyFocusedElementRef = useRef<HTMLElement | null>(null)
   const manualPositionRef = useRef<{left: number; top: number} | null>(null)
+  const repositionFrameRef = useRef<number | null>(null)
   const isMobile = isTrailMobileLayout(window.innerWidth)
   const currentAnchorRect = anchorElement?.isConnected
     ? anchorElement.getBoundingClientRect()
@@ -95,13 +96,23 @@ export function PopoverTrailPanel({
 
   useEffect(() => {
     function handleViewportChange() {
-      positionPanelEvent()
+      if (repositionFrameRef.current !== null) {
+        return
+      }
+      repositionFrameRef.current = window.requestAnimationFrame(() => {
+        repositionFrameRef.current = null
+        positionPanelEvent()
+      })
     }
     window.addEventListener('resize', handleViewportChange)
     window.addEventListener('scroll', handleViewportChange, true)
     return () => {
       window.removeEventListener('resize', handleViewportChange)
       window.removeEventListener('scroll', handleViewportChange, true)
+      if (repositionFrameRef.current !== null) {
+        window.cancelAnimationFrame(repositionFrameRef.current)
+        repositionFrameRef.current = null
+      }
     }
   }, [])
 

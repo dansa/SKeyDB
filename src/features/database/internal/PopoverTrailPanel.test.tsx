@@ -24,6 +24,88 @@ afterEach(() => {
 })
 
 describe('PopoverTrailPanel', () => {
+  it('coalesces viewport changes into one reposition per animation frame', () => {
+    Object.defineProperty(window, 'innerWidth', {
+      configurable: true,
+      value: 1200,
+    })
+    Object.defineProperty(window, 'innerHeight', {
+      configurable: true,
+      value: 900,
+    })
+
+    const anchorElement = document.createElement('button')
+    document.body.appendChild(anchorElement)
+    let anchorRect = makeRect({top: 100, bottom: 120, left: 150, right: 170})
+    vi.spyOn(anchorElement, 'getBoundingClientRect').mockImplementation(() => anchorRect)
+
+    const queuedFrames: FrameRequestCallback[] = []
+    const requestAnimationFrame = vi
+      .spyOn(window, 'requestAnimationFrame')
+      .mockImplementation((callback) => {
+        queuedFrames.push(callback)
+        return queuedFrames.length
+      })
+
+    render(
+      <PopoverTrailPanel
+        anchorElement={anchorElement}
+        anchorRect={anchorRect}
+        itemCount={1}
+        onCloseAll={vi.fn()}
+      />,
+    )
+
+    anchorRect = makeRect({top: 280, bottom: 300, left: 320, right: 340})
+    act(() => {
+      window.dispatchEvent(new Event('scroll'))
+      window.dispatchEvent(new Event('resize'))
+      window.dispatchEvent(new Event('scroll'))
+    })
+
+    expect(requestAnimationFrame).toHaveBeenCalledOnce()
+    act(() => {
+      queuedFrames[0]?.(16)
+    })
+
+    const panel = screen.getByRole('dialog', {name: 'Database reference details'})
+    expect(panel.style.top).toBe('306px')
+    expect(panel.style.left).toBe('320px')
+
+    act(() => {
+      window.dispatchEvent(new Event('scroll'))
+    })
+    expect(requestAnimationFrame).toHaveBeenCalledTimes(2)
+  })
+
+  it('cancels a pending viewport reposition when the panel unmounts', () => {
+    Object.defineProperty(window, 'innerWidth', {
+      configurable: true,
+      value: 1200,
+    })
+    Object.defineProperty(window, 'innerHeight', {
+      configurable: true,
+      value: 900,
+    })
+
+    vi.spyOn(window, 'requestAnimationFrame').mockReturnValue(73)
+    const cancelAnimationFrame = vi.spyOn(window, 'cancelAnimationFrame')
+    const {unmount} = render(
+      <PopoverTrailPanel
+        anchorRect={makeRect({top: 100, bottom: 120, left: 150, right: 170})}
+        itemCount={1}
+        onCloseAll={vi.fn()}
+      />,
+    )
+
+    act(() => {
+      window.dispatchEvent(new Event('resize'))
+    })
+    unmount()
+
+    expect(cancelAnimationFrame).toHaveBeenCalledWith(73)
+  })
+
   it('repositions against the live anchor element after scroll changes its viewport rect', async () => {
     Object.defineProperty(window, 'innerWidth', {
       configurable: true,
