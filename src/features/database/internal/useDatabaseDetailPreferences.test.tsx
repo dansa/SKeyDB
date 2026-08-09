@@ -1,6 +1,8 @@
 import {fireEvent, render, screen} from '@testing-library/react'
 import {beforeEach, describe, expect, it} from 'vitest'
 
+import {preferencesStore} from '@/stores/preferencesStore'
+
 import {useDatabaseDetailPreferences} from './useDatabaseDetailPreferences'
 
 function PreferenceHarness() {
@@ -52,6 +54,7 @@ function MountedPreferenceHarness() {
 describe('useDatabaseDetailPreferences', () => {
   beforeEach(() => {
     window.localStorage.clear()
+    preferencesStore.getState().hydrateDatabaseDetailPreferences()
   })
 
   it('reads preferences from storage when a consumer mounts after storage is seeded', () => {
@@ -66,6 +69,7 @@ describe('useDatabaseDetailPreferences', () => {
         },
       }),
     )
+    preferencesStore.getState().hydrateDatabaseDetailPreferences()
 
     render(<MountedPreferenceHarness />)
 

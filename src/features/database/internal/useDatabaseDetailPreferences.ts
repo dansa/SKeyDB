@@ -1,4 +1,4 @@
-import {useCallback, useState} from 'react'
+import {useCallback} from 'react'
 
 import {useStore} from 'zustand'
 
@@ -8,14 +8,9 @@ import {
   type DatabaseDetailSharedPreferences,
   type DatabaseWheelDetailPreferences,
 } from '@/domain/database-detail-preferences'
-import {hydrateDatabaseDetailPreferences, preferencesStore} from '@/stores/preferencesStore'
+import {preferencesStore} from '@/stores/preferencesStore'
 
 export function useDatabaseDetailPreferences() {
-  useState(() => {
-    hydrateDatabaseDetailPreferences()
-    return true
-  })
-
   const storePreferences = useStore(preferencesStore, (state) => state.databaseDetailPreferences)
   const updateDatabaseDetailPreferences = useStore(
     preferencesStore,

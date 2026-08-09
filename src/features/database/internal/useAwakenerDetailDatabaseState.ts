@@ -22,9 +22,6 @@ interface UseAwakenerDetailDatabaseStateOptions {
 export function useAwakenerDetailDatabaseState({fullData}: UseAwakenerDetailDatabaseStateOptions) {
   const {preferences, updateAwakenerPreferences, updateSharedPreferences} =
     useDatabaseDetailPreferences()
-  useEffect(() => {
-    collectionOwnershipStore.getState().hydrate()
-  }, [])
   const collectionOwnership = useStore(collectionOwnershipStore, (state) => state.ownership)
   const formulaContext = useMemo(
     () =>

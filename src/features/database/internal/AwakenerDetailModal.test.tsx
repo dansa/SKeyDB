@@ -9,6 +9,7 @@ import {resolveAwakenerStatsForLevel} from '@/domain/awakener-level-scaling'
 import type {Awakener} from '@/domain/awakeners'
 import type {AwakenerFullRecord} from '@/domain/awakeners-full'
 import {collectionOwnershipStore} from '@/stores/collectionOwnershipStore'
+import {preferencesStore} from '@/stores/preferencesStore'
 
 import {AwakenerDetailModal} from './AwakenerDetailModal'
 import {
@@ -462,6 +463,8 @@ describe('AwakenerDetailModal', () => {
     mockGetAwakenerCardAsset.mockReturnValue('/card.webp')
     mockCloseAllPopovers.mockReset()
     window.localStorage.clear()
+    collectionOwnershipStore.getState().hydrate()
+    preferencesStore.getState().hydrateDatabaseDetailPreferences()
   })
 
   it('resets active tab to upgrades when switching awakeners', async () => {

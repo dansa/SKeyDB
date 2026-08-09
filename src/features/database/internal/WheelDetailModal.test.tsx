@@ -10,6 +10,8 @@ import {
 } from '@/domain/wheel-mainstat-scaling'
 import type {Wheel} from '@/domain/wheels'
 import type {WheelFullRecord} from '@/domain/wheels-full'
+import {collectionOwnershipStore} from '@/stores/collectionOwnershipStore'
+import {preferencesStore} from '@/stores/preferencesStore'
 
 import {WheelDetailModal} from './WheelDetailModal'
 
@@ -73,6 +75,8 @@ describe('WheelDetailModal', () => {
     mockGetWheelAssetById.mockReset()
     mockGetWheelAssetById.mockReturnValue('/wheel.webp')
     window.localStorage.clear()
+    collectionOwnershipStore.getState().hydrate()
+    preferencesStore.getState().hydrateDatabaseDetailPreferences()
   })
 
   it('uses the wheel-specific enhance scaling tiers for description and mainstat values', () => {
@@ -531,6 +535,7 @@ describe('WheelDetailModal', () => {
         },
       }),
     )
+    preferencesStore.getState().hydrateDatabaseDetailPreferences()
 
     render(
       <WheelDetailModal
