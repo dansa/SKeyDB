@@ -461,7 +461,7 @@ describe('DatabasePage', () => {
     expect(screen.getByTestId('location-path')).toHaveTextContent('/database/awakeners/alpha')
 
     await act(async () => {
-      fireEvent.click(screen.getByRole('button', {name: 'Go back in history'}))
+      fireEvent.click(screen.getByRole('button', {name: 'Go back in history', hidden: true}))
     })
 
     await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument())

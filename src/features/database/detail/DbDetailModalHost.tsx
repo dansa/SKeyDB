@@ -60,7 +60,7 @@ interface OverlayAwakenerTabState {
   refKey: string
 }
 
-interface DbDetailModalHostProps {
+export interface DbDetailModalHostProps {
   awakeners: Awakener[]
   callbacks: DatabaseDetailRenderCallbacks
   resultSet?: DatabaseDetailResultSet | null
@@ -291,12 +291,6 @@ export function DbDetailModalHost({
       }),
     [activeAwakenerTab, callbacks, resultSet, routeItem],
   )
-
-  useEffect(() => {
-    dbDetailStore
-      .getState()
-      .syncFromRoute(routeItem ? {kind: routeItem.kind, id: routeItem.item.id} : null)
-  }, [routeItem])
 
   if (!routeItem || activeRef?.kind !== routeItem.kind) {
     if (!routeItem && activeRef) {

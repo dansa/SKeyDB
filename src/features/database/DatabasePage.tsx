@@ -46,7 +46,7 @@ import {
 import {DatabaseLayout} from './DatabaseLayout'
 import {getDatabaseDetailBrowseOrigin} from './detail/database-detail-history'
 import type {DatabaseDetailResultSet} from './detail/database-detail-result-navigation'
-import {DbDetailModalHost} from './detail/DbDetailModalHost'
+import {DeferredDbDetailModalHost} from './detail/DeferredDbDetailModalHost'
 
 function getActiveDatabaseEntity(pathname: string): DatabaseEntityId {
   if (pathname.startsWith(buildDatabaseRelicBrowsePath())) {
@@ -400,7 +400,7 @@ export function DatabasePage({routeEntity}: DatabasePageProps = {}) {
 
   const renderDetailModalHost = useCallback(
     (resultSet: DatabaseDetailResultSet) => (
-      <DbDetailModalHost
+      <DeferredDbDetailModalHost
         awakeners={databaseAwakeners}
         callbacks={detailCallbacks}
         relics={databaseRelics}

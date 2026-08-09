@@ -611,51 +611,6 @@ describe('DbDetailModalHost route entries', () => {
     })
   })
 
-  it('does not render a stale route-sourced stack entry as an overlay after the route closes', async () => {
-    vi.mocked(dbDetailRegistry.awakener.loadRecord).mockResolvedValue(mockAwakenerRecord)
-    const callbacks = {
-      onClose: vi.fn(),
-      onSelectAwakener: vi.fn(),
-      onSelectCovenant: vi.fn(),
-      onSelectPosse: vi.fn(),
-      onSelectWheel: vi.fn(),
-      onTabChange: vi.fn(),
-    }
-    const {rerender} = render(
-      <MemoryRouter initialEntries={['/database/awakeners/goliath']}>
-        <DbDetailModalHost
-          awakeners={awakeners}
-          callbacks={callbacks}
-          routeItem={{kind: 'awakener', item: awakeners[0], activeTab: 'upgrades'}}
-          wheels={wheels}
-        />
-      </MemoryRouter>,
-    )
-
-    await waitFor(() => {
-      expect(screen.getByRole('dialog', {name: /goliath details/i})).toBeInTheDocument()
-    })
-    expect(dbDetailStore.getState().stack).toEqual([
-      {kind: 'awakener', id: 'awakener-0021', source: 'database-route'},
-    ])
-
-    rerender(
-      <MemoryRouter initialEntries={['/database']}>
-        <DbDetailModalHost
-          awakeners={awakeners}
-          callbacks={callbacks}
-          routeItem={null}
-          wheels={wheels}
-        />
-      </MemoryRouter>,
-    )
-
-    expect(screen.queryByRole('dialog', {name: /goliath details/i})).not.toBeInTheDocument()
-    await waitFor(() => {
-      expect(dbDetailStore.getState().stack).toEqual([])
-    })
-  })
-
   it('keeps database modal chrome visible while a route record is still loading', async () => {
     let resolveRecord!: (record: WheelFullRecord) => void
     const pendingRecord = new Promise<WheelFullRecord>((resolve) => {

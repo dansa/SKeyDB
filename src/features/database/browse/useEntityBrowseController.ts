@@ -10,12 +10,7 @@ import {
   type DatabaseDetailBrowseOrigin,
 } from '@/features/database/detail/database-detail-history'
 
-import {
-  getDatabaseDetailKindForEntity,
-  preloadDatabaseDetail,
-  preloadDatabaseDetailShell,
-  type DatabaseDetailKind,
-} from './databaseDetailPreload'
+import {preloadDatabaseDetail, type DatabaseDetailKind} from './databaseDetailPreload'
 
 interface UseEntityBrowseControllerOptions {
   activeEntity: DatabaseEntityId
@@ -98,18 +93,6 @@ export function useEntityBrowseController({
     navigate,
     routeEntity,
   })
-  const activeDetailKind = getDatabaseDetailKindForEntity(activeEntity)
-
-  useEffect(() => {
-    const timeoutId = window.setTimeout(() => {
-      preloadDatabaseDetailShell(activeDetailKind)
-    }, 350)
-
-    return () => {
-      window.clearTimeout(timeoutId)
-    }
-  }, [activeDetailKind])
-
   const openDetail = useCallback(
     (pathname: string) => {
       void navigate(
