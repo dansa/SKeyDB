@@ -148,6 +148,51 @@ describe('useNativeModalDialog', () => {
     expect(document.activeElement).toBe(previousButton)
   })
 
+  it('captures page position before native dialog focus and preserves it through close', () => {
+    const scrollYDescriptor = Object.getOwnPropertyDescriptor(window, 'scrollY')
+    let scrollY = 900
+    const animationFrames: FrameRequestCallback[] = []
+    Object.defineProperty(window, 'scrollY', {
+      configurable: true,
+      get: () => scrollY,
+    })
+    vi.spyOn(window, 'scrollTo').mockImplementation((_x, y) => {
+      scrollY = y
+    })
+    vi.spyOn(window, 'requestAnimationFrame').mockImplementation((callback) => {
+      animationFrames.push(callback)
+      return animationFrames.length
+    })
+    HTMLDialogElement.prototype.showModal = vi.fn(function (this: HTMLDialogElement) {
+      this.setAttribute('open', '')
+      scrollY = 902
+      window.dispatchEvent(new Event('scroll'))
+    })
+    HTMLDialogElement.prototype.close = vi.fn(function (this: HTMLDialogElement) {
+      this.removeAttribute('open')
+      scrollY = 904
+      window.dispatchEvent(new Event('scroll'))
+    })
+
+    try {
+      const {unmount} = render(<TestDialog lockBodyScroll={true} />)
+
+      expect(scrollY).toBe(900)
+
+      unmount()
+      animationFrames.shift()?.(0)
+      animationFrames.shift()?.(16)
+
+      expect(scrollY).toBe(900)
+    } finally {
+      if (scrollYDescriptor) {
+        Object.defineProperty(window, 'scrollY', scrollYDescriptor)
+      } else {
+        Reflect.deleteProperty(window, 'scrollY')
+      }
+    }
+  })
+
   it('prevents uncontrolled native dismissal when no cancel handler is supplied', () => {
     render(<TestDialog />)
 

@@ -75,6 +75,7 @@ export function useNativeModalDialog({
 
     const previousFocusedElement =
       document.activeElement instanceof HTMLElement ? document.activeElement : null
+    const scrollLockToken = lockBodyScroll ? acquirePageScrollLock() : null
 
     openDialog(dialog)
 
@@ -86,20 +87,11 @@ export function useNativeModalDialog({
       if (restoreFocus) {
         previousFocusedElement?.focus()
       }
+      if (scrollLockToken) {
+        releasePageScrollLock(scrollLockToken)
+      }
     }
-  }, [dialogRef, initialFocusRef, restoreFocus])
-
-  useEffect(() => {
-    if (!lockBodyScroll) {
-      return undefined
-    }
-
-    const lockToken = acquirePageScrollLock()
-
-    return () => {
-      releasePageScrollLock(lockToken)
-    }
-  }, [lockBodyScroll])
+  }, [dialogRef, initialFocusRef, lockBodyScroll, restoreFocus])
 
   useEffect(() => {
     const dialog = dialogRef.current

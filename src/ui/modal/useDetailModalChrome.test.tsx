@@ -69,7 +69,7 @@ function clickTarget(
 }
 
 describe('useDetailModalChrome', () => {
-  it('locks page and root scroll until the detail chrome unmounts', () => {
+  it('leaves page scroll locking to the native database modal frame', () => {
     document.body.style.overflow = 'auto'
     document.documentElement.style.overflow = 'scroll'
 
@@ -78,8 +78,8 @@ describe('useDetailModalChrome', () => {
     expect(document.body.style.overflow).toBe('auto')
     expect(document.body.style.position).toBe('')
     expect(document.body.style.width).toBe('')
-    expect(document.documentElement.style.overflow).toBe('hidden')
-    expect(document.documentElement.style.scrollbarGutter).toBe('stable')
+    expect(document.documentElement.style.overflow).toBe('scroll')
+    expect(document.documentElement.style.scrollbarGutter).toBe('')
 
     hook.unmount()
 

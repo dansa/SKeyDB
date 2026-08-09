@@ -2,7 +2,6 @@ import {useCallback, useEffect, useRef, useState, useSyncExternalStore, type Ref
 
 import {isCalculationContextControl} from './calculationContextControl'
 import {getFocusableElements} from './focus-scope'
-import {acquirePageScrollLock, releasePageScrollLock} from './pageScrollLock'
 
 interface UseDetailModalChromeOptions {
   isSearchOpen: boolean
@@ -45,14 +44,6 @@ export function useDetailModalChrome({
   const panelRef = useRef<HTMLDivElement>(null)
   const settingsRef = useRef<HTMLDivElement>(null)
   const previouslyFocusedElementRef = useRef<HTMLElement | null>(null)
-
-  useEffect(() => {
-    const lockToken = acquirePageScrollLock()
-
-    return () => {
-      releasePageScrollLock(lockToken)
-    }
-  }, [])
 
   useEffect(() => {
     previouslyFocusedElementRef.current =
