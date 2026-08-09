@@ -1,4 +1,4 @@
-import {useCallback, useEffect, useMemo, type ComponentType, type ReactNode} from 'react'
+import {Suspense, useCallback, useEffect, useMemo} from 'react'
 
 import {useLocation, useNavigate, useParams, type NavigateFunction} from 'react-router'
 
@@ -34,13 +34,7 @@ import type {Relic} from '@/domain/relics'
 import {getBrowserLocalStorage} from '@/domain/storage'
 import type {Wheel} from '@/domain/wheels'
 
-import {
-  AwakenersBrowse,
-  CovenantsBrowse,
-  PossesBrowse,
-  RelicsBrowse,
-  WheelsBrowse,
-} from './browse/EntityBrowseViews'
+import {EntityBrowseLoader} from './browse/entityBrowseLoaders'
 import {useEntityBrowseController} from './browse/useEntityBrowseController'
 import {
   databaseAwakeners,
@@ -53,19 +47,6 @@ import {DatabaseLayout} from './DatabaseLayout'
 import {getDatabaseDetailBrowseOrigin} from './detail/database-detail-history'
 import type {DatabaseDetailResultSet} from './detail/database-detail-result-navigation'
 import {DbDetailModalHost} from './detail/DbDetailModalHost'
-
-type EntityBrowseComponent = ComponentType<{
-  controller: ReturnType<typeof useEntityBrowseController>
-  renderDetailModalHost: (resultSet: DatabaseDetailResultSet) => ReactNode
-}>
-
-const entityBrowseComponents: Record<DatabaseEntityId, EntityBrowseComponent> = {
-  awakeners: AwakenersBrowse,
-  covenants: CovenantsBrowse,
-  posses: PossesBrowse,
-  relics: RelicsBrowse,
-  wheels: WheelsBrowse,
-}
 
 function getActiveDatabaseEntity(pathname: string): DatabaseEntityId {
   if (pathname.startsWith(buildDatabaseRelicBrowsePath())) {
@@ -417,7 +398,6 @@ export function DatabasePage({routeEntity}: DatabasePageProps = {}) {
     ],
   )
 
-  const BrowseComponent = entityBrowseComponents[browseController.activeEntity]
   const renderDetailModalHost = useCallback(
     (resultSet: DatabaseDetailResultSet) => (
       <DbDetailModalHost
@@ -435,10 +415,13 @@ export function DatabasePage({routeEntity}: DatabasePageProps = {}) {
 
   return (
     <DatabaseLayout>
-      <BrowseComponent
-        controller={browseController}
-        renderDetailModalHost={renderDetailModalHost}
-      />
+      <Suspense fallback={null}>
+        <EntityBrowseLoader
+          controller={browseController}
+          entity={browseController.activeEntity}
+          renderDetailModalHost={renderDetailModalHost}
+        />
+      </Suspense>
     </DatabaseLayout>
   )
 }

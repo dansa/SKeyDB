@@ -7,7 +7,7 @@ import {RELIC_DATABASE_BROWSE_DEFAULTS} from '@/domain/relic-database-browse-sta
 import {buildRelicDatabaseViewResult} from '@/domain/relic-database-view'
 
 import {databaseRelics} from '../data'
-import {RelicsBrowse} from './EntityBrowseViews'
+import {RelicsBrowse} from './RelicsBrowse'
 import {useEntityBrowseController} from './useEntityBrowseController'
 
 function RelicsBrowseHarness() {
@@ -15,10 +15,13 @@ function RelicsBrowseHarness() {
   const navigate = useNavigate()
   const controller = useEntityBrowseController({
     activeEntity: 'relics',
+    browseOrigin: null,
     isDetailOpen: false,
     locationPathname: location.pathname,
     locationSearch: location.search,
+    locationState: location.state,
     navigate,
+    routeEntity: 'relics',
   })
 
   return <RelicsBrowse controller={controller} />

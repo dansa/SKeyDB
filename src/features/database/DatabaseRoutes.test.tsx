@@ -381,7 +381,8 @@ async function renderDatabasePage(
     )
   })
 
-  await screen.findByRole('region', {name: 'Database'})
+  const databaseRegion = await screen.findByRole('region', {name: 'Database'})
+  await waitFor(() => expect(databaseRegion).not.toBeEmptyDOMElement(), {timeout: 5000})
 
   return renderResult
 }
