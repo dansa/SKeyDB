@@ -22,6 +22,7 @@ import {
 import {clampWheelEnhanceLevel} from './wheel-enhance'
 
 const STORAGE_KEY = 'database-detail-preferences'
+const DEFAULT_PERSISTENCE_DELAY_MS = 150
 
 const fontScaleSchema = z.enum(['small', 'medium', 'large'])
 const defaultAwakenerDetailTabSchema = z.enum(DATABASE_AWAKENER_VISIBLE_TABS).nullable().catch(null)
@@ -55,6 +56,22 @@ export interface DatabaseDetailPreferencesPatch {
   shared?: Partial<DatabaseDetailSharedPreferences>
   awakener?: Partial<DatabaseAwakenerDetailPreferences>
   wheel?: Partial<DatabaseWheelDetailPreferences>
+}
+
+export interface DatabaseDetailPreferencesPersistenceAdapter {
+  read: () => DatabaseDetailPreferences
+  write: (preferences: DatabaseDetailPreferences) => boolean
+}
+
+export interface DatabaseDetailPreferencesScheduler {
+  schedule: (callback: () => void, delayMs: number) => () => void
+}
+
+export interface DatabaseDetailPreferencesRepository {
+  flush: () => boolean
+  getPreferences: () => DatabaseDetailPreferences
+  hydrate: () => DatabaseDetailPreferences
+  update: (next: DatabaseDetailPreferencesPatch) => DatabaseDetailPreferences
 }
 
 const DEFAULT_DATABASE_DETAIL_SHARED_PREFERENCES: DatabaseDetailSharedPreferences = {
@@ -194,6 +211,26 @@ export function mergeDatabaseDetailPreferences(
   })
 }
 
+function arePreferenceValuesEqual(left: unknown, right: unknown): boolean {
+  if (Object.is(left, right)) {
+    return true
+  }
+  if (!left || !right || typeof left !== 'object' || typeof right !== 'object') {
+    return false
+  }
+
+  const leftRecord = left as Record<string, unknown>
+  const rightRecord = right as Record<string, unknown>
+  const leftKeys = Object.keys(leftRecord)
+  const rightKeys = Object.keys(rightRecord)
+  return (
+    leftKeys.length === rightKeys.length &&
+    leftKeys.every(
+      (key) => key in rightRecord && arePreferenceValuesEqual(leftRecord[key], rightRecord[key]),
+    )
+  )
+}
+
 export function readDatabaseDetailPreferences(
   storage: StorageLike | null = getBrowserLocalStorage(),
 ): DatabaseDetailPreferences {
@@ -216,6 +253,106 @@ export function writeDatabaseDetailPreferences(
   const normalized = mergeDatabaseDetailPreferences(readDatabaseDetailPreferences(storage), next)
 
   return safeStorageWrite(storage, STORAGE_KEY, JSON.stringify(normalized))
+}
+
+export function createDatabaseDetailPreferencesPersistenceAdapter(
+  storage: StorageLike | null = getBrowserLocalStorage(),
+): DatabaseDetailPreferencesPersistenceAdapter {
+  return {
+    read: () => readDatabaseDetailPreferences(storage),
+    write: (preferences) =>
+      safeStorageWrite(
+        storage,
+        STORAGE_KEY,
+        JSON.stringify(normalizeDatabaseDetailPreferences(preferences)),
+      ),
+  }
+}
+
+function createDefaultScheduler(): DatabaseDetailPreferencesScheduler {
+  return {
+    schedule(callback, delayMs) {
+      const timeout = globalThis.setTimeout(callback, delayMs)
+      return () => {
+        globalThis.clearTimeout(timeout)
+      }
+    },
+  }
+}
+
+export function createDatabaseDetailPreferencesRepository({
+  adapter = createDatabaseDetailPreferencesPersistenceAdapter(),
+  persistenceDelayMs = DEFAULT_PERSISTENCE_DELAY_MS,
+  scheduler = createDefaultScheduler(),
+}: {
+  adapter?: DatabaseDetailPreferencesPersistenceAdapter
+  persistenceDelayMs?: number
+  scheduler?: DatabaseDetailPreferencesScheduler
+} = {}): DatabaseDetailPreferencesRepository {
+  let preferences = adapter.read()
+  let isDirty = false
+  let cancelScheduledFlush: (() => void) | null = null
+
+  const persist = () => {
+    if (!isDirty) {
+      return true
+    }
+
+    const didWrite = adapter.write(preferences)
+    if (didWrite) {
+      isDirty = false
+    }
+    return didWrite
+  }
+
+  const flush = () => {
+    if (cancelScheduledFlush) {
+      const cancel = cancelScheduledFlush
+      cancelScheduledFlush = null
+      cancel()
+    }
+    return persist()
+  }
+
+  const schedulePersistenceWindowEnd = () => {
+    if (cancelScheduledFlush) {
+      return
+    }
+
+    cancelScheduledFlush = scheduler.schedule(() => {
+      cancelScheduledFlush = null
+      persist()
+    }, persistenceDelayMs)
+  }
+
+  return {
+    flush,
+    getPreferences: () => preferences,
+    hydrate: () => {
+      if (cancelScheduledFlush) {
+        const cancel = cancelScheduledFlush
+        cancelScheduledFlush = null
+        cancel()
+      }
+      isDirty = false
+      preferences = adapter.read()
+      return preferences
+    },
+    update: (next) => {
+      const updatedPreferences = mergeDatabaseDetailPreferences(preferences, next)
+      if (arePreferenceValuesEqual(preferences, updatedPreferences)) {
+        return preferences
+      }
+
+      preferences = updatedPreferences
+      isDirty = true
+      if (!cancelScheduledFlush) {
+        persist()
+        schedulePersistenceWindowEnd()
+      }
+      return preferences
+    },
+  }
 }
 
 export function resolveDatabaseDetailDefaultSelection(

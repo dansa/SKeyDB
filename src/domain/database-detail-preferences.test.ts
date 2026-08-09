@@ -1,12 +1,15 @@
-import {describe, expect, it} from 'vitest'
+import {describe, expect, it, vi} from 'vitest'
 
 import type {AwakenerFullRecord} from './awakeners-full'
 import {
   DEFAULT_DATABASE_DETAIL_PREFERENCES,
+  createDatabaseDetailPreferencesPersistenceAdapter,
+  createDatabaseDetailPreferencesRepository,
   normalizeDatabaseDetailPreferences,
   readDatabaseDetailPreferences,
   resolveDatabaseDetailDefaultAwakenerTab,
   resolveDatabaseDetailDefaultSelection,
+  type DatabaseDetailPreferences,
   writeDatabaseDetailPreferences,
 } from './database-detail-preferences'
 
@@ -138,6 +141,24 @@ describe('database-detail-preferences', () => {
     )
   })
 
+  it('falls back safely when browser storage access is denied', () => {
+    const deniedStorage = {
+      getItem() {
+        throw new Error('denied')
+      },
+      setItem() {
+        throw new Error('denied')
+      },
+      removeItem() {
+        throw new Error('denied')
+      },
+    }
+    const adapter = createDatabaseDetailPreferencesPersistenceAdapter(deniedStorage)
+
+    expect(adapter.read()).toEqual(DEFAULT_DATABASE_DETAIL_PREFERENCES)
+    expect(adapter.write(DEFAULT_DATABASE_DETAIL_PREFERENCES)).toBe(false)
+  })
+
   it('writes normalized preferences for later sessions', () => {
     const storage = createStorage()
 
@@ -194,6 +215,91 @@ describe('database-detail-preferences', () => {
         expandLoreByDefault: true,
       },
     })
+  })
+
+  it('coalesces updates and persists the latest normalized snapshot', () => {
+    const writes: DatabaseDetailPreferences[] = []
+    const scheduledCallbacks: (() => void)[] = []
+    const cancel = vi.fn()
+    const repository = createDatabaseDetailPreferencesRepository({
+      adapter: {
+        read: () => DEFAULT_DATABASE_DETAIL_PREFERENCES,
+        write: (preferences) => {
+          writes.push(preferences)
+          return true
+        },
+      },
+      scheduler: {
+        schedule(callback) {
+          scheduledCallbacks.push(callback)
+          return cancel
+        },
+      },
+    })
+
+    expect(repository.update({shared: {accountLevel: 51}}).shared.accountLevel).toBe(51)
+    expect(repository.update({shared: {accountLevel: 52}}).shared.accountLevel).toBe(52)
+    expect(repository.update({shared: {accountLevel: 999}}).shared.accountLevel).toBe(100)
+    expect(writes).toHaveLength(1)
+    expect(writes[0]?.shared.accountLevel).toBe(51)
+
+    scheduledCallbacks[0]?.()
+
+    expect(writes).toHaveLength(2)
+    expect(writes[1]?.shared.accountLevel).toBe(100)
+    expect(cancel).not.toHaveBeenCalled()
+  })
+
+  it('flushes pending updates deterministically and cancels the scheduled write', () => {
+    const storage = createStorage()
+    const cancel = vi.fn()
+    const repository = createDatabaseDetailPreferencesRepository({
+      adapter: createDatabaseDetailPreferencesPersistenceAdapter(storage),
+      scheduler: {
+        schedule() {
+          return cancel
+        },
+      },
+    })
+
+    repository.update({wheel: {defaultEnhanceLevel: 9}})
+
+    expect(JSON.parse(storage.getItem('database-detail-preferences') ?? 'null')).toMatchObject({
+      wheel: {defaultEnhanceLevel: 9},
+    })
+    repository.update({wheel: {defaultEnhanceLevel: 10}})
+    expect(repository.flush()).toBe(true)
+    expect(cancel).toHaveBeenCalledOnce()
+    expect(JSON.parse(storage.getItem('database-detail-preferences') ?? 'null')).toMatchObject({
+      wheel: {defaultEnhanceLevel: 10},
+    })
+    expect(repository.flush()).toBe(true)
+  })
+
+  it('keeps failed writes dirty so a later flush can retry the latest value', () => {
+    const write = vi
+      .fn()
+      .mockReturnValueOnce(false)
+      .mockReturnValueOnce(false)
+      .mockReturnValueOnce(true)
+    const repository = createDatabaseDetailPreferencesRepository({
+      adapter: {
+        read: () => DEFAULT_DATABASE_DETAIL_PREFERENCES,
+        write,
+      },
+      scheduler: {
+        schedule() {
+          return vi.fn()
+        },
+      },
+    })
+
+    repository.update({shared: {fontScale: 'large'}})
+
+    expect(repository.flush()).toBe(false)
+    expect(repository.flush()).toBe(true)
+    expect(write).toHaveBeenCalledTimes(3)
+    expect(write.mock.calls[2]?.[0].shared.fontScale).toBe('large')
   })
 
   it('upgrades legacy flat preferences into the modal-scoped shape', () => {

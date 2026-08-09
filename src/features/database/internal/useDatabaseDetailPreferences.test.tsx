@@ -89,7 +89,7 @@ describe('useDatabaseDetailPreferences', () => {
     expect(screen.getByTestId('second-font-scale')).toHaveTextContent('large')
   })
 
-  it('does not overwrite newer storage branches when writing a partial preference update', () => {
+  it('merges partial updates against the authoritative hydrated snapshot', () => {
     window.localStorage.setItem(
       'database-detail-preferences',
       JSON.stringify({
@@ -110,29 +110,14 @@ describe('useDatabaseDetailPreferences', () => {
       }),
     )
 
+    preferencesStore.getState().hydrateDatabaseDetailPreferences()
     render(<PreferenceHarness />)
 
-    window.localStorage.setItem(
-      'database-detail-preferences',
-      JSON.stringify({
-        shared: {
-          showTagIcons: true,
-          clickOutsideClosesPopovers: true,
-          fontScale: 'small',
-          accountLevel: 50,
-        },
-        awakener: {
-          showVisibleScaling: true,
-          defaultSelection: {},
-        },
-        wheel: {
-          defaultEnhanceLevel: 0,
-          expandLoreByDefault: true,
-        },
-      }),
-    )
-
     fireEvent.click(screen.getByRole('button', {name: 'Set font scale'}))
+    preferencesStore.getState().updateDatabaseDetailPreferences({
+      wheel: {expandLoreByDefault: true},
+    })
+    preferencesStore.getState().flushDatabaseDetailPreferences()
 
     expect(
       JSON.parse(window.localStorage.getItem('database-detail-preferences') ?? 'null'),
