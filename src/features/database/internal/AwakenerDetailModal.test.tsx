@@ -561,6 +561,24 @@ describe('AwakenerDetailModal', () => {
     expect(screen.getByText('Sidebar variant profile')).toBeInTheDocument()
   })
 
+  it('mounts only the sidebar for the active viewport layout', () => {
+    const originalWidth = window.innerWidth
+    Object.defineProperty(window, 'innerWidth', {configurable: true, value: 1024})
+
+    try {
+      renderAwakenerDetailModal(makeAwakener(1, 'thais'))
+
+      expect(screen.getAllByText('Sidebar variant progression')).toHaveLength(1)
+
+      Object.defineProperty(window, 'innerWidth', {configurable: true, value: 640})
+      fireEvent(window, new Event('resize'))
+
+      expect(screen.getAllByText('Sidebar variant progression')).toHaveLength(1)
+    } finally {
+      Object.defineProperty(window, 'innerWidth', {configurable: true, value: originalWidth})
+    }
+  })
+
   it('places focus inside the dialog on open, traps tabbing, and restores focus on close', async () => {
     const openerAwakener = makeAwakener(1, 'thais')
     const onTabChange = vi.fn()

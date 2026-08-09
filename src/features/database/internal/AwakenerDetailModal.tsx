@@ -483,22 +483,24 @@ function AwakenerDetailBody({
 
   return (
     <div className='flex min-h-0 flex-1'>
-      <aside className='database-scrollbar hidden w-56 shrink-0 overflow-y-auto border-r border-slate-700/40 p-4 md:block lg:w-64'>
-        <AwakenerDetailSidebar
-          awakener={awakener}
-          areStatsExpanded={areStatsExpanded}
-          controls={resolvedControls}
-          onOpenFullArt={cardAsset ? onOpenFullArt : undefined}
-          onPatchSelection={sessionActions.patchSelection}
-          onStatsExpandedChange={onStatsExpandedChange}
-          profile={fullData.profile}
-          scalingRecord={fullData}
-          selection={resolvedSelection}
-          stats={resolvedStats}
-          substatScaling={fullData.substatScaling}
-          variant={usesProfileSidebar ? 'profile' : 'progression'}
-        />
-      </aside>
+      {!isMobileHeader ? (
+        <aside className='database-scrollbar w-56 shrink-0 overflow-y-auto border-r border-slate-700/40 p-4 lg:w-64'>
+          <AwakenerDetailSidebar
+            awakener={awakener}
+            areStatsExpanded={areStatsExpanded}
+            controls={resolvedControls}
+            onOpenFullArt={cardAsset ? onOpenFullArt : undefined}
+            onPatchSelection={sessionActions.patchSelection}
+            onStatsExpandedChange={onStatsExpandedChange}
+            profile={fullData.profile}
+            scalingRecord={fullData}
+            selection={resolvedSelection}
+            stats={resolvedStats}
+            substatScaling={fullData.substatScaling}
+            variant={usesProfileSidebar ? 'profile' : 'progression'}
+          />
+        </aside>
+      ) : null}
 
       <div className='flex min-h-0 min-w-0 flex-1 flex-col'>
         <AwakenerDetailHeader
@@ -523,8 +525,8 @@ function AwakenerDetailBody({
               : 'overflow-y-auto p-5 pr-8 lg:pr-16'
           }`}
         >
-          {usesProfileSidebar ? null : (
-            <div className='mb-4 md:hidden'>
+          {isMobileHeader && !usesProfileSidebar ? (
+            <div className='mb-4'>
               <AwakenerDetailSidebar
                 awakener={awakener}
                 areStatsExpanded={areStatsExpanded}
@@ -538,7 +540,7 @@ function AwakenerDetailBody({
                 substatScaling={fullData.substatScaling}
               />
             </div>
-          )}
+          ) : null}
 
           <div
             aria-labelledby={`${tabsetId}-tab-${activeTab}`}
