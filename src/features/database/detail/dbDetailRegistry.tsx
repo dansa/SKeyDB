@@ -17,6 +17,7 @@ import {
   buildDatabaseCovenantBrowsePath,
   buildDatabasePosseBrowsePath,
   buildDatabaseWheelBrowsePath,
+  DEFAULT_DATABASE_AWAKENER_TAB,
   type DatabaseAwakenerTab,
 } from '@/domain/database-paths'
 import type {EntityRef} from '@/domain/entities/types'
@@ -143,8 +144,11 @@ interface DatabaseDetailRegistryEntry<Kind extends DatabaseDetailKind> {
   createOverlayRouteItem: (
     lookup: DatabaseDetailCatalogLookup,
     id: string,
-    activeAwakenerTab: DatabaseAwakenerTab,
+    state: DatabaseDetailNavigationState,
   ) => DatabaseDetailRouteItemByKind[Kind] | null
+  getCatalogItems: (
+    catalogs: DatabaseDetailCatalogs,
+  ) => readonly DatabaseDetailCatalogItemByKind[Kind][]
   loadRecord: (id: string) => Promise<DatabaseDetailRecordByKind[Kind] | undefined>
   loadShell: () => Promise<unknown>
   loadingLabel: string
@@ -207,13 +211,13 @@ export function createDatabaseDetailCatalogLookup({
   relics,
   wheels,
 }: DatabaseDetailCatalogs): DatabaseDetailCatalogLookup {
-  return {
-    awakener: createCatalogIndex<'awakener'>(awakeners),
-    covenant: createCatalogIndex<'covenant'>(getCovenants()),
-    posse: createCatalogIndex<'posse'>(getPosses()),
-    relic: createCatalogIndex<'relic'>(relics),
-    wheel: createCatalogIndex<'wheel'>(wheels),
-  }
+  const catalogs = {awakeners, relics, wheels}
+  return Object.fromEntries(
+    DATABASE_ENTITY_DEFINITIONS.map(({detailKind}) => [
+      detailKind,
+      createCatalogIndex(dbDetailRegistry[detailKind].getCatalogItems(catalogs)),
+    ]),
+  ) as DatabaseDetailCatalogLookup
 }
 
 function resolveCatalogReference(
@@ -231,9 +235,9 @@ function resolveCatalogReference(
 export function resolveDatabaseDetailOverlayRouteItem(
   ref: EntityRef & {kind: DatabaseDetailKind},
   lookup: DatabaseDetailCatalogLookup,
-  activeAwakenerTab: DatabaseAwakenerTab,
+  state: DatabaseDetailNavigationState = {},
 ): DatabaseDetailRouteItem | null {
-  return dbDetailRegistry[ref.kind].createOverlayRouteItem(lookup, ref.id, activeAwakenerTab)
+  return dbDetailRegistry[ref.kind].createOverlayRouteItem(lookup, ref.id, state)
 }
 
 export function resolveDatabaseDetailReference(
@@ -302,10 +306,13 @@ async function loadRelicDetailRecord(id: string) {
 
 export const dbDetailRegistry: DatabaseDetailRegistry = {
   awakener: {
-    createOverlayRouteItem: (lookup, id, activeTab) => {
+    createOverlayRouteItem: (lookup, id, state) => {
       const item = lookup.awakener.byId.get(id)
-      return item ? {kind: 'awakener', item, activeTab} : null
+      return item
+        ? {kind: 'awakener', item, activeTab: state.tab ?? DEFAULT_DATABASE_AWAKENER_TAB}
+        : null
     },
+    getCatalogItems: ({awakeners}) => awakeners,
     loadRecord: loadAwakenerDetailRecord,
     loadShell: loadAwakenerDetailModalModule,
     loadingLabel: 'Loading awakener details...',
@@ -352,6 +359,7 @@ export const dbDetailRegistry: DatabaseDetailRegistry = {
       const item = lookup.wheel.byId.get(id)
       return item ? {kind: 'wheel', item} : null
     },
+    getCatalogItems: ({wheels}) => wheels,
     loadRecord: loadWheelDetailRecord,
     loadShell: loadWheelDetailModalModule,
     loadingLabel: 'Loading wheel details...',
@@ -392,6 +400,7 @@ export const dbDetailRegistry: DatabaseDetailRegistry = {
       const item = lookup.posse.byId.get(id)
       return item ? {kind: 'posse', item} : null
     },
+    getCatalogItems: () => getPosses(),
     loadRecord: loadPosseDetailRecord,
     loadShell: loadSimpleArtifactDetailModalModule,
     loadingLabel: 'Loading posse details...',
@@ -428,6 +437,7 @@ export const dbDetailRegistry: DatabaseDetailRegistry = {
       const item = lookup.covenant.byId.get(id)
       return item ? {kind: 'covenant', item} : null
     },
+    getCatalogItems: () => getCovenants(),
     loadRecord: loadCovenantDetailRecord,
     loadShell: loadSimpleArtifactDetailModalModule,
     loadingLabel: 'Loading covenant details...',
@@ -461,6 +471,7 @@ export const dbDetailRegistry: DatabaseDetailRegistry = {
       const item = lookup.relic.byId.get(id)
       return item ? {kind: 'relic', item} : null
     },
+    getCatalogItems: ({relics}) => relics,
     loadRecord: loadRelicDetailRecord,
     loadShell: loadRelicDetailModalModule,
     loadingLabel: 'Loading relic details...',

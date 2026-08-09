@@ -61,11 +61,9 @@ describe('database detail registry adapters', () => {
 
     for (const {kind, item} of refs) {
       expect(
-        resolveDatabaseDetailOverlayRouteItem(
-          {kind, id: item.id},
-          lookup,
-          DEFAULT_DATABASE_AWAKENER_TAB,
-        ),
+        resolveDatabaseDetailOverlayRouteItem({kind, id: item.id}, lookup, {
+          tab: DEFAULT_DATABASE_AWAKENER_TAB,
+        }),
       ).toMatchObject({kind, item: {id: item.id}})
     }
   })

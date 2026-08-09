@@ -369,7 +369,9 @@ function DbDetailOverlayModal({activeRef, lookup, session}: DbDetailOverlayModal
   )
   // Overlay refs can outlive the current public catalog; stale refs are pruned below.
   const overlayAwakenerTab = resolveOverlayAwakenerTab(activeRefKey, overlayAwakenerTabState)
-  const routeItem = resolveDatabaseDetailOverlayRouteItem(activeRef, lookup, overlayAwakenerTab)
+  const routeItem = resolveDatabaseDetailOverlayRouteItem(activeRef, lookup, {
+    tab: overlayAwakenerTab,
+  })
 
   useEffect(() => {
     if (!routeItem) {
