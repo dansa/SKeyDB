@@ -2,8 +2,8 @@ import {lazy, Suspense, useCallback, useEffect, useState, useSyncExternalStore} 
 
 import {Link, Navigate, NavLink, Route, Routes, useLocation} from 'react-router'
 
-import {getDatabaseBrowsePathForLocation} from '@/domain/database-entity-paths'
 import {getBrowserLocalStorage} from '@/domain/storage'
+import {getDatabaseRouteBoundaryKey} from '@/features/database/detail/database-detail-history'
 
 import {AppUpdateNotice} from './features/app-update/AppUpdateNotice'
 import {LoadingIncidentNotice} from './features/app-update/LoadingIncidentNotice'
@@ -108,7 +108,9 @@ const BASE_MOBILE_VISIBLE_ITEM_COUNT = 2
 const COMPACT_MOBILE_VISIBLE_ITEM_COUNT = 3
 
 function App() {
-  const {key: locationKey, pathname, search} = useLocation()
+  const location = useLocation()
+  const {key: locationKey, pathname, search} = location
+  const locationState: unknown = location.state
   const appUpdateNotice = useAppUpdateNotice()
   const loadingIncident = useLoadingIncident({pathname})
   const [storage] = useState(() => getBrowserLocalStorage())
@@ -136,7 +138,7 @@ function App() {
   const mobileOverflowItems = MOBILE_NAV_ITEMS.slice(mobileVisibleItemCount)
   const hasMobileOverflow = mobileOverflowItems.length > 0
   const mobileNavOpen = mobileNavOpenLocationKey === locationKey && hasMobileOverflow
-  const routeErrorBoundaryKey = getDatabaseBrowsePathForLocation(pathname) ?? pathname
+  const routeErrorBoundaryKey = getDatabaseRouteBoundaryKey(pathname, locationState)
 
   // Mobile overflow state is keyed by the router location; this effect only wires Escape while open.
   useEffect(() => {

@@ -642,6 +642,7 @@ function DbDetailAwakenerRouteModal({
 }: DbDetailKindRouteModalProps<'awakener'>) {
   const routerLocation = useLocation()
   const navigate = useNavigate()
+  const routerLocationState: unknown = routerLocation.state
   const registryEntry = dbDetailRegistry.awakener
   const {error, isLoading, record, retry} = useDatabaseDetailRouteRecord({
     id: activeRef.id,
@@ -661,9 +662,16 @@ function DbDetailAwakenerRouteModal({
         pathname: canonicalTabPath,
         search: routerLocation.search,
       },
-      {replace: true},
+      {replace: true, state: routerLocationState},
     )
-  }, [canonicalTabPath, navigate, record, routerLocation.pathname, routerLocation.search])
+  }, [
+    canonicalTabPath,
+    navigate,
+    record,
+    routerLocation.pathname,
+    routerLocation.search,
+    routerLocationState,
+  ])
 
   if (isLoading) {
     return (
@@ -746,6 +754,7 @@ function DbDetailRelicRouteModal({
   wheels,
 }: DbDetailKindRouteModalProps<'relic'>) {
   const location = useLocation()
+  const locationState: unknown = location.state
   const registryEntry = dbDetailRegistry.relic
   return (
     <DbDetailRouteRecordBoundary
@@ -760,7 +769,9 @@ function DbDetailRelicRouteModal({
 
         return (
           <>
-            {resolution.replaceTarget ? <Navigate replace to={resolution.replaceTarget} /> : null}
+            {resolution.replaceTarget ? (
+              <Navigate replace state={locationState} to={resolution.replaceTarget} />
+            ) : null}
             {registryEntry.render({
               awakeners,
               callbacks,

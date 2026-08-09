@@ -12,6 +12,11 @@ import {
   buildDatabaseWheelPath,
 } from '@/domain/database-paths'
 import {
+  createDatabaseDetailFromBrowseState,
+  getDatabaseDetailBrowseOrigin,
+  type DatabaseDetailBrowseOrigin,
+} from '@/features/database/detail/database-detail-history'
+import {
   getDatabaseDetailKindForEntity,
   preloadDatabaseDetail,
   preloadDatabaseDetailShell,
@@ -28,10 +33,13 @@ import {
 
 interface UseEntityBrowseControllerOptions {
   activeEntity: DatabaseEntityId
+  browseOrigin: DatabaseDetailBrowseOrigin | null
   isDetailOpen: boolean
   locationPathname: string
   locationSearch: string
+  locationState: unknown
   navigate: NavigateFunction
+  routeEntity: DatabaseEntityId
 }
 
 type ActiveEntitySearchControlOptions = UseEntityBrowseControllerOptions
@@ -47,6 +55,9 @@ function createOpenDetailHandler<TEntry extends {id: string}>(
   buildPath: (entry: TEntry) => string,
   navigate: NavigateFunction,
   activeSearch: string,
+  locationState: unknown,
+  originEntity: DatabaseEntityId,
+  originPathname: string,
 ) {
   return (entryId: string) => {
     const entry = entries.find((candidate) => candidate.id === entryId)
@@ -54,10 +65,19 @@ function createOpenDetailHandler<TEntry extends {id: string}>(
       return
     }
 
-    void navigate({
-      pathname: buildPath(entry),
-      search: activeSearch,
-    })
+    void navigate(
+      {
+        pathname: buildPath(entry),
+        search: activeSearch,
+      },
+      {
+        state: createDatabaseDetailFromBrowseState(locationState, {
+          entity: originEntity,
+          pathname: originPathname,
+          search: activeSearch,
+        }),
+      },
+    )
   }
 }
 
@@ -69,51 +89,65 @@ function createPreloadDetailHandler(kind: DatabaseDetailKind) {
 
 function useActiveEntitySearchControls({
   activeEntity,
+  browseOrigin,
   isDetailOpen,
   locationPathname,
   locationSearch,
+  locationState,
   navigate,
+  routeEntity,
 }: ActiveEntitySearchControlOptions) {
   const searchInputRef = useRef<HTMLInputElement | null>(null)
-  const activeSearch = sanitizeDatabaseEntitySearch(activeEntity, locationSearch, {
+  const activeSearch = sanitizeDatabaseEntitySearch(
+    activeEntity,
+    browseOrigin?.search ?? locationSearch,
+  )
+  const detailSearch = sanitizeDatabaseEntitySearch(routeEntity, locationSearch, {
     includeDetailState: isDetailOpen,
   })
-  const browsePath = buildDatabaseEntityBrowsePath(activeEntity)
+  const browsePath = browseOrigin?.pathname ?? buildDatabaseEntityBrowsePath(activeEntity)
 
   useEffect(() => {
-    if (locationSearch === activeSearch) {
+    if (locationSearch === detailSearch) {
       return
     }
 
     void navigate(
       {
         pathname: locationPathname,
-        search: activeSearch,
+        search: detailSearch,
       },
-      {replace: true},
+      {replace: true, state: locationState},
     )
-  }, [activeSearch, locationPathname, locationSearch, navigate])
+  }, [detailSearch, locationPathname, locationSearch, locationState, navigate])
 
   return {
     activeSearch,
     browsePath,
+    detailSearch,
     searchInputRef,
   }
 }
 
 export function useEntityBrowseController({
   activeEntity,
+  browseOrigin,
   isDetailOpen,
   locationPathname,
   locationSearch,
+  locationState,
   navigate,
+  routeEntity,
 }: UseEntityBrowseControllerOptions) {
-  const {activeSearch, browsePath, searchInputRef} = useActiveEntitySearchControls({
+  const {activeSearch, browsePath, detailSearch, searchInputRef} = useActiveEntitySearchControls({
     activeEntity,
+    browseOrigin,
     isDetailOpen,
     locationPathname,
     locationSearch,
+    locationState,
     navigate,
+    routeEntity,
   })
   const activeDetailKind = getDatabaseDetailKindForEntity(activeEntity)
 
@@ -129,25 +163,68 @@ export function useEntityBrowseController({
 
   const openAwakenerDetail = useMemo(
     () =>
-      createOpenDetailHandler(databaseAwakeners, buildDatabaseAwakenerPath, navigate, activeSearch),
-    [activeSearch, navigate],
+      createOpenDetailHandler(
+        databaseAwakeners,
+        buildDatabaseAwakenerPath,
+        navigate,
+        activeSearch,
+        locationState,
+        activeEntity,
+        browsePath,
+      ),
+    [activeEntity, activeSearch, browsePath, locationState, navigate],
   )
   const openWheelDetail = useMemo(
-    () => createOpenDetailHandler(databaseWheels, buildDatabaseWheelPath, navigate, activeSearch),
-    [activeSearch, navigate],
+    () =>
+      createOpenDetailHandler(
+        databaseWheels,
+        buildDatabaseWheelPath,
+        navigate,
+        activeSearch,
+        locationState,
+        activeEntity,
+        browsePath,
+      ),
+    [activeEntity, activeSearch, browsePath, locationState, navigate],
   )
   const openPosseDetail = useMemo(
-    () => createOpenDetailHandler(databasePosses, buildDatabasePossePath, navigate, activeSearch),
-    [activeSearch, navigate],
+    () =>
+      createOpenDetailHandler(
+        databasePosses,
+        buildDatabasePossePath,
+        navigate,
+        activeSearch,
+        locationState,
+        activeEntity,
+        browsePath,
+      ),
+    [activeEntity, activeSearch, browsePath, locationState, navigate],
   )
   const openCovenantDetail = useMemo(
     () =>
-      createOpenDetailHandler(databaseCovenants, buildDatabaseCovenantPath, navigate, activeSearch),
-    [activeSearch, navigate],
+      createOpenDetailHandler(
+        databaseCovenants,
+        buildDatabaseCovenantPath,
+        navigate,
+        activeSearch,
+        locationState,
+        activeEntity,
+        browsePath,
+      ),
+    [activeEntity, activeSearch, browsePath, locationState, navigate],
   )
   const openRelicDetail = useMemo(
-    () => createOpenDetailHandler(databaseRelics, buildDatabaseRelicPath, navigate, activeSearch),
-    [activeSearch, navigate],
+    () =>
+      createOpenDetailHandler(
+        databaseRelics,
+        buildDatabaseRelicPath,
+        navigate,
+        activeSearch,
+        locationState,
+        activeEntity,
+        browsePath,
+      ),
+    [activeEntity, activeSearch, browsePath, locationState, navigate],
   )
   const preloadAwakenerDetail = useMemo(() => createPreloadDetailHandler('awakener'), [])
   const preloadWheelDetail = useMemo(() => createPreloadDetailHandler('wheel'), [])
@@ -156,16 +233,25 @@ export function useEntityBrowseController({
   const preloadRelicDetail = useMemo(() => createPreloadDetailHandler('relic'), [])
 
   const closeDetail = useCallback(() => {
-    void navigate({
-      pathname: browsePath,
-      search: sanitizeDatabaseEntitySearch(activeEntity, activeSearch),
-    })
-  }, [activeEntity, activeSearch, browsePath, navigate])
+    if (getDatabaseDetailBrowseOrigin(locationState)) {
+      void navigate(-1)
+      return
+    }
+
+    void navigate(
+      {
+        pathname: browsePath,
+        search: sanitizeDatabaseEntitySearch(activeEntity, activeSearch),
+      },
+      {replace: true},
+    )
+  }, [activeEntity, activeSearch, browsePath, locationState, navigate])
 
   return {
     activeEntity,
     activeSearch,
     browsePath,
+    detailSearch,
     isDetailOpen,
     searchInputRef,
     openAwakenerDetail,

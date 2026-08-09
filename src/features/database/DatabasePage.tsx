@@ -50,6 +50,7 @@ import {
   databaseWheels,
 } from './data'
 import {DatabaseLayout} from './DatabaseLayout'
+import {getDatabaseDetailBrowseOrigin} from './detail/database-detail-history'
 import type {DatabaseDetailResultSet} from './detail/database-detail-result-navigation'
 import {DbDetailModalHost} from './detail/DbDetailModalHost'
 
@@ -104,6 +105,7 @@ interface DetailRouteCorrectionParams {
   canonicalPath: string | null
   hasSelectedDetail: boolean
   locationPathname: string
+  locationState: unknown
   navigate: NavigateFunction
   slug: string | undefined
 }
@@ -114,6 +116,7 @@ function useDetailRouteCorrection({
   canonicalPath,
   hasSelectedDetail,
   locationPathname,
+  locationState,
   navigate,
   slug,
 }: DetailRouteCorrectionParams) {
@@ -125,10 +128,10 @@ function useDetailRouteCorrection({
           pathname: browsePath,
           search: activeSearch,
         },
-        {replace: true},
+        {replace: true, state: locationState},
       )
     }
-  }, [activeSearch, browsePath, hasSelectedDetail, navigate, slug])
+  }, [activeSearch, browsePath, hasSelectedDetail, locationState, navigate, slug])
 
   useEffect(() => {
     if (!slug || !hasSelectedDetail || !canonicalPath) {
@@ -142,9 +145,17 @@ function useDetailRouteCorrection({
         pathname: canonicalPath,
         search: activeSearch,
       },
-      {replace: true},
+      {replace: true, state: locationState},
     )
-  }, [activeSearch, canonicalPath, hasSelectedDetail, locationPathname, navigate, slug])
+  }, [
+    activeSearch,
+    canonicalPath,
+    hasSelectedDetail,
+    locationPathname,
+    locationState,
+    navigate,
+    slug,
+  ])
 }
 
 interface DatabasePageProps {
@@ -154,6 +165,7 @@ interface DatabasePageProps {
 export function DatabasePage({routeEntity}: DatabasePageProps = {}) {
   const location = useLocation()
   const navigate = useNavigate()
+  const locationState: unknown = location.state
   const {awakenerSlug, covenantSlug, posseSlug, relicSlug, tabSlug, wheelSlug} = useParams()
   const selectedAwakener = findAwakenerByDatabaseSlug(databaseAwakeners, awakenerSlug)
   const selectedWheel = findWheelByDatabaseSlug(databaseWheels, wheelSlug)
@@ -165,17 +177,23 @@ export function DatabasePage({routeEntity}: DatabasePageProps = {}) {
   const selectedTab = tabSlug
     ? resolveDatabaseAwakenerVisibleTab(resolveDatabaseAwakenerTab(tabSlug))
     : resolveDatabaseDetailDefaultAwakenerTab(undefined, detailPreferenceStorage)
-  const activeEntity = routeEntity ?? getActiveDatabaseEntity(location.pathname)
+  const currentRouteEntity = routeEntity ?? getActiveDatabaseEntity(location.pathname)
+  const browseOrigin = getDatabaseDetailBrowseOrigin(locationState)
+  const activeEntity = browseOrigin?.entity ?? currentRouteEntity
+  const isDetailOpen = Boolean(
+    selectedAwakener ?? selectedWheel ?? selectedPosse ?? selectedCovenant ?? selectedRelic,
+  )
   const browseController = useEntityBrowseController({
     activeEntity,
-    isDetailOpen: Boolean(
-      selectedAwakener ?? selectedWheel ?? selectedPosse ?? selectedCovenant ?? selectedRelic,
-    ),
+    browseOrigin,
+    isDetailOpen,
     locationPathname: location.pathname,
     locationSearch: location.search,
+    locationState,
     navigate,
+    routeEntity: currentRouteEntity,
   })
-  const activeSearch = browseController.activeSearch
+  const activeSearch = browseController.detailSearch
   const canonicalAwakenerPath =
     awakenerSlug && selectedAwakener
       ? buildCanonicalAwakenerRoutePath(selectedAwakener, awakenerSlug, selectedTab)
@@ -195,6 +213,7 @@ export function DatabasePage({routeEntity}: DatabasePageProps = {}) {
     canonicalPath: canonicalAwakenerPath,
     hasSelectedDetail: Boolean(selectedAwakener),
     locationPathname: location.pathname,
+    locationState,
     navigate,
     slug: awakenerSlug,
   })
@@ -205,6 +224,7 @@ export function DatabasePage({routeEntity}: DatabasePageProps = {}) {
     canonicalPath: canonicalWheelPath,
     hasSelectedDetail: Boolean(selectedWheel),
     locationPathname: location.pathname,
+    locationState,
     navigate,
     slug: wheelSlug,
   })
@@ -215,6 +235,7 @@ export function DatabasePage({routeEntity}: DatabasePageProps = {}) {
     canonicalPath: canonicalPossePath,
     hasSelectedDetail: Boolean(selectedPosse),
     locationPathname: location.pathname,
+    locationState,
     navigate,
     slug: posseSlug,
   })
@@ -225,6 +246,7 @@ export function DatabasePage({routeEntity}: DatabasePageProps = {}) {
     canonicalPath: canonicalCovenantPath,
     hasSelectedDetail: Boolean(selectedCovenant),
     locationPathname: location.pathname,
+    locationState,
     navigate,
     slug: covenantSlug,
   })
@@ -235,6 +257,7 @@ export function DatabasePage({routeEntity}: DatabasePageProps = {}) {
     canonicalPath: canonicalRelicPath,
     hasSelectedDetail: Boolean(selectedRelic),
     locationPathname: location.pathname,
+    locationState,
     navigate,
     slug: relicSlug,
   })
@@ -273,12 +296,15 @@ export function DatabasePage({routeEntity}: DatabasePageProps = {}) {
       if (!selectedAwakener) {
         return
       }
-      void navigate({
-        pathname: buildDatabaseAwakenerPath(selectedAwakener, nextTab),
-        search: activeSearch,
-      })
+      void navigate(
+        {
+          pathname: buildDatabaseAwakenerPath(selectedAwakener, nextTab),
+          search: activeSearch,
+        },
+        {replace: true, state: locationState},
+      )
     },
-    [activeSearch, navigate, selectedAwakener],
+    [activeSearch, locationState, navigate, selectedAwakener],
   )
 
   const handleModalAwakenerSelect = useCallback(
@@ -286,52 +312,67 @@ export function DatabasePage({routeEntity}: DatabasePageProps = {}) {
       nextAwakener: Pick<Awakener, 'id' | 'name'>,
       nextTab: DatabaseAwakenerTab = DEFAULT_DATABASE_AWAKENER_TAB,
     ) => {
-      void navigate({
-        pathname: buildDatabaseAwakenerPath(nextAwakener, nextTab),
-        search: sanitizeDatabaseEntitySearch('awakeners', activeSearch),
-      })
+      void navigate(
+        {
+          pathname: buildDatabaseAwakenerPath(nextAwakener, nextTab),
+          search: sanitizeDatabaseEntitySearch('awakeners', activeSearch),
+        },
+        {replace: true, state: locationState},
+      )
     },
-    [activeSearch, navigate],
+    [activeSearch, locationState, navigate],
   )
 
   const handleModalWheelSelect = useCallback(
     (nextWheel: Pick<Wheel, 'id' | 'name'>) => {
-      void navigate({
-        pathname: buildDatabaseWheelPath(nextWheel),
-        search: sanitizeDatabaseEntitySearch('wheels', activeSearch),
-      })
+      void navigate(
+        {
+          pathname: buildDatabaseWheelPath(nextWheel),
+          search: sanitizeDatabaseEntitySearch('wheels', activeSearch),
+        },
+        {replace: true, state: locationState},
+      )
     },
-    [activeSearch, navigate],
+    [activeSearch, locationState, navigate],
   )
 
   const handleModalCovenantSelect = useCallback(
     (nextCovenant: Pick<Covenant, 'id' | 'name'>) => {
-      void navigate({
-        pathname: buildDatabaseCovenantPath(nextCovenant),
-        search: sanitizeDatabaseEntitySearch('covenants', activeSearch),
-      })
+      void navigate(
+        {
+          pathname: buildDatabaseCovenantPath(nextCovenant),
+          search: sanitizeDatabaseEntitySearch('covenants', activeSearch),
+        },
+        {replace: true, state: locationState},
+      )
     },
-    [activeSearch, navigate],
+    [activeSearch, locationState, navigate],
   )
 
   const handleModalPosseSelect = useCallback(
     (nextPosse: {id: string; name: string}) => {
-      void navigate({
-        pathname: buildDatabasePossePath(nextPosse),
-        search: sanitizeDatabaseEntitySearch('posses', activeSearch),
-      })
+      void navigate(
+        {
+          pathname: buildDatabasePossePath(nextPosse),
+          search: sanitizeDatabaseEntitySearch('posses', activeSearch),
+        },
+        {replace: true, state: locationState},
+      )
     },
-    [activeSearch, navigate],
+    [activeSearch, locationState, navigate],
   )
 
   const handleModalRelicSelect = useCallback(
     (nextRelic: Pick<Relic, 'id' | 'name'>) => {
-      void navigate({
-        pathname: buildDatabaseRelicPath(nextRelic),
-        search: sanitizeDatabaseEntitySearch('relics', activeSearch),
-      })
+      void navigate(
+        {
+          pathname: buildDatabaseRelicPath(nextRelic),
+          search: sanitizeDatabaseEntitySearch('relics', activeSearch),
+        },
+        {replace: true, state: locationState},
+      )
     },
-    [activeSearch, navigate],
+    [activeSearch, locationState, navigate],
   )
 
   const handleRelicVariantChange = useCallback(
@@ -347,10 +388,10 @@ export function DatabasePage({routeEntity}: DatabasePageProps = {}) {
           pathname: location.pathname,
           search: nextParams.size > 0 ? `?${nextParams.toString()}` : '',
         },
-        {replace: true},
+        {replace: true, state: locationState},
       )
     },
-    [activeSearch, location.pathname, navigate],
+    [activeSearch, location.pathname, locationState, navigate],
   )
 
   const detailCallbacks = useMemo(
