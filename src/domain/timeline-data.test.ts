@@ -118,8 +118,13 @@ describe('timeline data loading', () => {
     )
 
     expect(lotanBanner?.featured).toMatchObject([
-      {kind: 'awakener', name: 'Lotan: Cetarchon', detailLink: undefined},
-      {kind: 'wheel', name: 'Cetus Occasus', detailLink: undefined},
+      {
+        customArt: undefined,
+        detailLink: undefined,
+        kind: 'awakener',
+        name: 'Lotan: Cetarchon',
+      },
+      {customArt: undefined, detailLink: undefined, kind: 'wheel', name: 'Cetus Occasus'},
     ])
     expect(lotanEvent?.featured).toMatchObject([
       {kind: 'awakener', name: 'Lotan: Cetarchon', detailLink: undefined},

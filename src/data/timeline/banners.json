@@ -244,13 +244,11 @@
     "featured": [
       {
         "name": "Lotan: Cetarchon",
-        "kind": "awakener",
-        "customArt": "/banners/lotan-char-prelim.webp"
+        "kind": "awakener"
       },
       {
         "name": "Cetus Occasus",
-        "kind": "wheel",
-        "customArt": "/banners/lotan-wheel-prelim.webp"
+        "kind": "wheel"
       }
     ],
     "pinned": true
