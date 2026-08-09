@@ -3,7 +3,7 @@ import {useState} from 'react'
 import {fireEvent, render, screen} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import {MemoryRouter} from 'react-router'
-import {describe, expect, it, vi} from 'vitest'
+import {beforeEach, describe, expect, it, vi} from 'vitest'
 
 import {getRelicById, loadRelicRecordById} from '@/domain/relics'
 
@@ -17,7 +17,16 @@ async function loadFixture(id: string) {
   return {fullData, item}
 }
 
+function setModalViewport(width: number) {
+  Object.defineProperty(window, 'innerWidth', {configurable: true, value: width})
+  fireEvent(window, new Event('resize'))
+}
+
 describe('RelicDetailModal', () => {
+  beforeEach(() => {
+    setModalViewport(1024)
+  })
+
   it('de-duplicates equivalent variant type and category metadata', () => {
     expect(getRelicVariantMetadataLabels({category: 'PENDULUM', variantType: 'PENDULUM'})).toEqual([
       'Pendulum',
@@ -314,5 +323,22 @@ describe('RelicDetailModal', () => {
       key: 'ArrowDown',
     })
     expect(onRelicVariantChange).not.toHaveBeenCalled()
+  })
+
+  it('mounts one relic art image at either responsive detail-art slot', async () => {
+    const {fullData, item} = await loadFixture('relic-0001')
+    render(
+      <MemoryRouter>
+        <RelicDetailModal fullData={fullData} item={item} onClose={vi.fn()} />
+      </MemoryRouter>,
+    )
+
+    expect(document.querySelector('[data-detail-art-viewport="desktop"]')).not.toBeNull()
+    expect(screen.getAllByRole('button', {name: /view full art/i})).toHaveLength(1)
+
+    setModalViewport(767)
+
+    expect(document.querySelector('[data-detail-art-viewport="desktop"]')).toBeNull()
+    expect(screen.getAllByRole('button', {name: /view full art/i})).toHaveLength(1)
   })
 })

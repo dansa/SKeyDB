@@ -70,8 +70,14 @@ function makeWheelFullRecord(overrides: Partial<WheelFullRecord> = {}): WheelFul
   }
 }
 
+function setModalViewport(width: number) {
+  Object.defineProperty(window, 'innerWidth', {configurable: true, value: width})
+  fireEvent(window, new Event('resize'))
+}
+
 describe('WheelDetailModal', () => {
   beforeEach(() => {
+    setModalViewport(1024)
     mockGetWheelAssetById.mockReset()
     mockGetWheelAssetById.mockReturnValue('/wheel.webp')
     window.localStorage.clear()
@@ -600,6 +606,27 @@ describe('WheelDetailModal', () => {
     )
 
     expect(screen.getAllByText('No Image').length).toBeGreaterThan(0)
+  })
+
+  it('mounts exactly one artwork variant across the modal breakpoint', () => {
+    render(
+      <WheelDetailModal
+        fullData={makeWheelFullRecord()}
+        onClose={vi.fn()}
+        wheel={makeWheel()}
+        wheels={[makeWheel()]}
+      />,
+    )
+
+    expect(document.querySelector('[data-wheel-artwork-variant="sidebar"]')).not.toBeNull()
+    expect(document.querySelector('[data-wheel-artwork-variant="compact"]')).toBeNull()
+    expect(document.querySelectorAll('img[src="/wheel.webp"]')).toHaveLength(1)
+
+    setModalViewport(767)
+
+    expect(document.querySelector('[data-wheel-artwork-variant="sidebar"]')).toBeNull()
+    expect(document.querySelector('[data-wheel-artwork-variant="compact"]')).not.toBeNull()
+    expect(document.querySelectorAll('img[src="/wheel.webp"]')).toHaveLength(1)
   })
 
   it('opens the full wheel art overlay and closes it on backdrop click', () => {

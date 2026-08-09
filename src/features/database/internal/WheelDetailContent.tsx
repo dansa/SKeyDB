@@ -77,7 +77,7 @@ export function WheelDetailContent({
     <div className='flex h-full min-h-0 max-w-3xl flex-col'>
       <div className='shrink-0 border-b border-slate-800/75 pr-20 pb-5'>
         <div className='flex items-center gap-4 md:block'>
-          {mobileArtwork ? <div className='shrink-0 md:hidden'>{mobileArtwork}</div> : null}
+          {mobileArtwork ? <div className='shrink-0'>{mobileArtwork}</div> : null}
           <div className='min-w-0'>
             <div className='flex flex-wrap items-center gap-2'>
               <h3 className={DATABASE_DETAIL_HEADER_TITLE_CLASS}>{wheel.name}</h3>

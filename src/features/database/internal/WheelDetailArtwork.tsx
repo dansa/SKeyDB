@@ -34,7 +34,11 @@ export function WheelDetailArtwork({
   const hideFrameFromAccessibilityTree = !asset || !onOpenFullArt
 
   return (
-    <div className={rootClassName} style={getWheelArtLineStyle(lineAccent)}>
+    <div
+      className={rootClassName}
+      data-wheel-artwork-variant={variant}
+      style={getWheelArtLineStyle(lineAccent)}
+    >
       <div aria-hidden={hideFrameFromAccessibilityTree || undefined} className={frameClassName}>
         {isCompact ? null : (
           <>

@@ -1,5 +1,5 @@
 import {fireEvent, render, screen} from '@testing-library/react'
-import {describe, expect, it, vi} from 'vitest'
+import {beforeEach, describe, expect, it, vi} from 'vitest'
 
 import type {ResolvedDatabaseReferenceLayer} from '@/domain/database-reference-layer'
 import {buildPublicFormulaContext} from '@/domain/public-formula-context'
@@ -51,7 +51,16 @@ function getDetailOverlay(): HTMLElement {
   return shell.parentElement
 }
 
+function setModalViewport(width: number) {
+  Object.defineProperty(window, 'innerWidth', {configurable: true, value: width})
+  fireEvent(window, new Event('resize'))
+}
+
 describe('DbDetailShell', () => {
+  beforeEach(() => {
+    setModalViewport(1024)
+  })
+
   it('dismisses settings before closing on Escape and closes from outside clicks', () => {
     const onClose = vi.fn()
 
@@ -92,5 +101,22 @@ describe('DbDetailShell', () => {
     fireEvent.click(screen.getByRole('dialog', {name: /test artifact full art/i}))
 
     expect(screen.queryByRole('dialog', {name: /test artifact full art/i})).not.toBeInTheDocument()
+  })
+
+  it('unmounts desktop side art below the modal breakpoint', () => {
+    render(<TestShell onClose={vi.fn()} />)
+
+    expect(document.querySelector('[data-detail-art-viewport="desktop"]')).not.toBeNull()
+    expect(document.querySelectorAll('img[src="/artifact-full.webp"]')).toHaveLength(1)
+
+    setModalViewport(767)
+
+    expect(document.querySelector('[data-detail-art-viewport="desktop"]')).toBeNull()
+    expect(document.querySelectorAll('img[src="/artifact-full.webp"]')).toHaveLength(0)
+
+    setModalViewport(768)
+
+    expect(document.querySelector('[data-detail-art-viewport="desktop"]')).not.toBeNull()
+    expect(document.querySelectorAll('img[src="/artifact-full.webp"]')).toHaveLength(1)
   })
 })
