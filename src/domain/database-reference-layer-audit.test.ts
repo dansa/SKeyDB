@@ -1,11 +1,11 @@
 import {describe, expect, it} from 'vitest'
 
-import {getPublicCatalogRecords} from '@/data-access/public-data/catalogRepository'
 import type {EntityRef} from '@/data-access/public-data/contract'
 import {
   resolvePublicReferenceTokenResult,
   type PublicReferenceResolveResult,
 } from '@/data-access/public-data/referenceRepository'
+import {getTestPublicCatalogRecords} from '@/data-access/public-data/testSupport/publicCatalogs'
 
 import {resolveDatabaseReferenceInfo} from './database-reference-info'
 import type {ResolvedDatabaseReferenceLayer} from './database-reference-layer'
@@ -140,7 +140,7 @@ function reportReferenceTokenIssues(issues: TokenAuditIssue[]): void {
 
 async function loadWheelRecords(): Promise<WheelFullRecord[]> {
   const records = await Promise.all(
-    getPublicCatalogRecords('wheels').map((entry) => loadPublicWheelDetailById(entry.id)),
+    getTestPublicCatalogRecords('wheels').map((entry) => loadPublicWheelDetailById(entry.id)),
   )
   return records.filter(Boolean) as WheelFullRecord[]
 }

@@ -1,6 +1,6 @@
 import {describe, expect, it} from 'vitest'
 
-import {getPublicCatalogRecords} from '@/data-access/public-data/repository'
+import {getTestPublicCatalogRecords} from '@/data-access/public-data/testSupport/publicCatalogs'
 
 import currentPersistenceContract from './persistence-contract.current.json'
 import v1Contract from './persistence-contract.v1.json'
@@ -17,8 +17,8 @@ import {
   WHEEL_ID_V1_TO_CURRENT,
 } from './persistence-id-migration'
 
-function publicIds(scope: Parameters<typeof getPublicCatalogRecords>[0]): Set<string> {
-  return new Set(getPublicCatalogRecords(scope).map((record) => record.id))
+function publicIds(scope: Parameters<typeof getTestPublicCatalogRecords>[0]): Set<string> {
+  return new Set(getTestPublicCatalogRecords(scope).map((record) => record.id))
 }
 
 function contractIds(records: {id: string}[]): Set<string> {

@@ -1,6 +1,6 @@
 import {describe, expect, it} from 'vitest'
 
-import {loadPublicRecord} from '@/data-access/public-data/repository'
+import {loadPublicRecord} from '@/data-access/public-data/recordRepository'
 
 import {
   getDerivedSkillById,

@@ -1,8 +1,8 @@
 import {describe, expect, it} from 'vitest'
 
-import {getPublicCatalogRecords} from '@/data-access/public-data/catalogRepository'
 import {PUBLIC_DATA_SCOPES, type PublicDataScope} from '@/data-access/public-data/contract'
-import {loadPublicRecord} from '@/data-access/public-data/repository'
+import {loadPublicRecord} from '@/data-access/public-data/recordRepository'
+import {getTestPublicCatalogRecords} from '@/data-access/public-data/testSupport/publicCatalogs'
 
 import type {AwakenerSkillRecord} from './awakener-source-schema'
 import {resolveAwakenerFullRecord} from './awakeners-full-resolver'
@@ -61,7 +61,7 @@ describe('description-args', () => {
 
     for (const scope of DETAIL_DESCRIPTION_SCOPES) {
       const records = await Promise.all(
-        getPublicCatalogRecords(scope).map((entry) => loadPublicRecord(scope, entry.id)),
+        getTestPublicCatalogRecords(scope).map((entry) => loadPublicRecord(scope, entry.id)),
       )
 
       for (const record of records) {

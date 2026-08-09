@@ -1,8 +1,8 @@
 import {afterEach, describe, expect, it, vi} from 'vitest'
 
-import {getPublicCatalogRecords} from '@/data-access/public-data/catalogRepository'
 import type {EntityKind, PublicDataScope, PublicRecord} from '@/data-access/public-data/contract'
-import {loadPublicRecord} from '@/data-access/public-data/repository'
+import {loadPublicRecord} from '@/data-access/public-data/recordRepository'
+import {getTestPublicCatalogRecords} from '@/data-access/public-data/testSupport/publicCatalogs'
 
 import {
   loadPublicAwakenerDetailById,
@@ -500,7 +500,7 @@ describe('public-detail-record-adapters', () => {
       keyof typeof POPOVER_DETAIL_LOADERS,
       PublicDetailLoader,
     ][]) {
-      for (const record of getPublicCatalogRecords(scope)) {
+      for (const record of getTestPublicCatalogRecords(scope)) {
         try {
           await loadDetail(record.id)
         } catch (error) {
