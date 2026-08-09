@@ -78,4 +78,45 @@ describe('dbDetailStore', () => {
 
     expect(store.getState().stack).toEqual([])
   })
+
+  test('closeOverlaySource removes each matching root and its reference descendants', () => {
+    const store = createDbDetailStore()
+
+    store.getState().replaceRouteDetail({kind: 'awakener', id: 'route-root'})
+    store.getState().openDetail({kind: 'wheel', id: 'builder-root-1'}, 'builder-overlay')
+    store.getState().pushReferenceDetail({kind: 'posse', id: 'builder-reference-1'})
+    store.getState().openDetail({kind: 'covenant', id: 'collection-root'}, 'collection-overlay')
+    store.getState().pushReferenceDetail({kind: 'awakener', id: 'collection-reference'})
+    store.getState().openDetail({kind: 'wheel', id: 'builder-root-2'}, 'builder-overlay')
+    store.getState().pushReferenceDetail({kind: 'posse', id: 'builder-reference-2'})
+    store.getState().openDetail({kind: 'awakener', id: 'timeline-root'}, 'timeline-overlay')
+    store.getState().pushReferenceDetail({kind: 'wheel', id: 'timeline-reference'})
+
+    store.getState().closeOverlaySource('builder-overlay')
+
+    expect(store.getState().stack).toEqual([
+      {kind: 'awakener', id: 'route-root', source: 'database-route'},
+      {kind: 'covenant', id: 'collection-root', source: 'collection-overlay'},
+      {kind: 'awakener', id: 'collection-reference', source: 'reference'},
+      {kind: 'awakener', id: 'timeline-root', source: 'timeline-overlay'},
+      {kind: 'wheel', id: 'timeline-reference', source: 'reference'},
+    ])
+  })
+
+  test('closeOverlaySource is idempotent when its branch is absent', () => {
+    const store = createDbDetailStore()
+
+    store.getState().replaceRouteDetail({kind: 'awakener', id: 'route-root'})
+    store.getState().openDetail({kind: 'covenant', id: 'collection-root'}, 'collection-overlay')
+    store.getState().pushReferenceDetail({kind: 'wheel', id: 'collection-reference'})
+
+    store.getState().closeOverlaySource('builder-overlay')
+    store.getState().closeOverlaySource('builder-overlay')
+
+    expect(store.getState().stack).toEqual([
+      {kind: 'awakener', id: 'route-root', source: 'database-route'},
+      {kind: 'covenant', id: 'collection-root', source: 'collection-overlay'},
+      {kind: 'wheel', id: 'collection-reference', source: 'reference'},
+    ])
+  })
 })

@@ -15,6 +15,7 @@ import {
 } from '@/domain/timeline-routing'
 import {getWheels} from '@/domain/wheels'
 import {DbDetailModalHost} from '@/features/database/detail/DbDetailModalHost'
+import {useDbDetailOverlayOwner} from '@/features/database/detail/useDbDetailOverlayOwner'
 import {dbDetailStore} from '@/stores/dbDetailStore'
 import {SeasonMasthead} from '@/ui/masthead/SeasonMasthead'
 
@@ -34,6 +35,7 @@ function openTimelineDetail(ref: EntityRef) {
 }
 
 export function TimelinePage() {
+  useDbDetailOverlayOwner('timeline-overlay')
   const now = useTimelineNow()
   const [searchParams, setSearchParams] = useSearchParams()
   const timelineSection = parseTimelineSectionId(searchParams.get('section'))

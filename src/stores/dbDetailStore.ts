@@ -27,6 +27,7 @@ export interface DbDetailState {
   replaceRouteDetail: (ref: EntityRef) => void
   pushReferenceDetail: (ref: EntityRef) => void
   popDetail: () => void
+  closeOverlaySource: (source: DbDetailOverlaySource) => void
   closeAllDetails: () => void
   syncFromRoute: (ref: EntityRef | null) => void
 }
@@ -37,6 +38,27 @@ function stackEntry(ref: EntityRef, source: DbDetailSource): DbDetailStackEntry 
 
 function withoutRouteEntries(stack: DbDetailStackEntry[]): DbDetailStackEntry[] {
   return stack.filter((entry) => entry.source !== 'database-route')
+}
+
+function withoutOverlaySourceBranches(
+  stack: DbDetailStackEntry[],
+  source: DbDetailOverlaySource,
+): DbDetailStackEntry[] {
+  let isRemovingReferenceDescendants = false
+
+  return stack.filter((entry) => {
+    if (entry.source === source) {
+      isRemovingReferenceDescendants = true
+      return false
+    }
+
+    if (entry.source === 'reference' && isRemovingReferenceDescendants) {
+      return false
+    }
+
+    isRemovingReferenceDescendants = false
+    return true
+  })
 }
 
 export function createDbDetailStore() {
@@ -72,6 +94,11 @@ export function createDbDetailStore() {
     popDetail: () => {
       set((state) => ({
         stack: state.stack.slice(0, -1),
+      }))
+    },
+    closeOverlaySource: (source) => {
+      set((state) => ({
+        stack: withoutOverlaySourceBranches(state.stack, source),
       }))
     },
     closeAllDetails: () => {

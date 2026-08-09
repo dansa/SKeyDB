@@ -9,6 +9,7 @@ import {Toast} from '@/components/ui/Toast'
 import {useTimedToast} from '@/components/ui/useTimedToast'
 import {getWheels} from '@/domain/wheels'
 import {DbDetailModalHost} from '@/features/database/detail/DbDetailModalHost'
+import {useDbDetailOverlayOwner} from '@/features/database/detail/useDbDetailOverlayOwner'
 import {dbDetailStore} from '@/stores/dbDetailStore'
 
 import {BuilderImportExportDialogs} from '../builder/BuilderImportExportDialogs'
@@ -44,6 +45,7 @@ const BUILDER_V2_ADAPTIVE_BREAKPOINT_PX = 1056
 type BuilderV2ViewportMode = 'mobile' | 'adaptive' | 'desktop'
 
 export function BuilderV2Page() {
+  useDbDetailOverlayOwner('builder-overlay')
   const {toastEntries, showToast} = useTimedToast({defaultDurationMs: 3200})
   const model = useBuilderV2Model({showToast})
   const viewportMode = useBuilderV2ViewportMode()

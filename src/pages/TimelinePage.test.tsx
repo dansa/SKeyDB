@@ -5,6 +5,7 @@ import {afterEach, describe, expect, it, vi} from 'vitest'
 import {TimelinePage} from './TimelinePage'
 
 const detailStoreMocks = vi.hoisted(() => ({
+  closeOverlaySource: vi.fn(),
   openDetail: vi.fn(),
   popDetail: vi.fn(),
 }))
@@ -121,6 +122,7 @@ function renderTimelinePage(initialEntries = ['/timeline']) {
 
 afterEach(() => {
   vi.useRealTimers()
+  detailStoreMocks.closeOverlaySource.mockReset()
   detailStoreMocks.openDetail.mockReset()
   detailStoreMocks.popDetail.mockReset()
 })

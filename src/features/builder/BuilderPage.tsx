@@ -10,6 +10,7 @@ import type {Covenant} from '@/domain/covenants'
 import type {Posse} from '@/domain/posses'
 import {getWheels, type Wheel} from '@/domain/wheels'
 import {DbDetailModalHost} from '@/features/database/detail/DbDetailModalHost'
+import {useDbDetailOverlayOwner} from '@/features/database/detail/useDbDetailOverlayOwner'
 import {dbDetailStore} from '@/stores/dbDetailStore'
 
 import {BuilderActiveTeamPanel} from './BuilderActiveTeamPanel'
@@ -70,6 +71,7 @@ function openPosseDetailOverlay(posse: Posse) {
 
 // react-doctor-disable-next-line react-doctor/no-giant-component -- classic Builder is retiring; only breaking fixes are in scope while Builder V2 replaces it.
 export function BuilderPage() {
+  useDbDetailOverlayOwner('builder-overlay')
   const {toastEntries, showToast} = useTimedToast({defaultDurationMs: 3200})
   const searchInputRef = useRef<HTMLInputElement | null>(null)
   const builderSectionRef = useRef<HTMLElement | null>(null)

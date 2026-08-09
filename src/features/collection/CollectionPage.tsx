@@ -8,6 +8,7 @@ import {getAwakeners} from '@/domain/awakeners'
 import {getCovenants} from '@/domain/covenants'
 import {getWheels} from '@/domain/wheels'
 import {DbDetailModalHost} from '@/features/database/detail/DbDetailModalHost'
+import {useDbDetailOverlayOwner} from '@/features/database/detail/useDbDetailOverlayOwner'
 import {dbDetailStore} from '@/stores/dbDetailStore'
 import {useGlobalSearchCapture} from '@/ui/search/useGlobalSearchCapture'
 
@@ -64,6 +65,7 @@ function swallowOutsideLevelClickIfCardInteraction(event: MouseEvent | PointerEv
 }
 
 export function CollectionPage() {
+  useDbDetailOverlayOwner('collection-overlay')
   const model = useCollectionViewModel()
   const searchInputRef = useRef<HTMLInputElement | null>(null)
   const importFileInputRef = useRef<HTMLInputElement | null>(null)
