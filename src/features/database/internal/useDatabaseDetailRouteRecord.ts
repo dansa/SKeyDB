@@ -16,6 +16,18 @@ interface UseDatabaseDetailRecordOptions<TRecord> {
   onMissingRecord?: () => void
 }
 
+interface DatabaseDetailRecordState<TRecord> {
+  error: Error | null
+  id: string
+  isLoading: boolean
+  loadRecord: DatabaseDetailRecordLoader<TRecord>
+  record: TRecord | null
+}
+
+function normalizeDatabaseDetailRecordError(error: unknown): Error {
+  return error instanceof Error ? error : new Error('Database detail record load failed')
+}
+
 const recordCacheByLoader = new WeakMap<DatabaseDetailRecordLoader<unknown>, Map<string, unknown>>()
 const pendingRecordLoadsByLoader = new WeakMap<
   DatabaseDetailRecordLoader<unknown>,
@@ -60,7 +72,13 @@ function loadAndCacheDatabaseDetailRecord<TRecord>({
     return pendingLoad
   }
 
-  const loadPromise = loadRecord(id).then(
+  let recordLoad: Promise<TRecord | undefined>
+  try {
+    recordLoad = loadRecord(id)
+  } catch (error) {
+    recordLoad = Promise.reject(normalizeDatabaseDetailRecordError(error))
+  }
+  const loadPromise = recordLoad.then(
     (nextRecord) => {
       recordCache.set(cacheKey, nextRecord ?? null)
       pendingLoads.delete(cacheKey)
@@ -105,15 +123,20 @@ export function useDatabaseDetailRecord<TRecord>({
   const recordCache = getRecordCache<TRecord>(loadRecord)
   const initialCacheKey = id
   const initialCachedRecord = recordCache.get(initialCacheKey)
-  const [state, setState] = useState<{
-    id: string
-    isLoading: boolean
-    record: TRecord | null
-  }>(() => ({
+  const [retryVersion, setRetryVersion] = useState(0)
+  const [state, setState] = useState<DatabaseDetailRecordState<TRecord>>(() => ({
+    error: null,
     id,
     isLoading: !recordCache.has(initialCacheKey),
+    loadRecord,
     record: initialCachedRecord ?? null,
   }))
+
+  const retry = useCallback(() => {
+    recordCache.delete(id)
+    setState({error: null, id, isLoading: true, loadRecord, record: null})
+    setRetryVersion((currentVersion) => currentVersion + 1)
+  }, [id, loadRecord, recordCache])
 
   useEffect(() => {
     let isCancelled = false
@@ -126,38 +149,60 @@ export function useDatabaseDetailRecord<TRecord>({
       return undefined
     }
 
-    void loadAndCacheDatabaseDetailRecord({id, loadRecord}).then((nextRecord) => {
-      if (isCancelled) {
-        return
-      }
+    void loadAndCacheDatabaseDetailRecord({id, loadRecord}).then(
+      (nextRecord) => {
+        if (isCancelled) {
+          return
+        }
 
-      setState({
-        id,
-        isLoading: false,
-        record: nextRecord ?? null,
-      })
+        setState({
+          error: null,
+          id,
+          isLoading: false,
+          loadRecord,
+          record: nextRecord ?? null,
+        })
 
-      if (!nextRecord) {
-        onMissingRecord?.()
-      }
-    })
+        if (!nextRecord) {
+          onMissingRecord?.()
+        }
+      },
+      (error: unknown) => {
+        if (!isCancelled) {
+          setState({
+            error: normalizeDatabaseDetailRecordError(error),
+            id,
+            isLoading: false,
+            loadRecord,
+            record: null,
+          })
+        }
+      },
+    )
 
     return () => {
       isCancelled = true
     }
-  }, [id, loadRecord, onMissingRecord, recordCache])
+  }, [id, loadRecord, onMissingRecord, recordCache, retryVersion])
 
-  if (state.id !== id) {
+  if (state.id !== id || state.loadRecord !== loadRecord) {
     const cacheKey = id
     if (recordCache.has(cacheKey)) {
-      return {isLoading: false, record: recordCache.get(cacheKey) ?? null}
+      return {
+        error: null,
+        isLoading: false,
+        record: recordCache.get(cacheKey) ?? null,
+        retry,
+      }
     }
-    return {isLoading: true, record: null}
+    return {error: null, isLoading: true, record: null, retry}
   }
 
   return {
+    error: state.error,
     isLoading: state.isLoading,
     record: state.record,
+    retry,
   }
 }
 

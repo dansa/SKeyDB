@@ -689,7 +689,7 @@ describe('DbDetailModalHost route entries', () => {
       </MemoryRouter>,
     )
 
-    expect(screen.getByRole('status')).toHaveTextContent('Loading wheel details...')
+    expect(document.querySelector('[aria-busy="true"]')).toBeInTheDocument()
     expect(screen.getByLabelText('Next result: Shared Dream')).toBeInTheDocument()
     expect(document.querySelector('[data-detail-modal-shell]')).toBeInTheDocument()
 
@@ -699,6 +699,69 @@ describe('DbDetailModalHost route entries', () => {
       expect(dbDetailRegistry.wheel.render).toHaveBeenCalled()
     })
     expect(screen.getByRole('dialog', {name: /merciful nurturing details/i})).toBeInTheDocument()
+  })
+
+  it('shows a bounded route-record error and retries the failed load', async () => {
+    const wheelLoadRecord = vi.mocked(dbDetailRegistry.wheel.loadRecord)
+    const callsBeforeRender = wheelLoadRecord.mock.calls.length
+    wheelLoadRecord
+      .mockRejectedValueOnce(new Error('controlled route-record failure'))
+      .mockResolvedValueOnce(mockWheelRecord)
+    const callbacks = {
+      onClose: vi.fn(),
+      onSelectAwakener: vi.fn(),
+      onSelectCovenant: vi.fn(),
+      onSelectPosse: vi.fn(),
+      onSelectWheel: vi.fn(),
+      onTabChange: vi.fn(),
+    }
+
+    render(
+      <MemoryRouter initialEntries={['/database/wheels/merciful-nurturing']}>
+        <DbDetailModalHost
+          awakeners={awakeners}
+          callbacks={callbacks}
+          routeItem={{kind: 'wheel', item: wheels[0]}}
+          wheels={wheels}
+        />
+      </MemoryRouter>,
+    )
+
+    expect(await screen.findByRole('alert')).toBeInTheDocument()
+    expect(screen.getByRole('button', {name: 'Close details'})).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', {name: 'Retry loading details'}))
+
+    await waitFor(() => {
+      expect(dbDetailRegistry.wheel.render).toHaveBeenCalled()
+    })
+    expect(wheelLoadRecord.mock.calls).toHaveLength(callsBeforeRender + 2)
+  })
+
+  it('closes the route-loading modal with Escape', () => {
+    vi.mocked(dbDetailRegistry.wheel.loadRecord).mockReturnValue(new Promise(() => undefined))
+    const callbacks = {
+      onClose: vi.fn(),
+      onSelectAwakener: vi.fn(),
+      onSelectCovenant: vi.fn(),
+      onSelectPosse: vi.fn(),
+      onSelectWheel: vi.fn(),
+      onTabChange: vi.fn(),
+    }
+
+    render(
+      <MemoryRouter initialEntries={['/database/wheels/merciful-nurturing']}>
+        <DbDetailModalHost
+          awakeners={awakeners}
+          callbacks={callbacks}
+          routeItem={{kind: 'wheel', item: wheels[0]}}
+          wheels={wheels}
+        />
+      </MemoryRouter>,
+    )
+
+    fireEvent.keyDown(screen.getByRole('dialog'), {key: 'Escape'})
+
+    expect(callbacks.onClose).toHaveBeenCalledTimes(1)
   })
 
   it('waits for the selected route record before preloading neighboring result records', async () => {

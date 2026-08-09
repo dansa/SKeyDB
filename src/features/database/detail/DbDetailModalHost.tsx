@@ -169,16 +169,20 @@ function useDeferredDatabaseDetailNeighborPreload(
 }
 
 interface DbDetailRouteLoadingModalProps {
+  error?: Error | null
   loadingLabel: string
   navigation: DatabaseDetailResultNavigation | null
   onClose: () => void
+  onRetry?: () => void
   routeItem: DatabaseDetailRouteItem
 }
 
 function DbDetailRouteLoadingModal({
+  error = null,
   loadingLabel,
   navigation,
   onClose,
+  onRetry,
   routeItem,
 }: DbDetailRouteLoadingModalProps) {
   const itemName = routeItem.item.name
@@ -204,6 +208,11 @@ function DbDetailRouteLoadingModal({
         </>
       }
       maxWidth={registryEntry.loadingMaxWidth}
+      onCancel={(event) => {
+        event.preventDefault()
+        event.stopPropagation()
+        onClose()
+      }}
       onOverlayClick={(event) => {
         if (event.target === event.currentTarget) {
           onClose()
@@ -211,7 +220,7 @@ function DbDetailRouteLoadingModal({
       }}
     >
       <div
-        aria-busy='true'
+        aria-busy={error ? undefined : 'true'}
         className='relative flex min-h-[16rem] min-w-0 items-center justify-center overflow-hidden border border-amber-200/55 bg-slate-950/[.985] px-6 py-12 text-center shadow-[0_24px_70px_rgba(2,6,23,0.8)]'
       >
         <button
@@ -224,7 +233,30 @@ function DbDetailRouteLoadingModal({
         </button>
         <div>
           <div className='ui-title text-lg text-amber-100'>{itemName}</div>
-          <output className='mt-3 block text-sm text-slate-400'>{loadingLabel}</output>
+          {error ? (
+            <div className='mx-auto mt-3 max-w-md text-sm text-slate-300'>
+              <p role='alert'>These details could not be loaded.</p>
+              <p className='mt-1 text-slate-500'>Try again, or close this window.</p>
+              <div className='mt-5 flex flex-wrap justify-center gap-2'>
+                <button
+                  className='border border-amber-200/45 bg-amber-100/8 px-4 py-2 text-amber-100 transition-colors hover:border-amber-200/70 hover:bg-amber-100/12 focus-visible:ring-2 focus-visible:ring-amber-200/30 focus-visible:outline-none motion-reduce:transition-none'
+                  onClick={onRetry}
+                  type='button'
+                >
+                  Retry loading details
+                </button>
+                <button
+                  className='border border-slate-500/40 bg-slate-950/70 px-4 py-2 text-slate-300 transition-colors hover:border-slate-400/65 hover:text-slate-100 focus-visible:ring-2 focus-visible:ring-slate-300/30 focus-visible:outline-none motion-reduce:transition-none'
+                  onClick={onClose}
+                  type='button'
+                >
+                  Close details
+                </button>
+              </div>
+            </div>
+          ) : (
+            <output className='mt-3 block text-sm text-slate-400'>{loadingLabel}</output>
+          )}
         </div>
       </div>
     </DbDetailModalFrame>
@@ -432,16 +464,32 @@ function DbDetailOverlayModalContent<Kind extends DatabaseDetailKind>({
 }: DbDetailOverlayModalContentProps<Kind>) {
   // Public detail records can disappear between overlay open and async load completion.
   const registryEntry = dbDetailRegistry[kind]
-  const {isLoading, record} = useDatabaseDetailRecord({id, loadRecord: registryEntry.loadRecord})
+  const {error, isLoading, record, retry} = useDatabaseDetailRecord({
+    id,
+    loadRecord: registryEntry.loadRecord,
+  })
 
   useEffect(() => {
-    if (!isLoading && !record) {
+    if (!isLoading && !error && !record) {
       dbDetailStore.getState().popDetail()
     }
-  }, [isLoading, record])
+  }, [error, isLoading, record])
 
   if (isLoading) {
     return <div className='px-2 py-3 text-sm text-slate-300'>{registryEntry.loadingLabel}</div>
+  }
+
+  if (error) {
+    return (
+      <DbDetailRouteLoadingModal
+        error={error}
+        loadingLabel={registryEntry.loadingLabel}
+        navigation={null}
+        onClose={callbacks.onClose}
+        onRetry={retry}
+        routeItem={routeItem}
+      />
+    )
   }
 
   if (!record) {
@@ -549,7 +597,7 @@ function DbDetailRouteRecordBoundary<Kind extends Exclude<DatabaseDetailKind, 'a
   routeItem,
 }: DbDetailRouteRecordBoundaryProps<Kind>) {
   const registryEntry = dbDetailRegistry[kind]
-  const {isLoading, record} = useDatabaseDetailRouteRecord({
+  const {error, isLoading, record, retry} = useDatabaseDetailRouteRecord({
     id: activeRef.id,
     loadRecord: registryEntry.loadRecord,
     missingPathname: registryEntry.missingBrowsePath,
@@ -562,6 +610,19 @@ function DbDetailRouteRecordBoundary<Kind extends Exclude<DatabaseDetailKind, 'a
         loadingLabel={registryEntry.loadingLabel}
         navigation={navigation}
         onClose={callbacks.onClose}
+        routeItem={routeItem}
+      />
+    )
+  }
+
+  if (error) {
+    return (
+      <DbDetailRouteLoadingModal
+        error={error}
+        loadingLabel={registryEntry.loadingLabel}
+        navigation={navigation}
+        onClose={callbacks.onClose}
+        onRetry={retry}
         routeItem={routeItem}
       />
     )
@@ -582,7 +643,7 @@ function DbDetailAwakenerRouteModal({
   const routerLocation = useLocation()
   const navigate = useNavigate()
   const registryEntry = dbDetailRegistry.awakener
-  const {isLoading, record} = useDatabaseDetailRouteRecord({
+  const {error, isLoading, record, retry} = useDatabaseDetailRouteRecord({
     id: activeRef.id,
     loadRecord: registryEntry.loadRecord,
     missingPathname: registryEntry.missingBrowsePath,
@@ -610,6 +671,19 @@ function DbDetailAwakenerRouteModal({
         loadingLabel={registryEntry.loadingLabel}
         navigation={navigation}
         onClose={callbacks.onClose}
+        routeItem={routeItem}
+      />
+    )
+  }
+
+  if (error) {
+    return (
+      <DbDetailRouteLoadingModal
+        error={error}
+        loadingLabel={registryEntry.loadingLabel}
+        navigation={navigation}
+        onClose={callbacks.onClose}
+        onRetry={retry}
         routeItem={routeItem}
       />
     )
