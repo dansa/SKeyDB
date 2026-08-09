@@ -18,6 +18,7 @@ afterEach(() => {
   document.body.style.right = ''
   document.body.style.width = ''
   document.documentElement.style.overflow = ''
+  document.documentElement.style.scrollbarGutter = ''
 })
 
 function renderChrome({
@@ -74,10 +75,11 @@ describe('useDetailModalChrome', () => {
 
     const {hook} = renderChrome()
 
-    expect(document.body.style.overflow).toBe('hidden')
-    expect(document.body.style.position).toBe('fixed')
-    expect(document.body.style.width).toBe('100%')
+    expect(document.body.style.overflow).toBe('auto')
+    expect(document.body.style.position).toBe('')
+    expect(document.body.style.width).toBe('')
     expect(document.documentElement.style.overflow).toBe('hidden')
+    expect(document.documentElement.style.scrollbarGutter).toBe('stable')
 
     hook.unmount()
 
@@ -85,6 +87,7 @@ describe('useDetailModalChrome', () => {
     expect(document.body.style.position).toBe('')
     expect(document.body.style.width).toBe('')
     expect(document.documentElement.style.overflow).toBe('scroll')
+    expect(document.documentElement.style.scrollbarGutter).toBe('')
   })
 
   it('keeps popovers open when calculation-context controls bubble to the overlay', () => {

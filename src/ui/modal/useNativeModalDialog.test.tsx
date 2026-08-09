@@ -61,6 +61,7 @@ describe('useNativeModalDialog', () => {
     document.body.style.right = ''
     document.body.style.width = ''
     document.documentElement.style.overflow = ''
+    document.documentElement.style.scrollbarGutter = ''
     document.body.replaceChildren()
   })
 
@@ -131,7 +132,7 @@ describe('useNativeModalDialog', () => {
     const dialog = screen.getByRole('dialog', {name: 'Native modal'})
 
     expect(document.activeElement).toBe(screen.getByRole('button', {name: 'Initial action'}))
-    expect(document.body.style.overflow).toBe('hidden')
+    expect(document.body.style.overflow).toBe('auto')
 
     const cancelEvent = new Event('cancel', {cancelable: true})
     act(() => {
@@ -188,21 +189,24 @@ describe('useNativeModalDialog', () => {
 
     const {rerender, unmount} = render(<LockedDialogStack showFirst={true} showSecond={true} />)
 
-    expect(document.body.style.overflow).toBe('hidden')
-    expect(document.body.style.position).toBe('fixed')
+    expect(document.body.style.overflow).toBe('auto')
+    expect(document.body.style.position).toBe('')
     expect(document.documentElement.style.overflow).toBe('hidden')
+    expect(document.documentElement.style.scrollbarGutter).toBe('stable')
 
     rerender(<LockedDialogStack showFirst={false} showSecond={true} />)
 
-    expect(document.body.style.overflow).toBe('hidden')
-    expect(document.body.style.position).toBe('fixed')
+    expect(document.body.style.overflow).toBe('auto')
+    expect(document.body.style.position).toBe('')
     expect(document.documentElement.style.overflow).toBe('hidden')
+    expect(document.documentElement.style.scrollbarGutter).toBe('stable')
 
     unmount()
 
     expect(document.body.style.overflow).toBe('auto')
     expect(document.body.style.position).toBe('')
     expect(document.documentElement.style.overflow).toBe('scroll')
+    expect(document.documentElement.style.scrollbarGutter).toBe('')
   })
 })
 

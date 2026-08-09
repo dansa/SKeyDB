@@ -4,6 +4,7 @@ import {FaChevronRight, FaMagnifyingGlass, FaXmark} from 'react-icons/fa6'
 
 import type {DzoneSeasonSummary} from '@/domain/dzone'
 import {getDzoneSeasonSummaryDisplayName} from '@/domain/dzone-season-realm'
+import {acquirePageScrollLock, releasePageScrollLock} from '@/ui/modal/pageScrollLock'
 
 import {formatDzoneSeasonBrowserDateRange} from './d-zone-date-format'
 import {
@@ -73,9 +74,8 @@ function useDrawerModalBehavior({
       return
     }
 
-    const originalOverflow = document.body.style.overflow
+    const scrollLockToken = acquirePageScrollLock()
     const openerElementToRestore = openerElementRef.current
-    document.body.style.overflow = 'hidden'
 
     const focusTimer = window.setTimeout(() => {
       const drawer = drawerRef.current
@@ -142,7 +142,7 @@ function useDrawerModalBehavior({
 
     return () => {
       window.clearTimeout(focusTimer)
-      document.body.style.overflow = originalOverflow
+      releasePageScrollLock(scrollLockToken)
       document.removeEventListener('keydown', handleDocumentKeyDown)
       openerElementToRestore?.focus()
     }

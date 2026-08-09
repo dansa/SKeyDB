@@ -435,7 +435,9 @@ describe('DZoneHistoryPage', () => {
       'aria-modal',
       'true',
     )
-    expect(document.body.style.overflow).toBe('hidden')
+    expect(document.body.style.overflow).toBe('')
+    expect(document.documentElement.style.overflow).toBe('hidden')
+    expect(document.documentElement.style.scrollbarGutter).toBe('stable')
     await waitFor(() => {
       expect(getDrawerCloseButton()).toHaveFocus()
     })
@@ -443,6 +445,8 @@ describe('DZoneHistoryPage', () => {
     await user.click(getDrawerCloseButton())
     expect(trigger).toHaveAttribute('aria-expanded', 'false')
     expect(document.body.style.overflow).toBe('')
+    expect(document.documentElement.style.overflow).toBe('')
+    expect(document.documentElement.style.scrollbarGutter).toBe('')
     expect(trigger).toHaveFocus()
 
     await user.click(trigger)
