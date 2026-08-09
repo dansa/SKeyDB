@@ -20,23 +20,29 @@ function renderPanel(onAccountLevelChange = vi.fn()) {
 }
 
 describe('DetailSettingsPanel', () => {
-  it('updates the account level for a valid numeric value', () => {
+  it('commits a valid account level on blur', () => {
     const onAccountLevelChange = renderPanel()
+    const input = screen.getByRole('spinbutton', {name: 'Account level'})
 
-    fireEvent.change(screen.getByRole('spinbutton', {name: 'Account level'}), {
-      target: {value: '72'},
-    })
+    fireEvent.change(input, {target: {value: '72'}})
+    expect(onAccountLevelChange).not.toHaveBeenCalled()
+    fireEvent.blur(input)
 
     expect(onAccountLevelChange).toHaveBeenCalledWith(72)
   })
 
-  it('ignores an empty account level instead of emitting zero or NaN', () => {
+  it('allows an empty account level draft and restores the committed value with Escape', () => {
     const onAccountLevelChange = renderPanel()
+    const input = screen.getByRole('spinbutton', {name: 'Account level'})
 
-    fireEvent.change(screen.getByRole('spinbutton', {name: 'Account level'}), {
-      target: {value: ''},
-    })
+    fireEvent.change(input, {target: {value: ''}})
 
+    expect(input).toHaveValue(null)
+    expect(onAccountLevelChange).not.toHaveBeenCalled()
+
+    fireEvent.keyDown(input, {key: 'Escape'})
+
+    expect(input).toHaveValue(50)
     expect(onAccountLevelChange).not.toHaveBeenCalled()
   })
 })

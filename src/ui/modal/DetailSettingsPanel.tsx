@@ -1,6 +1,6 @@
 import type {ReactNode} from 'react'
 
-import {CALCULATION_CONTEXT_CONTROL_PROPS} from './calculationContextControl'
+import {BufferedLevelInput} from './BufferedLevelInput'
 
 type DetailSettingsFontScale = 'small' | 'medium' | 'large'
 
@@ -106,23 +106,12 @@ export function DetailSettingsPanel({
               <span className='mb-1 block text-[10px] tracking-[0.16em] text-slate-500 uppercase'>
                 Account level
               </span>
-              <input
-                aria-label='Account level'
+              <BufferedLevelInput
+                ariaLabel='Account level'
                 className='database-account-level-input w-full border border-slate-600/45 bg-slate-950/70 px-2 py-1 text-right text-[12px] text-amber-100 outline-none focus:border-amber-200/60'
-                {...CALCULATION_CONTEXT_CONTROL_PROPS}
                 max={100}
                 min={1}
-                onBlur={(event) => {
-                  event.currentTarget.value = String(accountLevel)
-                }}
-                onChange={(event) => {
-                  const nextAccountLevel = event.currentTarget.valueAsNumber
-                  if (Number.isFinite(nextAccountLevel)) {
-                    onAccountLevelChange(nextAccountLevel)
-                  }
-                }}
-                step={1}
-                type='number'
+                onCommit={onAccountLevelChange}
                 value={accountLevel}
               />
             </label>

@@ -1,3 +1,6 @@
+import {BufferedLevelInput} from '@/ui/modal/BufferedLevelInput'
+import {CALCULATION_CONTEXT_CONTROL_PROPS} from '@/ui/modal/calculationContextControl'
+
 interface DetailLevelSliderProps {
   compact?: boolean
   label: string
@@ -28,14 +31,21 @@ export function DetailLevelSlider({
   const valueLabel = formatValueLabel ? formatValueLabel(level) : `Lv. ${String(level)}`
 
   return (
-    <label className='grid gap-0.5'>
+    <div className='grid gap-0.5' {...CALCULATION_CONTEXT_CONTROL_PROPS}>
       <span className='flex items-center justify-between text-[9px] tracking-wide text-slate-400 uppercase'>
         <span>{label}</span>
-        <span className='rounded border border-slate-500/55 bg-slate-950/80 px-1.5 py-0.5 font-mono text-[10px] tracking-normal text-slate-200 normal-case'>
-          {valueLabel}
-        </span>
+        <BufferedLevelInput
+          ariaLabel={label}
+          className={`rounded border border-slate-500/55 bg-slate-950/80 py-0.5 text-right font-mono text-[10px] tracking-normal text-slate-200 normal-case outline-none focus:border-amber-200/60 ${compact ? 'w-9 px-1' : 'w-11 px-1.5'}`}
+          max={max}
+          min={min}
+          onCommit={onChange}
+          title={valueLabel}
+          value={level}
+        />
       </span>
       <input
+        aria-label={label}
         aria-valuetext={valueLabel}
         className={compact ? 'export-box-slider export-box-slider--compact' : 'export-box-slider'}
         max={max}
@@ -47,6 +57,6 @@ export function DetailLevelSlider({
         type='range'
         value={level}
       />
-    </label>
+    </div>
   )
 }

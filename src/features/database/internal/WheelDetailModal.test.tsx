@@ -427,9 +427,11 @@ describe('WheelDetailModal', () => {
     ).toBeInTheDocument()
 
     fireEvent.click(screen.getByRole('button', {name: 'Open detail settings'}))
-    fireEvent.change(screen.getByRole('spinbutton', {name: 'Account level'}), {
+    const accountLevelInput = screen.getByRole('spinbutton', {name: 'Account level'})
+    fireEvent.change(accountLevelInput, {
       target: {value: '70'},
     })
+    fireEvent.blur(accountLevelInput)
 
     expect(window.localStorage.getItem('database-detail-preferences')).toContain(
       '"accountLevel":70',
