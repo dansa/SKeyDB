@@ -60,11 +60,14 @@ describe('DbDetailShell', () => {
     expect(getDetailOverlay()).toHaveClass('inset-0')
     expect(getDetailOverlay()).toHaveClass('z-[960]')
 
-    fireEvent.click(screen.getByRole('button', {name: 'Open detail settings'}))
-    expect(screen.getByRole('spinbutton', {name: 'Account level'})).toBeInTheDocument()
+    const settingsTrigger = screen.getByRole('button', {name: 'Open detail settings'})
+    fireEvent.click(settingsTrigger)
+    const accountLevelInput = screen.getByRole('spinbutton', {name: 'Account level'})
+    accountLevelInput.focus()
 
     fireEvent.keyDown(window, {key: 'Escape'})
     expect(screen.queryByRole('spinbutton', {name: 'Account level'})).not.toBeInTheDocument()
+    expect(document.activeElement).toBe(settingsTrigger)
     expect(onClose).not.toHaveBeenCalled()
 
     fireEvent.keyDown(window, {key: 'Escape'})

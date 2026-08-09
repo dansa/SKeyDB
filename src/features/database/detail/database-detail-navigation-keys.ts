@@ -1,19 +1,25 @@
-export function isDatabaseDetailNavigationEditingTarget(target: EventTarget | null): boolean {
+const ARROW_KEY_OWNER_SELECTOR = [
+  'a[href]',
+  'button',
+  'input',
+  'select',
+  'textarea',
+  '[contenteditable]:not([contenteditable="false"])',
+  '[role="button"]',
+  '[role="combobox"]',
+  '[role="listbox"]',
+  '[role="menu"]',
+  '[role="radio"]',
+  '[role="slider"]',
+  '[role="spinbutton"]',
+  '[role="tablist"]',
+  '[data-detail-result-navigation-boundary]',
+].join(', ')
+
+export function isDatabaseDetailNavigationKeyOwner(target: EventTarget | null): boolean {
   if (!(target instanceof Element)) {
     return false
   }
 
-  if (target.closest('[role="tablist"]')) {
-    return true
-  }
-
-  if (target instanceof HTMLElement && target.isContentEditable) {
-    return true
-  }
-
-  return (
-    target instanceof HTMLInputElement ||
-    target instanceof HTMLSelectElement ||
-    target instanceof HTMLTextAreaElement
-  )
+  return Boolean(target.closest(ARROW_KEY_OWNER_SELECTOR))
 }

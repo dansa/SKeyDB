@@ -39,6 +39,7 @@ export function ArtViewerOverlay({alt, onClose, onMount, src}: ArtViewerOverlayP
     <dialog
       aria-label={alt}
       className='fixed inset-0 z-[920] m-0 h-dvh max-h-none w-screen max-w-none items-center justify-center border-0 bg-slate-950/88 p-4 backdrop-blur-[2px] open:flex md:p-6'
+      data-detail-result-navigation-boundary=''
       ref={dialogRef}
       tabIndex={-1}
     >

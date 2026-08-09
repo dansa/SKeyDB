@@ -20,6 +20,15 @@ function renderPanel(onAccountLevelChange = vi.fn()) {
 }
 
 describe('DetailSettingsPanel', () => {
+  it('exposes the text-size chooser as a labelled group with its selected option', () => {
+    renderPanel()
+
+    const group = screen.getByRole('group')
+    expect(group).toHaveAccessibleName()
+    expect(group.querySelectorAll('[aria-pressed="true"]')).toHaveLength(1)
+    expect(group.querySelectorAll('[aria-pressed="false"]')).toHaveLength(2)
+  })
+
   it('commits a valid account level on blur', () => {
     const onAccountLevelChange = renderPanel()
     const input = screen.getByRole('spinbutton', {name: 'Account level'})

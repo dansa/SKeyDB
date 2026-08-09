@@ -14,7 +14,7 @@ import {
   type PublicRelicRecord,
   type Relic,
 } from '@/domain/relics'
-import {isDatabaseDetailNavigationEditingTarget} from '@/features/database/detail/database-detail-navigation-keys'
+import {isDatabaseDetailNavigationKeyOwner} from '@/features/database/detail/database-detail-navigation-keys'
 import {DbDetailShell} from '@/features/database/detail/DbDetailShell'
 import {OwnerAwakenerMetaLink} from '@/features/database/detail/OwnerAwakenerMetaLink'
 import {
@@ -66,7 +66,7 @@ function useRelicVariantNavigationKeys({
         event.ctrlKey ||
         event.metaKey ||
         event.shiftKey ||
-        isDatabaseDetailNavigationEditingTarget(event.target)
+        isDatabaseDetailNavigationKeyOwner(event.target)
       ) {
         return
       }

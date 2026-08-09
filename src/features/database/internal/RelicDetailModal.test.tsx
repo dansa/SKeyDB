@@ -275,9 +275,11 @@ describe('RelicDetailModal', () => {
     fireEvent.keyDown(window, {key: 'ArrowUp'})
     expect(onRelicVariantChange).not.toHaveBeenCalled()
 
-    fireEvent.keyDown(screen.getByRole('button', {name: 'Close relic detail'}), {
-      key: 'ArrowDown',
-    })
+    const modalHeading = document.querySelector('[data-detail-modal-shell] h3')
+    if (!modalHeading) {
+      throw new Error('Expected the relic detail heading')
+    }
+    fireEvent.keyDown(modalHeading, {key: 'ArrowDown'})
     expect(onRelicVariantChange).toHaveBeenLastCalledWith(secondVariant.id)
 
     fireEvent.keyDown(window, {key: 'ArrowUp'})

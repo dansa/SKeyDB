@@ -264,6 +264,7 @@ export function PopoverTrailPanel({
           ? 'inset-x-3 bottom-3 max-h-[min(72vh,34rem)]'
           : 'max-h-[calc(100vh-24px)] w-[min(22rem,calc(100vw-24px))]'
       }`}
+      data-detail-result-navigation-boundary=''
       data-skill-popover=''
       open
       ref={ref}

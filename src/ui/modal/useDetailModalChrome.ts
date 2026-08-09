@@ -41,6 +41,16 @@ export function useDetailModalChrome({
   )
   const panelRef = useRef<HTMLDivElement>(null)
   const settingsRef = useRef<HTMLDivElement>(null)
+  const wasSettingsOpenRef = useRef(false)
+
+  useEffect(() => {
+    if (wasSettingsOpenRef.current && !isSettingsOpen) {
+      settingsRef.current
+        ?.querySelector<HTMLElement>('[data-detail-settings-trigger]')
+        ?.focus({preventScroll: true})
+    }
+    wasSettingsOpenRef.current = isSettingsOpen
+  }, [isSettingsOpen])
 
   useEffect(() => {
     if (!isSettingsOpen) {
@@ -48,7 +58,10 @@ export function useDetailModalChrome({
     }
 
     function handlePointerDown(event: PointerEvent) {
-      const target = event.target as HTMLElement
+      const target = event.target
+      if (!(target instanceof Element)) {
+        return
+      }
       if (settingsRef.current?.contains(target)) {
         return
       }

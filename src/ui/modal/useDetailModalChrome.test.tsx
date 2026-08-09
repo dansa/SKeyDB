@@ -1,4 +1,4 @@
-import {act, renderHook} from '@testing-library/react'
+import {act, fireEvent, renderHook} from '@testing-library/react'
 import {afterEach, describe, expect, it, vi} from 'vitest'
 
 import {useDetailModalChrome} from './useDetailModalChrome'
@@ -155,6 +155,31 @@ describe('useDetailModalChrome', () => {
     } finally {
       externalSurface.remove()
     }
+  })
+
+  it('restores focus to the settings trigger after outside dismissal', () => {
+    const {hook} = renderChrome()
+    const settings = document.createElement('div')
+    const trigger = document.createElement('button')
+    const setting = document.createElement('input')
+    const outside = document.createElement('div')
+    trigger.dataset.detailSettingsTrigger = ''
+    settings.append(trigger, setting)
+    document.body.append(settings, outside)
+
+    act(() => {
+      hook.result.current.settingsRef.current = settings
+      hook.result.current.setIsSettingsOpen(true)
+    })
+    setting.focus()
+
+    fireEvent.pointerDown(outside)
+
+    expect(hook.result.current.isSettingsOpen).toBe(false)
+    expect(document.activeElement).toBe(trigger)
+
+    settings.remove()
+    outside.remove()
   })
 
   it('tracks mobile header viewport changes and cleans up the resize listener', () => {
