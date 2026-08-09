@@ -12,6 +12,7 @@ import {FaMagnifyingGlass, FaXmark} from 'react-icons/fa6'
 import {Navigate, useLocation, useNavigate} from 'react-router'
 
 import type {Awakener} from '@/domain/awakeners'
+import {getAwakeners} from '@/domain/awakeners'
 import type {Covenant} from '@/domain/covenants'
 import {
   buildDatabaseAwakenerPath,
@@ -22,12 +23,14 @@ import {
 } from '@/domain/database-paths'
 import type {EntityRef} from '@/domain/entities/types'
 import type {Relic} from '@/domain/relics'
+import {getRelics} from '@/domain/relics'
 import type {Wheel} from '@/domain/wheels'
+import {getWheels} from '@/domain/wheels'
 import {
   useDatabaseDetailRecord,
   useDatabaseDetailRouteRecord,
 } from '@/features/database/internal/useDatabaseDetailRouteRecord'
-import {dbDetailStore, type DbDetailStackEntry} from '@/stores/dbDetailStore'
+import type {DatabaseDetailOverlaySession} from '@/stores/dbDetailStore'
 
 import {
   createDatabaseDetailResultNavigation,
@@ -62,7 +65,8 @@ interface OverlayAwakenerTabState {
 
 export interface DbDetailModalHostProps {
   awakeners: Awakener[]
-  callbacks: DatabaseDetailRenderCallbacks
+  callbacks?: DatabaseDetailRenderCallbacks
+  overlaySession?: DatabaseDetailOverlaySession
   resultSet?: DatabaseDetailResultSet | null
   routeItem: DatabaseDetailRouteItem | null
   relics?: readonly Relic[]
@@ -70,11 +74,28 @@ export interface DbDetailModalHostProps {
   wheels: Wheel[]
 }
 
-function useDbDetailStackTop(): DbDetailStackEntry | null {
+export interface DatabaseDetailOverlayOutletProps {
+  session: DatabaseDetailOverlaySession
+}
+
+/** Renders one owner's overlay branch without exposing route callback plumbing. */
+export function DatabaseDetailOverlayOutlet(props: DatabaseDetailOverlayOutletProps) {
+  return (
+    <DbDetailModalHost
+      awakeners={getAwakeners()}
+      overlaySession={props.session}
+      relics={getRelics()}
+      routeItem={null}
+      wheels={getWheels()}
+    />
+  )
+}
+
+function useOverlaySessionTop(session?: DatabaseDetailOverlaySession): DatabaseDetailRef | null {
   return useSyncExternalStore(
-    dbDetailStore.subscribe,
-    () => dbDetailStore.getState().stack.at(-1) ?? null,
-    () => dbDetailStore.getState().stack.at(-1) ?? null,
+    session?.subscribe ?? (() => () => undefined),
+    session?.top ?? (() => null),
+    session?.top ?? (() => null),
   )
 }
 
@@ -266,17 +287,18 @@ function DbDetailRouteLoadingModal({
 export function DbDetailModalHost({
   awakeners,
   callbacks,
+  overlaySession,
   relics = EMPTY_RELICS,
   resultSet = null,
   routeItem,
   tabSlug,
   wheels,
 }: DbDetailModalHostProps) {
-  const stackTop = useDbDetailStackTop()
+  const overlayRef = useOverlaySessionTop(overlaySession)
   const activeRef: DatabaseDetailRef | null = routeItem
     ? {kind: routeItem.kind, id: routeItem.item.id}
-    : stackTop?.source !== 'database-route' && stackTop?.kind && isDatabaseDetailKind(stackTop.kind)
-      ? {kind: stackTop.kind, id: stackTop.id}
+    : overlayRef?.kind && isDatabaseDetailKind(overlayRef.kind)
+      ? {kind: overlayRef.kind, id: overlayRef.id}
       : null
   const activeAwakenerTab =
     routeItem?.kind === 'awakener' ? routeItem.activeTab : DEFAULT_DATABASE_AWAKENER_TAB
@@ -285,7 +307,7 @@ export function DbDetailModalHost({
       createDatabaseDetailResultNavigation({
         currentRef: routeItem ? {kind: routeItem.kind, id: routeItem.item.id} : null,
         onSelect: (ref) => {
-          selectDatabaseDetailResult(ref, callbacks, activeAwakenerTab)
+          if (callbacks) selectDatabaseDetailResult(ref, callbacks, activeAwakenerTab)
         },
         resultSet,
       }),
@@ -293,7 +315,7 @@ export function DbDetailModalHost({
   )
 
   if (!routeItem || activeRef?.kind !== routeItem.kind) {
-    if (!routeItem && activeRef) {
+    if (!routeItem && activeRef && overlaySession) {
       return (
         <Suspense
           fallback={<div className='px-2 py-3 text-sm text-slate-300'>Loading details…</div>}
@@ -301,14 +323,18 @@ export function DbDetailModalHost({
           <DbDetailOverlayModal
             activeRef={activeRef}
             awakeners={awakeners}
-            callbacks={callbacks}
             relics={relics}
+            session={overlaySession}
             wheels={wheels}
           />
         </Suspense>
       )
     }
     return null
+  }
+
+  if (!callbacks) {
+    throw new Error('Route detail hosts require route callbacks.')
   }
 
   return (
@@ -338,16 +364,16 @@ export function DbDetailModalHost({
 interface DbDetailOverlayModalProps {
   activeRef: DatabaseDetailRef
   awakeners: Awakener[]
-  callbacks: DatabaseDetailRenderCallbacks
   relics: readonly Relic[]
+  session: DatabaseDetailOverlaySession
   wheels: Wheel[]
 }
 
 function DbDetailOverlayModal({
   activeRef,
   awakeners,
-  callbacks,
   relics,
+  session,
   wheels,
 }: DbDetailOverlayModalProps) {
   const activeRefKey = `${activeRef.kind}:${activeRef.id}`
@@ -371,13 +397,11 @@ function DbDetailOverlayModal({
 
   useEffect(() => {
     if (!routeItem) {
-      dbDetailStore.getState().popDetail()
+      session.close()
     }
-  }, [routeItem])
+  }, [routeItem, session])
 
-  const onClose = useCallback(() => {
-    dbDetailStore.getState().popDetail()
-  }, [])
+  const onClose = session.close
   const onTabChange = useCallback(
     (nextTab: DatabaseAwakenerTab) => {
       setOverlayAwakenerTabState({activeTab: nextTab, refKey: activeRefKey})
@@ -388,39 +412,45 @@ function DbDetailOverlayModal({
     (awakener: Pick<Awakener, 'id' | 'name'>) => {
       const ref = resolveDatabaseDetailReference('awakener', detailRefLookup, awakener)
       if (ref) {
-        dbDetailStore.getState().pushReferenceDetail(ref)
+        session.followReference(ref)
       }
     },
-    [detailRefLookup],
+    [detailRefLookup, session],
   )
   const onSelectWheel = useCallback(
     (wheel: Pick<Wheel, 'name'> & Partial<Pick<Wheel, 'id'>>) => {
       const ref = resolveDatabaseDetailReference('wheel', detailRefLookup, wheel)
       if (ref) {
-        dbDetailStore.getState().pushReferenceDetail(ref)
+        session.followReference(ref)
       }
     },
-    [detailRefLookup],
+    [detailRefLookup, session],
   )
   const onSelectCovenant = useCallback(
     (covenant: Pick<Covenant, 'name'> & Partial<Pick<Covenant, 'id'>>) => {
       const ref = resolveDatabaseDetailReference('covenant', detailRefLookup, covenant)
       if (ref) {
-        dbDetailStore.getState().pushReferenceDetail(ref)
+        session.followReference(ref)
       }
     },
-    [detailRefLookup],
+    [detailRefLookup, session],
+  )
+  const onSelectPosse = useCallback(
+    (posse: {id: string}) => {
+      session.followReference({kind: 'posse', id: posse.id})
+    },
+    [session],
   )
   const overlayCallbacks = useMemo<DatabaseDetailRenderCallbacks>(
     () => ({
-      ...callbacks,
       onClose,
       onSelectAwakener,
       onSelectCovenant,
+      onSelectPosse,
       onSelectWheel,
       onTabChange,
     }),
-    [callbacks, onClose, onSelectAwakener, onSelectCovenant, onSelectWheel, onTabChange],
+    [onClose, onSelectAwakener, onSelectCovenant, onSelectPosse, onSelectWheel, onTabChange],
   )
 
   if (!routeItem) {
@@ -434,6 +464,7 @@ function DbDetailOverlayModal({
       id={activeRef.id}
       kind={routeItem.kind}
       routeItem={routeItem}
+      session={session}
       wheels={wheels}
     />
   )
@@ -445,6 +476,7 @@ interface DbDetailOverlayModalContentProps<Kind extends DatabaseDetailKind> {
   id: string
   kind: Kind
   routeItem: DatabaseDetailRouteItemByKind[Kind]
+  session: DatabaseDetailOverlaySession
   wheels: Wheel[]
 }
 
@@ -454,6 +486,7 @@ function DbDetailOverlayModalContent<Kind extends DatabaseDetailKind>({
   id,
   kind,
   routeItem,
+  session,
   wheels,
 }: DbDetailOverlayModalContentProps<Kind>) {
   // Public detail records can disappear between overlay open and async load completion.
@@ -465,9 +498,9 @@ function DbDetailOverlayModalContent<Kind extends DatabaseDetailKind>({
 
   useEffect(() => {
     if (!isLoading && !error && !record) {
-      dbDetailStore.getState().popDetail()
+      session.close()
     }
-  }, [error, isLoading, record])
+  }, [error, isLoading, record, session])
 
   if (isLoading) {
     return <div className='px-2 py-3 text-sm text-slate-300'>{registryEntry.loadingLabel}</div>

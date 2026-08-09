@@ -1,122 +1,75 @@
-import {describe, expect, test} from 'vitest'
+import {describe, expect, test, vi} from 'vitest'
 
-import {createDbDetailStore} from './dbDetailStore'
+import {createDatabaseDetailOverlaySession} from './dbDetailStore'
 
-describe('dbDetailStore', () => {
-  test('opening overlay details pushes entity refs with source metadata', () => {
-    const store = createDbDetailStore()
+describe('database detail overlay sessions', () => {
+  test('open exposes only the owner branch and replaces its previous root', () => {
+    const session = createDatabaseDetailOverlaySession()
 
-    store.getState().openDetail({kind: 'awakener', id: 'awakener-0001'}, 'builder-overlay')
-    store.getState().openDetail({kind: 'wheel', id: 'wheel-0002'}, 'collection-overlay')
+    session.open({kind: 'awakener', id: 'awakener-0001'})
+    session.open({kind: 'wheel', id: 'wheel-0002'})
 
-    expect(store.getState().stack).toEqual([
-      {kind: 'awakener', id: 'awakener-0001', source: 'builder-overlay'},
-      {kind: 'wheel', id: 'wheel-0002', source: 'collection-overlay'},
-    ])
+    expect(session.top()).toEqual({kind: 'wheel', id: 'wheel-0002'})
+    session.close()
+    expect(session.isOpen()).toBe(false)
   })
 
-  test('replaceRouteDetail replaces the route-bound entry instead of stacking route changes', () => {
-    const store = createDbDetailStore()
+  test('reference frames belong to the session that followed them', () => {
+    const collection = createDatabaseDetailOverlaySession()
+    const timeline = createDatabaseDetailOverlaySession()
 
-    store.getState().replaceRouteDetail({kind: 'awakener', id: 'awakener-0001'})
-    store.getState().openDetail({kind: 'posse', id: 'posse-0003'}, 'builder-overlay')
-    store.getState().replaceRouteDetail({kind: 'wheel', id: 'wheel-0002'})
+    collection.open({kind: 'covenant', id: 'collection-root'})
+    collection.followReference({kind: 'posse', id: 'collection-reference'})
+    timeline.open({kind: 'awakener', id: 'timeline-root'})
+    timeline.followReference({kind: 'wheel', id: 'timeline-reference'})
 
-    expect(store.getState().stack).toEqual([
-      {kind: 'wheel', id: 'wheel-0002', source: 'database-route'},
-      {kind: 'posse', id: 'posse-0003', source: 'builder-overlay'},
-    ])
+    expect(collection.top()).toEqual({kind: 'posse', id: 'collection-reference'})
+    expect(timeline.top()).toEqual({kind: 'wheel', id: 'timeline-reference'})
+
+    collection.close()
+    expect(collection.top()).toEqual({kind: 'covenant', id: 'collection-root'})
+    expect(timeline.top()).toEqual({kind: 'wheel', id: 'timeline-reference'})
   })
 
-  test('pushReferenceDetail stacks above the active detail and can be popped', () => {
-    const store = createDbDetailStore()
+  test('close removes only the active stale frame while dispose clears the owner branch', () => {
+    const session = createDatabaseDetailOverlaySession()
+    session.open({kind: 'awakener', id: 'root'})
+    session.followReference({kind: 'wheel', id: 'stale-reference'})
 
-    store.getState().openDetail({kind: 'covenant', id: 'covenant-0004'}, 'collection-overlay')
-    store.getState().pushReferenceDetail({kind: 'posse', id: 'posse-0003'})
-    store.getState().popDetail()
+    session.close()
+    expect(session.top()).toEqual({kind: 'awakener', id: 'root'})
 
-    expect(store.getState().stack).toEqual([
-      {kind: 'covenant', id: 'covenant-0004', source: 'collection-overlay'},
-    ])
+    session.followReference({kind: 'posse', id: 'reference'})
+    session.dispose()
+    expect(session.isOpen()).toBe(false)
   })
 
-  test('syncFromRoute null removes route-bound entries while preserving overlays and references', () => {
-    const store = createDbDetailStore()
+  test('does not create an orphan reference frame without an open root', () => {
+    const session = createDatabaseDetailOverlaySession()
 
-    store.getState().replaceRouteDetail({kind: 'awakener', id: 'awakener-0001'})
-    store.getState().openDetail({kind: 'wheel', id: 'wheel-0002'}, 'builder-overlay')
-    store.getState().pushReferenceDetail({kind: 'posse', id: 'posse-0003'})
-    store.getState().syncFromRoute(null)
+    session.followReference({kind: 'wheel', id: 'orphan'})
 
-    expect(store.getState().stack).toEqual([
-      {kind: 'wheel', id: 'wheel-0002', source: 'builder-overlay'},
-      {kind: 'posse', id: 'posse-0003', source: 'reference'},
-    ])
+    expect(session.isOpen()).toBe(false)
+    expect(session.top()).toBeNull()
   })
 
-  test('syncFromRoute ref replaces the route-bound entry while preserving overlays and references', () => {
-    const store = createDbDetailStore()
+  test('rejects entities that have no database detail renderer', () => {
+    const session = createDatabaseDetailOverlaySession()
 
-    store.getState().replaceRouteDetail({kind: 'awakener', id: 'awakener-0001'})
-    store.getState().openDetail({kind: 'wheel', id: 'wheel-0002'}, 'builder-overlay')
-    store.getState().pushReferenceDetail({kind: 'posse', id: 'posse-0003'})
-    store.getState().syncFromRoute({kind: 'covenant', id: 'covenant-0004'})
+    session.open({kind: 'unknown', id: 'unknown'} as never)
 
-    expect(store.getState().stack).toEqual([
-      {kind: 'covenant', id: 'covenant-0004', source: 'database-route'},
-      {kind: 'wheel', id: 'wheel-0002', source: 'builder-overlay'},
-      {kind: 'posse', id: 'posse-0003', source: 'reference'},
-    ])
+    expect(session.isOpen()).toBe(false)
   })
 
-  test('closeAllDetails empties the stack', () => {
-    const store = createDbDetailStore()
+  test('publishes narrow open-state changes to subscribers', () => {
+    const session = createDatabaseDetailOverlaySession()
+    const listener = vi.fn()
+    const unsubscribe = session.subscribe(listener)
 
-    store.getState().replaceRouteDetail({kind: 'awakener', id: 'awakener-0001'})
-    store.getState().openDetail({kind: 'wheel', id: 'wheel-0002'}, 'builder-overlay')
-    store.getState().closeAllDetails()
+    session.open({kind: 'posse', id: 'posse-0001'})
+    session.close()
+    unsubscribe()
 
-    expect(store.getState().stack).toEqual([])
-  })
-
-  test('closeOverlaySource removes each matching root and its reference descendants', () => {
-    const store = createDbDetailStore()
-
-    store.getState().replaceRouteDetail({kind: 'awakener', id: 'route-root'})
-    store.getState().openDetail({kind: 'wheel', id: 'builder-root-1'}, 'builder-overlay')
-    store.getState().pushReferenceDetail({kind: 'posse', id: 'builder-reference-1'})
-    store.getState().openDetail({kind: 'covenant', id: 'collection-root'}, 'collection-overlay')
-    store.getState().pushReferenceDetail({kind: 'awakener', id: 'collection-reference'})
-    store.getState().openDetail({kind: 'wheel', id: 'builder-root-2'}, 'builder-overlay')
-    store.getState().pushReferenceDetail({kind: 'posse', id: 'builder-reference-2'})
-    store.getState().openDetail({kind: 'awakener', id: 'timeline-root'}, 'timeline-overlay')
-    store.getState().pushReferenceDetail({kind: 'wheel', id: 'timeline-reference'})
-
-    store.getState().closeOverlaySource('builder-overlay')
-
-    expect(store.getState().stack).toEqual([
-      {kind: 'awakener', id: 'route-root', source: 'database-route'},
-      {kind: 'covenant', id: 'collection-root', source: 'collection-overlay'},
-      {kind: 'awakener', id: 'collection-reference', source: 'reference'},
-      {kind: 'awakener', id: 'timeline-root', source: 'timeline-overlay'},
-      {kind: 'wheel', id: 'timeline-reference', source: 'reference'},
-    ])
-  })
-
-  test('closeOverlaySource is idempotent when its branch is absent', () => {
-    const store = createDbDetailStore()
-
-    store.getState().replaceRouteDetail({kind: 'awakener', id: 'route-root'})
-    store.getState().openDetail({kind: 'covenant', id: 'collection-root'}, 'collection-overlay')
-    store.getState().pushReferenceDetail({kind: 'wheel', id: 'collection-reference'})
-
-    store.getState().closeOverlaySource('builder-overlay')
-    store.getState().closeOverlaySource('builder-overlay')
-
-    expect(store.getState().stack).toEqual([
-      {kind: 'awakener', id: 'route-root', source: 'database-route'},
-      {kind: 'covenant', id: 'collection-root', source: 'collection-overlay'},
-      {kind: 'wheel', id: 'collection-reference', source: 'reference'},
-    ])
+    expect(listener).toHaveBeenCalledTimes(2)
   })
 })

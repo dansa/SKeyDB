@@ -2,7 +2,6 @@ import {fireEvent, render, screen, within} from '@testing-library/react'
 import {describe, expect, it, vi} from 'vitest'
 
 import {COLLECTION_OWNERSHIP_KEY} from '@/features/collection/collectionMigrations'
-import {dbDetailStore} from '@/stores/dbDetailStore'
 
 import './builder-page.integration-mocks'
 import {BuilderPage} from './BuilderPage'
@@ -27,6 +26,7 @@ vi.mock('@/features/database/detail/dbDetailRegistry', async () => {
     ...actual,
     dbDetailRegistry: {
       awakener: {
+        ...actual.dbDetailRegistry.awakener,
         loadRecord: vi.fn(async () => ({id: 'record-awakener'})),
         loadingLabel: 'Loading awakener details...',
         missingBrowsePath: '/database',
@@ -39,6 +39,7 @@ vi.mock('@/features/database/detail/dbDetailRegistry', async () => {
         )),
       },
       wheel: {
+        ...actual.dbDetailRegistry.wheel,
         loadRecord: vi.fn(async () => ({id: 'record-wheel'})),
         loadingLabel: 'Loading wheel details...',
         missingBrowsePath: '/database/wheels',
@@ -47,6 +48,7 @@ vi.mock('@/features/database/detail/dbDetailRegistry', async () => {
         )),
       },
       posse: {
+        ...actual.dbDetailRegistry.posse,
         loadRecord: vi.fn(async () => ({id: 'record-posse'})),
         loadingLabel: 'Loading posse details...',
         missingBrowsePath: '/database/posses',
@@ -55,6 +57,7 @@ vi.mock('@/features/database/detail/dbDetailRegistry', async () => {
         )),
       },
       covenant: {
+        ...actual.dbDetailRegistry.covenant,
         loadRecord: vi.fn(async () => ({id: 'record-covenant'})),
         loadingLabel: 'Loading covenant details...',
         missingBrowsePath: '/database/covenants',
@@ -90,16 +93,12 @@ describe('BuilderPage awakener basics', () => {
     expect(screen.getByRole('button', {name: /change ramona: timeworn/i})).toBeInTheDocument()
   })
 
-  it('opens picker awakener details by public id without assigning the active slot', () => {
+  it('opens picker awakener details by public id without assigning the active slot', async () => {
     render(<BuilderPage />)
 
     fireEvent.click(screen.getByTitle(/open goliath details overlay/i))
 
-    expect(dbDetailStore.getState().stack.at(-1)).toEqual({
-      kind: 'awakener',
-      id: 'awakener-0021',
-      source: 'builder-overlay',
-    })
+    expect(await screen.findByRole('dialog', {name: /goliath details/i})).toBeInTheDocument()
     expect(screen.queryByRole('button', {name: /change goliath/i})).not.toBeInTheDocument()
   })
 

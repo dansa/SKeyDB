@@ -19,10 +19,7 @@ vi.mock('./DbDetailModalHost', () => {
 })
 
 async function loadHarness() {
-  const [{DeferredDbDetailModalHost}, {dbDetailStore}] = await Promise.all([
-    import('./DeferredDbDetailModalHost'),
-    import('@/stores/dbDetailStore'),
-  ])
+  const {DeferredDbDetailModalHost} = await import('./DeferredDbDetailModalHost')
   const props: ComponentProps<typeof DeferredDbDetailModalHost> = {
     awakeners: [],
     callbacks: {
@@ -37,7 +34,7 @@ async function loadHarness() {
     wheels: [],
   }
 
-  return {dbDetailStore, DeferredDbDetailModalHost, props}
+  return {DeferredDbDetailModalHost, props}
 }
 
 afterEach(() => {
@@ -45,54 +42,26 @@ afterEach(() => {
 })
 
 describe('DeferredDbDetailModalHost loading boundary', () => {
-  it('loads only for route detail or overlay state and cleans stale routes', async () => {
-    const {dbDetailStore, DeferredDbDetailModalHost, props} = await loadHarness()
+  it('loads only for a URL-owned route detail and never mirrors it into overlay state', async () => {
+    const {DeferredDbDetailModalHost, props} = await loadHarness()
     const bareBrowse = render(<DeferredDbDetailModalHost {...props} />)
 
     await act(async () => undefined)
     expect(hostModuleLoaded).not.toHaveBeenCalled()
     bareBrowse.unmount()
 
-    dbDetailStore.getState().replaceRouteDetail({kind: 'awakener', id: 'awakener-test'})
-    const activeHost = render(<DeferredDbDetailModalHost {...props} />)
-
-    await waitFor(() => {
-      expect(dbDetailStore.getState().stack).toHaveLength(0)
-    })
-    expect(hostModuleLoaded).not.toHaveBeenCalled()
-
-    act(() => {
-      dbDetailStore
-        .getState()
-        .openDetail({kind: 'awakener', id: 'awakener-test'}, 'builder-overlay')
-    })
-
-    await waitFor(() => {
-      expect(hostModuleLoaded).toHaveBeenCalledOnce()
-      expect(hostRendered).toHaveBeenCalledWith('overlay')
-    })
-
-    act(() => {
-      dbDetailStore.getState().closeAllDetails()
-    })
     const routeItem = {
       kind: 'wheel',
       item: {id: 'wheel-test', name: 'Test Wheel'},
     } as ComponentProps<typeof DeferredDbDetailModalHost>['routeItem']
 
-    activeHost.rerender(<DeferredDbDetailModalHost {...props} routeItem={routeItem} />)
+    const activeHost = render(<DeferredDbDetailModalHost {...props} routeItem={routeItem} />)
 
     await waitFor(() => {
       expect(hostRendered).toHaveBeenCalledWith('route')
-      expect(dbDetailStore.getState().stack).toEqual([
-        {kind: 'wheel', id: 'wheel-test', source: 'database-route'},
-      ])
     })
 
     activeHost.unmount()
-    await waitFor(() => {
-      expect(dbDetailStore.getState().stack).toHaveLength(0)
-    })
     expect(hostModuleLoaded).toHaveBeenCalledOnce()
   })
 })

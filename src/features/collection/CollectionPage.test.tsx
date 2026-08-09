@@ -4,7 +4,6 @@ import {afterEach, describe, expect, it, vi} from 'vitest'
 import {createEmptyCollectionOwnershipState} from '@/domain/collection-ownership'
 import {COLLECTION_OWNERSHIP_KEY} from '@/features/collection/collectionMigrations'
 import {collectionOwnershipStore} from '@/stores/collectionOwnershipStore'
-import {dbDetailStore} from '@/stores/dbDetailStore'
 
 import {CollectionPage} from './CollectionPage'
 
@@ -103,21 +102,23 @@ vi.mock('./OwnedWheelBoxExport', () => ({
   OwnedWheelBoxExport: () => <button type='button'>Export wheels as PNG (owned only)</button>,
 }))
 
-vi.mock('@/features/database/detail/DbDetailModalHost', async () => {
+vi.mock('@/features/database/detail/DeferredDatabaseDetailOverlayOutlet', async () => {
   const {useSyncExternalStore} = await import('react')
-  const {dbDetailStore: mockedDbDetailStore} = await import('@/stores/dbDetailStore')
 
   return {
-    DbDetailModalHost: () => {
-      const stack = useSyncExternalStore(
-        mockedDbDetailStore.subscribe,
-        () => mockedDbDetailStore.getState().stack,
-        () => mockedDbDetailStore.getState().stack,
-      )
-      const active = stack.at(-1)
+    DeferredDatabaseDetailOverlayOutlet: ({
+      session,
+    }: {
+      session: import('@/stores/dbDetailStore').DatabaseDetailOverlaySession
+    }) => {
+      const stack = useSyncExternalStore(session.subscribe, session.top, session.top)
+      const active = stack
       return active ? (
         <dialog aria-label='Collection detail overlay' open>
           Detail host: {`${active.kind}:${active.id}`}
+          <button onClick={session.close} type='button'>
+            Close detail overlay
+          </button>
         </dialog>
       ) : null
     },
@@ -129,7 +130,6 @@ afterEach(() => {
   vi.restoreAllMocks()
   window.localStorage.removeItem(COLLECTION_OWNERSHIP_KEY)
   collectionOwnershipStore.getState().replaceOwnership(createEmptyCollectionOwnershipState())
-  dbDetailStore.getState().closeAllDetails()
 })
 
 function getRequiredFileInput(container: HTMLElement): HTMLInputElement {
@@ -159,13 +159,8 @@ describe('CollectionPage global search capture', () => {
   })
 
   it('does not capture global typing while a collection detail overlay is open', () => {
-    act(() => {
-      dbDetailStore
-        .getState()
-        .openDetail({kind: 'awakener', id: 'awakener-0042'}, 'collection-overlay')
-    })
-
     render(<CollectionPage />)
+    fireEvent.click(screen.getByRole('button', {name: /open details for ramona/i}))
 
     fireEvent.keyDown(window, {key: 'r'})
 
@@ -387,9 +382,6 @@ describe('CollectionPage global search capture', () => {
     expect(await screen.findByRole('dialog')).toHaveTextContent(
       'Detail host: awakener:awakener-0042',
     )
-    expect(dbDetailStore.getState().stack).toEqual([
-      {kind: 'awakener', id: 'awakener-0042', source: 'collection-overlay'},
-    ])
     expect(
       screen.getByRole('button', {name: /edit awakener level for ramona/i}),
     ).toBeInTheDocument()
@@ -402,24 +394,11 @@ describe('CollectionPage global search capture', () => {
     fireEvent.click(screen.getByRole('button', {name: /open details for birth of a soul/i}))
 
     expect(await screen.findByRole('dialog')).toHaveTextContent('Detail host: wheel:wheel-0014')
-    expect(dbDetailStore.getState().stack.at(-1)).toEqual({
-      kind: 'wheel',
-      id: 'wheel-0014',
-      source: 'collection-overlay',
-    })
-
-    act(() => {
-      dbDetailStore.getState().closeAllDetails()
-    })
+    fireEvent.click(screen.getByRole('button', {name: /close detail overlay/i}))
     fireEvent.click(screen.getByRole('tab', {name: 'Posses'}))
     fireEvent.click(screen.getByRole('button', {name: /open details for manor echoes/i}))
 
     expect(await screen.findByRole('dialog')).toHaveTextContent('Detail host: posse:posse-0047')
-    expect(dbDetailStore.getState().stack.at(-1)).toEqual({
-      kind: 'posse',
-      id: 'posse-0047',
-      source: 'collection-overlay',
-    })
   })
 
   it('sorts posses by ownership then index', () => {

@@ -2,8 +2,6 @@ import {useState} from 'react'
 
 import {useSearchParams} from 'react-router'
 
-import {getAwakeners} from '@/domain/awakeners'
-import type {EntityRef} from '@/domain/entities/types'
 import {sortEventsByRelevance} from '@/domain/timeline'
 import {timelineBanners, timelineEvents} from '@/domain/timeline-data'
 import type {TimelinePriceDisplayMode} from '@/domain/timeline-pricing'
@@ -13,10 +11,8 @@ import {
   parseTimelineSectionId,
   type TimelineContentFilter,
 } from '@/domain/timeline-routing'
-import {getWheels} from '@/domain/wheels'
-import {DbDetailModalHost} from '@/features/database/detail/DbDetailModalHost'
-import {useDbDetailOverlayOwner} from '@/features/database/detail/useDbDetailOverlayOwner'
-import {dbDetailStore} from '@/stores/dbDetailStore'
+import {DeferredDatabaseDetailOverlayOutlet} from '@/features/database/detail/DeferredDatabaseDetailOverlayOutlet'
+import {useDatabaseDetailOverlay} from '@/features/database/detail/useDatabaseDetailOverlay'
 import {SeasonMasthead} from '@/ui/masthead/SeasonMasthead'
 
 import {EventList} from './timeline/EventList'
@@ -30,12 +26,8 @@ import './timeline/timeline.css'
 import {useTimelineNow} from './timeline/useTimelineNow'
 import {useTimelineSectionScroll} from './timeline/useTimelineSectionScroll'
 
-function openTimelineDetail(ref: EntityRef) {
-  dbDetailStore.getState().openDetail(ref, 'timeline-overlay')
-}
-
 export function TimelinePage() {
-  useDbDetailOverlayOwner('timeline-overlay')
+  const detailOverlay = useDatabaseDetailOverlay()
   const now = useTimelineNow()
   const [searchParams, setSearchParams] = useSearchParams()
   const timelineSection = parseTimelineSectionId(searchParams.get('section'))
@@ -43,8 +35,6 @@ export function TimelinePage() {
     getTimelineViewForSection(timelineSection) ??
     parseTimelineContentFilter(searchParams.get('view'))
   const [priceMode, setPriceMode] = useState<TimelinePriceDisplayMode>('silver-prime')
-  const awakeners = getAwakeners()
-  const wheels = getWheels()
 
   const events = sortEventsByRelevance(timelineEvents, now)
   const dZoneSummary = getTimelineDZoneSummary(events, now)
@@ -94,7 +84,7 @@ export function TimelinePage() {
             <EventList
               events={events}
               now={now}
-              onOpenDetail={openTimelineDetail}
+              onOpenDetail={detailOverlay.open}
               priceMode={priceMode}
               targetSection={timelineSection}
             />
@@ -106,30 +96,14 @@ export function TimelinePage() {
             <TimelineBannersSection
               banners={timelineBanners}
               now={now}
-              onOpenDetail={openTimelineDetail}
+              onOpenDetail={detailOverlay.open}
               priceMode={priceMode}
               targetSection={timelineSection}
             />
           </TimelinePageSection>
         ) : null}
       </div>
-      <DbDetailModalHost
-        awakeners={awakeners}
-        callbacks={{
-          onClose: () => {
-            dbDetailStore.getState().popDetail()
-          },
-          onSelectAwakener: () => undefined,
-          onSelectCovenant: () => undefined,
-          onSelectPosse: (posse) => {
-            dbDetailStore.getState().pushReferenceDetail({kind: 'posse', id: posse.id})
-          },
-          onSelectWheel: () => undefined,
-          onTabChange: () => undefined,
-        }}
-        routeItem={null}
-        wheels={wheels}
-      />
+      <DeferredDatabaseDetailOverlayOutlet session={detailOverlay.session} />
     </section>
   )
 }

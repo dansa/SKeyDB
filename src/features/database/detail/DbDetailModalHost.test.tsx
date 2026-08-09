@@ -9,7 +9,7 @@ import type {Wheel} from '@/domain/wheels'
 import type {WheelFullRecord} from '@/domain/wheels-full'
 import {makeTestAwakenerFullRecord} from '@/features/database/internal/database-test-fixtures'
 import {clearDatabaseDetailRecordCacheForTests} from '@/features/database/internal/useDatabaseDetailRouteRecord'
-import {dbDetailStore} from '@/stores/dbDetailStore'
+import {createDatabaseDetailOverlaySession} from '@/stores/dbDetailStore'
 
 import {DbDetailModalHost} from './DbDetailModalHost'
 import {dbDetailRegistry} from './dbDetailRegistry'
@@ -261,18 +261,17 @@ afterEach(() => {
   vi.mocked(dbDetailRegistry.relic.loadRecord).mockResolvedValue(mockRelicRecord)
 })
 
-function openDetailInAct(
-  detail: Parameters<ReturnType<typeof dbDetailStore.getState>['openDetail']>[0],
-  source: Parameters<ReturnType<typeof dbDetailStore.getState>['openDetail']>[1],
-) {
+const overlaySession = createDatabaseDetailOverlaySession()
+
+function openDetailInAct(detail: Parameters<typeof overlaySession.open>[0], _source?: unknown) {
   act(() => {
-    dbDetailStore.getState().openDetail(detail, source)
+    overlaySession.open(detail)
   })
 }
 
 function closeAllDetailsInAct() {
   act(() => {
-    dbDetailStore.getState().closeAllDetails()
+    while (overlaySession.isOpen()) overlaySession.close()
   })
 }
 
@@ -302,6 +301,7 @@ describe('DbDetailModalHost overlay entries', () => {
         <DbDetailModalHost
           awakeners={awakeners}
           callbacks={callbacks}
+          overlaySession={overlaySession}
           routeItem={null}
           wheels={wheels}
         />
@@ -320,7 +320,7 @@ describe('DbDetailModalHost overlay entries', () => {
     await waitFor(() => {
       expect(screen.queryByRole('dialog', {name: /goliath details/i})).not.toBeInTheDocument()
     })
-    expect(dbDetailStore.getState().stack).toEqual([])
+    expect(overlaySession.isOpen()).toBe(false)
     expect(callbacks.onClose).not.toHaveBeenCalled()
   })
 
@@ -337,6 +337,7 @@ describe('DbDetailModalHost overlay entries', () => {
             onSelectWheel: vi.fn(),
             onTabChange: vi.fn(),
           }}
+          overlaySession={overlaySession}
           routeItem={null}
           wheels={wheels}
         />
@@ -349,10 +350,7 @@ describe('DbDetailModalHost overlay entries', () => {
     expect(
       await screen.findByRole('dialog', {name: /merciful nurturing details/i}),
     ).toBeInTheDocument()
-    expect(dbDetailStore.getState().stack).toEqual([
-      {kind: 'awakener', id: 'awakener-0021', source: 'builder-overlay'},
-      {kind: 'wheel', id: 'wheel-0050', source: 'reference'},
-    ])
+    expect(overlaySession.top()).toEqual({kind: 'wheel', id: 'wheel-0050'})
   })
 
   it('pushes overlay wheel references by fallback normalized name when id is missing', async () => {
@@ -368,6 +366,7 @@ describe('DbDetailModalHost overlay entries', () => {
             onSelectWheel: vi.fn(),
             onTabChange: vi.fn(),
           }}
+          overlaySession={overlaySession}
           routeItem={null}
           wheels={wheels}
         />
@@ -380,10 +379,7 @@ describe('DbDetailModalHost overlay entries', () => {
     expect(
       await screen.findByRole('dialog', {name: /merciful nurturing details/i}),
     ).toBeInTheDocument()
-    expect(dbDetailStore.getState().stack).toEqual([
-      {kind: 'awakener', id: 'awakener-0021', source: 'builder-overlay'},
-      {kind: 'wheel', id: 'wheel-0050', source: 'reference'},
-    ])
+    expect(overlaySession.top()).toEqual({kind: 'wheel', id: 'wheel-0050'})
   })
 
   it('keeps awakener overlay tab state local to the modal host', async () => {
@@ -401,6 +397,7 @@ describe('DbDetailModalHost overlay entries', () => {
             onSelectWheel: vi.fn(),
             onTabChange,
           }}
+          overlaySession={overlaySession}
           routeItem={null}
           wheels={wheels}
         />
@@ -432,6 +429,7 @@ describe('DbDetailModalHost overlay entries', () => {
             onSelectWheel: vi.fn(),
             onTabChange: vi.fn(),
           }}
+          overlaySession={overlaySession}
           routeItem={null}
           wheels={wheels}
         />
@@ -441,7 +439,7 @@ describe('DbDetailModalHost overlay entries', () => {
     openDetailInAct({kind: 'awakener', id: 'awakener-0021'}, 'builder-overlay')
 
     await waitFor(() => {
-      expect(dbDetailStore.getState().stack).toEqual([])
+      expect(overlaySession.isOpen()).toBe(false)
     })
     expect(screen.getByTestId('location-pathname')).toHaveTextContent('/builder')
   })
@@ -460,6 +458,7 @@ describe('DbDetailModalHost overlay entries', () => {
             onSelectWheel: vi.fn(),
             onTabChange: vi.fn(),
           }}
+          overlaySession={overlaySession}
           relics={relics}
           routeItem={null}
           wheels={wheels}
@@ -469,9 +468,7 @@ describe('DbDetailModalHost overlay entries', () => {
 
     openDetailInAct({kind: 'relic', id: 'relic-0001'}, 'builder-overlay')
 
-    expect(dbDetailStore.getState().stack).toEqual([
-      {kind: 'relic', id: 'relic-0001', source: 'builder-overlay'},
-    ])
+    expect(overlaySession.top()).toEqual({kind: 'relic', id: 'relic-0001'})
     await waitFor(() => {
       expect(dbDetailRegistry.relic.loadRecord).toHaveBeenCalledWith('relic-0001')
       expect(dbDetailRegistry.relic.render).toHaveBeenCalled()

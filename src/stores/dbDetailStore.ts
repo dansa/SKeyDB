@@ -1,118 +1,87 @@
 import {createStore} from 'zustand/vanilla'
 
+import {
+  DATABASE_ENTITY_DEFINITIONS,
+  type DatabaseDetailKind,
+} from '@/domain/database-entity-definitions'
 import type {EntityRef} from '@/domain/entities/types'
 
-const DB_DETAIL_ENTITY_KINDS = ['awakener', 'covenant', 'posse', 'relic', 'wheel'] as const
+export type DbDetailEntityRef = EntityRef & {kind: DatabaseDetailKind}
 
-export type DbDetailEntityKind = (typeof DB_DETAIL_ENTITY_KINDS)[number]
-export type DbDetailEntityRef = EntityRef & {kind: DbDetailEntityKind}
-export type DbDetailRouteSource = 'database-route'
-export type DbDetailOverlaySource = 'builder-overlay' | 'collection-overlay' | 'timeline-overlay'
-export type DbDetailReferenceSource = 'reference'
-export type DbDetailSource = DbDetailRouteSource | DbDetailOverlaySource | DbDetailReferenceSource
-
-const dbDetailEntityKindSet = new Set<EntityRef['kind']>(DB_DETAIL_ENTITY_KINDS)
+const dbDetailEntityKindSet = new Set<EntityRef['kind']>(
+  DATABASE_ENTITY_DEFINITIONS.map(({detailKind}) => detailKind),
+)
 
 export function isDbDetailEntityRef(ref: EntityRef): ref is DbDetailEntityRef {
   return dbDetailEntityKindSet.has(ref.kind)
 }
 
-export interface DbDetailStackEntry extends DbDetailEntityRef {
-  source: DbDetailSource
+interface DbDetailOverlayBranchState {
+  frames: DbDetailEntityRef[]
 }
 
-export interface DbDetailState {
-  stack: DbDetailStackEntry[]
-  openDetail: (ref: EntityRef, source: DbDetailOverlaySource) => void
-  replaceRouteDetail: (ref: EntityRef) => void
-  pushReferenceDetail: (ref: EntityRef) => void
-  popDetail: () => void
-  closeOverlaySource: (source: DbDetailOverlaySource) => void
-  closeAllDetails: () => void
-  syncFromRoute: (ref: EntityRef | null) => void
+interface DbDetailOverlayBranchStore extends DbDetailOverlayBranchState {
+  clear: () => void
+  close: () => void
+  followReference: (ref: EntityRef) => void
+  open: (ref: EntityRef) => void
 }
 
-function stackEntry(ref: EntityRef, source: DbDetailSource): DbDetailStackEntry | null {
-  return isDbDetailEntityRef(ref) ? {...ref, source} : null
+export interface DatabaseDetailOverlaySession {
+  /** Close the active frame, revealing its parent reference frame when present. */
+  close: () => void
+  /** @internal Clears this owner's full branch when its owner is disposed. */
+  dispose: () => void
+  /** Add a detail reached from the active detail to this owner's branch. */
+  followReference: (ref: EntityRef) => void
+  /** Whether this owner's branch currently has an active detail. */
+  isOpen: () => boolean
+  /** Start or replace this owner's overlay branch. */
+  open: (ref: EntityRef) => void
+  /** @internal Used by the overlay outlet; callers should treat the session as opaque. */
+  subscribe: (listener: () => void) => () => void
+  /** @internal Used by the overlay outlet; callers should treat the session as opaque. */
+  top: () => DbDetailEntityRef | null
 }
 
-function withoutRouteEntries(stack: DbDetailStackEntry[]): DbDetailStackEntry[] {
-  return stack.filter((entry) => entry.source !== 'database-route')
+function toDetailRef(ref: EntityRef): DbDetailEntityRef | null {
+  return isDbDetailEntityRef(ref) ? {kind: ref.kind, id: ref.id} : null
 }
 
-function withoutOverlaySourceBranches(
-  stack: DbDetailStackEntry[],
-  source: DbDetailOverlaySource,
-): DbDetailStackEntry[] {
-  let isRemovingReferenceDescendants = false
+/**
+ * Creates one isolated overlay branch. Reference frames can only be added through this
+ * session, so they can never be attributed by their position in a process-wide stack.
+ */
+export function createDatabaseDetailOverlaySession(): DatabaseDetailOverlaySession {
+  const store = createStore<DbDetailOverlayBranchStore>()((set) => ({
+    frames: [],
+    clear: () => {
+      set({frames: []})
+    },
+    close: () => {
+      set((state) => ({frames: state.frames.slice(0, -1)}))
+    },
+    followReference: (ref) => {
+      const detailRef = toDetailRef(ref)
+      if (!detailRef) return
 
-  return stack.filter((entry) => {
-    if (entry.source === source) {
-      isRemovingReferenceDescendants = true
-      return false
-    }
+      set((state) => (state.frames.length > 0 ? {frames: [...state.frames, detailRef]} : state))
+    },
+    open: (ref) => {
+      const detailRef = toDetailRef(ref)
+      if (!detailRef) return
 
-    if (entry.source === 'reference' && isRemovingReferenceDescendants) {
-      return false
-    }
-
-    isRemovingReferenceDescendants = false
-    return true
-  })
-}
-
-export function createDbDetailStore() {
-  return createStore<DbDetailState>()((set) => ({
-    stack: [],
-    openDetail: (ref, source) => {
-      const entry = stackEntry(ref, source)
-      if (!entry) {
-        return
-      }
-      set((state) => ({
-        stack: [...state.stack, entry],
-      }))
-    },
-    replaceRouteDetail: (ref) => {
-      const entry = stackEntry(ref, 'database-route')
-      if (!entry) {
-        return
-      }
-      set((state) => ({
-        stack: [entry, ...withoutRouteEntries(state.stack)],
-      }))
-    },
-    pushReferenceDetail: (ref) => {
-      const entry = stackEntry(ref, 'reference')
-      if (!entry) {
-        return
-      }
-      set((state) => ({
-        stack: [...state.stack, entry],
-      }))
-    },
-    popDetail: () => {
-      set((state) => ({
-        stack: state.stack.slice(0, -1),
-      }))
-    },
-    closeOverlaySource: (source) => {
-      set((state) => ({
-        stack: withoutOverlaySourceBranches(state.stack, source),
-      }))
-    },
-    closeAllDetails: () => {
-      set({stack: []})
-    },
-    syncFromRoute: (ref) => {
-      const entry = ref ? stackEntry(ref, 'database-route') : null
-      set((state) => ({
-        stack: entry
-          ? [entry, ...withoutRouteEntries(state.stack)]
-          : withoutRouteEntries(state.stack),
-      }))
+      set({frames: [detailRef]})
     },
   }))
-}
 
-export const dbDetailStore = createDbDetailStore()
+  return Object.freeze({
+    close: store.getState().close,
+    dispose: store.getState().clear,
+    followReference: store.getState().followReference,
+    isOpen: () => store.getState().frames.length > 0,
+    open: store.getState().open,
+    subscribe: store.subscribe,
+    top: () => store.getState().frames.at(-1) ?? null,
+  })
+}

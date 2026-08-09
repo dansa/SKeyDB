@@ -1,4 +1,4 @@
-import {act, cleanup} from '@testing-library/react'
+import {cleanup} from '@testing-library/react'
 import {afterEach, beforeEach, vi} from 'vitest'
 
 import {
@@ -246,17 +246,12 @@ beforeEach(async () => {
 })
 
 afterEach(async () => {
-  const [{createEmptyCollectionOwnershipState}, {collectionOwnershipStore}, {dbDetailStore}] =
-    await Promise.all([
-      import('@/domain/collection-ownership'),
-      import('@/stores/collectionOwnershipStore'),
-      import('@/stores/dbDetailStore'),
-    ])
+  const [{createEmptyCollectionOwnershipState}, {collectionOwnershipStore}] = await Promise.all([
+    import('@/domain/collection-ownership'),
+    import('@/stores/collectionOwnershipStore'),
+  ])
 
   cleanup()
-  act(() => {
-    dbDetailStore.getState().closeAllDetails()
-  })
   window.localStorage.removeItem(BUILDER_PERSISTENCE_KEY)
   collectionOwnershipStore.getState().replaceOwnership(createEmptyCollectionOwnershipState())
 })
