@@ -5,9 +5,11 @@ import {describe, expect, it, vi} from 'vitest'
 
 import {useDetailModalLifecycle} from './useDetailModalLifecycle'
 
-function dispatchEscape() {
-  const event = new KeyboardEvent('keydown', {bubbles: true, key: 'Escape'})
-  window.dispatchEvent(event)
+function createDismissEvent() {
+  return {
+    preventDefault: vi.fn(),
+    stopPropagation: vi.fn(),
+  }
 }
 
 describe('useDetailModalLifecycle', () => {
@@ -19,8 +21,8 @@ describe('useDetailModalLifecycle', () => {
     const onClose = vi.fn()
     const searchInputRef = createRef<HTMLInputElement>()
 
-    renderHook(() => {
-      useDetailModalLifecycle({
+    const {result} = renderHook(() => {
+      return useDetailModalLifecycle({
         clearSearch,
         closeAllPopovers,
         closeSearch,
@@ -34,7 +36,7 @@ describe('useDetailModalLifecycle', () => {
     })
 
     act(() => {
-      dispatchEscape()
+      result.current(createDismissEvent())
     })
 
     expect(clearSearch).toHaveBeenCalledTimes(1)
@@ -54,8 +56,8 @@ describe('useDetailModalLifecycle', () => {
     const searchInputRef = {current: searchInput}
 
     try {
-      renderHook(() => {
-        useDetailModalLifecycle({
+      const {result} = renderHook(() => {
+        return useDetailModalLifecycle({
           clearSearch: vi.fn(),
           closeAllPopovers,
           closeSearch,
@@ -69,7 +71,7 @@ describe('useDetailModalLifecycle', () => {
       })
 
       act(() => {
-        dispatchEscape()
+        result.current(createDismissEvent())
       })
 
       expect(closeSearch).toHaveBeenCalledWith(true)
@@ -86,9 +88,9 @@ describe('useDetailModalLifecycle', () => {
     const dismissSettings = vi.fn()
     const onClose = vi.fn()
 
-    const {rerender} = renderHook(
+    const {rerender, result} = renderHook(
       ({hasOpenPopovers, isSettingsOpen}: {hasOpenPopovers: boolean; isSettingsOpen: boolean}) => {
-        useDetailModalLifecycle({
+        return useDetailModalLifecycle({
           clearSearch: vi.fn(),
           closeAllPopovers,
           closeSearch: vi.fn(),
@@ -109,7 +111,7 @@ describe('useDetailModalLifecycle', () => {
     )
 
     act(() => {
-      dispatchEscape()
+      result.current(createDismissEvent())
     })
     expect(dismissSettings).toHaveBeenCalledTimes(1)
     expect(closeAllPopovers).not.toHaveBeenCalled()
@@ -121,7 +123,7 @@ describe('useDetailModalLifecycle', () => {
     })
 
     act(() => {
-      dispatchEscape()
+      result.current(createDismissEvent())
     })
     expect(closeAllPopovers).toHaveBeenCalledTimes(1)
     expect(onClose).not.toHaveBeenCalled()
@@ -132,7 +134,7 @@ describe('useDetailModalLifecycle', () => {
     })
 
     act(() => {
-      dispatchEscape()
+      result.current(createDismissEvent())
     })
     expect(onClose).toHaveBeenCalledTimes(1)
   })

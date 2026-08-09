@@ -6,7 +6,6 @@ import {getFocusableElements} from './focus-scope'
 interface UseDetailModalChromeOptions {
   isSearchOpen: boolean
   searchContainerRef?: RefObject<HTMLElement | null>
-  searchInputRef?: RefObject<HTMLInputElement | null>
   closeSearch?: (blurInput?: boolean) => void
   hasOpenPopovers: boolean
   closeAllPopovers: () => void
@@ -33,7 +32,6 @@ export function useDetailModalChrome({
   isSearchOpen,
   onClose,
   searchContainerRef,
-  searchInputRef,
 }: UseDetailModalChromeOptions) {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false)
   const isMobileHeader = useSyncExternalStore(
@@ -43,18 +41,6 @@ export function useDetailModalChrome({
   )
   const panelRef = useRef<HTMLDivElement>(null)
   const settingsRef = useRef<HTMLDivElement>(null)
-  const previouslyFocusedElementRef = useRef<HTMLElement | null>(null)
-
-  useEffect(() => {
-    previouslyFocusedElementRef.current =
-      document.activeElement instanceof HTMLElement ? document.activeElement : null
-
-    searchInputRef?.current?.focus()
-
-    return () => {
-      previouslyFocusedElementRef.current?.focus()
-    }
-  }, [searchInputRef])
 
   useEffect(() => {
     if (!isSettingsOpen) {

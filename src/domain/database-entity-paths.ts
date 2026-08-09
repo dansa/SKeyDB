@@ -61,3 +61,14 @@ export function buildDatabaseEntityBrowsePath(entity: DatabaseEntityId): string 
 export function buildDatabaseEntityDetailPath(entity: DatabaseEntityId, slug: string): string {
   return `${DATABASE_ENTITY_PATH_CONFIG[entity].detailPathPrefix}/${slug}`
 }
+
+export function getDatabaseBrowsePathForLocation(pathname: string): string | null {
+  for (const entity of DATABASE_ENTITY_IDS) {
+    const {browsePath, detailPathPrefix} = DATABASE_ENTITY_PATH_CONFIG[entity]
+    if (pathname === browsePath || pathname.startsWith(`${detailPathPrefix}/`)) {
+      return browsePath
+    }
+  }
+
+  return null
+}

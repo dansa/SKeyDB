@@ -3,6 +3,7 @@ import {useCallback, useEffect, useRef, useState} from 'react'
 import type {PublicRelicVariant} from '@/domain/relics'
 
 import {buildRelicVariantLabels} from './relic-database-presentation'
+import {scrollRelicVariantIntoView} from './relic-variant-scroll'
 
 interface RelicVariantRailProps {
   itemName: string
@@ -38,9 +39,10 @@ export function RelicVariantRail({
   }, [updateScrollEdges, variants.length])
 
   useEffect(() => {
+    const viewport = scrollRef.current
     const selectedControl = selectedRef.current
-    if (selectedControl && typeof selectedControl.scrollIntoView === 'function') {
-      selectedControl.scrollIntoView({block: 'nearest'})
+    if (viewport && selectedControl) {
+      scrollRelicVariantIntoView(viewport, selectedControl)
     }
     updateScrollEdges()
   }, [selectedId, updateScrollEdges])

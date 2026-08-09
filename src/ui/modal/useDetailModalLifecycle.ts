@@ -78,17 +78,15 @@ export function useDetailModalLifecycle({
   )
 
   useEffect(() => {
-    function handleEscape(event: KeyboardEvent) {
-      if (event.key !== 'Escape') {
-        return
+    function handleWindowEscape(event: KeyboardEvent) {
+      if (event.key === 'Escape') {
+        handleEscapeDismissal(event)
       }
-
-      handleEscapeDismissal(event)
     }
 
-    window.addEventListener('keydown', handleEscape)
+    window.addEventListener('keydown', handleWindowEscape)
     return () => {
-      window.removeEventListener('keydown', handleEscape)
+      window.removeEventListener('keydown', handleWindowEscape)
     }
   }, [handleEscapeDismissal])
 

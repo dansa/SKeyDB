@@ -79,7 +79,6 @@ export function useWheelDetailModalState({
     isSearchOpen: search.isSearchOpen,
     onClose,
     searchContainerRef: search.searchContainerRef,
-    searchInputRef: search.searchInputRef,
   })
 
   const setEnhanceLevel = useCallback((level: number) => {

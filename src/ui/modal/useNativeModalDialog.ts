@@ -79,13 +79,13 @@ export function useNativeModalDialog({
 
     openDialog(dialog)
 
-    initialFocusRef?.current?.focus()
+    initialFocusRef?.current?.focus({preventScroll: true})
 
     return () => {
       closeDialog(dialog)
 
       if (restoreFocus) {
-        previousFocusedElement?.focus()
+        previousFocusedElement?.focus({preventScroll: true})
       }
       if (scrollLockToken) {
         releasePageScrollLock(scrollLockToken)

@@ -1,4 +1,4 @@
-import {render} from '@testing-library/react'
+import {fireEvent, render, screen} from '@testing-library/react'
 import {afterEach, describe, expect, it} from 'vitest'
 
 import {DbDetailModalFrame} from './DbDetailModalFrame'
@@ -11,23 +11,33 @@ describe('DbDetailModalFrame', () => {
     document.documentElement.style.scrollbarGutter = ''
   })
 
-  it('owns the database page scroll lock before opening its native dialog', () => {
-    const {unmount} = render(
+  it('uses the shared dialog primitive and restores its trigger focus', () => {
+    const trigger = document.createElement('button')
+    document.body.appendChild(trigger)
+    trigger.focus()
+    document.body.style.overflow = 'auto'
+    document.documentElement.style.overflow = 'scroll'
+
+    const {container, unmount} = render(
       <DbDetailModalFrame ariaLabel='Database detail'>
         <p>Detail content</p>
       </DbDetailModalFrame>,
     )
 
-    expect(document.body.style.overflow).toBe('')
-    expect(document.body.style.position).toBe('')
-    expect(document.documentElement.style.overflow).toBe('hidden')
-    expect(document.documentElement.style.scrollbarGutter).toBe('stable')
+    const dialog = screen.getByRole('dialog', {name: 'Database detail'})
+    expect(dialog.tagName).toBe('DIV')
+    expect(dialog).toHaveFocus()
+    expect(container.inert).toBe(true)
+    expect(container).toHaveAttribute('aria-hidden', 'true')
+    expect(document.body.style.overflow).toBe('auto')
+    expect(document.documentElement.style.overflow).toBe('scroll')
+    expect(fireEvent.keyDown(dialog, {key: 'PageDown'})).toBe(false)
 
     unmount()
 
-    expect(document.body.style.overflow).toBe('')
-    expect(document.body.style.position).toBe('')
-    expect(document.documentElement.style.overflow).toBe('')
-    expect(document.documentElement.style.scrollbarGutter).toBe('')
+    expect(trigger).toHaveFocus()
+    expect(document.body.style.overflow).toBe('auto')
+    expect(document.documentElement.style.overflow).toBe('scroll')
+    trigger.remove()
   })
 })
