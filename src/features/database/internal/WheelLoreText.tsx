@@ -1,12 +1,13 @@
 import {useState, type CSSProperties} from 'react'
 
+import {GameLoreMarkupText} from '@/ui/game-content/GameLoreMarkupText'
+
 import {
   DATABASE_DETAIL_BODY_CLASS,
   DATABASE_DETAIL_FIXED_UTILITY_ACTION_CLASS,
   getDatabaseDetailLorePreviewHeight,
   getDatabaseDetailLoreStyle,
 } from './database-detail-typography'
-import {DatabaseLoreMarkupText} from './DatabaseLoreMarkupText'
 
 interface WheelLoreTextProps {
   lore: string
@@ -115,7 +116,7 @@ function trimLoreParagraphs(
 function LoreParagraphs({paragraphs}: {paragraphs: LoreParagraph[]}) {
   return paragraphs.map((paragraph, paragraphIndex) => (
     <p key={buildLoreKey('wheel-lore-paragraph', paragraphIndex)}>
-      <DatabaseLoreMarkupText
+      <GameLoreMarkupText
         keyPrefix={buildLoreKey('wheel-lore', paragraphIndex)}
         text={paragraph.lines.join('\n')}
       />

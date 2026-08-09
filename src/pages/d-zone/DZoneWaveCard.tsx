@@ -3,7 +3,7 @@ import {useRef, type MouseEvent} from 'react'
 import {FaChevronDown} from 'react-icons/fa6'
 
 import type {DzoneResolvedMonster, DzoneResolvedWave} from '@/domain/dzone'
-import {DatabaseLoreMarkupText} from '@/features/database/internal/DatabaseLoreMarkupText'
+import {GameLoreMarkupText} from '@/ui/game-content/GameLoreMarkupText'
 
 import {toDZoneAccessibleText} from './d-zone-display-text'
 import type {DZoneRelicPreview} from './d-zone-view-model'
@@ -266,7 +266,7 @@ function MonsterButton({
       </span>
       {compact ? null : (
         <span className='d-zone-monster-name' title={monster.name}>
-          <DatabaseLoreMarkupText keyPrefix={`d-zone-monster-${monster.id}`} text={monster.name} />
+          <GameLoreMarkupText keyPrefix={`d-zone-monster-${monster.id}`} text={monster.name} />
         </span>
       )}
     </button>

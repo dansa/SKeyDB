@@ -17,11 +17,11 @@ import {
 import {buildDatabaseRichDescriptionText} from '@/domain/database-rich-text'
 import {resolveDescriptionTemplate} from '@/domain/description-args'
 import type {PublicFormulaContext} from '@/domain/public-formula-context'
+import {GameLoreMarkupText} from '@/ui/game-content/GameLoreMarkupText'
 
 import {AwakenerEnlightenInfluenceBadges} from './AwakenerEnlightenInfluenceBadges'
 import type {DatabasePopoverDescriptionRankContext} from './database-popover-context'
 import type {DatabaseReferenceEntry, KeyedDatabaseReferenceEntry} from './database-reference-entry'
-import {DatabaseLoreMarkupText} from './DatabaseLoreMarkupText'
 import type {DatabaseRichTextContentProps} from './DatabaseRichTextContent'
 import {scaledFontStyle} from './font-scale'
 import {DATABASE_ENTRY_TITLE_CLASS} from './text-styles'
@@ -188,11 +188,11 @@ function DatabaseReferencePopoverHeader({
             style={scaledFontStyle(12)}
             type='button'
           >
-            <DatabaseLoreMarkupText keyPrefix='database-popover-title-link' text={entry.name} /> ↗
+            <GameLoreMarkupText keyPrefix='database-popover-title-link' text={entry.name} /> ↗
           </button>
         ) : (
           <p className={DATABASE_ENTRY_TITLE_CLASS} style={scaledFontStyle(12)}>
-            <DatabaseLoreMarkupText keyPrefix='database-popover-title' text={entry.name} />
+            <GameLoreMarkupText keyPrefix='database-popover-title' text={entry.name} />
           </p>
         )}
         {entry.label ? (
