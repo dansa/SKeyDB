@@ -1,4 +1,4 @@
-import {useMemo} from 'react'
+import {useEffect, useMemo, useRef} from 'react'
 
 import type {NavigateFunction} from 'react-router'
 
@@ -28,8 +28,18 @@ export function useDatabaseRouteNavigation({
   onClose: () => void
   routeItem: DatabaseDetailRouteItem | null
 }): DatabaseDetailNavigationPort {
+  const requestVersionRef = useRef(0)
+
+  useEffect(
+    () => () => {
+      requestVersionRef.current += 1
+    },
+    [activeSearch, defaultAwakenerTab, locationState, navigate, onClose, routeItem],
+  )
+
   return useMemo(() => {
     const select = (ref: EntityRef, state: DatabaseDetailNavigationState = {}) => {
+      const requestVersion = ++requestVersionRef.current
       void resolveDatabaseRuntimeDetailReference({
         defaultAwakenerTab,
         ref,
@@ -37,7 +47,7 @@ export function useDatabaseRouteNavigation({
         state,
       })
         .then((target) => {
-          if (!target) return
+          if (requestVersion !== requestVersionRef.current || !target) return
           primeDatabaseRouteResolution(target.pathname, target.search, target.resolution)
           void navigate(
             {pathname: target.pathname, search: target.search},
@@ -48,7 +58,10 @@ export function useDatabaseRouteNavigation({
     }
 
     return {
-      close: onClose,
+      close: () => {
+        requestVersionRef.current += 1
+        onClose()
+      },
       select,
       updateState: (state) => {
         if (routeItem) select({kind: routeItem.kind, id: routeItem.item.id}, state)
