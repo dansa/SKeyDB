@@ -273,6 +273,31 @@ describe('WheelDetailModal', () => {
     )
   })
 
+  it('uses the Enlighten symbols as exact E1 through E3 shortcuts', () => {
+    render(
+      <WheelDetailModal
+        fullData={makeWheelFullRecord()}
+        onClose={vi.fn()}
+        wheel={makeWheel()}
+        wheels={[makeWheel()]}
+      />,
+    )
+
+    const slider = screen.getByRole('slider', {name: /enhance/i})
+
+    fireEvent.click(screen.getByRole('button', {name: 'Set Wheel to E2'}))
+    expect(slider).toHaveAttribute('aria-valuetext', 'E2')
+
+    fireEvent.change(slider, {target: {value: '7'}})
+    expect(slider).toHaveAttribute('aria-valuetext', 'E3 + 4')
+
+    fireEvent.click(screen.getByRole('button', {name: 'Set Wheel to E3'}))
+    expect(slider).toHaveAttribute('aria-valuetext', 'E3')
+
+    fireEvent.click(screen.getByRole('button', {name: 'Set Wheel to E1'}))
+    expect(slider).toHaveAttribute('aria-valuetext', 'E1')
+  })
+
   it('updates default wheel progression for the next wheel without changing the current live state', async () => {
     const firstWheel = makeWheel()
     const secondWheel = makeWheel({

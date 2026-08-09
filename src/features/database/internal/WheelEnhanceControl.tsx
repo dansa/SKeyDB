@@ -26,6 +26,10 @@ export function WheelEnhanceControl({enhanceLevel, onChange}: WheelEnhanceContro
           <DupeLevelDisplay
             className='wheel-enlighten-display collection-enlighten-text collection-enlighten-text-owned'
             level={normalizedLevel}
+            levelSelection={{
+              getAriaLabel: (level) => `Set Wheel to E${String(level)}`,
+              onSelect: onChange,
+            }}
             showOverflowSlot={false}
           />
           <span

@@ -1,5 +1,5 @@
-import {render, screen} from '@testing-library/react'
-import {describe, expect, it} from 'vitest'
+import {fireEvent, render, screen} from '@testing-library/react'
+import {describe, expect, it, vi} from 'vitest'
 
 import {DupeLevelDisplay} from './DupeLevelDisplay'
 
@@ -37,5 +37,35 @@ describe('DupeLevelDisplay', () => {
     expect(svgSlots).toHaveLength(3)
     expect(container.querySelector('.collection-dupe-svg-slot-overflow')).not.toBeInTheDocument()
     expect(screen.queryByText('3')).not.toBeInTheDocument()
+  })
+
+  it('keeps its slots presentational unless level selection is enabled', () => {
+    render(<DupeLevelDisplay level={2} />)
+
+    expect(screen.queryByRole('button')).not.toBeInTheDocument()
+  })
+
+  it('selects a different exact level while leaving the current level as a no-op', () => {
+    const onSelect = vi.fn()
+
+    render(
+      <DupeLevelDisplay
+        level={2}
+        levelSelection={{
+          getAriaLabel: (level) => `Choose E${String(level)}`,
+          onSelect,
+        }}
+      />,
+    )
+
+    const currentLevel = screen.getByRole('button', {name: 'Choose E2'})
+    expect(currentLevel).toHaveAttribute('aria-pressed', 'true')
+
+    fireEvent.click(currentLevel)
+    expect(onSelect).not.toHaveBeenCalled()
+
+    fireEvent.click(screen.getByRole('button', {name: 'Choose E3'}))
+    expect(onSelect).toHaveBeenCalledOnce()
+    expect(onSelect).toHaveBeenCalledWith(3)
   })
 })
