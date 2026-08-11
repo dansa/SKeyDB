@@ -39,11 +39,50 @@ describe('database-rich-text', () => {
     )
 
     expect(options).toEqual({
-      excludedSkillNames: new Set(['strike']),
+      excludedSkillNames: new Set(['counter', 'counter buff', 'strike']),
       plainTextMechanicNames: new Set(['Rouse']),
       overlayMechanicNames: new Set(['Counter', 'Counter Buff']),
       enableFollowupLineBreaks: true,
     })
+  })
+
+  it('prefers mechanics for untyped card collisions while preserving typed derived references', () => {
+    const referenceLayer = {
+      cardNames: new Set(['Devour']),
+      accessibleOverlays: [
+        {
+          ...TEST_OVERLAY,
+          id: 'overlay.global.devour',
+          displayName: 'Devour',
+          aliases: [],
+        },
+      ],
+      referenceInfoByName: new Map(),
+      referenceInfoById: new Map(),
+      overlayByName: new Map(),
+    } satisfies ResolvedDatabaseReferenceLayer
+
+    expect(
+      parseDatabaseRichDescription({
+        record: {
+          id: 'skill.test.devour-source',
+          ownerAwakenerId: 1,
+          kind: 'skill',
+          displayName: 'Devour Source',
+          descriptionTemplate: 'Gain {Devour}, then create {derived:Devour}.',
+          descriptionArgs: {},
+          cardKeywords: [],
+          variants: [],
+        },
+        referenceLayer,
+      }),
+    ).toEqual([
+      {type: 'text', value: 'Gain '},
+      {type: 'mechanic', name: 'Devour'},
+      {type: 'text', value: ', then create '},
+      {type: 'skill', name: 'Devour', referenceKind: 'derived-skill'},
+      {type: 'text', value: '.'},
+    ])
   })
 
   it('parses database rich text using record text ahead of fallback text and appends footer text', () => {

@@ -101,7 +101,10 @@ export function buildDatabaseRichTextParseOptions(
     }
   }
 
-  const excludedSkillNames = new Set<string>()
+  // Untyped authored tokens describe mechanics when an overlay and a card share
+  // the same name. Authors can still select the card explicitly with a typed
+  // `{derived:...}` reference.
+  const excludedSkillNames = new Set<string>(normalizedOverlayMechanicNames)
   const normalizedRecordDisplayName = getNormalizedRecordDisplayName(record)
   if (referenceLayer?.referenceInfoByName) {
     for (const [name, info] of referenceLayer.referenceInfoByName) {
