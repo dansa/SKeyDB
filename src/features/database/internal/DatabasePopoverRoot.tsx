@@ -1,4 +1,4 @@
-import {lazy, Suspense} from 'react'
+import {lazy, Suspense, useState, type ReactNode} from 'react'
 
 import {createPortal} from 'react-dom'
 
@@ -57,24 +57,36 @@ export function DatabasePopoverRoot({
     return null
   }
 
-  return createPortal(
-    <Suspense fallback={null}>
-      <DatabasePopoverPortal
-        anchorElement={anchorElement}
-        anchorRect={anchorRect}
-        entries={entries}
-        formulaContext={formulaContext}
-        closeOnOutsideClick={closeOnOutsideClick}
-        onCloseAll={onCloseAll}
-        onToggleEnlightenSlot={onToggleEnlightenSlot}
-        referenceLayer={referenceLayer}
-        selectedEnlightenSlot={selectedEnlightenSlot}
-        showTagIcons={showTagIcons}
-        showVisibleScaling={showVisibleScaling}
-        stats={stats}
-        fontScale={fontScale}
-      />
-    </Suspense>,
-    getPopoverPortalRoot(anchorElement),
+  return (
+    <DatabasePopoverSessionPortal key={entries[0]?.key} anchorElement={anchorElement}>
+      <Suspense fallback={null}>
+        <DatabasePopoverPortal
+          anchorElement={anchorElement}
+          anchorRect={anchorRect}
+          entries={entries}
+          formulaContext={formulaContext}
+          closeOnOutsideClick={closeOnOutsideClick}
+          onCloseAll={onCloseAll}
+          onToggleEnlightenSlot={onToggleEnlightenSlot}
+          referenceLayer={referenceLayer}
+          selectedEnlightenSlot={selectedEnlightenSlot}
+          showTagIcons={showTagIcons}
+          showVisibleScaling={showVisibleScaling}
+          stats={stats}
+          fontScale={fontScale}
+        />
+      </Suspense>
+    </DatabasePopoverSessionPortal>
   )
+}
+
+function DatabasePopoverSessionPortal({
+  anchorElement,
+  children,
+}: {
+  anchorElement?: HTMLElement | null
+  children: ReactNode
+}) {
+  const [portalRoot] = useState(() => getPopoverPortalRoot(anchorElement))
+  return createPortal(children, portalRoot)
 }
