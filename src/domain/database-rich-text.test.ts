@@ -67,7 +67,7 @@ describe('database-rich-text', () => {
         record: {
           id: 'skill.test.devour-source',
           ownerAwakenerId: 1,
-          kind: 'skill',
+          kind: 'command',
           displayName: 'Devour Source',
           descriptionTemplate: 'Gain {Devour}, then create {derived:Devour}.',
           descriptionArgs: {},
