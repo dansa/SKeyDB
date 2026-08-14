@@ -10,7 +10,7 @@
   "ownerAwakenerId": "awakener-0012",
   "derivedFromId": "derived.daffodil.thousand-mirage-extra-effects",
   "rootSkillId": "skill.daffodil.sea-of-primordial-essence",
-  "descriptionTemplate": "Add 2 {Insight} cards to your Draw Pile.",
+  "descriptionTemplate": "Add 2 {derived:Insight} cards to your Draw Pile.",
   "descriptionArgs": {},
   "cardKeywords": [],
   "cost": "0",

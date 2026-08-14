@@ -1293,17 +1293,17 @@
       "kind": "relic",
       "id": "relic-0066",
       "name": "Arcane Gloves",
-      "aliases": ["Arcane Gloves+"],
-      "tokens": ["arcane", "arcane gloves", "astral", "astral reign", "gloves", "gold", "n", "reign", "relic", "silver"],
+      "aliases": ["Arcane Gloves+", "☆Arcane Gloves☆"],
+      "tokens": ["arcane", "arcane gloves", "astral", "astral reign", "gloves", "gold", "n", "other", "reign", "relic", "silver"],
       "fields": {
         "name": ["Arcane Gloves", "arcane-gloves"],
-        "alias": ["Arcane Gloves+"],
-        "facet": ["N", "Relic", "ASTRAL_REIGN", "Astral Reign", "Silver", "Gold"]
+        "alias": ["Arcane Gloves+", "☆Arcane Gloves☆"],
+        "facet": ["N", "Relic", "ASTRAL_REIGN", "Astral Reign", "OTHER", "Silver", "Gold"]
       },
       "facets": {
         "rarity": "N",
         "relicType": "Relic",
-        "categories": ["ASTRAL_REIGN"],
+        "categories": ["ASTRAL_REIGN", "OTHER"],
         "variantTiers": ["Silver", "Gold"]
       }
     },
@@ -2698,18 +2698,18 @@
       "kind": "relic",
       "id": "relic-0143",
       "name": "Differential Engine",
-      "aliases": ["Differential Engine+"],
-      "tokens": ["astral", "astral reign", "differential", "differential engine", "engine", "gold", "n", "reign", "relic", "silver"],
+      "aliases": ["Differential Engine+", "☆Differential Engine☆"],
+      "tokens": ["astral", "astral reign", "differential", "differential engine", "engine", "gold", "n", "other", "reign", "relic", "silver", "special"],
       "fields": {
         "name": ["Differential Engine", "differential-engine"],
-        "alias": ["Differential Engine+"],
-        "facet": ["N", "Relic", "ASTRAL_REIGN", "Astral Reign", "Silver", "Gold"]
+        "alias": ["Differential Engine+", "☆Differential Engine☆"],
+        "facet": ["N", "Relic", "ASTRAL_REIGN", "Astral Reign", "OTHER", "Silver", "Gold", "Special"]
       },
       "facets": {
         "rarity": "N",
         "relicType": "Relic",
-        "categories": ["ASTRAL_REIGN"],
-        "variantTiers": ["Silver", "Gold"]
+        "categories": ["ASTRAL_REIGN", "OTHER"],
+        "variantTiers": ["Silver", "Gold", "Special"]
       }
     },
     {
@@ -3160,17 +3160,17 @@
       "kind": "relic",
       "id": "relic-0168",
       "name": "Forgotten Loom",
-      "aliases": ["Forgotten Loom+"],
-      "tokens": ["astral", "astral reign", "event", "forgotten", "forgotten loom", "gold", "loom", "n", "reign", "relic", "silver", "special"],
+      "aliases": ["Forgotten Loom+", "☆Forgotten Loom☆"],
+      "tokens": ["astral", "astral reign", "event", "forgotten", "forgotten loom", "gold", "loom", "n", "other", "reign", "relic", "silver", "special"],
       "fields": {
         "name": ["Forgotten Loom", "forgotten-loom"],
-        "alias": ["Forgotten Loom+"],
-        "facet": ["N", "Relic", "ASTRAL_REIGN", "Astral Reign", "EVENT", "Silver", "Gold", "Special"]
+        "alias": ["Forgotten Loom+", "☆Forgotten Loom☆"],
+        "facet": ["N", "Relic", "ASTRAL_REIGN", "Astral Reign", "EVENT", "OTHER", "Silver", "Gold", "Special"]
       },
       "facets": {
         "rarity": "N",
         "relicType": "Relic",
-        "categories": ["ASTRAL_REIGN", "EVENT"],
+        "categories": ["ASTRAL_REIGN", "EVENT", "OTHER"],
         "variantTiers": ["Silver", "Gold", "Special"]
       }
     },
@@ -4795,17 +4795,17 @@
       "kind": "relic",
       "id": "relic-0252",
       "name": "Radium Jawbone",
-      "aliases": ["Radium Jawbone+"],
-      "tokens": ["astral", "astral reign", "gold", "jawbone", "n", "radium", "radium jawbone", "reign", "relic", "silver"],
+      "aliases": ["Radium Jawbone+", "☆Radium Jawbone☆"],
+      "tokens": ["astral", "astral reign", "gold", "jawbone", "n", "other", "radium", "radium jawbone", "reign", "relic", "silver"],
       "fields": {
         "name": ["Radium Jawbone", "radium-jawbone"],
-        "alias": ["Radium Jawbone+"],
-        "facet": ["N", "Relic", "ASTRAL_REIGN", "Astral Reign", "Silver", "Gold"]
+        "alias": ["Radium Jawbone+", "☆Radium Jawbone☆"],
+        "facet": ["N", "Relic", "ASTRAL_REIGN", "Astral Reign", "OTHER", "Silver", "Gold"]
       },
       "facets": {
         "rarity": "N",
         "relicType": "Relic",
-        "categories": ["ASTRAL_REIGN"],
+        "categories": ["ASTRAL_REIGN", "OTHER"],
         "variantTiers": ["Silver", "Gold"]
       }
     },
@@ -5991,6 +5991,125 @@
         "categories": ["DIMENSIONAL_IMAGE"],
         "variantTiers": ["Unique"],
         "owner": "awakener-0059"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0307",
+      "name": "☆Ration Pack☆",
+      "aliases": [],
+      "tokens": ["n", "other", "pack", "ration", "ration pack", "relic", "silver"],
+      "fields": {
+        "name": ["☆Ration Pack☆", "ration-pack"],
+        "facet": ["N", "Relic", "OTHER", "Silver"]
+      },
+      "facets": {
+        "rarity": "N",
+        "relicType": "Relic",
+        "categories": ["OTHER"],
+        "variantTiers": ["Silver"]
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0308",
+      "name": "☆Beauty in Loss☆",
+      "aliases": [],
+      "tokens": ["beauty", "beauty in loss", "in", "loss", "other", "relic", "special", "ssr"],
+      "fields": {
+        "name": ["☆Beauty in Loss☆", "beauty-in-loss"],
+        "facet": ["SSR", "Relic", "OTHER", "Special"]
+      },
+      "facets": {
+        "rarity": "SSR",
+        "relicType": "Relic",
+        "categories": ["OTHER"],
+        "variantTiers": ["Special"]
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0309",
+      "name": "☆Sextant☆",
+      "aliases": [],
+      "tokens": ["other", "relic", "sextant", "special", "ssr"],
+      "fields": {
+        "name": ["☆Sextant☆", "sextant"],
+        "facet": ["SSR", "Relic", "OTHER", "Special"]
+      },
+      "facets": {
+        "rarity": "SSR",
+        "relicType": "Relic",
+        "categories": ["OTHER"],
+        "variantTiers": ["Special"]
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0310",
+      "name": "☆Fond Reminiscence☆",
+      "aliases": [],
+      "tokens": ["fond", "fond reminiscence", "other", "relic", "reminiscence", "special", "ssr"],
+      "fields": {
+        "name": ["☆Fond Reminiscence☆", "fond-reminiscence"],
+        "facet": ["SSR", "Relic", "OTHER", "Special"]
+      },
+      "facets": {
+        "rarity": "SSR",
+        "relicType": "Relic",
+        "categories": ["OTHER"],
+        "variantTiers": ["Special"]
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0311",
+      "name": "☆Escape Plan☆",
+      "aliases": [],
+      "tokens": ["escape", "escape plan", "n", "other", "plan", "relic", "silver"],
+      "fields": {
+        "name": ["☆Escape Plan☆", "escape-plan"],
+        "facet": ["N", "Relic", "OTHER", "Silver"]
+      },
+      "facets": {
+        "rarity": "N",
+        "relicType": "Relic",
+        "categories": ["OTHER"],
+        "variantTiers": ["Silver"]
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0312",
+      "name": "☆Lady's Purse☆",
+      "aliases": [],
+      "tokens": ["ladys", "ladys purse", "n", "other", "purse", "relic", "silver"],
+      "fields": {
+        "name": ["☆Lady's Purse☆", "ladys-purse"],
+        "facet": ["N", "Relic", "OTHER", "Silver"]
+      },
+      "facets": {
+        "rarity": "N",
+        "relicType": "Relic",
+        "categories": ["OTHER"],
+        "variantTiers": ["Silver"]
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0313",
+      "name": "Armor of Whalebone",
+      "aliases": [],
+      "tokens": ["armor", "armor of whalebone", "event", "of", "special", "ssr", "whalebone"],
+      "fields": {
+        "name": ["Armor of Whalebone", "armor-of-whalebone"],
+        "facet": ["SSR", "Event", "Special"]
+      },
+      "facets": {
+        "rarity": "SSR",
+        "relicType": "Event",
+        "categories": ["EVENT"],
+        "variantTiers": ["Special"]
       }
     }
   ]

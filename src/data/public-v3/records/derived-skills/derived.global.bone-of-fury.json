@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.bone-of-fury",
+  "name": "Bone of Fury",
+  "route": {
+    "slug": "bone-of-fury",
+    "canonicalPath": "/database/derived-skills/bone-of-fury"
+  },
+  "descriptionTemplate": "All Awakeners gain [Energy:Arg1] Aliemus. Accumulate [Arg2] stacks of {Warlust}. Shuffle into the Draw Pile after being played.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "10"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "3"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1"
+}

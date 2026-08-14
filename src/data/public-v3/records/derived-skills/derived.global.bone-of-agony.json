@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.bone-of-agony",
+  "name": "Bone of Agony",
+  "route": {
+    "slug": "bone-of-agony",
+    "canonicalPath": "/database/derived-skills/bone-of-agony"
+  },
+  "descriptionTemplate": "Gain [Arg1] {STR}. After being played, accumulate [Arg2] stacks of {Warlust} for each instance of DMG received this turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.043,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "3"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "2"
+}

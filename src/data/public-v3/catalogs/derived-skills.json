@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "derived-skills",
   "kind": "derivedSkill",
-  "recordCount": 189,
+  "recordCount": 192,
   "records": [
     {
       "kind": "derivedSkill",
@@ -695,6 +695,33 @@
       "route": {
         "slug": "barbed-trident",
         "canonicalPath": "/database/derived-skills/barbed-trident"
+      }
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.global.bone-of-agony",
+      "name": "Bone of Agony",
+      "route": {
+        "slug": "bone-of-agony",
+        "canonicalPath": "/database/derived-skills/bone-of-agony"
+      }
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.global.bone-of-blades",
+      "name": "Bone of Blades",
+      "route": {
+        "slug": "bone-of-blades",
+        "canonicalPath": "/database/derived-skills/bone-of-blades"
+      }
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.global.bone-of-fury",
+      "name": "Bone of Fury",
+      "route": {
+        "slug": "bone-of-fury",
+        "canonicalPath": "/database/derived-skills/bone-of-fury"
       }
     },
     {

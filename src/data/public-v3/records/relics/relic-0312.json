@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0312",
+  "name": "☆Lady's Purse☆",
+  "route": {
+    "slug": "ladys-purse",
+    "canonicalPath": "/database/relics/ladys-purse"
+  },
+  "assets": {
+    "icon": "asset-relic-0312-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["OTHER"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0564",
+  "rarity": "N",
+  "aliases": [],
+  "descriptionTemplate": "Each time you reset the deck, add 2 {derived:Barbed Trident} and 1 {Parasol} to your hand.",
+  "descriptionArgs": {},
+  "lore": "It was meant to carry refinement, not death.",
+  "variants": [
+    {
+      "id": "relic-variant-0564",
+      "name": "☆Lady's Purse☆",
+      "label": "Other - Silver",
+      "variantType": "OTHER",
+      "tier": "Silver",
+      "category": "OTHER",
+      "rarity": "N",
+      "descriptionTemplate": "Each time you reset the deck, add 2 {derived:Barbed Trident} and 1 {Parasol} to your hand.",
+      "descriptionArgs": {},
+      "lore": "It was meant to carry refinement, not death."
+    }
+  ]
+}

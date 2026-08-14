@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0308",
+  "name": "☆Beauty in Loss☆",
+  "route": {
+    "slug": "beauty-in-loss",
+    "canonicalPath": "/database/relics/beauty-in-loss"
+  },
+  "assets": {
+    "icon": "asset-relic-0308-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["OTHER"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0557",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "When you play a card with an Arithmetica Cost of 3 or more, draw 1 card and gain 1 Arithmetica.",
+  "descriptionArgs": {},
+  "lore": "No one remembers her beauty anymore.",
+  "variants": [
+    {
+      "id": "relic-variant-0557",
+      "name": "☆Beauty in Loss☆",
+      "label": "Other - Special",
+      "variantType": "OTHER",
+      "tier": "Special",
+      "category": "OTHER",
+      "rarity": "SSR",
+      "descriptionTemplate": "When you play a card with an Arithmetica Cost of 3 or more, draw 1 card and gain 1 Arithmetica.",
+      "descriptionArgs": {},
+      "lore": "No one remembers her beauty anymore."
+    }
+  ]
+}

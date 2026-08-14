@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0313",
+  "name": "Armor of Whalebone",
+  "route": {
+    "slug": "armor-of-whalebone",
+    "canonicalPath": "/database/relics/armor-of-whalebone"
+  },
+  "assets": {
+    "icon": "asset-relic-0313-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0565",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "Hand Limit +1. At the start of combat or after playing {derived:Bone of Blades}, place 1 {derived:Bone of Fury} into hand and shuffle 1 {derived:Bone of Agony} into Draw Pile. If {derived:Bone of Fury} and {derived:Bone of Agony} are both played in the same turn, combine these two cards into {derived:Bone of Blades} and place it into hand.",
+  "descriptionArgs": {},
+  "lore": "The bones of Leviathan shield Its chosen, rendering them invincible and immortal.",
+  "variants": [
+    {
+      "id": "relic-variant-0565",
+      "name": "Armor of Whalebone",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "Hand Limit +1. At the start of combat or after playing {derived:Bone of Blades}, place 1 {derived:Bone of Fury} into hand and shuffle 1 {derived:Bone of Agony} into Draw Pile. If {derived:Bone of Fury} and {derived:Bone of Agony} are both played in the same turn, combine these two cards into {derived:Bone of Blades} and place it into hand.",
+      "descriptionArgs": {},
+      "lore": "The bones of Leviathan shield Its chosen, rendering them invincible and immortal."
+    }
+  ]
+}

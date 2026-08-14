@@ -11,11 +11,11 @@
     "icon": "asset-relic-0252-icon"
   },
   "relicType": "Relic",
-  "categories": ["ASTRAL_REIGN"],
-  "variantCount": 2,
+  "categories": ["ASTRAL_REIGN", "OTHER"],
+  "variantCount": 3,
   "defaultVariantId": "relic-variant-0426",
   "rarity": "N",
-  "aliases": ["Radium Jawbone+"],
+  "aliases": ["Radium Jawbone+", "☆Radium Jawbone☆"],
   "descriptionTemplate": "After releasing \"Exalt, \" all enemies take 1 instance of {Fixed DMG} equal to [Arg2]% of team's Max HP and trigger [Arg2]% {Poison}.",
   "descriptionArgs": {
     "Arg2": {
@@ -57,6 +57,26 @@
           "kind": "fixed",
           "value": "30",
           "suffix": "%"
+        }
+      },
+      "lore": "Displayed in a private collector's showroom.\nThe collector was captivated by its beautiful fluorescence, admiring it day and night, until he eventually withered away and became one of its kind."
+    },
+    {
+      "id": "relic-variant-0556",
+      "name": "☆Radium Jawbone☆",
+      "label": "Other - Silver",
+      "variantType": "OTHER",
+      "tier": "Silver",
+      "category": "OTHER",
+      "rarity": "N",
+      "descriptionTemplate": "When releasing Exalt, for each instance of incoming DMG from enemies, Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Poison}",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.02,
+          "inputs": ["accountLevel", "ownedPosseCount"]
         }
       },
       "lore": "Displayed in a private collector's showroom.\nThe collector was captivated by its beautiful fluorescence, admiring it day and night, until he eventually withered away and became one of its kind."

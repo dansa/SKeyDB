@@ -1254,11 +1254,23 @@
         "canonicalSlug": "argent-return",
         "canonicalPath": "/database/relics/argent-return"
       },
+      "armor-of-whalebone": {
+        "kind": "relic",
+        "id": "relic-0313",
+        "canonicalSlug": "armor-of-whalebone",
+        "canonicalPath": "/database/relics/armor-of-whalebone"
+      },
       "barbed-trident": {
         "kind": "relic",
         "id": "relic-0074",
         "canonicalSlug": "barbed-trident",
         "canonicalPath": "/database/relics/barbed-trident"
+      },
+      "beauty-in-loss": {
+        "kind": "relic",
+        "id": "relic-0308",
+        "canonicalSlug": "beauty-in-loss",
+        "canonicalPath": "/database/relics/beauty-in-loss"
       },
       "big-mouth-button": {
         "kind": "relic",
@@ -2124,6 +2136,12 @@
         "canonicalSlug": "ephemeral-fire",
         "canonicalPath": "/database/relics/ephemeral-fire"
       },
+      "escape-plan": {
+        "kind": "relic",
+        "id": "relic-0311",
+        "canonicalSlug": "escape-plan",
+        "canonicalPath": "/database/relics/escape-plan"
+      },
       "expedition-team": {
         "kind": "relic",
         "id": "relic-0160",
@@ -2159,6 +2177,12 @@
         "id": "relic-0166",
         "canonicalSlug": "fleeting-beauty",
         "canonicalPath": "/database/relics/fleeting-beauty"
+      },
+      "fond-reminiscence": {
+        "kind": "relic",
+        "id": "relic-0310",
+        "canonicalSlug": "fond-reminiscence",
+        "canonicalPath": "/database/relics/fond-reminiscence"
       },
       "foreign-stamp-album": {
         "kind": "relic",
@@ -2321,6 +2345,12 @@
         "id": "relic-0193",
         "canonicalSlug": "knowledge-wheel",
         "canonicalPath": "/database/relics/knowledge-wheel"
+      },
+      "ladys-purse": {
+        "kind": "relic",
+        "id": "relic-0312",
+        "canonicalSlug": "ladys-purse",
+        "canonicalPath": "/database/relics/ladys-purse"
       },
       "lamp-of-salvation": {
         "kind": "relic",
@@ -2604,6 +2634,12 @@
         "canonicalSlug": "radium-jawbone",
         "canonicalPath": "/database/relics/radium-jawbone"
       },
+      "ration-pack": {
+        "kind": "relic",
+        "id": "relic-0307",
+        "canonicalSlug": "ration-pack",
+        "canonicalPath": "/database/relics/ration-pack"
+      },
       "relic-of-the-past": {
         "kind": "relic",
         "id": "relic-0253",
@@ -2681,6 +2717,12 @@
         "id": "relic-0265",
         "canonicalSlug": "severed-head-worm",
         "canonicalPath": "/database/relics/severed-head-worm"
+      },
+      "sextant": {
+        "kind": "relic",
+        "id": "relic-0309",
+        "canonicalSlug": "sextant",
+        "canonicalPath": "/database/relics/sextant"
       },
       "shapeshifters-invitation": {
         "kind": "relic",
@@ -5977,6 +6019,24 @@
         "id": "derived.global.barbed-trident",
         "canonicalSlug": "barbed-trident",
         "canonicalPath": "/database/derived-skills/barbed-trident"
+      },
+      "bone-of-agony": {
+        "kind": "derivedSkill",
+        "id": "derived.global.bone-of-agony",
+        "canonicalSlug": "bone-of-agony",
+        "canonicalPath": "/database/derived-skills/bone-of-agony"
+      },
+      "bone-of-blades": {
+        "kind": "derivedSkill",
+        "id": "derived.global.bone-of-blades",
+        "canonicalSlug": "bone-of-blades",
+        "canonicalPath": "/database/derived-skills/bone-of-blades"
+      },
+      "bone-of-fury": {
+        "kind": "derivedSkill",
+        "id": "derived.global.bone-of-fury",
+        "canonicalSlug": "bone-of-fury",
+        "canonicalPath": "/database/derived-skills/bone-of-fury"
       },
       "brilliance-of-humanity": {
         "kind": "derivedSkill",

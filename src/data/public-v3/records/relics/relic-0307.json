@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0307",
+  "name": "☆Ration Pack☆",
+  "route": {
+    "slug": "ration-pack",
+    "canonicalPath": "/database/relics/ration-pack"
+  },
+  "assets": {
+    "icon": "asset-relic-0307-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["OTHER"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0555",
+  "rarity": "N",
+  "aliases": [],
+  "descriptionTemplate": "Immune to death once, instantly recover 10% HP after triggering, permanently disabled after 3 triggers.",
+  "descriptionArgs": {},
+  "lore": "Only eat this as an absolute last resort.",
+  "variants": [
+    {
+      "id": "relic-variant-0555",
+      "name": "☆Ration Pack☆",
+      "label": "Other - Silver",
+      "variantType": "OTHER",
+      "tier": "Silver",
+      "category": "OTHER",
+      "rarity": "N",
+      "descriptionTemplate": "Immune to death once, instantly recover 10% HP after triggering, permanently disabled after 3 triggers.",
+      "descriptionArgs": {},
+      "lore": "Only eat this as an absolute last resort."
+    }
+  ]
+}

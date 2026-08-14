@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "relics",
   "kind": "relic",
-  "recordCount": 287,
+  "recordCount": 294,
   "records": [
     {
       "kind": "relic",
@@ -1782,10 +1782,10 @@
       },
       "rarity": "N",
       "relicType": "Relic",
-      "categories": ["ASTRAL_REIGN"],
-      "variantCount": 2,
+      "categories": ["ASTRAL_REIGN", "OTHER"],
+      "variantCount": 3,
       "defaultVariantId": "relic-variant-0072",
-      "aliases": ["Arcane Gloves+"],
+      "aliases": ["Arcane Gloves+", "☆Arcane Gloves☆"],
       "variantTiers": ["Silver", "Gold"],
       "variantCategoryTiers": [
         {
@@ -1795,6 +1795,10 @@
         {
           "category": "ASTRAL_REIGN",
           "tier": "Gold"
+        },
+        {
+          "category": "OTHER",
+          "tier": "Silver"
         }
       ]
     },
@@ -3687,11 +3691,11 @@
       },
       "rarity": "N",
       "relicType": "Relic",
-      "categories": ["ASTRAL_REIGN"],
-      "variantCount": 2,
+      "categories": ["ASTRAL_REIGN", "OTHER"],
+      "variantCount": 3,
       "defaultVariantId": "relic-variant-0204",
-      "aliases": ["Differential Engine+"],
-      "variantTiers": ["Silver", "Gold"],
+      "aliases": ["Differential Engine+", "☆Differential Engine☆"],
+      "variantTiers": ["Silver", "Gold", "Special"],
       "variantCategoryTiers": [
         {
           "category": "ASTRAL_REIGN",
@@ -3700,6 +3704,10 @@
         {
           "category": "ASTRAL_REIGN",
           "tier": "Gold"
+        },
+        {
+          "category": "OTHER",
+          "tier": "Special"
         }
       ]
     },
@@ -4357,10 +4365,10 @@
       },
       "rarity": "N",
       "relicType": "Relic",
-      "categories": ["ASTRAL_REIGN", "EVENT"],
-      "variantCount": 3,
+      "categories": ["ASTRAL_REIGN", "EVENT", "OTHER"],
+      "variantCount": 4,
       "defaultVariantId": "relic-variant-0248",
-      "aliases": ["Forgotten Loom+"],
+      "aliases": ["Forgotten Loom+", "☆Forgotten Loom☆"],
       "variantTiers": ["Silver", "Gold", "Special"],
       "variantCategoryTiers": [
         {
@@ -4373,6 +4381,10 @@
         },
         {
           "category": "EVENT",
+          "tier": "Special"
+        },
+        {
+          "category": "OTHER",
           "tier": "Special"
         }
       ]
@@ -6515,10 +6527,10 @@
       },
       "rarity": "N",
       "relicType": "Relic",
-      "categories": ["ASTRAL_REIGN"],
-      "variantCount": 2,
+      "categories": ["ASTRAL_REIGN", "OTHER"],
+      "variantCount": 3,
       "defaultVariantId": "relic-variant-0426",
-      "aliases": ["Radium Jawbone+"],
+      "aliases": ["Radium Jawbone+", "☆Radium Jawbone☆"],
       "variantTiers": ["Silver", "Gold"],
       "variantCategoryTiers": [
         {
@@ -6528,6 +6540,10 @@
         {
           "category": "ASTRAL_REIGN",
           "tier": "Gold"
+        },
+        {
+          "category": "OTHER",
+          "tier": "Silver"
         }
       ]
     },
@@ -8154,6 +8170,181 @@
         {
           "category": "DIMENSIONAL_IMAGE",
           "tier": "Unique"
+        }
+      ]
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0307",
+      "name": "☆Ration Pack☆",
+      "route": {
+        "slug": "ration-pack",
+        "canonicalPath": "/database/relics/ration-pack"
+      },
+      "assets": {
+        "icon": "asset-relic-0307-icon"
+      },
+      "rarity": "N",
+      "relicType": "Relic",
+      "categories": ["OTHER"],
+      "variantCount": 1,
+      "defaultVariantId": "relic-variant-0555",
+      "aliases": [],
+      "variantTiers": ["Silver"],
+      "variantCategoryTiers": [
+        {
+          "category": "OTHER",
+          "tier": "Silver"
+        }
+      ]
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0308",
+      "name": "☆Beauty in Loss☆",
+      "route": {
+        "slug": "beauty-in-loss",
+        "canonicalPath": "/database/relics/beauty-in-loss"
+      },
+      "assets": {
+        "icon": "asset-relic-0308-icon"
+      },
+      "rarity": "SSR",
+      "relicType": "Relic",
+      "categories": ["OTHER"],
+      "variantCount": 1,
+      "defaultVariantId": "relic-variant-0557",
+      "aliases": [],
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "OTHER",
+          "tier": "Special"
+        }
+      ]
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0309",
+      "name": "☆Sextant☆",
+      "route": {
+        "slug": "sextant",
+        "canonicalPath": "/database/relics/sextant"
+      },
+      "assets": {
+        "icon": "asset-relic-0309-icon"
+      },
+      "rarity": "SSR",
+      "relicType": "Relic",
+      "categories": ["OTHER"],
+      "variantCount": 1,
+      "defaultVariantId": "relic-variant-0561",
+      "aliases": [],
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "OTHER",
+          "tier": "Special"
+        }
+      ]
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0310",
+      "name": "☆Fond Reminiscence☆",
+      "route": {
+        "slug": "fond-reminiscence",
+        "canonicalPath": "/database/relics/fond-reminiscence"
+      },
+      "assets": {
+        "icon": "asset-relic-0310-icon"
+      },
+      "rarity": "SSR",
+      "relicType": "Relic",
+      "categories": ["OTHER"],
+      "variantCount": 1,
+      "defaultVariantId": "relic-variant-0562",
+      "aliases": [],
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "OTHER",
+          "tier": "Special"
+        }
+      ]
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0311",
+      "name": "☆Escape Plan☆",
+      "route": {
+        "slug": "escape-plan",
+        "canonicalPath": "/database/relics/escape-plan"
+      },
+      "assets": {
+        "icon": "asset-relic-0311-icon"
+      },
+      "rarity": "N",
+      "relicType": "Relic",
+      "categories": ["OTHER"],
+      "variantCount": 1,
+      "defaultVariantId": "relic-variant-0563",
+      "aliases": [],
+      "variantTiers": ["Silver"],
+      "variantCategoryTiers": [
+        {
+          "category": "OTHER",
+          "tier": "Silver"
+        }
+      ]
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0312",
+      "name": "☆Lady's Purse☆",
+      "route": {
+        "slug": "ladys-purse",
+        "canonicalPath": "/database/relics/ladys-purse"
+      },
+      "assets": {
+        "icon": "asset-relic-0312-icon"
+      },
+      "rarity": "N",
+      "relicType": "Relic",
+      "categories": ["OTHER"],
+      "variantCount": 1,
+      "defaultVariantId": "relic-variant-0564",
+      "aliases": [],
+      "variantTiers": ["Silver"],
+      "variantCategoryTiers": [
+        {
+          "category": "OTHER",
+          "tier": "Silver"
+        }
+      ]
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0313",
+      "name": "Armor of Whalebone",
+      "route": {
+        "slug": "armor-of-whalebone",
+        "canonicalPath": "/database/relics/armor-of-whalebone"
+      },
+      "assets": {
+        "icon": "asset-relic-0313-icon"
+      },
+      "rarity": "SSR",
+      "relicType": "Event",
+      "categories": ["EVENT"],
+      "variantCount": 1,
+      "defaultVariantId": "relic-variant-0565",
+      "aliases": [],
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
         }
       ]
     }

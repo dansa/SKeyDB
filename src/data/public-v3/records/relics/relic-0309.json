@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0309",
+  "name": "☆Sextant☆",
+  "route": {
+    "slug": "sextant",
+    "canonicalPath": "/database/relics/sextant"
+  },
+  "assets": {
+    "icon": "asset-relic-0309-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["OTHER"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0561",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "After releasing Exalt, gain [Arg1] {Counter}. If this is the {ordinal:6th} trigger in this battle, double your {Counter}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.04,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "The only path ahead of you is one of misguidance.",
+  "variants": [
+    {
+      "id": "relic-variant-0561",
+      "name": "☆Sextant☆",
+      "label": "Other - Special",
+      "variantType": "OTHER",
+      "tier": "Special",
+      "category": "OTHER",
+      "rarity": "SSR",
+      "descriptionTemplate": "After releasing Exalt, gain [Arg1] {Counter}. If this is the {ordinal:6th} trigger in this battle, double your {Counter}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.04,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "The only path ahead of you is one of misguidance."
+    }
+  ]
+}

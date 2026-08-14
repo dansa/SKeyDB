@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0311",
+  "name": "☆Escape Plan☆",
+  "route": {
+    "slug": "escape-plan",
+    "canonicalPath": "/database/relics/escape-plan"
+  },
+  "assets": {
+    "icon": "asset-relic-0311-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["OTHER"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0563",
+  "rarity": "N",
+  "aliases": [],
+  "descriptionTemplate": "After releasing Exalt 4 times, reduce Arithmetica Cost for all cards in hand by 1.",
+  "descriptionArgs": {},
+  "lore": "\"After boarding, please first locate the nearest emergency exit to your cabin.\"",
+  "variants": [
+    {
+      "id": "relic-variant-0563",
+      "name": "☆Escape Plan☆",
+      "label": "Other - Silver",
+      "variantType": "OTHER",
+      "tier": "Silver",
+      "category": "OTHER",
+      "rarity": "N",
+      "descriptionTemplate": "After releasing Exalt 4 times, reduce Arithmetica Cost for all cards in hand by 1.",
+      "descriptionArgs": {},
+      "lore": "\"After boarding, please first locate the nearest emergency exit to your cabin.\""
+    }
+  ]
+}

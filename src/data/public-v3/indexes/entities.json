@@ -2493,6 +2493,33 @@
         "canonicalPath": "/database/derived-skills/barbed-trident"
       }
     },
+    "derived.global.bone-of-agony": {
+      "kind": "derivedSkill",
+      "id": "derived.global.bone-of-agony",
+      "name": "Bone of Agony",
+      "route": {
+        "slug": "bone-of-agony",
+        "canonicalPath": "/database/derived-skills/bone-of-agony"
+      }
+    },
+    "derived.global.bone-of-blades": {
+      "kind": "derivedSkill",
+      "id": "derived.global.bone-of-blades",
+      "name": "Bone of Blades",
+      "route": {
+        "slug": "bone-of-blades",
+        "canonicalPath": "/database/derived-skills/bone-of-blades"
+      }
+    },
+    "derived.global.bone-of-fury": {
+      "kind": "derivedSkill",
+      "id": "derived.global.bone-of-fury",
+      "name": "Bone of Fury",
+      "route": {
+        "slug": "bone-of-fury",
+        "canonicalPath": "/database/derived-skills/bone-of-fury"
+      }
+    },
     "derived.global.brilliance-of-humanity": {
       "kind": "derivedSkill",
       "id": "derived.global.brilliance-of-humanity",
@@ -13977,6 +14004,97 @@
       "ownerAwakenerId": "awakener-0059",
       "ownerAwakenerName": "Lotan: Cetarchon"
     },
+    "relic-0307": {
+      "kind": "relic",
+      "id": "relic-0307",
+      "name": "☆Ration Pack☆",
+      "route": {
+        "slug": "ration-pack",
+        "canonicalPath": "/database/relics/ration-pack"
+      },
+      "assets": {
+        "icon": "asset-relic-0307-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0308": {
+      "kind": "relic",
+      "id": "relic-0308",
+      "name": "☆Beauty in Loss☆",
+      "route": {
+        "slug": "beauty-in-loss",
+        "canonicalPath": "/database/relics/beauty-in-loss"
+      },
+      "assets": {
+        "icon": "asset-relic-0308-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0309": {
+      "kind": "relic",
+      "id": "relic-0309",
+      "name": "☆Sextant☆",
+      "route": {
+        "slug": "sextant",
+        "canonicalPath": "/database/relics/sextant"
+      },
+      "assets": {
+        "icon": "asset-relic-0309-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0310": {
+      "kind": "relic",
+      "id": "relic-0310",
+      "name": "☆Fond Reminiscence☆",
+      "route": {
+        "slug": "fond-reminiscence",
+        "canonicalPath": "/database/relics/fond-reminiscence"
+      },
+      "assets": {
+        "icon": "asset-relic-0310-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0311": {
+      "kind": "relic",
+      "id": "relic-0311",
+      "name": "☆Escape Plan☆",
+      "route": {
+        "slug": "escape-plan",
+        "canonicalPath": "/database/relics/escape-plan"
+      },
+      "assets": {
+        "icon": "asset-relic-0311-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0312": {
+      "kind": "relic",
+      "id": "relic-0312",
+      "name": "☆Lady's Purse☆",
+      "route": {
+        "slug": "ladys-purse",
+        "canonicalPath": "/database/relics/ladys-purse"
+      },
+      "assets": {
+        "icon": "asset-relic-0312-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0313": {
+      "kind": "relic",
+      "id": "relic-0313",
+      "name": "Armor of Whalebone",
+      "route": {
+        "slug": "armor-of-whalebone",
+        "canonicalPath": "/database/relics/armor-of-whalebone"
+      },
+      "assets": {
+        "icon": "asset-relic-0313-icon"
+      },
+      "rarity": "SSR"
+    },
     "skill.24.aberrant-vivisection": {
       "kind": "skill",
       "id": "skill.24.aberrant-vivisection",
@@ -24282,6 +24400,9 @@
       "derived.global.arouse",
       "derived.global.assemble",
       "derived.global.barbed-trident",
+      "derived.global.bone-of-agony",
+      "derived.global.bone-of-blades",
+      "derived.global.bone-of-fury",
       "derived.global.brilliance-of-humanity",
       "derived.global.coalsie-smack",
       "derived.global.cocoon-of-revival",
@@ -25214,7 +25335,14 @@
       "relic-0303",
       "relic-0304",
       "relic-0305",
-      "relic-0306"
+      "relic-0306",
+      "relic-0307",
+      "relic-0308",
+      "relic-0309",
+      "relic-0310",
+      "relic-0311",
+      "relic-0312",
+      "relic-0313"
     ],
     "skills": [
       "skill.24.aberrant-vivisection",

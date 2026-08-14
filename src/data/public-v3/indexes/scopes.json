@@ -23,7 +23,7 @@
       "idPrefix": "relic",
       "capabilities": ["catalog", "detailRecord", "search", "snapshot"],
       "searchable": true,
-      "recordCount": 287
+      "recordCount": 294
     },
     {
       "scope": "covenants",
@@ -55,7 +55,7 @@
       "idPrefix": "derived",
       "capabilities": ["catalog", "detailRecord", "snapshot"],
       "searchable": false,
-      "recordCount": 189
+      "recordCount": 192
     },
     {
       "scope": "talents",
@@ -113,7 +113,7 @@
       "idPrefix": "relic",
       "capabilities": ["catalog", "detailRecord", "search", "snapshot"],
       "searchable": true,
-      "recordCount": 287
+      "recordCount": 294
     },
     "covenants": {
       "scope": "covenants",
@@ -145,7 +145,7 @@
       "idPrefix": "derived",
       "capabilities": ["catalog", "detailRecord", "snapshot"],
       "searchable": false,
-      "recordCount": 189
+      "recordCount": 192
     },
     "talents": {
       "scope": "talents",

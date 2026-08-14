@@ -481,6 +481,12 @@
         "id": "overlay.global.arithmetica-harmony"
       }
     ],
+    "armor of whalebone": [
+      {
+        "kind": "relic",
+        "id": "relic-0313"
+      }
+    ],
     "arouse": [
       {
         "kind": "derivedSkill",
@@ -617,6 +623,12 @@
       {
         "kind": "skill",
         "id": "skill.lotan.beast-of-chaos"
+      }
+    ],
+    "beauty in loss": [
+      {
+        "kind": "relic",
+        "id": "relic-0308"
       }
     ],
     "beautys mercy": [
@@ -953,6 +965,24 @@
       {
         "kind": "posse",
         "id": "posse-0014"
+      }
+    ],
+    "bone of agony": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.bone-of-agony"
+      }
+    ],
+    "bone of blades": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.bone-of-blades"
+      }
+    ],
+    "bone of fury": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.bone-of-fury"
       }
     ],
     "bonesick longing": [
@@ -3049,6 +3079,12 @@
         "id": "awakener-build-0015"
       }
     ],
+    "escape plan": [
+      {
+        "kind": "relic",
+        "id": "relic-0311"
+      }
+    ],
     "esoteric research": [
       {
         "kind": "overlay",
@@ -3437,6 +3473,12 @@
       {
         "kind": "enlighten",
         "id": "enlighten.sorel.flowing-rill"
+      }
+    ],
+    "fond reminiscence": [
+      {
+        "kind": "relic",
+        "id": "relic-0310"
       }
     ],
     "for the new world": [
@@ -4595,6 +4637,12 @@
       {
         "kind": "skill",
         "id": "skill.xu.lady-of-dreamless-land"
+      }
+    ],
+    "ladys purse": [
+      {
+        "kind": "relic",
+        "id": "relic-0312"
       }
     ],
     "lakeborne dweller": [
@@ -6679,6 +6727,12 @@
         "id": "awakener-build-0020"
       }
     ],
+    "ration pack": [
+      {
+        "kind": "relic",
+        "id": "relic-0307"
+      }
+    ],
     "rationality truth and reality": [
       {
         "kind": "skill",
@@ -7313,6 +7367,12 @@
       {
         "kind": "relic",
         "id": "relic-0265"
+      }
+    ],
+    "sextant": [
+      {
+        "kind": "relic",
+        "id": "relic-0309"
       }
     ],
     "sextants calculation": [

@@ -11,11 +11,11 @@
     "icon": "asset-relic-0143-icon"
   },
   "relicType": "Relic",
-  "categories": ["ASTRAL_REIGN"],
-  "variantCount": 2,
+  "categories": ["ASTRAL_REIGN", "OTHER"],
+  "variantCount": 3,
   "defaultVariantId": "relic-variant-0204",
   "rarity": "N",
-  "aliases": ["Differential Engine+"],
+  "aliases": ["Differential Engine+", "☆Differential Engine☆"],
   "descriptionTemplate": "After using Exalt 4 times in one turn, gain [Arg1] Arithmetica. 3 turns cooldown.",
   "descriptionArgs": {
     "Arg1": {
@@ -56,6 +56,18 @@
           "value": "6"
         }
       },
+      "lore": "\"It changed history.\""
+    },
+    {
+      "id": "relic-variant-0560",
+      "name": "☆Differential Engine☆",
+      "label": "Other - Special",
+      "variantType": "OTHER",
+      "tier": "Special",
+      "category": "OTHER",
+      "rarity": "SSR",
+      "descriptionTemplate": "When you deplete the last 1 Arithmetica, gain 2 Arithmetica. Maximum 2 triggers per turn.",
+      "descriptionArgs": {},
       "lore": "\"It changed history.\""
     }
   ]
