@@ -127,16 +127,12 @@ export function DbDetailModalFrame({
       aria-label={ariaLabel}
       className='fixed inset-0 z-[960] m-0 h-dvh max-h-none w-screen max-w-none items-center justify-center overflow-hidden overscroll-contain border-0 p-3 text-inherit open:flex sm:p-4 md:p-5 lg:p-6'
       data-detail-modal-overlay=''
+      onCancel={(event) => {
+        event.preventDefault()
+        event.stopPropagation()
+        onCancel?.(event.nativeEvent)
+      }}
       onKeyDown={(event) => {
-        if (event.key === 'Escape') {
-          if (onCancel) {
-            onCancel(event.nativeEvent)
-          } else {
-            event.preventDefault()
-            event.stopPropagation()
-          }
-          return
-        }
         if (shouldPreventBackgroundKeyboardScroll(event.nativeEvent, event.currentTarget)) {
           event.preventDefault()
         }

@@ -710,7 +710,7 @@ describe('DbDetailModalHost route entries', () => {
     expect(wheelLoadRecord.mock.calls).toHaveLength(callsBeforeRender + 2)
   })
 
-  it('closes the route-loading modal with Escape', () => {
+  it('closes the route-loading modal through a native cancel request', () => {
     vi.mocked(dbDetailRegistry.wheel.loadRecord).mockReturnValue(new Promise(() => undefined))
     const navigationPort = createNavigationPort()
 
@@ -725,7 +725,7 @@ describe('DbDetailModalHost route entries', () => {
       </MemoryRouter>,
     )
 
-    fireEvent.keyDown(screen.getByRole('dialog'), {key: 'Escape'})
+    fireEvent(screen.getByRole('dialog'), new Event('cancel', {bubbles: false, cancelable: true}))
 
     expect(navigationPort.close).toHaveBeenCalledTimes(1)
   })

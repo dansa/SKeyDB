@@ -29,16 +29,14 @@ import type {
 import {BuilderV2Page} from './BuilderV2Page'
 import {TeamSlotSummary} from './BuilderV2TeamManagement'
 
+vi.mock('@/features/database/detail/databaseDetailOverlayLoader', () => ({
+  preloadDatabaseDetailOverlayOutlet: vi.fn(() => Promise.resolve({default: () => null})),
+}))
+
 vi.mock('@/features/database/detail/DeferredDatabaseDetailOverlayOutlet', async () => {
-  const [actual, {useSyncExternalStore}] = await Promise.all([
-    vi.importActual<
-      typeof import('@/features/database/detail/DeferredDatabaseDetailOverlayOutlet')
-    >('@/features/database/detail/DeferredDatabaseDetailOverlayOutlet'),
-    import('react'),
-  ])
+  const {useSyncExternalStore} = await import('react')
 
   return {
-    ...actual,
     DeferredDatabaseDetailOverlayOutlet: ({
       session,
     }: {
