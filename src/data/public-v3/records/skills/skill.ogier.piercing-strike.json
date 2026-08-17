@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0038",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Deal [Damage:Arg1] {Pierce DMG}, inflict [Arg2] {plural:[Arg2]|turn|turns} of {Vulnerable}, which enjoys a 200% {STR} bonus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "2",
+  "lore": "When Ogier became a squire, he was shorter than a horse's back; when he sacrificed himself to protect others, he could barely lift a spear.\nWhat kind of unwavering belief and willpower enabled such a young boy to pierce the enemy's armor?",
   "upgrades": [
     {
       "id": "upgrade.enlighten.ogier.honesty-unto-thyself.skill.ogier.piercing-strike",

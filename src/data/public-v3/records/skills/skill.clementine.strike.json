@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0010",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG, Clementine obtains [Energy:Arg3] Aliemus. {Quasar}: Obtain [Power:Arg4] {STR}.",
   "descriptionArgs": {
     "Arg1": {
@@ -30,5 +32,6 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "Her voice is gentle and kind, entwined and spreading in the dark side of your unseen mind.\nA person cannot be defeated by an existence outside of themselves, and you yourself are her weapon.",
   "ownerAwakenerName": "Clementine"
 }

@@ -8,6 +8,8 @@
     "canonicalPath": "/database/derived-skills/memories-mutated-heart"
   },
   "derivedFromId": "derived.global.twilight-mutated-heart",
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
   "descriptionTemplate": "Discard all cards in hand, draw a number of cards equal to the number of discarded cards +3, and reduce their Arithmetica Cost by 1.",
   "descriptionArgs": {},
   "cardKeywords": [

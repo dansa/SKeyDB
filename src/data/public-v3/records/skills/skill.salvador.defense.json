@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0044",
   "slot": "Defense",
+  "cardFamily": "command",
+  "cardTypes": ["defense"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield. Salvador obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "The bishop devoutly performed the blessing ceremony.\nMay people no longer be hurt, no longer suffer. May The Arrival come to this world.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.salvador.divine-proxy.skill.salvador.defense",

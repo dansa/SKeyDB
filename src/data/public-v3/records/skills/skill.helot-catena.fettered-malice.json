@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0019",
   "slot": "OverExalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["over_exalt"],
   "descriptionTemplate": "\"Helot: Catena\" Crit. DMG +35%. Temporary Hand Limit +2. Add 1 {Hatred Unleashed} and {Crimson Shackles} to hand, reducing their Arithmetica Cost by 1.",
   "descriptionArgs": {},
   "cardKeywords": [],

@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0010",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Clementine gains [Energy:Arg1] Aliemus. {Rouse}: Clementine's first Command Card played each turn triggers its DMG, Shield, HP Recovery, Aliemus, and Keyflare effects +[Arg2] {plural:[Arg2]|time|times}.",
   "descriptionArgs": {
     "Arg1": {
@@ -26,6 +28,7 @@
     }
   ],
   "cost": "2",
+  "lore": "Strange shrieking pierces deep into your skull, intertwining with your memories.\nFrom henceforth, your breath becomes uncontrollable, carrying the scent of insects.\nFeel this call, embrace this call, and then metamorphose, be reborn—\nMy friend, my kin.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.clementine.collective-unconscious.skill.clementine.call-of-shaggai",

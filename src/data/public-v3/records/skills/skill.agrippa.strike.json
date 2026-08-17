@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0002",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Agrippa obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "In one's lifetime, three things are certain: birth, death, and offending Agrippa.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.agrippa.ashes-and-skulls.skill.agrippa.strike",

@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0008",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield, inflict {Weakness} on all enemies for 1 turn. {Quasar}: Shuffle 1 {Onyx Plume} into the Draw Pile, Gain [Block:Arg3] Shield.",
   "descriptionArgs": {
     "Arg1": {
@@ -26,6 +28,7 @@
   },
   "cardKeywords": [],
   "cost": "2",
+  "lore": "His wings spread open like a broad shield, each feather linked to a sturdy skeleton, fluttering overhead.\nThat black shadow wraps around you, Shielding all sunlight, wind, rain, and harm, sustaining a safe sky.\n\"Don't touch it, just let these dark curses return entirely to the chest of the aggressors.\"",
   "upgrades": [
     {
       "id": "upgrade.enlighten.castor.unyielding-will.skill.castor.stygian-wings",

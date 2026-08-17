@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0050",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG, which enjoys an additional [Arg4]% {Tentacle DMG} and {STR} bonus. Tulu obtains [Energy:Arg2] Aliemus. {Aftershock}: Command 1 Tentacle to attack.",
   "descriptionArgs": {
     "Arg1": {
@@ -33,6 +35,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "Punishment is but the most trivial of his star-like powers.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.tulu.touch-of-revival.skill.tulu.strike",

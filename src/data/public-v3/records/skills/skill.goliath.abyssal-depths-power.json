@@ -9,9 +9,12 @@
   },
   "ownerAwakenerId": "awakener-0021",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Choose: {Usurp} or {Dormancy}. Place 3 {Blade's Dominion} into hand.",
   "descriptionArgs": {},
   "cardKeywords": [],
   "cost": "100",
+  "lore": "He couldn't accept that he had nearly died. He should be invincible, indestructible. If the human body is an obstacle to his ascent to the pinnacle of power, he will abandon it; if forsaking his kin can bring him greater strength, he will bury the past.\nHe cast his massive blade into the ocean, gaining inhuman Power, vowing to become the ruler of all.\nEven those who bestowed power upon him will one day lie beneath his feet.",
   "ownerAwakenerName": "Goliath"
 }

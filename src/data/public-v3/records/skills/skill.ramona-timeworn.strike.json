@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0020",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Ramona: Timeworn obtains [Energy:Arg2] Aliemus. {Loop}: Deal DMG [Arg3] {plural:[Arg3]|time|times}, Ramona: Timeworn's Crit. Rate +[Arg5]%.",
   "descriptionArgs": {
     "Arg1": {
@@ -37,6 +39,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "This is her ∞+1st strike.",
   "upgrades": [
     {
       "id": "upgrade.talent.ramona-timeworn.silverheart-resonance.skill.ramona-timeworn.strike",

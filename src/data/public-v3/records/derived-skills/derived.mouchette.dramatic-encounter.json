@@ -10,6 +10,9 @@
   "ownerAwakenerId": "awakener-0033",
   "derivedFromId": "skill.mouchette.mist-realm-vestige",
   "rootSkillId": "skill.mouchette.mist-realm-vestige",
+  "cardFamily": "command",
+  "cardTypes": ["pursuit"],
+  "countsAs": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG to a random enemy [Arg2] {plural:[Arg2]|time|times}.",
   "descriptionArgs": {
     "Arg1": {

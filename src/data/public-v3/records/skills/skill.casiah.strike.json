@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0007",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Casiah obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,5 +26,6 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "\"Laugh, scream, embrace madness! That's the essence of a carnival!\"",
   "ownerAwakenerName": "Casiah"
 }

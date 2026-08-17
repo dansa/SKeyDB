@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0009",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Heal [Heal:Arg1] HP. Temporary {Tentacle DMG} +[TentaclePower:Arg2]. Apply {Weakness} to all enemies for 1 turn. Trigger 1 Tentacle to attack enemies, dealing [Arg3]% {Tentacle DMG}.",
   "descriptionArgs": {
     "Arg1": {
@@ -35,6 +37,7 @@
   },
   "cardKeywords": [],
   "cost": "3",
+  "lore": "In the desperate cries of the sailors, she quietly watches and waits.\nBubbles rise from the still sea surface, and a massive Tentacle emerges, quickly entangling the mast and unfurling into a brand-new sail in the sea breeze.\n\"Set sail, set sail!\" the sailors sing, \"We embark in the phantasm!\"",
   "upgrades": [
     {
       "id": "upgrade.enlighten.celeste.solitary-mast.skill.celeste.everlasting-phantasm",

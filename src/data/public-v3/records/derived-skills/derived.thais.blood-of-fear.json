@@ -10,6 +10,8 @@
   "ownerAwakenerId": "awakener-0048",
   "derivedFromId": "skill.thais.sacred-bloods-instinct",
   "rootSkillId": "skill.thais.sacred-bloods-instinct",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "{Weakness} all enemies for [Arg1] {plural:[Arg1]|turn|turns}.",
   "descriptionArgs": {
     "Arg1": {

@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0005",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "{Tentacle DMG} +[TentaclePower:Arg1]. Discard all cards in hand, then draw the same amount of cards. Shuffle 1 {Gland Division} into the Discard Pile.",
   "descriptionArgs": {
     "Arg1": {
@@ -20,6 +22,7 @@
   },
   "cardKeywords": [],
   "cost": "2",
+  "lore": "Children will gradually see through the essence of fairy tales and understand the fables behind myths. In human language, this process is called \"growing up\".\nBut some children will increasingly believe in bedtime stories; they stubbornly think that there are indeed rainbow bridges in the sky and civilizations sunk beneath the deep sea.\nAurita loves these stories and wants to share this joy with more friends.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.aurita.bubbling-journey.skill.aurita.power-of-friendship",

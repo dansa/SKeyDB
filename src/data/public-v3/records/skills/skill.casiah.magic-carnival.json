@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0007",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies. Draw [Arg2] {plural:[Arg2]|card|cards}. For each Casiah Command Card drawn, deal [Damage:Arg1] DMG to a random enemy. Increase all of Casiah's Base DMG by [Arg3]%.",
   "descriptionArgs": {
     "Arg1": {
@@ -33,6 +35,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "Don't blink, watch closely; the moment of magic has arrived.\nWhite gloves, black top hat, conjuring colorful poker cards out of thin air.\nAs splendid as ribbons, as dazzling as sequins,\nThis dreamy and mad shining performance will leave you utterly baffled!",
   "upgrades": [
     {
       "id": "upgrade.enlighten.casiah.veil-of-illusion.skill.casiah.magic-carnival",

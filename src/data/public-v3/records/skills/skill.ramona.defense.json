@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0042",
   "slot": "Defense",
+  "cardFamily": "command",
+  "cardTypes": ["defense"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield. Ramona obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,5 +26,6 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "Dodging is nothing to be ashamed of. In fact, it is precisely because she has a moment to catch her breath that she can infer her opponent's moves.",
   "ownerAwakenerName": "Ramona"
 }

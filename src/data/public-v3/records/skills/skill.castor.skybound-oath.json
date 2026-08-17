@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0008",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Castor gains [Energy:Arg1] Aliemus. {Rouse}: Castor's DMG always critically hits; after playing {Onyx Plume}, inflict [Corrosion:Arg2] {plural:[Corrosion:Arg2]|stack|stacks} of {Corrosion} on the target. Gain +50% Shield from keeping {Onyx Plume} cards in hand at turn ends.",
   "descriptionArgs": {
     "Arg1": {
@@ -33,6 +35,7 @@
     }
   ],
   "cost": "2",
+  "lore": "\"Brother, if we use our wings and keep flying, how high can we go? Can we fly above the clouds to touch the moon and stars?\"\n\"Maybe... we can. Then we'll need a pair of very big, strong wings.\"\nThe deep and dreamy galaxy and constellations in the manuscript reflect into the children's dreams, becoming a seed of wish buried in their hearts.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.castor.nox-diouskouron.skill.castor.skybound-oath",

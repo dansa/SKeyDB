@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0037",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Nymphaea obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,5 +26,6 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "At midnight, the tranquil stream, guided by the frail girl's touch, delivers a gentle and tender impact effortlessly.",
   "ownerAwakenerName": "Nymphaea"
 }

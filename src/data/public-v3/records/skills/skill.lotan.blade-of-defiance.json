@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0031",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG to a random enemy, repeat [Arg3] {plural:[Arg3]|time|times}. Each \"Strike\" played this turn reduces its Arithmetica Cost by 1.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,17 +26,19 @@
   },
   "cardKeywords": [],
   "cost": "3",
+  "lore": "Accustomed to walking in a human body, Lotan spent a long time searching for a weapon that suited her.\nEven now, she doesn't believe these giant swords are a good match for her and merely makes do with them.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.lotan.swords-unleashed.skill.lotan.blade-of-defiance",
-      "operation": "replace_description",
+      "operation": "mixed",
       "upgraderId": "enlighten.lotan.swords-unleashed",
       "upgraderType": "enlighten",
       "upgraderSlot": "E1",
       "ownerAwakenerId": "awakener-0031",
       "ownerAwakenerName": "Lotan",
       "patch": {
-        "descriptionTemplate": "Deal [Damage:Arg1] DMG to a random enemy, repeat [Arg3] {plural:[Arg3]|time|times}. Each \"Strike\" played this turn reduces Arithmetica Cost by 1. Counts as a \"Strike\"."
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG to a random enemy, repeat [Arg3] {plural:[Arg3]|time|times}. Each \"Strike\" played this turn reduces Arithmetica Cost by 1. Counts as a \"Strike\".",
+        "countsAs": ["strike"]
       }
     }
   ],

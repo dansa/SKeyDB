@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0012",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Obtain [Power:Arg1] {STR} and {Vulnerable} all enemies. {Leap}: Change to: Obtain [Power:Arg2] {Temporary STR} and {Vulnerable} all enemies.",
   "descriptionArgs": {
     "Arg1": {
@@ -26,5 +28,6 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "Gray, sticky, and moving on its own, like a living tide.\nOnce it sticks to you, it will surely invade your very bones...\nAnyone who sees it will have this thought.",
   "ownerAwakenerName": "Daffodil"
 }

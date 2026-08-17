@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0051",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG three times. Uvhash obtains [Energy:Arg2] Aliemus, doubled if HP is below 25%.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "3",
+  "lore": "The gladiator closed his eyes.\nHis heartbeat, steady and strong, drowned out the distant roar of the crowd.\nIn the darkness, the flame of slaughter stirred.\nIt pulsed, it boiled, until it licked away the endless black.\nThe gladiator opened his eyes. He was finally ready.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.uvhash.roman-elegy.skill.uvhash.boil-blood",

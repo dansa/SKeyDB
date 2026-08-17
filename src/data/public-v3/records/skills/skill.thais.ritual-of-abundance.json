@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0048",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "[{Devour}: Grant other Awakeners [Energy:Arg1] Aliemus.] Deal [Damage:Arg2] DMG to all enemies and inflict {Bleed} equal to [Arg3]% DMG dealt, {Poison} equal to [Arg4]% DMG dealt, and gain {Counter} equal to [Arg5]% DMG dealt. Choose 1 non-Derived Command Card in hand, adding its [Arg7] {plural:[Arg7]|Base Copy|Base Copies} with {Exhaust}, {Fleeting} and -[Arg6] Arithmetica Cost to hand.",
   "descriptionArgs": {
     "Arg1": {
@@ -47,6 +49,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "Her blood boiled because of Them, her mind simmered because of Them.\nNo matter whether these alien offspring could fulfill her wish, no matter whether They could survive in the Void.\nThais lovingly welcomed the birth of every Scion of Purity.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.thais.seed-of-chaos.skill.thais.ritual-of-abundance",

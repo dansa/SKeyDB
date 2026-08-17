@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0032",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Miryam gains [Energy:Arg1] Aliemus. {Rouse}: Tentacle Limit and Tentacle Count +1. Inflict 1 stack of {Weakness} and {Vulnerable} on all enemies. Miryam's \"Strike\" and {Exalted Pyre} Crit. Rate +100%. Place 1 {Heretical Faith} into hand.",
   "descriptionArgs": {
     "Arg1": {
@@ -26,6 +28,7 @@
     }
   ],
   "cost": "3",
+  "lore": "She will act in His name on earth.\nShe will earn the glory He deserves.\nIn the time of destruction, she will endure pain no one else can bear.\nShe is the Executor.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.miryam.homeland-resurgence.skill.miryam.testament-of-faith",

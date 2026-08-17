@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0037",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Inflict [{Poison}:Arg1] {plural:[{Poison}:Arg1]|stack|stacks} of {Poison} on all enemies and trigger [Arg3]% of {Poison}. Obtain [Power:Arg2] {STR}.",
   "descriptionArgs": {
     "Arg1": {
@@ -36,6 +38,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "Nymphaea loves flowers. Besides literature, they are her only companions by the bedside.\nSince her parents' death, no one has brought her comforting bouquets regularly.\nThe last lilies have withered over time.\nSo, she took them to her own funeral without hesitation.\nFish danced with light, corals grew like stems, and waves surged toward the distant horizon she gazed at.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.nymphaea.frostbloom-tide.skill.nymphaea.passage-of-the-ego",

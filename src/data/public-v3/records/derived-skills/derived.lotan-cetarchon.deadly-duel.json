@@ -8,6 +8,8 @@
     "canonicalPath": "/database/awakeners/lotan-cetarchon/derived-skills/deadly-duel"
   },
   "ownerAwakenerId": "awakener-0059",
+  "cardFamily": "command",
+  "cardTypes": ["derived"],
   "descriptionTemplate": "Draw 1 card. Steal up to [Arg1] Aliemus from other Awakeners.",
   "descriptionArgs": {
     "Arg1": {

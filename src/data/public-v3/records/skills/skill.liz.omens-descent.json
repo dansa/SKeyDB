@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0030",
   "slot": "OverExalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["over_exalt"],
   "descriptionTemplate": "Upgrade all {Green Flames} and {Corrupted Flames} in your hand to {Deadly Flames}. For the next 3 turns, at turn start, this effect will repeat once.",
   "descriptionArgs": {},
   "cardKeywords": [],

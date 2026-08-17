@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0027",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Kathigu-Ra gains [Energy:Arg1] Aliemus. {Rouse}: At turn start, additionally grant 1 stack of {Fiamma} to 1 of Kathigu-Ra's Command Cards in hand. After playing a Command Card with 3 stacks of {Fiamma}, return it to hand.",
   "descriptionArgs": {
     "Arg1": {
@@ -22,6 +24,7 @@
     }
   ],
   "cost": "2",
+  "lore": "The scorching flames reignite, and the burn scars covering the body begin to emit a dazzling white glow.\n\"Come on, playtime is over. It's time to start Round Two.\"",
   "upgrades": [
     {
       "id": "upgrade.enlighten.kathigu-ra.ashen-finale.skill.kathigu-ra.karmic-embers",

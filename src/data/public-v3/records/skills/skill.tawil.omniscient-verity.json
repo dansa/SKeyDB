@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0047",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "While in hand, if the card at the top of the Draw Pile is a Command Card, become a copy of it. Revert after playing and gain [Energy:Arg1] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -17,6 +19,7 @@
     }
   },
   "cardKeywords": [],
+  "lore": "She knows the past, present, and future.\nShe knows how everything comes to be and how it will dissipate.\nThe breath of Him echoes in her ears.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.tawil.boundless-sagacity.skill.tawil.omniscient-verity",

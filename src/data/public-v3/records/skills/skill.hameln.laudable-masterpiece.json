@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0022",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Hameln gains [Energy:Arg1] Aliemus. {Rouse}: At turn start, place 1 {Symphony of Harmony} into hand",
   "descriptionArgs": {
     "Arg1": {
@@ -22,6 +24,7 @@
     }
   ],
   "cost": "3",
+  "lore": "Before hearing this tune, you never truly had ears to listen. After hearing it, you will never find such sounds again. So immerse yourself, hold your breath, and praise this once-in-a-lifetime melody!",
   "upgrades": [
     {
       "id": "upgrade.enlighten.hameln.all-realms-resound.skill.hameln.laudable-masterpiece",

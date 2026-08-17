@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0038",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Dispel self {Fragile} state. Gain [Block:Arg1] shield. Obtain [Power:Arg2] Temporary {STR}.",
   "descriptionArgs": {
     "Arg1": {
@@ -31,6 +33,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "Ogier's memories are fragmented due to the Dissolution Phenomenon.\nHe remembers the laughter at the ball but forgets the name of the ball's protagonist; he remembers his training in the knight order but does not know why the duke appointed him as a knight at such a young age; he remembers perishing under the iron cavalry but cannot recall whose smile he was protecting.\nNo one could blame him. He had fulfilled all the responsibilities of a knight—including sacrificing his life for the will to protect.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.ogier.mercy-for-the-meek.skill.ogier.seven-arts-and-virtues",

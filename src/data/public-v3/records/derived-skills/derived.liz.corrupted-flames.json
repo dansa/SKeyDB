@@ -10,6 +10,8 @@
   "ownerAwakenerId": "awakener-0030",
   "derivedFromId": "skill.liz.green-flames",
   "rootSkillId": "skill.liz.green-flames",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Deal [Damage:Arg2] {Pierce DMG} [Arg1] {plural:[Arg1]|time|times} to a random enemy, and inflict {Poison} with [Arg3]% DMG. If Arithmetica is insufficient, it can be played forcefully, andthe effect changes to gaining [Energy:Arg4] Aliemus and {Exhaust} after played.",
   "descriptionArgs": {
     "Arg1": {

@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0005",
   "slot": "OverExalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["over_exalt"],
   "descriptionTemplate": "Grants additional {STR} and {Tentacle DMG} equal to 24% ATK. The next 5 times {Gland Division} is played, draw 1 card.",
   "descriptionArgs": {},
   "cardKeywords": [],

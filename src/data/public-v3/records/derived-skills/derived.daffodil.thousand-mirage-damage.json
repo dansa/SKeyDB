@@ -10,6 +10,8 @@
   "ownerAwakenerId": "awakener-0012",
   "derivedFromId": "derived.daffodil.thousand-mirage-base-cards",
   "rootSkillId": "skill.daffodil.sea-of-primordial-essence",
+  "cardFamily": "command",
+  "cardTypes": ["derived"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. This DMG receives a [Arg2]x {STR} bonus.",
   "descriptionArgs": {
     "Arg1": {

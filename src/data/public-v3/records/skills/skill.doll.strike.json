@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0013",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Doll obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,5 +26,6 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "During precise operations, Doll's pair of pincers are not very useful.\nBut before completely transforming the technology from the Outer Domain into something usable by humans, she must endure \"these hands\" for at least another ten years.",
   "ownerAwakenerName": "Doll"
 }

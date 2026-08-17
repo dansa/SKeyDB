@@ -9,6 +9,9 @@
   },
   "ownerAwakenerId": "awakener-0059",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
+  "countsAs": ["strike"],
   "descriptionTemplate": "Counts as a \"Strike\". Deal [Damage:Arg1] DMG to a random enemy [Arg3] times. Gain [Power:Arg2] {STR}. After being played, shuffle this card back into your Draw Pile. Every {ordinal:3rd} time this card is played, it triggers 1 additional time. Then, the next {Long Blade: Perish} played this turn will fuse with this card to forge a {Great Blade: Whalefall}.",
   "descriptionArgs": {
     "Arg1": {
@@ -30,5 +33,6 @@
   },
   "cardKeywords": [],
   "cost": "2",
+  "lore": "Leviathan's sharpest fang was ground into a short blade, which she named <Italic:Devour>.\nIt holds no interest in the weak; its point turns only toward the mightiest of foes. The blade strikes like lightning; by the time its afterimage fades, even power as vast as the astral sea is devoured whole.\nIts greed knows no end. That starving gaze has fixed upon Lotan since the moment of its birth, biting off a piece of her flesh with every strike she lands.\nYet Lotan never minds. She feeds it with her blood and tames it with her strength. She wields it against the strongest of rivals—a taste of true power they share as one.",
   "ownerAwakenerName": "Lotan: Cetarchon"
 }

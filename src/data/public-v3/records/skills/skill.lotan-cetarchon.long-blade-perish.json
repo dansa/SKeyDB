@@ -9,6 +9,9 @@
   },
   "ownerAwakenerId": "awakener-0059",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
+  "countsAs": ["strike"],
   "descriptionTemplate": "Counts as a \"Strike\". Deal [Damage:Arg1] DMG to all enemies [Arg3] times, which enjoys a [Arg2]% {STR} Bonus. For each \"Strike\" played this turn, the next {Long Blade: Perish} costs 1 less Arithmetica.",
   "descriptionArgs": {
     "Arg1": {
@@ -33,5 +36,6 @@
     }
   ],
   "cost": "4",
+  "lore": "The heaviest, hardest fragment of Leviathan's skull was ground into a long blade, which she named <Italic:Perish>.\nThe great blade sweeps forth in an arc like the swing of a whale's tail, its crushing weight obliterating all in her path.\n<Italic:Drink my blood and feast on my life,> said Lotan.\n<Italic:Then... let all living things fall beneath your unstoppable arc.>",
   "ownerAwakenerName": "Lotan: Cetarchon"
 }

@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0028",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "[{Devour}: Restore [Arg4]% of lost HP. Dispel self {Vulnerable} state.] Restore [Heal:Arg1] HP. Obtain [Power:Arg2] {STR}.",
   "descriptionArgs": {
     "Arg1": {
@@ -31,6 +33,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "When the flatterer begs, don't gloat.\nWhen the flatterer stares, don't blush.\nWhen the flatterer embraces, don't evade.\nThe flatterer's thoughts and actions lead to one end, where there's no place for you, only a tide of sorrow and downfall.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.leigh.basement-journal.skill.leigh.flatterers-embrace",

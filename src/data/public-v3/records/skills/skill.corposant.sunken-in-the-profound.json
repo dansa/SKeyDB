@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0011",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Corposant gains [Energy:Arg1] Aliemus. {Rouse}: Gain 1 Tentacle, add 2 {Pilot} cards into hand. After switching to the {Tranquil Sea} stance, gain [Block:Arg2] Shield, with a 3-turn cooldown.",
   "descriptionArgs": {
     "Arg1": {
@@ -33,6 +35,7 @@
     }
   ],
   "cost": "1",
+  "lore": "The boundless saltwater devoured her, yet it also sheltered her.\nIn that suffocating sense of sinking, she perceived the profound ocean, merging with the profound ocean.\nOne day, the sea will be utterly calm, and every ship sailing on its surface will be granted peace.\nShe waits for that day, the day when her Divine Realm descends.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.corposant.unquenched-unfelled-undimmed.skill.corposant.sunken-in-the-profound",

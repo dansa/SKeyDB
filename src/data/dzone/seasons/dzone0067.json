@@ -1,0 +1,1352 @@
+{
+  "schemaVersion": 3,
+  "scope": "dzone-season",
+  "recordCount": 1,
+  "records": [
+    {
+      "id": "dzone-0067",
+      "period": 67,
+      "name": "Dissoluted Abyss",
+      "start": "2026-08-17T01:00:00Z",
+      "end": "2026-08-31T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "waves": [
+        {
+          "id": "wave-1",
+          "name": "Wave 1",
+          "initialRelicIds": ["relic-0084", "relic-0254"],
+          "initialRelicVariantIds": ["relic-variant-0105", "relic-variant-0433"],
+          "monsterIds": [
+            "dzone-monster-0306",
+            "dzone-monster-0015",
+            "dzone-monster-0098",
+            "dzone-monster-0097",
+            "dzone-monster-0115",
+            "dzone-monster-0125",
+            "dzone-monster-0164",
+            "dzone-monster-0011",
+            "dzone-monster-0023"
+          ],
+          "alerts": [
+            {
+              "id": "alert-1",
+              "name": "Alert I",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0306",
+                  "level": 38,
+                  "hp": 35577,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0015",
+                  "level": 35,
+                  "hp": 455,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0098",
+                  "level": 35,
+                  "hp": 769,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0097",
+                  "level": 35,
+                  "hp": 408,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0115",
+                  "level": 35,
+                  "hp": 643,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0125",
+                  "level": 35,
+                  "hp": 702,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0164",
+                  "level": 35,
+                  "hp": 860,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0011",
+                  "level": 35,
+                  "hp": 390,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0023",
+                  "level": 35,
+                  "hp": 672,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-2",
+              "name": "Alert II",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0306",
+                  "level": 53,
+                  "hp": 84611,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0015",
+                  "level": 50,
+                  "hp": 1053,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0098",
+                  "level": 50,
+                  "hp": 1781,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0097",
+                  "level": 50,
+                  "hp": 943,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0115",
+                  "level": 50,
+                  "hp": 1487,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0125",
+                  "level": 50,
+                  "hp": 1626,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0164",
+                  "level": 50,
+                  "hp": 1991,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0011",
+                  "level": 50,
+                  "hp": 902,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0023",
+                  "level": 50,
+                  "hp": 1556,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-3",
+              "name": "Alert III",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0306",
+                  "level": 63,
+                  "hp": 235622,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0015",
+                  "level": 60,
+                  "hp": 3470,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0098",
+                  "level": 60,
+                  "hp": 5871,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0097",
+                  "level": 60,
+                  "hp": 3108,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0115",
+                  "level": 60,
+                  "hp": 4903,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0125",
+                  "level": 60,
+                  "hp": 5359,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0164",
+                  "level": 60,
+                  "hp": 6564,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0011",
+                  "level": 60,
+                  "hp": 2972,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0023",
+                  "level": 60,
+                  "hp": 5131,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-4",
+              "name": "Alert IV",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0306",
+                  "level": 73,
+                  "hp": 570320,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0015",
+                  "level": 70,
+                  "hp": 8866,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0098",
+                  "level": 70,
+                  "hp": 14998,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0097",
+                  "level": 70,
+                  "hp": 7941,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0115",
+                  "level": 70,
+                  "hp": 12527,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0125",
+                  "level": 70,
+                  "hp": 13692,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0164",
+                  "level": 70,
+                  "hp": 16770,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0011",
+                  "level": 70,
+                  "hp": 7593,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0023",
+                  "level": 70,
+                  "hp": 13107,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-5",
+              "name": "Alert V",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0306",
+                  "level": 78,
+                  "hp": 2002446,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0015",
+                  "level": 75,
+                  "hp": 40644,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0098",
+                  "level": 75,
+                  "hp": 68759,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0097",
+                  "level": 75,
+                  "hp": 36403,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0115",
+                  "level": 75,
+                  "hp": 57428,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0125",
+                  "level": 75,
+                  "hp": 62770,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0164",
+                  "level": 75,
+                  "hp": 76884,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0011",
+                  "level": 75,
+                  "hp": 34808,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0023",
+                  "level": 75,
+                  "hp": 60091,
+                  "hpBars": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "wave-2",
+          "name": "Wave 2",
+          "initialRelicIds": ["relic-0084", "relic-0261"],
+          "initialRelicVariantIds": ["relic-variant-0105", "relic-variant-0455"],
+          "monsterIds": [
+            "dzone-monster-0283",
+            "dzone-monster-0157",
+            "dzone-monster-0158",
+            "dzone-monster-0153",
+            "dzone-monster-0148",
+            "dzone-monster-0145",
+            "dzone-monster-0122",
+            "dzone-monster-0106",
+            "dzone-monster-0136",
+            "dzone-monster-0149"
+          ],
+          "alerts": [
+            {
+              "id": "alert-1",
+              "name": "Alert I",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0283",
+                  "level": 41,
+                  "hp": 36468,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0157",
+                  "level": 40,
+                  "hp": 13823,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0158",
+                  "level": 38,
+                  "hp": 350,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0153",
+                  "level": 38,
+                  "hp": 678,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0148",
+                  "level": 38,
+                  "hp": 797,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0145",
+                  "level": 38,
+                  "hp": 699,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0122",
+                  "level": 38,
+                  "hp": 486,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0106",
+                  "level": 38,
+                  "hp": 944,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0136",
+                  "level": 39,
+                  "hp": 4899,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0149",
+                  "level": 39,
+                  "hp": 5522,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-2",
+              "name": "Alert II",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0283",
+                  "level": 55,
+                  "hp": 82672,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0157",
+                  "level": 54,
+                  "hp": 31063,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0158",
+                  "level": 52,
+                  "hp": 830,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0153",
+                  "level": 52,
+                  "hp": 1608,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0148",
+                  "level": 52,
+                  "hp": 1892,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0145",
+                  "level": 52,
+                  "hp": 1658,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0122",
+                  "level": 52,
+                  "hp": 1153,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0106",
+                  "level": 52,
+                  "hp": 2239,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0136",
+                  "level": 53,
+                  "hp": 10654,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0149",
+                  "level": 53,
+                  "hp": 12009,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-3",
+              "name": "Alert III",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0283",
+                  "level": 65,
+                  "hp": 232067,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0157",
+                  "level": 64,
+                  "hp": 83074,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0158",
+                  "level": 62,
+                  "hp": 2753,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0153",
+                  "level": 62,
+                  "hp": 5337,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0148",
+                  "level": 62,
+                  "hp": 6279,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0145",
+                  "level": 62,
+                  "hp": 5502,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0122",
+                  "level": 62,
+                  "hp": 3826,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0106",
+                  "level": 62,
+                  "hp": 7432,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0136",
+                  "level": 63,
+                  "hp": 31232,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0149",
+                  "level": 63,
+                  "hp": 35207,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-4",
+              "name": "Alert IV",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0283",
+                  "level": 74,
+                  "hp": 511724,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0157",
+                  "level": 73,
+                  "hp": 180207,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0158",
+                  "level": 71,
+                  "hp": 6254,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0153",
+                  "level": 71,
+                  "hp": 12125,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0148",
+                  "level": 71,
+                  "hp": 14266,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0145",
+                  "level": 71,
+                  "hp": 12501,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0122",
+                  "level": 71,
+                  "hp": 8691,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0106",
+                  "level": 71,
+                  "hp": 16886,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0136",
+                  "level": 72,
+                  "hp": 67843,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0149",
+                  "level": 72,
+                  "hp": 76478,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-5",
+              "name": "Alert V",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0283",
+                  "level": 79,
+                  "hp": 1433356,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0157",
+                  "level": 78,
+                  "hp": 501268,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0158",
+                  "level": 76,
+                  "hp": 22948,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0153",
+                  "level": 76,
+                  "hp": 44492,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0148",
+                  "level": 76,
+                  "hp": 52348,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0145",
+                  "level": 76,
+                  "hp": 45869,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0122",
+                  "level": 76,
+                  "hp": 31891,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0106",
+                  "level": 76,
+                  "hp": 61959,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0136",
+                  "level": 77,
+                  "hp": 194021,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0149",
+                  "level": 77,
+                  "hp": 218714,
+                  "hpBars": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "wave-3",
+          "name": "Wave 3",
+          "initialRelicIds": ["relic-0298", "relic-0084"],
+          "initialRelicVariantIds": ["relic-variant-0536", "relic-variant-0105"],
+          "monsterIds": ["dzone-monster-0218"],
+          "alerts": [
+            {
+              "id": "alert-1",
+              "name": "Alert I",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0218",
+                  "level": 44,
+                  "hp": 20341,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-2",
+              "name": "Alert II",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0218",
+                  "level": 57,
+                  "hp": 48391,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-3",
+              "name": "Alert III",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0218",
+                  "level": 67,
+                  "hp": 152862,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-4",
+              "name": "Alert IV",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0218",
+                  "level": 75,
+                  "hp": 315380,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-5",
+              "name": "Alert V",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0218",
+                  "level": 80,
+                  "hp": 933184,
+                  "hpBars": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "wave-4",
+          "name": "Wave 4",
+          "initialRelicIds": ["relic-0137", "relic-0084"],
+          "initialRelicVariantIds": ["relic-variant-0193", "relic-variant-0105"],
+          "monsterIds": ["dzone-monster-0247", "dzone-monster-0262", "dzone-monster-0212"],
+          "alerts": [
+            {
+              "id": "alert-1",
+              "name": "Alert I",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0247",
+                  "level": 47,
+                  "hp": 19653,
+                  "hpBars": 2,
+                  "hpBarValues": [19653, 39306],
+                  "effectiveHp": 58959,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 19653,
+                      "kind": "base",
+                      "maxHp": 19653
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 39306,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 39306,
+                      "maxHpMultiplier": 2
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0262",
+                  "level": 46,
+                  "hp": 8905,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0212",
+                  "level": 46,
+                  "hp": 9719,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-2",
+              "name": "Alert II",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0247",
+                  "level": 59,
+                  "hp": 40045,
+                  "hpBars": 2,
+                  "hpBarValues": [40045, 80090],
+                  "effectiveHp": 120135,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 40045,
+                      "kind": "base",
+                      "maxHp": 40045
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 80090,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 80090,
+                      "maxHpMultiplier": 2
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0262",
+                  "level": 58,
+                  "hp": 22051,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0212",
+                  "level": 58,
+                  "hp": 24066,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-3",
+              "name": "Alert III",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0247",
+                  "level": 69,
+                  "hp": 120021,
+                  "hpBars": 2,
+                  "hpBarValues": [120021, 240042],
+                  "effectiveHp": 360063,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 120021,
+                      "kind": "base",
+                      "maxHp": 120021
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 240042,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 240042,
+                      "maxHpMultiplier": 2
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0262",
+                  "level": 68,
+                  "hp": 70364,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0212",
+                  "level": 68,
+                  "hp": 76794,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-4",
+              "name": "Alert IV",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0247",
+                  "level": 76,
+                  "hp": 231397,
+                  "hpBars": 2,
+                  "hpBarValues": [231397, 462794],
+                  "effectiveHp": 694191,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 231397,
+                      "kind": "base",
+                      "maxHp": 231397
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 462794,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 462794,
+                      "maxHpMultiplier": 2
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0262",
+                  "level": 75,
+                  "hp": 134116,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0212",
+                  "level": 75,
+                  "hp": 146372,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-5",
+              "name": "Alert V",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0247",
+                  "level": 81,
+                  "hp": 739847,
+                  "hpBars": 2,
+                  "hpBarValues": [739847, 1479694],
+                  "effectiveHp": 2219541,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 739847,
+                      "kind": "base",
+                      "maxHp": 739847
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 1479694,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 1479694,
+                      "maxHpMultiplier": 2
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0262",
+                  "level": 80,
+                  "hp": 427896,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0212",
+                  "level": 80,
+                  "hp": 467001,
+                  "hpBars": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "wave-5",
+          "name": "Wave 5",
+          "initialRelicIds": ["relic-0297", "relic-0084"],
+          "initialRelicVariantIds": ["relic-variant-0533", "relic-variant-0105"],
+          "monsterIds": [
+            "dzone-monster-0064",
+            "dzone-monster-0212",
+            "dzone-monster-0216",
+            "dzone-monster-0125",
+            "dzone-monster-0123",
+            "dzone-monster-0126",
+            "dzone-monster-0084",
+            "dzone-monster-0104"
+          ],
+          "alerts": [
+            {
+              "id": "alert-1",
+              "name": "Alert I",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0064",
+                  "level": 50,
+                  "hp": 29924,
+                  "hpBars": 2,
+                  "hpBarValues": [29924, 44886],
+                  "effectiveHp": 74810,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 29924,
+                      "kind": "base",
+                      "maxHp": 29924
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 44886,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 44886,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0212",
+                  "level": 49,
+                  "hp": 17828,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0216",
+                  "level": 47,
+                  "hp": 1482,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0125",
+                  "level": 47,
+                  "hp": 1250,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0123",
+                  "level": 47,
+                  "hp": 876,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0126",
+                  "level": 48,
+                  "hp": 8928,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0084",
+                  "level": 47,
+                  "hp": 1202,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0104",
+                  "level": 48,
+                  "hp": 13758,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-2",
+              "name": "Alert II",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0064",
+                  "level": 61,
+                  "hp": 58381,
+                  "hpBars": 2,
+                  "hpBarValues": [58381, 87572],
+                  "effectiveHp": 145953,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 58381,
+                      "kind": "base",
+                      "maxHp": 58381
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 87572,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 87572,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0212",
+                  "level": 60,
+                  "hp": 34237,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0216",
+                  "level": 58,
+                  "hp": 3590,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0125",
+                  "level": 58,
+                  "hp": 3027,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0123",
+                  "level": 58,
+                  "hp": 2122,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0126",
+                  "level": 59,
+                  "hp": 16880,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0084",
+                  "level": 58,
+                  "hp": 2910,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0104",
+                  "level": 59,
+                  "hp": 26010,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-3",
+              "name": "Alert III",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0064",
+                  "level": 71,
+                  "hp": 181799,
+                  "hpBars": 2,
+                  "hpBarValues": [181799, 272699],
+                  "effectiveHp": 454498,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 181799,
+                      "kind": "base",
+                      "maxHp": 181799
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 272699,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 272699,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0212",
+                  "level": 70,
+                  "hp": 100821,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0216",
+                  "level": 68,
+                  "hp": 11503,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0125",
+                  "level": 68,
+                  "hp": 9701,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0123",
+                  "level": 68,
+                  "hp": 6799,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0126",
+                  "level": 69,
+                  "hp": 54624,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0084",
+                  "level": 68,
+                  "hp": 9325,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0104",
+                  "level": 69,
+                  "hp": 84170,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-4",
+              "name": "Alert IV",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0064",
+                  "level": 77,
+                  "hp": 326589,
+                  "hpBars": 2,
+                  "hpBarValues": [326589, 489884],
+                  "effectiveHp": 816473,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 326589,
+                      "kind": "base",
+                      "maxHp": 326589
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 489884,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 489884,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0212",
+                  "level": 76,
+                  "hp": 177821,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0216",
+                  "level": 74,
+                  "hp": 20903,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0125",
+                  "level": 74,
+                  "hp": 17628,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0123",
+                  "level": 74,
+                  "hp": 12355,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0126",
+                  "level": 75,
+                  "hp": 96730,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0084",
+                  "level": 74,
+                  "hp": 16946,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0104",
+                  "level": 75,
+                  "hp": 149050,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-5",
+              "name": "Alert V",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0064",
+                  "level": 82,
+                  "hp": 1121331,
+                  "hpBars": 2,
+                  "hpBarValues": [1121331, 1681997],
+                  "effectiveHp": 2803328,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 1121331,
+                      "kind": "base",
+                      "maxHp": 1121331
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 1681997,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 1681997,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0212",
+                  "level": 81,
+                  "hp": 600929,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0216",
+                  "level": 79,
+                  "hp": 92910,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0125",
+                  "level": 79,
+                  "hp": 78353,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0123",
+                  "level": 79,
+                  "hp": 54916,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0126",
+                  "level": 80,
+                  "hp": 336586,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0084",
+                  "level": 79,
+                  "hp": 75322,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0104",
+                  "level": 80,
+                  "hp": 518644,
+                  "hpBars": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

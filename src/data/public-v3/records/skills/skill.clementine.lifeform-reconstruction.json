@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0010",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Remove all your {Symbiosis}, then transform into either {Psychic Trauma} or {Phobic Fixation} on all enemies. Deal [Damage:Arg1] DMG to all enemies. Gain Keyflare equal to [Arg2]% of Clementine's Keyflare Regen.",
   "descriptionArgs": {
     "Arg1": {
@@ -25,6 +27,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "\"Please tell me, who is the real you?\"\nShe asked with a smile.\nThe poor patient naturally could not answer, for his memory had been altered, and the more he pursued, the closer he would draw to the terrifying presence implanted in his memory—until his cognition completely collapsed and he became a monster.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.clementine.knocking-on-minds-portal.skill.clementine.lifeform-reconstruction",

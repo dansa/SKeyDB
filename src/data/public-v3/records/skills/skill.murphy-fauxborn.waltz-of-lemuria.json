@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0035",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Gain Keyflare equal to [Arg6]% Keyflare Regen. Trigger different effects based on current Tentacle Stance:\n{Surging Tides}: {Tentacle DMG} +[TentaclePower:Arg8], generate 1 Tentacle.\n{Tranquil Sea}: Gain [Block:Arg9] Shield, {Retain} 50% Shield to next turn.\n{Raging Waves}: Deal [Damage:Arg4] DMG [Arg3] {plural:[Arg3]|time|times} to the enemy with Highest HP, which enjoys a [Arg5]% {Tentacle DMG} bonus.",
   "descriptionArgs": {
     "Arg3": {
@@ -50,6 +52,7 @@
     }
   ],
   "cost": "3",
+  "lore": "She is frivolous, using levity to fight against shattered reality. \"Let us dance,\" she commanded, \"a dance dedicated to the Lord. Thank Him for granting us perverse causality, a chaotic past, and an elusive future.\" Under the spotlight, she is the sole focus of all existence.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.murphy-fauxborn.kneelers-supplication.skill.murphy-fauxborn.waltz-of-lemuria",

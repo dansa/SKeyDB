@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0022",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Obtain [Power:Arg1] {STR}. Add 2 {derived:Insight} to your hand. If you lack the required Arithmetica, you can still play This card, but its effect will be changed to shuffle 2 {derived:Insight} cards into your Draw Pile.",
   "descriptionArgs": {
     "Arg1": {
@@ -20,5 +22,6 @@
   },
   "cardKeywords": [],
   "cost": "3",
+  "lore": "Have you heard this melody before? It feels so familiar and intimate, evoking the echoes of a lifetime. Where could you have heard it? In your dreams, in your memories, or in the celestial call before death, softly played by an angelic flutist.",
   "ownerAwakenerName": "Hameln"
 }

@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0013",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Restore [Heal:Arg1] HP. Inflict all enemies with [Arg2] {plural:[Arg2]|stack|stacks} of {Weakness}.",
   "descriptionArgs": {
     "Arg1": {
@@ -29,6 +31,7 @@
   },
   "cardKeywords": [],
   "cost": "2",
+  "lore": "Some believe that the body and soul should remain eternally united; others fear that losing their physical form will lead to the destruction of their sanity.\nDoll finds responding to doubts troublesome and chooses to demonstrate the success of her surgery through the constant replacement of puppet bodies.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.doll.pure-rationality.skill.doll.outer-surgery",

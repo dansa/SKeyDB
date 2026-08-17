@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0038",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield X+1 times. For each 1 Arithmetica consumed, Gain [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "X",
+  "lore": "After becoming an Awakener, Ogier formed a stable symbiosis with the amorphous black substance.\nThose who witnessed the horrors of Dissolution often feel tense around Ogier.\nOnly those who have fought alongside him know how solid that invisible barrier can be.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.ogier.sacrifice-for-justice.skill.ogier.unstable-barrier",

@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0045",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield. Deal [Damage:Arg2] DMG to all enemies, increased by [Arg3] for every point of Shield, which enjoys an additional [Arg4]% Crit. Rate and Crit. DMG bonus. Deals 1 extra instance of DMG in Boss Battles.",
   "descriptionArgs": {
     "Arg1": {
@@ -39,6 +41,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "An ancient ruin made of coral.\nAt first, it was merely a white glow shimmering in the sea.\nLater, high steps emerged, along with twisted reliefs and towering pillars...\nBang! When everything suddenly came to a halt, the lost art finally unveiled itself underwater.\nShe must head to where the art is.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.sanga.artistic-dionysia.skill.sanga.the-lost-art",

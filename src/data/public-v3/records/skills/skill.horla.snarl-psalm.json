@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0024",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Horla obtains [Energy:Arg3] Aliemus. Counts as a \"Strike\". {Leap}: Switch {Emotion} state to {Anger}. For each stack of {Anger} {Metaphor} consumed, deal an additional 2 instances of DMG.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "Ink is her weapon, yet like the thorn of a rose, it always wounds her.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.horla.emberbound.skill.horla.snarl-psalm",

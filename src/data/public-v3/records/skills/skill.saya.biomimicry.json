@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0057",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "{Embryo Fusion} +[Blood:Arg1]. The lower the current HP, the stronger the effect, up to +100%. Gain 1 stack of {Gynoecium}.",
   "descriptionArgs": {
     "Arg1": {
@@ -18,5 +20,6 @@
   },
   "cardKeywords": [],
   "cost": "2",
+  "lore": "In her process of mimicking humanity, Saya's insatiable curiosity and extraordinary ability to learn allowed her to gain a soul uncannily akin to that of a human girl.\nAnd so she grew lonelier than ever, yet happier than ever.",
   "ownerAwakenerName": "Saya"
 }

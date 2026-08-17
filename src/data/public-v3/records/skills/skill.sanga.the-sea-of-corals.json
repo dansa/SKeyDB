@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0045",
   "slot": "OverExalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["over_exalt"],
   "descriptionTemplate": "Shield obtained +200%. {The Lost Art} and \"Basic Strike\" enjoy an additional 100% Shield bonus during this battle.",
   "descriptionArgs": {},
   "cardKeywords": [],

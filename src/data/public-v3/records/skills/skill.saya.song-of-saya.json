@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0057",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "[{Devour}: Randomly grant 2 copied \"Basic Strike\" or \"Basic Defense\" Enhance, set their Arithmetica Cost to 0, and make them take effect +1 time.] Gain [Block:Arg1] Shield. Choose another Awakener. Generate a Basic Copy of each of their Basic Command Cards with {Fleeting} and {Destroy}, placing one set into the Draw Pile and another into the Discard Pile. Consume all {Gynoecium} stacks, each stack consumed randomly sets the Arithmetica Cost of 1 copied \"Skill\" card to 0.",
   "descriptionArgs": {
     "Arg1": {
@@ -20,6 +22,7 @@
   },
   "cardKeywords": [],
   "cost": "200",
+  "lore": "Terrible, beautiful, desperate—bathed in \"love,\" the radiant life blooms in song.\nThis song heralds the new world and tolls the knell for the old.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.saya.ill-be-your-very-own-monster.skill.saya.song-of-saya",

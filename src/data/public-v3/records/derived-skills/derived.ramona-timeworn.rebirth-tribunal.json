@@ -10,6 +10,8 @@
   "ownerAwakenerId": "awakener-0020",
   "derivedFromId": "skill.ramona-timeworn.predetermined-strike",
   "rootSkillId": "skill.ramona-timeworn.predetermined-strike",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Obtain 3 Arithmetica.",
   "descriptionArgs": {},
   "cardKeywords": [],

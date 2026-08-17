@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0003",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG and apply {Vulnerable} for [Arg2] {plural:[Arg2]|turn|turns}. {Embryo Fusion} +[Arg3].",
   "descriptionArgs": {
     "Arg1": {
@@ -28,6 +30,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "No one can explain why the teddy bear with a teardrop-shaped Silver Core turned out this way after Aigis was Awakened. It might be related to Aigis's superior power, or simply deformation caused by intense spiritual energy.\n\nIn any case, it seems to possess some self-awareness, occasionally unraveling into a yarn firework when Aigis isn't paying attention.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.aigis.nightborne-wings.skill.aigis.a-small-wish",

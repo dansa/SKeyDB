@@ -7,6 +7,8 @@
     "slug": "mortal-sojourn",
     "canonicalPath": "/database/derived-skills/mortal-sojourn"
   },
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
   "descriptionTemplate": "Deal to all enemies fixed {Corrosion} equal to [Arg1]% of the wielder's ATK and [Arg2]% of their Max HP, apply {Perception Warp} to all Command Cards of all other Awakeners, and Shuffle 1 {derived:Falling Upward} into the Draw Pile.",
   "descriptionArgs": {
     "Arg1": {

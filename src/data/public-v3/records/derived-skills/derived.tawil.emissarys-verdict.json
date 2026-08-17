@@ -10,6 +10,8 @@
   "ownerAwakenerId": "awakener-0047",
   "derivedFromId": "derived.tawil.memories",
   "rootSkillId": "skill.tawil.pinions-of-time",
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
   "descriptionTemplate": "Deal [Arg1]% of the target's max HP as {Fixed DMG} to the enemy in the last row. This DMG cannot be less than 300% of your own max HP.",
   "descriptionArgs": {
     "Arg1": {

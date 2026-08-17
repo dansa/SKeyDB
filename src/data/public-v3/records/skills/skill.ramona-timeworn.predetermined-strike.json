@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0020",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG, {STR} is [Arg2]× more effective on {Predetermined Strike}. Each time a Posse is used, the {STR} multiplier +1 for this battle. {Loop}: Choose {Rebirth Tribunal} or {Ode to Tomorrow}.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,5 +26,6 @@
   },
   "cardKeywords": [],
   "cost": "3",
+  "lore": "In the long solitude, she had long forgotten why she wielded the sword.\nBut she knew she must strike it.",
   "ownerAwakenerName": "Ramona: Timeworn"
 }

@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0052",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Wanda obtains [Energy:Arg2] Aliemus. {Leap}: Obtain 1 stack of {Dreamlure}.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,5 +26,6 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "She does whatever she pleases. Cut off a head, sew it back on, cut it off again, sew it back on again... No motive, no purpose—everything flows naturally, and not a soul dares to question her.",
   "ownerAwakenerName": "Wanda"
 }

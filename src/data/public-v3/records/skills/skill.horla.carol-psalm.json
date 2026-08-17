@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0024",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Choose 1 other Awakeners to gain [Energy:Arg1] Aliemus. {Leap}: Switch {Emotion} state to {Happiness}. For each stack of {Happiness} {Metaphor} consumed, increase the amount of Aliemus granted by [Energy:Arg2].",
   "descriptionArgs": {
     "Arg1": {
@@ -22,6 +24,7 @@
   },
   "cardKeywords": [],
   "cost": "0",
+  "lore": "On the day the poem was first published, the gardener joyfully brought a rose.\nShe carefully preserved the rose. Before the garden's decline, it was the most beautiful climax of this dream.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.horla.chamber-of-shadows.skill.horla.carol-psalm",

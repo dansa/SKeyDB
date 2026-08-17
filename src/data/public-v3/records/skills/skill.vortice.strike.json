@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0055",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Vortice obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "\"Splash splash~ Bonk the baddies~\"",
   "upgrades": [
     {
       "id": "upgrade.enlighten.vortice.roaring-abyss.skill.vortice.strike",

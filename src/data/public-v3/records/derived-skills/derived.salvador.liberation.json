@@ -10,6 +10,8 @@
   "ownerAwakenerId": "awakener-0044",
   "derivedFromId": "skill.salvador.end-of-suffering",
   "rootSkillId": "skill.salvador.end-of-suffering",
+  "cardFamily": "command",
+  "cardTypes": ["derived"],
   "descriptionTemplate": "Pain for pain. Consume all remaining {Crimson Furnace}. DMG dealt +3 (+9 during a Boss Battle) for each point consumed. For every 1% Max HP of {Crimson Furnace} consumed, Final DMG +[Arg5]%.",
   "descriptionArgs": {
     "Arg5": {

@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0036",
   "slot": "OverExalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["over_exalt"],
   "descriptionTemplate": "Current Shield +50%, ignore the Shield Limit. Increases {Fixed DMG} against all enemies to 500% of {Counter}.",
   "descriptionArgs": {},
   "cardKeywords": [],

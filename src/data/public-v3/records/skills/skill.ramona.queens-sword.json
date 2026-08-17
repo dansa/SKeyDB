@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0042",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times}. After playing, increase the DMG count of {Queen's Sword} by 1, up to [Arg3] {plural:[Arg3]|time|times}. Gain [Arg7] Temporary Realm Mastery.",
   "descriptionArgs": {
     "Arg1": {
@@ -41,6 +43,7 @@
   },
   "cardKeywords": [],
   "cost": "3",
+  "lore": "When Ramona was ten years old, she expressed her wish to receive battle training.\nIt wasn't about playing some knightly games, but after witnessing her adoptive father's extravagance and waste, the girl decided to prepare for the possible bankruptcy ahead.\n\"Surely the pay for being a queen's guard would be higher than the salary at the police station, right?\"",
   "upgrades": [
     {
       "id": "upgrade.enlighten.ramona.innocent-departure.skill.ramona.queens-sword",

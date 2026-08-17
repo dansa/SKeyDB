@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0059",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Consumes {Great Blade: Whalefall} to unleash. Deal [Damage:Arg1] guaranteed Critical Hit DMG to the enemy with the highest DMG, which enjoys a [Arg2]% {STR} Bonus. For each +1 DMG {Great Blade: Whalefall} is causing the target to deal to you, {Mundus Severance} deals +[Arg4] DMG.",
   "descriptionArgs": {
     "Arg1": {
@@ -29,6 +31,7 @@
   },
   "cardKeywords": [],
   "cost": "200",
+  "lore": "Leviathan would never forget the way she swung that blade.\nWithin Its domain, the reckless figure was already battered beyond measure. Frail as her human frame was, she seemed but a breath away from never rising again. Foolish, arrogant, pitiable—such was Leviathan's final verdict on her.\nYet before that verdict could fall, the broken figure rose once more. Her laughter stirred within It an emotion It had never known.\nIt watched her leap toward It, high into the air, with her shattered weapon and her broken body. Before Its eyes flashed a strike of absolute will, one that seemed capable of cleaving apart the sea of stars.\nAnd in the instant that blade pierced It through, Leviathan finally understood: that unfamiliar emotion had a name.\nIt was called Fear.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.lotan-cetarchon.uncrowned-storm.skill.lotan-cetarchon.mundus-severance",

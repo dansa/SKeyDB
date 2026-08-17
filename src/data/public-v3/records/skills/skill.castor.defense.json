@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0008",
   "slot": "Defense",
+  "cardFamily": "command",
+  "cardTypes": ["defense"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield. Castor obtains [Energy:Arg2] Aliemus.{Quasar}: Shuffle 1 {Onyx Plume} into the Draw Pile, gain [Block:Arg3] Shield.",
   "descriptionArgs": {
     "Arg1": {
@@ -30,5 +32,6 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "To combat brutal exploitation, to resist those repeated losses, he would forever Shield his younger brother with these wings. Until every feather turns to ash, until he steps into the gates of death first.",
   "ownerAwakenerName": "Castor"
 }

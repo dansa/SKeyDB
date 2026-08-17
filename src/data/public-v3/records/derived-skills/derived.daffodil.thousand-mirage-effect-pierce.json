@@ -10,6 +10,8 @@
   "ownerAwakenerId": "awakener-0012",
   "derivedFromId": "derived.daffodil.thousand-mirage-extra-effects",
   "rootSkillId": "skill.daffodil.sea-of-primordial-essence",
+  "cardFamily": "command",
+  "cardTypes": ["derived"],
   "descriptionTemplate": "Deal {Pierce DMG}. Reduce the Arithmetica Cost of the highest Arithmetica card in hand by 1.",
   "descriptionArgs": {},
   "cardKeywords": [],

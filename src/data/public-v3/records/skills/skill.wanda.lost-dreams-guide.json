@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0052",
   "slot": "OverExalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["over_exalt"],
   "descriptionTemplate": "No longer consume {Dreamlure}, simultaneously trigger {Hypnotic Veins}, {Slumber Counter}, and {Echoes of Whispers}.",
   "descriptionArgs": {},
   "cardKeywords": [],

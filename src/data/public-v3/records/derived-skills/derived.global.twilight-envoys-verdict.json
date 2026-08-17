@@ -7,6 +7,8 @@
     "slug": "twilight-the-envoys-verdict",
     "canonicalPath": "/database/derived-skills/twilight-the-envoys-verdict"
   },
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
   "childDerivedSkillIds": ["derived.global.memories-envoys-verdict"],
   "descriptionTemplate": "Choose 1 card from the Draw Pile or Discard Pile and add it to hand, setting its Arithmetica Cost to 0. Place 1 {Memories: Emissary's Verdict} into both the Draw and Discard Piles.",
   "descriptionArgs": {},

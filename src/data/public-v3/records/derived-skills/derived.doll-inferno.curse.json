@@ -10,6 +10,8 @@
   "ownerAwakenerId": "awakener-0018",
   "derivedFromId": "skill.doll-inferno.self-destruct",
   "rootSkillId": "skill.doll-inferno.self-destruct",
+  "cardFamily": "command",
+  "cardTypes": ["derived"],
   "descriptionTemplate": "All enemies Temp. {STR▼} -[Exhaustion:Arg2].",
   "descriptionArgs": {
     "Arg2": {

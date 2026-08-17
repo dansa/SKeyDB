@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0027",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies, which enjoys [Arg2]% {STR} bonus.",
   "descriptionArgs": {
     "Arg1": {
@@ -25,6 +27,7 @@
   },
   "cardKeywords": [],
   "cost": "2",
+  "lore": "Fire and light have replaced the world, leaving only endless brilliance in your eyes. You cannot think, cannot comprehend; you do not understand why the world has vanished. It is not until the very last moment, as everything evaporates into the Void, that you realize—it is the most dazzling color of all, the color of the Sun's Burst.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.kathigu-ra.astral-meltdown.skill.kathigu-ra.solarflare",

@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0044",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Salvador gains [Energy:Arg1] Aliemus. {Rouse}: Place 1 {Sanctuary of Mercy} into hand. At the end of the turn, gain [Power:Arg2] {STR}.",
   "descriptionArgs": {
     "Arg1": {
@@ -28,6 +30,7 @@
     }
   ],
   "cost": "3",
+  "lore": "An invisible plague silently brings endless suffering and madness.\n\nThe bishop cannot sleep at night, deeply pained by his inability to alleviate people's suffering.\n\n\"O Merciful Creator, save them. I am willing to bear all their pain and sorrow.\"\n\nThus, the All-Father bestowed \"Benediction\" upon him, allowing him to wield the Tablet inscribed with Scripture, performing acts of relief.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.salvador.bitter-eucharist.skill.salvador.benediction",

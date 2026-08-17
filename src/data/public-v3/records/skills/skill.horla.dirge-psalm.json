@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0024",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Gain [Power:Arg1] {STR}. Temporarily reduce all enemies' {STR▼} by [Exhaustion:Arg2]. {Leap}: Switch {Emotion} state to {Fear}. For each stack of {Fear} {Metaphor} consumed, gain an additional [Power:Arg3] {STR}.",
   "descriptionArgs": {
     "Arg1": {
@@ -32,6 +34,7 @@
   },
   "cardKeywords": [],
   "cost": "2",
+  "lore": "She is reborn into the world with a new name, concealing her appearance, her features gone.\nWhat remains in the world are poems spoken in her voice.\nThis is enough.\nA poet does not need a form... They should become invisible within dark ink and behind pages.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.horla.chamber-of-shadows.skill.horla.dirge-psalm",

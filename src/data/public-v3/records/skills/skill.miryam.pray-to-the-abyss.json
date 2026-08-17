@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0032",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Place [Arg4] {Sacrament} into hand, inflict [{Poison}:Arg5] {Poison} on all enemies. Gain effects based on Tentacle Stance: {Surging Tides}: gain [Power:Arg1] {STR} and [TentaclePower:Arg1] {Tentacle DMG}; {Tranquil Sea}: other Awakeners gain [Energy:Arg2] Aliemus; {Raging Waves}: trigger [Arg3]% of the {Poison} effect on all enemies.\n{overlay:Undying Piety}",
   "descriptionArgs": {
     "Arg1": {
@@ -59,6 +61,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "Under the rule of God, the people undoubtedly love the Great High Priestess.\nEveryone can see her devotion, diligence, and sacrifice.\nThus, many secretly equate her to the Mother Goddess— a sentiment to whisper about, but never let Miryam know.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.miryam.vanitys-collapse.skill.miryam.pray-to-the-abyss",

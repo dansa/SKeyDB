@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0034",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "All enemies DMG -[Arg1]%; when attacked, receive half the DMG as {Sacrifice} for 1 turn. Gain [Block:Arg2] Shield, command all Tentacles to attack once.",
   "descriptionArgs": {
     "Arg1": {
@@ -25,5 +27,6 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "A certain ancient power was awakening inside Murphy.\n\nThe seed planted in her body had grown into a delusional bud\n.\n\"Since I've been granted this power,\" she declared, \"let me show you what I can do!\"",
   "ownerAwakenerName": "Murphy"
 }

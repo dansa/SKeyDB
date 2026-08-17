@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0046",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "[{Infinite Devour}: This {Carousel of Ambition} deals +[Arg3] {plural:[Arg3]|instance|instances} of DMG, HP Recovery +[Heal:Arg6].] Randomly deal [Damage:Arg2] DMG [Arg1] {plural:[Arg1]|time|times}. Restore [Heal:Arg4] HP at turn end.",
   "descriptionArgs": {
     "Arg1": {
@@ -40,5 +42,6 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "In Sorel's salon, the final round dance before closing is a cherished tradition.\nUnder the influence of alcohol and hormones, no matter if it's a neighboring prince, a court official, or a personal maid, everyone joins hands and dives into the dance floor for a wild celebration.\nAs the music fades and the salon empties, nothing remains by Sorel's side except power and the faint dawn light breaking over the horizon.",
   "ownerAwakenerName": "Sorel"
 }

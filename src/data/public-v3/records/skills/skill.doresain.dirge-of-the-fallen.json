@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0014",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG to the enemy with lowest HP. This DMG enjoys [Arg2]% {STR} bonus. Gain [Power:Arg3] {STR}.",
   "descriptionArgs": {
     "Arg1": {
@@ -31,5 +33,6 @@
   },
   "cardKeywords": [],
   "cost": "3",
+  "lore": "The dish matters, yes—but so too does the artistry of consumption.\nA bone fork, carved from a foe's spine, pierces deeper than flesh.\nEvery course is a reunion. Every bite, a homecoming.",
   "ownerAwakenerName": "Doresain"
 }

@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0023",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Helot gains [Energy:Arg1] Aliemus. {Rouse}: Helot's cards gain {Retain}. At turn end, boost the DMG of {Shattering Strike} and the Base DMG of {Lasting Loathe} by 10%.",
   "descriptionArgs": {
     "Arg1": {
@@ -22,6 +24,7 @@
     }
   ],
   "cost": "1",
+  "lore": "Make those Spartans pay for their actions.\nWhat you gave was not mercy; what you took was not a gift.\nIt was the life of a hopeful girl, the burning blood and tears of countless Helots.\nThe only thing left for the avenger is the loss of chains.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.helot.the-final-arbiter.skill.helot.vengeance-upon-thee",

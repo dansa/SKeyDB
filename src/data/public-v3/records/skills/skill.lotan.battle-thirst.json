@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0031",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Lotan gains [Energy:Arg1] Aliemus. {Rouse}: Lotan's hits count +[Arg2] {plural:[Arg2]|time|times}.",
   "descriptionArgs": {
     "Arg1": {
@@ -26,6 +28,7 @@
     }
   ],
   "cost": "3",
+  "lore": "After eons of solitude, that person's appearance was like a sudden light in the deep ocean, igniting the long-dormant seabed.\nEager for a fair duel, Lotan willingly took on a human form, quietly awaiting the growth of a worthy opponent—she had yearned for an intense battle for far too long.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.lotan.primal-leviathan.skill.lotan.battle-thirst",

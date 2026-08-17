@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0016",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Faint gains [Energy:Arg1] Aliemus. {Rouse}: Gain [Counterattack:Arg3] stacks of {Counter}. The {Death Resistance} decay rate is reduced from 50% to 45% during this battle. When Faint plays a card, {Steal} [Arg2] {STR} from all enemies. At turn end, deal {Fixed DMG} equal to 50% of Faint's {Counter}.",
   "descriptionArgs": {
     "Arg1": {
@@ -39,6 +41,7 @@
     }
   ],
   "cost": "2",
+  "lore": "Faint is incomplete.\nFaint is dangerous.\nFaint is cursed.\nFaint, from the stars, is the most bizarre and vibrant color.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.faint.ever-barren-rainbow.skill.faint.boundless-starlight",

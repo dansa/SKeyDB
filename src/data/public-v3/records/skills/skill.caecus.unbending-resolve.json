@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0006",
   "slot": "OverExalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["over_exalt"],
   "descriptionTemplate": "One Tentacle attacks 5 times, obtaining a 25% {Counter} to DMG dealt.",
   "descriptionArgs": {},
   "cardKeywords": [],

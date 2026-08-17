@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0004",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield. If in hand at turn end, generate Shield 1 more time next time it is played. Dispel all Awakeners' {Sealed} states.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,17 +26,19 @@
     }
   ],
   "cost": "0",
+  "lore": "She always tells the recruits: even when tired, even when weak, never put down your weapon. Let it become your closest companion and strongest Shield.\nOn the battlefield, only those who remain vigilant enough will survive.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.alva.unyielding-bastion.skill.alva.combat-stance",
-      "operation": "replace_description",
+      "operation": "mixed",
       "upgraderId": "enlighten.alva.unyielding-bastion",
       "upgraderType": "enlighten",
       "upgraderSlot": "E1",
       "ownerAwakenerId": "awakener-0004",
       "ownerAwakenerName": "Alva",
       "patch": {
-        "descriptionTemplate": "Gain [Block:Arg1] Shield. If in hand at turn end, generate Shield 1 more time next time it is played. Dispel all Awakeners' {Sealed} states. Considered as \"Defense\"."
+        "descriptionTemplate": "Gain [Block:Arg1] Shield. If in hand at turn end, generate Shield 1 more time next time it is played. Dispel all Awakeners' {Sealed} states. Considered as \"Defense\".",
+        "countsAs": ["defense"]
       }
     }
   ],

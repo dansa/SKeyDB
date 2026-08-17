@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0014",
   "slot": "Defense",
+  "cardFamily": "command",
+  "cardTypes": ["defense"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield. Doresain obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,5 +26,6 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "Shh... His Majesty does not tolerate rude guests.",
   "ownerAwakenerName": "Doresain"
 }

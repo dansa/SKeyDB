@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0046",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Randomly deal [Damage:Arg1] DMG [Arg3] {plural:[Arg3]|time|times}. Restore [Heal:Arg2] HP at turn end.",
   "descriptionArgs": {
     "Arg1": {
@@ -30,6 +32,7 @@
   },
   "cardKeywords": [],
   "cost": "2",
+  "lore": "People admired her beauty and envied her charm, but no one paid attention to a budding flower.\nSwaying uncertainly in the wilderness, it was at the mercy of others, used as a bargaining chip for the gardener's advancement.\nOnly when she blossomed before the crown did people realize they had been pierced and bled.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.sorel.vintage-nectar.skill.sorel.elegance-of-rose",

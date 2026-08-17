@@ -10,6 +10,8 @@
   "ownerAwakenerId": "awakener-0027",
   "derivedFromId": "talent.kathigu-ra.the-living-flame",
   "rootSkillId": "skill.kathigu-ra.solarflare",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies. For each point of Arithmetica consumed, enjoy an additional 150% {STR} bonus. Consume all {Combust}, gain an additional 50% {STR} bonus per stack consumed. After playing, revert all {Hyperflare} back to {Solarflare}.",
   "descriptionArgs": {
     "Arg1": {

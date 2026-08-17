@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0025",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Jenkin gains [Energy:Arg1] Aliemus. {Rouse}: Crit. Rate +[Arg2]%. Each time Jenkin deals DMG, Temporary Crit. DMG +[Arg3]%, stacking up to 5 times per turn.",
   "descriptionArgs": {
     "Arg1": {
@@ -32,6 +34,7 @@
     }
   ],
   "cost": "2",
+  "lore": "The pitch-black goo drags her into the Abyss. Stars are born here, light dies here. There is no time, no Life.\nA voice comes from afar, radiating black light.\nIt says: You will forever become different, for you have traversed the fairy's Passage.\nShe shall wander here for a long time.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.jenkins.from-the-shrouded-mist.skill.jenkins.spatial-fold",

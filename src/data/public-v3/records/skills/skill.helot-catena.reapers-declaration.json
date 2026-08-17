@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0019",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Helot: Catena gains [Energy:Arg1] Aliemus. {Rouse}: Place a {Crimson Shackles} into hand, and Helot: Catena's Command Cards gain {Retain}. At turn start, Helot: Catena's Base DMG +[Arg2]% for this battle.",
   "descriptionArgs": {
     "Arg1": {
@@ -27,6 +29,7 @@
     }
   ],
   "cost": "2",
+  "lore": "Sing, goddess! Sing of the fate of the daughters of Delos:\nFilled with blood and tears, rage and despair.\nHer hatred burns everything around her, and in the end,\nBrings her own demise.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.helot-catena.death-knell-decree.skill.helot-catena.reapers-declaration",

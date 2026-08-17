@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0010",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG [AttackTimes:Arg2] {plural:[AttackTimes:Arg2]|time|times}. Gain [Arg3]% of Clementine's Keyflare Regen as Keyflare. {Quasar}: Obtain [Power:Arg5] {STR}.",
   "descriptionArgs": {
     "Arg1": {
@@ -43,5 +45,6 @@
     }
   ],
   "cost": "3",
+  "lore": "Blood surges, souls burn, the pain extracted from flesh and bone is the best delicacy.\nThese delicacies will be savored again and again—from the first scream, to the breath of despair, and finally to the silent, pale death.",
   "ownerAwakenerName": "Clementine"
 }

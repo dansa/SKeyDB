@@ -8,6 +8,8 @@
     "canonicalPath": "/database/awakeners/ryker/derived-skills/shining-octahedron-dice"
   },
   "ownerAwakenerId": "awakener-0043",
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
   "descriptionTemplate": "Roll a [Arg2]-sided die, gain Temporary {STR} equal to the die roll*[Arg1]. If the roll is 4 or higher, Inflict {Weakness} and {Vulnerable} on all enemies for 1 turn. If the roll is 6 or higher, double the gained Temporary {STR} and obtain 1 Arithmetica.",
   "descriptionArgs": {
     "Arg1": {

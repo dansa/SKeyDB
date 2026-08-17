@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0023",
   "slot": "OverExalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["over_exalt"],
   "descriptionTemplate": "Temporarily increase Hand Limit by 2, add 2 {Irregular Form} to hand, and Helot gains 25% Crit. DMG.",
   "descriptionArgs": {},
   "cardKeywords": [],

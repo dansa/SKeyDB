@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0007",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Gain [Energy:Arg1] Aliemus. Discard Symptom Cards and State Cards from hand, shuffle the other cards in hand into the Draw Pile, then draw the same number of cards. {Leap}: Refund the Arithmetica Cost of {Poof!}.",
   "descriptionArgs": {
     "Arg1": {
@@ -18,6 +20,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "Don't fear those two rows of intermittently visible triangular teeth, nor worry about the White Rabbit Lady who never came out once she went in—Mr. Top Hat is a professional magic item personally trained by Master Casiah, and he never bites recklessly.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.casiah.minds-whisper.skill.casiah.poof",

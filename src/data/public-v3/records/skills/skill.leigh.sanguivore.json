@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0028",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Leigh gains [Energy:Arg1] Aliemus. {Rouse}: After Leigh plays a card, {Embryo Fusion} +[Blood:Arg2].",
   "descriptionArgs": {
     "Arg1": {
@@ -26,6 +28,7 @@
     }
   ],
   "cost": "1",
+  "lore": "\"Shame... Shame...\"\nThe girl cowered in the corner of the kitchen, unable to wipe away the bloodstain at the corner of her mouth.\nShe endured accusations from her closest kin but was powerless to defend herself.\nFrom that day on, the girl lost her name.\nShe disappeared from the eyes of the world, like a drop of water merging into the ceaselessly flowing river of rumors.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.leigh.insatiable-craving.skill.leigh.sanguivore",

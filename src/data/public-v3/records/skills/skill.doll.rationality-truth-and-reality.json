@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0013",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Dispel self {Vulnerable} state. Restore [Heal:Arg1] HP, and other Awakeners Gain [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "Rationality determines her perspective, truth constructs the breadth of her thinking, and reality restrains her moral compass.\nFor this unparalleled genius, science is also a philosophy.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.doll.flesh-transcended.skill.doll.rationality-truth-and-reality",

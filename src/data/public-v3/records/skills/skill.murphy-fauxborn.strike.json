@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0035",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Murphy: Fauxborn obtains [Energy:Arg2] Aliemus",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "The Divine Mother's orders are beyond dispute.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.murphy-fauxborn.profane-apocalypse.skill.murphy-fauxborn.strike",

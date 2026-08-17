@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0036",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Nautila obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "\"What have I done?\"\nNautila always asked after the investigations ended. Not out of guilt for the attacks on the Dissoluted Entities—she simply forgot.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.nautila.blank-recollection.skill.nautila.strike",

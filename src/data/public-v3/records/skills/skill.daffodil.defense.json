@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0012",
   "slot": "Defense",
+  "cardFamily": "command",
+  "cardTypes": ["defense"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield. Daffodil obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "She never fears the bizarre trackers from other dimensions. She has her own arcane methods.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.daffodil.infinite-passage.skill.daffodil.defense",

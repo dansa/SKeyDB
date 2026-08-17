@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0017",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Faros gains [Energy:Arg1] Aliemus. {Rouse}: Gain 1 Tentacle. For each card Faros plays, draw [Arg2] {plural:[Arg2]|card|cards}, trigger [Arg3]% {Poison} on all enemies, up to 3 times per turn.",
   "descriptionArgs": {
     "Arg1": {
@@ -31,6 +33,7 @@
     }
   ],
   "cost": "2",
+  "lore": "The evening breeze carries the chimes of home, and the starlight illuminates the path back.\nPast duties have become her obsession.\nShe is willing to fuel the eternal flame with her life.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.faros.to-the-radiant-shore.skill.faros.abyssal-obsession",

@@ -7,6 +7,8 @@
     "slug": "twilight-honey-mead",
     "canonicalPath": "/database/derived-skills/twilight-honey-mead"
   },
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
   "childDerivedSkillIds": ["derived.global.memories-honey-mead"],
   "descriptionTemplate": "Choose 1 card from the Draw Pile or Discard Pile and add it to hand, setting its Arithmetica Cost to 0. Place 1 {Remembrance - Honey Wine} into both the Draw and Discard Piles.",
   "descriptionArgs": {},

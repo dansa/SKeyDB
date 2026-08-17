@@ -7,6 +7,8 @@
     "slug": "cocoon-of-revival",
     "canonicalPath": "/database/derived-skills/cocoon-of-revival"
   },
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
   "childDerivedSkillIds": ["derived.global.pupation", "derived.global.devour-card"],
   "descriptionTemplate": "Choice: {Pupation} or {derived:Devour}",
   "descriptionArgs": {},

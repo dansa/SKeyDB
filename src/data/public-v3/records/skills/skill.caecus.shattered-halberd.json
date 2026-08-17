@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0006",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG and gain an equal amount of {Counter}, enjoying a 50% {Tentacle DMG} bonus.",
   "descriptionArgs": {
     "Arg1": {
@@ -20,6 +22,7 @@
   },
   "cardKeywords": [],
   "cost": "2",
+  "lore": "I've given up everything as a human! I shall return to the embrace of ocean!\nBut why has my transformation failed?\nIs it the mockery of fate? Or my own foolishness?\nMadness-driven Caecus clutched the broken trident, attempting to sink into the sea.\nAs long as he could return and be accepted, he would clear any obstacle in his path.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.caecus.bloodline-awaken.skill.caecus.shattered-halberd",

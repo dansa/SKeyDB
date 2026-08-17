@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0042",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Temporarily reduce all enemies' {STR▼} by [Exhaustion:Arg1]. Draw 1 card.",
   "descriptionArgs": {
     "Arg1": {
@@ -20,6 +22,7 @@
   },
   "cardKeywords": [],
   "cost": "2",
+  "lore": "The students avoided making eye contact with Ramona.\nRumor has it that her azure eye can see through the heart, and all lies are laid bare before her. Some even say that the day she removes her monocle will be the day of the gods' arrival.\n\"Don't listen to those seniors guessing randomly; wearing glasses is just for easier reading.\"\n\"I'm not some high-tech lie detector; this level of deduction isn't very complicated, is it?\"",
   "upgrades": [
     {
       "id": "upgrade.enlighten.ramona.omen-of-unknowns.skill.ramona.assault-thesis",

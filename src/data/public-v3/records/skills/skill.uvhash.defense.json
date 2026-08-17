@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0051",
   "slot": "Defense",
+  "cardFamily": "command",
+  "cardTypes": ["defense"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield. Uvhash obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,5 +26,6 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "Defense is to indefinitely prolong this feast of slaughter. After all, the dead cannot enjoy any pleasure, can they?",
   "ownerAwakenerName": "Uvhash"
 }

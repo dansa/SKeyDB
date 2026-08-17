@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0017",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Within this turn, after causing {Tentacle DMG}, [{Poison}:Arg1] {plural:[{Poison}:Arg1]|stack|stacks} of {Poison} are applied to all enemies.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,5 +26,6 @@
     }
   ],
   "cost": "1",
+  "lore": "The instinct to seek light drives insects toward the light, but the Eternal Light is too dazzling, often causing people to overlook the turbulent undercurrents beneath the surface...",
   "ownerAwakenerName": "Faros"
 }

@@ -8,6 +8,8 @@
     "canonicalPath": "/database/derived-skills/memories-innocent-return-gift"
   },
   "derivedFromId": "derived.global.twilight-innocent-return-gift",
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
   "descriptionTemplate": "Choose an Awakener to gain [Arg1] Aliemus, {Usable 3 times} (currently used [Arg2] {plural:[Arg2]|time|times}).",
   "descriptionArgs": {
     "Arg1": {

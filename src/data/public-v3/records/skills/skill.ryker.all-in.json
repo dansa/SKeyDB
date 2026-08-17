@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0043",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies. Randomly draw 1~[Arg3] {plural:[Arg3]|card|cards}; for each card drawn, gain [Power:Arg2] {STR}.\n{overlay:Winner Takes All}",
   "descriptionArgs": {
     "Arg1": {
@@ -30,6 +32,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "Raise, raise, and keep raising without hesitation.\nThe suited waiter gestured; the opponent wiped the sweat from his forehead as the clock struck midnight.\nIn the bustling crowd, countless details caught his eye, effortlessly leading him to the correct conclusions.\nBefore the ultimate downfall, he had never experienced defeat.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.ryker.certain-gain.skill.ryker.all-in",

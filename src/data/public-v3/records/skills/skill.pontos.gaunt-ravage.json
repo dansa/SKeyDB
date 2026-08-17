@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0058",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies with a guaranteed crit. Gain [Energy:Arg2] Aliemus. Trigger X additional times.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "X",
+  "lore": "The appearances of Ebwynnos follow no regular pattern, nor can its full form ever be observed.\nThe only certainty is this: when those faceless creatures swarm in droves across the horizon, a house—its windows radiating an unnamable, pearlescent glow—will stand upon a cliff somewhere amid the mist.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.pontos.hollow-shell.skill.pontos.gaunt-ravage",

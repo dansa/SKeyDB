@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0005",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Aurita gains [Energy:Arg1] Aliemus. {Rouse}: Gain 1 Tentacle, and add 2 {Gland Division} into hand. When Aurita deals DMG, have [Arg2] Tentacles attack once.",
   "descriptionArgs": {
     "Arg1": {
@@ -26,6 +28,7 @@
     }
   ],
   "cost": "3",
+  "lore": "The girl left the bankrupt aquarium with reluctance and was allowed to take a few jellyfish home as payment.\nThey were her favorite tiny creatures, ethereal spirits of the sea, and blossoms of eternal life.\nWith proper care, they would fill the entire tank!— She once hoped for such a sight.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.aurita.sparkling-friendship.skill.aurita.self-proliferation",

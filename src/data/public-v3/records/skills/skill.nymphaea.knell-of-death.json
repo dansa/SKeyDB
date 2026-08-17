@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0037",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Inflict [{Poison}:Arg1] {plural:[{Poison}:Arg1]|stack|stacks} of {Poison} on all enemies for [Arg2] {plural:[Arg2]|turn|turns}, applying {Weakness} and {Vulnerable}.",
   "descriptionArgs": {
     "Arg1": {
@@ -29,6 +31,7 @@
   },
   "cardKeywords": [],
   "cost": "3",
+  "lore": "Listen, it is the tolling of the knell for herself.\nNeither a mad seeker, nor a lost soul; she simply chose her own end.\nWilting petals dance in her ritual, and the frenzied sea wind wails her dirge.\nAfter the resounding chime, the world fell into a brief, deathly silence.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.nymphaea.oceans-vessel.skill.nymphaea.knell-of-death",

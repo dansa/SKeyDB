@@ -7,6 +7,8 @@
     "slug": "luster-of-humanity",
     "canonicalPath": "/database/derived-skills/luster-of-humanity"
   },
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
   "descriptionTemplate": "Gain [Arg1] Arithmetica, choose 1 Awakener to gain [Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {

@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0041",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Pollux gains [Energy:Arg1] Aliemus. {Rouse}: Gain 3 stacks of {Sin Mark} when played and after the discard phase, plus 1 additional stack of {Sin Mark} for each card in hand. {Sacred Heart} inflicts {Bleed} equal to 100% DMG.",
   "descriptionArgs": {
     "Arg1": {
@@ -22,6 +24,7 @@
     }
   ],
   "cost": "3",
+  "lore": "In the past, his eyes were shrouded in darkness, and so he mistook that darkness for daylight. But upon seeing the truth, he turned and walked the opposite path. For now he understands: no matter the direction, his steps have always been guided by the light.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.pollux.lux-diouskouron.skill.pollux.path-of-ablution",

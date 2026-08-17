@@ -9,6 +9,9 @@
   },
   "ownerAwakenerId": "awakener-0004",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
+  "countsAs": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Each point of Shield increases DMG by 2. In this turn, for every 1 \"Defense\" played, Arithmetica Cost -1. Counts as a \"Strike\".",
   "descriptionArgs": {
     "Arg1": {
@@ -25,6 +28,7 @@
   },
   "cardKeywords": [],
   "cost": "3",
+  "lore": "Hands can clench into fists, and teeth can deal damage when biting.\nNever underestimate lone soldiers; every part of their body can be a weapon.\nAs she spoke, she unfolded the blade on her leg.",
   "upgrades": [
     {
       "id": "upgrade.talent.alva.dynamic-vision.skill.alva.precision-slash",

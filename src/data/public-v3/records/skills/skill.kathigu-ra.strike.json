@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0027",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Kathigu-Ra obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "She casually fires her weapon without caring if the bullets hit their target. \"The hunt begins. Let's warm up first.\"",
   "upgrades": [
     {
       "id": "upgrade.enlighten.kathigu-ra.everburning-flame.skill.kathigu-ra.strike",

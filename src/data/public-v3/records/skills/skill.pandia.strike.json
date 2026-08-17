@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0039",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Pandia obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "\"Pa! Pa! Pa!\" With a small whip, you strike the defiant slaves~",
   "upgrades": [
     {
       "id": "upgrade.enlighten.pandia.embrace-the-pain.skill.pandia.strike",

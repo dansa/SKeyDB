@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0010",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Restore [Heal:Arg1] HP, temporarily remove {Madness} from all enemies and temporarily reduce their {STR▼} by [Exhaustion:Arg3]. {Quasar}: Gain [Power:Arg4] {STR}.",
   "descriptionArgs": {
     "Arg1": {
@@ -32,5 +34,6 @@
   },
   "cardKeywords": [],
   "cost": "2",
+  "lore": "In the swaying pendulum, the world begins to be erased.\nIn your eyes, in your heart, in your head, there remains only one silhouette.\nThat is redemption, and also a dead end.",
   "ownerAwakenerName": "Clementine"
 }

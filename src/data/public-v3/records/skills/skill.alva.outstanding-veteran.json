@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0004",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Alva gains [Energy:Arg1] Aliemus. {Rouse}: Gain [Arg2] {Alert}. DMG from Alva's Command Cards increases with current Shield, increasing by 2 DMG for each point of Shield.",
   "descriptionArgs": {
     "Arg1": {
@@ -28,6 +30,7 @@
     }
   ],
   "cost": "2",
+  "lore": "After enlisting, she fought bravely on the front lines, unwilling to step down even after becoming disabled, simply because she sincerely believed that \"a better world\" was coming.\nBut lies will eventually shatter. This time, she lifts her weapon not for that false promise, but for what is right in her heart.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.alva.crusade-to-utopia.skill.alva.outstanding-veteran",

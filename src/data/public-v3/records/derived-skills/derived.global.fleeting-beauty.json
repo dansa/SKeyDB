@@ -7,6 +7,8 @@
     "slug": "fleeting-beauty",
     "canonicalPath": "/database/derived-skills/fleeting-beauty"
   },
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
   "descriptionTemplate": "Place 1 \"Strike\" with Arithmetica Cost 0 into hand for each Awakener, and attach {Exhaust}. Replace all Awakener cards in your hand with \"Strike\" with Arithmetica Cost 0 until the turn ends.",
   "descriptionArgs": {},
   "cardKeywords": [

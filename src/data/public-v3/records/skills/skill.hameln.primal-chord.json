@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0022",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Randomly deal [Damage:Arg1] {Pierce DMG} 3 times, {Stealing} [Arg2] {STR▼} each time. Choose 1 non-Derived Command Card in hand that does not have {Exhaust}, {Rondino}, or {Crescendo}, and add {Rondino} to it. If there are no cards in your hand which qualify, deal DMG 3 more times.",
   "descriptionArgs": {
     "Arg1": {
@@ -26,6 +28,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "Where does music originate? From divine rituals, from farmers' chants, from primal screams, from the warble of spring birds, from pine winds and ocean waves, from the tremors of the earth and the collapse of mountains... or perhaps from the whispers of gods in the chaos of the universe.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.hameln.oneiric-waltz.skill.hameln.primal-chord",

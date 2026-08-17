@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0054",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Xu gains [Energy:Arg1] Aliemus. {Rouse}: The first time each type of Xu's Command Cards triggers the {Resonance} effect per turn, its Base Arithmetica Cost becomes 0.",
   "descriptionArgs": {
     "Arg1": {
@@ -22,6 +24,7 @@
     }
   ],
   "cost": "3",
+  "lore": "Why tempt them? They were already powerless to resist.\nWhy incite them? She won't stop until the swirling vortex of power and desire—ever higher, ever wider—swallows everything within sight.\nIt is because the marrow of a commoner, trapped only by \"Love,\" is quite impossible to swallow. Because a mundane corpse, unmarinated by \"Ambition,\" is utterly tasteless.\nThe Dreamless Land is but a scrap of a reward, tossed from the predator to the prey.\nAt the heart of that Rapture lies nothing—only endless Chaos, an infinite and bizarre phantasmagoria.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.xu.gu-wang-yan.skill.xu.lady-of-dreamless-land",

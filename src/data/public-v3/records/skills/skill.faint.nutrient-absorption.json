@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0016",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Gain [Power:Arg1] {STR}. Temporarily reduce all enemies' {STR▼} by [Exhaustion:Arg2].",
   "descriptionArgs": {
     "Arg1": {
@@ -26,5 +28,6 @@
   },
   "cardKeywords": [],
   "cost": "2",
+  "lore": "\"For us, absorbing nutrients is as natural as plants chasing sunlight.\"\nFaint cannot understand what her kin mean by \"chasing sunlight\" as an instinct.\nShe only knows that once her roots are embedded in the prey's body, she cannot stop, cannot stop, cannot stop...",
   "ownerAwakenerName": "Faint"
 }

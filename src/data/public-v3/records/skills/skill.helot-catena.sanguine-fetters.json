@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0019",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "[{Devour}: Draw 1 Helot: Catena Command Card, reducing the Arithmetica Cost of Helot: Catena Command Cards in hand by 1.] This turn, when Helot: Catena deals Active DMG, add [Arg2]% {Bleed}. Deal [Damage:Arg1] DMG.",
   "descriptionArgs": {
     "Arg1": {
@@ -25,6 +27,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "Clotho, Clotho, the goddess holding the spindle,\nFrom where did you take this thread?\nEven if he breaks his shackles, the pitiful Tylos,\nCannot escape the chains of Fate.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.helot-catena.remnants-requiem.skill.helot-catena.sanguine-fetters",

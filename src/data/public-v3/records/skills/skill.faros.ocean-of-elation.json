@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0017",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG and an equal amount of {Poison}, which enjoys a [Arg4]% {Tentacle DMG} bonus. Generate [Arg2] Temporary Tentacles. {Tentacle DMG} +[TentaclePower:Arg3].",
   "descriptionArgs": {
     "Arg1": {
@@ -35,6 +37,7 @@
   },
   "cardKeywords": [],
   "cost": "2",
+  "lore": "The ship departing the port is lost in the wind, and the stray beast stirs up great waves.\nHer fervor has several times influenced the survival of human civilization, but she never cares.\nFor the beast, nothing is more important than finding its habitat.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.faros.jagged-shore.skill.faros.ocean-of-elation",

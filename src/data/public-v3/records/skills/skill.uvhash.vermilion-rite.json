@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0051",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Uvhash gains [Energy:Arg1] Aliemus. {Rouse}: Uvhash is immune to {Sealed}; Crit. Rate and Crit. DMG +[Arg2]%, doubling when HP is below 25%.",
   "descriptionArgs": {
     "Arg1": {
@@ -27,6 +29,7 @@
     }
   ],
   "cost": "1",
+  "lore": "The triumphal procession has always been a grand celebration for the Romans.\nWhite doves, laurel leaves, and golden confetti flying in the air... all of this is related to the warriors, yet unrelated.\nTogether with captives from Gaul, Alexandria, and Parthia, he was bound to a heavy cross and paraded through the streets.\nThis is a staple of the triumph. The warrior is mocked relentlessly, simply because he is deemed a bloody accomplice of the deceased emperor.\nShame, anger, or hatred? No, none of these.\nThe warrior has no emotions and no thoughts.\nHe only smells blood.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.uvhash.paean-of-twisted-fury.skill.uvhash.vermilion-rite",

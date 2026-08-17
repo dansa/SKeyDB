@@ -7,6 +7,8 @@
     "slug": "twilight-unfinished-wax-sculpture",
     "canonicalPath": "/database/derived-skills/twilight-unfinished-wax-sculpture"
   },
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
   "childDerivedSkillIds": ["derived.global.memories-unfinished-wax-sculpture"],
   "descriptionTemplate": "Choose 1 card from the Draw Pile or Discard Pile and add it to hand, setting its Arithmetica Cost to 0. Place 1 {Memories - Unfinished Wax Sculpture} into both the Draw Pile and the Discard Pile.",
   "descriptionArgs": {},

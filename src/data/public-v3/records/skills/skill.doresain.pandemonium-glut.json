@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0014",
   "slot": "OverExalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["over_exalt"],
   "descriptionTemplate": "In this Exalt: Crit. Rate +25%, Base DMG +50%, Final DMG +100%.",
   "descriptionArgs": {},
   "cardKeywords": [],

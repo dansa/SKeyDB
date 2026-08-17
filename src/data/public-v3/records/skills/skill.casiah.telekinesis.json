@@ -9,6 +9,9 @@
   },
   "ownerAwakenerId": "awakener-0007",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
+  "countsAs": ["strike"],
   "descriptionTemplate": "Counts as a \"Strike\". Choose any 1 card from {Ultra Space} and add it to your hand, reducing its Arithmetica Cost by 2. Randomly deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times}, and gain [Power:Arg3] Temporary {STR}.",
   "descriptionArgs": {
     "Arg1": {
@@ -30,6 +33,7 @@
   },
   "cardKeywords": [],
   "cost": "0",
+  "lore": "\"Come closer, don't be shy, let the hat master savor your laughter and joy.\"\nMaster Casiah tapped the brim of her hat, and with a bang, produced a large bundle of ribbons and cards.\n\"Choose your card in your heart. Shh! Don't tell anyone. Master Casiah will reveal which one is uniquely yours.\"",
   "upgrades": [
     {
       "id": "upgrade.enlighten.casiah.legendary-copycat.skill.casiah.telekinesis",

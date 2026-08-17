@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0033",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies. This turn, all Awakeners' \"Strike\" DMG +[Arg3].",
   "descriptionArgs": {
     "Arg1": {
@@ -26,6 +28,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "\"Do I really have to do my catchphrase again? Even in an isekai?\"\n\"Fine then, listen up—\"\n\"Here's everyone's favorite—Shining☆Tornado—!!\"",
   "upgrades": [
     {
       "id": "upgrade.enlighten.mouchette.cleave-out-a-future.skill.mouchette.shining-tornado",

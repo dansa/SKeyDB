@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0026",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Inflict [{Poison}:Arg1] {plural:[{Poison}:Arg1]|stack|stacks} of {Poison} and 1 turn of {Weakness} on all enemies, and heal for [Heal:Arg2] HP.",
   "descriptionArgs": {
     "Arg1": {
@@ -34,6 +36,7 @@
     }
   ],
   "cost": "3",
+  "lore": "Main Ingredients: Blue cheese, Indian curry, several fresh toad legs\nPreparation Steps: Mix and marinate for seven days, add 1 oz of peat whiskey\nOthers: Presentation is key. Shape rosemary into a smile, remember, remember!",
   "upgrades": [
     {
       "id": "upgrade.enlighten.karen.creamy-frosting.skill.karen.toad-stew",

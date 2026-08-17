@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0026",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Karen obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,5 +26,6 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "No matter if it's a broom or a weapon, she handles it with elegance.",
   "ownerAwakenerName": "Karen"
 }

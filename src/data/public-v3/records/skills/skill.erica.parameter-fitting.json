@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0015",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Erica gains [Energy:Arg1] Aliemus. {Rouse}: When Erica deals DMG, she Gains [Power:Arg2] Temporary {STR}; when Erica applies a Shield, she Gains [Arg3] Temporary {Alert}.",
   "descriptionArgs": {
     "Arg1": {
@@ -34,6 +36,7 @@
     }
   ],
   "cost": "2",
+  "lore": "Countless gears interlock, driving each other and granting the porcelain shell the ability to mimic life.\nThis is her proudest creation, an intricate instrument that cannot be replicated.\nErica could never have imagined that the automaton bearing her name would become her second life.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.erica.final-decree.skill.erica.parameter-fitting",

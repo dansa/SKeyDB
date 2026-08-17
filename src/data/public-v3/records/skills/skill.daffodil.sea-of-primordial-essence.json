@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0012",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Deal [Damage:Arg1] damage to all enemies; this damage enjoys a [Arg4]-times Strength bonus. Create one custom {Thousand Mirage} and place it into your hand. If it is not an {Ultra}-dimensional turn and {Ultra Dimension} does not have a {Thousand Mirage}, copy it into {Ultra Dimension} (considered as triggering {Dimensional Shuttle} once); otherwise, place one {derived:Insight} into your hand.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,5 +26,6 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "It was the Infinite Substance Sea, from which, legend has it, all organic matter on the planet originated.\nAn endless array of faces floated in the gray ocean, brimming with laughter or compassion.",
   "ownerAwakenerName": "Daffodil"
 }

@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0019",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG and equal {Bleed} to all enemies, and gain [Power:Arg2] {STR}.",
   "descriptionArgs": {
     "Arg1": {
@@ -26,6 +28,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "Lachesis holds a long ruler, singing about the life of the Tylos:\nSparta's killer, you could have been a hero,\nTisiphone blinded your eyes, her wings became your bonds,\nShe made you a slave to hatred, seeing only red.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.helot-catena.vengeance-unchained.skill.helot-catena.hatred-unleashed",

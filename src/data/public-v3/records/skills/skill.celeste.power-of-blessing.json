@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0009",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Celeste gains [Energy:Arg1] Aliemus. {Rouse}: Gain 1 Tentacle, Celeste's HP Recovery +15%, and when recovering HP, Temporary {Tentacle DMG} +[TentaclePower:Arg2].",
   "descriptionArgs": {
     "Arg1": {
@@ -28,6 +30,7 @@
     }
   ],
   "cost": "1",
+  "lore": "They first called her a saint and bound her to the mast; later, they called her worthless and threw her into a cage.\nIt seemed they forgot that she could not determine life or death, only steer the ship's course.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.celeste.imaginary-cathuria.skill.celeste.power-of-blessing",

@@ -7,6 +7,8 @@
     "slug": "stagger",
     "canonicalPath": "/database/derived-skills/stagger"
   },
+  "cardFamily": "state",
+  "cardTypes": ["state"],
   "descriptionTemplate": "State Card.",
   "descriptionArgs": {},
   "cardKeywords": [

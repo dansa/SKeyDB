@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0033",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Mouchette obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,5 +26,6 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "\"Hahaha, that's more like it! Now things are finally getting interesting!\"\n\"Thank you all for playing with me... I truly am so happy.\"",
   "ownerAwakenerName": "Mouchette"
 }

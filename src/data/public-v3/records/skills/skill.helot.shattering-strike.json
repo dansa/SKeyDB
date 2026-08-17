@@ -9,6 +9,9 @@
   },
   "ownerAwakenerId": "awakener-0023",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
+  "countsAs": ["strike"],
   "descriptionTemplate": "Counts as a \"Strike\". Deal [Damage:Arg1] DMG. For each other \"Strike\" in hand, increase Base DMG by [Arg3]%, and gain an additional 1× {STR} bonus. Discard all \"Strikes\".",
   "descriptionArgs": {
     "Arg1": {
@@ -25,5 +28,6 @@
   },
   "cardKeywords": [],
   "cost": "4",
+  "lore": "This single blow.\nTake the life of the oppressor, take the life of the betrayer, take the life of the reckless, take the life of the invader.\nNo more words. Her choice and resolve are declared through this stab filled with Hatred.",
   "ownerAwakenerName": "Helot"
 }

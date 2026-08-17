@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0014",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Doresain gains [Energy:Arg1] Aliemus. {Rouse}: Gain [Power:Arg2] {STR}, and DMG dealt by Doresain gains an additional [Arg3]% {STR} bonus. The first time Doresain scores a Kill each turn, deal {Fixed DMG} equal to 50% of the overflow DMG to other enemies.",
   "descriptionArgs": {
     "Arg1": {
@@ -33,6 +35,7 @@
     }
   ],
   "cost": "3",
+  "lore": "The invitation's paper is supple skin. Its adornments, polished skulls. Its ink, still-warm blood. Its seal, the fervent mark of the banquet's host—Doresain, who extends to you a most... personal summon.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.doresain.styx-uncrossed.skill.doresain.crimson-invite",

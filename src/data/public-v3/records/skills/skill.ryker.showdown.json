@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0043",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG 1~[Arg4] {plural:[Arg4]|time|times}, gaining [Energy:Arg2] Aliemus. If it deals 6 or more instances of DMG, obtain 1 {Unexpected Gain} with {Exhaust} and 0 Arithmetica Cost.",
   "descriptionArgs": {
     "Arg1": {
@@ -28,6 +30,7 @@
   },
   "cardKeywords": [],
   "cost": "2",
+  "lore": "Have you ever felt like the center of the universe, the star under the spotlight, God's favorite child?\nFor Ryker, it is the moment when he calmly glances at his hand and then reveals it without hesitation.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.ryker.fortunes-boon.skill.ryker.showdown",

@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0030",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Liz gains [Energy:Arg1] Aliemus. {Rouse}: For every [Arg2] {plural:[Arg2]|instance|instances} of DMG dealt by Liz, put a {Green Flames} with {Exhaust} into hand, up to 3 times per turn.",
   "descriptionArgs": {
     "Arg1": {
@@ -26,6 +28,7 @@
     }
   ],
   "cost": "1",
+  "lore": "Flames spread, painting the theater's canopy an emerald green, like the serene and clear waters of a morning lake.\nHow many have come chasing this emerald silhouette, while others overlook the fluid and powerful dance, seeing only the faintly revealed alabaster arms and imagined scenes beneath the skirt.\nYet the dancer merely stands there, as if frozen, in a near-death posture devoured by green flames.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.liz.burning-tribute.skill.liz.emerald-reflection",

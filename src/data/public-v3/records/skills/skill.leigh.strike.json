@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0028",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Leigh obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,5 +26,6 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "Beware, all her actions lead to one ultimate goal: to make you harm her—no, to make you harm her severely.",
   "ownerAwakenerName": "Leigh"
 }

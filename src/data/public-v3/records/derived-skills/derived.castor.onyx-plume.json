@@ -10,6 +10,8 @@
   "ownerAwakenerId": "awakener-0008",
   "derivedFromId": "skill.castor.skybound-oath",
   "rootSkillId": "skill.castor.skybound-oath",
+  "cardFamily": "command",
+  "cardTypes": ["derived"],
   "descriptionTemplate": "Deal [Damage:Arg2] DMG and draw [Arg1] {plural:[Arg1]|card|cards}. {Retain}: Gain [Block:Arg3] Shield. {Exhaust}.",
   "descriptionArgs": {
     "Arg1": {

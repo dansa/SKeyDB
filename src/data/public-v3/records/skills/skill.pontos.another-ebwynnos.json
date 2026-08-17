@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0058",
   "slot": "OverExalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["over_exalt"],
   "descriptionTemplate": "{Fixed DMG} dealt is tripled; if this secures a kill, additionally generate 1 {Gaunt}. Reduce the Arithmetica Cost of all {Gaunts} by 1.",
   "descriptionArgs": {},
   "cardKeywords": [],

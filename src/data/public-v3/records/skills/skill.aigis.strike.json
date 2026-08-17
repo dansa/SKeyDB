@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0003",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Aigis obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "\"D-Don't come any closer! I don't want to hurt you!\"",
   "upgrades": [
     {
       "id": "upgrade.enlighten.aigis.the-witness.skill.aigis.strike",

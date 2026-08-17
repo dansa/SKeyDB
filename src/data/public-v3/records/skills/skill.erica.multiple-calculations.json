@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0015",
   "slot": "OverExalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["over_exalt"],
   "descriptionTemplate": "{Electromagnetic Blast} Base DMG and Shield Generation +100%. Erica's \"Basic Strike\" deals DMG +1 time, and \"Basic Defense\" grants Shield +1 time, lasting for 3 turns.",
   "descriptionArgs": {},
   "cardKeywords": [],

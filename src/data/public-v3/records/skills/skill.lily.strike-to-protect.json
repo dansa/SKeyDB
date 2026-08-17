@@ -9,6 +9,9 @@
   },
   "ownerAwakenerId": "awakener-0029",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
+  "countsAs": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG, trigger [Arg3]% of the target's {Poison}. If a Critical Hit occurs, the trigger ratio increases to [Arg4]%. This counts as a \"Strike\". For each stack of {Endure}, increase DMG by 2 and remove {Endure} after use.",
   "descriptionArgs": {
     "Arg1": {
@@ -38,6 +41,7 @@
     }
   ],
   "cost": "4",
+  "lore": "If it's the master's command, Lily can throw that big guy.\nIt doesn't fear pain.\nPain is just power; pain drives frenzy. Lily doesn't fear pain, and neither does it.\nSo, it will surely help the master eliminate enemies.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.lily.viscous-devour.skill.lily.strike-to-protect",

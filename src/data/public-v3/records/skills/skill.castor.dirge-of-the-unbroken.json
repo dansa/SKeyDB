@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0008",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield and shuffle [Arg2] {Onyx Plume} into the Draw Pile.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,5 +26,6 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "He is foolish, obstinate, and unchanged. Even if he can only emit a lonely cry, he will not yield to any chains or blades. He will use his unworn sharp beak to peck at every crack in the cage. When the black wings pierce the edge of the night, he will carry that last feather, take his shadow, and fly toward the light on the other side of the storm.",
   "ownerAwakenerName": "Castor"
 }

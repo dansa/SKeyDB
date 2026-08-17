@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0047",
   "slot": "Defense",
+  "cardFamily": "command",
+  "cardTypes": ["defense"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield. Tawil obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "She has no intention to hinder.\nBut those who transcend fall into madness.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.tawil.nonexistent-existence.skill.tawil.defense",

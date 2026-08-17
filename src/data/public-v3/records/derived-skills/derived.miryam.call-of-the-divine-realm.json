@@ -10,6 +10,8 @@
   "ownerAwakenerId": "awakener-0032",
   "derivedFromId": "derived.miryam.divine-realms-illusion",
   "rootSkillId": "skill.miryam.testament-of-faith",
+  "cardFamily": "curse",
+  "cardTypes": ["curse"],
   "descriptionTemplate": "Choose an Awakener to gain [Arg1] Aliemus. Draw 2 cards.",
   "descriptionArgs": {
     "Arg1": {

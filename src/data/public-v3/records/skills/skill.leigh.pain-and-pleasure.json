@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0028",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Randomly deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times}. At the start of next turn, gain 1 Shield for every 2 HP lost.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "3",
+  "lore": "Her skin has turned green, and rotting veins twist and coil incessantly.\nSomething seems to be growing in her shoulder—black liquid is oozing down her arm, spreading onto the operating table.\nNewly born flesh bursts forth from the wound, eager and gentle, without a sound.\nThe girl with Weakness smiles.\n\"We meet again, @2.\"",
   "upgrades": [
     {
       "id": "upgrade.enlighten.leigh.newborn-sanguivore.skill.leigh.pain-and-pleasure",

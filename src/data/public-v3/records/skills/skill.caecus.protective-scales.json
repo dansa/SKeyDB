@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0006",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield. Until the start of next turn, {Counter} and Tentacle {Counter} trigger an additional [Arg2] {plural:[Arg2]|time|times}, dealing 50% DMG. Obtain [Power:Arg3] {STR}.",
   "descriptionArgs": {
     "Arg1": {
@@ -30,6 +32,7 @@
   },
   "cardKeywords": [],
   "cost": "3",
+  "lore": "Wait till I'm chosen, dive into the ocean, and return to my kind.\nI will enjoy eternal peace, and you ignorant mortals will never bully me again.\nWith such dreams, the little boy drifts into a fantasy slumber.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.caecus.spike-amalgamation.skill.caecus.protective-scales",

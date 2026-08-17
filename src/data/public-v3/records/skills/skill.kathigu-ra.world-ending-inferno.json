@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0027",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Deal [Damage:Arg1] {Pierce DMG} to all enemies, which enjoys [Arg2]% {STR} bonus. Draw 2 Kathigu-Ra's Command Cards and apply 1 stack of {Fiamma} to 3 Kathigu-Ra's Command Cards in hand.",
   "descriptionArgs": {
     "Arg1": {
@@ -25,6 +27,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "His messengers poured forth one after another, wildly dancing and scattering amber-colored flames. This is His power, His will, His duty; His fire will cover heaven and earth, burning the world to ashes.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.kathigu-ra.endless-purgatory.skill.kathigu-ra.world-ending-inferno",

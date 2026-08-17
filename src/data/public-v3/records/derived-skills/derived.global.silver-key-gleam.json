@@ -7,6 +7,8 @@
     "slug": "silver-key-gleam",
     "canonicalPath": "/database/derived-skills/silver-key-gleam"
   },
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
   "descriptionTemplate": "Choose one of the 3 unlocked random Posse to release immediately.",
   "descriptionArgs": {},
   "cardKeywords": [

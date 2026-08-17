@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0026",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Karen gains [Energy:Arg1] Aliemus. {Rouse}: After Karen plays a card, restore [Heal:Arg2] HP and Gain [Energy:Arg3] Aliemus. After playing {Marvelous Cuisine}, inflict [{Poison}:Arg4] {plural:[{Poison}:Arg4]|stack|stacks} of {Poison} on all enemies.",
   "descriptionArgs": {
     "Arg1": {
@@ -38,6 +40,7 @@
     }
   ],
   "cost": "2",
+  "lore": "She dances beneath the crescent moon.\nHer skirt swirls around her arms, like a spinning cloud.\nBelow her, the endlessly flowing lake merges with the sky.\nDance. Dance. A voice whispers in the dark.\nAwaken the sleeping one and fulfill the millennia-old promise.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.karen.mistmoon-banquet.skill.karen.dance-of-the-gibbous-moon",

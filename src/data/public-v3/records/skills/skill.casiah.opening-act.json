@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0007",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Casiah gains [Energy:Arg1] Aliemus. {Rouse}: Casiah gains [Power:Arg2] Temporary {STR} for each card played.",
   "descriptionArgs": {
     "Arg1": {
@@ -28,6 +30,7 @@
     }
   ],
   "cost": "2",
+  "lore": "Casiah's hands are empty;\nCasiah's hat is empty;\nCasiah's chest is empty.\nEmpty Casiah performs an empty show in a joyless revelry.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.casiah.a-thousand-and-one-miracles.skill.casiah.opening-act",

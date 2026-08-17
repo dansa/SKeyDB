@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0003",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Aigis gains [Energy:Arg1] Aliemus. {Rouse}: After Aigis plays a card, apply [Arg2] {plural:[Arg2]|turn|turns} of {Vulnerable} to all enemies.",
   "descriptionArgs": {
     "Arg1": {
@@ -26,6 +28,7 @@
     }
   ],
   "cost": "2",
+  "lore": "Someone half-jokingly asked Aigis if she could knit a scarf for them, as she had everything from knitting needles to yarn on her person.\nAigis shyly lowered her head. She didn't tell anyone that the knitting needles on her head were not decorations but special tools used to suppress the power in her eyes.\nA few days later, she completed a colorful scarf using borrowed knitting needles.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.aigis.crystallized-tear.skill.aigis.stagnant-curse",

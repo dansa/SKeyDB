@@ -9,6 +9,9 @@
   },
   "ownerAwakenerId": "awakener-0033",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
+  "countsAs": ["strike"],
   "descriptionTemplate": "Counts as a \"Strike\". Deal [Damage:Arg1] DMG to all enemies [Arg2] {plural:[Arg2]|time|times},",
   "descriptionArgs": {
     "Arg1": {
@@ -28,6 +31,7 @@
     }
   ],
   "cost": "1",
+  "lore": "This fight is her last breath of life. Every strike is a step closer to the mist, and the world that is hers alone.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.mouchette.irretrievable-past.skill.mouchette.mortal-blast",

@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0028",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Lose [Arg1]% of current HP. {Embryo Fusion}+[Blood:Arg3]. Gain [Power:Arg2] Temporary {STR}.",
   "descriptionArgs": {
     "Arg1": {
@@ -29,6 +31,7 @@
   },
   "cardKeywords": [],
   "cost": "0",
+  "lore": "The girl received strict noble education from a young age.\nAll these complex doctrines can be summed up in one word: restraint.\nThey include, but are not limited to, posture, appetite, and speaking volume...\nShe spent her days in a blossoming garden reading poetry, singing, and praying.\nShe felt extremely hungry.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.leigh.step-into-the-sunlight.skill.leigh.pain-of-unfulfilled-desires",

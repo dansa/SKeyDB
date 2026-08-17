@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0037",
   "slot": "OverExalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["over_exalt"],
   "descriptionTemplate": "Increases the {Poison} effect caused by Nymphaea by 50% for 3 turns.",
   "descriptionArgs": {},
   "cardKeywords": [],

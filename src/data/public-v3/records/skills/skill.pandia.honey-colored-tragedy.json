@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0039",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies 2 times. Each stack of {Counter} increases DMG by [Arg2]. Obtain [Power:Arg3] {STR}.",
   "descriptionArgs": {
     "Arg1": {
@@ -30,6 +32,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "The more abstinence and repression, the more astonishing the girl's control ability becomes.\nThe loud crack of the whip is equivalent to sweet words of love, hot wax replaces scorching kisses, tight bondage represents meticulous care, and swollen scars are proof of affection.\nIn that honey-colored tragic Illusion, the girl's bell-like laughter can be heard.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.pandia.youre-being-naughty.skill.pandia.honey-colored-tragedy",

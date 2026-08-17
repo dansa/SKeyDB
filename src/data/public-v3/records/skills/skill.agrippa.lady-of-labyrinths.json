@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0002",
   "slot": "OverExalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["over_exalt"],
   "descriptionTemplate": "Draw 2 Command Cards from Agrippa that are not Strike or Defense. Reduce the Arithmetica Cost of 2 such cards by 1 this turn.",
   "descriptionArgs": {},
   "cardKeywords": [],

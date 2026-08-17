@@ -7,6 +7,8 @@
     "slug": "falling-upward",
     "canonicalPath": "/database/derived-skills/falling-upward"
   },
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
   "descriptionTemplate": "The wielder gains [Arg1] fixed Aliemus and removes the {Perception Warp} effect from all Command Cards.",
   "descriptionArgs": {
     "Arg1": {

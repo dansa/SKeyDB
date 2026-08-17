@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0051",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Lose [Arg1]% Current HP. Deal [Damage:Arg2] DMG to all enemies. Obtain [Power:Arg3] {STR}.",
   "descriptionArgs": {
     "Arg1": {
@@ -31,6 +33,7 @@
   },
   "cardKeywords": [],
   "cost": "0",
+  "lore": "He was summoned as a symbol of violence, becoming the star of the Arena.\nHe was rejected as a symbol of violence, becoming a prisoner in the basement.\nWhen the surging blood is tightly bound by chains,\nAfter millennia of hunger and thirst—\nRoaring, shrieking,\nIt can no longer be endured.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.uvhash.the-gladiator.skill.uvhash.screech-blood",

@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0054",
   "slot": "Defense",
+  "cardFamily": "command",
+  "cardTypes": ["defense"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield. Xu gains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "<Italic:\"Our Shapeless Goddess hears her cry, She'll flay his face, She'll drain the guy!\nWe'll carve his chest and take his bone, to lay before our Lady's throne.\">",
   "upgrades": [
     {
       "id": "upgrade.enlighten.xu.fan-and-scythe.skill.xu.defense",

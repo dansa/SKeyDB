@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0004",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Alva obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -29,6 +31,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "The blade in her hand is raised only for the sake of justice.",
   "upgrades": [
     {
       "id": "upgrade.talent.alva.dynamic-vision.skill.alva.strike",

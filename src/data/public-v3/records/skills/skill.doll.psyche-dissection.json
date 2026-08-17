@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0013",
   "slot": "OverExalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["over_exalt"],
   "descriptionTemplate": "At turn start, restore HP equal to [Arg1]% of Doll's CON, lasting for 3 turns. (effect scales with {Rationality, Truth, and Reality} skill level).",
   "descriptionArgs": {
     "Arg1": {

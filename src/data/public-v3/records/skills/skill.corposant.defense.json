@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0011",
   "slot": "Defense",
+  "cardFamily": "command",
+  "cardTypes": ["defense"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield. Corposant obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -29,6 +31,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "She is also the \"language\" of the ship, guiding her companions across the vast sea with flags.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.corposant.lodestars-whisper.skill.corposant.defense",

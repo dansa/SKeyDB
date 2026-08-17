@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0039",
   "slot": "OverExalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["over_exalt"],
   "descriptionTemplate": "Inflict {Vulnerable} on all enemies before dealing DMG. Obtain {Counter} equal to [Arg1]% of ATK.",
   "descriptionArgs": {
     "Arg1": {

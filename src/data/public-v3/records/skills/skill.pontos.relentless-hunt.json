@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0058",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Remove own {STR▼} state. All enemies' {STR▼} -[Exhaustion:Arg8] temporarily. Deal {Fixed DMG} equal to [Arg2]% {Tentacle DMG} to the lowest-HP enemy. If this kills the target, generate 1 Permanent {Gaunt} into hand. Max 3 Permanent {Gaunts} generated per battle.",
   "descriptionArgs": {
     "Arg2": {
@@ -25,6 +27,7 @@
   },
   "cardKeywords": [],
   "cost": "150",
+  "lore": "He preserved the brightest, most spirited fragments of his beloved, while subjecting his enemies to the most brutal, lingering tortures.\nIn the breathless revelry of every passing night, he would cast himself with roaring laughter into a sea of empty shells.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.pontos.lure-of-light.skill.pontos.relentless-hunt",

@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0019",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Lose 10% of current HP, randomly deal [Damage:Arg1] DMG 2 times and inflict {Bleed} equal to 50% DMG dealt. After playing 3 times, transform into {Bloodthirsty Flail}.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,5 +26,6 @@
     }
   ],
   "cost": "1",
+  "lore": "Atropos cuts the black thread, severing the fate of the Tylos.\nThe warrior who wielded shackles as weapons,\nand once so valiant, finally falls before countless spears.",
   "ownerAwakenerName": "Helot: Catena"
 }
