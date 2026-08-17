@@ -34,11 +34,7 @@ export function DatabasePage() {
     search: location.search,
   })
   const routeDetailItem =
-    routeResolution.status === 'resolved'
-      ? routeResolution.resolution.routeItem
-      : routeResolution.status === 'loading'
-        ? (routeResolution.previousResolution?.routeItem ?? null)
-        : null
+    routeResolution.status === 'resolved' ? routeResolution.resolution.routeItem : null
   const browseOrigin = getDatabaseDetailBrowseOrigin(locationState)
   const activeEntity = browseOrigin?.entity ?? parsedRoute.entity
   const browseController = useEntityBrowseController({

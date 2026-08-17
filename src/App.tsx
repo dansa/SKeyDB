@@ -360,6 +360,7 @@ function App() {
           onError={(error, errorInfo) => {
             loadingIncident.reportLoadingError(error, 'react-boundary', errorInfo.componentStack)
           }}
+          resetKey={locationKey}
         >
           <Suspense
             fallback={<div className='px-2 py-6 text-sm text-slate-300'>Loading page…</div>}

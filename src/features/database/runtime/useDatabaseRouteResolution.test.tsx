@@ -1,7 +1,7 @@
-import {renderHook, waitFor} from '@testing-library/react'
+import {act, renderHook, waitFor} from '@testing-library/react'
 import {afterEach, describe, expect, it, vi} from 'vitest'
 
-import {getDatabaseEntityRuntime} from './databaseEntityRuntime'
+import {getDatabaseEntityRuntime, type ResolvedDatabaseDetailRoute} from './databaseEntityRuntime'
 import type {ParsedDatabaseRoute} from './databaseRouteResolution'
 import {
   clearPrimedDatabaseRouteResolutionsForTests,
@@ -44,6 +44,62 @@ describe('useDatabaseRouteResolution', () => {
 
     expect(result.current.status).toBe('resolved')
     expect(resolveSpy).toHaveBeenCalledTimes(1)
+  })
+
+  it('does not expose the previous detail while a newly opened route resolves', async () => {
+    const runtime = getDatabaseEntityRuntime('wheels')
+    const firstResolution: ResolvedDatabaseDetailRoute = {
+      canonicalPath: '/database/wheels/first',
+      routeItem: null,
+    }
+    const secondResolution: ResolvedDatabaseDetailRoute = {
+      canonicalPath: '/database/wheels/second',
+      routeItem: null,
+    }
+    let resolveSecond: ((resolution: ResolvedDatabaseDetailRoute) => void) | undefined
+    const secondRequest = new Promise<ResolvedDatabaseDetailRoute>((resolve) => {
+      resolveSecond = resolve
+    })
+    vi.spyOn(runtime, 'resolveDetailRoute')
+      .mockResolvedValueOnce(firstResolution)
+      .mockReturnValueOnce(secondRequest)
+    const firstRoute: ParsedDatabaseRoute = {
+      entity: 'wheels',
+      kind: 'detail',
+      slug: 'first',
+      suffixSegments: [],
+    }
+    const initialProps: {route: ParsedDatabaseRoute} = {route: firstRoute}
+    const {result, rerender} = renderHook(
+      ({route}: {route: ParsedDatabaseRoute}) =>
+        useDatabaseRouteResolution({
+          defaultAwakenerTab: 'upgrades',
+          route,
+          search: '',
+        }),
+      {initialProps},
+    )
+
+    await waitFor(() => {
+      expect(result.current.status).toBe('resolved')
+    })
+    rerender({route: {entity: 'wheels', kind: 'browse'}})
+    rerender({
+      route: {
+        entity: 'wheels',
+        kind: 'detail',
+        slug: 'second',
+        suffixSegments: [],
+      },
+    })
+
+    expect(result.current.status).toBe('loading')
+    expect(result.current).not.toHaveProperty('previousResolution')
+
+    await act(async () => {
+      resolveSecond?.(secondResolution)
+      await secondRequest
+    })
   })
 
   it('publishes a terminal error when an entity route adapter fails to load', async () => {
