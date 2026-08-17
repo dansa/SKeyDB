@@ -102,6 +102,10 @@ vi.mock('./OwnedWheelBoxExport', () => ({
   OwnedWheelBoxExport: () => <button type='button'>Export wheels as PNG (owned only)</button>,
 }))
 
+vi.mock('@/features/database/detail/databaseDetailOverlayLoader', () => ({
+  preloadDatabaseDetailOverlayOutlet: vi.fn(() => Promise.resolve({default: () => null})),
+}))
+
 vi.mock('@/features/database/detail/DeferredDatabaseDetailOverlayOutlet', async () => {
   const {useSyncExternalStore} = await import('react')
 
