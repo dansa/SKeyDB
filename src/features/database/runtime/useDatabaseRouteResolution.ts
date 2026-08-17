@@ -7,7 +7,7 @@ import {parseDatabaseRoutePath, type ParsedDatabaseRoute} from './databaseRouteR
 
 type DatabaseRouteResolutionState =
   | {error: unknown; key: string; status: 'error'}
-  | {key: string; previousResolution?: ResolvedDatabaseDetailRoute; status: 'loading'}
+  | {key: string; status: 'loading'}
   | {key: string; resolution: ResolvedDatabaseDetailRoute; status: 'resolved'}
   | {key: ''; status: 'idle'}
 
@@ -103,14 +103,5 @@ export function useDatabaseRouteResolution({
   if (route.kind !== 'detail') return {key: '', status: 'idle'}
   if (primedResolution) return {key, resolution: primedResolution, status: 'resolved'}
   if (state.key === key) return state
-  return {
-    key,
-    previousResolution:
-      state.status === 'resolved'
-        ? state.resolution
-        : state.status === 'loading'
-          ? state.previousResolution
-          : undefined,
-    status: 'loading',
-  }
+  return {key, status: 'loading'}
 }

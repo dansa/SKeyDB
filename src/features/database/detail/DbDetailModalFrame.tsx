@@ -10,6 +10,8 @@ import {
 
 import {createPortal} from 'react-dom'
 
+import {acquirePageScrollLock, releasePageScrollLock} from '@/ui/modal/pageScrollLock'
+
 type DbDetailModalMaxWidth = 'standard' | 'wide'
 
 interface DbDetailModalFrameProps {
@@ -50,7 +52,7 @@ export function DbDetailModalFrame({
   shellClassName = '',
   shellStyle,
 }: DbDetailModalFrameProps) {
-  const overlayRef = useRef<HTMLDivElement>(null)
+  const overlayRef = useRef<HTMLDialogElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
   useImperativeHandle<HTMLDivElement | null, HTMLDivElement | null>(
     panelRef,
@@ -71,6 +73,12 @@ export function DbDetailModalFrame({
     const modalContent = content
     const previouslyFocusedElement =
       document.activeElement instanceof HTMLElement ? document.activeElement : null
+    const scrollLockToken = acquirePageScrollLock()
+    if (typeof modalOverlay.showModal === 'function') {
+      modalOverlay.showModal()
+    } else {
+      modalOverlay.setAttribute('open', '')
+    }
 
     const inertSiblings = getInertSiblingSnapshots(modalOverlay)
     for (const {element} of inertSiblings) {
@@ -103,46 +111,50 @@ export function DbDetailModalFrame({
       document.removeEventListener('focusin', containFocus, true)
       modalOverlay.removeEventListener('click', handleOverlayClick)
       modalOverlay.removeEventListener('wheel', containWheel)
+      if (typeof modalOverlay.close === 'function') {
+        modalOverlay.close()
+      } else {
+        modalOverlay.removeAttribute('open')
+      }
       restoreInertSiblings(inertSiblings)
       previouslyFocusedElement?.focus({preventScroll: true})
+      releasePageScrollLock(scrollLockToken)
     }
   }, [])
 
   return createPortal(
-    <div
-      className='fixed inset-0 z-[960] flex h-dvh w-screen items-center justify-center overflow-hidden overscroll-contain p-3 sm:p-4 md:p-5 lg:p-6'
+    <dialog
+      aria-label={ariaLabel}
+      className='fixed inset-0 z-[960] m-0 h-dvh max-h-none w-screen max-w-none items-center justify-center overflow-hidden overscroll-contain border-0 p-3 text-inherit open:flex sm:p-4 md:p-5 lg:p-6'
       data-detail-modal-overlay=''
+      onKeyDown={(event) => {
+        if (event.key === 'Escape') {
+          if (onCancel) {
+            onCancel(event.nativeEvent)
+          } else {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+          return
+        }
+        if (shouldPreventBackgroundKeyboardScroll(event.nativeEvent, event.currentTarget)) {
+          event.preventDefault()
+        }
+        onPanelKeyDown?.(event.nativeEvent)
+      }}
       ref={overlayRef}
     >
       <div
-        aria-label={ariaLabel}
-        aria-modal='true'
         className={`relative z-[961] flex max-h-[calc(100dvh-1.5rem)] w-full ${SHELL_MAX_WIDTH_CLASS[maxWidth]} flex-col gap-2.5 sm:max-h-[calc(100dvh-2rem)] md:max-h-[calc(100dvh-2.5rem)] md:gap-3 lg:max-h-[calc(100dvh-3rem)] ${shellClassName}`}
         data-detail-modal-shell=''
-        onKeyDown={(event) => {
-          if (event.key === 'Escape') {
-            if (onCancel) {
-              onCancel(event.nativeEvent)
-            } else {
-              event.preventDefault()
-              event.stopPropagation()
-            }
-            return
-          }
-          if (shouldPreventBackgroundKeyboardScroll(event.nativeEvent, event.currentTarget)) {
-            event.preventDefault()
-          }
-          onPanelKeyDown?.(event.nativeEvent)
-        }}
         ref={contentRef}
-        role='dialog'
         style={shellStyle}
         tabIndex={-1}
       >
         {header}
         {children}
       </div>
-    </div>,
+    </dialog>,
     document.body,
   )
 }

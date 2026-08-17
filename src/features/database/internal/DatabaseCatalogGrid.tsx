@@ -20,6 +20,18 @@ interface StaticCatalogGridProps<TItem> extends CatalogGridBaseProps<TItem> {
 
 type CatalogGridProps<TItem> = HybridCatalogGridProps<TItem> | StaticCatalogGridProps<TItem>
 
+const MAX_SHRINK_WRAPPED_SQUARE_ART_ITEMS = 12
+
+function getSquareArtGridMaxWidth(itemCount: number): string | undefined {
+  if (itemCount < 1 || itemCount > MAX_SHRINK_WRAPPED_SQUARE_ART_ITEMS) {
+    return undefined
+  }
+
+  const terms = Array.from({length: itemCount}, () => 'var(--database-square-art-card-max)')
+  terms.push(...Array.from({length: itemCount - 1}, () => 'var(--database-square-art-gap)'))
+  return `calc(${terms.join(' + ')})`
+}
+
 function HybridCatalogGrid<TItem>({items, renderItem}: HybridCatalogGridProps<TItem>) {
   const {mode: variant, ref} = useMeasuredHybridCardMode()
 
@@ -35,7 +47,11 @@ function HybridCatalogGrid<TItem>({items, renderItem}: HybridCatalogGridProps<TI
 function StaticCatalogGrid<TItem>({gridLayout, items, renderItem}: StaticCatalogGridProps<TItem>) {
   return (
     <div className='database-card-roster'>
-      <div className='database-card-grid' data-grid-layout={gridLayout}>
+      <div
+        className='database-card-grid'
+        data-grid-layout={gridLayout}
+        style={{maxWidth: getSquareArtGridMaxWidth(items.length)}}
+      >
         {items.map((item, index) => renderItem(item, index))}
       </div>
     </div>

@@ -11,7 +11,7 @@ describe('DbDetailModalFrame', () => {
     document.documentElement.style.scrollbarGutter = ''
   })
 
-  it('uses the shared dialog primitive and restores its trigger focus', () => {
+  it('uses a native dialog with Firefox-stable containment and restores page state', () => {
     const trigger = document.createElement('button')
     document.body.appendChild(trigger)
     trigger.focus()
@@ -25,19 +25,26 @@ describe('DbDetailModalFrame', () => {
     )
 
     const dialog = screen.getByRole('dialog', {name: 'Database detail'})
-    expect(dialog.tagName).toBe('DIV')
-    expect(dialog).toHaveFocus()
+    const shell = dialog.querySelector<HTMLElement>('[data-detail-modal-shell]')
+    if (!shell) {
+      throw new Error('Expected database detail modal shell')
+    }
+    expect(dialog.tagName).toBe('DIALOG')
+    expect(dialog).toHaveAttribute('open')
+    expect(shell).toHaveFocus()
     expect(container.inert).toBe(true)
     expect(container).toHaveAttribute('aria-hidden', 'true')
     expect(document.body.style.overflow).toBe('auto')
-    expect(document.documentElement.style.overflow).toBe('scroll')
-    expect(fireEvent.keyDown(dialog, {key: 'PageDown'})).toBe(false)
+    expect(document.documentElement.style.overflow).toBe('hidden')
+    expect(document.documentElement.style.scrollbarGutter).toBe('stable')
+    expect(fireEvent.keyDown(shell, {key: 'PageDown'})).toBe(false)
 
     unmount()
 
     expect(trigger).toHaveFocus()
     expect(document.body.style.overflow).toBe('auto')
     expect(document.documentElement.style.overflow).toBe('scroll')
+    expect(document.documentElement.style.scrollbarGutter).toBe('')
     trigger.remove()
   })
 })

@@ -3,6 +3,7 @@ import {Component, type ErrorInfo, type ReactNode} from 'react'
 interface RouteErrorBoundaryProps {
   children: ReactNode
   onError: (error: unknown, errorInfo: ErrorInfo) => void
+  resetKey: string
 }
 
 interface RouteErrorBoundaryState {
@@ -21,6 +22,12 @@ export class RouteErrorBoundary extends Component<
 
   componentDidCatch(error: unknown, errorInfo: ErrorInfo) {
     this.props.onError(error, errorInfo)
+  }
+
+  componentDidUpdate(previousProps: RouteErrorBoundaryProps) {
+    if (this.state.failed && previousProps.resetKey !== this.props.resetKey) {
+      this.setState({failed: false})
+    }
   }
 
   render() {

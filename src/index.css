@@ -481,7 +481,8 @@ body,
   background: var(--database-detail-backdrop-solid);
 }
 
-dialog[data-modal-frame-dialog]::backdrop {
+dialog[data-modal-frame-dialog]::backdrop,
+dialog[data-detail-modal-overlay]::backdrop {
   background: transparent;
 }
 
