@@ -16,14 +16,14 @@ import {clearDatabaseDetailRecordCacheForTests} from '@/features/database/intern
 import {createDatabaseDetailOverlaySession} from '@/stores/dbDetailStore'
 
 import {DbDetailModalHost} from './DbDetailModalHost'
-import {dbDetailRegistry, type DatabaseDetailNavigationState} from './dbDetailRegistry'
+import {
+  dbDetailRegistry,
+  type DatabaseDetailNavigationPort,
+  type DatabaseDetailNavigationState,
+} from './dbDetailRegistry'
 
 interface MockDetailRenderOptions {
-  navigationPort: {
-    close: () => void
-    select: (ref: {kind: string; id: string}) => void
-    updateState: (state: DatabaseDetailNavigationState) => void
-  }
+  navigationPort: DatabaseDetailNavigationPort
   item: {
     activeTab?: string
     item: {
