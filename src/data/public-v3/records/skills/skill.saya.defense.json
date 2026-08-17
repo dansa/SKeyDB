@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0057",
   "slot": "Defense",
+  "cardFamily": "command",
+  "cardTypes": ["defense"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield. Saya gains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "This Awakener retains partial traits of her original species, notably reticulated muscle tissue.\nUpon impact, the tissue flexes omnidirectionally, rendering physical attacks nearly futile.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.saya.will-you-stay-with-me-always.skill.saya.defense",

@@ -1,4 +1,4 @@
-import {act, renderHook} from '@testing-library/react'
+import {act, fireEvent, renderHook} from '@testing-library/react'
 import {afterEach, describe, expect, it, vi} from 'vitest'
 
 import {useDetailModalChrome} from './useDetailModalChrome'
@@ -18,6 +18,7 @@ afterEach(() => {
   document.body.style.right = ''
   document.body.style.width = ''
   document.documentElement.style.overflow = ''
+  document.documentElement.style.scrollbarGutter = ''
 })
 
 function renderChrome({
@@ -68,16 +69,17 @@ function clickTarget(
 }
 
 describe('useDetailModalChrome', () => {
-  it('locks page and root scroll until the detail chrome unmounts', () => {
+  it('leaves page scroll locking to the native database modal frame', () => {
     document.body.style.overflow = 'auto'
     document.documentElement.style.overflow = 'scroll'
 
     const {hook} = renderChrome()
 
-    expect(document.body.style.overflow).toBe('hidden')
-    expect(document.body.style.position).toBe('fixed')
-    expect(document.body.style.width).toBe('100%')
-    expect(document.documentElement.style.overflow).toBe('hidden')
+    expect(document.body.style.overflow).toBe('auto')
+    expect(document.body.style.position).toBe('')
+    expect(document.body.style.width).toBe('')
+    expect(document.documentElement.style.overflow).toBe('scroll')
+    expect(document.documentElement.style.scrollbarGutter).toBe('')
 
     hook.unmount()
 
@@ -85,13 +87,16 @@ describe('useDetailModalChrome', () => {
     expect(document.body.style.position).toBe('')
     expect(document.body.style.width).toBe('')
     expect(document.documentElement.style.overflow).toBe('scroll')
+    expect(document.documentElement.style.scrollbarGutter).toBe('')
   })
 
-  it('keeps popovers open when marked controls bubble to the overlay', () => {
+  it('keeps popovers open when calculation-context controls bubble to the overlay', () => {
     const {closeAllPopovers, hook, onClose, panelButton} = renderChrome()
-    panelButton.dataset.detailModalPopoverPreserve = ''
+    const nestedControlLabel = document.createElement('span')
+    panelButton.dataset.detailModalCalculationControl = ''
+    panelButton.appendChild(nestedControlLabel)
 
-    clickTarget(hook.result.current, panelButton)
+    clickTarget(hook.result.current, nestedControlLabel)
 
     expect(closeAllPopovers).not.toHaveBeenCalled()
     expect(onClose).not.toHaveBeenCalled()
@@ -150,6 +155,31 @@ describe('useDetailModalChrome', () => {
     } finally {
       externalSurface.remove()
     }
+  })
+
+  it('restores focus to the settings trigger after outside dismissal', () => {
+    const {hook} = renderChrome()
+    const settings = document.createElement('div')
+    const trigger = document.createElement('button')
+    const setting = document.createElement('input')
+    const outside = document.createElement('div')
+    trigger.dataset.detailSettingsTrigger = ''
+    settings.append(trigger, setting)
+    document.body.append(settings, outside)
+
+    act(() => {
+      hook.result.current.settingsRef.current = settings
+      hook.result.current.setIsSettingsOpen(true)
+    })
+    setting.focus()
+
+    fireEvent.pointerDown(outside)
+
+    expect(hook.result.current.isSettingsOpen).toBe(false)
+    expect(document.activeElement).toBe(trigger)
+
+    settings.remove()
+    outside.remove()
   })
 
   it('tracks mobile header viewport changes and cleans up the resize listener', () => {

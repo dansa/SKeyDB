@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0059",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Lotan: Cetarchon gains [Arg2]% Base Aliemus. {Rouse}: Lotan: Cetarchon's Command Cards deal +1 instance of DMG.\nAt turn start, if {Great Blade: Whalefall} is in hand:\nThe first {Deadly Duel} played that turn empowers your next {Mundus Severance}—for each 1 Aliemus it steals, {Mundus Severance} deals +1% Final DMG (max 90%).",
   "descriptionArgs": {
     "Arg2": {
@@ -23,6 +25,7 @@
     }
   ],
   "cost": "3",
+  "lore": "The deity tore her spirit from her flesh, deeming this the final judgment upon chaos.\nYet the hollow soul never ceased its pursuit, and the severed power never truly faded.\nWhen bone armor once again clad her form, and the pulse of Leviathan resonated with her will, every shackle shattered in an instant.\nDeep within the cosmos, flesh and soul fused anew. The Beast of Chaos was whole once more.\nAnd this starry sea shall welcome her return.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.lotan-cetarchon.the-unrivaled.skill.lotan-cetarchon.primeval-return",

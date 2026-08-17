@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0020",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Obtain [Arg1] Keyflare. Place the temporary copies of the last 3 different non-Derived Command Cards played in the previous turn into hand, with -1 Arithmetica Cost, {Exhaust}, {Fleeting}. If there are not enough Command Cards to place into hand, draw a card for each Command Card missing.",
   "descriptionArgs": {
     "Arg1": {
@@ -18,6 +20,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "Just like the theory of \"one creates all, and all returns to one,\" she once fell into the trap of paradoxes.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.ramona-timeworn.mobius-captive.skill.ramona-timeworn.paradox-converged",

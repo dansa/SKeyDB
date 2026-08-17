@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0007",
   "slot": "OverExalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["over_exalt"],
   "descriptionTemplate": "This Exalt's DMG instance ×3. The following 5 Casiah Command Cards grant {STR} equal to 10% of Casiah's ATK.",
   "descriptionArgs": {},
   "cardKeywords": [],

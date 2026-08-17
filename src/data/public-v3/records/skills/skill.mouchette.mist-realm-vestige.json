@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0033",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Mouchette gains [Energy:Arg1] Aliemus. {Rouse}: {Dramatic Encounter} DMG instances +2. Each time {Dramatic Encounter} is triggered, Mouchette's \"Strike\" Temporary Final DMG +25%. Immediately generate 1 Temporary {Mortal Blast}.",
   "descriptionArgs": {
     "Arg1": {
@@ -22,6 +24,7 @@
     }
   ],
   "cost": "2",
+  "lore": "Don't forget the past, don't forget the A.U.G.E.\nTo forget means to betray.\nAnd Mouchette will never betray.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.mouchette.ego-beyond-the-fog.skill.mouchette.mist-realm-vestige",

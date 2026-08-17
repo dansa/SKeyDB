@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0024",
   "slot": "Defense",
+  "cardFamily": "command",
+  "cardTypes": ["defense"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield. Horla obtains [Energy:Arg2] Aliemus. Considered as a \"Defense\".{Leap}: Switch {Emotion} state to {Grief}. For each stack of '{Grief}' {Metaphor} consumed, restore [Heal:Arg3] HP.",
   "descriptionArgs": {
     "Arg1": {
@@ -30,6 +32,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "When she still served as a tutor, Horla loved hiding in the study corner to read poems. Those mournful verses always moved her.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.horla.emberbound.skill.horla.elegy-psalm",

@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0025",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Jenkin obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -29,6 +31,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "\"Street fights don't have many rules; of course, you use whatever is handy.\"",
   "upgrades": [
     {
       "id": "upgrade.talent.jenkins.a-common-enemy.skill.jenkins.strike",

@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0001",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies. \"24\" obtains [Energy:Arg2] Aliemus.\nDepressed Persona: Also grant other Awakeners [DescArg1]× Aliemus. Manic Persona: Gain another [DescArg2]× Aliemus",
   "descriptionArgs": {
     "Arg1": {
@@ -32,6 +34,7 @@
   },
   "cardKeywords": [],
   "cost": "2",
+  "lore": "We are the three Sisters of Fate.\nEchoes that race through the sky, the earth, and the sea.\nThe unbroken rain, forever intertwined.\nUntil the long night is coming to an end, nothing can tear us apart.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.24.restraint-bonds.skill.24.symbiotic-aberration",

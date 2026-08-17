@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0035",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Gain 2 Arithmetica and draw 2 cards. Suffer {Sacrifice} equal to [Arg1]% Max HP at the start of next turn. {Aftershock}: Remove {Sacrifice} stacks equal to [Float:Arg2]% Max HP.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,5 +26,6 @@
   },
   "cardKeywords": [],
   "cost": "0",
+  "lore": "She is arrogant, using pride to mask the irreparable void within her. She has forgotten who she once was, and she has forgotten who she ought to be. Countless followers bow at her feet, yet in the echoes of their reverence, she forgets the most crucial truth: she has already submitted to this pale fate.",
   "ownerAwakenerName": "Murphy: Fauxborn"
 }

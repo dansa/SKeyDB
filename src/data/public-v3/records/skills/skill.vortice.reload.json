@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0055",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Gain 1 stack of {Vortex Reload}, {Useable 3 times}.",
   "descriptionArgs": {},
   "cardKeywords": [
@@ -17,5 +19,6 @@
     }
   ],
   "cost": "2",
+  "lore": "\"Creak, creak...\"\nThe cannon hungrily devours swirling azure vortexes, emitting sounds that defy nature. With every ounce it consumes, the crimson glow in the monster's eye deepens. It waits, and waits... biding its time until its innocent, lively master gives the word.",
   "ownerAwakenerName": "Vortice"
 }

@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0043",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Ryker gains [Energy:Arg1] Aliemus. {Rouse}: Gain [Power:Arg2] {STR}. In this battle, Gain a selected {Chaotic Legacy} Relic, or upgrade an already owned {Chaotic Legacy}.",
   "descriptionArgs": {
     "Arg1": {
@@ -28,6 +30,7 @@
     }
   ],
   "cost": "2",
+  "lore": "Ryker believed his victory was blessed by Lady Luck.\nLike every gambler who ends up broke, he believed she wouldn't turn her gaze away.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.ryker.fortune-favors-the-damned.skill.ryker.exceptional-luck",

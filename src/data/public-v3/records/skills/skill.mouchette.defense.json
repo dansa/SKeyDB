@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0033",
   "slot": "Defense",
+  "cardFamily": "command",
+  "cardTypes": ["defense"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield. Mouchette obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,5 +26,6 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "\"Still resisting? You're making me angry—so just stay still and die, won't you!\"",
   "ownerAwakenerName": "Mouchette"
 }

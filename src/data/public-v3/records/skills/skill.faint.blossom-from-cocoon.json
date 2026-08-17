@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0016",
   "slot": "OverExalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["over_exalt"],
   "descriptionTemplate": "Temporarily reduces all enemies' {STR▼} by [Arg1]% of Faint's DEF (scales with {Cradle of Stars} level up).",
   "descriptionArgs": {
     "Arg1": {

@@ -7,9 +7,15 @@ interface WheelGridProps {
   wheels: Wheel[]
   onPreloadWheel?: (wheelId: string) => void
   onSelectWheel: (wheelId: string) => void
+  onWarmWheelShell?: () => void
 }
 
-export function WheelGrid({wheels, onPreloadWheel, onSelectWheel}: WheelGridProps) {
+export function WheelGrid({
+  wheels,
+  onPreloadWheel,
+  onSelectWheel,
+  onWarmWheelShell,
+}: WheelGridProps) {
   return (
     <DatabaseCatalogGrid
       emptyMessage='No wheels match the current filters.'
@@ -21,6 +27,7 @@ export function WheelGrid({wheels, onPreloadWheel, onSelectWheel}: WheelGridProp
           key={wheel.id}
           onPreload={onPreloadWheel}
           onSelect={onSelectWheel}
+          onWarmShell={onWarmWheelShell}
           variant={variant}
           wheel={wheel}
         />

@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0022",
   "slot": "Defense",
+  "cardFamily": "command",
+  "cardTypes": ["defense"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield. Hameln obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "Descend, descend, the weary traveler returns. Let the notes caress your soul, release all pain and obsessions, and enter a tranquil dream peacefully.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.hameln.mind-concerto.skill.hameln.defense",

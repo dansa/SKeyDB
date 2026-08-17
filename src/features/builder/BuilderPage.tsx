@@ -8,9 +8,9 @@ import {useTimedToast} from '@/components/ui/useTimedToast'
 import type {Awakener} from '@/domain/awakeners'
 import type {Covenant} from '@/domain/covenants'
 import type {Posse} from '@/domain/posses'
-import {getWheels, type Wheel} from '@/domain/wheels'
-import {DbDetailModalHost} from '@/features/database/detail/DbDetailModalHost'
-import {dbDetailStore} from '@/stores/dbDetailStore'
+import type {Wheel} from '@/domain/wheels'
+import {DeferredDatabaseDetailOverlayOutlet} from '@/features/database/detail/DeferredDatabaseDetailOverlayOutlet'
+import {useDatabaseDetailOverlay} from '@/features/database/detail/useDatabaseDetailOverlay'
 
 import {BuilderActiveTeamPanel} from './BuilderActiveTeamPanel'
 import {BuilderConfirmDialogs} from './BuilderConfirmDialogs'
@@ -19,7 +19,7 @@ import {BuilderImportExportDialogs} from './BuilderImportExportDialogs'
 import {BuilderSelectionPanel} from './BuilderSelectionPanel'
 import {BuilderTeamsPanel} from './BuilderTeamsPanel'
 import {BuilderToolbar} from './BuilderToolbar'
-import {allAwakeners, awakenerById} from './constants'
+import {awakenerById} from './constants'
 import {createBuilderAwakenerActions} from './createBuilderAwakenerActions'
 import {createBuilderCovenantActions} from './createBuilderCovenantActions'
 import {createBuilderDndCoordinator} from './createBuilderDndCoordinator'
@@ -48,28 +48,24 @@ import {usePreviewSlotDrag} from './usePreviewSlotDrag'
 import {useSelectionDismiss} from './useSelectionDismiss'
 import {useTransferConfirm} from './useTransferConfirm'
 
-function openAwakenerDetailOverlay(awakener: Awakener) {
-  dbDetailStore.getState().openDetail({kind: 'awakener', id: awakener.id}, 'builder-overlay')
-}
-
-function openWheelDetailOverlay(wheelId: string) {
-  dbDetailStore.getState().openDetail({kind: 'wheel', id: wheelId}, 'builder-overlay')
-}
-
-function openPickerWheelDetailOverlay(wheel: Wheel) {
-  openWheelDetailOverlay(wheel.id)
-}
-
-function openCovenantDetailOverlay(covenant: Covenant) {
-  dbDetailStore.getState().openDetail({kind: 'covenant', id: covenant.id}, 'builder-overlay')
-}
-
-function openPosseDetailOverlay(posse: Posse) {
-  dbDetailStore.getState().openDetail({kind: 'posse', id: posse.id}, 'builder-overlay')
-}
-
 // react-doctor-disable-next-line react-doctor/no-giant-component -- classic Builder is retiring; only breaking fixes are in scope while Builder V2 replaces it.
 export function BuilderPage() {
+  const detailOverlay = useDatabaseDetailOverlay()
+  const openAwakenerDetailOverlay = (awakener: Awakener) => {
+    detailOverlay.open({kind: 'awakener', id: awakener.id})
+  }
+  const openWheelDetailOverlay = (wheelId: string) => {
+    detailOverlay.open({kind: 'wheel', id: wheelId})
+  }
+  const openPickerWheelDetailOverlay = (wheel: Wheel) => {
+    openWheelDetailOverlay(wheel.id)
+  }
+  const openCovenantDetailOverlay = (covenant: Covenant) => {
+    detailOverlay.open({kind: 'covenant', id: covenant.id})
+  }
+  const openPosseDetailOverlay = (posse: Posse) => {
+    detailOverlay.open({kind: 'posse', id: posse.id})
+  }
   const {toastEntries, showToast} = useTimedToast({defaultDurationMs: 3200})
   const searchInputRef = useRef<HTMLInputElement | null>(null)
   const builderSectionRef = useRef<HTMLElement | null>(null)
@@ -773,22 +769,21 @@ export function BuilderPage() {
 
       <BuilderImportExportDialogs {...importExportDialogProps} />
 
-      <DbDetailModalHost
-        awakeners={allAwakeners}
-        callbacks={{
-          onClose: () => {
-            dbDetailStore.getState().popDetail()
-          },
-          onSelectAwakener: () => undefined,
-          onSelectCovenant: () => undefined,
-          onSelectPosse: (posse) => {
-            dbDetailStore.getState().pushReferenceDetail({kind: 'posse', id: posse.id})
-          },
-          onSelectWheel: () => undefined,
-          onTabChange: () => undefined,
+      <DeferredDatabaseDetailOverlayOutlet
+        getLoadingAriaLabel={(ref) => {
+          const name =
+            ref.kind === 'awakener'
+              ? awakenerById.get(ref.id)?.name
+              : ref.kind === 'wheel'
+                ? filteredWheels.find((wheel) => wheel.id === ref.id)?.name
+                : ref.kind === 'covenant'
+                  ? filteredCovenants.find((covenant) => covenant.id === ref.id)?.name
+                  : ref.kind === 'posse'
+                    ? filteredPosses.find((posse) => posse.id === ref.id)?.name
+                    : undefined
+          return name ? `${name} details` : undefined
         }}
-        routeItem={null}
-        wheels={getWheels()}
+        session={detailOverlay.session}
       />
 
       <Toast entries={toastEntries} />

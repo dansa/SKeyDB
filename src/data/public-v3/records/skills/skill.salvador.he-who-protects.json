@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0044",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "[{Devour}: Gain [Power:Arg1] Temporary {STR}, +[Arg4]% Temporary Crit. Rate.] Gain [Block:Arg2] Shield. Apply {Vulnerable} to all enemies for 1 turn. Until the start of the next turn, [Arg3]% of the DMG taken will be converted to {Crimson Furnace}.",
   "descriptionArgs": {
     "Arg1": {
@@ -36,6 +38,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "Beneath the Church lies a concealed space.\n\nThe bishop kneels before the Tablet, chanting the secret words passed down from the dawn of creation.\n\nRunes forgotten by time emit a responsive glow, manifesting a massive phantom at the bishop's will, bestowing \"Bless\" upon those bathed in its light.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.salvador.salvations-hand.skill.salvador.he-who-protects",

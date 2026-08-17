@@ -29,6 +29,11 @@ export function resolveDatabaseReferenceInfoByKindAndName(
   name: string,
 ): DatabaseReferenceInfo | null {
   const normalizedName = normalizeDatabaseReferenceName(name)
+  const namedReference = view.referenceInfoByName.get(normalizedName)
+  if (view.resolutionScope === 'owner' && namedReference?.kind === kind) {
+    return namedReference
+  }
+
   const preferredId = PREFERRED_REFERENCE_IDS_BY_KIND_AND_NAME[kind]?.[normalizedName]
   const preferredReference = preferredId ? view.referenceInfoById.get(preferredId) : null
   if (
@@ -36,11 +41,6 @@ export function resolveDatabaseReferenceInfoByKindAndName(
     normalizeDatabaseReferenceName(preferredReference.name) === normalizedName
   ) {
     return preferredReference
-  }
-
-  const namedReference = view.referenceInfoByName.get(normalizedName)
-  if (namedReference?.kind === kind) {
-    return namedReference
   }
 
   for (const reference of view.referenceInfoById.values()) {

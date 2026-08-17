@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0008",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times}, increase other allies' Temporary Crit. DMG by [Arg3]%. {Quasar}: Shuffle 1 {Onyx Plume} into the Draw Pile and gain [Block:Arg4] Shield.",
   "descriptionArgs": {
     "Arg1": {
@@ -35,6 +37,7 @@
   },
   "cardKeywords": [],
   "cost": "3",
+  "lore": "He is not one to endlessly endure without fighting back; those wings can also stir up a furious vortex.\nAll flesh will be torn apart by the wind's sharp teeth, bloodily dragged into the belly of death.\nBut there is no need to fear; he will place your name in the eye of the hurricane, in the tranquility at its very center.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.castor.unyielding-will.skill.castor.umbral-flight",

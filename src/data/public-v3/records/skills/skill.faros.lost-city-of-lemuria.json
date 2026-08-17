@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0017",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield. Dispel self {Vulnerable} state. Choose up to 3 cards from the Draw Pile and add them to your hand.",
   "descriptionArgs": {
     "Arg1": {
@@ -25,6 +27,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "It is the land of the gods, a utopia, Elysian, and Faros' home.\nThat great city-state has been lost, leaving behind only mud, wetlands, and moss-covered stones.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.faros.flickering-candle.skill.faros.lost-city-of-lemuria",

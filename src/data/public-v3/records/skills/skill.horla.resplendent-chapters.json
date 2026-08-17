@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0024",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Restore [Heal:Arg1] HP, obtain [Power:Arg2] {STR}. other Awakeners gain [Energy:Arg3] Aliemus. All Awakeners Temporary Crit. Rate and Crit. DMG +[Arg4]%. If Horla is currently under an {Emotion} state, improve the effect provided by {Resplendent Chapters} corresponding to the {Emotion} state by 150%.",
   "descriptionArgs": {
     "Arg1": {
@@ -35,6 +37,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "The plane trees in the courtyard rustled, birds cried spring hymns, and the fragrance of blooming roses drifted through the narrow bars of the skylight into her nose.\nIn the solitary flower house, every blooming flower was a psalm.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.horla.blossoms-and-verses-reunited.skill.horla.resplendent-chapters",

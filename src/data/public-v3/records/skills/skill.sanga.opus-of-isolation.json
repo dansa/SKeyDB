@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0045",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "At the start of next turn, dispel {Fragile} state on self and gain [Block:Arg1] Shield.",
   "descriptionArgs": {
     "Arg1": {
@@ -20,6 +22,7 @@
   },
   "cardKeywords": [],
   "cost": "2",
+  "lore": "In the eyes of the maid in Besançon, her mistress was somewhat peculiar.\nShe didn't enjoy reading poetry, nor had she ever played the piano.\nShe was captivated by things of the past. She would gaze absentmindedly at a withered leaf... then suddenly leap up and dash back to her room—bang! bang! bang!\n\"Well, our little artist!\" the maid sighed, \"What's the difference between her and a bricklayer?\"",
   "upgrades": [
     {
       "id": "upgrade.enlighten.sanga.melodic-sculpting.skill.sanga.opus-of-isolation",

@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0045",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Sanga obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "In addition to being gentle and beautiful, sharpness and aggression are also part of art.",
   "upgrades": [
     {
       "id": "upgrade.talent.sanga.enlightenment-of-death.skill.sanga.strike",

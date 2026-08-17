@@ -1,4 +1,4 @@
-import {useMemo, useState} from 'react'
+import {useId, useMemo, useState, type KeyboardEvent} from 'react'
 
 import type {AwakenerDatabaseSelection} from '@/domain/awakener-database-state'
 import type {FullStats, SubstatScaling} from '@/domain/awakener-source-schema'
@@ -114,6 +114,29 @@ export function AwakenerDetailLore({
   const [storySelection, setStorySelection] = useState({awakenerId: awakener.id, index: 0})
   const activeStoryIndex = storySelection.awakenerId === awakener.id ? storySelection.index : 0
   const activeStory = stories.at(activeStoryIndex) ?? null
+  const storyTabsId = useId()
+  const storyPanelId = `${storyTabsId}-panel`
+
+  function selectStoryFromKeyboard(event: KeyboardEvent<HTMLButtonElement>, index: number) {
+    let nextIndex: number | null = null
+    if (event.key === 'ArrowRight') {
+      nextIndex = (index + 1) % stories.length
+    } else if (event.key === 'ArrowLeft') {
+      nextIndex = (index - 1 + stories.length) % stories.length
+    } else if (event.key === 'Home') {
+      nextIndex = 0
+    } else if (event.key === 'End') {
+      nextIndex = stories.length - 1
+    }
+
+    if (nextIndex === null) {
+      return
+    }
+
+    event.preventDefault()
+    setStorySelection({awakenerId: awakener.id, index: nextIndex})
+    document.getElementById(`${storyTabsId}-tab-${String(nextIndex)}`)?.focus()
+  }
 
   if (!profile && stories.length === 0) {
     return (
@@ -140,17 +163,23 @@ export function AwakenerDetailLore({
 
                   return (
                     <button
+                      aria-controls={storyPanelId}
                       aria-selected={isActive}
                       className={`flex min-h-11 min-w-11 shrink-0 items-center justify-center border-b-2 px-3 py-2 text-[11px] tracking-[0.18em] uppercase transition-colors ${
                         isActive
                           ? 'border-amber-200/80 text-amber-100'
                           : 'border-transparent text-slate-500 hover:text-slate-300'
                       }`}
+                      id={`${storyTabsId}-tab-${String(index)}`}
                       key={`${story.title}:${story.content}`}
                       onClick={() => {
                         setStorySelection({awakenerId: awakener.id, index})
                       }}
+                      onKeyDown={(event) => {
+                        selectStoryFromKeyboard(event, index)
+                      }}
                       role='tab'
+                      tabIndex={isActive ? 0 : -1}
                       type='button'
                     >
                       {label}
@@ -160,7 +189,12 @@ export function AwakenerDetailLore({
               </div>
             </div>
 
-            <article className='database-scrollbar min-h-0 flex-1 pt-3 md:overflow-y-auto md:border md:border-slate-800/80 md:bg-slate-950/45 md:px-4 md:py-3'>
+            <article
+              aria-labelledby={`${storyTabsId}-tab-${String(activeStoryIndex)}`}
+              className='database-scrollbar min-h-0 flex-1 pt-3 md:overflow-y-auto md:border md:border-slate-800/80 md:bg-slate-950/45 md:px-4 md:py-3'
+              id={storyPanelId}
+              role='tabpanel'
+            >
               <div className='max-w-[68ch] pb-8 md:pb-2'>
                 <div className='flex items-baseline justify-between gap-3'>
                   <h4

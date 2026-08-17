@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0047",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Obtain [Power:Arg1] {STR}. Shuffle {Twin Wings} into the Draw Pile.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
     }
   ],
   "cost": "2",
+  "lore": "That was a hollow, the only narrow void in infinite time and space.\nThe being known as \"Keeper\" is the answer to all questions, the key to all gateways.\nTawil resonated with six wings, lunging at that one and only.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.tawil.boundless-sagacity.skill.tawil.pinions-of-time",

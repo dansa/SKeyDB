@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0005",
   "slot": "Defense",
+  "cardFamily": "command",
+  "cardTypes": ["defense"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield. Aurita obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "\"Look! Aurita is blowing bubbles like a fish!\"",
   "upgrades": [
     {
       "id": "upgrade.enlighten.aurita.lets-all-have-fun-together.skill.aurita.defense",

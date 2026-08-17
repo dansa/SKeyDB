@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0034",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deals [Damage:Arg1] DMG. Murphy obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "\"Hmph, allow me to teach you a proper lesson.\"",
   "upgrades": [
     {
       "id": "upgrade.enlighten.murphy.inextricable-bloodline.skill.murphy.strike",

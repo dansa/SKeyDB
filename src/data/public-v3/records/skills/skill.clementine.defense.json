@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0010",
   "slot": "Defense",
+  "cardFamily": "command",
+  "cardTypes": ["defense"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield, Clementine obtains [Energy:Arg3] Aliemus. {Quasar}: Obtain [Power:Arg4] {STR}.",
   "descriptionArgs": {
     "Arg1": {
@@ -30,5 +32,6 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "Psychological counseling has come to a pause, but she knows you will return again.\nThis world is barren and cruel; only here, there is a slight chance of redemption.",
   "ownerAwakenerName": "Clementine"
 }

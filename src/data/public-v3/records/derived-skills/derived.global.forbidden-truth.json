@@ -7,6 +7,8 @@
     "slug": "forbidden-truth",
     "canonicalPath": "/database/derived-skills/forbidden-truth"
   },
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
   "descriptionTemplate": "All cards with {Perception Warp} in hand Arithmetica Cost -1. Each card grants the Awakener with the lowest Aliemus 5 Aliemus. Remove the {Perception Warp} effect from cards in hand, Draw Pile, and Discard Pile. In this turn, playing cards no longer inflicts {Perception Warp} on other cards.",
   "descriptionArgs": {},
   "cardKeywords": [

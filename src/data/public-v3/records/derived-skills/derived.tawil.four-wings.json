@@ -10,6 +10,8 @@
   "ownerAwakenerId": "awakener-0047",
   "derivedFromId": "derived.tawil.twin-wings",
   "rootSkillId": "skill.tawil.pinions-of-time",
+  "cardFamily": "command",
+  "cardTypes": ["derived"],
   "childDerivedSkillIds": ["derived.tawil.six-wings"],
   "descriptionTemplate": "When Arithmetica is insufficient, it consumes 500 Keyflare to play. Deal 4 instances of [Damage:Arg1] DMG, draw 1 card. For each hit, {Steal} [Arg2] Temporary {STR} from the target. Shuffle {Six Wings} into the Draw Pile.",
   "descriptionArgs": {

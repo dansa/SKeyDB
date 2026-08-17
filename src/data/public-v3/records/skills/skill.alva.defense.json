@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0004",
   "slot": "Defense",
+  "cardFamily": "command",
+  "cardTypes": ["defense"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield. Alva obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,5 +26,6 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "She never fought for hurting others. She fought to protect.",
   "ownerAwakenerName": "Alva"
 }

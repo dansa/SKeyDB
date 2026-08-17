@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0002",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Agrippa gains [Energy:Arg1] Aliemus. {Rouse}: {Poison} applied by Agrippa increases by 50%. At the end of the turn, gain [Block:Arg2] Shield.",
   "descriptionArgs": {
     "Arg1": {
@@ -28,6 +30,7 @@
     }
   ],
   "cost": "1",
+  "lore": "The mountain wind rustles through the bones of the maze, sighing.\nShe hears the cries of lost travelers and lets out her 8,001st yawn.\nShe sips on pain, categorizing and displaying it.\nOnly one issue—no one knows about her masterpiece; she is the sole audience.\nSigh—!\nSeated in the deepest part of the maze, she yawns once more.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.agrippa.covenant-of-no-return.skill.agrippa.path-of-the-lost",

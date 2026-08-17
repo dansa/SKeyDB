@@ -8,6 +8,8 @@
     "canonicalPath": "/database/derived-skills/memories-emissarys-verdict"
   },
   "derivedFromId": "derived.global.twilight-envoys-verdict",
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
   "descriptionTemplate": "Deal {Fixed DMG} equal to 25% of Max HP to backline enemies and gain Shield equal to 25% of Max HP.",
   "descriptionArgs": {},
   "cardKeywords": [

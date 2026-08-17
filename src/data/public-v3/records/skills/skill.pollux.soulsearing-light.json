@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0041",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies and draw 2 Command Cards with the lowest Arithmetica Cost.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,5 +26,6 @@
     }
   ],
   "cost": "2",
+  "lore": "Juliette once declared this world fouled, and that the Church's sacred mission is to cleanse it of sin. He is the Divus, the Lightbearer's own chosen—a veteran of countless trials, a vessel of the sacred spirit. His silent prayers alone can move the faithful to tears of gratitude. So let that spirit burn like a wick, pouring forth His divine grace, for where such radiance shines, pure blessings are sure to follow.",
   "ownerAwakenerName": "Pollux"
 }

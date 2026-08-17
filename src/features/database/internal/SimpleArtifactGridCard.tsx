@@ -12,6 +12,7 @@ interface SimpleArtifactGridCardProps {
   index: number
   onPreload?: (id: string) => void
   onSelect: (id: string) => void
+  onWarmShell?: () => void
 }
 
 export function SimpleArtifactGridCard({
@@ -22,6 +23,7 @@ export function SimpleArtifactGridCard({
   name,
   onPreload,
   onSelect,
+  onWarmShell,
   realm = 'NEUTRAL',
 }: SimpleArtifactGridCardProps) {
   const isNeutral = realm === 'NEUTRAL'
@@ -44,6 +46,7 @@ export function SimpleArtifactGridCard({
       onSelect={() => {
         onSelect(id)
       }}
+      onWarmShell={onWarmShell}
       realmAccent={realmAccent}
       variant='square-art'
     />

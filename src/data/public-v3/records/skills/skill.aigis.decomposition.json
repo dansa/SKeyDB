@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0003",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG, which enjoys a 2× {STR} bonus. If the target is {Vulnerable}, refund the Arithmetica Cost of the card and draw 1 card.",
   "descriptionArgs": {
     "Arg1": {
@@ -20,6 +22,7 @@
   },
   "cardKeywords": [],
   "cost": "3",
+  "lore": "Objects stared at by Aigis's dolls will begin to colorize and fibrotize from the point of gaze. Over time, the area may even transform into a substance resembling colorful yarn, which is then absorbed by the dolls. If the gaze is not blocked in time, the object may completely disassemble and become part of the doll.\n\nIt has been observed that only Aigis herself remains unaffected by the dolls' gaze.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.aigis.sugary-aroma.skill.aigis.decomposition",

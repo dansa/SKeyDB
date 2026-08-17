@@ -11,7 +11,6 @@ import App from '@/App'
 import {decodeImportCode, encodeMultiTeamCode, encodeSingleTeamCode} from '@/domain/import-export'
 import {clearDatabaseDetailRecordCacheForTests} from '@/features/database/internal/useDatabaseDetailRouteRecord'
 import {builderDraftStore} from '@/stores/builderDraftStore'
-import {dbDetailStore} from '@/stores/dbDetailStore'
 import {createTestMediaQueryList} from '@/test/domLayoutMocks'
 
 import {saveBuilderDraft} from '../builder/builder-persistence'
@@ -29,6 +28,29 @@ import type {
 } from './BuilderV2ModelTypes'
 import {BuilderV2Page} from './BuilderV2Page'
 import {TeamSlotSummary} from './BuilderV2TeamManagement'
+
+vi.mock('@/features/database/detail/DeferredDatabaseDetailOverlayOutlet', async () => {
+  const [actual, {useSyncExternalStore}] = await Promise.all([
+    vi.importActual<
+      typeof import('@/features/database/detail/DeferredDatabaseDetailOverlayOutlet')
+    >('@/features/database/detail/DeferredDatabaseDetailOverlayOutlet'),
+    import('react'),
+  ])
+
+  return {
+    ...actual,
+    DeferredDatabaseDetailOverlayOutlet: ({
+      session,
+    }: {
+      session: import('@/stores/dbDetailStore').DatabaseDetailOverlaySession
+    }) => {
+      const activeRef = useSyncExternalStore(session.subscribe, session.top, session.top)
+      return activeRef ? (
+        <dialog aria-label={`${activeRef.kind}:${activeRef.id} details`} open />
+      ) : null
+    },
+  }
+})
 
 function resizeBuilderV2Viewport(width: number, dispatchResize = true) {
   Object.defineProperty(window, 'innerWidth', {
@@ -297,7 +319,6 @@ const originalMatchMedia = window.matchMedia
 
 beforeEach(() => {
   clearDatabaseDetailRecordCacheForTests()
-  dbDetailStore.getState().closeAllDetails()
 })
 
 function mockBuilderV2TouchDevice(isTouchType: boolean) {
@@ -317,9 +338,6 @@ function mockBuilderV2TouchDevice(isTouchType: boolean) {
 }
 
 afterEach(() => {
-  act(() => {
-    dbDetailStore.getState().closeAllDetails()
-  })
   cleanup()
   resizeBuilderV2Viewport(1200, false)
   Object.defineProperty(window, 'matchMedia', {
@@ -479,50 +497,31 @@ describe('BuilderV2Page', () => {
     expect(screen.getByRole('button', {name: /goliath, level \d+/i})).toBeInTheDocument()
   })
 
-  it('opens database details from V2 picker tile actions without assigning the item', () => {
+  it('opens database details from V2 picker tile actions without assigning the item', async () => {
     resizeBuilderV2Viewport(1200)
     render(<BuilderV2Page />)
 
     fireEvent.click(screen.getByTitle('View Goliath details'))
-    expect(dbDetailStore.getState().stack.at(-1)).toEqual({
-      kind: 'awakener',
-      id: 'awakener-0021',
-      source: 'builder-overlay',
-    })
+    expect(
+      await screen.findByRole('dialog', {name: /awakener:awakener-0021 details/i}),
+    ).toBeInTheDocument()
     expect(screen.queryByRole('button', {name: /remove goliath/i})).not.toBeInTheDocument()
-    act(() => {
-      dbDetailStore.getState().closeAllDetails()
-    })
 
     fireEvent.click(screen.getByRole('tab', {name: /^wheels$/i}))
     fireEvent.click(screen.getByTitle('View Merciful Nurturing details'))
-    expect(dbDetailStore.getState().stack.at(-1)).toEqual({
-      kind: 'wheel',
-      id: 'wheel-0050',
-      source: 'builder-overlay',
-    })
-    act(() => {
-      dbDetailStore.getState().closeAllDetails()
-    })
+    expect(
+      await screen.findByRole('dialog', {name: /wheel:wheel-0050 details/i}),
+    ).toBeInTheDocument()
 
     fireEvent.click(screen.getByRole('tab', {name: /^covenants$/i}))
     fireEvent.click(screen.getByTitle('View Deus Ex Machina details'))
-    expect(dbDetailStore.getState().stack.at(-1)).toEqual({
-      kind: 'covenant',
-      id: 'c01',
-      source: 'builder-overlay',
-    })
-    act(() => {
-      dbDetailStore.getState().closeAllDetails()
-    })
+    expect(await screen.findByRole('dialog', {name: /covenant:c01 details/i})).toBeInTheDocument()
 
     fireEvent.click(screen.getByRole('tab', {name: /^posses$/i}))
     fireEvent.click(screen.getByTitle('View Taverns Opening details'))
-    expect(dbDetailStore.getState().stack.at(-1)).toEqual({
-      kind: 'posse',
-      id: 'posse-0033',
-      source: 'builder-overlay',
-    })
+    expect(
+      await screen.findByRole('dialog', {name: /posse:posse-0033 details/i}),
+    ).toBeInTheDocument()
   })
 
   it('shows the picker clear card on every tab for the active target', () => {
@@ -1387,11 +1386,9 @@ describe('BuilderV2Page', () => {
     const drawer = screen.getByRole('dialog', {name: /team 1 · slot 2 · awakener/i})
     fireEvent.click(within(drawer).getByTitle('View Goliath details'))
 
-    expect(dbDetailStore.getState().stack.at(-1)).toEqual({
-      kind: 'awakener',
-      id: 'awakener-0021',
-      source: 'builder-overlay',
-    })
+    expect(
+      await screen.findByRole('dialog', {name: /awakener:awakener-0021 details/i}),
+    ).toBeInTheDocument()
 
     expect(document.querySelector('.builder-v2-mobile-picker-backdrop')).toBeInTheDocument()
     await waitFor(() => {

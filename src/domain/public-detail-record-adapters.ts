@@ -96,7 +96,6 @@ type PublicV3CovenantRecord = PublicRecord & {
 interface PublicFullDetailLoaderConfig<TRecord extends PublicRecord, TAdaptedRecord> {
   scope: PublicDataScope
   isCanonicalId: (id: string) => boolean
-  cache: Map<string, Promise<TAdaptedRecord | undefined>>
   parse: (value: unknown) => TRecord
   adapt: (record: TRecord) => TAdaptedRecord
 }
@@ -201,11 +200,6 @@ const publicCovenantDetailSchema: z.ZodType<PublicV3CovenantRecord> = z.looseObj
   ),
 })
 
-const awakenerFullByIdPromises = new Map<string, Promise<AwakenerFullRecord | undefined>>()
-const wheelFullByIdPromises = new Map<string, Promise<WheelFullRecord | undefined>>()
-const posseFullByIdPromises = new Map<string, Promise<PosseFullRecord | undefined>>()
-const covenantFullByIdPromises = new Map<string, Promise<CovenantFullRecord | undefined>>()
-const detailRecordByIdPromises = new Map<string, Promise<PublicRecord | undefined>>()
 const SUBSTAT_PERCENT_KEYS = new Set([
   'CritRate',
   'CritDamage',
@@ -358,15 +352,7 @@ async function loadPublicDetailRecordById(
     return undefined
   }
 
-  const cacheKey = `${scope}:${id}`
-  const cachedPromise = detailRecordByIdPromises.get(cacheKey)
-  if (cachedPromise) {
-    return cachedPromise
-  }
-
-  const recordPromise = loadPublicRecord(scope, id)
-  detailRecordByIdPromises.set(cacheKey, recordPromise)
-  return recordPromise
+  return loadPublicRecord(scope, id)
 }
 
 function parsePublicDetailRecord(scope: 'awakeners', value: unknown): PublicV3AwakenerRecord
@@ -628,16 +614,9 @@ async function loadPublicFullDetailById<TRecord extends PublicRecord, TAdaptedRe
     return undefined
   }
 
-  const cachedPromise = config.cache.get(id)
-  if (cachedPromise) {
-    return cachedPromise
-  }
-
-  const recordPromise = loadPublicRecord(config.scope, id).then((record) =>
+  return loadPublicRecord(config.scope, id).then((record) =>
     record ? config.adapt(config.parse(record)) : undefined,
   )
-  config.cache.set(id, recordPromise)
-  return recordPromise
 }
 
 async function loadPublicChildDetailById<TRecord, TAdaptedRecord>(
@@ -656,16 +635,9 @@ export async function loadPublicAwakenerDetailById(
     return undefined
   }
 
-  const cachedPromise = awakenerFullByIdPromises.get(publicId)
-  if (cachedPromise) {
-    return cachedPromise
-  }
-
-  const recordPromise = loadPublicRecord('awakeners', publicId).then((record) =>
+  return loadPublicRecord('awakeners', publicId).then((record) =>
     record ? adaptPublicAwakenerRecord(parsePublicDetailRecord('awakeners', record)) : undefined,
   )
-  awakenerFullByIdPromises.set(publicId, recordPromise)
-  return recordPromise
 }
 
 export async function loadPublicWheelDetailById(
@@ -674,7 +646,6 @@ export async function loadPublicWheelDetailById(
   return loadPublicFullDetailById(wheelId, {
     scope: 'wheels',
     isCanonicalId: isPublicWheelId,
-    cache: wheelFullByIdPromises,
     parse: (record) => parsePublicDetailRecord('wheels', record),
     adapt: adaptPublicWheelRecord,
   })
@@ -686,7 +657,6 @@ export async function loadPublicPosseDetailById(
   return loadPublicFullDetailById(posseId, {
     scope: 'posses',
     isCanonicalId: isPublicPosseId,
-    cache: posseFullByIdPromises,
     parse: (record) => parsePublicDetailRecord('posses', record),
     adapt: adaptPublicPosseRecord,
   })
@@ -698,7 +668,6 @@ export async function loadPublicCovenantDetailById(
   return loadPublicFullDetailById(covenantId, {
     scope: 'covenants',
     isCanonicalId: isPublicCovenantId,
-    cache: covenantFullByIdPromises,
     parse: (record) => parsePublicDetailRecord('covenants', record),
     adapt: adaptPublicCovenantRecord,
   })

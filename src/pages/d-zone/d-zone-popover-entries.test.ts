@@ -3,7 +3,7 @@ import {describe, expect, it} from 'vitest'
 import type {DzoneResolvedMonster} from '@/domain/dzone'
 import type {PublicRelicRecord} from '@/domain/relics'
 
-import {buildDzoneMonsterPopoverEntry, buildDzoneRelicPopoverEntry} from './dzone-popover-entries'
+import {buildDzoneMonsterPopoverEntry, buildDzoneRelicPopoverEntry} from './d-zone-popover-entries'
 
 describe('D-zone database popover entries', () => {
   it('places monster description before characteristic sections without badge chips', () => {

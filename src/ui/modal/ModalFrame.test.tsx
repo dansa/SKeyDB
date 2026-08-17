@@ -19,10 +19,11 @@ describe('ModalFrame', () => {
       </ModalFrame>,
     )
 
-    expect(document.body.style.overflow).toBe('hidden')
-    expect(document.body.style.position).toBe('fixed')
-    expect(document.body.style.width).toBe('100%')
+    expect(document.body.style.overflow).toBe('auto')
+    expect(document.body.style.position).toBe('')
+    expect(document.body.style.width).toBe('')
     expect(document.documentElement.style.overflow).toBe('hidden')
+    expect(document.documentElement.style.scrollbarGutter).toBe('stable')
 
     unmount()
 
@@ -30,6 +31,7 @@ describe('ModalFrame', () => {
     expect(document.body.style.position).toBe('')
     expect(document.body.style.width).toBe('')
     expect(document.documentElement.style.overflow).toBe('scroll')
+    expect(document.documentElement.style.scrollbarGutter).toBe('')
   })
 
   it('allows the visible overlay to own light-dismiss clicks', () => {

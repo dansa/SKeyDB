@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0025",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies. In this battle, the DMG dealt by {Get 'em! Brown!} +[Arg2]. {Leap}: This skill additionally benefits from an additional 1× {STR} bonus.",
   "descriptionArgs": {
     "Arg1": {
@@ -31,6 +33,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "Jenkin didn't understand Brown at first.\nThis won't do, she thought. Brown couldn't attract those pompous gentlemen on the street to get tonight's dinner from their pockets.\nSo, she started training with a lantern, and after many attempts—\n\"Brown, go!\"\n\"Squeak!\"",
   "upgrades": [
     {
       "id": "upgrade.enlighten.jenkins.red-ribbon.skill.jenkins.get-em-brown",

@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0042",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Ramona obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,5 +26,6 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "Lord Dexter swore that he initially had his daughter learn classical fencing just to enhance her grace—clearly, Ramona's ambitions went beyond that.",
   "ownerAwakenerName": "Ramona"
 }

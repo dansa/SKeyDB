@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0053",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Remove all enemy {Barrier} and deal [Damage:Arg1] DMG and 1 turn of {Weakness}. Gain [Arg3] Keyflare. {Leap}: Instead, obtains [Energy:Arg2] Aliemus",
   "descriptionArgs": {
     "Arg1": {
@@ -28,6 +30,7 @@
   },
   "cardKeywords": [],
   "cost": "2",
+  "lore": "On the surface, the device that is inseparable from Winkle is called \"Locator-Y031,\" which supposedly stabilizes the spirit and detects spiritual fluctuations.\nAs for why it also has the capability to compress spirit power and fire it like a cannonball, Winkle remains evasive.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.winkle.dread-of-the-darkness.skill.winkle.energy-beam",

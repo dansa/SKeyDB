@@ -8,6 +8,8 @@
     "canonicalPath": "/database/derived-skills/devour"
   },
   "derivedFromId": "derived.global.cocoon-of-revival",
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
   "descriptionTemplate": "Restore 30% Max HP. Become {Vulnerable} for 1 turn.",
   "descriptionArgs": {},
   "cardKeywords": []

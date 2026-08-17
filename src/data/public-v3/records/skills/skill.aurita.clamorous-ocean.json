@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0005",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Expend up to 10 {Gland Division} from the Draw Pile and Discard Pile, each provides 1 more DMG instance. Place 2 {Gland Division} into hand. Increase Aurita's DMG output in this battle by [Arg2].",
   "descriptionArgs": {
     "Arg1": {
@@ -26,6 +28,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "The ocean is deep and serene, bearing the desire for life and the fear of death.\nYet there are those who choose to fill the ocean with laughter and mischief—when Aurita extends such an invitation, the thought of \"why not have some fun with her\" always comes to mind, allowing simple joy to fill the heart.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.aurita.slick-slide-adventure.skill.aurita.clamorous-ocean",

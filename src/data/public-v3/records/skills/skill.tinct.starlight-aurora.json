@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0049",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Obtain [Power:Arg1] {STR}. Temporary Crit. Rate +[Arg2]%. For this battle, Tinct's Strike Base DMG +[Arg3]%. Randomly select 5 cards in hand and reduce their Arithmetica Cost by 1 until the turn ends.",
   "descriptionArgs": {
     "Arg1": {
@@ -35,6 +37,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "There is no such light in the known human spectrum.\nIt shimmers like an aurora, distant like an aurora, and fleeting like an aurora.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.tinct.falling-skyward.skill.tinct.starlight-aurora",

@@ -11,11 +11,11 @@
     "icon": "asset-relic-0168-icon"
   },
   "relicType": "Relic",
-  "categories": ["ASTRAL_REIGN", "EVENT"],
-  "variantCount": 3,
+  "categories": ["ASTRAL_REIGN", "EVENT", "OTHER"],
+  "variantCount": 4,
   "defaultVariantId": "relic-variant-0248",
   "rarity": "N",
-  "aliases": ["Forgotten Loom+"],
+  "aliases": ["Forgotten Loom+", "☆Forgotten Loom☆"],
   "descriptionTemplate": "After the battle starts, gain [Arg1] Realm Mastery. All Awakener and Relic {Poison} effects are +[Arg2]%.",
   "descriptionArgs": {
     "Arg1": {
@@ -82,6 +82,26 @@
       "category": "EVENT",
       "rarity": "SSR",
       "descriptionTemplate": "Each time you deal 1 instance of Active DMG, gain 3 Aliemus and Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Poison} to the Target. If the number of triggers reaches 25 times within this battle, immediately Inflict {Poison} on all Enemy targets.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.015,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "A kind mother mends the wounds of the heart."
+    },
+    {
+      "id": "relic-variant-0558",
+      "name": "☆Forgotten Loom☆",
+      "label": "Other - Special",
+      "variantType": "OTHER",
+      "tier": "Special",
+      "category": "OTHER",
+      "rarity": "SSR",
+      "descriptionTemplate": "For every 1 DMG instance dealt, Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Poison} to the target. If the number of triggers accumulates to 25 times within this battle, trigger immediately {Poison} for all enemies.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

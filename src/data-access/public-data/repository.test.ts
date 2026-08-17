@@ -1,17 +1,19 @@
 import {describe, expect, it} from 'vitest'
 
 import {resolvePublicAsset, resolvePublicEntityAsset} from './assetRepository'
+import {awakenerSearchDocumentRepository} from './awakenerSearchRepository'
+import {getPublicCovenantCatalog} from './catalogScopes/covenantsCatalog'
+import {getPublicPosseCatalog} from './catalogScopes/possesCatalog'
+import {getPublicBuilderCatalog, getPublicCollectionCatalog} from './collectionRepository'
 import {PUBLIC_DATA_SCOPES} from './contract'
+import {covenantSearchDocumentRepository} from './covenantSearchRepository'
+import {getPublicEntity} from './entityRepository'
+import {getPublicManifest} from './manifestRepository'
+import {posseSearchDocumentRepository} from './posseSearchRepository'
+import {loadPublicRecord} from './recordRepository'
 import {getPublicRecordSnapshot} from './recordSnapshots'
 import {resolvePublicReferenceToken, resolvePublicReferenceTokenResult} from './referenceRepository'
-import {
-  getPublicBuilderCatalog,
-  getPublicCatalog,
-  getPublicCollectionCatalog,
-  getPublicEntity,
-  getPublicManifest,
-  loadPublicRecord,
-} from './repository'
+import {relicSearchDocumentRepository} from './relicSearchRepository'
 import {getPublicRoutesIndex, resolvePublicRoute} from './routeResolver'
 import {
   publicCatalogRecordSchema,
@@ -19,14 +21,23 @@ import {
   publicRouteInfoSchema,
   publicRoutesIndexSchema,
 } from './schemas'
-import {getPublicScopeDescriptor, type SearchablePublicDataScope} from './scopeRegistry'
-import {getPublicSearchDocuments} from './searchRepository'
+import {getPublicScopeDescriptor} from './scopeRegistry'
+import {getTestPublicCatalog} from './testSupport/publicCatalogs'
+import {wheelSearchDocumentRepository} from './wheelSearchRepository'
+
+const searchableRepositories = [
+  {scope: 'awakeners', repository: awakenerSearchDocumentRepository},
+  {scope: 'covenants', repository: covenantSearchDocumentRepository},
+  {scope: 'posses', repository: posseSearchDocumentRepository},
+  {scope: 'relics', repository: relicSearchDocumentRepository},
+  {scope: 'wheels', repository: wheelSearchDocumentRepository},
+] as const
 
 describe('public-data repository', () => {
   it('loads and validates the V3 manifest and small catalogs', () => {
     const manifest = getPublicManifest()
-    const covenants = getPublicCatalog('covenants')
-    const posses = getPublicCatalog('posses')
+    const covenants = getPublicCovenantCatalog()
+    const posses = getPublicPosseCatalog()
 
     expect(manifest.schemaVersion).toBe(3)
     expect(manifest.scopes.covenants.count).toBe(covenants.records.length)
@@ -106,19 +117,19 @@ describe('public-data repository', () => {
       status: 'notFound',
       refs: [],
     })
-    expect(getPublicSearchDocuments('posses')[0]).toMatchObject({
+    expect(posseSearchDocumentRepository.getDocuments()[0]).toMatchObject({
       kind: 'posse',
       id: expect.stringMatching(/^posse-\d{4}$/),
     })
-    expect(getPublicSearchDocuments('covenants')[0]).toMatchObject({
+    expect(covenantSearchDocumentRepository.getDocuments()[0]).toMatchObject({
       kind: 'covenant',
       id: expect.stringMatching(/^covenant-\d{4}$/),
     })
-    expect(getPublicSearchDocuments('relics')[0]).toMatchObject({
+    expect(relicSearchDocumentRepository.getDocuments()[0]).toMatchObject({
       kind: 'relic',
       id: expect.stringMatching(/^relic-\d{4}$/),
     })
-    expect(getPublicSearchDocuments('awakeners')[0]).toMatchObject({
+    expect(awakenerSearchDocumentRepository.getDocuments()[0]).toMatchObject({
       kind: 'awakener',
       facets: {tags: expect.arrayContaining(['hand-limit'])},
     })
@@ -157,14 +168,6 @@ describe('public-data repository', () => {
     })
   })
 
-  it('rejects public-data scopes without search support instead of returning an empty index', () => {
-    const unsupportedSearchScope = 'skills' as SearchablePublicDataScope
-
-    expect(() => getPublicSearchDocuments(unsupportedSearchScope)).toThrow(
-      'Public V3 scope "skills" does not support search indexes.',
-    )
-  })
-
   it('keeps snapshot capability metadata aligned with generated counts', () => {
     const manifest = getPublicManifest()
 
@@ -178,14 +181,9 @@ describe('public-data repository', () => {
 
   it('keeps manifest, catalog, route, and search invariants aligned with scope descriptors', () => {
     const manifest = getPublicManifest()
-    const searchableScopes = PUBLIC_DATA_SCOPES.filter(
-      (scope): scope is SearchablePublicDataScope =>
-        getPublicScopeDescriptor(scope).capabilities.includes('search'),
-    )
-
     for (const scope of PUBLIC_DATA_SCOPES) {
       const descriptor = getPublicScopeDescriptor(scope)
-      const catalog = getPublicCatalog(scope)
+      const catalog = getTestPublicCatalog(scope)
 
       expect(catalog.scope).toBe(scope)
       expect(catalog.kind).toBe(descriptor.kind)
@@ -205,9 +203,9 @@ describe('public-data repository', () => {
       )
     }
 
-    for (const scope of searchableScopes) {
+    for (const {scope, repository} of searchableRepositories) {
       const descriptor = getPublicScopeDescriptor(scope)
-      const searchDocuments = getPublicSearchDocuments(scope)
+      const searchDocuments = repository.getDocuments()
       expect(new Set(searchDocuments.map((document) => document.id)).size).toBe(
         searchDocuments.length,
       )

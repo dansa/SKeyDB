@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0037",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG to the enemy with the highest HP and apply an equal amount of {Poison}, which enjoys a 2× {STR} bonus.",
   "descriptionArgs": {
     "Arg1": {
@@ -20,6 +22,7 @@
   },
   "cardKeywords": [],
   "cost": "2",
+  "lore": "Gentle seawater carries withered petals, blooming ripples like water lilies.\nIf you let your guard down, you'll be deceived by its calm appearance. The rustling tides beneath the tranquil moonlight actually conceal a devouring force.\nJust like her love and hate, never shown on the surface, but fiercely echoing in the surging waves.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.nymphaea.silent-permeation.skill.nymphaea.midnight-tide",

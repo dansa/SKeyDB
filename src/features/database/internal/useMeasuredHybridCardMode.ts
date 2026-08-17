@@ -42,13 +42,6 @@ export function useMeasuredHybridCardMode() {
   const [mode, setMode] = useState<HybridDatabaseCardMode>('poster')
   const ref = useCallback((node: HTMLDivElement | null) => {
     setElement(node)
-    if (!node) {
-      return
-    }
-    const inlineSize = node.getBoundingClientRect().width
-    if (inlineSize > 0) {
-      setMode(resolveHybridDatabaseCardMode(inlineSize))
-    }
   }, [])
 
   useLayoutEffect(() => {

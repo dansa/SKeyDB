@@ -1,8 +1,9 @@
-import type {PublicDataScope} from '@/data-access/public-data/contract'
+import {PUBLIC_DATA_SCOPES, type PublicDataScope} from '@/data-access/public-data/contract'
 import {
   findPublicRouteByEntityId,
   resolvePublicRoute,
 } from '@/data-access/public-data/routeResolver'
+import {getDatabaseEntityPublicDataScope} from '@/domain/database-entity-definitions'
 
 import type {Awakener} from './awakeners'
 import type {Covenant} from './covenants'
@@ -10,6 +11,7 @@ import {
   buildDatabaseEntityBrowsePath,
   buildDatabaseEntityDetailPath,
   toDatabaseEntitySlug,
+  type DatabaseEntityId,
 } from './database-entity-paths'
 import type {Posse} from './posses'
 import type {Relic} from './relics'
@@ -96,13 +98,50 @@ function getMatchingPublicEntityPath(
   return undefined
 }
 
+interface DatabasePathEntity {
+  id?: string
+  name: string
+}
+
+function buildDatabaseEntityPath(entity: DatabaseEntityId, item: DatabasePathEntity): string {
+  const publicDataScope = asPublicDataScope(getDatabaseEntityPublicDataScope(entity))
+  return (
+    (publicDataScope
+      ? getMatchingPublicEntityPath(publicDataScope, item.id, item.name)
+      : undefined) ?? buildDatabaseEntityDetailPath(entity, toDatabaseEntitySlug(item.name))
+  )
+}
+
+function findEntityByDatabaseSlug<T extends {id: string; name: string}>(
+  entity: DatabaseEntityId,
+  items: readonly T[],
+  slug: string | undefined,
+): T | null {
+  if (!slug) {
+    return null
+  }
+  const normalizedSlug = slug.trim().toLowerCase()
+  const publicDataScope = asPublicDataScope(getDatabaseEntityPublicDataScope(entity))
+  if (publicDataScope) {
+    const resolution = resolvePublicRoute(publicDataScope, normalizedSlug)
+    if (resolution.status !== 'notFound') {
+      return items.find((item) => item.id === resolution.ref.id) ?? null
+    }
+  }
+  return items.find((item) => toDatabaseEntitySlug(item.name) === normalizedSlug) ?? null
+}
+
+function asPublicDataScope(scope: string | undefined): PublicDataScope | undefined {
+  return PUBLIC_DATA_SCOPES.includes(scope as PublicDataScope)
+    ? (scope as PublicDataScope)
+    : undefined
+}
+
 export function buildDatabaseAwakenerPath(
   awakener: Pick<Awakener, 'name'> & Partial<Pick<Awakener, 'id'>>,
   tab: DatabaseAwakenerTab = DEFAULT_DATABASE_AWAKENER_TAB,
 ): string {
-  const basePath =
-    getMatchingPublicEntityPath('awakeners', awakener.id, awakener.name) ??
-    buildDatabaseEntityDetailPath('awakeners', toDatabaseAwakenerSlug(awakener.name))
+  const basePath = buildDatabaseEntityPath('awakeners', awakener)
   const visibleTab = resolveDatabaseAwakenerVisibleTab(tab)
   if (visibleTab === DEFAULT_DATABASE_AWAKENER_TAB) {
     return basePath
@@ -129,105 +168,49 @@ export function buildDatabaseRelicBrowsePath(): string {
 export function buildDatabaseWheelPath(
   wheel: Pick<Wheel, 'name'> & Partial<Pick<Wheel, 'id'>>,
 ): string {
-  return (
-    getMatchingPublicEntityPath('wheels', wheel.id, wheel.name) ??
-    buildDatabaseEntityDetailPath('wheels', toDatabaseWheelSlug(wheel.name))
-  )
+  return buildDatabaseEntityPath('wheels', wheel)
 }
 
 export function buildDatabasePossePath(
   posse: Pick<Posse, 'name'> & Partial<Pick<Posse, 'id'>>,
 ): string {
-  return (
-    getMatchingPublicEntityPath('posses', posse.id, posse.name) ??
-    buildDatabaseEntityDetailPath('posses', toDatabasePosseSlug(posse.name))
-  )
+  return buildDatabaseEntityPath('posses', posse)
 }
 
 export function buildDatabaseCovenantPath(
   covenant: Pick<Covenant, 'name'> & Partial<Pick<Covenant, 'id'>>,
 ): string {
-  return (
-    getMatchingPublicEntityPath('covenants', covenant.id, covenant.name) ??
-    buildDatabaseEntityDetailPath('covenants', toDatabaseCovenantSlug(covenant.name))
-  )
+  return buildDatabaseEntityPath('covenants', covenant)
 }
 
 export function buildDatabaseRelicPath(
   relic: Pick<Relic, 'name'> & Partial<Pick<Relic, 'id'>>,
 ): string {
-  return (
-    getMatchingPublicEntityPath('relics', relic.id, relic.name) ??
-    buildDatabaseEntityDetailPath('relics', toDatabaseRelicSlug(relic.name))
-  )
+  return buildDatabaseEntityPath('relics', relic)
 }
 
 export function findAwakenerByDatabaseSlug(
   awakeners: Awakener[],
   slug: string | undefined,
 ): Awakener | null {
-  if (!slug) {
-    return null
-  }
-  const normalizedSlug = slug.trim().toLowerCase()
-  const resolution = resolvePublicRoute('awakeners', normalizedSlug)
-  if (resolution.status !== 'notFound') {
-    return awakeners.find((awakener) => awakener.id === resolution.ref.id) ?? null
-  }
-  return (
-    awakeners.find((awakener) => toDatabaseAwakenerSlug(awakener.name) === normalizedSlug) ?? null
-  )
+  return findEntityByDatabaseSlug('awakeners', awakeners, slug)
 }
 
 export function findWheelByDatabaseSlug(wheels: Wheel[], slug: string | undefined): Wheel | null {
-  if (!slug) {
-    return null
-  }
-  const normalizedSlug = slug.trim().toLowerCase()
-  const resolution = resolvePublicRoute('wheels', normalizedSlug)
-  if (resolution.status !== 'notFound') {
-    return wheels.find((wheel) => wheel.id === resolution.ref.id) ?? null
-  }
-  return wheels.find((wheel) => toDatabaseWheelSlug(wheel.name) === normalizedSlug) ?? null
+  return findEntityByDatabaseSlug('wheels', wheels, slug)
 }
 
 export function findPosseByDatabaseSlug(posses: Posse[], slug: string | undefined): Posse | null {
-  if (!slug) {
-    return null
-  }
-  const normalizedSlug = slug.trim().toLowerCase()
-  const resolution = resolvePublicRoute('posses', normalizedSlug)
-  if (resolution.status !== 'notFound') {
-    return posses.find((posse) => posse.id === resolution.ref.id) ?? null
-  }
-  return posses.find((posse) => toDatabasePosseSlug(posse.name) === normalizedSlug) ?? null
+  return findEntityByDatabaseSlug('posses', posses, slug)
 }
 
 export function findCovenantByDatabaseSlug(
   covenants: Covenant[],
   slug: string | undefined,
 ): Covenant | null {
-  if (!slug) {
-    return null
-  }
-  const normalizedSlug = slug.trim().toLowerCase()
-  const resolution = resolvePublicRoute('covenants', normalizedSlug)
-  if (resolution.status !== 'notFound') {
-    return covenants.find((covenant) => covenant.id === resolution.ref.id) ?? null
-  }
-  return (
-    covenants.find((covenant) => toDatabaseCovenantSlug(covenant.name) === normalizedSlug) ?? null
-  )
+  return findEntityByDatabaseSlug('covenants', covenants, slug)
 }
 
 export function findRelicByDatabaseSlug(relics: Relic[], slug: string | undefined): Relic | null {
-  if (!slug) {
-    return null
-  }
-  const normalizedSlug = slug.trim().toLowerCase()
-  const resolution = resolvePublicRoute('relics', normalizedSlug)
-  if (resolution.status !== 'notFound') {
-    return relics.find((relic) => relic.id === resolution.ref.id) ?? null
-  }
-  return relics.find((relic) => toDatabaseRelicSlug(relic.name) === normalizedSlug) ?? null
+  return findEntityByDatabaseSlug('relics', relics, slug)
 }

@@ -10,6 +10,8 @@
   "ownerAwakenerId": "awakener-0010",
   "derivedFromId": "skill.clementine.lifeform-reconstruction",
   "rootSkillId": "skill.clementine.lifeform-reconstruction",
+  "cardFamily": "command",
+  "cardTypes": ["derived"],
   "descriptionTemplate": "For every 1 stack of {Symbiosis} removed, apply 1 stack of {Phobic Fixation} to all enemies. Each stack of {Phobic Fixation} reduces DMG dealt by 3%.",
   "descriptionArgs": {},
   "cardKeywords": [],

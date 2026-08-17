@@ -1,4 +1,4 @@
-import {Suspense, useMemo, useState} from 'react'
+import {Suspense, useState} from 'react'
 
 import {FaGear, FaXmark} from 'react-icons/fa6'
 
@@ -9,6 +9,7 @@ import type {WheelFullRecord} from '@/domain/wheels-full'
 import type {DatabaseDetailResultNavigation} from '@/features/database/detail/database-detail-result-navigation'
 import {DatabaseDetailResultNavigator} from '@/features/database/detail/DatabaseDetailResultNavigator'
 import {DbDetailModalFrame} from '@/features/database/detail/DbDetailModalFrame'
+import {ResponsiveDetailArt} from '@/features/database/detail/ResponsiveDetailArt'
 import {ArtViewerOverlay} from '@/ui/modal/ArtViewerOverlay'
 
 import {DatabasePopoverContext} from './database-popover-context'
@@ -90,6 +91,7 @@ function WheelDetailModalInner({
   const {
     handleOverlayClick,
     handlePanelKeyDown,
+    isMobileHeader,
     isSettingsOpen,
     panelRef,
     settingsRef,
@@ -97,22 +99,11 @@ function WheelDetailModalInner({
   } = chrome
   const wheelAsset = getWheelAssetById(wheel.id)
   const fullArtAlt = `${wheel.name} full art`
-  const mobileArtwork = useMemo(
-    () => (
-      <WheelDetailArtwork
-        onOpenFullArt={
-          wheelAsset
-            ? () => {
-                setIsArtViewerOpen(true)
-              }
-            : undefined
-        }
-        variant='compact'
-        wheel={wheel}
-      />
-    ),
-    [wheel, wheelAsset],
-  )
+  const openFullArt = wheelAsset
+    ? () => {
+        setIsArtViewerOpen(true)
+      }
+    : undefined
 
   return (
     <DbDetailModalFrame
@@ -179,18 +170,11 @@ function WheelDetailModalInner({
         </div>
         <DatabasePopoverContext.Provider value={popoverContextValue}>
           <div className='flex min-h-0 flex-1'>
-            <aside className='database-scrollbar hidden w-[18.75rem] shrink-0 overflow-y-auto bg-[linear-gradient(180deg,rgba(15,23,42,0.96),rgba(2,6,23,0.99))] p-6 md:flex md:items-start md:justify-center'>
-              <WheelDetailArtwork
-                onOpenFullArt={
-                  wheelAsset
-                    ? () => {
-                        setIsArtViewerOpen(true)
-                      }
-                    : undefined
-                }
-                wheel={wheel}
-              />
-            </aside>
+            <ResponsiveDetailArt isMobileViewport={isMobileHeader} viewport='desktop'>
+              <aside className='database-scrollbar flex w-[18.75rem] shrink-0 items-start justify-center overflow-y-auto bg-[linear-gradient(180deg,rgba(15,23,42,0.96),rgba(2,6,23,0.99))] p-6'>
+                <WheelDetailArtwork onOpenFullArt={openFullArt} wheel={wheel} />
+              </aside>
+            </ResponsiveDetailArt>
 
             <div className='flex min-h-0 min-w-0 flex-1 flex-col'>
               <div className='flex min-h-0 flex-1 flex-col px-4 py-4 pr-5 sm:px-5 sm:py-5 md:px-6 md:py-5'>
@@ -201,7 +185,15 @@ function WheelDetailModalInner({
                   fullData={fullData}
                   formulaContext={formulaContext}
                   mainstatValue={resolvedMainstatValue}
-                  mobileArtwork={mobileArtwork}
+                  mobileArtwork={
+                    isMobileHeader ? (
+                      <WheelDetailArtwork
+                        onOpenFullArt={openFullArt}
+                        variant='compact'
+                        wheel={wheel}
+                      />
+                    ) : undefined
+                  }
                   onEnhanceLevelChange={setEnhanceLevel}
                   onSelectAwakener={onSelectAwakener}
                   referenceLayer={referenceLayer}

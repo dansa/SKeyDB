@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0055",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Gain [Energy:Arg1] Aliemus, the next Vortice Exalt Crit. Rate +[Arg2]%. {Aftershock}: other Awakeners gain [Energy:Arg3] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -27,5 +29,6 @@
   },
   "cardKeywords": [],
   "cost": "3",
+  "lore": "Ever since Vortice learned to restrain her strength during experiments, her capacity for destruction has surged. When the air around her grows unnaturally damp, it is a signal to clear the area immediately. As Vortice puts it: \"Charge first! Then fire! Max power!!\"",
   "ownerAwakenerName": "Vortice"
 }

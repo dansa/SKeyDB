@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0040",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Pickman obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "Why do you resist beauty so much?\nCome on, dear model, feel my creation.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.pickman.cross-hatched-rendering.skill.pickman.strike",

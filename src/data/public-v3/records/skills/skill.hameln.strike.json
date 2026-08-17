@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0022",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Hameln obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "Rise, rise, tighten your sails—we are bound for distant shores. The horn sounds for you; the birds follow you. Transcend the highest waves.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.hameln.mind-concerto.skill.hameln.strike",

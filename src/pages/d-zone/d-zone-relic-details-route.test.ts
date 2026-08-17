@@ -2,7 +2,7 @@ import {describe, expect, it} from 'vitest'
 
 import {loadRelicRecordById} from '@/domain/relics'
 
-import {buildDzoneRelicPopoverEntry} from './dzone-popover-entries'
+import {buildDzoneRelicPopoverEntry} from './d-zone-popover-entries'
 
 describe('D-Zone relic detail action', () => {
   it('keeps the quick popover and exposes the exact variant database route', async () => {

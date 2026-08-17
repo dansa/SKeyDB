@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0001",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Deal [Damage:Arg1] {Pierce DMG}, increasing the Base DMG of {Twisted Carrion Revel} by 20% for this battle,\n\"24\" switches between Depressed and Manic Personas. Trigger additional effects based on the current {Realm and Persona}.",
   "descriptionArgs": {
     "Arg1": {
@@ -20,5 +22,6 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "\"Tentacles, countless Tentacles are dragging me from the ground...\nDoctor, is it hysteria...?\"\nThe woman cried helplessly, deeply afraid. Across from her sat a long-haired doctor wearing glasses.\n\"No, it's not hysteria.\"\nThe doctor smiled, his eyes narrowing like a snake's.\n\"This is reality... the twisted reality of this world.\"",
   "ownerAwakenerName": "24"
 }

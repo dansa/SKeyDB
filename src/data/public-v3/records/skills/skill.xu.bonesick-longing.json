@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0054",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Deal [Damage:Arg1] guaranteed Critical Hit DMG to all enemies and trigger [Arg2]% {Poison}. {Resonance 3}: {Embryo Fusion} +[Arg4].",
   "descriptionArgs": {
     "Arg1": {
@@ -33,6 +35,7 @@
     }
   ],
   "cost": "3",
+  "lore": "They never speak of her origin; they speak only of the Indescribable Ecstasy that heralded her birth.\nYour consciousness will dissolve in rapture; your past will dissolve in rapture; your skull will dissolve in rapture... your very brains will melt into ecstasy.\nA delicacy that melts in the mouth—with \"Yearning\" as the catalyst.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.xu.enmity-of-the-heart.skill.xu.bonesick-longing",

@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0049",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Tinct gains [Energy:Arg1] Aliemus. {Rouse}: Tinct's \"Strike\" Base DMG +[Arg2]%, and all of Tinct's cards gain 1 random effect, removed at the end of combat.",
   "descriptionArgs": {
     "Arg1": {
@@ -27,6 +29,7 @@
     }
   ],
   "cost": "1",
+  "lore": "In endless wandering, Tinct has already forgotten the name of her home.\nIn the long passage of time, the cosmos has forgotten the name of that dead planet.\nThose planets are collectively referred to as \"desolate planets,\" like countless dissolved and abandoned planets.\nHer song may be the last echo of that outworld planet.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.tinct.when-crimson-meets-thorns.skill.tinct.voices-from-beyond",

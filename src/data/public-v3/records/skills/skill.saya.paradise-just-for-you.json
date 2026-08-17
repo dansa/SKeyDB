@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0057",
   "slot": "OverExalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["over_exalt"],
   "descriptionTemplate": "All copied \"Skill\" cards take effect 1 additional time.",
   "descriptionArgs": {},
   "cardKeywords": [],

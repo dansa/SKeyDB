@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0021",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Goliath obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,5 +26,6 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "When he raises his greatsword, blood and death are inevitable.",
   "ownerAwakenerName": "Goliath"
 }

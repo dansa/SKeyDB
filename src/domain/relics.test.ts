@@ -1,6 +1,6 @@
 import {describe, expect, it} from 'vitest'
 
-import {loadPublicRecord} from '@/data-access/public-data/repository'
+import {loadPublicRecord} from '@/data-access/public-data/recordRepository'
 
 import {getAwakeners} from './awakeners'
 import {resolveDescriptionTemplate} from './description-args'
@@ -141,7 +141,7 @@ describe('relic family variants', () => {
       }
     }
 
-    expect(variantIds.size).toBe(554)
+    expect(variantIds.size).toBe(565)
   })
 
   it('loads grouped family variants with a valid default', async () => {

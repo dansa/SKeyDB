@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0031",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Dispel self {Weakness} state. Deal [Damage:Arg1] DMG to all enemies. For each \"Strike\" played in this battle, increase the DMG by [Arg2].",
   "descriptionArgs": {
     "Arg1": {
@@ -26,6 +28,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "Her pectoral fins can carve out a channel, and her tail fin is powerful enough to smash a harbor.\nWith no one left to fight, the giant whale slumbers in Chaos, entrusting the Planet to new life.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.lotan.timeless-solitude.skill.lotan.beast-of-chaos",

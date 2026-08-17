@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0015",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Obtain [Power:Arg1] Temporary {STR}. Obtain Keyflare equal to Erica's Keyflare Regen. Dispel self {Weakness} state. Whenever 1 card enters {Ultra Space}, transform to {Retract: Mecha}.",
   "descriptionArgs": {
     "Arg1": {
@@ -20,6 +22,7 @@
   },
   "cardKeywords": [],
   "cost": "0",
+  "lore": "Cold machinery replaced the heart, and hydraulic oil replaced blood in the tubes. She should be cold, rational, and act as instructed.\nBut an external will stirred quietly within her shell. It needed no blood, no temperature; it could burn with inhuman malice on its own. It said: Submit, you vile and insignificant creature, then be destroyed in my searing electric sphere.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.erica.auto-rectification.skill.erica.unleash-mecha",

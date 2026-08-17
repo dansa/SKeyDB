@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0008",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Castor obtains [Energy:Arg2] Aliemus. {Quasar}: Shuffle 1 {Onyx Plume} into the Draw Pile and gain [Block:Arg3] Shield.",
   "descriptionArgs": {
     "Arg1": {
@@ -30,5 +32,6 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "He has never been taught any battle skills, but the power to resist is already rooted in his instincts.",
   "ownerAwakenerName": "Castor"
 }

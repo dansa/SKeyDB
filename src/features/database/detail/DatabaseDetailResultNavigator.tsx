@@ -2,7 +2,7 @@ import {useEffect} from 'react'
 
 import {FaChevronLeft, FaChevronRight} from 'react-icons/fa6'
 
-import {isDatabaseDetailNavigationEditingTarget} from './database-detail-navigation-keys'
+import {isDatabaseDetailNavigationKeyOwner} from './database-detail-navigation-keys'
 import type {
   DatabaseDetailResultNavigation,
   DatabaseDetailResultNavigationPreview,
@@ -40,7 +40,7 @@ function useDatabaseDetailResultNavigationKeys(navigation: DatabaseDetailResultN
         event.ctrlKey ||
         event.metaKey ||
         event.shiftKey ||
-        isDatabaseDetailNavigationEditingTarget(event.target)
+        isDatabaseDetailNavigationKeyOwner(event.target)
       ) {
         return
       }
@@ -152,7 +152,9 @@ export function DatabaseDetailResultNavigator({navigation}: DatabaseDetailResult
     return null
   }
 
-  const positionLabel = `${(navigation.current.index + 1).toString()} / ${navigation.current.total.toString()}`
+  const currentPosition = (navigation.current.index + 1).toString()
+  const resultTotal = navigation.current.total.toString()
+  const positionLabel = `${currentPosition} / ${resultTotal}`
 
   return (
     <div
@@ -179,6 +181,9 @@ export function DatabaseDetailResultNavigator({navigation}: DatabaseDetailResult
           <ResultPlaceholder />
         )}
       </div>
+      <span aria-atomic='true' aria-live='polite' className='sr-only' role='status'>
+        Result {currentPosition} of {resultTotal}
+      </span>
     </div>
   )
 }

@@ -4,6 +4,7 @@ import type {
   AwakenerDatabaseControls,
   AwakenerDatabaseSelection,
 } from '@/domain/awakener-database-state'
+import {CALCULATION_CONTEXT_CONTROL_PROPS} from '@/ui/modal/calculationContextControl'
 
 import {DetailLevelSlider} from './DetailLevelSlider'
 
@@ -55,7 +56,7 @@ export function AwakenerDetailStateControls({
   onPatchSelection,
 }: AwakenerDetailStateControlsProps) {
   return (
-    <div className='space-y-2.5' data-detail-modal-popover-preserve=''>
+    <div className='space-y-2.5' {...CALCULATION_CONTEXT_CONTROL_PROPS}>
       <div className='space-y-1.5'>
         <DetailLevelSlider
           compact={compact}

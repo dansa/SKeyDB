@@ -10,6 +10,8 @@
   "ownerAwakenerId": "awakener-0055",
   "derivedFromId": "skill.vortice.moskstraumen-boom",
   "rootSkillId": "skill.vortice.moskstraumen-boom",
+  "cardFamily": "command",
+  "cardTypes": ["derived", "pursuit"],
   "descriptionTemplate": "Deal [Arg1] {Fixed DMG} to the enemy with the highest HP, {Tentacle DMG} +[TentaclePower:Arg2].",
   "descriptionArgs": {
     "Arg1": {

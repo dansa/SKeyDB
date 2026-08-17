@@ -10,6 +10,8 @@
   "ownerAwakenerId": "awakener-0044",
   "derivedFromId": "skill.salvador.end-of-suffering",
   "rootSkillId": "skill.salvador.end-of-suffering",
+  "cardFamily": "command",
+  "cardTypes": ["derived"],
   "descriptionTemplate": "Heal with blood. After dealing DMG, lose 10% of current HP and gain an equivalent amount of {Crimson Furnace}.",
   "descriptionArgs": {},
   "cardKeywords": [],

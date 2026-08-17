@@ -1,76 +1,32 @@
-import {getAwakenerPortraitAsset} from '@/domain/awakener-assets'
 import type {Awakener} from '@/domain/awakeners'
-import {getCovenantAssetById} from '@/domain/covenant-assets'
 import type {Covenant} from '@/domain/covenants'
-import {formatAwakenerNameForUi} from '@/domain/name-format'
-import {getPosseAssetById} from '@/domain/posse-assets'
 import type {Posse} from '@/domain/posses'
-import {getRelicAssetByAssetId} from '@/domain/relic-assets'
 import type {Relic} from '@/domain/relics'
-import {getWheelMiniAssetById} from '@/domain/wheel-assets'
 import type {Wheel} from '@/domain/wheels'
 
 import type {DatabaseDetailResultSet} from './database-detail-result-navigation'
+import {createDatabaseDetailResultSet} from './dbDetailRegistry'
 
 export function createAwakenerDetailResultSet(
   awakeners: readonly Awakener[],
 ): DatabaseDetailResultSet {
-  return {
-    kind: 'awakener',
-    items: awakeners.map((awakener) => ({
-      id: awakener.id,
-      imageSrc: getAwakenerPortraitAsset(awakener.name),
-      name: formatAwakenerNameForUi(awakener.name),
-    })),
-  }
+  return createDatabaseDetailResultSet('awakener', awakeners)
 }
 
 export function createWheelDetailResultSet(wheels: readonly Wheel[]): DatabaseDetailResultSet {
-  return {
-    kind: 'wheel',
-    items: wheels.map((wheel) => ({
-      id: wheel.id,
-      imageSrc: getWheelMiniAssetById(wheel.id),
-      imageTreatment: 'icon',
-      name: wheel.name,
-    })),
-  }
+  return createDatabaseDetailResultSet('wheel', wheels)
 }
 
 export function createPosseDetailResultSet(posses: readonly Posse[]): DatabaseDetailResultSet {
-  return {
-    kind: 'posse',
-    items: posses.map((posse) => ({
-      id: posse.id,
-      imageSrc: getPosseAssetById(posse.id),
-      imageTreatment: 'icon',
-      name: posse.name,
-    })),
-  }
+  return createDatabaseDetailResultSet('posse', posses)
 }
 
 export function createCovenantDetailResultSet(
   covenants: readonly Covenant[],
 ): DatabaseDetailResultSet {
-  return {
-    kind: 'covenant',
-    items: covenants.map((covenant) => ({
-      id: covenant.id,
-      imageSrc: getCovenantAssetById(covenant.id),
-      imageTreatment: 'covenant-icon',
-      name: covenant.name,
-    })),
-  }
+  return createDatabaseDetailResultSet('covenant', covenants)
 }
 
 export function createRelicDetailResultSet(relics: readonly Relic[]): DatabaseDetailResultSet {
-  return {
-    kind: 'relic',
-    items: relics.map((relic) => ({
-      id: relic.id,
-      imageSrc: getRelicAssetByAssetId(relic.assetId),
-      imageTreatment: 'icon',
-      name: relic.name,
-    })),
-  }
+  return createDatabaseDetailResultSet('relic', relics)
 }

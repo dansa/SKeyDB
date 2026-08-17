@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0009",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Celeste obtains [Energy:Arg2] Aliemus. Trigger 1 Tentacle to attack the enemy, dealing [Arg3]% {Tentacle DMG}.",
   "descriptionArgs": {
     "Arg1": {
@@ -33,6 +35,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "\"Raise your anchor, it's time to set sail.\"",
   "upgrades": [
     {
       "id": "upgrade.talent.celeste.voyage-horn.skill.celeste.strike",

@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0026",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Remove the {Stagnation} state from all cards in hand. Restore [Heal:Arg1] HP. Add 1 {Marvelous Cuisine} to your hand. Inflict [{Poison}:Arg2] {plural:[{Poison}:Arg2]|stack|stacks} of {Poison} on all enemies.",
   "descriptionArgs": {
     "Arg1": {
@@ -26,6 +28,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "One, two... one, two...\nShe carried a tray, weaving through the crowd to a light rhythm.\nThe guests drank and sang without pause; she served and smiled without end.\nEverything here was golden. A golden hall, golden wine, and golden dresses.\nKaren adored gold. She flashed her well-practiced signature smile.\n\"Please enjoy your meal, dear guest—!!\"",
   "upgrades": [
     {
       "id": "upgrade.enlighten.karen.fermented-recipes.skill.karen.heres-your-meal",

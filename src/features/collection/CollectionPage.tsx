@@ -1,14 +1,9 @@
 import {useMemo, useRef, type ChangeEvent, type WheelEvent} from 'react'
 
-import {useStore} from 'zustand'
-
 import {Toast} from '@/components/ui/Toast'
 import {useTimedToast} from '@/components/ui/useTimedToast'
-import {getAwakeners} from '@/domain/awakeners'
-import {getCovenants} from '@/domain/covenants'
-import {getWheels} from '@/domain/wheels'
-import {DbDetailModalHost} from '@/features/database/detail/DbDetailModalHost'
-import {dbDetailStore} from '@/stores/dbDetailStore'
+import {DeferredDatabaseDetailOverlayOutlet} from '@/features/database/detail/DeferredDatabaseDetailOverlayOutlet'
+import {useDatabaseDetailOverlay} from '@/features/database/detail/useDatabaseDetailOverlay'
 import {useGlobalSearchCapture} from '@/ui/search/useGlobalSearchCapture'
 
 import {CollectionPageResults} from './CollectionPageResults'
@@ -64,16 +59,11 @@ function swallowOutsideLevelClickIfCardInteraction(event: MouseEvent | PointerEv
 }
 
 export function CollectionPage() {
+  const detailOverlay = useDatabaseDetailOverlay()
   const model = useCollectionViewModel()
   const searchInputRef = useRef<HTMLInputElement | null>(null)
   const importFileInputRef = useRef<HTMLInputElement | null>(null)
   const {toastEntries, showToast} = useTimedToast({defaultDurationMs: 3200})
-  const awakeners = useMemo(() => getAwakeners(), [])
-  const covenants = useMemo(() => getCovenants(), [])
-  const wheels = useMemo(() => getWheels(), [])
-  const hasDetailOverlayOpen = useStore(dbDetailStore, (state) =>
-    state.stack.some((entry) => entry.source !== 'database-route'),
-  )
   const ownedAwakenersForBoxExport = useMemo(
     () => createOwnedAwakenerBoxEntries(model.getAwakenerOwnedLevel, model.getAwakenerLevel),
     [model.getAwakenerOwnedLevel, model.getAwakenerLevel],
@@ -84,7 +74,7 @@ export function CollectionPage() {
   )
 
   useGlobalSearchCapture({
-    enabled: !hasDetailOverlayOpen,
+    enabled: !detailOverlay.isOpen,
     searchInputRef,
     onAppendCharacter: model.appendSearchCharacter,
     onRemoveCharacter: model.removeSearchCharacter,
@@ -194,49 +184,11 @@ export function CollectionPage() {
         <CollectionPageResults
           model={model}
           onCollectionCardWheel={handleCollectionCardWheel}
-          onOpenDetail={(ref) => {
-            dbDetailStore.getState().openDetail(ref, 'collection-overlay')
-          }}
+          onOpenDetail={detailOverlay.open}
           onSwallowOutsideLevelClickIfCardInteraction={swallowOutsideLevelClickIfCardInteraction}
         />
       </div>
-      <DbDetailModalHost
-        awakeners={awakeners}
-        callbacks={{
-          onClose: () => {
-            dbDetailStore.getState().popDetail()
-          },
-          onSelectAwakener: (awakener) => {
-            dbDetailStore.getState().pushReferenceDetail({kind: 'awakener', id: awakener.id})
-          },
-          onSelectCovenant: (covenant) => {
-            const matchingCovenant =
-              'id' in covenant && typeof covenant.id === 'string'
-                ? covenants.find((entry) => entry.id === covenant.id)
-                : covenants.find((entry) => entry.name === covenant.name)
-            if (matchingCovenant) {
-              dbDetailStore
-                .getState()
-                .pushReferenceDetail({kind: 'covenant', id: matchingCovenant.id})
-            }
-          },
-          onSelectPosse: (posse) => {
-            dbDetailStore.getState().pushReferenceDetail({kind: 'posse', id: posse.id})
-          },
-          onSelectWheel: (wheel) => {
-            const matchingWheel =
-              'id' in wheel && typeof wheel.id === 'string'
-                ? wheels.find((entry) => entry.id === wheel.id)
-                : wheels.find((entry) => entry.name === wheel.name)
-            if (matchingWheel) {
-              dbDetailStore.getState().pushReferenceDetail({kind: 'wheel', id: matchingWheel.id})
-            }
-          },
-          onTabChange: () => undefined,
-        }}
-        routeItem={null}
-        wheels={wheels}
-      />
+      <DeferredDatabaseDetailOverlayOutlet session={detailOverlay.session} />
       <Toast
         className='pointer-events-none fixed right-4 bottom-4 z-[950] border border-amber-200/50 bg-slate-950/92 px-3 py-2 text-sm text-amber-100 shadow-[0_6px_20px_rgba(2,6,23,0.55)]'
         containerClassName='pointer-events-none fixed right-4 bottom-4 z-[950] flex flex-col items-end gap-2'

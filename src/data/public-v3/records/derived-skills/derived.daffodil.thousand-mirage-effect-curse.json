@@ -10,6 +10,8 @@
   "ownerAwakenerId": "awakener-0012",
   "derivedFromId": "derived.daffodil.thousand-mirage-extra-effects",
   "rootSkillId": "skill.daffodil.sea-of-primordial-essence",
+  "cardFamily": "command",
+  "cardTypes": ["derived"],
   "descriptionTemplate": "All enemies {STR▼} temporarily reduced by [Arg1], Shield gained and {STR▼} reduced by 50% for 1 turn.",
   "descriptionArgs": {
     "Arg1": {

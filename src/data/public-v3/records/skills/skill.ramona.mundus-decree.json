@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0042",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Gain [Arg1] Keyflare. Choose 1 card from the Draw Pile or Discard Pile, add it to your hand, and reduce its Arithmetica Cost to 0.",
   "descriptionArgs": {
     "Arg1": {
@@ -18,6 +20,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "Deduction is a form of logical reasoning; only by mastering the correct premise can one arrive at an accurate conclusion.\nBefore becoming an investigator, Ramona had been using deduction to understand the world.\nAfter experiencing enough adventures, perhaps she will begin to consider using induction.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.ramona.precious-ties.skill.ramona.mundus-decree",

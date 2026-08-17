@@ -1,17 +1,19 @@
+import {covenantSearchDocumentRepository} from '@/data-access/public-data/covenantSearchRepository'
+
 import type {Covenant} from './covenants'
-import {
-  searchPublicEntities,
-  searchPublicEntityResults,
-  type PublicSearchResult,
-} from './public-search'
+import {createEntitySearch, type SearchResult} from './public-search'
+
+const covenantSearch = createEntitySearch<Covenant>({
+  getDocument: (id) => covenantSearchDocumentRepository.getDocument(id),
+})
 
 export function searchCovenants(covenants: Covenant[], query: string): Covenant[] {
-  return searchPublicEntities('covenants', covenants, query)
+  return covenantSearch.search(covenants, query)
 }
 
 export function searchCovenantResults(
   covenants: Covenant[],
   query: string,
-): PublicSearchResult<Covenant>[] {
-  return searchPublicEntityResults('covenants', covenants, query)
+): SearchResult<Covenant>[] {
+  return covenantSearch.searchResults(covenants, query)
 }

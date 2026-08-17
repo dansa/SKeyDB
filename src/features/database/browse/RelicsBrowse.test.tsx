@@ -7,7 +7,7 @@ import {RELIC_DATABASE_BROWSE_DEFAULTS} from '@/domain/relic-database-browse-sta
 import {buildRelicDatabaseViewResult} from '@/domain/relic-database-view'
 
 import {databaseRelics} from '../data'
-import {RelicsBrowse} from './EntityBrowseViews'
+import {RelicsBrowse} from './RelicsBrowse'
 import {useEntityBrowseController} from './useEntityBrowseController'
 
 function RelicsBrowseHarness() {
@@ -15,10 +15,13 @@ function RelicsBrowseHarness() {
   const navigate = useNavigate()
   const controller = useEntityBrowseController({
     activeEntity: 'relics',
+    browseOrigin: null,
     isDetailOpen: false,
     locationPathname: location.pathname,
     locationSearch: location.search,
+    locationState: location.state,
     navigate,
+    routeEntity: 'relics',
   })
 
   return <RelicsBrowse controller={controller} />
@@ -56,7 +59,7 @@ describe('RelicsBrowse display-scope recovery', () => {
     fireEvent.click(screen.getByRole('button', {name: 'Show hidden matches'}))
 
     await waitFor(() => {
-      expect(getResultsSummary('50 of 287')).toBeInTheDocument()
+      expect(getResultsSummary('50 of 294')).toBeInTheDocument()
     })
     expect(screen.queryByText(/hidden by Display/)).not.toBeInTheDocument()
   })
@@ -80,9 +83,9 @@ describe('RelicsBrowse display-scope recovery', () => {
       `${String(defaultEventMatches.hiddenByDisplayCount)} matching relics are hidden by Display.`,
     )
     expect(
-      getResultsSummary(`${String(defaultEventMatches.relics.length)} of 287`),
+      getResultsSummary(`${String(defaultEventMatches.relics.length)} of 294`),
     ).toBeInTheDocument()
-    expect(allEventMatches.relics).toHaveLength(41)
+    expect(allEventMatches.relics).toHaveLength(42)
   })
 
   it('recovers category and tier intersection matches without changing URL filters', async () => {
@@ -99,7 +102,7 @@ describe('RelicsBrowse display-scope recovery', () => {
     fireEvent.click(screen.getByRole('button', {name: 'Show hidden matches'}))
 
     await waitFor(() => {
-      expect(getResultsSummary(`${String(allMatches.relics.length)} of 287`)).toBeInTheDocument()
+      expect(getResultsSummary(`${String(allMatches.relics.length)} of 294`)).toBeInTheDocument()
     })
     expect(screen.getByRole('button', {name: /^Events$/})).toHaveAttribute('aria-pressed', 'true')
     expect(screen.getByRole('button', {name: 'Gold'})).toHaveAttribute('aria-pressed', 'true')

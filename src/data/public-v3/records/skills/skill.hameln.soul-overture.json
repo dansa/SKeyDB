@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0022",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Randomly deal 3 instances of [Damage:Arg1] {Pierce DMG}. Each hit has a 50% chance to randomly apply 1 {Marvelous Debuff} to the target. If used with 0 Arithmetica Cost, it Deal an additional 2 hits.",
   "descriptionArgs": {
     "Arg1": {
@@ -28,6 +30,7 @@
     }
   ],
   "cost": "3",
+  "lore": "If a soul could be broken down, would its components be musical notes? Highs and lows, fast and slow, the cries of rebirth and the wails of death play together. Listen, sing loudly—this is the prelude depicting the essence of your soul.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.hameln.moonlit-rhapsody.skill.hameln.soul-overture",

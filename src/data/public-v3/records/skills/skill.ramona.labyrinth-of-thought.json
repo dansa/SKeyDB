@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0042",
   "slot": "OverExalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["over_exalt"],
   "descriptionTemplate": "Apply {Weakness} and {Vulnerable} to all enemies for 1 turn. The next released Posse will take effect 2 times.",
   "descriptionArgs": {},
   "cardKeywords": [],

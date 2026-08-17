@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0009",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Dispel self {Blighten} state, restore [Heal:Arg1] HP and gain 1 Arithmetica. Upon receiving lethal DMG in this battle, revive and restore [Arg2]% HP. Can only be triggered once per battle.",
   "descriptionArgs": {
     "Arg1": {
@@ -25,6 +27,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "In the vast ocean, a lone ship sways with the waves.\nThey pray, beg, and plead, hoping the White Holy Maiden will guide them away from the sea and back to their homeland.\nOn the central mast, a girl in a white dress looks up and sees a white bird.\n\"Give me the helm, and I will lead you home.\"",
   "upgrades": [
     {
       "id": "upgrade.enlighten.celeste.beyond-joy-and-sorrow.skill.celeste.undying-bird-of-paradise",

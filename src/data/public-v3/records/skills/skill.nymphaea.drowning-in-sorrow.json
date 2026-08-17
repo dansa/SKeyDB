@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0037",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Nymphaea gains [Energy:Arg1] Aliemus. {Rouse}: After Nymphaea plays a card, she gains [Energy:Arg2] Aliemus. At turn end, increase the amount of {Poison} Nymphaea inflicts by [Arg3]%.",
   "descriptionArgs": {
     "Arg1": {
@@ -31,6 +33,7 @@
     }
   ],
   "cost": "1",
+  "lore": "Step by step, she slowly stepped into the sea.\nThe night sea, which initially felt slightly cold againt her skin, soon became as warm as a human embrace.\n\"The sea has accepted me,\" Nymphaea thought to herself.\nIn a daze, she saw her parents' smiles. Deep in the sea, there must surely be familial bliss.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.nymphaea.sentiment-oc-anique.skill.nymphaea.drowning-in-sorrow",

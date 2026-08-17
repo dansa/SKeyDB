@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0041",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Pollux obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,5 +26,6 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "The blessings he bestowed are also a dark poison.",
   "ownerAwakenerName": "Pollux"
 }

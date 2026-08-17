@@ -7,6 +7,8 @@
     "slug": "dreaming-of-wonderland",
     "canonicalPath": "/database/derived-skills/dreaming-of-wonderland"
   },
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
   "descriptionTemplate": "The wielder gains [Arg1] Aliemus and {Mental Interference}.",
   "descriptionArgs": {
     "Arg1": {

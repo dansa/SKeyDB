@@ -10,6 +10,8 @@
   "ownerAwakenerId": "awakener-0012",
   "derivedFromId": "derived.daffodil.thousand-mirage-extra-effects",
   "rootSkillId": "skill.daffodil.sea-of-primordial-essence",
+  "cardFamily": "command",
+  "cardTypes": ["derived"],
   "descriptionTemplate": "Increase Crit. Rate by [Arg1]% and Crit. DMG by [Arg2]%.",
   "descriptionArgs": {
     "Arg1": {

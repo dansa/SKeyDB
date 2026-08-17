@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0310",
+  "name": "☆Fond Reminiscence☆",
+  "route": {
+    "slug": "fond-reminiscence",
+    "canonicalPath": "/database/relics/fond-reminiscence"
+  },
+  "assets": {
+    "icon": "asset-relic-0310-icon"
+  },
+  "relicType": "Relic",
+  "categories": ["OTHER"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0562",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "Draw 1 extra card and gain 1 Arithmetica each turn.",
+  "descriptionArgs": {},
+  "lore": "Some people remained in that summer forever.",
+  "variants": [
+    {
+      "id": "relic-variant-0562",
+      "name": "☆Fond Reminiscence☆",
+      "label": "Other - Special",
+      "variantType": "OTHER",
+      "tier": "Special",
+      "category": "OTHER",
+      "rarity": "SSR",
+      "descriptionTemplate": "Draw 1 extra card and gain 1 Arithmetica each turn.",
+      "descriptionArgs": {},
+      "lore": "Some people remained in that summer forever."
+    }
+  ]
+}

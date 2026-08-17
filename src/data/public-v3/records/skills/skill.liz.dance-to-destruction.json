@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0030",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Obtain [Power:Arg1] Temporary {STR}. Discard all Liz cards from your hand and trigger their effects.",
   "descriptionArgs": {
     "Arg1": {
@@ -20,6 +22,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "Announcement:\nTo those who cannot perceive the beauty of art, who revel in the dancer's agony, and who are insatiable for fame and fortune—this is your end.\nWe offer you this Dance to Destruction. Let the green flames purify your souls, and let the graceful fire cleanse your impure hearts.\nMay we meet again in the eternal haven.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.liz.last-dawnlight.skill.liz.dance-to-destruction",

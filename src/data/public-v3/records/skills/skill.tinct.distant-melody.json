@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0049",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield, and Crit. Rate +[Arg2]% in the next turn. {Leap}: Change to Gain [Block:Arg3] Shield, and Crit. Rate +[Arg4]% in the next turn.",
   "descriptionArgs": {
     "Arg1": {
@@ -36,6 +38,7 @@
   },
   "cardKeywords": [],
   "cost": "3",
+  "lore": "Most people are amazed when they first hear a bel canto singer's vocal exercises.\nSuch a delicate body can unleash such powerful and resonant sounds and energy.\nThe soft notes grow louder, echoing through the universe.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.tinct.falling-skyward.skill.tinct.distant-melody",

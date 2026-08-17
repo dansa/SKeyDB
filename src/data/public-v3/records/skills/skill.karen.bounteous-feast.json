@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0026",
   "slot": "OverExalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["over_exalt"],
   "descriptionTemplate": "Shuffle 1 {Marvelous Cuisine} into the Draw Pile and Discard Pile respectively.",
   "descriptionArgs": {},
   "cardKeywords": [],

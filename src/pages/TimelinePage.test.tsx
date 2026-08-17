@@ -6,7 +6,6 @@ import {TimelinePage} from './TimelinePage'
 
 const detailStoreMocks = vi.hoisted(() => ({
   openDetail: vi.fn(),
-  popDetail: vi.fn(),
 }))
 
 vi.mock('@/domain/timeline-data', () => ({
@@ -72,14 +71,18 @@ vi.mock('@/domain/dzone-season-realm', () => ({
   getDzoneSeasonSummaryDisplayName: () => 'Caro Ring',
 }))
 
-vi.mock('@/stores/dbDetailStore', () => ({
-  dbDetailStore: {
-    getState: () => detailStoreMocks,
-  },
+vi.mock('@/features/database/detail/useDatabaseDetailOverlay', () => ({
+  useDatabaseDetailOverlay: () => ({
+    close: vi.fn(),
+    followReference: vi.fn(),
+    isOpen: false,
+    open: detailStoreMocks.openDetail,
+    session: {},
+  }),
 }))
 
-vi.mock('@/features/database/detail/DbDetailModalHost', () => ({
-  DbDetailModalHost: () => <div data-testid='timeline-detail-host' />,
+vi.mock('@/features/database/detail/DeferredDatabaseDetailOverlayOutlet', () => ({
+  DeferredDatabaseDetailOverlayOutlet: () => <div data-testid='timeline-detail-host' />,
 }))
 
 vi.mock('./timeline/BannerCard', () => ({
@@ -122,7 +125,6 @@ function renderTimelinePage(initialEntries = ['/timeline']) {
 afterEach(() => {
   vi.useRealTimers()
   detailStoreMocks.openDetail.mockReset()
-  detailStoreMocks.popDetail.mockReset()
 })
 
 describe('TimelinePage', () => {
@@ -303,10 +305,7 @@ describe('TimelinePage', () => {
 
     fireEvent.click(screen.getByRole('button', {name: 'Active Banner'}))
 
-    expect(detailStoreMocks.openDetail).toHaveBeenCalledWith(
-      {kind: 'wheel', id: 'wheel-0128'},
-      'timeline-overlay',
-    )
+    expect(detailStoreMocks.openDetail).toHaveBeenCalledWith({kind: 'wheel', id: 'wheel-0128'})
     expect(screen.getByTestId('timeline-detail-host')).toBeInTheDocument()
   })
 

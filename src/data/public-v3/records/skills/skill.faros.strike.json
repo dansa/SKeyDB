@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0017",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Faros obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "The disrespectful, the rude, and the blasphemous are unworthy to enter the Eternal Kingdom.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.faros.congealed-ambergris.skill.faros.strike",

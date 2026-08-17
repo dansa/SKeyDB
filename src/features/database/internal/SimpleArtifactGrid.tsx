@@ -10,9 +10,15 @@ interface PosseGridProps {
   posses: Posse[]
   onPreloadPosse?: (posseId: string) => void
   onSelectPosse: (posseId: string) => void
+  onWarmPosseShell?: () => void
 }
 
-export function PosseGrid({onPreloadPosse, onSelectPosse, posses}: PosseGridProps) {
+export function PosseGrid({
+  onPreloadPosse,
+  onSelectPosse,
+  onWarmPosseShell,
+  posses,
+}: PosseGridProps) {
   return (
     <DatabaseCatalogGrid
       emptyMessage='No posses match the current filters.'
@@ -28,6 +34,7 @@ export function PosseGrid({onPreloadPosse, onSelectPosse, posses}: PosseGridProp
           name={posse.name}
           onPreload={onPreloadPosse}
           onSelect={onSelectPosse}
+          onWarmShell={onWarmPosseShell}
           realm={posse.realm}
         />
       )}
@@ -39,9 +46,15 @@ interface CovenantGridProps {
   covenants: Covenant[]
   onPreloadCovenant?: (covenantId: string) => void
   onSelectCovenant: (covenantId: string) => void
+  onWarmCovenantShell?: () => void
 }
 
-export function CovenantGrid({covenants, onPreloadCovenant, onSelectCovenant}: CovenantGridProps) {
+export function CovenantGrid({
+  covenants,
+  onPreloadCovenant,
+  onSelectCovenant,
+  onWarmCovenantShell,
+}: CovenantGridProps) {
   return (
     <DatabaseCatalogGrid
       emptyMessage='No covenants match the current search.'
@@ -57,6 +70,7 @@ export function CovenantGrid({covenants, onPreloadCovenant, onSelectCovenant}: C
           name={covenant.name}
           onPreload={onPreloadCovenant}
           onSelect={onSelectCovenant}
+          onWarmShell={onWarmCovenantShell}
         />
       )}
     />

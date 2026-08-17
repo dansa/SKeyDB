@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0003",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "[{Devour}: This \"Eye of Eternity\" inflicts 1 turn of {Petrify} on all enemies. If the target has Petrification Resistance, Final DMG +200%.] Deal [Damage:Arg1] DMG to all enemies and apply [Arg2] {plural:[Arg2]|turn|turns} of {Vulnerable}. Each release increases the Base DMG of {Eye of Eternity} by [Arg3]%.",
   "descriptionArgs": {
     "Arg1": {
@@ -29,5 +31,6 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "Who once told the girl,\n\n\"Hold your teddy bear, it will guard your dreams.\"\n\nThis is probably why, after awakening, the teddy bear became her protector.",
   "ownerAwakenerName": "Aigis"
 }

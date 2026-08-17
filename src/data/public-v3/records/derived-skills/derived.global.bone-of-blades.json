@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.bone-of-blades",
+  "name": "Bone of Blades",
+  "route": {
+    "slug": "bone-of-blades",
+    "canonicalPath": "/database/derived-skills/bone-of-blades"
+  },
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
+  "descriptionTemplate": "All Awakeners gain [Energy:Arg1] Aliemus. Gain [Arg2] {STR}. Consume all {Warlust}; each stack of {Warlust} consumed increases all Awakeners' Final DMG by 3%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "10"
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.043,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.prepare",
+      "value": 2
+    },
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "5"
+}

@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0030",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Liz obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "The green flame has now become part of her.\nWith her guidance, it can be ignited anywhere.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.liz.eternal-flames.skill.liz.strike",

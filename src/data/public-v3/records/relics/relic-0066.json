@@ -11,11 +11,11 @@
     "icon": "asset-relic-0066-icon"
   },
   "relicType": "Relic",
-  "categories": ["ASTRAL_REIGN"],
-  "variantCount": 2,
+  "categories": ["ASTRAL_REIGN", "OTHER"],
+  "variantCount": 3,
   "defaultVariantId": "relic-variant-0072",
   "rarity": "N",
-  "aliases": ["Arcane Gloves+"],
+  "aliases": ["Arcane Gloves+", "☆Arcane Gloves☆"],
   "descriptionTemplate": "After playing a card, if the number of cards in hand is less than or equal to [Arg1], draw [Arg2] {plural:[Arg2]|card|cards}. This effect can trigger up to [Arg3] {plural:[Arg3]|time|times} per turn.",
   "descriptionArgs": {
     "Arg1": {
@@ -80,6 +80,18 @@
           "value": "2"
         }
       },
+      "lore": "\"Don't be afraid, it's just an illusion.\""
+    },
+    {
+      "id": "relic-variant-0559",
+      "name": "☆Arcane Gloves☆",
+      "label": "Other - Silver",
+      "variantType": "OTHER",
+      "tier": "Silver",
+      "category": "OTHER",
+      "rarity": "N",
+      "descriptionTemplate": "When you play the last card in your hand, draw 2 cards. This effect can trigger up to 2 times per turn.",
+      "descriptionArgs": {},
       "lore": "\"Don't be afraid, it's just an illusion.\""
     }
   ]

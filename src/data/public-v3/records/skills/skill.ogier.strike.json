@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0038",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Ogier obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,5 +26,6 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "Ogier's way of holding his spear isn't standard, but all those who could have guided him have vanished into the depths of time and darkness.",
   "ownerAwakenerName": "Ogier"
 }

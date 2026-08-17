@@ -8,6 +8,7 @@ import './index.css'
 import App from './App.tsx'
 import {getRouterBasename, replaceLegacyHashRoute} from './legacy-hash-routing'
 import {collectionOwnershipStore} from './stores/collectionOwnershipStore'
+import {flushDatabaseDetailPreferences, preferencesStore} from './stores/preferencesStore'
 
 const rootElement = document.getElementById('root')
 if (!rootElement) {
@@ -16,6 +17,14 @@ if (!rootElement) {
 
 replaceLegacyHashRoute(import.meta.env.BASE_URL)
 collectionOwnershipStore.getState().hydrate()
+preferencesStore.getState().hydrateDatabaseDetailPreferences()
+
+window.addEventListener('pagehide', flushDatabaseDetailPreferences)
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'hidden') {
+    flushDatabaseDetailPreferences()
+  }
+})
 
 createRoot(rootElement).render(
   <StrictMode>

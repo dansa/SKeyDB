@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0002",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "[{Devour}: Obtain [Power:Arg1] {STR} and [Arg4] {Alert}.] Gain [Block:Arg2] Shield. Inflict [{Poison}:Arg3] {plural:[{Poison}:Arg3]|stack|stacks} of {Poison} on all enemies.",
   "descriptionArgs": {
     "Arg1": {
@@ -48,6 +50,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "It is a vast Maze that transcends all dimensions.\nTravelers who wander into the Maze must face a rude transaction.\nIf you answer \"no,\" you will be trapped in the Maze forever.\nIf you answer \"yes,\" you will be implanted with a blasphemous offspring and have all memories erased.\nWhat? You ask what the specifics of the transaction are?\nNo one knows the specifics of the transaction, including the pale Master of the Maze.\nA transaction is just a transaction.",
   "upgrades": [
     {
       "id": "upgrade.talent.agrippa.seal-of-the-pact.skill.agrippa.pale-blessing",

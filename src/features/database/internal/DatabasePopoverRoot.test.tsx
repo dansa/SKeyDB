@@ -72,4 +72,37 @@ describe('DatabasePopoverRoot', () => {
 
     anchor.remove()
   })
+
+  it('retains a session portal host after its anchor detaches', async () => {
+    const modalDialog = document.createElement('dialog')
+    modalDialog.dataset.modalFrameDialog = ''
+    const anchor = document.createElement('button')
+    modalDialog.append(anchor)
+    document.body.append(modalDialog)
+    const props = makeRootProps(anchor)
+    const view = render(<DatabasePopoverRoot {...props} />)
+    const originalPortal = await screen.findByTestId('database-popover-portal')
+
+    anchor.remove()
+    view.rerender(<DatabasePopoverRoot {...props} />)
+
+    expect(screen.getByTestId('database-popover-portal')).toBe(originalPortal)
+    expect(originalPortal.closest('[data-modal-frame-dialog]')).toBe(modalDialog)
+
+    const nextAnchor = document.createElement('button')
+    const nextDialog = document.createElement('dialog')
+    nextDialog.dataset.modalFrameDialog = ''
+    nextDialog.append(nextAnchor)
+    document.body.append(nextDialog)
+    const nextProps = makeRootProps(nextAnchor)
+    nextProps.entries[0] = {...nextProps.entries[0], key: 'next-entry'}
+    view.rerender(<DatabasePopoverRoot {...nextProps} />)
+
+    expect(screen.getByTestId('database-popover-portal').closest('[data-modal-frame-dialog]')).toBe(
+      nextDialog,
+    )
+
+    modalDialog.remove()
+    nextDialog.remove()
+  })
 })

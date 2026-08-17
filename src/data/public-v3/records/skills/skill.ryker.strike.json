@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0043",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Ryker obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "An expert reveals their skill with a single move.\nSmart people should learn to bet like Ryker.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.ryker.certain-gain.skill.ryker.strike",

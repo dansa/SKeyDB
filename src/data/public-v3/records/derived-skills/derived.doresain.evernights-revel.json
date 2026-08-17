@@ -10,6 +10,8 @@
   "ownerAwakenerId": "awakener-0014",
   "derivedFromId": "talent.doresain.festering-grace",
   "rootSkillId": "talent.doresain.festering-grace",
+  "cardFamily": "command",
+  "cardTypes": ["derived"],
   "descriptionTemplate": "Deal [Damage:Arg1] {Pierce DMG} to all enemies.",
   "descriptionArgs": {
     "Arg1": {

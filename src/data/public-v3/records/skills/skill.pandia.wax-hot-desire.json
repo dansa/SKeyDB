@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0039",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Obtain [Counterattack:Arg2] stacks of {Counter}. {Steal} [Arg1] {STR} from all enemies. Remove all enemies' {Counter}.",
   "descriptionArgs": {
     "Arg1": {
@@ -35,6 +37,7 @@
     }
   ],
   "cost": "2",
+  "lore": "In the dimly lit New Gate Prison, even the ubiquitous wax oil in Londinium is a rare commodity.\nSince it is rare, it is reserved for crucial moments, such as punishment, and used on the skin of disobedient children.\nThough not a special wax oil, its dripping is accompanied by pitiful cries. However, to a girl's ears, it sounds like an elegant poem.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.pandia.blazing-desire.skill.pandia.wax-hot-desire",

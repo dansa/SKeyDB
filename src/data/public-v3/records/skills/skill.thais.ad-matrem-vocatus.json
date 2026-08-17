@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0048",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Thais gains [Energy:Arg1] Aliemus. {Rouse}: Immediately gain 1 {Scion of Purity}. Whenever a Posse is used, transform an {Embryo} in hand into a {Scion of Purity}.",
   "descriptionArgs": {
     "Arg1": {
@@ -22,6 +24,7 @@
     }
   ],
   "cost": "3",
+  "lore": "Nurture, be born, proliferate.\nIn the gradually dissolving reality, in the dimming world, in the soon-to-be-born void.\nYour existence is the fruit of Mother's sacrifice and the cause of Mother's continuity.\nHoly children, be reborn in the new world—be reborn in that pure, fear-obliterated new world.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.thais.the-birthing-deep.skill.thais.ad-matrem-vocatus",

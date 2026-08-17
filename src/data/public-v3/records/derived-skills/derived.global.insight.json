@@ -7,6 +7,8 @@
     "slug": "insight",
     "canonicalPath": "/database/derived-skills/insight"
   },
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
   "descriptionTemplate": "Draw 1 card and gain 1 Arithmetica.",
   "descriptionArgs": {},
   "cardKeywords": [

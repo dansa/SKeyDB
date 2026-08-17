@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0058",
   "slot": "Defense",
+  "cardFamily": "command",
+  "cardTypes": ["defense"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield. Pontos gains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "\"Slumber in Ebwynnos, drink deep in Ebwynnos, in that everlasting, ancient Fount of the Chasm.\"",
   "upgrades": [
     {
       "id": "upgrade.enlighten.pontos.revelry-in-absence.skill.pontos.defense",

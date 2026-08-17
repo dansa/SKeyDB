@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0046",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Sorel gains [Energy:Arg1] Aliemus. {Rouse}: Gain [Power:Arg2] {STR}. For each instance of DMG dealt by Sorel, gain [Power:Arg3] Temporary {STR}.",
   "descriptionArgs": {
     "Arg1": {
@@ -34,6 +36,7 @@
     }
   ],
   "cost": "2",
+  "lore": "Organizing a salon is no easy task. Selecting drinks, choosing recipes, and even picking waitstaff all require personal attention.\nFortunately, Sorel has obtained sufficient freedom and privileges from her followers.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.sorel.carlate-profond.skill.sorel.host-ladys-privilege",

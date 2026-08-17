@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0044",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Salvador obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "\"Besides sorrow and suffering, this cruel atrocity brings no help. One day, it must come to an end.\"",
   "upgrades": [
     {
       "id": "upgrade.enlighten.salvador.divine-proxy.skill.salvador.strike",

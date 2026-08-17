@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0016",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Faint obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "Faint doesn't want to leave the cradle. Luckily, the cradle is part of her—as it is with all her kin before hatching.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.faint.binary-stars.skill.faint.strike",

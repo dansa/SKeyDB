@@ -1,34 +1,12 @@
-export const DATABASE_ENTITY_IDS = ['awakeners', 'wheels', 'posses', 'covenants', 'relics'] as const
+import {
+  DATABASE_ENTITY_DEFINITIONS,
+  getDatabaseEntityDefinition,
+  type DatabaseEntityId,
+} from '@/domain/database-entity-definitions'
 
-export type DatabaseEntityId = (typeof DATABASE_ENTITY_IDS)[number]
+export const DATABASE_ENTITY_IDS = DATABASE_ENTITY_DEFINITIONS.map(({entity}) => entity)
 
-interface DatabaseEntityPathConfig {
-  browsePath: string
-  detailPathPrefix: string
-}
-
-const DATABASE_ENTITY_PATH_CONFIG: Record<DatabaseEntityId, DatabaseEntityPathConfig> = {
-  awakeners: {
-    browsePath: '/database',
-    detailPathPrefix: '/database/awakeners',
-  },
-  wheels: {
-    browsePath: '/database/wheels',
-    detailPathPrefix: '/database/wheels',
-  },
-  posses: {
-    browsePath: '/database/posses',
-    detailPathPrefix: '/database/posses',
-  },
-  covenants: {
-    browsePath: '/database/covenants',
-    detailPathPrefix: '/database/covenants',
-  },
-  relics: {
-    browsePath: '/database/relics',
-    detailPathPrefix: '/database/relics',
-  },
-}
+export type {DatabaseEntityId} from '@/domain/database-entity-definitions'
 
 function trimEdgeDashes(value: string): string {
   let start = 0
@@ -55,9 +33,19 @@ export function toDatabaseEntitySlug(name: string): string {
 }
 
 export function buildDatabaseEntityBrowsePath(entity: DatabaseEntityId): string {
-  return DATABASE_ENTITY_PATH_CONFIG[entity].browsePath
+  return getDatabaseEntityDefinition(entity).browsePath
 }
 
 export function buildDatabaseEntityDetailPath(entity: DatabaseEntityId, slug: string): string {
-  return `${DATABASE_ENTITY_PATH_CONFIG[entity].detailPathPrefix}/${slug}`
+  return `${getDatabaseEntityDefinition(entity).detailPathPrefix}/${slug}`
+}
+
+export function getDatabaseBrowsePathForLocation(pathname: string): string | null {
+  for (const {browsePath, detailPathPrefix} of DATABASE_ENTITY_DEFINITIONS) {
+    if (pathname === browsePath || pathname.startsWith(`${detailPathPrefix}/`)) {
+      return browsePath
+    }
+  }
+
+  return null
 }

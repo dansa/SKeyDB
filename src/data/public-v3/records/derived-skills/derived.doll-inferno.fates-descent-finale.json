@@ -10,6 +10,8 @@
   "ownerAwakenerId": "awakener-0018",
   "derivedFromId": "derived.doll-inferno.illusions-end",
   "rootSkillId": "skill.doll-inferno.fates-descent",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Gain [Energy:Arg1] Aliemus. Inflict [{Poison}:Arg2] {plural:[{Poison}:Arg2]|stack|stacks} of {Poison} on all enemies. For every 50 Aliemus currently possessed, apply an additional stack of {Poison}.",
   "descriptionArgs": {
     "Arg1": {

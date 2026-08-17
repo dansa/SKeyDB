@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0015",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Erica obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,5 +26,6 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "\"Attack command executed. Awaiting the next command.\"",
   "ownerAwakenerName": "Erica"
 }

@@ -1,15 +1,16 @@
 import {createStore} from 'zustand/vanilla'
 
 import {
-  readDatabaseDetailPreferences,
-  writeDatabaseDetailPreferences,
+  createDatabaseDetailPreferencesRepository,
   type DatabaseDetailPreferences,
   type DatabaseDetailPreferencesPatch,
+  type DatabaseDetailPreferencesRepository,
 } from '@/domain/database-detail-preferences'
 
 export interface PreferencesState {
   databaseDetailPreferences: DatabaseDetailPreferences
   detailSearchCaptureSuppressionDepth: number
+  flushDatabaseDetailPreferences: () => boolean
   hydrateDatabaseDetailPreferences: () => void
   incrementDetailSearchCaptureSuppression: () => void
   decrementDetailSearchCaptureSuppression: () => void
@@ -17,20 +18,16 @@ export interface PreferencesState {
   updateDatabaseDetailPreferences: (nextPartial: DatabaseDetailPreferencesPatch) => void
 }
 
-function areDatabaseDetailPreferencesEqual(
-  left: DatabaseDetailPreferences,
-  right: DatabaseDetailPreferences,
-): boolean {
-  return JSON.stringify(left) === JSON.stringify(right)
-}
-
-export function createPreferencesStore() {
+export function createPreferencesStore(
+  repository: DatabaseDetailPreferencesRepository = createDatabaseDetailPreferencesRepository(),
+) {
   return createStore<PreferencesState>()((set, get) => ({
-    databaseDetailPreferences: readDatabaseDetailPreferences(),
+    databaseDetailPreferences: repository.getPreferences(),
     detailSearchCaptureSuppressionDepth: 0,
+    flushDatabaseDetailPreferences: repository.flush,
     hydrateDatabaseDetailPreferences: () => {
-      const next = readDatabaseDetailPreferences()
-      if (areDatabaseDetailPreferencesEqual(get().databaseDetailPreferences, next)) {
+      const next = repository.hydrate()
+      if (get().databaseDetailPreferences === next) {
         return
       }
 
@@ -53,9 +50,12 @@ export function createPreferencesStore() {
     },
     isDetailSearchCaptureSuppressed: () => get().detailSearchCaptureSuppressionDepth > 0,
     updateDatabaseDetailPreferences: (nextPartial) => {
-      writeDatabaseDetailPreferences(nextPartial)
+      const next = repository.update(nextPartial)
+      if (get().databaseDetailPreferences === next) {
+        return
+      }
       set({
-        databaseDetailPreferences: readDatabaseDetailPreferences(),
+        databaseDetailPreferences: next,
       })
     },
   }))
@@ -65,4 +65,8 @@ export const preferencesStore = createPreferencesStore()
 
 export function hydrateDatabaseDetailPreferences() {
   preferencesStore.getState().hydrateDatabaseDetailPreferences()
+}
+
+export function flushDatabaseDetailPreferences() {
+  return preferencesStore.getState().flushDatabaseDetailPreferences()
 }

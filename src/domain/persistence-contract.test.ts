@@ -1,6 +1,6 @@
 import {describe, expect, it} from 'vitest'
 
-import {getPublicCatalogRecords} from '@/data-access/public-data/repository'
+import {getTestPublicCatalogRecords} from '@/data-access/public-data/testSupport/publicCatalogs'
 
 import {getAwakeners} from './awakeners'
 import {getCovenants} from './covenants'
@@ -67,12 +67,12 @@ function buildCurrentContract(): PersistenceContract {
   }
 }
 
-function publicCatalogIds(scope: Parameters<typeof getPublicCatalogRecords>[0]): string[] {
-  return getPublicCatalogRecords(scope).map((record) => record.id)
+function publicCatalogIds(scope: Parameters<typeof getTestPublicCatalogRecords>[0]): string[] {
+  return getTestPublicCatalogRecords(scope).map((record) => record.id)
 }
 
 function publicEquippablePosseIds(): string[] {
-  return getPublicCatalogRecords('posses')
+  return getTestPublicCatalogRecords('posses')
     .filter((record) => record.equippable !== false)
     .map((record) => record.id)
 }

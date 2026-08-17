@@ -1,4 +1,4 @@
-import {useCallback, useEffect, useMemo, useState} from 'react'
+import {useCallback, useMemo, useState} from 'react'
 
 import {useStore} from 'zustand'
 
@@ -36,9 +36,6 @@ export function useWheelDetailModalState({
 }: UseWheelDetailModalStateOptions) {
   const {preferences, updateSharedPreferences, updateWheelPreferences} =
     useDatabaseDetailPreferences()
-  useEffect(() => {
-    collectionOwnershipStore.getState().hydrate()
-  }, [])
   const collectionOwnership = useStore(collectionOwnershipStore, (state) => state.ownership)
   const [enhanceLevel, setEnhanceLevelState] = useState(preferences.wheel.defaultEnhanceLevel)
   const descriptionRank = useMemo(() => resolveWheelDescriptionRank(enhanceLevel), [enhanceLevel])
@@ -79,7 +76,6 @@ export function useWheelDetailModalState({
     isSearchOpen: search.isSearchOpen,
     onClose,
     searchContainerRef: search.searchContainerRef,
-    searchInputRef: search.searchInputRef,
   })
 
   const setEnhanceLevel = useCallback((level: number) => {

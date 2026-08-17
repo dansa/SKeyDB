@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0040",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "{Embryo Fusion} +[Arg1]. Remove {Void} state. {Discover} 3 {Painted Silver Relics} and choose 1 to obtain. The Relic lasts for [Arg2] {plural:[Arg2]|turn|turns}.",
   "descriptionArgs": {
     "Arg1": {
@@ -22,5 +24,6 @@
   },
   "cardKeywords": [],
   "cost": "2",
+  "lore": "The shadows of corpses dance at Pickman's fingertips, unwilling to be tamed as the inspiration wildly dances across the canvas.\nThe ordinary painter depicts the surface of reality, while the true artist unleashes madness, sketching all the unknown joys, pains, desires, and ugliness.",
   "ownerAwakenerName": "Pickman"
 }

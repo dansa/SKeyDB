@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0053",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Winkle gains [Energy:Arg1] Aliemus. {Rouse}: Winkle's Shield and {Counter} +10%. After playing a card, gain [Energy:Arg2] Aliemus and [Counterattack:Arg3] {plural:[Counterattack:Arg3]|stack|stacks} of {Counter}.",
   "descriptionArgs": {
     "Arg1": {
@@ -32,6 +34,7 @@
     }
   ],
   "cost": "2",
+  "lore": "The pain of being repeatedly devoured by darkness instilled fear in her. Even a moment of darkness when closing her eyes for rest was unbearable.\n\"Laugh all you want! You don't understand how terrifying that black... blackness is.\"",
   "upgrades": [
     {
       "id": "upgrade.enlighten.winkle.thus-spoke-the-outcast.skill.winkle.self-imprisonment",

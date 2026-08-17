@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0018",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. \"Doll: Inferno\" obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "The pincers are relics of her past, of her bloodline. A power she never relinquished.\nWhen they sink into an enemy's chest, her smile blooms like a wound... what does it mean? Only the dead could say, and they don't speak",
   "upgrades": [
     {
       "id": "upgrade.enlighten.doll-inferno.envoy-of-extinction.skill.doll-inferno.strike",

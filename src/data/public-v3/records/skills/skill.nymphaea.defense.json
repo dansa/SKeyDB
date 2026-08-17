@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0037",
   "slot": "Defense",
+  "cardFamily": "command",
+  "cardTypes": ["defense"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield. Nymphaea obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,5 +26,6 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "Nymphaea is the sea's beloved. Whenever she begins to pray, the sea spirits gather around her and linger for a long time without leaving.",
   "ownerAwakenerName": "Nymphaea"
 }

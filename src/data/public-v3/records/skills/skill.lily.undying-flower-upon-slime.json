@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0029",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield. Restore [Arg2]% of {Endure} stacks as HP and remove {Endure}. Each time you are attacked, inflict [{Poison}:Arg4] {plural:[{Poison}:Arg4]|stack|stacks} of {Poison} to the attacker for 1 turn.",
   "descriptionArgs": {
     "Arg1": {
@@ -31,6 +33,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "A bud blooming in black sludge. Once cherished by the gardener, once nourished by rain and dew.\nNow, it blooms alone, enduring fierce winds that slice its delicate skin, torrential rains that batter its frail body, sharp blades that cut its surface, and long needles that pierce its marrow.\nNo matter what, the giant monster within her will bear the pain for her.\nPerhaps the only companion she has now is that giant monster. From now on, she can only live alongside it...",
   "upgrades": [
     {
       "id": "upgrade.enlighten.lily.never-forget.skill.lily.undying-flower-upon-slime",

@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0027",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG twice, gain [Power:Arg2] {STR}.",
   "descriptionArgs": {
     "Arg1": {
@@ -26,6 +28,7 @@
   },
   "cardKeywords": [],
   "cost": "2",
+  "lore": "This is a forewarning from the end of the road; it will lead you to embrace the Finale of death. You are free to decline the reaper's invitation, but thereafter, you shall witness the most brilliant radiance in the world.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.kathigu-ra.astral-meltdown.skill.kathigu-ra.last-stand-salvo",

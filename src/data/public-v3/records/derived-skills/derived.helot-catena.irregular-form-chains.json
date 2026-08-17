@@ -10,6 +10,8 @@
   "ownerAwakenerId": "awakener-0019",
   "derivedFromId": "skill.helot-catena.fettered-malice",
   "rootSkillId": "skill.helot-catena.fettered-malice",
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
   "descriptionTemplate": "Choose a Base Command Card of Helot: Catena and place it into hand.",
   "descriptionArgs": {},
   "cardKeywords": [

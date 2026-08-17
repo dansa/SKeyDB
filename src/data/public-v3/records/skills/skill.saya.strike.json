@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0057",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Saya gains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "Before reaching that long-sought world where we no longer need to hide,\neveryone in the way is an \"enemy\" to be crushed.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.saya.will-you-stay-with-me-always.skill.saya.strike",

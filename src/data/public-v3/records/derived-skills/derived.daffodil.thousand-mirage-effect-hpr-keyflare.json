@@ -10,6 +10,8 @@
   "ownerAwakenerId": "awakener-0012",
   "derivedFromId": "derived.daffodil.thousand-mirage-extra-effects",
   "rootSkillId": "skill.daffodil.sea-of-primordial-essence",
+  "cardFamily": "command",
+  "cardTypes": ["derived"],
   "descriptionTemplate": "Obtain [Arg1] Keyflare. In this battle, the base DMG of {Skull Reaver} and {Thousand Mirage} +10%.",
   "descriptionArgs": {
     "Arg1": {

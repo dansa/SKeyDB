@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0031",
   "slot": "Defense",
+  "cardFamily": "command",
+  "cardTypes": ["defense"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield. Lotan obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,5 +26,6 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "—But you're still too weak. You must protect yourself well.",
   "ownerAwakenerName": "Lotan"
 }

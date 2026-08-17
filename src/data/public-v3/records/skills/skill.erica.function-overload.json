@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0015",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "If the consumed Arithmetica is even, deal [Damage:Arg2] DMG X+2 times. Otherwise, Gain [Block:Arg3] Shield X+1 times.",
   "descriptionArgs": {
     "Arg2": {
@@ -26,6 +28,7 @@
   },
   "cardKeywords": [],
   "cost": "X",
+  "lore": "The device on Erica's waist is her power source, a complex mechanism operating on incomprehensible principles, continuously supplying her with the necessary electric current.\nLike its owner, the device is extremely unstable and releases a massive burst of energy when she shorts out, with visible electrical currents shooting in all directions, burning everything around.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.erica.system-reboot.skill.erica.function-overload",

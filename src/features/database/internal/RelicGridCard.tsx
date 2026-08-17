@@ -11,10 +11,18 @@ interface RelicGridCardProps {
   index: number
   onPreload?: (id: string) => void
   onSelect: (id: string) => void
+  onWarmShell?: () => void
   relic: Relic
 }
 
-export function RelicGridCard({awakeners, index, onPreload, onSelect, relic}: RelicGridCardProps) {
+export function RelicGridCard({
+  awakeners,
+  index,
+  onPreload,
+  onSelect,
+  onWarmShell,
+  relic,
+}: RelicGridCardProps) {
   return (
     <DatabaseGridCardFrame
       actionLabel='View relic details for'
@@ -43,6 +51,7 @@ export function RelicGridCard({awakeners, index, onPreload, onSelect, relic}: Re
       onSelect={() => {
         onSelect(relic.id)
       }}
+      onWarmShell={onWarmShell}
       realmAccent={getRelicCardAccent(relic, awakeners)}
       variant='square-art'
     />

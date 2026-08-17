@@ -1,25 +1,29 @@
+import {useMemo, useState} from 'react'
+
 import {act, cleanup, fireEvent, render, screen, waitFor} from '@testing-library/react'
 import {MemoryRouter, useLocation} from 'react-router'
 import {afterEach, describe, expect, it, vi} from 'vitest'
 
+import type {AwakenerDatabaseSelection} from '@/domain/awakener-database-state'
 import type {CovenantFullRecord} from '@/domain/covenants-full'
 import type {PosseFullRecord} from '@/domain/posses-full'
 import type {PublicRelicRecord, Relic} from '@/domain/relics'
 import type {Wheel} from '@/domain/wheels'
 import type {WheelFullRecord} from '@/domain/wheels-full'
+import {useAwakenerDetailSession} from '@/features/database/internal/awakener-detail-session'
 import {makeTestAwakenerFullRecord} from '@/features/database/internal/database-test-fixtures'
 import {clearDatabaseDetailRecordCacheForTests} from '@/features/database/internal/useDatabaseDetailRouteRecord'
-import {dbDetailStore} from '@/stores/dbDetailStore'
+import {createDatabaseDetailOverlaySession} from '@/stores/dbDetailStore'
 
 import {DbDetailModalHost} from './DbDetailModalHost'
-import {dbDetailRegistry} from './dbDetailRegistry'
+import {
+  dbDetailRegistry,
+  type DatabaseDetailNavigationPort,
+  type DatabaseDetailNavigationState,
+} from './dbDetailRegistry'
 
 interface MockDetailRenderOptions {
-  callbacks: {
-    onClose: () => void
-    onTabChange: (tab: 'overview' | 'upgrades' | 'skills' | 'builds' | 'teams' | 'lore') => void
-    onSelectWheel: (wheel: {id?: string; name: string}) => void
-  }
+  navigationPort: DatabaseDetailNavigationPort
   item: {
     activeTab?: string
     item: {
@@ -27,6 +31,45 @@ interface MockDetailRenderOptions {
     }
     variantId?: string
   }
+}
+
+const DEFAULT_SESSION_SELECTION: AwakenerDatabaseSelection = {
+  awakenerLevel: 60,
+  gnosticPotentialLevel: 0,
+  psycheSurgeOffset: 0,
+  selectedEnlightenSlot: null,
+  skillLevel: 1,
+  soulforgeLevel: 0,
+}
+
+function SessionBackedAwakenerDetail({item, navigationPort}: MockDetailRenderOptions) {
+  const session = useAwakenerDetailSession()
+  const selection = session?.selection ?? DEFAULT_SESSION_SELECTION
+
+  return (
+    <dialog aria-label={`${item.item.name} details`} open>
+      <div>{`Active tab ${String(item.activeTab)}`}</div>
+      <div>{`Live level ${String(selection.awakenerLevel)}`}</div>
+      <button
+        aria-label='Set live level'
+        onClick={() => {
+          session?.onSelectionChange({...selection, awakenerLevel: 90})
+        }}
+        type='button'
+      >
+        Set live level
+      </button>
+      <button
+        aria-label='Switch to lore tab'
+        onClick={() => {
+          navigationPort.updateState({tab: 'lore'})
+        }}
+        type='button'
+      >
+        Show lore
+      </button>
+    </dialog>
+  )
 }
 
 vi.mock('./dbDetailRegistry', async () => {
@@ -38,14 +81,14 @@ vi.mock('./dbDetailRegistry', async () => {
       loadRecord: vi.fn(async (_id: string) => ({id: 'record-awakener'})),
       loadingLabel: 'Loading awakener details...',
       missingBrowsePath: '/database',
-      render: vi.fn(({callbacks, item}: MockDetailRenderOptions) => (
+      render: vi.fn(({navigationPort, item}: MockDetailRenderOptions) => (
         <dialog aria-label={`${item.item.name} details`} open>
-          <button onClick={callbacks.onClose} type='button'>
+          <button onClick={navigationPort.close} type='button'>
             Close overlay
           </button>
           <button
             onClick={() => {
-              callbacks.onSelectWheel({id: 'wheel-0050', name: 'Merciful Nurturing'})
+              navigationPort.select({kind: 'wheel', id: 'wheel-0050'})
             }}
             type='button'
           >
@@ -53,7 +96,7 @@ vi.mock('./dbDetailRegistry', async () => {
           </button>
           <button
             onClick={() => {
-              callbacks.onSelectWheel({name: ' Merciful Nurturing '})
+              navigationPort.select({kind: 'wheel', id: 'wheel-0050'})
             }}
             type='button'
           >
@@ -62,7 +105,7 @@ vi.mock('./dbDetailRegistry', async () => {
           <span>Active tab: {item.activeTab}</span>
           <button
             onClick={() => {
-              callbacks.onTabChange('skills')
+              navigationPort.updateState({tab: 'skills'})
             }}
             type='button'
           >
@@ -76,9 +119,9 @@ vi.mock('./dbDetailRegistry', async () => {
       loadRecord: vi.fn(async (_id: string) => ({id: 'record-wheel'})),
       loadingLabel: 'Loading wheel details...',
       missingBrowsePath: '/database/wheels',
-      render: vi.fn(({callbacks, item}: MockDetailRenderOptions) => (
+      render: vi.fn(({navigationPort, item}: MockDetailRenderOptions) => (
         <dialog aria-label={`${item.item.name} details`} open>
-          <button onClick={callbacks.onClose} type='button'>
+          <button onClick={navigationPort.close} type='button'>
             Close overlay
           </button>
         </dialog>
@@ -89,9 +132,9 @@ vi.mock('./dbDetailRegistry', async () => {
       loadRecord: vi.fn(async (_id: string) => ({id: 'record-posse'})),
       loadingLabel: 'Loading posse details...',
       missingBrowsePath: '/database/posses',
-      render: vi.fn(({callbacks, item}: MockDetailRenderOptions) => (
+      render: vi.fn(({navigationPort, item}: MockDetailRenderOptions) => (
         <dialog aria-label={`${item.item.name} details`} open>
-          <button onClick={callbacks.onClose} type='button'>
+          <button onClick={navigationPort.close} type='button'>
             Close overlay
           </button>
         </dialog>
@@ -102,9 +145,9 @@ vi.mock('./dbDetailRegistry', async () => {
       loadRecord: vi.fn(async (_id: string) => ({id: 'record-covenant'})),
       loadingLabel: 'Loading covenant details...',
       missingBrowsePath: '/database/covenants',
-      render: vi.fn(({callbacks, item}: MockDetailRenderOptions) => (
+      render: vi.fn(({navigationPort, item}: MockDetailRenderOptions) => (
         <dialog aria-label={`${item.item.name} details`} open>
-          <button onClick={callbacks.onClose} type='button'>
+          <button onClick={navigationPort.close} type='button'>
             Close overlay
           </button>
         </dialog>
@@ -115,9 +158,9 @@ vi.mock('./dbDetailRegistry', async () => {
       loadRecord: vi.fn(async (_id: string) => ({id: 'record-relic'})),
       loadingLabel: 'Loading relic details...',
       missingBrowsePath: '/database/relics',
-      render: vi.fn(({callbacks, item}: MockDetailRenderOptions) => (
+      render: vi.fn(({navigationPort, item}: MockDetailRenderOptions) => (
         <dialog aria-label={`${item.item.name} details`} open>
-          <button onClick={callbacks.onClose} type='button'>
+          <button onClick={navigationPort.close} type='button'>
             Close overlay
           </button>
         </dialog>
@@ -261,18 +304,17 @@ afterEach(() => {
   vi.mocked(dbDetailRegistry.relic.loadRecord).mockResolvedValue(mockRelicRecord)
 })
 
-function openDetailInAct(
-  detail: Parameters<ReturnType<typeof dbDetailStore.getState>['openDetail']>[0],
-  source: Parameters<ReturnType<typeof dbDetailStore.getState>['openDetail']>[1],
-) {
+const overlaySession = createDatabaseDetailOverlaySession()
+
+function openDetailInAct(detail: Parameters<typeof overlaySession.open>[0], _source?: unknown) {
   act(() => {
-    dbDetailStore.getState().openDetail(detail, source)
+    overlaySession.open(detail)
   })
 }
 
 function closeAllDetailsInAct() {
   act(() => {
-    dbDetailStore.getState().closeAllDetails()
+    while (overlaySession.isOpen()) overlaySession.close()
   })
 }
 
@@ -286,22 +328,20 @@ function LocationSearchProbe() {
   return <span data-testid='location-search'>{location.search}</span>
 }
 
+function createNavigationPort() {
+  return {close: vi.fn(), select: vi.fn(), updateState: vi.fn()}
+}
+
 describe('DbDetailModalHost overlay entries', () => {
   it('renders an overlay without a route item and closes by popping the overlay stack', async () => {
-    const callbacks = {
-      onClose: vi.fn(),
-      onSelectAwakener: vi.fn(),
-      onSelectCovenant: vi.fn(),
-      onSelectPosse: vi.fn(),
-      onSelectWheel: vi.fn(),
-      onTabChange: vi.fn(),
-    }
+    const navigationPort = createNavigationPort()
 
     render(
       <MemoryRouter initialEntries={['/builder']}>
         <DbDetailModalHost
           awakeners={awakeners}
-          callbacks={callbacks}
+          navigationPort={navigationPort}
+          overlaySession={overlaySession}
           routeItem={null}
           wheels={wheels}
         />
@@ -320,8 +360,8 @@ describe('DbDetailModalHost overlay entries', () => {
     await waitFor(() => {
       expect(screen.queryByRole('dialog', {name: /goliath details/i})).not.toBeInTheDocument()
     })
-    expect(dbDetailStore.getState().stack).toEqual([])
-    expect(callbacks.onClose).not.toHaveBeenCalled()
+    expect(overlaySession.isOpen()).toBe(false)
+    expect(navigationPort.close).not.toHaveBeenCalled()
   })
 
   it('pushes overlay references from overlay modal callbacks', async () => {
@@ -329,14 +369,8 @@ describe('DbDetailModalHost overlay entries', () => {
       <MemoryRouter initialEntries={['/builder']}>
         <DbDetailModalHost
           awakeners={awakeners}
-          callbacks={{
-            onClose: vi.fn(),
-            onSelectAwakener: vi.fn(),
-            onSelectCovenant: vi.fn(),
-            onSelectPosse: vi.fn(),
-            onSelectWheel: vi.fn(),
-            onTabChange: vi.fn(),
-          }}
+          navigationPort={createNavigationPort()}
+          overlaySession={overlaySession}
           routeItem={null}
           wheels={wheels}
         />
@@ -349,10 +383,7 @@ describe('DbDetailModalHost overlay entries', () => {
     expect(
       await screen.findByRole('dialog', {name: /merciful nurturing details/i}),
     ).toBeInTheDocument()
-    expect(dbDetailStore.getState().stack).toEqual([
-      {kind: 'awakener', id: 'awakener-0021', source: 'builder-overlay'},
-      {kind: 'wheel', id: 'wheel-0050', source: 'reference'},
-    ])
+    expect(overlaySession.top()).toEqual({kind: 'wheel', id: 'wheel-0050'})
   })
 
   it('pushes overlay wheel references by fallback normalized name when id is missing', async () => {
@@ -360,14 +391,8 @@ describe('DbDetailModalHost overlay entries', () => {
       <MemoryRouter initialEntries={['/builder']}>
         <DbDetailModalHost
           awakeners={awakeners}
-          callbacks={{
-            onClose: vi.fn(),
-            onSelectAwakener: vi.fn(),
-            onSelectCovenant: vi.fn(),
-            onSelectPosse: vi.fn(),
-            onSelectWheel: vi.fn(),
-            onTabChange: vi.fn(),
-          }}
+          navigationPort={createNavigationPort()}
+          overlaySession={overlaySession}
           routeItem={null}
           wheels={wheels}
         />
@@ -380,27 +405,16 @@ describe('DbDetailModalHost overlay entries', () => {
     expect(
       await screen.findByRole('dialog', {name: /merciful nurturing details/i}),
     ).toBeInTheDocument()
-    expect(dbDetailStore.getState().stack).toEqual([
-      {kind: 'awakener', id: 'awakener-0021', source: 'builder-overlay'},
-      {kind: 'wheel', id: 'wheel-0050', source: 'reference'},
-    ])
+    expect(overlaySession.top()).toEqual({kind: 'wheel', id: 'wheel-0050'})
   })
 
   it('keeps awakener overlay tab state local to the modal host', async () => {
-    const onTabChange = vi.fn()
-
     render(
       <MemoryRouter initialEntries={['/builder']}>
         <DbDetailModalHost
           awakeners={awakeners}
-          callbacks={{
-            onClose: vi.fn(),
-            onSelectAwakener: vi.fn(),
-            onSelectCovenant: vi.fn(),
-            onSelectPosse: vi.fn(),
-            onSelectWheel: vi.fn(),
-            onTabChange,
-          }}
+          navigationPort={createNavigationPort()}
+          overlaySession={overlaySession}
           routeItem={null}
           wheels={wheels}
         />
@@ -413,7 +427,6 @@ describe('DbDetailModalHost overlay entries', () => {
     fireEvent.click(screen.getByRole('button', {name: /show skills tab/i}))
 
     expect(await screen.findByText('Active tab: skills')).toBeInTheDocument()
-    expect(onTabChange).not.toHaveBeenCalled()
   })
 
   it('pops missing overlay records without navigating away from the current page', async () => {
@@ -424,14 +437,8 @@ describe('DbDetailModalHost overlay entries', () => {
         <LocationProbe />
         <DbDetailModalHost
           awakeners={awakeners}
-          callbacks={{
-            onClose: vi.fn(),
-            onSelectAwakener: vi.fn(),
-            onSelectCovenant: vi.fn(),
-            onSelectPosse: vi.fn(),
-            onSelectWheel: vi.fn(),
-            onTabChange: vi.fn(),
-          }}
+          navigationPort={createNavigationPort()}
+          overlaySession={overlaySession}
           routeItem={null}
           wheels={wheels}
         />
@@ -441,7 +448,7 @@ describe('DbDetailModalHost overlay entries', () => {
     openDetailInAct({kind: 'awakener', id: 'awakener-0021'}, 'builder-overlay')
 
     await waitFor(() => {
-      expect(dbDetailStore.getState().stack).toEqual([])
+      expect(overlaySession.isOpen()).toBe(false)
     })
     expect(screen.getByTestId('location-pathname')).toHaveTextContent('/builder')
   })
@@ -452,14 +459,8 @@ describe('DbDetailModalHost overlay entries', () => {
         <LocationProbe />
         <DbDetailModalHost
           awakeners={awakeners}
-          callbacks={{
-            onClose: vi.fn(),
-            onSelectAwakener: vi.fn(),
-            onSelectCovenant: vi.fn(),
-            onSelectPosse: vi.fn(),
-            onSelectWheel: vi.fn(),
-            onTabChange: vi.fn(),
-          }}
+          navigationPort={createNavigationPort()}
+          overlaySession={overlaySession}
           relics={relics}
           routeItem={null}
           wheels={wheels}
@@ -469,9 +470,7 @@ describe('DbDetailModalHost overlay entries', () => {
 
     openDetailInAct({kind: 'relic', id: 'relic-0001'}, 'builder-overlay')
 
-    expect(dbDetailStore.getState().stack).toEqual([
-      {kind: 'relic', id: 'relic-0001', source: 'builder-overlay'},
-    ])
+    expect(overlaySession.top()).toEqual({kind: 'relic', id: 'relic-0001'})
     await waitFor(() => {
       expect(dbDetailRegistry.relic.loadRecord).toHaveBeenCalledWith('relic-0001')
       expect(dbDetailRegistry.relic.render).toHaveBeenCalled()
@@ -484,6 +483,60 @@ describe('DbDetailModalHost overlay entries', () => {
 })
 
 describe('DbDetailModalHost route entries', () => {
+  it('preserves an awakener session when route-backed detail content remounts', async () => {
+    function RouteBackedAwakenerHost() {
+      const [activeTab, setActiveTab] = useState<'skills' | 'lore'>('skills')
+      const navigationPort = useMemo(
+        () => ({
+          close: vi.fn(),
+          select: vi.fn(),
+          updateState: (state: DatabaseDetailNavigationState) => {
+            if (state.tab === 'skills' || state.tab === 'lore') {
+              setActiveTab(state.tab)
+            }
+          },
+        }),
+        [],
+      )
+
+      return (
+        <DbDetailModalHost
+          awakeners={awakeners}
+          navigationPort={navigationPort}
+          routeItem={{kind: 'awakener', item: awakeners[0], activeTab}}
+          wheels={wheels}
+        />
+      )
+    }
+
+    await vi.mocked(dbDetailRegistry.awakener.render).withImplementation(
+      (options) => <SessionBackedAwakenerDetail key={options.item.activeTab} {...options} />,
+      async () => {
+        render(
+          <MemoryRouter initialEntries={['/database/awakeners/goliath/skills']}>
+            <RouteBackedAwakenerHost />
+          </MemoryRouter>,
+        )
+
+        await waitFor(() => {
+          expect(dbDetailRegistry.awakener.render).toHaveBeenCalled()
+        })
+        expect(await screen.findByRole('dialog', {name: /goliath details/i})).toBeInTheDocument()
+        expect(screen.getByText('Live level 60')).toBeInTheDocument()
+
+        fireEvent.click(screen.getByRole('button', {name: 'Set live level'}))
+        expect(screen.getByText('Live level 90')).toBeInTheDocument()
+
+        fireEvent.click(screen.getByRole('button', {name: 'Switch to lore tab'}))
+
+        await waitFor(() => {
+          expect(screen.getByText('Active tab lore')).toBeInTheDocument()
+          expect(screen.getByText('Live level 90')).toBeInTheDocument()
+        })
+      },
+    )
+  })
+
   it('renders the filter-preferred relic variant on its first committed frame', async () => {
     const goldVariantId = 'relic-variant-0002'
     vi.mocked(dbDetailRegistry.relic.render).mockClear()
@@ -520,14 +573,7 @@ describe('DbDetailModalHost route entries', () => {
       <MemoryRouter initialEntries={['/database/relics/dimensional-image-24?tier=GOLD']}>
         <DbDetailModalHost
           awakeners={awakeners}
-          callbacks={{
-            onClose: vi.fn(),
-            onSelectAwakener: vi.fn(),
-            onSelectCovenant: vi.fn(),
-            onSelectPosse: vi.fn(),
-            onSelectWheel: vi.fn(),
-            onTabChange: vi.fn(),
-          }}
+          navigationPort={createNavigationPort()}
           relics={relics}
           routeItem={{kind: 'relic', item: relics[0]}}
           wheels={wheels}
@@ -553,14 +599,7 @@ describe('DbDetailModalHost route entries', () => {
       >
         <DbDetailModalHost
           awakeners={awakeners}
-          callbacks={{
-            onClose: vi.fn(),
-            onSelectAwakener: vi.fn(),
-            onSelectCovenant: vi.fn(),
-            onSelectPosse: vi.fn(),
-            onSelectWheel: vi.fn(),
-            onTabChange: vi.fn(),
-          }}
+          navigationPort={createNavigationPort()}
           relics={relics}
           routeItem={{kind: 'relic', item: relics[0], variantId: 'relic-variant-9999'}}
           wheels={wheels}
@@ -578,21 +617,14 @@ describe('DbDetailModalHost route entries', () => {
 
   it('keeps the relic modal mounted while canonicalizing its default variant', async () => {
     vi.mocked(dbDetailRegistry.relic.loadRecord).mockResolvedValue(mockRelicRecord)
-    const callbacks = {
-      onClose: vi.fn(),
-      onSelectAwakener: vi.fn(),
-      onSelectCovenant: vi.fn(),
-      onSelectPosse: vi.fn(),
-      onSelectWheel: vi.fn(),
-      onTabChange: vi.fn(),
-    }
+    const navigationPort = createNavigationPort()
 
     render(
       <MemoryRouter initialEntries={['/database/relics/dimensional-image-24']}>
         <LocationSearchProbe />
         <DbDetailModalHost
           awakeners={awakeners}
-          callbacks={callbacks}
+          navigationPort={navigationPort}
           relics={relics}
           routeItem={{kind: 'relic', item: relics[0]}}
           wheels={wheels}
@@ -611,71 +643,19 @@ describe('DbDetailModalHost route entries', () => {
     })
   })
 
-  it('does not render a stale route-sourced stack entry as an overlay after the route closes', async () => {
-    vi.mocked(dbDetailRegistry.awakener.loadRecord).mockResolvedValue(mockAwakenerRecord)
-    const callbacks = {
-      onClose: vi.fn(),
-      onSelectAwakener: vi.fn(),
-      onSelectCovenant: vi.fn(),
-      onSelectPosse: vi.fn(),
-      onSelectWheel: vi.fn(),
-      onTabChange: vi.fn(),
-    }
-    const {rerender} = render(
-      <MemoryRouter initialEntries={['/database/awakeners/goliath']}>
-        <DbDetailModalHost
-          awakeners={awakeners}
-          callbacks={callbacks}
-          routeItem={{kind: 'awakener', item: awakeners[0], activeTab: 'upgrades'}}
-          wheels={wheels}
-        />
-      </MemoryRouter>,
-    )
-
-    await waitFor(() => {
-      expect(screen.getByRole('dialog', {name: /goliath details/i})).toBeInTheDocument()
-    })
-    expect(dbDetailStore.getState().stack).toEqual([
-      {kind: 'awakener', id: 'awakener-0021', source: 'database-route'},
-    ])
-
-    rerender(
-      <MemoryRouter initialEntries={['/database']}>
-        <DbDetailModalHost
-          awakeners={awakeners}
-          callbacks={callbacks}
-          routeItem={null}
-          wheels={wheels}
-        />
-      </MemoryRouter>,
-    )
-
-    expect(screen.queryByRole('dialog', {name: /goliath details/i})).not.toBeInTheDocument()
-    await waitFor(() => {
-      expect(dbDetailStore.getState().stack).toEqual([])
-    })
-  })
-
   it('keeps database modal chrome visible while a route record is still loading', async () => {
     let resolveRecord!: (record: WheelFullRecord) => void
     const pendingRecord = new Promise<WheelFullRecord>((resolve) => {
       resolveRecord = resolve
     })
     vi.mocked(dbDetailRegistry.wheel.loadRecord).mockReturnValue(pendingRecord)
-    const callbacks = {
-      onClose: vi.fn(),
-      onSelectAwakener: vi.fn(),
-      onSelectCovenant: vi.fn(),
-      onSelectPosse: vi.fn(),
-      onSelectWheel: vi.fn(),
-      onTabChange: vi.fn(),
-    }
+    const navigationPort = createNavigationPort()
 
     render(
       <MemoryRouter initialEntries={['/database/wheels/merciful-nurturing']}>
         <DbDetailModalHost
           awakeners={awakeners}
-          callbacks={callbacks}
+          navigationPort={navigationPort}
           resultSet={{
             kind: 'wheel',
             items: [
@@ -689,7 +669,7 @@ describe('DbDetailModalHost route entries', () => {
       </MemoryRouter>,
     )
 
-    expect(screen.getByRole('status')).toHaveTextContent('Loading wheel details...')
+    expect(document.querySelector('[aria-busy="true"]')).toBeInTheDocument()
     expect(screen.getByLabelText('Next result: Shared Dream')).toBeInTheDocument()
     expect(document.querySelector('[data-detail-modal-shell]')).toBeInTheDocument()
 
@@ -699,6 +679,55 @@ describe('DbDetailModalHost route entries', () => {
       expect(dbDetailRegistry.wheel.render).toHaveBeenCalled()
     })
     expect(screen.getByRole('dialog', {name: /merciful nurturing details/i})).toBeInTheDocument()
+  })
+
+  it('shows a bounded route-record error and retries the failed load', async () => {
+    const wheelLoadRecord = vi.mocked(dbDetailRegistry.wheel.loadRecord)
+    const callsBeforeRender = wheelLoadRecord.mock.calls.length
+    wheelLoadRecord
+      .mockRejectedValueOnce(new Error('controlled route-record failure'))
+      .mockResolvedValueOnce(mockWheelRecord)
+    const navigationPort = createNavigationPort()
+
+    render(
+      <MemoryRouter initialEntries={['/database/wheels/merciful-nurturing']}>
+        <DbDetailModalHost
+          awakeners={awakeners}
+          navigationPort={navigationPort}
+          routeItem={{kind: 'wheel', item: wheels[0]}}
+          wheels={wheels}
+        />
+      </MemoryRouter>,
+    )
+
+    expect(await screen.findByRole('alert')).toBeInTheDocument()
+    expect(screen.getByRole('button', {name: 'Close details'})).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', {name: 'Retry loading details'}))
+
+    await waitFor(() => {
+      expect(dbDetailRegistry.wheel.render).toHaveBeenCalled()
+    })
+    expect(wheelLoadRecord.mock.calls).toHaveLength(callsBeforeRender + 2)
+  })
+
+  it('closes the route-loading modal with Escape', () => {
+    vi.mocked(dbDetailRegistry.wheel.loadRecord).mockReturnValue(new Promise(() => undefined))
+    const navigationPort = createNavigationPort()
+
+    render(
+      <MemoryRouter initialEntries={['/database/wheels/merciful-nurturing']}>
+        <DbDetailModalHost
+          awakeners={awakeners}
+          navigationPort={navigationPort}
+          routeItem={{kind: 'wheel', item: wheels[0]}}
+          wheels={wheels}
+        />
+      </MemoryRouter>,
+    )
+
+    fireEvent.keyDown(screen.getByRole('dialog'), {key: 'Escape'})
+
+    expect(navigationPort.close).toHaveBeenCalledTimes(1)
   })
 
   it('waits for the selected route record before preloading neighboring result records', async () => {
@@ -717,20 +746,13 @@ describe('DbDetailModalHost route entries', () => {
         name: 'Shared Dream',
       })
     })
-    const callbacks = {
-      onClose: vi.fn(),
-      onSelectAwakener: vi.fn(),
-      onSelectCovenant: vi.fn(),
-      onSelectPosse: vi.fn(),
-      onSelectWheel: vi.fn(),
-      onTabChange: vi.fn(),
-    }
+    const navigationPort = createNavigationPort()
 
     render(
       <MemoryRouter initialEntries={['/database/wheels/merciful-nurturing']}>
         <DbDetailModalHost
           awakeners={awakeners}
-          callbacks={callbacks}
+          navigationPort={navigationPort}
           resultSet={{
             kind: 'wheel',
             items: [

@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0013",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Doll gains [Energy:Arg1] Aliemus. {Rouse}: When Doll performs Healing, gain [Block:Arg2] Shield.",
   "descriptionArgs": {
     "Arg1": {
@@ -28,6 +30,7 @@
     }
   ],
   "cost": "1",
+  "lore": "The Dissolution Phenomenon treats everyone equally, and Awakeners are no exception. In order to delay the time of demise, Doll stored all Knowledge, consciousness, and emotions in external organs.\n\"The clever brain\"—a phrase tailored for Doll's compliments.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.doll.ego-restructured.skill.doll.flesh-detached",

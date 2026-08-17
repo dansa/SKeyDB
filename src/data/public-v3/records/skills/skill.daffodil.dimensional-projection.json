@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0012",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Daffodil gains [Energy:Arg1] Aliemus. {Rouse}: Whenever Daffodil's card enters {Ultra Space}, place 1 {derived:Insight} into hand, up to 2 times per turn.",
   "descriptionArgs": {
     "Arg1": {
@@ -22,6 +24,7 @@
     }
   ],
   "cost": "3",
+  "lore": "The witch who traverses dimensions is well-versed in the laws of refraction within dimensions.\nShe knows every path and each link point within the dimension.\nAn infinite number of passages are mapped out in her mind.\nGiven this, materials projected from other dimensions naturally fall into her possession.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.daffodil.dead-souls.skill.daffodil.dimensional-projection",

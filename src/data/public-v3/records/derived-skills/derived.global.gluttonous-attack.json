@@ -7,6 +7,8 @@
     "slug": "gluttonous-attack",
     "canonicalPath": "/database/derived-skills/gluttonous-attack"
   },
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
   "childDerivedSkillIds": ["derived.global.one-way", "derived.global.assemble"],
   "descriptionTemplate": "Choice: {One-way} or {Assemble}",
   "descriptionArgs": {},

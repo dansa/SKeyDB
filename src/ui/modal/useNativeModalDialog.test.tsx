@@ -61,6 +61,7 @@ describe('useNativeModalDialog', () => {
     document.body.style.right = ''
     document.body.style.width = ''
     document.documentElement.style.overflow = ''
+    document.documentElement.style.scrollbarGutter = ''
     document.body.replaceChildren()
   })
 
@@ -131,7 +132,7 @@ describe('useNativeModalDialog', () => {
     const dialog = screen.getByRole('dialog', {name: 'Native modal'})
 
     expect(document.activeElement).toBe(screen.getByRole('button', {name: 'Initial action'}))
-    expect(document.body.style.overflow).toBe('hidden')
+    expect(document.body.style.overflow).toBe('auto')
 
     const cancelEvent = new Event('cancel', {cancelable: true})
     act(() => {
@@ -145,6 +146,51 @@ describe('useNativeModalDialog', () => {
 
     expect(document.body.style.overflow).toBe('auto')
     expect(document.activeElement).toBe(previousButton)
+  })
+
+  it('captures page position before native dialog focus and preserves it through close', () => {
+    const scrollYDescriptor = Object.getOwnPropertyDescriptor(window, 'scrollY')
+    let scrollY = 900
+    const animationFrames: FrameRequestCallback[] = []
+    Object.defineProperty(window, 'scrollY', {
+      configurable: true,
+      get: () => scrollY,
+    })
+    vi.spyOn(window, 'scrollTo').mockImplementation((_x, y) => {
+      scrollY = y
+    })
+    vi.spyOn(window, 'requestAnimationFrame').mockImplementation((callback) => {
+      animationFrames.push(callback)
+      return animationFrames.length
+    })
+    HTMLDialogElement.prototype.showModal = vi.fn(function (this: HTMLDialogElement) {
+      this.setAttribute('open', '')
+      scrollY = 902
+      window.dispatchEvent(new Event('scroll'))
+    })
+    HTMLDialogElement.prototype.close = vi.fn(function (this: HTMLDialogElement) {
+      this.removeAttribute('open')
+      scrollY = 904
+      window.dispatchEvent(new Event('scroll'))
+    })
+
+    try {
+      const {unmount} = render(<TestDialog lockBodyScroll={true} />)
+
+      expect(scrollY).toBe(900)
+
+      unmount()
+      animationFrames.shift()?.(0)
+      animationFrames.shift()?.(16)
+
+      expect(scrollY).toBe(900)
+    } finally {
+      if (scrollYDescriptor) {
+        Object.defineProperty(window, 'scrollY', scrollYDescriptor)
+      } else {
+        Reflect.deleteProperty(window, 'scrollY')
+      }
+    }
   })
 
   it('prevents uncontrolled native dismissal when no cancel handler is supplied', () => {
@@ -188,21 +234,24 @@ describe('useNativeModalDialog', () => {
 
     const {rerender, unmount} = render(<LockedDialogStack showFirst={true} showSecond={true} />)
 
-    expect(document.body.style.overflow).toBe('hidden')
-    expect(document.body.style.position).toBe('fixed')
+    expect(document.body.style.overflow).toBe('auto')
+    expect(document.body.style.position).toBe('')
     expect(document.documentElement.style.overflow).toBe('hidden')
+    expect(document.documentElement.style.scrollbarGutter).toBe('stable')
 
     rerender(<LockedDialogStack showFirst={false} showSecond={true} />)
 
-    expect(document.body.style.overflow).toBe('hidden')
-    expect(document.body.style.position).toBe('fixed')
+    expect(document.body.style.overflow).toBe('auto')
+    expect(document.body.style.position).toBe('')
     expect(document.documentElement.style.overflow).toBe('hidden')
+    expect(document.documentElement.style.scrollbarGutter).toBe('stable')
 
     unmount()
 
     expect(document.body.style.overflow).toBe('auto')
     expect(document.body.style.position).toBe('')
     expect(document.documentElement.style.overflow).toBe('scroll')
+    expect(document.documentElement.style.scrollbarGutter).toBe('')
   })
 })
 

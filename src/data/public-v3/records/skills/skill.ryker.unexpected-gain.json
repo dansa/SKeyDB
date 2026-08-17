@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0043",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Choose 1 card from the Draw Pile and add it to your hand. If it's a critical hit, the selected card's Arithmetica Cost -1.",
   "descriptionArgs": {
     "Arg1": {
@@ -20,6 +22,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "Hungry as a wolf, Ryker rubbed his belly while walking down the street.\nIf only a roast chicken would suddenly appear in front of him, Ryker thought.\nA shadow darted out next to him, followed by a woman's scream.\nRyker's sharp eyes caught the shadow just in time, and while preparing to return the bag to the woman, he noticed her unusual expression.\nAfter some struggling, the police arrived late.\nIt turned out the woman was the infamous jewel thief.\nThe owner treated Ryker to a hearty meal, plus an additional golden gem.\n\"What an unexpected gain,\" Ryker said, rubbing his belly.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.ryker.fortunes-boon.skill.ryker.unexpected-gain",

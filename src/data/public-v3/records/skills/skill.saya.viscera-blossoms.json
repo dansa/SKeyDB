@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0057",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Lose 10% of current HP, inflict [Corrosion:Arg1] {Corrosion} on all enemies. Discard all Command Cards and draw the same number of cards.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
     }
   ],
   "cost": "0",
+  "lore": "Appearance or soul, which matters more? Is there an answer, or none?\nStruggling blindly in love, they cherish and devour the victims swept into their wake.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.saya.ill-be-your-very-own-monster.skill.saya.viscera-blossoms",

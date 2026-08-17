@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0051",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "[{Devour}: Subsequent {Hymn of Blood and Sand} released in this battle deals +[Arg4] DMG and [Arg3]x {STR} multiplier.] Deal [Damage:Arg1] DMG to all enemies. {STR} takes [Arg2]x effect on {Hymn of Blood and Sand}. Gain Aliemus equal to 2× Uvhash's Aliemus Regen.",
   "descriptionArgs": {
     "Arg1": {
@@ -34,6 +36,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "The wizard said: \"There are many pagans.\nWe in Levant seem too weak.\nBrother Uvhash, sound your horn,\nand fight like a madman.\"\nThe warrior replied: \"There are no pagans here.\nYou will all be killed by me, regardless of your ethnicity or faith.\nWhen the time comes, the corpses will cover the valley and fill the mountaintop,\nThis will be my tribute to the Blood and Sand.\"",
   "upgrades": [
     {
       "id": "upgrade.enlighten.uvhash.sorcerers-end.skill.uvhash.hymn-of-blood-and-sand",

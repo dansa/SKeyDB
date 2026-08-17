@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0016",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield, and restore [Heal:Arg2] HP. If {Death Resistance} has been triggered in this battle, this card will take effect one additional time.",
   "descriptionArgs": {
     "Arg1": {
@@ -30,5 +32,6 @@
     }
   ],
   "cost": "3",
+  "lore": "No seed fails to yearn for sprouting.\nPlants bask in sunlight and rain, breaking through the soil, just as children grow up nurtured by love and hope.\nFaint curls up in the cradle, holding precious nutrients, quietly awaiting that moment to arrive...",
   "ownerAwakenerName": "Faint"
 }

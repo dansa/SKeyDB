@@ -16,8 +16,8 @@ describe('buildRelicDatabaseViewResult', () => {
   const relics = getRelics()
 
   it('keeps the public catalog at family grain', () => {
-    expect(relics).toHaveLength(287)
-    expect(buildRelicDatabaseViewResult(relics, defaults).relics).toHaveLength(287)
+    expect(relics).toHaveLength(294)
+    expect(buildRelicDatabaseViewResult(relics, defaults).relics).toHaveLength(294)
   })
 
   it('searches aliases, owner Awakeners, and facets', () => {
@@ -129,5 +129,18 @@ describe('buildRelicDatabaseViewResult', () => {
     ).relics
 
     expect(sorted.map((relic) => relic.name)).toEqual(['Dream', '"Memory"'])
+  })
+
+  it('ignores decorative Unicode stars for alphabetical order', () => {
+    const fixture = relics[0]
+    const sorted = buildRelicDatabaseViewResult(
+      [
+        {...fixture, id: 'relic-sort-zulu', name: '☆Zulu☆'},
+        {...fixture, id: 'relic-sort-alpha', name: 'Alpha'},
+      ],
+      {...defaults, sortKey: 'ALPHABETICAL'},
+    ).relics
+
+    expect(sorted.map((relic) => relic.name)).toEqual(['Alpha', '☆Zulu☆'])
   })
 })

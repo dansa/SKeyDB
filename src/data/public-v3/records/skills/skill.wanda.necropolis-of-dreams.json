@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0052",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield and [Counterattack:Arg2] stacks of {Counter}. The next {Leap} this turn is guaranteed to trigger. Choose to consume {Dreamlure} stacks to trigger {Slumber Counter} or {Echoes of Whispers}. If the number of {Dreamlure} stacks is less than 5, obtain 1 stack of {Dreamlure}.",
   "descriptionArgs": {
     "Arg1": {
@@ -31,6 +33,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "Her capital is an ever-expanding ruin.\nDreams die here completely, but the ruin remains oblivious. It simply expands as it is meant to.\nThe world has long forgotten it.",
   "upgrades": [
     {
       "id": "upgrade.talent.wanda.revelation.skill.wanda.necropolis-of-dreams",

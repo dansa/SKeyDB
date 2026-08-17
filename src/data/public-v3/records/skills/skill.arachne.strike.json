@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0056",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Arachne gains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,5 +26,6 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "When the first thread descended, Fate had already proclaimed its verdict.",
   "ownerAwakenerName": "Arachne"
 }

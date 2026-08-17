@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0059",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG [Arg3] times. Lotan: Cetarchon gains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -28,6 +30,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "The arcs traced by her bone blades are forever poised and elegant.\nTo deliver every strike with absolute focus is her ultimate respect—both for her opponents, and for the art of battle itself.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.lotan-cetarchon.ceaseless-warlust.skill.lotan-cetarchon.strike",

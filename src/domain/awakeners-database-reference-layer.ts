@@ -223,6 +223,7 @@ export function buildAwakenerDatabaseReferenceLayer({
   )
 
   return {
+    resolutionScope: 'owner',
     cardNames: new Set([
       ...collectAwakenerDatabaseCardNames(shellView.resolvedRecord, globalDerivedSkills),
       ...wheelReferenceInfos.map((info) => info.name),

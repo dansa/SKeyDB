@@ -1,6 +1,6 @@
 import type {CSSProperties, ReactNode} from 'react'
 
-interface DatabaseLoreMarkupTextProps {
+interface GameLoreMarkupTextProps {
   text: string
   keyPrefix?: string
 }
@@ -128,7 +128,7 @@ function findNextLoreMarkup(text: string, startIndex: number): LoreMarkupMatch |
   return null
 }
 
-function DatabaseLoreRedaction({level}: {level: 1 | 2 | 3 | 4}) {
+function GameLoreRedaction({level}: {level: 1 | 2 | 3 | 4}) {
   const glyphs = LORE_REDACTION_GLYPH_SETS[level]
 
   return (
@@ -146,7 +146,7 @@ function DatabaseLoreRedaction({level}: {level: 1 | 2 | 3 | 4}) {
             aria-hidden='true'
             data-glyph-key={glyphKey}
             data-lore-redaction-glyph=''
-            key={buildLoreKey('database-lore-redaction-glyph', level, glyphIndex)}
+            key={buildLoreKey('game-lore-redaction-glyph', level, glyphIndex)}
             style={getLoreRedactionGlyphStyle(glyph.width)}
             viewBox={glyph.viewBox}
           >
@@ -189,11 +189,7 @@ function appendLoreTextNode(
   })
 }
 
-function buildDatabaseLoreInlineNodes(
-  text: string,
-  keyPrefix: string,
-  wrapText = true,
-): ReactNode[] {
+function buildGameLoreInlineNodes(text: string, keyPrefix: string, wrapText = true): ReactNode[] {
   const nodes: ReactNode[] = []
   let lastIndex = 0
   let partIndex = 0
@@ -209,14 +205,14 @@ function buildDatabaseLoreInlineNodes(
 
     if (rawToken.startsWith('@')) {
       nodes.push(
-        <DatabaseLoreRedaction
+        <GameLoreRedaction
           key={buildLoreKey(keyPrefix, 'redaction', partIndex)}
           level={Number(rawToken.slice(1)) as 1 | 2 | 3 | 4}
         />,
       )
     } else if (wrappedTagName.length > 0) {
       const tagName = wrappedTagName.toLowerCase()
-      const content = buildDatabaseLoreInlineNodes(
+      const content = buildGameLoreInlineNodes(
         wrappedTagContent,
         buildLoreKey(keyPrefix, 'tag', partIndex, wrappedTagName),
         false,
@@ -257,9 +253,9 @@ function buildDatabaseLoreInlineNodes(
   return nodes
 }
 
-export function DatabaseLoreMarkupText({
+export function GameLoreMarkupText({
   text,
-  keyPrefix = 'database-lore-markup',
-}: DatabaseLoreMarkupTextProps) {
-  return <>{buildDatabaseLoreInlineNodes(text, keyPrefix)}</>
+  keyPrefix = 'game-lore-markup',
+}: GameLoreMarkupTextProps) {
+  return <>{buildGameLoreInlineNodes(text, keyPrefix)}</>
 }

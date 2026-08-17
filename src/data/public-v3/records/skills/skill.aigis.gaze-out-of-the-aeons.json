@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0003",
   "slot": "OverExalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["over_exalt"],
   "descriptionTemplate": "All Awakeners' Final DMG +25% this turn.",
   "descriptionArgs": {},
   "cardKeywords": [],

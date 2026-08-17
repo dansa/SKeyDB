@@ -10,6 +10,8 @@
   "ownerAwakenerId": "awakener-0025",
   "derivedFromId": "skill.jenkins.mice-assemble",
   "rootSkillId": "skill.jenkins.mice-assemble",
+  "cardFamily": "command",
+  "cardTypes": ["derived"],
   "descriptionTemplate": "Deal [Damage:Arg2] DMG to a random enemy [Arg1] {plural:[Arg1]|time|times}.",
   "descriptionArgs": {
     "Arg1": {

@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0054",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "[{Devour}: Temporarily reduce all enemies' {STR▼} by [Exhaustion:Arg1].] Gain [Arg2] Arithmetica and inflict [{Poison}:Arg3] {plural:[{Poison}:Arg3]|stack|stacks} of {Poison} on all enemies. Choose: {Betroth} or {Enthrall}.\n{overlay:Spellbound}",
   "descriptionArgs": {
     "Arg1": {
@@ -30,6 +32,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "Throughout the ages, the word \"Love\" has been nothing more than a siren's song, beckoning souls toward a sea of sin from which they refuse to return.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.xu.nirvanas-kiss.skill.xu.mist-bound-vow",

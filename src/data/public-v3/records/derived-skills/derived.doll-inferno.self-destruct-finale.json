@@ -10,6 +10,8 @@
   "ownerAwakenerId": "awakener-0018",
   "derivedFromId": "derived.doll-inferno.illusions-end",
   "rootSkillId": "skill.doll-inferno.self-destruct",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Max HP reduced by 10%. Trigger the {Elation} and {Curse} effects.",
   "descriptionArgs": {},
   "cardKeywords": [],

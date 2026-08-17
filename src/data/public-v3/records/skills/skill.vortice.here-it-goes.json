@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0055",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Vortice gains [Arg5]% Base Aliemus. {Rouse}: Draw 1 {Reload!}. After Vortice Unleashes a {Pursuit}, the next Vortice Exalt additionally gains [Arg2]% {Tentacle DMG} Bonus, stacking up to [Arg3] times.",
   "descriptionArgs": {
     "Arg2": {
@@ -32,6 +34,7 @@
     }
   ],
   "cost": "2",
+  "lore": "She bounds onto the battlefield, a fearsome cannon swinging cheerfully at her side. No worry or danger carries weight, for compared to the bond of friendship, all else is insignificant. Friends in trouble! Vortice takes the stage!",
   "upgrades": [
     {
       "id": "upgrade.enlighten.vortice.bang-pop-boom.skill.vortice.here-it-goes",

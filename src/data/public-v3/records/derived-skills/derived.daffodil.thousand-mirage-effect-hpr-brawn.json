@@ -10,6 +10,8 @@
   "ownerAwakenerId": "awakener-0012",
   "derivedFromId": "derived.daffodil.thousand-mirage-extra-effects",
   "rootSkillId": "skill.daffodil.sea-of-primordial-essence",
+  "cardFamily": "command",
+  "cardTypes": ["derived"],
   "descriptionTemplate": "Enjoys an additional 4× {STR} bonus. Obtain [Power:Arg1] {STR}.",
   "descriptionArgs": {
     "Arg1": {

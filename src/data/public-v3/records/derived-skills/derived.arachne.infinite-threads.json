@@ -10,6 +10,8 @@
   "ownerAwakenerId": "awakener-0056",
   "derivedFromId": "skill.arachne.moira-as-i-decree",
   "rootSkillId": "skill.arachne.moira-as-i-decree",
+  "cardFamily": "pursuit",
+  "cardTypes": ["pursuit"],
   "descriptionTemplate": "Gain 5 Temporary stacks of {Singularity Prism}, and inflict [FateCut:Arg2] {Final Verdict} on the enemy with lowest HP.",
   "descriptionArgs": {
     "Arg2": {

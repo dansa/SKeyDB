@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0025",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Place [Arg1] additional {Exhaust} {Get 'em! Brown!} into hand with an Arithmetica Cost of 0. Temporary Crit. DMG +[Arg2]%.",
   "descriptionArgs": {
     "Arg1": {
@@ -23,6 +25,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "It's hard to say whether the children known as \"street rats\" accepted the rats, or the real rats accepted the street children, but this bond born out of necessity has become unbreakable over the years.\nWho can say that animals are not humanity's best friends?",
   "upgrades": [
     {
       "id": "upgrade.enlighten.jenkins.obsidian-dissolution.skill.jenkins.mistborn-street-urchin",

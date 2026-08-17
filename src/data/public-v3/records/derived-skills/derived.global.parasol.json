@@ -7,6 +7,8 @@
     "slug": "parasol",
     "canonicalPath": "/database/derived-skills/parasol"
   },
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
   "descriptionTemplate": "Gain [Arg1] Temporary {Alert}.",
   "descriptionArgs": {
     "Arg1": {

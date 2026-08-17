@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0021",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Goliath gains [Energy:Arg1] Aliemus. {Rouse}: Gain 1 Tentacle. When Goliath deals DMG, gain [Power:Arg2] {STR} and [TentaclePower:Arg3] {Tentacle DMG}.",
   "descriptionArgs": {
     "Arg1": {
@@ -34,6 +36,7 @@
     }
   ],
   "cost": "3",
+  "lore": "He proudly displays his scars: deep ones from battlefield clashes, shallow ones from daily training and sparring.\nThese are the marks of a hero, his pride.\nBut don't ask about the scar on his neck; it signifies both the beginning of his strength and the source of his shame.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.goliath.ascent-of-the-tyrant.skill.goliath.preemptive-revenge",

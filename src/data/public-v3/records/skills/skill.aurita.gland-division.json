@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0005",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Shuffle [Arg2] {Gland Division} into the Discard Pile. {Aftershock}: Gain [Energy:Arg3] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -28,6 +30,7 @@
   },
   "cardKeywords": [],
   "cost": "0",
+  "lore": "There exists a special type of jellyfish in the world. After being injured, its detached tissue can regenerate into a complete hydroid body.\n\"Aurita can also produce jellyfish! So Aurita is also a jellyfish!\"\nAt this stage of a child's understanding of the world, it's better not to dampen her enthusiasm.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.aurita.slick-slide-adventure.skill.aurita.gland-division",

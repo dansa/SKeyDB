@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0029",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Lily gains [Energy:Arg1] Aliemus. {Rouse}: At turn start, gain 10% Max HP:{Endure}. When Lily applies a Shield, inflict [{Poison}:Arg2] {plural:[{Poison}:Arg2]|stack|stacks} of {Poison} on the enemy with the highest HP.",
   "descriptionArgs": {
     "Arg1": {
@@ -28,6 +30,7 @@
     }
   ],
   "cost": "2",
+  "lore": "Protect me. Protect me. Protect me.\nCowardly monsters, like her, seem to possess life yet lack consciousness.\nDark slime converges into her minions, ceaselessly driven by commands day and night.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.lily.lilium-immaculatum.skill.lily.slime-convergence",

@@ -13,6 +13,7 @@ import {resolveDatabaseDetailDefaultSelection} from '@/domain/database-detail-pr
 import {buildPublicFormulaContext} from '@/domain/public-formula-context'
 import {collectionOwnershipStore} from '@/stores/collectionOwnershipStore'
 
+import {useAwakenerDetailSession} from './awakener-detail-session'
 import {useDatabaseDetailPreferences} from './useDatabaseDetailPreferences'
 
 interface UseAwakenerDetailDatabaseStateOptions {
@@ -20,11 +21,9 @@ interface UseAwakenerDetailDatabaseStateOptions {
 }
 
 export function useAwakenerDetailDatabaseState({fullData}: UseAwakenerDetailDatabaseStateOptions) {
+  const detailSession = useAwakenerDetailSession()
   const {preferences, updateAwakenerPreferences, updateSharedPreferences} =
     useDatabaseDetailPreferences()
-  useEffect(() => {
-    collectionOwnershipStore.getState().hydrate()
-  }, [])
   const collectionOwnership = useStore(collectionOwnershipStore, (state) => state.ownership)
   const formulaContext = useMemo(
     () =>
@@ -39,17 +38,28 @@ export function useAwakenerDetailDatabaseState({fullData}: UseAwakenerDetailData
     () => resolveDatabaseDetailDefaultSelection(fullData, preferences),
     [fullData, preferences],
   )
-  const [selection, setSelection] = useState(defaultSelection)
-  const previousRecordIdRef = useRef(fullData.id)
+  const selectionSessionKey = detailSession?.key ?? String(fullData.id)
+  const persistedSelection =
+    detailSession?.key === selectionSessionKey ? detailSession.selection : null
+  const [selectionState, setSelectionState] = useState(() => ({
+    key: selectionSessionKey,
+    selection: persistedSelection ?? defaultSelection,
+  }))
+  const selection =
+    selectionState.key === selectionSessionKey
+      ? selectionState.selection
+      : (persistedSelection ?? defaultSelection)
+  const selectionRef = useRef(selection)
 
   useEffect(() => {
-    if (previousRecordIdRef.current === fullData.id) {
-      return
-    }
+    selectionRef.current = selection
+  }, [selection])
 
-    previousRecordIdRef.current = fullData.id
-    setSelection(defaultSelection)
-  }, [defaultSelection, fullData.id])
+  useEffect(() => {
+    if (detailSession?.selection === null) {
+      detailSession.onSelectionChange(selection)
+    }
+  }, [detailSession, selection])
 
   const resolvedDatabaseState = useMemo(
     () => resolveAwakenerDatabaseState(fullData, selection, {formulaContext}),
@@ -69,11 +79,16 @@ export function useAwakenerDetailDatabaseState({fullData}: UseAwakenerDetailData
 
   const handlePatchSelection = useCallback(
     (nextPartial: Partial<AwakenerDatabaseSelection>) => {
-      setSelection((previousSelection) =>
-        patchAwakenerDatabaseSelection(fullData, previousSelection, nextPartial),
+      const nextSelection = patchAwakenerDatabaseSelection(
+        fullData,
+        selectionRef.current,
+        nextPartial,
       )
+      selectionRef.current = nextSelection
+      setSelectionState({key: selectionSessionKey, selection: nextSelection})
+      detailSession?.onSelectionChange(nextSelection)
     },
-    [fullData],
+    [detailSession, fullData, selectionSessionKey],
   )
 
   const handleToggleEnlightenSlot = useCallback(

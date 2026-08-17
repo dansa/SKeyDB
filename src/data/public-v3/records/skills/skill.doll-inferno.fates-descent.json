@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0018",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Obtain [Energy:Arg1] Aliemus. Recover [Heal:Arg2] HP, and recover an additional time for every 50 Aliemus currently possessed.\n{Fate's Descent: Finale}",
   "descriptionArgs": {
     "Arg1": {
@@ -24,5 +26,6 @@
   },
   "cardKeywords": [],
   "cost": "3",
+  "lore": "The ants scurry across the cathedral of creation, murmuring their fragile hypotheses. Pathetic. Amusing.\nEvery conviction shatters like bone. Memories and warmth? Merely shadows, smeared across the glass of the singularity.\nWhen the universe drew its first, shuddering breath, there was nothing.",
   "ownerAwakenerName": "Doll: Inferno"
 }

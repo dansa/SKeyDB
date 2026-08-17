@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0052",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Wanda gains [Energy:Arg1] Aliemus. {Rouse}: Immediately gain 5 stacks of {Dreamlure}. Gain 1 stack of {Dreamlure} At turn start. Whenever {Dreamlure} reaches 5 or 10 stacks, gain [Block:Arg2] Shield.",
   "descriptionArgs": {
     "Arg1": {
@@ -28,6 +30,7 @@
     }
   ],
   "cost": "1",
+  "lore": "They are beauty, joy, and soft brick walls.\nYoung bodies twist into incredible poses, stacked high toward the sky.\nShh—don't cry, keep smiling. Just like you did for the queen on countless summer nights.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.wanda.black-stone-decree.skill.wanda.living-deads-delirium",

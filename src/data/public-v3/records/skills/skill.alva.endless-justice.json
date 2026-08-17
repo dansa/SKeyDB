@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0004",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield. Discard all Symptom Cards and State Cards from hand, and draw a number of cards equal to the quantity discarded.{Vulnerable} All enemies for 1 turn.",
   "descriptionArgs": {
     "Arg1": {
@@ -20,6 +22,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "She now knows the truth hidden beneath the crisp uniforms and shiny new weapons.\nSo-called \"help\" is merely a disguise for oppression, and \"conquest\" is nothing but a banner for invasion.\nRaising her weapon high, she illuminates the five the Star of Light—justice, fairness, protection, liberation, and Hidden Truth—driving away the shadows of injustice.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.alva.relentless-fighter.skill.alva.endless-justice",

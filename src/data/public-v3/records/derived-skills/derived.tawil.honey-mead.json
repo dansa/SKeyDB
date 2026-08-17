@@ -10,6 +10,8 @@
   "ownerAwakenerId": "awakener-0047",
   "derivedFromId": "derived.tawil.memories",
   "rootSkillId": "skill.tawil.pinions-of-time",
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
   "descriptionTemplate": "Obtain 1 stack of Temporary {Barrier}.",
   "descriptionArgs": {},
   "cardKeywords": [],

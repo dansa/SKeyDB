@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0053",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield, discard all cards in hand, and for each card discarded, the Shield gained +50%. {Leap}: Do not discard cards and draw 1 card; the Shield gained +100%.",
   "descriptionArgs": {
     "Arg1": {
@@ -20,6 +22,7 @@
   },
   "cardKeywords": [],
   "cost": "3",
+  "lore": "Even after witnessing the destruction of her homeland, and even after everything she knows has vanished under the devouring force of dissolution, she refuses to give up her search. The locator emits a searching light, attempting to find those who share her home.\nThere must be someone, there must be someone.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.winkle.forsaken-homeland.skill.winkle.psyche-reforged",

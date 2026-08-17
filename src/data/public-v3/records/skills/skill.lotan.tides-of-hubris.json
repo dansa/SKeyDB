@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0031",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies, obtain [Power:Arg2] {STR}.",
   "descriptionArgs": {
     "Arg1": {
@@ -26,6 +28,7 @@
   },
   "cardKeywords": [],
   "cost": "2",
+  "lore": "Besides the most ancient Chaos, nothing can fuse seawater with flames.\nGo and search to verify. Chase the desert spires, seek the lost underwater city, and climb the boundless mountains.\nI assure you, nothing is older than Lotan.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.lotan.surging-warlust.skill.lotan.tides-of-hubris",
@@ -50,7 +53,8 @@
             "stat": "ATK",
             "suffix": "%"
           }
-        }
+        },
+        "countsAs": ["strike"]
       }
     }
   ],

@@ -1,4 +1,4 @@
-import {useEffect, useMemo} from 'react'
+import {useMemo} from 'react'
 
 import {useStore} from 'zustand'
 
@@ -58,9 +58,6 @@ function SimpleArtifactDetailModalInner({
   onSelectAwakener,
 }: SimpleArtifactDetailModalProps) {
   const {preferences, updateSharedPreferences} = useDatabaseDetailPreferences()
-  useEffect(() => {
-    collectionOwnershipStore.getState().hydrate()
-  }, [])
   const collectionOwnership = useStore(collectionOwnershipStore, (state) => state.ownership)
   const formulaContext = useMemo(
     () =>

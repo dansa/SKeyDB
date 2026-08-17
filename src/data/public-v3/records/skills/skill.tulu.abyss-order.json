@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0050",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Deal [Damage:Arg1] {Pierce DMG} to all enemies, additionally gaining [Arg3]% {Tentacle DMG} and {STR} bonus. Command all Tentacles to attack [Arg2] {plural:[Arg2]|time|times}, dealing [Arg4]% {Pierce DMG}. {Aftershock}: Command 1 Tentacle to attack.",
   "descriptionArgs": {
     "Arg1": {
@@ -38,6 +40,7 @@
   },
   "cardKeywords": [],
   "cost": "4",
+  "lore": "To which god those Tentacles belong is unknown.\nThey come from the Abyss, they dwell in the ocean, they roam and grow—all under the command of the Lemuria Ruler.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.tulu.nocturnal-murmurs.skill.tulu.abyss-order",

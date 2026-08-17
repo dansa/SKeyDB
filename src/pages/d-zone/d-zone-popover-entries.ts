@@ -7,12 +7,9 @@ import {
   type PublicRelicRecord,
   type PublicRelicVariant,
 } from '@/domain/relics'
+import type {DatabasePopoverEntry} from '@/features/database/popover'
 
-import type {KeyedDatabaseReferenceEntry} from './database-reference-entry'
-
-type DatabaseDescriptionSection = NonNullable<
-  KeyedDatabaseReferenceEntry['descriptionSections']
->[number]
+type DatabaseDescriptionSection = NonNullable<DatabasePopoverEntry['descriptionSections']>[number]
 
 type DzoneRelicEffectRecord = Pick<
   PublicRelicRecord | PublicRelicVariant,
@@ -168,7 +165,7 @@ export function buildDzoneMonsterPopoverEntry({
 }: {
   monster: DzoneResolvedMonster
   thumbnailSrc?: string
-}): KeyedDatabaseReferenceEntry {
+}): DatabasePopoverEntry {
   const descriptionText = getMonsterDescriptionText(monster)
 
   return {
@@ -203,7 +200,7 @@ export function buildDzoneRelicPopoverEntry({
   record: PublicRelicRecord
   variantId?: string
   thumbnailSrc?: string
-}): KeyedDatabaseReferenceEntry {
+}): DatabasePopoverEntry {
   const variant = variantId ? getRelicVariantById(record, variantId) : undefined
   if (variantId && !variant) {
     throw new Error(`Relic family "${record.id}" does not contain variant "${variantId}".`)
@@ -246,7 +243,7 @@ export async function loadDzoneRelicPopoverEntry({
   relicId: string
   variantId?: string
   thumbnailSrc?: string
-}): Promise<KeyedDatabaseReferenceEntry | undefined> {
+}): Promise<DatabasePopoverEntry | undefined> {
   const record = await loadRelicRecordById(relicId)
   return record ? buildDzoneRelicPopoverEntry({record, variantId, thumbnailSrc}) : undefined
 }

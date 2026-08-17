@@ -41,6 +41,7 @@ export interface DatabaseReferenceInfo<TRecord extends DescribedRecord = Describ
 }
 
 export interface DatabaseReferenceLayer {
+  resolutionScope?: 'global' | 'owner'
   cardNames: Set<string>
   accessibleOverlays: AwakenerOverlayRecord[]
   referenceInfoByName: Map<string, DatabaseReferenceInfo>

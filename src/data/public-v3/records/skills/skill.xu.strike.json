@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0054",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Xu obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "<Italic:\"Old and strange, strange and old! The dead wife crawls from the midnight mold.\nThat faithless rake, so bold and cruel— We'll toss him in the pot to boil.\">",
   "upgrades": [
     {
       "id": "upgrade.enlighten.xu.fan-and-scythe.skill.xu.strike",

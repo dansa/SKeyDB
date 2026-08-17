@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0002",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG and equal {Poison}. Whenever {Devour} is triggered, move {Colorless Spiral} from the Discard Pile to your hand.",
   "descriptionArgs": {
     "Arg1": {
@@ -20,6 +22,7 @@
   },
   "cardKeywords": [],
   "cost": "2",
+  "lore": "Her maze extends to every corner of the world.\nThere are entrances in dense forests, beneath libraries, and under the sea.\nBy relying on those unfortunate souls who wander into the maze, she barely manages to sketch out an outline of the world.\nTravelers lose themselves in the ever-twisting passages, while she becomes lost in the constantly shifting stories.\nShe knows everything, yet she can never leave the maze.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.agrippa.spider-queens-kiss.skill.agrippa.colorless-spiral",

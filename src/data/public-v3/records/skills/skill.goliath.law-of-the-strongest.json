@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0021",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Gain [Power:Arg1] {STR}. Temporarily remove all enemies' {STR}.",
   "descriptionArgs": {
     "Arg1": {
@@ -20,6 +22,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "Warm blood rolled down his cheek. He grinned, revealing razor-sharp fangs.\nThe law of the jungle is the foundation of the world, and he will be the eternal hunter.\nHe stepped over the corpses, roaring in triumph.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.goliath.rule-by-the-strongest.skill.goliath.law-of-the-strongest",

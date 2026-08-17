@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0009",
   "slot": "Defense",
+  "cardFamily": "command",
+  "cardTypes": ["defense"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield. Celeste gains [Energy:Arg2] Aliemus. Activate 1 Tentacle to attack the enemy, dealing [Arg3]% {Tentacle DMG}.",
   "descriptionArgs": {
     "Arg1": {
@@ -33,6 +35,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "There's no need to fear the raging storm; she will grant you her protection.",
   "upgrades": [
     {
       "id": "upgrade.talent.celeste.voyage-horn.skill.celeste.defense",

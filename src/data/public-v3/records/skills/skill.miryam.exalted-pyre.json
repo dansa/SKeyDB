@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0032",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Deal [Damage:Arg1] {Pierce DMG} and inflict an equal amount of {Poison}. {Ritual}: Gain [Power:Arg3]/[Power:Arg4]/[Power:Arg5] {STR} and [TentaclePower:Arg3]/[TentaclePower:Arg4]/[TentaclePower:Arg5] {Tentacle DMG}.",
   "descriptionArgs": {
     "Arg1": {
@@ -38,6 +40,7 @@
   },
   "cardKeywords": [],
   "cost": "2",
+  "lore": "Blood is the bond with the divine.\nThe return of the land of the gods is destined to be built upon the purest and most perfect sacrifices.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.miryam.solitary-pilgrimage.skill.miryam.exalted-pyre",

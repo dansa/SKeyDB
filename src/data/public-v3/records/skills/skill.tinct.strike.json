@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0049",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Tinct obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "Her singing is her weapon.\nThis weapon accompanies her as she wanders alone beneath the starlit sky.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.tinct.stellar-reverberation.skill.tinct.strike",

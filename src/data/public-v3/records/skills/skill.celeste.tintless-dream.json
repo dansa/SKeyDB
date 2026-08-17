@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0009",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Heal [Heal:Arg1] HP. Gain [Arg2] Arithmetica and dispel hand {Stagnation} state. Trigger 1 Tentacle Attack on the enemy, dealing [Arg3]% {Tentacle DMG}.",
   "descriptionArgs": {
     "Arg1": {
@@ -37,6 +39,7 @@
     }
   ],
   "cost": "0",
+  "lore": "In the gentle sea breeze, she drifted off to sleep but was startled awake by the sound of flapping wings. A pure white bird soared over her head and disappeared into the equally white clouds.\nIt must have been a dream. How could a lone bird appear here, deep in the ocean far from land?\nShe thought this way, yet couldn't help but feel a sense of hope and longing.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.celeste.ancestral-beacon.skill.celeste.tintless-dream",

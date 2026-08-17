@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0048",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Choose 1 other Awakeners to grant both this Awakener and {The Chosen One} [Energy:Arg1] Aliemus. Obtain [Power:Arg2] {STR}.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "2",
+  "lore": "Will a soft touch make you feel love?\nWill warm breaths make you yearn for me?\nIs this caress, surrounded by pearls and silk, a gift to you?",
   "upgrades": [
     {
       "id": "upgrade.enlighten.thais.forests-embrace.skill.thais.ancient-caress",

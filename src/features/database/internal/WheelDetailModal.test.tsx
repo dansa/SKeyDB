@@ -10,6 +10,8 @@ import {
 } from '@/domain/wheel-mainstat-scaling'
 import type {Wheel} from '@/domain/wheels'
 import type {WheelFullRecord} from '@/domain/wheels-full'
+import {collectionOwnershipStore} from '@/stores/collectionOwnershipStore'
+import {preferencesStore} from '@/stores/preferencesStore'
 
 import {WheelDetailModal} from './WheelDetailModal'
 
@@ -68,11 +70,19 @@ function makeWheelFullRecord(overrides: Partial<WheelFullRecord> = {}): WheelFul
   }
 }
 
+function setModalViewport(width: number) {
+  Object.defineProperty(window, 'innerWidth', {configurable: true, value: width})
+  fireEvent(window, new Event('resize'))
+}
+
 describe('WheelDetailModal', () => {
   beforeEach(() => {
+    setModalViewport(1024)
     mockGetWheelAssetById.mockReset()
     mockGetWheelAssetById.mockReturnValue('/wheel.webp')
     window.localStorage.clear()
+    collectionOwnershipStore.getState().hydrate()
+    preferencesStore.getState().hydrateDatabaseDetailPreferences()
   })
 
   it('uses the wheel-specific enhance scaling tiers for description and mainstat values', () => {
@@ -273,6 +283,31 @@ describe('WheelDetailModal', () => {
     )
   })
 
+  it('uses the Enlighten symbols as exact E1 through E3 shortcuts', () => {
+    render(
+      <WheelDetailModal
+        fullData={makeWheelFullRecord()}
+        onClose={vi.fn()}
+        wheel={makeWheel()}
+        wheels={[makeWheel()]}
+      />,
+    )
+
+    const slider = screen.getByRole('slider', {name: /enhance/i})
+
+    fireEvent.click(screen.getByRole('button', {name: 'Set Wheel to E2'}))
+    expect(slider).toHaveAttribute('aria-valuetext', 'E2')
+
+    fireEvent.change(slider, {target: {value: '7'}})
+    expect(slider).toHaveAttribute('aria-valuetext', 'E3 + 4')
+
+    fireEvent.click(screen.getByRole('button', {name: 'Set Wheel to E3'}))
+    expect(slider).toHaveAttribute('aria-valuetext', 'E3')
+
+    fireEvent.click(screen.getByRole('button', {name: 'Set Wheel to E1'}))
+    expect(slider).toHaveAttribute('aria-valuetext', 'E1')
+  })
+
   it('updates default wheel progression for the next wheel without changing the current live state', async () => {
     const firstWheel = makeWheel()
     const secondWheel = makeWheel({
@@ -427,9 +462,11 @@ describe('WheelDetailModal', () => {
     ).toBeInTheDocument()
 
     fireEvent.click(screen.getByRole('button', {name: 'Open detail settings'}))
-    fireEvent.change(screen.getByRole('spinbutton', {name: 'Account level'}), {
+    const accountLevelInput = screen.getByRole('spinbutton', {name: 'Account level'})
+    fireEvent.change(accountLevelInput, {
       target: {value: '70'},
     })
+    fireEvent.blur(accountLevelInput)
 
     expect(window.localStorage.getItem('database-detail-preferences')).toContain(
       '"accountLevel":70',
@@ -504,6 +541,7 @@ describe('WheelDetailModal', () => {
         },
       }),
     )
+    preferencesStore.getState().hydrateDatabaseDetailPreferences()
 
     render(
       <WheelDetailModal
@@ -568,6 +606,27 @@ describe('WheelDetailModal', () => {
     )
 
     expect(screen.getAllByText('No Image').length).toBeGreaterThan(0)
+  })
+
+  it('mounts exactly one artwork variant across the modal breakpoint', () => {
+    render(
+      <WheelDetailModal
+        fullData={makeWheelFullRecord()}
+        onClose={vi.fn()}
+        wheel={makeWheel()}
+        wheels={[makeWheel()]}
+      />,
+    )
+
+    expect(document.querySelector('[data-wheel-artwork-variant="sidebar"]')).not.toBeNull()
+    expect(document.querySelector('[data-wheel-artwork-variant="compact"]')).toBeNull()
+    expect(document.querySelectorAll('img[src="/wheel.webp"]')).toHaveLength(1)
+
+    setModalViewport(767)
+
+    expect(document.querySelector('[data-wheel-artwork-variant="sidebar"]')).toBeNull()
+    expect(document.querySelector('[data-wheel-artwork-variant="compact"]')).not.toBeNull()
+    expect(document.querySelectorAll('img[src="/wheel.webp"]')).toHaveLength(1)
   })
 
   it('opens the full wheel art overlay and closes it on backdrop click', () => {

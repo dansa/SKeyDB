@@ -5,7 +5,6 @@ import {useDetailModalChrome} from '@/ui/modal/useDetailModalChrome'
 interface UseAwakenerDetailChromeOptions {
   isSearchOpen: boolean
   searchContainerRef: RefObject<HTMLDivElement | null>
-  searchInputRef: RefObject<HTMLInputElement | null>
   closeSearch: (blurInput?: boolean) => void
   hasOpenPopovers: boolean
   closeAllPopovers: () => void
@@ -16,7 +15,6 @@ interface UseAwakenerDetailChromeOptions {
 export function useAwakenerDetailChrome({
   isSearchOpen,
   searchContainerRef,
-  searchInputRef,
   closeSearch,
   hasOpenPopovers,
   closeAllPopovers,
@@ -31,7 +29,6 @@ export function useAwakenerDetailChrome({
     isSearchOpen,
     onClose,
     searchContainerRef,
-    searchInputRef,
   })
 
   return {

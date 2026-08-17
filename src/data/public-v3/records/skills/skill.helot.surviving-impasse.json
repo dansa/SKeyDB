@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0023",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "[{Devour}: Draw [Arg1] \"Strike\" cards, Temporary Hand Limit +2, increase the Base DMG of Helot's \"Strike\" by [Arg3]% for this battle.] Dispel self {Weakness} and Temporary {STR} debuffs. In this turn, \"Strike\" Final DMG +[Arg2]%, Helot's DMG output +[Arg4]%.",
   "descriptionArgs": {
     "Arg1": {
@@ -38,6 +40,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "She once fell from the apex, turning past glory into today's shame.\nAfter being expelled from the courtyard of the Lady Regent, Helot became an indistinguishable slave among many, enduring abuse at the hands of Spartan jailers. Yet even in such a desperate situation, she never succumbed to despair or lethargy.\nIn her chest burned only unending hatred.\nThe spiked chains around her neck were ruthlessly shattered, unleashing the power within, and her true face was about to be revealed.\nFrom now on, cleanse your neck daily and await my vengeance.",
   "upgrades": [
     {
       "id": "upgrade.talent.helot.pain-sigil.skill.helot.surviving-impasse",

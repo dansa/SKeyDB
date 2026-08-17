@@ -11,6 +11,7 @@ interface WheelGridCardProps {
   index: number
   onPreload?: (wheelId: string) => void
   onSelect: (wheelId: string) => void
+  onWarmShell?: () => void
   variant?: HybridDatabaseCardMode
 }
 
@@ -37,6 +38,7 @@ export function WheelGridCard({
   index,
   onPreload,
   onSelect,
+  onWarmShell,
   variant = 'poster',
 }: WheelGridCardProps) {
   const asset = getWheelAssetById(wheel.id)
@@ -72,6 +74,7 @@ export function WheelGridCard({
       onSelect={() => {
         onSelect(wheel.id)
       }}
+      onWarmShell={onWarmShell}
       realmAccent={realmAccent}
       variant={variant}
     />

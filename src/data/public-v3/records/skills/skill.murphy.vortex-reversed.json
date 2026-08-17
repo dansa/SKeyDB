@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0034",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies, with a [Arg4]% {Tentacle DMG} bonus. Apply {Weakness} and {Vulnerable} for [Arg2] {plural:[Arg2]|turn|turns}. Remove [Arg3]% {Sacrifice} stacks.",
   "descriptionArgs": {
     "Arg1": {
@@ -34,6 +36,7 @@
   },
   "cardKeywords": [],
   "cost": "3",
+  "lore": "This is my birthright, the last gift of the Lemurian Throne.\n\nNow face your judgment, decayed one: the Reversed Vortex claims you.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.murphy.silent-defiance.skill.murphy.vortex-reversed",

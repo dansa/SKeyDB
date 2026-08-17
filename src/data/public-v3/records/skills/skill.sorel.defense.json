@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0046",
   "slot": "Defense",
+  "cardFamily": "command",
+  "cardTypes": ["defense"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield. Sorel obtains [Energy:Arg3] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -29,6 +31,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "\"Such simple tricks—watch carefully, my esteemed guest.\"",
   "upgrades": [
     {
       "id": "upgrade.enlighten.sorel.flowing-rill.skill.sorel.defense",

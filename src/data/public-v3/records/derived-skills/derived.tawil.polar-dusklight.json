@@ -10,6 +10,8 @@
   "ownerAwakenerId": "awakener-0047",
   "derivedFromId": "derived.tawil.memories",
   "rootSkillId": "skill.tawil.pinions-of-time",
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
   "descriptionTemplate": "Choose 1 card from the Draw Pile or Discard Pile and add it to your hand, reducing its Arithmetica Cost to 0.",
   "descriptionArgs": {},
   "cardKeywords": [],

@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0035",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Murphy: Fauxborn gains [Energy:Arg1] Aliemus. {Rouse}: DMG dealt by Murphy: Fauxborn inflicts [Arg2]% {Sacrifice}. At turn start, gain 1 stack of {Life Seal}.",
   "descriptionArgs": {
     "Arg1": {
@@ -27,6 +29,7 @@
     }
   ],
   "cost": "2",
+  "lore": "She dripped the divine umbilical blood into the sea, praying to the Lord for a voyage that would never reach its destination. As long as the bubbles of dreams persist, she remains the one and only Divine Mother.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.murphy-fauxborn.celestial-resonance.skill.murphy-fauxborn.tidal-sacrament",

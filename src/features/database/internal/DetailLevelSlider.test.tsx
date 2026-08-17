@@ -1,3 +1,5 @@
+import {useState} from 'react'
+
 import {fireEvent, render, screen} from '@testing-library/react'
 import {describe, expect, it, vi} from 'vitest'
 
@@ -64,5 +66,106 @@ describe('DetailLevelSlider', () => {
     )
 
     expect(screen.getByRole('slider')).toHaveAttribute('aria-valuetext', 'Off')
+  })
+
+  it('buffers numeric drafts until Enter and clamps committed values', () => {
+    const onChange = vi.fn()
+
+    render(
+      <DetailLevelSlider label='Awakener Level' level={60} max={90} min={1} onChange={onChange} />,
+    )
+
+    const input = screen.getByRole('spinbutton', {name: 'Awakener Level'})
+    expect(input).toHaveClass('database-buffered-level-input')
+    fireEvent.change(input, {target: {value: ''}})
+    expect(input).toHaveValue(null)
+    expect(onChange).not.toHaveBeenCalled()
+
+    fireEvent.change(input, {target: {value: '120'}})
+    expect(onChange).not.toHaveBeenCalled()
+    fireEvent.keyDown(input, {key: 'Enter'})
+
+    expect(onChange).toHaveBeenCalledWith(90)
+  })
+
+  it('restores the committed numeric value on Escape', () => {
+    const onChange = vi.fn()
+
+    render(
+      <DetailLevelSlider label='Awakener Level' level={60} max={90} min={1} onChange={onChange} />,
+    )
+
+    const input = screen.getByRole('spinbutton', {name: 'Awakener Level'})
+    fireEvent.change(input, {target: {value: '7'}})
+    fireEvent.keyDown(input, {key: 'Escape'})
+
+    expect(input).toHaveValue(60)
+    expect(onChange).not.toHaveBeenCalled()
+  })
+
+  it('keeps the slider and buffered input synchronized', () => {
+    function Harness() {
+      const [level, setLevel] = useState(60)
+      return (
+        <DetailLevelSlider
+          label='Awakener Level'
+          level={level}
+          max={90}
+          min={1}
+          onChange={setLevel}
+        />
+      )
+    }
+
+    render(<Harness />)
+
+    fireEvent.change(screen.getByRole('slider', {name: 'Awakener Level'}), {
+      target: {value: '77'},
+    })
+
+    expect(screen.getByRole('spinbutton', {name: 'Awakener Level'})).toHaveValue(77)
+  })
+
+  it('steps and commits with the wheel while focused without losing focus', () => {
+    function Harness() {
+      const [level, setLevel] = useState(60)
+      return (
+        <DetailLevelSlider
+          label='Awakener Level'
+          level={level}
+          max={90}
+          min={1}
+          onChange={setLevel}
+        />
+      )
+    }
+
+    render(<Harness />)
+
+    const input = screen.getByRole('spinbutton', {name: 'Awakener Level'})
+    input.focus()
+    fireEvent.wheel(input, {deltaY: -100})
+
+    expect(input).toHaveValue(61)
+    expect(input).toHaveFocus()
+    expect(screen.getByRole('slider', {name: 'Awakener Level'})).toHaveValue('61')
+
+    fireEvent.wheel(input, {deltaY: 100})
+    expect(input).toHaveValue(60)
+    expect(input).toHaveFocus()
+  })
+
+  it('leaves ordinary scrolling alone while the numeric input is not focused', () => {
+    const onChange = vi.fn()
+
+    render(
+      <DetailLevelSlider label='Awakener Level' level={60} max={90} min={1} onChange={onChange} />,
+    )
+
+    const input = screen.getByRole('spinbutton', {name: 'Awakener Level'})
+    fireEvent.wheel(input, {deltaY: -100})
+
+    expect(input).toHaveValue(60)
+    expect(onChange).not.toHaveBeenCalled()
   })
 })

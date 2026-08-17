@@ -10,6 +10,8 @@
   "ownerAwakenerId": "awakener-0022",
   "derivedFromId": "derived.hameln.symphony-of-harmony",
   "rootSkillId": "skill.hameln.laudable-masterpiece",
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
   "descriptionTemplate": "The next non-Derived Command Card you play has -2 Arithmetica Cost.",
   "descriptionArgs": {},
   "cardKeywords": [],

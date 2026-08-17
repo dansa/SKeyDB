@@ -8,6 +8,8 @@
     "canonicalPath": "/database/derived-skills/5-countdown"
   },
   "derivedFromId": "derived.global.countdown",
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
   "descriptionTemplate": "Draw 1 card and put {4: Countdown} into the Discard Pile.",
   "descriptionArgs": {},
   "cardKeywords": [],

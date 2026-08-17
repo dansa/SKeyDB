@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0006",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Caecus gains [Energy:Arg1] Aliemus. {Rouse}: Gain 1 Tentacle. Whenever Caecus plays 1 card, restore [Heal:Arg2] HP and gain [Counterattack:Arg3] stacks of {Counter}.",
   "descriptionArgs": {
     "Arg1": {
@@ -34,6 +36,7 @@
     }
   ],
   "cost": "2",
+  "lore": "The time of Metamorphosis has arrived.\nThe inheritors are nobler beings than mortals.\nAbandon family, friends, pain, and all that is past.\nI shall obtain the blessing of glory.\nHis body is covered in scales and thorns.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.caecus.fury-of-the-inchoate.skill.caecus.metamorphosed-body",

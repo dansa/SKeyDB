@@ -7,6 +7,8 @@
     "slug": "private-afternoon",
     "canonicalPath": "/database/derived-skills/private-afternoon"
   },
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
   "descriptionTemplate": "Temporary Crit. DMG +[Arg1]%.",
   "descriptionArgs": {
     "Arg1": {

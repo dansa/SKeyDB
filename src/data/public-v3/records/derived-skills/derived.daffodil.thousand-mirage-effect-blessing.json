@@ -10,6 +10,8 @@
   "ownerAwakenerId": "awakener-0012",
   "derivedFromId": "derived.daffodil.thousand-mirage-extra-effects",
   "rootSkillId": "skill.daffodil.sea-of-primordial-essence",
+  "cardFamily": "command",
+  "cardTypes": ["derived"],
   "descriptionTemplate": "Immune to {Fragile}, {Weakness}, {Vulnerable} for 1 turn. Gain [Block:Arg1] Shield.",
   "descriptionArgs": {
     "Arg1": {

@@ -7,6 +7,8 @@
     "slug": "unyielding-will-beta",
     "canonicalPath": "/database/derived-skills/unyielding-will-beta"
   },
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
   "descriptionTemplate": "Gain [Arg1] {STR}, and put the \"Strike\" of other Awakeners's skills into hand, making their Arithmetica Cost 0.",
   "descriptionArgs": {
     "Arg1": {

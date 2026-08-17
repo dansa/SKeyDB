@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0038",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Ogier gains [Energy:Arg1] Aliemus. {Rouse}: Gain [Power:Arg3] {STR}. After Ogier plays a card, gain [Power:Arg2] {STR}.",
   "descriptionArgs": {
     "Arg1": {
@@ -34,6 +36,7 @@
     }
   ],
   "cost": "2",
+  "lore": "\"Ogier is such a good boy. Why not become my daughter's knight when you grow up? She really likes you.\"\n\"A child of the Viscount's household, huh? The knights won't go easy on you just because you're young.\"\n\"Well done! It seems Ogier might be personally knighted by the princess in the future.\"\n\"Don't retreat! Hold the palace and don't let anyone near the princess!\"\n\"Thank you, Ogier... That's enough. Let me protect you instead...\"",
   "upgrades": [
     {
       "id": "upgrade.enlighten.ogier.deathless-loyalty.skill.ogier.knights-zeal",

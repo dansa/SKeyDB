@@ -169,6 +169,27 @@ describe('AwakenerDetailOverview profile and stories', () => {
     expect(screen.getAllByText(/Arithmetic: Zero points/).length).toBeGreaterThan(0)
   })
 
+  it('connects the mobile story tabs to their panel and supports roving arrow focus', () => {
+    render(<AwakenerDetailLore awakener={TEST_AWAKENER} fullData={TEST_FULL_DATA} />)
+
+    const introTab = screen.getByRole('tab', {name: /Intro/})
+    const storyOneTab = screen.getByRole('tab', {name: /^I$/})
+    const panel = screen.getByRole('tabpanel')
+
+    expect(introTab).toHaveAttribute('aria-controls', panel.id)
+    expect(panel).toHaveAttribute('aria-labelledby', introTab.id)
+    expect(introTab).toHaveAttribute('tabindex', '0')
+    expect(storyOneTab).toHaveAttribute('tabindex', '-1')
+
+    introTab.focus()
+    fireEvent.keyDown(introTab, {key: 'ArrowRight'})
+
+    expect(document.activeElement).toBe(storyOneTab)
+    expect(storyOneTab).toHaveAttribute('aria-selected', 'true')
+    expect(storyOneTab).toHaveAttribute('tabindex', '0')
+    expect(panel).toHaveAttribute('aria-labelledby', storyOneTab.id)
+  })
+
   it('renders story emphasis markup through the wheel lore parser', () => {
     const {container} = render(
       <AwakenerDetailLore awakener={TEST_AWAKENER} fullData={TEST_FULL_DATA} />,

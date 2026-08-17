@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0036",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield. Choose 1 other Awakeners to Gain [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,5 +26,6 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "Nautila's workspace is covered in notes of various sizes. This method, taught by Ms. Sylvia, helps her remember important things.\nBut just like the diary that was only written on one side, these notes all bear the same words: Don't forget.\nSome memories slip away as soon as they are written down.",
   "ownerAwakenerName": "Nautila"
 }

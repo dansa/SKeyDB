@@ -9,6 +9,9 @@
   },
   "ownerAwakenerId": "awakener-0023",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
+  "countsAs": ["strike"],
   "descriptionTemplate": "Lose [Arg1]% Current HP. Deal [Damage:Arg2] DMG to all enemies and an equal amount of {Bleed}. Generate 2 random Awakeners' \"Strike\" cards, place them into hand, and attach {Exhaust}. This card counts as a \"Strike\".",
   "descriptionArgs": {
     "Arg1": {
@@ -25,5 +28,6 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "Helot can't remember when she obtained this strange power.\nOn a starless night, Helot awoke in the prison's muddy ground and noticed black sludge writhing beside her. The black sludge behaved like new limbs, breaking her chains.\nShe recalled the elderly serf imprisoned next to her, the one for whom she had pleaded and ended up jailed. She rushed to check but found only drying bloodstains.\nThat had been her father.\nCeaseless toil hadn't claimed his life, nor had the merciless whips—what claimed his life was her plea for mercy, the slander of informers, and the rulers' blindness to justice...\nHer eyes had long since dried, and what now flowed from them—was only black sludge brimming with hatred.",
   "ownerAwakenerName": "Helot"
 }

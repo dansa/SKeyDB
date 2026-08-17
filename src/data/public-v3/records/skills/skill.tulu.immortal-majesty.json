@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0050",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Tulu gains [Energy:Arg1] Aliemus. {Rouse}: Tentacle Limit +1. For each Arithmetica consumed or each Tulu Command Card discarded, Gain [TentaclePower:Arg2] {Tentacle DMG} and [Power:Arg2] {STR}.",
   "descriptionArgs": {
     "Arg1": {
@@ -28,6 +30,7 @@
     }
   ],
   "cost": "3",
+  "lore": "The young king is constantly listening to the murmurs of the Gods, making it hard for him to escape from his dreams.\nEven so, the fragments left behind when he is awake are enough to govern the country.\nNo matter how passively he tries to avoid it, the dignity bestowed by the people has become his command.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.tulu.lone-king.skill.tulu.immortal-majesty",

@@ -10,6 +10,8 @@
   "ownerAwakenerId": "awakener-0054",
   "derivedFromId": "skill.xu.mist-bound-vow",
   "rootSkillId": "skill.xu.mist-bound-vow",
+  "cardFamily": "command",
+  "cardTypes": ["derived"],
   "descriptionTemplate": "Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Spellbound} on all enemies.",
   "descriptionArgs": {
     "Arg1": {

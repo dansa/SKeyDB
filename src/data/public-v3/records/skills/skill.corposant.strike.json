@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0011",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deals [Damage:Arg1] DMG. Corposant obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -29,6 +31,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "She is the \"head\" of the ship. Whether docking or sailing, she always makes the most rational calculations.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.corposant.lodestars-whisper.skill.corposant.strike",

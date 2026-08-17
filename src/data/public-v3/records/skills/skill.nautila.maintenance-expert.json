@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0036",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Nautila gains [Energy:Arg1] Aliemus. {Rouse}: Shield and {Counter} applied by Nautila +[Arg2]%.",
   "descriptionArgs": {
     "Arg1": {
@@ -27,6 +29,7 @@
     }
   ],
   "cost": "2",
+  "lore": "Pain, pain.\nThe pitch-black, icy pain is one of the few things she remembers.\nIf she had a beautiful, hard shell like those real nautiluses, would it hurt less?",
   "upgrades": [
     {
       "id": "upgrade.enlighten.nautila.ace-mechanist.skill.nautila.maintenance-expert",

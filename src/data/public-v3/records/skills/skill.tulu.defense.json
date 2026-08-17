@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0050",
   "slot": "Defense",
+  "cardFamily": "command",
+  "cardTypes": ["defense"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield. Tulu obtains [Energy:Arg2] Aliemus. {Aftershock}: Command 1 Tentacle to attack.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "If he were his old self, who followed fate, he wouldn't have set up this defense.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.tulu.touch-of-revival.skill.tulu.defense",

@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0027",
   "slot": "Defense",
+  "cardFamily": "command",
+  "cardTypes": ["defense"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield. Kathigu-Ra gains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "Ammo, blades, sorcery... No matter where the attack comes from, burning the carrier before it arrives is the best defense.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.kathigu-ra.everburning-flame.skill.kathigu-ra.defense",

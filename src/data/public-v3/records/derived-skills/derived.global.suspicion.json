@@ -7,6 +7,8 @@
     "slug": "suspicion",
     "canonicalPath": "/database/derived-skills/suspicion"
   },
+  "cardFamily": "curse",
+  "cardTypes": ["curse"],
   "childDerivedSkillIds": ["derived.global.stagger"],
   "descriptionTemplate": "If the Research Team count is 0, this card becomes {Stagger}. If This card is still in hand at turn end, all enemies gain [Arg1] {STR} at the start of next turn.\n{The research team's suspicion of Helot is growing, and you must come up with a way to calm them down before the enemies find you.}",
   "descriptionArgs": {

@@ -10,6 +10,8 @@
   "ownerAwakenerId": "awakener-0032",
   "derivedFromId": "derived.miryam.heretical-faith",
   "rootSkillId": "skill.miryam.testament-of-faith",
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
   "descriptionTemplate": "Gain [Power:Arg1] {STR} and [TentaclePower:Arg1] {Tentacle DMG} at turn start.",
   "descriptionArgs": {
     "Arg1": {

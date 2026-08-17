@@ -8,6 +8,9 @@
     "canonicalPath": "/database/awakeners/lotan-cetarchon/derived-skills/netherblade"
   },
   "ownerAwakenerId": "awakener-0059",
+  "cardFamily": "command",
+  "cardTypes": ["pursuit"],
+  "countsAs": ["strike"],
   "descriptionTemplate": "At the start of the turn after releasing {Mundus Severance}, deal [Damage:Arg1] DMG to all enemies. For each 1 additional DMG {Great Blade: Whalefall} causes the highest-DMG enemy to deal, this {Pursuit} deals +[Arg2] DMG. Counts as a Strike.",
   "descriptionArgs": {
     "Arg1": {

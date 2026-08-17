@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0039",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times} and gain Temporary {Counter} for 50% of the DMG dealt.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,5 +26,6 @@
   },
   "cardKeywords": [],
   "cost": "3",
+  "lore": "The whip, \"Unyielding,\" brimming with Aliemus, forever shines bright and can deliver the pain you crave, no matter when or where.",
   "ownerAwakenerName": "Pandia"
 }

@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0018",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Doll: Inferno gains [Energy:Arg1] Aliemus. {Rouse}: At turn end, recover [Heal:Arg2] HP and gain Aliemus equal to its own Aliemus Regen. {Finale Form}: No longer recover HP; instead, trigger [Arg3]% {Poison} on all enemies.",
   "descriptionArgs": {
     "Arg1": {
@@ -33,6 +35,7 @@
     }
   ],
   "cost": "2",
+  "lore": "She sacrificed herself, buying passage to the hidden truth.\nWhen she pulled her hand back, her soul dripped like melted wax.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.doll-inferno.every-world-drowned.skill.doll-inferno.soulblight",

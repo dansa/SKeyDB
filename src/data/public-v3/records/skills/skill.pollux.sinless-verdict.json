@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0041",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies. Your next Pollux Command Card this turn gains {Atonement by Pain}. Put 1 {Sacred Heart} into hand.",
   "descriptionArgs": {
     "Arg1": {
@@ -20,5 +22,6 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "\"Pollux, your sacred heart carries the Lightbearer's own brilliance. Cherish this glory as you would revere Him.\"\nAnd so, he placed the crown of lies upon his head, never daring to slacken.\n\"Pollux, do not be afraid. Go, and taste what freedom is like for me...\"\nYet through this glory, he gained everything, and because of it, he lost everything. In the end, he saw the crown for what it was: invisible shackles.\nSo he tore the crown apart. For the first time, his empty heart shone with a light as bright as day—but those angry lamentations could no longer reach his other half's ears.",
   "ownerAwakenerName": "Pollux"
 }

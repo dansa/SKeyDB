@@ -381,7 +381,8 @@ async function renderDatabasePage(
     )
   })
 
-  await screen.findByRole('region', {name: 'Database'})
+  const databaseRegion = await screen.findByRole('region', {name: 'Database'})
+  await waitFor(() => expect(databaseRegion).not.toBeEmptyDOMElement(), {timeout: 5000})
 
   return renderResult
 }
@@ -460,7 +461,7 @@ describe('DatabasePage', () => {
     expect(screen.getByTestId('location-path')).toHaveTextContent('/database/awakeners/alpha')
 
     await act(async () => {
-      fireEvent.click(screen.getByRole('button', {name: 'Go back in history'}))
+      fireEvent.click(screen.getByRole('button', {name: 'Go back in history', hidden: true}))
     })
 
     await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument())
@@ -485,6 +486,51 @@ describe('DatabasePage', () => {
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
     expect(screen.getByTestId('location-path')).toHaveTextContent('/database')
     expect(screen.getByTestId('location-search')).toHaveTextContent('?q=alpha&realm=CHAOS')
+  })
+
+  it('closes a browse-opened, internally navigated detail back to its original browse entry', async () => {
+    await renderDatabasePage(['/before-database', '/database?q=alpha&realm=CHAOS'], 1)
+
+    fireEvent.click(screen.getByLabelText('View details for Alpha'))
+    await waitFor(() =>
+      expect(screen.getByRole('dialog', {name: /alpha details/})).toBeInTheDocument(),
+    )
+
+    fireEvent.click(screen.getByLabelText('Switch to lore tab'))
+    await waitFor(() =>
+      expect(screen.getByTestId('location-path')).toHaveTextContent(
+        '/database/awakeners/alpha/lore',
+      ),
+    )
+
+    fireEvent.click(screen.getByLabelText('Close detail'))
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path')).toHaveTextContent('/database')
+      expect(screen.getByTestId('location-search')).toHaveTextContent('?q=alpha&realm=CHAOS')
+    })
+
+    fireEvent.click(screen.getByRole('button', {name: 'Go back in history'}))
+    await waitFor(() =>
+      expect(screen.getByTestId('location-path')).toHaveTextContent('/before-database'),
+    )
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+  })
+
+  it('replaces a direct detail deep link with its derived browse route on close', async () => {
+    await renderDatabasePage(['/before-database', '/database/awakeners/alpha'], 1)
+
+    expect(await screen.findByRole('dialog', {name: /alpha details/})).toBeInTheDocument()
+    fireEvent.click(screen.getByLabelText('Close detail'))
+
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path')).toHaveTextContent('/database')
+      expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+    })
+
+    fireEvent.click(screen.getByRole('button', {name: 'Go back in history'}))
+    await waitFor(() =>
+      expect(screen.getByTestId('location-path')).toHaveTextContent('/before-database'),
+    )
   })
 
   it('opens detail modal from deep-linked awakener route', async () => {
@@ -551,8 +597,8 @@ describe('DatabasePage', () => {
     expect(screen.getByText('Mock slider level 90')).toBeInTheDocument()
   })
 
-  it('pushes detail tab changes into browser history', async () => {
-    await renderDatabasePage('/database/awk/alpha')
+  it('replaces the active detail history entry when changing tabs', async () => {
+    await renderDatabasePage(['/database', '/database/awakeners/alpha'], 1)
 
     expect(await screen.findByRole('dialog', {name: /alpha details/})).toBeInTheDocument()
 
@@ -566,14 +612,12 @@ describe('DatabasePage', () => {
       fireEvent.click(screen.getByRole('button', {name: 'Go back in history'}))
     })
 
-    await waitFor(() =>
-      expect(screen.getByTestId('location-path')).toHaveTextContent('/database/awakeners/alpha'),
-    )
-    expect(screen.getByText('Active tab upgrades')).toBeInTheDocument()
+    await waitFor(() => expect(screen.getByTestId('location-path')).toHaveTextContent('/database'))
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
   })
 
-  it('pushes modal awakener switches into browser history', async () => {
-    await renderDatabasePage('/database/awk/alpha')
+  it('replaces the active detail history entry when switching modal results', async () => {
+    await renderDatabasePage(['/database', '/database/awakeners/alpha'], 1)
 
     expect(await screen.findByRole('dialog', {name: /alpha details/})).toBeInTheDocument()
 
@@ -590,10 +634,8 @@ describe('DatabasePage', () => {
       fireEvent.click(screen.getByRole('button', {name: 'Go back in history'}))
     })
 
-    await waitFor(() =>
-      expect(screen.getByTestId('location-path')).toHaveTextContent('/database/awakeners/alpha'),
-    )
-    expect(screen.getByRole('dialog', {name: /alpha details/})).toBeInTheDocument()
+    await waitFor(() => expect(screen.getByTestId('location-path')).toHaveTextContent('/database'))
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
   })
 
   it('falls back to the database root when deep link slug is unknown', async () => {
@@ -783,6 +825,42 @@ describe('DatabasePage', () => {
       expect(screen.getByTestId('location-path')).toHaveTextContent('/database/awakeners/alpha'),
     )
     expect(screen.getByTestId('location-search')).toHaveTextContent('?q=merciful&realm=CARO')
+  })
+
+  it('keeps the original browse entry when modal navigation crosses entity routes', async () => {
+    await renderDatabasePage(
+      ['/before-database', '/database/wheels?q=merciful&mainstat=KEYFLARE_REGEN'],
+      1,
+    )
+
+    const originalBrowseCard = screen.getByLabelText('View details for Merciful Nurturing')
+    const originalBrowseSearch = screen.getByLabelText('Search wheels')
+    fireEvent.click(originalBrowseCard)
+    await waitFor(() =>
+      expect(screen.getByRole('dialog', {name: /merciful nurturing details/i})).toBeInTheDocument(),
+    )
+
+    fireEvent.click(screen.getByLabelText('Switch to alpha awakener detail'))
+    await waitFor(() =>
+      expect(screen.getByTestId('location-path')).toHaveTextContent('/database/awakeners/alpha'),
+    )
+    expect(screen.getByTestId('location-search')).toHaveTextContent('?q=merciful')
+    expect(screen.getByLabelText('View details for Merciful Nurturing')).toBe(originalBrowseCard)
+    expect(screen.getByLabelText('Search wheels')).toBe(originalBrowseSearch)
+    expect(originalBrowseSearch).toHaveValue('merciful')
+
+    fireEvent.click(screen.getByLabelText('Close detail'))
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path')).toHaveTextContent('/database/wheels')
+      expect(screen.getByTestId('location-search')).toHaveTextContent(
+        '?q=merciful&mainstat=KEYFLARE_REGEN',
+      )
+    })
+
+    fireEvent.click(screen.getByRole('button', {name: 'Go back in history'}))
+    await waitFor(() =>
+      expect(screen.getByTestId('location-path')).toHaveTextContent('/before-database'),
+    )
   })
 
   it('filters wheels by the neutral realm without affecting other wheel routes', async () => {

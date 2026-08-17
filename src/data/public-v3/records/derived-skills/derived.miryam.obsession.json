@@ -10,6 +10,8 @@
   "ownerAwakenerId": "awakener-0032",
   "derivedFromId": "derived.miryam.sacrament",
   "rootSkillId": "skill.miryam.pray-to-the-abyss",
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
   "descriptionTemplate": "Miryam gains [Arg1] Aliemus. At turn end, if This card is in hand, it will transform into {Sacrament} at the cost of reducing the next turn's Draw by 1.",
   "descriptionArgs": {
     "Arg1": {

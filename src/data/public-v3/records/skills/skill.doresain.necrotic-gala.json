@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0014",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "[{Devour}: The Crit. Rate of this Exalt +[Arg2]%. Gain [Power:Arg1] {STR}.]\nDeal [Damage:Arg3] DMG to the enemy with lowest HP. This DMG enjoys [Arg4]% {STR} bonus. For every 1% HP the target is missing, the Final DMG of this Exalt +3%.\nIf there are 3 stacks of {Corpse}, Doresain eats them all to recover [Heal:Arg5] HP and double the Crit. DMG bonus of this hit.",
   "descriptionArgs": {
     "Arg1": {
@@ -42,6 +44,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "Tear off your disguise. Lay down your prejudices. Step onto the dance floor and embrace your long-slumbering partner.\nHow long since it last saw the moon's silver kiss? How long since it heard the murmur of tender, forgotten things?\nListen. It hungers for you, just as you hunger for it.\nBite. Devour. In this unparalleled feast, the living and the dead entwine in shared, ravenous bliss.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.doresain.evernights-revel.skill.doresain.necrotic-gala",

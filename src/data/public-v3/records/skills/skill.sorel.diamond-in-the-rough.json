@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0046",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Lose [Arg1]% of current HP. {Embryo Fusion} +[Blood:Arg2]. For the remaining duration of this turn, each time you deal 1 instance of DMG, restore [Arg3] HP at the end of the turn.",
   "descriptionArgs": {
     "Arg1": {
@@ -29,5 +31,6 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "She no longer remembers when she became like this.\nUnknowingly, the maiden who once knelt before her father, weeping and pleading, has vanished. In her place, the extravagant flower of a fallen kingdom was born, bathed in blood.\n\"My dearest little raven, what dazzling jewels have you brought me today?\"",
   "ownerAwakenerName": "Sorel"
 }

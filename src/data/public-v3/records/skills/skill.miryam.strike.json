@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0032",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG, which benefits from 100% {Tentacle DMG} bonus. Miryam gains [Energy:Arg2] Aliemus. {Ritual}: Final DMG bonus by [Arg4]%/[Arg5]%/[Arg6]%.",
   "descriptionArgs": {
     "Arg1": {
@@ -39,6 +41,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "Miryam was given this dagger when she became the High Priestess.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.miryam.vanitys-collapse.skill.miryam.strike",

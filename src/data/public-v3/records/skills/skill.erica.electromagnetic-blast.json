@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0015",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Erica gains [Arg4]% Temporary Crit. Rate and Crit. DMG. Gain [Block:Arg2] Shield. Deal [Damage:Arg1] DMG to all enemies and apply [Arg3] {plural:[Arg3]|stack|stacks}{Weakness} and {Vulnerable}.",
   "descriptionArgs": {
     "Arg1": {
@@ -39,6 +41,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "Two wills are constantly struggling within the mechanical body: one desires destruction, while the other refuses to yield. However, mere humans cannot prevail for long, and she will ultimately be devoured by the other, becoming a vessel of madness that exists solely for destruction.\nThus, she releases all electrical currents. A massive electric arc envelops her; the short-circuited body emits the crackling sound of electricity as she unleashes the stored energy, then briefly loses her ability to act.\n\"If I can't move, I can't destroy.\"",
   "upgrades": [
     {
       "id": "upgrade.enlighten.erica.force-circuit.skill.erica.electromagnetic-blast",

@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0013",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Heal [Heal:Arg1] HP. Discard all cards in hand. For each card discarded, heal an additional [Heal:Arg2] HP.",
   "descriptionArgs": {
     "Arg1": {
@@ -36,6 +38,7 @@
   },
   "cardKeywords": [],
   "cost": "3",
+  "lore": "Creating something from nothing is not within the realm of science.\nDoll has always believed this: the universe, humanity, and even Dissolution all have origins and come with costs.\n\"So regarding the research and development of the transmutation technique, Miss Doll, what do you think...\"\n\"The probability of successful research and development is as null as the value of your thesis.\"",
   "upgrades": [
     {
       "id": "upgrade.enlighten.doll.beyond-death.skill.doll.equivalent-exchange",

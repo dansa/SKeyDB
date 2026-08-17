@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0055",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Dispel {Burn} from all cards in hand. Deal DMG equal to [Arg7]% {Tentacle DMG} Bonus to all enemies, dealing 2× DMG to the enemy with the highest HP. Sacrifice up to 3 additional Permanent Tentacles, each increasing this Exalt's Crit. DMG by +50%.",
   "descriptionArgs": {
     "Arg7": {
@@ -19,6 +21,7 @@
   },
   "cardKeywords": [],
   "cost": "200",
+  "lore": "The whirlpool brings ruin; the Abyss brings oblivion. A maiden who once longed for sunlight and friendship was ultimately cast back into eternal solitude. Screams, wails, distortion, and collapse—an endless cycle defined her time within the Moskstraumen. This is the roar of the hunger beneath the waves, devouring all. And it is proof that Vortice has conquered it.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.vortice.endless-tide.skill.vortice.abyssal-vortex-cannon",

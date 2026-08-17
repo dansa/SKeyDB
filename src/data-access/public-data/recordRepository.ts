@@ -1,4 +1,4 @@
-import {getOrCreateMapValue} from './cache'
+import {getOrCreateRetryableMapPromise} from './cache'
 import type {PublicDataScope, PublicRecord} from './contract'
 import {publicRecordSchema} from './schemas'
 import {assertPublicRecordForScope, assertPublicScopeCapability} from './scopeRegistry'
@@ -46,7 +46,7 @@ export function loadPublicRecord(
 ): Promise<PublicRecord | undefined> {
   assertPublicScopeCapability(scope, 'detailRecord')
   const cacheKey = `${scope}:${id}`
-  return getOrCreateMapValue(recordPromiseCache, cacheKey, async () => {
+  return getOrCreateRetryableMapPromise(recordPromiseCache, cacheKey, async () => {
     const recordPath = buildRecordPath(scope, id)
     const loadRecordUrl = recordUrls[recordPath]
     if (!loadRecordUrl) {

@@ -135,6 +135,8 @@ describe('DatabaseDetailResultNavigator', () => {
     ).toHaveLength(1)
     expect(screen.getAllByRole('button', {name: 'Next result: Grace Through Pain'})).toHaveLength(1)
     expect(screen.getAllByText('2 / 3').length).toBeGreaterThan(0)
+    expect(screen.getByRole('status')).toHaveAttribute('aria-live', 'polite')
+    expect(screen.getByRole('status')).toHaveAttribute('aria-atomic', 'true')
     expect(screen.queryByText('SSR - Chaos')).not.toBeInTheDocument()
     expect(screen.queryByText('SSR - Caro')).not.toBeInTheDocument()
 
@@ -170,6 +172,36 @@ describe('DatabaseDetailResultNavigator', () => {
     screen.getByLabelText('Search wheels').focus()
     fireEvent.keyDown(screen.getByLabelText('Search wheels'), {key: 'ArrowRight'})
 
+    expect(onNext).toHaveBeenCalledTimes(1)
+  })
+
+  it('leaves arrow keys to interactive controls and registered nested surfaces', () => {
+    const onPrevious = vi.fn()
+    const onNext = vi.fn()
+
+    render(
+      <>
+        <button type='button'>Nested action</button>
+        <div data-detail-result-navigation-boundary=''>
+          <span data-testid='nested-surface'>Nested surface</span>
+        </div>
+        <div data-testid='modal-background'>Modal background</div>
+        <DatabaseDetailResultNavigator
+          navigation={makeNavigation({
+            onNext,
+            onPrevious,
+          })}
+        />
+      </>,
+    )
+
+    fireEvent.keyDown(screen.getByRole('button', {name: 'Nested action'}), {key: 'ArrowRight'})
+    fireEvent.keyDown(screen.getByTestId('nested-surface'), {key: 'ArrowLeft'})
+
+    expect(onNext).not.toHaveBeenCalled()
+    expect(onPrevious).not.toHaveBeenCalled()
+
+    fireEvent.keyDown(screen.getByTestId('modal-background'), {key: 'ArrowRight'})
     expect(onNext).toHaveBeenCalledTimes(1)
   })
 

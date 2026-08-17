@@ -10,6 +10,8 @@
   "ownerAwakenerId": "awakener-0023",
   "derivedFromId": "skill.helot.blood-for-blood",
   "rootSkillId": "skill.helot.blood-for-blood",
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
   "descriptionTemplate": "Choose one from {Shattering Strike}, {Lasting Loathe}, \"Strike,\" and \"Defense\" to add to your hand and attach {Exhaust}.",
   "descriptionArgs": {},
   "cardKeywords": [

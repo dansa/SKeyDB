@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0016",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "[{Devour}: Place 1 \"Sprouting Bud\" with 0 Arithmetica Cost into hand and attach {Exhaust}. Inflict {Weakness} to all Enemies for 2 turns.] Obtain [Counterattack:Arg1] stacks of {Counter}. If {Death Resistance} is less than [Arg2]%, then +[Arg3]%. Dispel self {Fragile}.",
   "descriptionArgs": {
     "Arg1": {
@@ -40,6 +42,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "Will the maiden in the cradle dream of unseen flowers?\nWhat kind of flowers would they be? Would they, like her, be confined to a tiny pot, blooming within its limits?\nOr would they, as in her younger sister's song, blossom amidst the starry skies, carried to unknown realms by cosmic dust and stardust?",
   "upgrades": [
     {
       "id": "upgrade.talent.faint.secondary-swaddle.skill.faint.cradle-of-stars",

@@ -55,6 +55,11 @@ export function useWheelsDatabaseViewModel(
     () => new Map(allWheels.toSorted(compareWheelsForUi).map((wheel, index) => [wheel.id, index])),
     [allWheels],
   )
+  const sortableWheelEntryById = useMemo(
+    () =>
+      new Map(allWheels.map((wheel) => [wheel.id, toSortableWheelEntry(wheel, wheelIndexById)])),
+    [allWheels, wheelIndexById],
+  )
 
   const filteredWheels = useMemo(() => {
     const searchResults = searchWheelResults(allWheels, query)
@@ -69,8 +74,11 @@ export function useWheelsDatabaseViewModel(
         return relevanceResult
       }
 
-      const leftEntry = toSortableWheelEntry(left, wheelIndexById)
-      const rightEntry = toSortableWheelEntry(right, wheelIndexById)
+      const leftEntry = sortableWheelEntryById.get(left.id)
+      const rightEntry = sortableWheelEntryById.get(right.id)
+      if (!leftEntry || !rightEntry) {
+        return compareWheelsForUi(left, right)
+      }
 
       return compareWheelsForCollectionSort(leftEntry, rightEntry, {
         key: sortKey,
@@ -85,7 +93,7 @@ export function useWheelsDatabaseViewModel(
     realmFilter,
     sortDirection,
     sortKey,
-    wheelIndexById,
+    sortableWheelEntryById,
   ])
 
   return {

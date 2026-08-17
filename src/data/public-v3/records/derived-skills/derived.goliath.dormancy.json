@@ -10,6 +10,8 @@
   "ownerAwakenerId": "awakener-0021",
   "derivedFromId": "skill.goliath.abyssal-depths-power",
   "rootSkillId": "skill.goliath.abyssal-depths-power",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Add 3 {Blade's Dominion} to your hand. Increase the Base DMG of {Blade's Dominion} and {Decapitation Damage} by 25% in this battle.",
   "descriptionArgs": {},
   "cardKeywords": [],

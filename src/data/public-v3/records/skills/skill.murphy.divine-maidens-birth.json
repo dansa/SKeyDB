@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0034",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Gain a total of (Max HP [Block:Arg1]% + [Block:Arg2]) Shield and [Arg3] Arithmetica. At the start of the next turn, take Max HP [Arg5]% {Sacrifice}. {Aftershock}: {Tentacle DMG} +[TentaclePower:Arg4].",
   "descriptionArgs": {
     "Arg1": {
@@ -40,5 +42,6 @@
   },
   "cardKeywords": [],
   "cost": "0",
+  "lore": "She is a false holy maiden. Every gesture sacrilege, every act unfit for the role.\n\nBut beneath that defiant veneer? Perhaps wresting control of her fate was the truest saintly act.",
   "ownerAwakenerName": "Murphy"
 }

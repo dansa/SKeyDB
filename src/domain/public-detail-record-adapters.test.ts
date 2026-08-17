@@ -1,8 +1,8 @@
 import {afterEach, describe, expect, it, vi} from 'vitest'
 
-import {getPublicCatalogRecords} from '@/data-access/public-data/catalogRepository'
 import type {EntityKind, PublicDataScope, PublicRecord} from '@/data-access/public-data/contract'
-import {loadPublicRecord} from '@/data-access/public-data/repository'
+import {loadPublicRecord} from '@/data-access/public-data/recordRepository'
+import {getTestPublicCatalogRecords} from '@/data-access/public-data/testSupport/publicCatalogs'
 
 import {
   loadPublicAwakenerDetailById,
@@ -276,7 +276,7 @@ describe('public-detail-record-adapters', () => {
     await expect(loadPublicCovenantDetailById('not-a-covenant')).resolves.toBeUndefined()
   })
 
-  it('caches public wheel, posse, and covenant detail loads by canonical id', async () => {
+  it('delegates public full-detail cache ownership to the record repository', async () => {
     const records: Partial<Record<PublicDataScope, PublicRecord>> = {
       wheels: {
         schemaVersion: 3,
@@ -322,13 +322,57 @@ describe('public-detail-record-adapters', () => {
       adapters.loadPublicCovenantDetailById('covenant-0001'),
     ])
 
-    expect(firstWheel).toBe(secondWheel)
-    expect(firstPosse).toBe(secondPosse)
-    expect(firstCovenant).toBe(secondCovenant)
-    expect(loadPublicRecordMock).toHaveBeenCalledTimes(3)
+    expect(firstWheel).toStrictEqual(secondWheel)
+    expect(firstWheel).not.toBe(secondWheel)
+    expect(firstPosse).toStrictEqual(secondPosse)
+    expect(firstPosse).not.toBe(secondPosse)
+    expect(firstCovenant).toStrictEqual(secondCovenant)
+    expect(firstCovenant).not.toBe(secondCovenant)
+    expect(loadPublicRecordMock).toHaveBeenCalledTimes(6)
     expect(loadPublicRecordMock).toHaveBeenCalledWith('wheels', 'wheel-0001')
     expect(loadPublicRecordMock).toHaveBeenCalledWith('posses', 'posse-0001')
     expect(loadPublicRecordMock).toHaveBeenCalledWith('covenants', 'covenant-0001')
+  })
+
+  it('retries every public full-detail adapter after a transient repository failure', async () => {
+    const requests = [
+      ['awakeners', 'awakener-0001', 'loadPublicAwakenerDetailById'],
+      ['wheels', 'wheel-0001', 'loadPublicWheelDetailById'],
+      ['posses', 'posse-0001', 'loadPublicPosseDetailById'],
+      ['covenants', 'covenant-0001', 'loadPublicCovenantDetailById'],
+    ] as const
+    const fixtures = new Map<string, PublicRecord | undefined>(
+      await Promise.all(
+        requests.map(async ([scope, id]): Promise<[string, PublicRecord | undefined]> => [
+          `${scope}:${id}`,
+          await loadPublicRecord(scope, id),
+        ]),
+      ),
+    )
+    const attempts = new Map<string, number>()
+    const loadPublicRecordMock = vi.fn((scope: PublicDataScope, id: string) => {
+      const key = `${scope}:${id}`
+      if (!fixtures.has(key)) {
+        return loadPublicRecord(scope, id)
+      }
+      const attempt = (attempts.get(key) ?? 0) + 1
+      attempts.set(key, attempt)
+      return attempt === 1
+        ? Promise.reject(new Error('controlled transient failure'))
+        : Promise.resolve(fixtures.get(key))
+    })
+    const adapters = await importAdaptersWithPublicRecordMock(loadPublicRecordMock)
+
+    for (const [, id, loaderName] of requests) {
+      const loader = adapters[loaderName] as PublicDetailLoader
+      await expect(loader(id)).rejects.toThrow('controlled transient failure')
+      await expect(loader(id)).resolves.toBeDefined()
+    }
+
+    const fullDetailCalls = loadPublicRecordMock.mock.calls.filter(([scope, id]) =>
+      fixtures.has(`${scope}:${id}`),
+    )
+    expect(fullDetailCalls).toHaveLength(8)
   })
 
   it('rejects public wheel, posse, and covenant detail records that fail detail parsing', async () => {
@@ -456,7 +500,7 @@ describe('public-detail-record-adapters', () => {
       keyof typeof POPOVER_DETAIL_LOADERS,
       PublicDetailLoader,
     ][]) {
-      for (const record of getPublicCatalogRecords(scope)) {
+      for (const record of getTestPublicCatalogRecords(scope)) {
         try {
           await loadDetail(record.id)
         } catch (error) {
@@ -512,7 +556,7 @@ describe('public-detail-record-adapters', () => {
     await expect(loadPublicOverlayDetailById('not-an-overlay')).resolves.toBeUndefined()
   })
 
-  it('caches public child detail loads by canonical id', async () => {
+  it('delegates public child-detail cache ownership to the record repository', async () => {
     const records: Partial<Record<PublicDataScope, PublicRecord>> = {
       skills: {
         schemaVersion: 3,
@@ -587,7 +631,7 @@ describe('public-detail-record-adapters', () => {
     expect(firstDerived).not.toBe(secondDerived)
     expect(firstOverlay).toStrictEqual(secondOverlay)
     expect(firstOverlay).not.toBe(secondOverlay)
-    expect(loadPublicRecordMock).toHaveBeenCalledTimes(5)
+    expect(loadPublicRecordMock).toHaveBeenCalledTimes(10)
     expect(loadPublicRecordMock).toHaveBeenCalledWith('skills', 'skill.cached.rouse')
     expect(loadPublicRecordMock).toHaveBeenCalledWith('talents', 'talent.cached.passive')
     expect(loadPublicRecordMock).toHaveBeenCalledWith('enlightens', 'enlighten.cached.one')

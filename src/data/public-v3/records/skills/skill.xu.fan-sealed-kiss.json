@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0054",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Inflict [{Poison}:Arg1] {Poison} on all enemies, temporarily reducing their {STR▼} by [Exhaustion:Arg2]. {Resonance 3}: Inflict 1 stack of {Spellbound} on all enemies.",
   "descriptionArgs": {
     "Arg1": {
@@ -26,6 +28,7 @@
   },
   "cardKeywords": [],
   "cost": "2",
+  "lore": "Beneath her fan lies a kiss; beneath her fan lie a thousand kisses.\nPlump, succulent, soft...\nEnveloping, dissolving... silencing.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.xu.nirvanas-kiss.skill.xu.fan-sealed-kiss",

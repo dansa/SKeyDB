@@ -1,12 +1,11 @@
 import {useCallback, useEffect, useRef, useState, useSyncExternalStore, type RefObject} from 'react'
 
+import {isCalculationContextControl} from './calculationContextControl'
 import {getFocusableElements} from './focus-scope'
-import {acquirePageScrollLock, releasePageScrollLock} from './pageScrollLock'
 
 interface UseDetailModalChromeOptions {
   isSearchOpen: boolean
   searchContainerRef?: RefObject<HTMLElement | null>
-  searchInputRef?: RefObject<HTMLInputElement | null>
   closeSearch?: (blurInput?: boolean) => void
   hasOpenPopovers: boolean
   closeAllPopovers: () => void
@@ -33,7 +32,6 @@ export function useDetailModalChrome({
   isSearchOpen,
   onClose,
   searchContainerRef,
-  searchInputRef,
 }: UseDetailModalChromeOptions) {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false)
   const isMobileHeader = useSyncExternalStore(
@@ -43,26 +41,16 @@ export function useDetailModalChrome({
   )
   const panelRef = useRef<HTMLDivElement>(null)
   const settingsRef = useRef<HTMLDivElement>(null)
-  const previouslyFocusedElementRef = useRef<HTMLElement | null>(null)
+  const wasSettingsOpenRef = useRef(false)
 
   useEffect(() => {
-    const lockToken = acquirePageScrollLock()
-
-    return () => {
-      releasePageScrollLock(lockToken)
+    if (wasSettingsOpenRef.current && !isSettingsOpen) {
+      settingsRef.current
+        ?.querySelector<HTMLElement>('[data-detail-settings-trigger]')
+        ?.focus({preventScroll: true})
     }
-  }, [])
-
-  useEffect(() => {
-    previouslyFocusedElementRef.current =
-      document.activeElement instanceof HTMLElement ? document.activeElement : null
-
-    searchInputRef?.current?.focus()
-
-    return () => {
-      previouslyFocusedElementRef.current?.focus()
-    }
-  }, [searchInputRef])
+    wasSettingsOpenRef.current = isSettingsOpen
+  }, [isSettingsOpen])
 
   useEffect(() => {
     if (!isSettingsOpen) {
@@ -70,7 +58,10 @@ export function useDetailModalChrome({
     }
 
     function handlePointerDown(event: PointerEvent) {
-      const target = event.target as HTMLElement
+      const target = event.target
+      if (!(target instanceof Element)) {
+        return
+      }
       if (settingsRef.current?.contains(target)) {
         return
       }
@@ -100,14 +91,12 @@ export function useDetailModalChrome({
       }
 
       const clickedInsidePopover = Boolean(target.closest('[data-skill-popover]'))
-      const clickedInsidePopoverPreservingControl = Boolean(
-        target.closest('[data-detail-modal-popover-preserve]'),
-      )
+      const clickedInsideCalculationContextControl = isCalculationContextControl(target)
       if (
         hasOpenPopovers &&
         clickOutsideClosesPopovers &&
         !clickedInsidePopover &&
-        !clickedInsidePopoverPreservingControl &&
+        !clickedInsideCalculationContextControl &&
         !target.closest('[data-detail-modal-external]')
       ) {
         closeAllPopovers()

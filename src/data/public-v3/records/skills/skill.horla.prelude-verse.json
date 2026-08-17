@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0024",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Horla gains [Energy:Arg1] Aliemus. {Rouse}: Immediately gain 1 stack of {Metaphor} for each {Emotion} other than the current one; also gain 1 stack at turn start. Each {Metaphor} stacks up to 3 times. Each stack of {Metaphor} is consumed when a Psalm {Leap} s, granting a corresponding bonus.",
   "descriptionArgs": {
     "Arg1": {
@@ -22,6 +24,7 @@
     }
   ],
   "cost": "2",
+  "lore": "She is the vessel of emotions, the continuation of sentiments.\nLet this dark ink flow freely, let this poetic talent be wasted.\nThe unspoken words of this world will begin from her poetry book.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.horla.spring-in-the-embers.skill.horla.prelude-verse",

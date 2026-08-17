@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 import {defineConfig, type Plugin} from 'vite'
 
-import {PRODUCTION_BUILD_TARGETS} from './src/domain/browser-support'
+import {PRODUCTION_BUILD_TARGETS} from './src/domain/browser-support.ts'
 
 interface AppVersionSnapshot {
   buildId: string
@@ -70,7 +70,7 @@ export default defineConfig({
 
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      '@': path.resolve(import.meta.dirname, './src'),
     },
   },
 

@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0044",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "{Weakness} all enemies for 1 turn. {Embryo Fusion} +[Arg1]. Accumulate [Heal:Arg2] points of {Crimson Furnace}.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "3",
+  "lore": "The All-Father descends in his dream, imparting guidance to him:\n\n\"When the sky is evenly divided by the sun and moon, go alone into the forest, and walk east for five hundred and another five hundred steps. In the warmth of darkness lies my last bone.\n\nTake it, my Executor, but remember. Flesh must be repaid with flesh, and life must be filled with life.\"\n\nHe unearthed the stone tablet engraved with mysterious runes and offered his bone flesh to them for a glimmer of hope for the suffering.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.salvador.book-of-genesis.skill.salvador.blessed-are-the-bones",

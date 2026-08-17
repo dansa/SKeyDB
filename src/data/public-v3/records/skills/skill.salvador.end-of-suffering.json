@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0044",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Choose: {Dedication}, {Liberation}, or {Redemption}. Gain [Energy:Arg5] Aliemus. Deal [Damage:Arg1] DMG to all enemies; for every 1 healing accumulated from the {Crimson Furnace} during this battle, increase DMG by [Float:Arg2].",
   "descriptionArgs": {
     "Arg1": {
@@ -32,6 +34,7 @@
     }
   ],
   "cost": "2",
+  "lore": "Suffering is cruel and merciless.\n\nIn the face of the all-consuming Black Death, he will protect everything in the world, even at the cost of his life.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.salvador.book-of-genesis.skill.salvador.end-of-suffering",

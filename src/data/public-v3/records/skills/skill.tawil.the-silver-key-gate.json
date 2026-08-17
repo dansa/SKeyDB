@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0047",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Tawil obtains [Energy:Arg1] Aliemus. Place 1 {derived:Silver Key Dawn} into hand. Gain +50% Keyflare for every point of Arithmetica consumed by Tawil.\n{overlay:Rouse}",
   "descriptionArgs": {
     "Arg1": {
@@ -22,6 +24,7 @@
     }
   ],
   "cost": "1",
+  "lore": "Across the gate of the Silver Key, humans bow before His Throne, seeking ultimate answers.\nBut she is the gatekeeper, responsible for discouraging, reminding, and warning.\nNot informing is her mercy.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.tawil.the-first-logos.skill.tawil.the-silver-key-gate",

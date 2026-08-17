@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0026",
   "slot": "Defense",
+  "cardFamily": "command",
+  "cardTypes": ["defense"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield. Karen obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,5 +26,6 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "Look at this beautiful tray. Isn't it just perfect for her—so lovely and charming?",
   "ownerAwakenerName": "Karen"
 }

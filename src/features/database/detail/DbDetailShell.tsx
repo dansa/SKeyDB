@@ -20,12 +20,15 @@ import {useDetailModalLifecycle} from '@/ui/modal/useDetailModalLifecycle'
 import type {DatabaseDetailResultNavigation} from './database-detail-result-navigation'
 import {DatabaseDetailResultNavigator} from './DatabaseDetailResultNavigator'
 import {DbDetailModalFrame} from './DbDetailModalFrame'
+import {ResponsiveDetailArt} from './ResponsiveDetailArt'
 
 type DatabasePopoverController = ReturnType<typeof useDatabasePopoverController>
 
 interface DbDetailShellProps {
   artAsset?: string
-  children: ReactNode | ((tools: {openArtViewer: () => void}) => ReactNode)
+  children:
+    | ReactNode
+    | ((tools: {isMobileViewport: boolean; openArtViewer: () => void}) => ReactNode)
   fullArtAlt: string
   itemName: string
   kindLabel: string
@@ -77,6 +80,7 @@ export function DbDetailShell({
   const {
     handleOverlayClick,
     handlePanelKeyDown,
+    isMobileHeader,
     isSettingsOpen,
     panelRef,
     setIsSettingsOpen,
@@ -85,7 +89,10 @@ export function DbDetailShell({
   const openArtViewer = () => {
     setIsArtViewerOpen(true)
   }
-  const renderedChildren = typeof children === 'function' ? children({openArtViewer}) : children
+  const renderedChildren =
+    typeof children === 'function'
+      ? children({isMobileViewport: isMobileHeader, openArtViewer})
+      : children
 
   const handleModalCancel = useDetailModalLifecycle({
     clearSearch: noop,
@@ -159,34 +166,37 @@ export function DbDetailShell({
         </div>
 
         <DatabasePopoverContext.Provider value={popoverController.contextValue}>
-          <aside
-            className={`hidden shrink-0 flex-col overflow-hidden bg-[linear-gradient(180deg,rgba(15,23,42,0.96),rgba(2,6,23,0.99))] md:flex ${sideArtWidthClassName}`}
-          >
-            <div className='min-h-0 flex-1'>
-              {artAsset ? (
-                <button
-                  aria-label={`View full art for ${itemName}`}
-                  className={`relative flex h-full w-full items-center justify-center overflow-hidden ${sideArtContainerClassName}`}
-                  onClick={openArtViewer}
-                  type='button'
-                >
-                  <img
-                    alt=''
-                    className={`${preserveSideArtIntrinsicSize ? 'max-h-full max-w-full' : 'h-full w-full'} ${sideArtClassName}`}
-                    draggable={false}
-                    src={artAsset}
-                  />
-                  {showSideArtGradient ? (
-                    <div
-                      aria-hidden
-                      className='pointer-events-none absolute inset-y-0 right-0 left-0 bg-[linear-gradient(90deg,#020617_0%,transparent_16%,transparent_84%,#020617_100%)]'
+          <ResponsiveDetailArt isMobileViewport={isMobileHeader} viewport='desktop'>
+            <aside
+              className={`flex shrink-0 flex-col overflow-hidden bg-[linear-gradient(180deg,rgba(15,23,42,0.96),rgba(2,6,23,0.99))] ${sideArtWidthClassName}`}
+              data-detail-art-viewport='desktop'
+            >
+              <div className='min-h-0 flex-1'>
+                {artAsset ? (
+                  <button
+                    aria-label={`View full art for ${itemName}`}
+                    className={`relative flex h-full w-full items-center justify-center overflow-hidden ${sideArtContainerClassName}`}
+                    onClick={openArtViewer}
+                    type='button'
+                  >
+                    <img
+                      alt=''
+                      className={`${preserveSideArtIntrinsicSize ? 'max-h-full max-w-full' : 'h-full w-full'} ${sideArtClassName}`}
+                      draggable={false}
+                      src={artAsset}
                     />
-                  ) : null}
-                </button>
-              ) : null}
-            </div>
-            {sideArtFooter}
-          </aside>
+                    {showSideArtGradient ? (
+                      <div
+                        aria-hidden
+                        className='pointer-events-none absolute inset-y-0 right-0 left-0 bg-[linear-gradient(90deg,#020617_0%,transparent_16%,transparent_84%,#020617_100%)]'
+                      />
+                    ) : null}
+                  </button>
+                ) : null}
+              </div>
+              {sideArtFooter}
+            </aside>
+          </ResponsiveDetailArt>
 
           <div className='flex min-h-0 min-w-0 flex-1 flex-col px-4 py-4 pr-12 sm:px-5 sm:py-5 md:px-6 md:py-5'>
             {renderedChildren}

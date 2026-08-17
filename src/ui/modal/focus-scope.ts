@@ -1,16 +1,35 @@
 const FOCUSABLE_SELECTOR =
-  'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+  'a[href], area[href], button, input:not([type="hidden"]), select, textarea, details > summary:first-of-type, iframe, audio[controls], video[controls], [contenteditable]:not([contenteditable="false"]), [tabindex]:not([tabindex="-1"])'
 
-function isFocusableElementHidden(element: HTMLElement) {
-  return (
-    element.hidden ||
-    element.getAttribute('aria-hidden') === 'true' ||
-    Boolean(element.closest('[hidden], [aria-hidden="true"], .hidden'))
-  )
+function isFocusableElementAvailable(element: HTMLElement) {
+  const closedDetails = element.closest('details:not([open])')
+  if (
+    element.matches(':disabled') ||
+    (element.hasAttribute('tabindex') && element.tabIndex < 0) ||
+    element.closest('[hidden], [inert], [aria-hidden="true"]') ||
+    (closedDetails && closedDetails.querySelector('summary') !== element)
+  ) {
+    return false
+  }
+
+  let current: HTMLElement | null = element
+  while (current) {
+    const style = window.getComputedStyle(current)
+    if (
+      style.display === 'none' ||
+      style.visibility === 'hidden' ||
+      style.visibility === 'collapse'
+    ) {
+      return false
+    }
+    current = current.parentElement
+  }
+
+  return true
 }
 
 export function getFocusableElements(root: HTMLElement) {
   return Array.from(root.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)).filter(
-    (element) => !isFocusableElementHidden(element),
+    isFocusableElementAvailable,
   )
 }

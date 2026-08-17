@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0031",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Lotan obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,5 +26,6 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "In duels, a defensive stance is usually unnecessary; fierce offense is the best defense.",
   "ownerAwakenerName": "Lotan"
 }

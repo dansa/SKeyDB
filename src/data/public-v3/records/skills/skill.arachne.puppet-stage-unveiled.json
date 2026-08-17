@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0056",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Arachne gains Aliemus equal to [Arg2]% of her Base Aliemus. {Rouse}: {Annihilation} changes to: \"Pull a chosen Command Card out from {Ultra Space} and into hand; it triggers +1 time when played. The next Command Card played triggers {Dimension Shuttle}.\"",
   "descriptionArgs": {
     "Arg2": {
@@ -23,6 +25,7 @@
     }
   ],
   "cost": "2",
+  "lore": "When the curtain rose, the puppets lifted their heads and beheld the gentle face behind the spinning wheel.\nThe threads drew taut, and amid the puppets' songs and dances, she smiled as a mother would.In fate's theater, she was their only audience.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.arachne.moiraes-finale.skill.arachne.puppet-stage-unveiled",

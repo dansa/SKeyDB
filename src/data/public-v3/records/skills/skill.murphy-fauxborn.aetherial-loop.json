@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0035",
   "slot": "OverExalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["over_exalt"],
   "descriptionTemplate": "Inflict +5 stacks of {Birth Ritual}. Generate 3 {Waltz of Lemuria} with 2 Arithmetica Cost, with {Prepare} and {Exhaust}.",
   "descriptionArgs": {},
   "cardKeywords": [],

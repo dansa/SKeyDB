@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0041",
   "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times}. This card is automatically put in your hand when entering {Ultra Round}.",
   "descriptionArgs": {
     "Arg1": {
@@ -28,6 +30,7 @@
     }
   ],
   "cost": "3",
+  "lore": "Their guilt is proven by the flowing of their black, divine blood. They shall be judged, for only through cleansing may they enter the pure land. So judge them. Declare their sins. Unleash their blood. Let judgment fall upon their heads. This is the power—and the solemn duty—of the Divus.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.pollux.flames-of-salvation.skill.pollux.cleansing-judgement",

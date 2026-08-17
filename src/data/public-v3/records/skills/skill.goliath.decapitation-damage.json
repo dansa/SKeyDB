@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0021",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. If the target's HP is below 25% or if the target is killed, refund the Arithmetica Cost. {STR} multiplies the effect by [Arg2] on {Decapitation Damage}.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "3",
+  "lore": "The Philistine leader is a mighty warrior, wielding a giant blade that can fell foes with a single swing.\nThe Philistine leader is a cruel tyrant, ruthless and selfish, willing to sacrifice all his people to achieve his goals.\nThe former Philistine leader was a slave to desire, craving Power and ultimately ensnared by it.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.goliath.death-is-rebirth.skill.goliath.decapitation-damage",

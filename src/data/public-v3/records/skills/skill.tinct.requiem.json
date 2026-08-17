@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0049",
   "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
   "descriptionTemplate": "Dispel self {Fragile}, {Weakness}, and {Vulnerable} states. {Steal} [Arg1] {STR} from all enemies. The next card played this turn is guaranteed to {Leap}. {Leap}: Instead {Steal} [Arg2] {STR}.",
   "descriptionArgs": {
     "Arg1": {
@@ -26,5 +28,6 @@
   },
   "cardKeywords": [],
   "cost": "2",
+  "lore": "Faint could not leave the thin shell, so Tinct often accompanied her, singing this requiem for her.\n\"I'm going to absorb your life force.\" Faint said.\n\"That's okay, our lives are one.\" Tinct responded.",
   "ownerAwakenerName": "Tinct"
 }

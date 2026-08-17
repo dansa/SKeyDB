@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0043",
   "slot": "Defense",
+  "cardFamily": "command",
+  "cardTypes": ["defense"],
   "descriptionTemplate": "Gain [Block:Arg1] Shield. Ryker obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "Frequent victories earned Ryker the unseen enmity of high society lurking behind those hedonistic venues.\nHe was once ambushed on the street, but the bullet struck a silver coin in the pouch at his chest.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.ryker.certain-gain.skill.ryker.defense",

@@ -21,6 +21,7 @@ interface AwakenerGridCardProps {
   index: number
   onPreload?: (id: string) => void
   onSelect: (id: string) => void
+  onWarmShell?: () => void
   variant?: HybridDatabaseCardMode
 }
 
@@ -30,6 +31,7 @@ export function AwakenerGridCard({
   index,
   onPreload,
   onSelect,
+  onWarmShell,
   variant = 'poster',
 }: AwakenerGridCardProps) {
   const cardAsset = getAwakenerCardAsset(awakener.name)
@@ -67,6 +69,7 @@ export function AwakenerGridCard({
       onSelect={() => {
         onSelect(awakener.id)
       }}
+      onWarmShell={onWarmShell}
       realmAccent={realmAccent}
       variant={variant}
     />

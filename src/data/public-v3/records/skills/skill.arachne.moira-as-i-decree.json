@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0056",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Gain +[Arg2]% Temporary DMG Amplification and [Block:Arg1] Shield, and cleanse {Stagnation} from cards in hand.\n{Singularity Warp}: For the rest of this turn, whenever another Awakener plays a Command Card, consume 1 {Weaver} to unleash {Pursuit}: {Infinite Threads}",
   "descriptionArgs": {
     "Arg1": {
@@ -25,6 +27,7 @@
   },
   "cardKeywords": [],
   "cost": "150",
+  "lore": "In the name of Fate, she declares:\nAll errant threads of destiny shall be consumed by the dust of time.\nThe fate of this world shall return to its ordained course.\nHere the tangled threads are severed. Here the forsaken souls shall find rest.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.arachne.future-as-i-foresee.skill.arachne.moira-as-i-decree",

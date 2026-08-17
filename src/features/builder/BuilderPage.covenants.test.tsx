@@ -1,10 +1,31 @@
 import {fireEvent, render, screen, waitFor, within} from '@testing-library/react'
-import {describe, expect, it} from 'vitest'
-
-import {dbDetailStore} from '@/stores/dbDetailStore'
+import {describe, expect, it, vi} from 'vitest'
 
 import './builder-page.integration-mocks'
 import {BuilderPage} from './BuilderPage'
+
+vi.mock('@/features/database/detail/DeferredDatabaseDetailOverlayOutlet', async () => {
+  const [actual, {useSyncExternalStore}] = await Promise.all([
+    vi.importActual<
+      typeof import('@/features/database/detail/DeferredDatabaseDetailOverlayOutlet')
+    >('@/features/database/detail/DeferredDatabaseDetailOverlayOutlet'),
+    import('react'),
+  ])
+
+  return {
+    ...actual,
+    DeferredDatabaseDetailOverlayOutlet: ({
+      session,
+    }: {
+      session: import('@/stores/dbDetailStore').DatabaseDetailOverlaySession
+    }) => {
+      const activeRef = useSyncExternalStore(session.subscribe, session.top, session.top)
+      return activeRef ? (
+        <dialog aria-label={`${activeRef.kind}:${activeRef.id} details`} open />
+      ) : null
+    },
+  }
+})
 
 describe('BuilderPage covenants', () => {
   it('shows covenant picker tab and covenant search placeholder', () => {
@@ -32,17 +53,13 @@ describe('BuilderPage covenants', () => {
     expect(screen.getAllByRole('button', {name: /set covenant/i}).length).toBeGreaterThan(0)
   })
 
-  it('opens picker covenant details by public id without assigning it', () => {
+  it('opens picker covenant details by public id without assigning it', async () => {
     render(<BuilderPage />)
 
     fireEvent.click(screen.getByRole('tab', {name: /covenants/i}))
     fireEvent.click(screen.getByTitle(/open deus ex machina details overlay/i))
 
-    expect(dbDetailStore.getState().stack.at(-1)).toEqual({
-      kind: 'covenant',
-      id: 'c01',
-      source: 'builder-overlay',
-    })
+    expect(await screen.findByRole('dialog', {name: /covenant:c01 details/i})).toBeInTheDocument()
     expect(screen.queryByRole('button', {name: /edit covenant/i})).not.toBeInTheDocument()
   })
 

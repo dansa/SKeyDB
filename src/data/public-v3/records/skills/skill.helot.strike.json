@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0023",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Helot obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "Condense this deep hatred and sickly slime into spikes, delivering a sharp and lethal blow to sever the enemy's neck.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.helot.the-chainbreaker.skill.helot.strike",

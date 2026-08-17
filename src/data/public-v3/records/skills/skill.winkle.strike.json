@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0053",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG. Winkle obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -24,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "\"Kill them all, anything black... kill them all... or it will be me who dies, me who dies...\"",
   "upgrades": [
     {
       "id": "upgrade.enlighten.winkle.dread-of-the-darkness.skill.winkle.strike",

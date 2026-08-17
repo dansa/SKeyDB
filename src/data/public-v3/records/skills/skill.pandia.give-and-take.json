@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0039",
   "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
   "descriptionTemplate": "Pandia gains [Energy:Arg1] Aliemus. {Rouse}: Gain [Counterattack:Arg3] {plural:[Counterattack:Arg3]|stack|stacks} of {Counter}. Each time Pandia deals DMG, gain [Counterattack:Arg2] {Counter}.",
   "descriptionArgs": {
     "Arg1": {
@@ -44,6 +46,7 @@
     }
   ],
   "cost": "2",
+  "lore": "Give and Take are key aspects of the master-slave dynamic.\nNo matter if it's a kiss or a whip, the slave must accept it with love and gratitude.\nBecause you are not a true slave, but a pleasure seeker chasing thrills.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.pandia.manifesto-of-loving-discipline.skill.pandia.give-and-take",

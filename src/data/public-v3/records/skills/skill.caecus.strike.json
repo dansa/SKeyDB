@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0006",
   "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
   "descriptionTemplate": "Deal [Damage:Arg1] DMG, which enjoys a [Arg3]% {Counter} bonus. Caecus obtains [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
@@ -33,6 +35,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "Spikes are hostility, blades swung at offenders.",
   "upgrades": [
     {
       "id": "upgrade.talent.caecus.rebellious-spikes.skill.caecus.strike",

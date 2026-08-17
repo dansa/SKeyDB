@@ -9,6 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0050",
   "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
   "descriptionTemplate": "Gain [Arg1] Tentacles. Gain [TentaclePower:Arg2] Temporary {Tentacle DMG} and [Power:Arg2] Temporary {STR}. Gain [Arg3]% Temporary Crit. Rate.",
   "descriptionArgs": {
     "Arg1": {
@@ -29,6 +31,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "\"When the stars align, the Divine Realm will emerge from the waters under the pull of the stars. Then, this One shall return, towering between heaven and earth...\"",
   "upgrades": [
     {
       "id": "upgrade.enlighten.tulu.the-stars-are-right.skill.tulu.when-the-stars-are-right",
