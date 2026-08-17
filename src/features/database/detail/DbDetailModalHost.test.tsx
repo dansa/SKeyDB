@@ -1,12 +1,16 @@
+import {useMemo, useState} from 'react'
+
 import {act, cleanup, fireEvent, render, screen, waitFor} from '@testing-library/react'
 import {MemoryRouter, useLocation} from 'react-router'
 import {afterEach, describe, expect, it, vi} from 'vitest'
 
+import type {AwakenerDatabaseSelection} from '@/domain/awakener-database-state'
 import type {CovenantFullRecord} from '@/domain/covenants-full'
 import type {PosseFullRecord} from '@/domain/posses-full'
 import type {PublicRelicRecord, Relic} from '@/domain/relics'
 import type {Wheel} from '@/domain/wheels'
 import type {WheelFullRecord} from '@/domain/wheels-full'
+import {useAwakenerDetailSession} from '@/features/database/internal/awakener-detail-session'
 import {makeTestAwakenerFullRecord} from '@/features/database/internal/database-test-fixtures'
 import {clearDatabaseDetailRecordCacheForTests} from '@/features/database/internal/useDatabaseDetailRouteRecord'
 import {createDatabaseDetailOverlaySession} from '@/stores/dbDetailStore'
@@ -27,6 +31,45 @@ interface MockDetailRenderOptions {
     }
     variantId?: string
   }
+}
+
+const DEFAULT_SESSION_SELECTION: AwakenerDatabaseSelection = {
+  awakenerLevel: 60,
+  gnosticPotentialLevel: 0,
+  psycheSurgeOffset: 0,
+  selectedEnlightenSlot: null,
+  skillLevel: 1,
+  soulforgeLevel: 0,
+}
+
+function SessionBackedAwakenerDetail({item, navigationPort}: MockDetailRenderOptions) {
+  const session = useAwakenerDetailSession()
+  const selection = session?.selection ?? DEFAULT_SESSION_SELECTION
+
+  return (
+    <dialog aria-label={`${item.item.name} details`} open>
+      <div>{`Active tab ${String(item.activeTab)}`}</div>
+      <div>{`Live level ${String(selection.awakenerLevel)}`}</div>
+      <button
+        aria-label='Set live level'
+        onClick={() => {
+          session?.onSelectionChange({...selection, awakenerLevel: 90})
+        }}
+        type='button'
+      >
+        Set live level
+      </button>
+      <button
+        aria-label='Switch to lore tab'
+        onClick={() => {
+          navigationPort.updateState({tab: 'lore'})
+        }}
+        type='button'
+      >
+        Show lore
+      </button>
+    </dialog>
+  )
 }
 
 vi.mock('./dbDetailRegistry', async () => {
@@ -440,6 +483,60 @@ describe('DbDetailModalHost overlay entries', () => {
 })
 
 describe('DbDetailModalHost route entries', () => {
+  it('preserves an awakener session when route-backed detail content remounts', async () => {
+    function RouteBackedAwakenerHost() {
+      const [activeTab, setActiveTab] = useState<'skills' | 'lore'>('skills')
+      const navigationPort = useMemo(
+        () => ({
+          close: vi.fn(),
+          select: vi.fn(),
+          updateState: (state: DatabaseDetailNavigationState) => {
+            if (state.tab === 'skills' || state.tab === 'lore') {
+              setActiveTab(state.tab)
+            }
+          },
+        }),
+        [],
+      )
+
+      return (
+        <DbDetailModalHost
+          awakeners={awakeners}
+          navigationPort={navigationPort}
+          routeItem={{kind: 'awakener', item: awakeners[0], activeTab}}
+          wheels={wheels}
+        />
+      )
+    }
+
+    await vi.mocked(dbDetailRegistry.awakener.render).withImplementation(
+      (options) => <SessionBackedAwakenerDetail key={options.item.activeTab} {...options} />,
+      async () => {
+        render(
+          <MemoryRouter initialEntries={['/database/awakeners/goliath/skills']}>
+            <RouteBackedAwakenerHost />
+          </MemoryRouter>,
+        )
+
+        await waitFor(() => {
+          expect(dbDetailRegistry.awakener.render).toHaveBeenCalled()
+        })
+        expect(await screen.findByRole('dialog', {name: /goliath details/i})).toBeInTheDocument()
+        expect(screen.getByText('Live level 60')).toBeInTheDocument()
+
+        fireEvent.click(screen.getByRole('button', {name: 'Set live level'}))
+        expect(screen.getByText('Live level 90')).toBeInTheDocument()
+
+        fireEvent.click(screen.getByRole('button', {name: 'Switch to lore tab'}))
+
+        await waitFor(() => {
+          expect(screen.getByText('Active tab lore')).toBeInTheDocument()
+          expect(screen.getByText('Live level 90')).toBeInTheDocument()
+        })
+      },
+    )
+  })
+
   it('renders the filter-preferred relic variant on its first committed frame', async () => {
     const goldVariantId = 'relic-variant-0002'
     vi.mocked(dbDetailRegistry.relic.render).mockClear()

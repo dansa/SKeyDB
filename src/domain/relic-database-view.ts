@@ -14,9 +14,13 @@ function compareValues(left: number, right: number, direction: 'ASC' | 'DESC'): 
   return direction === 'ASC' ? left - right : right - left
 }
 
+function normalizeRelicNameForSort(name: string): string {
+  return name.replace(/^[\s\p{P}\p{S}]+|[\s\p{P}\p{S}]+$/gu, '')
+}
+
 function compareNames(left: Relic, right: Relic, direction: 'ASC' | 'DESC'): number {
-  const normalizedLeft = left.name.replace(/^[\s\p{P}]+/u, '')
-  const normalizedRight = right.name.replace(/^[\s\p{P}]+/u, '')
+  const normalizedLeft = normalizeRelicNameForSort(left.name)
+  const normalizedRight = normalizeRelicNameForSort(right.name)
   const result =
     RELIC_NAME_COLLATOR.compare(normalizedLeft, normalizedRight) ||
     RELIC_NAME_COLLATOR.compare(left.name, right.name) ||

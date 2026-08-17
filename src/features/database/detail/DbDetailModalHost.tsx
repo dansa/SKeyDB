@@ -3,6 +3,7 @@ import {Suspense, useEffect, useMemo, useState, useSyncExternalStore, type React
 import {FaMagnifyingGlass, FaXmark} from 'react-icons/fa6'
 import {Navigate, useLocation, useNavigate} from 'react-router'
 
+import type {AwakenerDatabaseSelection} from '@/domain/awakener-database-state'
 import type {Awakener} from '@/domain/awakeners'
 import {getAwakeners} from '@/domain/awakeners'
 import {
@@ -17,6 +18,7 @@ import type {Relic} from '@/domain/relics'
 import {getRelics} from '@/domain/relics'
 import type {Wheel} from '@/domain/wheels'
 import {getWheels} from '@/domain/wheels'
+import {AwakenerDetailSessionContext} from '@/features/database/internal/awakener-detail-session'
 import {
   useDatabaseDetailRecord,
   useDatabaseDetailRouteRecord,
@@ -92,6 +94,35 @@ function useOverlaySessionTop(session?: DatabaseDetailOverlaySession): DatabaseD
 
 function isDatabaseDetailKind(kind: EntityRef['kind']): kind is DatabaseDetailKind {
   return kind in dbDetailRegistry
+}
+
+interface AwakenerDetailSessionBoundaryProps {
+  activeKey: string | null
+  children: ReactNode
+}
+
+function AwakenerDetailSessionBoundary({activeKey, children}: AwakenerDetailSessionBoundaryProps) {
+  const [sessions, setSessions] = useState<Record<string, AwakenerDatabaseSelection>>({})
+
+  const contextValue = useMemo(() => {
+    if (!activeKey) {
+      return null
+    }
+
+    return {
+      key: activeKey,
+      onSelectionChange: (selection: AwakenerDatabaseSelection) => {
+        setSessions((previousSessions) => ({...previousSessions, [activeKey]: selection}))
+      },
+      selection: sessions[activeKey] ?? null,
+    }
+  }, [activeKey, sessions])
+
+  return (
+    <AwakenerDetailSessionContext.Provider value={contextValue}>
+      {children}
+    </AwakenerDetailSessionContext.Provider>
+  )
 }
 
 function resolveOverlayAwakenerTab(
@@ -295,6 +326,8 @@ export function DbDetailModalHost({
     : overlayRef?.kind && isDatabaseDetailKind(overlayRef.kind)
       ? {kind: overlayRef.kind, id: overlayRef.id}
       : null
+  const activeAwakenerSessionKey =
+    activeRef?.kind === 'awakener' ? `${activeRef.kind}:${activeRef.id}` : null
   const routeNavigation = useMemo(
     () =>
       createDatabaseDetailResultNavigation({
@@ -312,15 +345,17 @@ export function DbDetailModalHost({
   if (!routeItem || activeRef?.kind !== routeItem.kind) {
     if (!routeItem && activeRef && overlaySession) {
       return (
-        <Suspense
-          fallback={<div className='px-2 py-3 text-sm text-slate-300'>Loading details…</div>}
-        >
-          <DbDetailOverlayModal
-            activeRef={activeRef}
-            lookup={detailLookup}
-            session={overlaySession}
-          />
-        </Suspense>
+        <AwakenerDetailSessionBoundary activeKey={activeAwakenerSessionKey}>
+          <Suspense
+            fallback={<div className='px-2 py-3 text-sm text-slate-300'>Loading details…</div>}
+          >
+            <DbDetailOverlayModal
+              activeRef={activeRef}
+              lookup={detailLookup}
+              session={overlaySession}
+            />
+          </Suspense>
+        </AwakenerDetailSessionBoundary>
       )
     }
     return null
@@ -331,25 +366,27 @@ export function DbDetailModalHost({
   }
 
   return (
-    <Suspense
-      fallback={
-        <DbDetailRouteLoadingModal
-          loadingLabel={dbDetailRegistry[routeItem.kind].loadingLabel}
+    <AwakenerDetailSessionBoundary activeKey={activeAwakenerSessionKey}>
+      <Suspense
+        fallback={
+          <DbDetailRouteLoadingModal
+            loadingLabel={dbDetailRegistry[routeItem.kind].loadingLabel}
+            navigation={routeNavigation}
+            onClose={navigationPort.close}
+            routeItem={routeItem}
+          />
+        }
+      >
+        <DbDetailRouteModal
+          activeRef={activeRef}
+          lookup={detailLookup}
+          navigationPort={navigationPort}
           navigation={routeNavigation}
-          onClose={navigationPort.close}
           routeItem={routeItem}
+          tabSlug={tabSlug}
         />
-      }
-    >
-      <DbDetailRouteModal
-        activeRef={activeRef}
-        lookup={detailLookup}
-        navigationPort={navigationPort}
-        navigation={routeNavigation}
-        routeItem={routeItem}
-        tabSlug={tabSlug}
-      />
-    </Suspense>
+      </Suspense>
+    </AwakenerDetailSessionBoundary>
   )
 }
 

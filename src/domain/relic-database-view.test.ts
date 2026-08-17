@@ -130,4 +130,17 @@ describe('buildRelicDatabaseViewResult', () => {
 
     expect(sorted.map((relic) => relic.name)).toEqual(['Dream', '"Memory"'])
   })
+
+  it('ignores decorative Unicode stars for alphabetical order', () => {
+    const fixture = relics[0]
+    const sorted = buildRelicDatabaseViewResult(
+      [
+        {...fixture, id: 'relic-sort-zulu', name: '☆Zulu☆'},
+        {...fixture, id: 'relic-sort-alpha', name: 'Alpha'},
+      ],
+      {...defaults, sortKey: 'ALPHABETICAL'},
+    ).relics
+
+    expect(sorted.map((relic) => relic.name)).toEqual(['Alpha', '☆Zulu☆'])
+  })
 })

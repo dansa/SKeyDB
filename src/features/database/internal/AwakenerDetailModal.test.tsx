@@ -1,16 +1,18 @@
-import {StrictMode, useState} from 'react'
+import {StrictMode, useMemo, useState} from 'react'
 
 import {fireEvent, render, screen, waitFor, within} from '@testing-library/react'
 import {beforeEach, describe, expect, it, vi} from 'vitest'
 import {z} from 'zod'
 import {useStore} from 'zustand'
 
+import type {AwakenerDatabaseSelection} from '@/domain/awakener-database-state'
 import {resolveAwakenerStatsForLevel} from '@/domain/awakener-level-scaling'
 import type {Awakener} from '@/domain/awakeners'
 import type {AwakenerFullRecord} from '@/domain/awakeners-full'
 import {collectionOwnershipStore} from '@/stores/collectionOwnershipStore'
 import {preferencesStore} from '@/stores/preferencesStore'
 
+import {AwakenerDetailSessionContext} from './awakener-detail-session'
 import {AwakenerDetailModal} from './AwakenerDetailModal'
 import {
   makeDatabaseShellView,
@@ -768,6 +770,118 @@ describe('AwakenerDetailModal', () => {
     fireEvent.click(screen.getByRole('tab', {name: 'Skills'}))
     expect(screen.getAllByText('Sidebar Level 90').length).toBeGreaterThan(0)
     expect(screen.getAllByText('Sidebar Enlighten E2').length).toBeGreaterThan(0)
+  })
+
+  it('restores live progression controls when a detail tab remounts the modal content', async () => {
+    const onClose = vi.fn()
+    const awakener = makeAwakener(1, 'thais')
+
+    function RouteBackedDetailHarness() {
+      const [activeTab, setActiveTab] = useState<'skills' | 'lore'>('skills')
+      const [selection, setSelection] = useState<AwakenerDatabaseSelection | null>(null)
+      const session = useMemo(
+        () => ({
+          key: awakener.id,
+          onSelectionChange: setSelection,
+          selection,
+        }),
+        [selection],
+      )
+
+      return (
+        <AwakenerDetailSessionContext.Provider value={session}>
+          <AwakenerDetailModal
+            activeTab={activeTab}
+            awakener={awakener}
+            awakeners={[awakener, makeAwakener(2, 'beta')]}
+            fullData={getTestFullData(awakener.id)}
+            key={activeTab}
+            onClose={onClose}
+            onTabChange={(nextTab) => {
+              if (nextTab === 'skills' || nextTab === 'lore') {
+                setActiveTab(nextTab)
+              }
+            }}
+          />
+        </AwakenerDetailSessionContext.Provider>
+      )
+    }
+
+    render(<RouteBackedDetailHarness />)
+
+    await waitFor(() => {
+      expect(screen.getAllByText('Sidebar Level 60').length).toBeGreaterThan(0)
+      expect(screen.getAllByText('Sidebar Enlighten E0').length).toBeGreaterThan(0)
+    })
+
+    fireEvent.click(screen.getAllByRole('button', {name: 'Set level 90'})[0])
+    fireEvent.click(screen.getAllByRole('button', {name: 'Set E2'})[0])
+    fireEvent.click(screen.getByRole('tab', {name: 'Lore'}))
+
+    expect(screen.getAllByText('Sidebar Level 90').length).toBeGreaterThan(0)
+    expect(screen.getAllByText('Sidebar Enlighten E2').length).toBeGreaterThan(0)
+  })
+
+  it('keeps the initial live selection when defaults change before a tab remount', async () => {
+    const onClose = vi.fn()
+    const awakener = makeAwakener(1, 'thais')
+
+    function RouteBackedDetailHarness() {
+      const [activeTab, setActiveTab] = useState<'skills' | 'lore'>('skills')
+      const [selection, setSelection] = useState<AwakenerDatabaseSelection | null>(null)
+      const session = useMemo(
+        () => ({
+          key: awakener.id,
+          onSelectionChange: setSelection,
+          selection,
+        }),
+        [selection],
+      )
+
+      return (
+        <AwakenerDetailSessionContext.Provider value={session}>
+          <AwakenerDetailModal
+            activeTab={activeTab}
+            awakener={awakener}
+            awakeners={[awakener]}
+            fullData={getTestFullData(awakener.id)}
+            key={activeTab}
+            onClose={onClose}
+            onTabChange={(nextTab) => {
+              if (nextTab === 'skills' || nextTab === 'lore') {
+                setActiveTab(nextTab)
+              }
+            }}
+          />
+        </AwakenerDetailSessionContext.Provider>
+      )
+    }
+
+    render(<RouteBackedDetailHarness />)
+
+    await waitFor(() => {
+      expect(screen.getAllByText('Sidebar Enlighten E0').length).toBeGreaterThan(0)
+    })
+
+    fireEvent.click(screen.getByRole('button', {name: 'Open detail settings'}))
+    fireEvent.click(screen.getByRole('button', {name: /default progression/i}))
+
+    const defaultProgressionSection = screen
+      .getByText('Applies when opening a different awakener next time.')
+      .closest('div')
+    if (!defaultProgressionSection) {
+      throw new Error('Expected default progression section')
+    }
+
+    fireEvent.click(within(defaultProgressionSection).getByRole('button', {name: 'E2'}))
+    expect(screen.getAllByText('Sidebar Enlighten E0').length).toBeGreaterThan(0)
+
+    fireEvent.click(screen.getByRole('tab', {name: 'Lore'}))
+
+    await waitFor(() => {
+      expect(screen.getAllByText('Sidebar Enlighten E0').length).toBeGreaterThan(0)
+      expect(screen.queryByText('Sidebar Enlighten E2')).not.toBeInTheDocument()
+    })
   })
 
   it('updates default progression for the next awakener without changing the current live state', async () => {
