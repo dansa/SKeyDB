@@ -18,6 +18,7 @@ import {
   resolveTimelineBannerPoolSlots,
   resolveTimelineBannerUnit,
   type DerivedPoolInput,
+  type DerivedPoolSlotInput,
   type FeaturedInput,
   type PoolSlotInput,
 } from './timeline-banner-pools'
@@ -40,6 +41,7 @@ interface BannerInput {
   pinned?: boolean
   pricing?: string
   preliminary?: boolean
+  linkedPresentation?: BannerEntry['linkedPresentation']
 }
 
 interface DailyScheduleInput {
@@ -64,24 +66,67 @@ const featuredInputSchema: z.ZodType<FeaturedInput> = z.union([
 
 const poolSlotInputSchema: z.ZodType<PoolSlotInput> = z.object({
   pool: z.array(featuredInputSchema).min(1),
+  label: nonEmptyStringSchema.optional(),
   linked: z.boolean().optional(),
   count: z.number().int().positive().optional(),
 })
+
+const derivedPoolSlotInputSchema: z.ZodType<DerivedPoolSlotInput> = z
+  .object({
+    availabilityTypes: z.array(nonEmptyStringSchema).optional(),
+    count: z.number().int().positive().optional(),
+    excludeNames: z.array(nonEmptyStringSchema).optional(),
+    gender: nonEmptyStringSchema.optional(),
+    kind: z.enum(['awakener', 'wheel']),
+    label: nonEmptyStringSchema.optional(),
+    limitedAwakenerType: nonEmptyStringSchema.optional(),
+    linked: z.boolean().optional(),
+  })
+  .superRefine((slot, ctx) => {
+    if (slot.linked && slot.kind !== 'awakener') {
+      ctx.addIssue({
+        code: 'custom',
+        path: ['linked'],
+        message: 'Only awakener derived slots can link to matching wheels.',
+      })
+    }
+  })
 
 const dailyScheduleInputSchema: z.ZodType<DailyScheduleInput> = z.object({
   day: z.number().int().positive(),
   featured: z.array(featuredInputSchema).min(1),
 })
 
-const derivedPoolInputSchema: z.ZodType<DerivedPoolInput> = z.object({
-  availabilityTypes: z.array(nonEmptyStringSchema).optional(),
-  awakenerSlots: z.number().int().nonnegative().optional(),
-  excludeNames: z.array(nonEmptyStringSchema).optional(),
-  linkedPairs: z.boolean().optional(),
-  limitedAwakenerType: nonEmptyStringSchema.optional(),
-  slotCount: z.number().int().positive().optional(),
-  wheelSlots: z.number().int().nonnegative().optional(),
-})
+const derivedPoolInputSchema: z.ZodType<DerivedPoolInput> = z
+  .object({
+    availabilityTypes: z.array(nonEmptyStringSchema).optional(),
+    awakenerSlots: z.number().int().nonnegative().optional(),
+    gender: nonEmptyStringSchema.optional(),
+    excludeNames: z.array(nonEmptyStringSchema).optional(),
+    linkedPairs: z.boolean().optional(),
+    limitedAwakenerType: nonEmptyStringSchema.optional(),
+    slots: z.array(derivedPoolSlotInputSchema).min(1).optional(),
+    slotCount: z.number().int().positive().optional(),
+    wheelSlots: z.number().int().nonnegative().optional(),
+  })
+  .superRefine((pool, ctx) => {
+    if (
+      pool.slots &&
+      (pool.awakenerSlots !== undefined ||
+        pool.gender !== undefined ||
+        pool.linkedPairs !== undefined ||
+        pool.limitedAwakenerType !== undefined ||
+        pool.slotCount !== undefined ||
+        pool.wheelSlots !== undefined)
+    ) {
+      ctx.addIssue({
+        code: 'custom',
+        path: ['slots'],
+        message:
+          'Derived bucket slots cannot be combined with legacy slot-count, type, gender, or linked-pair fields.',
+      })
+    }
+  })
 
 const bannerInputSchema: z.ZodType<BannerInput> = z
   .object({
@@ -101,6 +146,7 @@ const bannerInputSchema: z.ZodType<BannerInput> = z
     pinned: z.boolean().optional(),
     pricing: nonEmptyStringSchema.optional(),
     preliminary: z.boolean().optional(),
+    linkedPresentation: z.enum(['expanded', 'alternating', 'paired']).optional(),
   })
   .superRefine((banner, ctx) => {
     if (banner.poolSlots && banner.derivedPool) {
@@ -108,6 +154,18 @@ const bannerInputSchema: z.ZodType<BannerInput> = z
         code: 'custom',
         path: ['derivedPool'],
         message: 'Use either poolSlots or derivedPool, not both.',
+      })
+    }
+    if (
+      banner.linkedPresentation !== undefined &&
+      banner.linkedPresentation !== 'expanded' &&
+      !banner.derivedPool &&
+      !banner.poolSlots
+    ) {
+      ctx.addIssue({
+        code: 'custom',
+        path: ['linkedPresentation'],
+        message: 'Alternating linked presentation requires pool slots.',
       })
     }
     if (banner.type === 'daily' && !banner.dailySchedule) {
@@ -261,6 +319,7 @@ function loadBanner(raw: BannerInput): BannerEntry {
     pinned: raw.pinned,
     pricing: raw.pricing,
     preliminary: raw.preliminary,
+    linkedPresentation: raw.linkedPresentation,
     startDate: parseGameDate(raw.startDate),
     endDate: parseGameDate(raw.endDate),
   }

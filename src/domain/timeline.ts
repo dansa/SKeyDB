@@ -8,8 +8,11 @@ export interface BannerFeaturedUnit {
 
 export interface BannerPoolSlot {
   pool: BannerFeaturedUnit[]
+  label?: string
   linked?: boolean
 }
+
+export type BannerLinkedPresentation = 'expanded' | 'alternating' | 'paired'
 
 export interface BannerDailyScheduleEntry {
   day: number
@@ -42,6 +45,7 @@ export interface BannerEntry {
   dailySchedule?: BannerDailyScheduleEntry[]
   featured?: BannerFeaturedUnit[]
   poolSlots?: BannerPoolSlot[]
+  linkedPresentation?: BannerLinkedPresentation
   customArt?: string
   customTags?: string[]
   pinned?: boolean

@@ -34,6 +34,7 @@ export function AwakenersBrowse({
     setRealmFilter: browseState.setRealmFilter,
     setRarityFilter: browseState.setRarityFilter,
     setTypeFilter: browseState.setTypeFilter,
+    setGenderFilter: browseState.setGenderFilter,
     setAvailabilityFilter: browseState.setAvailabilityFilter,
     setGameplayFactionFilters: browseState.setGameplayFactionFilters,
     setScalingSubstatFilters: browseState.setScalingSubstatFilters,
@@ -53,12 +54,14 @@ export function AwakenersBrowse({
         onRarityFilterChange={browseState.setRarityFilter}
         onRealmFilterChange={browseState.setRealmFilter}
         onTypeFilterChange={browseState.setTypeFilter}
+        onGenderFilterChange={browseState.setGenderFilter}
         onGameplayFactionFilterToggle={browseState.toggleGameplayFactionFilter}
         onScalingSubstatFilterRemove={browseState.removeScalingSubstatFilter}
         onScalingSubstatFilterRoleChange={browseState.setScalingSubstatFilterRole}
         onScalingSubstatFilterToggle={browseState.toggleScalingSubstatFilter}
         query={browseState.query}
         availabilityFilter={browseState.availabilityFilter}
+        genderFilter={browseState.genderFilter}
         gameplayFactionFilters={browseState.gameplayFactionFilters}
         rarityFilter={browseState.rarityFilter}
         realmFilter={browseState.realmFilter}
@@ -70,6 +73,7 @@ export function AwakenersBrowse({
     [
       browseState.availabilityFilter,
       browseState.gameplayFactionFilters,
+      browseState.genderFilter,
       browseState.query,
       browseState.rarityFilter,
       browseState.realmFilter,
@@ -81,6 +85,7 @@ export function AwakenersBrowse({
       browseState.setRealmFilter,
       browseState.setScalingSubstatFilterRole,
       browseState.setTypeFilter,
+      browseState.setGenderFilter,
       browseState.toggleGameplayFactionFilter,
       browseState.toggleScalingSubstatFilter,
       browseState.typeFilter,

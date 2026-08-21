@@ -17,6 +17,7 @@
         "damage",
         "dmg",
         "faded",
+        "female",
         "fixed",
         "fixed damage",
         "fixed dmg",
@@ -79,7 +80,7 @@
           "fixed damage",
           "Hand Limit"
         ],
-        "facet": ["CHAOS", "SSR", "ASSAULT", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "Hybrid"]
+        "facet": ["CHAOS", "SSR", "ASSAULT", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "Hybrid", "Female"]
       },
       "facets": {
         "realm": "CHAOS",
@@ -87,6 +88,7 @@
         "type": "ASSAULT",
         "availabilityType": "LIMITED_FADED_LEGACY",
         "faction": "Hybrid",
+        "gender": "Female",
         "tags": [
           "arithmetica",
           "bleed",
@@ -115,6 +117,7 @@
         "buff",
         "caro",
         "draw",
+        "female",
         "outlanders",
         "permanent",
         "poison",
@@ -131,7 +134,7 @@
         "name": ["Agrippa"],
         "alias": ["agrippa"],
         "tag": ["poison", "alert", "str-up", "draw", "spider", "alert buff", "STR Up", "strength up"],
-        "facet": ["CARO", "SSR", "WARDEN", "PERMANENT", "Outlanders"]
+        "facet": ["CARO", "SSR", "WARDEN", "PERMANENT", "Outlanders", "Female"]
       },
       "facets": {
         "realm": "CARO",
@@ -139,6 +142,7 @@
         "type": "WARDEN",
         "availabilityType": "PERMANENT",
         "faction": "Outlanders",
+        "gender": "Female",
         "tags": ["alert", "draw", "poison", "spider", "str-up"]
       }
     },
@@ -153,6 +157,7 @@
         "chorus",
         "draw",
         "fainted",
+        "female",
         "hybrid",
         "keyflare",
         "petrified",
@@ -168,7 +173,7 @@
         "name": ["Aigis"],
         "alias": ["aigis"],
         "tag": ["vulnerable", "stun", "draw", "keyflare", "vulnerability", "vuln", "petrify", "petrified", "fainted"],
-        "facet": ["CARO", "SSR", "CHORUS", "WELFARE", "Hybrid"]
+        "facet": ["CARO", "SSR", "CHORUS", "WELFARE", "Hybrid", "Female"]
       },
       "facets": {
         "realm": "CARO",
@@ -176,6 +181,7 @@
         "type": "CHORUS",
         "availabilityType": "WELFARE",
         "faction": "Hybrid",
+        "gender": "Female",
         "tags": ["draw", "keyflare", "stun", "vulnerable"]
       }
     },
@@ -197,6 +203,7 @@
         "discard",
         "dispel",
         "draw",
+        "female",
         "outlanders",
         "permanent",
         "remove",
@@ -228,7 +235,7 @@
           "Death Resistance",
           "resistance"
         ],
-        "facet": ["CHAOS", "SSR", "WARDEN", "PERMANENT", "Outlanders"]
+        "facet": ["CHAOS", "SSR", "WARDEN", "PERMANENT", "Outlanders", "Female"]
       },
       "facets": {
         "realm": "CHAOS",
@@ -236,6 +243,7 @@
         "type": "WARDEN",
         "availabilityType": "PERMANENT",
         "faction": "Outlanders",
+        "gender": "Female",
         "tags": ["alert", "death-resistance", "discard", "dispel", "draw", "strike", "vulnerable"]
       }
     },
@@ -253,6 +261,7 @@
         "discard",
         "dmg",
         "draw",
+        "female",
         "fools",
         "gen",
         "generation",
@@ -298,7 +307,7 @@
           "tentacle gen",
           "tentacle limit"
         ],
-        "facet": ["AEQUOR", "SSR", "ASSAULT", "WELFARE", "The Fools"]
+        "facet": ["AEQUOR", "SSR", "ASSAULT", "WELFARE", "The Fools", "Female"]
       },
       "facets": {
         "realm": "AEQUOR",
@@ -306,6 +315,7 @@
         "type": "ASSAULT",
         "availabilityType": "WELFARE",
         "faction": "The Fools",
+        "gender": "Female",
         "tags": ["aftershock", "discard", "draw", "pierce-dmg", "str-up", "tentacle-dmg", "tentacles"]
       }
     },
@@ -331,6 +341,7 @@
         "hp recovery",
         "hybrid",
         "limit",
+        "male",
         "permanent",
         "recovery",
         "remove",
@@ -378,7 +389,7 @@
           "tentacle gen",
           "tentacle limit"
         ],
-        "facet": ["AEQUOR", "SSR", "WARDEN", "PERMANENT", "Hybrid"]
+        "facet": ["AEQUOR", "SSR", "WARDEN", "PERMANENT", "Hybrid", "Male"]
       },
       "facets": {
         "realm": "AEQUOR",
@@ -386,6 +397,7 @@
         "type": "WARDEN",
         "availabilityType": "PERMANENT",
         "faction": "Hybrid",
+        "gender": "Male",
         "tags": ["counter", "dispel", "heal", "str-up", "tentacle-dmg", "tentacles", "vulnerable"]
       }
     },
@@ -401,6 +413,7 @@
         "chorus",
         "discard",
         "draw",
+        "female",
         "permanent",
         "ssr",
         "str",
@@ -417,7 +430,7 @@
         "name": ["Casiah"],
         "alias": ["casiah"],
         "tag": ["str-up", "aftershock", "arithmetica", "discard", "draw", "STR Up", "strength up"],
-        "facet": ["ULTRA", "SSR", "CHORUS", "PERMANENT", "The Unknowable"]
+        "facet": ["ULTRA", "SSR", "CHORUS", "PERMANENT", "The Unknowable", "Female"]
       },
       "facets": {
         "realm": "ULTRA",
@@ -425,6 +438,7 @@
         "type": "CHORUS",
         "availabilityType": "PERMANENT",
         "faction": "The Unknowable",
+        "gender": "Female",
         "tags": ["aftershock", "arithmetica", "discard", "draw", "str-up"]
       }
     },
@@ -441,6 +455,7 @@
         "fools",
         "limited",
         "limited astral reign",
+        "male",
         "reign",
         "ssr",
         "the",
@@ -454,7 +469,7 @@
         "name": ["Castor"],
         "alias": ["castor"],
         "tag": ["weakness", "corrosion", "draw", "weak"],
-        "facet": ["ULTRA", "SSR", "WARDEN", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "The Fools"]
+        "facet": ["ULTRA", "SSR", "WARDEN", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "The Fools", "Male"]
       },
       "facets": {
         "realm": "ULTRA",
@@ -462,6 +477,7 @@
         "type": "WARDEN",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "The Fools",
+        "gender": "Male",
         "tags": ["corrosion", "draw", "weakness"]
       }
     },
@@ -480,6 +496,7 @@
         "damage",
         "dispel",
         "dmg",
+        "female",
         "gen",
         "generation",
         "heal",
@@ -524,7 +541,7 @@
           "tentacle gen",
           "tentacle limit"
         ],
-        "facet": ["AEQUOR", "SSR", "CHORUS", "PERMANENT", "Outlanders"]
+        "facet": ["AEQUOR", "SSR", "CHORUS", "PERMANENT", "Outlanders", "Female"]
       },
       "facets": {
         "realm": "AEQUOR",
@@ -532,6 +549,7 @@
         "type": "CHORUS",
         "availabilityType": "PERMANENT",
         "faction": "Outlanders",
+        "gender": "Female",
         "tags": ["arithmetica", "dispel", "heal", "tentacle-dmg", "tentacles", "weakness"]
       }
     },
@@ -549,6 +567,7 @@
         "clementine",
         "dispel",
         "down",
+        "female",
         "keyflare",
         "limited",
         "limited astral reign",
@@ -571,7 +590,7 @@
         "name": ["Clementine"],
         "alias": ["clementine"],
         "tag": ["bleed", "str-up", "str-down", "dispel", "keyflare", "STR Up", "strength up", "STR Down", "strength down", "cleanse", "clear", "remove"],
-        "facet": ["ULTRA", "SSR", "CHORUS", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "The Unknowable"]
+        "facet": ["ULTRA", "SSR", "CHORUS", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "The Unknowable", "Female"]
       },
       "facets": {
         "realm": "ULTRA",
@@ -579,6 +598,7 @@
         "type": "CHORUS",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "The Unknowable",
+        "gender": "Female",
         "tags": ["bleed", "dispel", "keyflare", "str-down", "str-up"]
       }
     },
@@ -598,6 +618,7 @@
         "discard",
         "dmg",
         "draw",
+        "female",
         "fools",
         "gen",
         "generation",
@@ -654,7 +675,7 @@
           "tentacle gen",
           "tentacle limit"
         ],
-        "facet": ["AEQUOR", "SSR", "WARDEN", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "The Fools"]
+        "facet": ["AEQUOR", "SSR", "WARDEN", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "The Fools", "Female"]
       },
       "facets": {
         "realm": "AEQUOR",
@@ -662,6 +683,7 @@
         "type": "WARDEN",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "The Fools",
+        "gender": "Female",
         "tags": ["aftershock", "death-resistance", "discard", "draw", "str-up", "tentacle-dmg", "tentacles", "vulnerable", "weakness"]
       }
     },
@@ -679,6 +701,7 @@
         "dmg",
         "draw",
         "faded",
+        "female",
         "keyflare",
         "legacy",
         "limited",
@@ -724,7 +747,7 @@
           "Pierce DMG",
           "pierce damage"
         ],
-        "facet": ["ULTRA", "SSR", "ASSAULT", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "The Unknowable"]
+        "facet": ["ULTRA", "SSR", "ASSAULT", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "The Unknowable", "Female"]
       },
       "facets": {
         "realm": "ULTRA",
@@ -732,6 +755,7 @@
         "type": "ASSAULT",
         "availabilityType": "LIMITED_FADED_LEGACY",
         "faction": "The Unknowable",
+        "gender": "Female",
         "tags": ["arithmetica", "counter", "draw", "keyflare", "pierce-dmg", "poison", "str-up", "vulnerable", "weakness"]
       }
     },
@@ -750,6 +774,7 @@
         "discard",
         "dispel",
         "doll",
+        "female",
         "heal",
         "healing",
         "hp",
@@ -767,7 +792,7 @@
         "name": ["Doll"],
         "alias": ["doll"],
         "tag": ["weakness", "dispel", "discard", "heal", "weak", "cleanse", "clear", "remove", "healing", "hp recovery"],
-        "facet": ["CHAOS", "SR", "CHORUS", "WELFARE", "Among the Stars"]
+        "facet": ["CHAOS", "SR", "CHORUS", "WELFARE", "Among the Stars", "Female"]
       },
       "facets": {
         "realm": "CHAOS",
@@ -775,6 +800,7 @@
         "type": "CHORUS",
         "availabilityType": "WELFARE",
         "faction": "Among the Stars",
+        "gender": "Female",
         "tags": ["discard", "dispel", "heal", "weakness"]
       }
     },
@@ -797,6 +823,7 @@
         "harm",
         "limited",
         "limited astral reign",
+        "male",
         "of",
         "out",
         "out of the aeons",
@@ -837,7 +864,7 @@
           "fixed damage",
           "Self-Damage"
         ],
-        "facet": ["CARO", "SSR", "ASSAULT", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "Out of the Aeons"]
+        "facet": ["CARO", "SSR", "ASSAULT", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "Out of the Aeons", "Male"]
       },
       "facets": {
         "realm": "CARO",
@@ -845,6 +872,7 @@
         "type": "ASSAULT",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "Out of the Aeons",
+        "gender": "Male",
         "tags": ["fixed-dmg", "pierce-dmg", "self-harm", "str-up", "vulnerable"]
       }
     },
@@ -861,6 +889,7 @@
         "clear",
         "dispel",
         "erica",
+        "female",
         "hybrid",
         "keyflare",
         "remove",
@@ -899,7 +928,7 @@
           "clear",
           "remove"
         ],
-        "facet": ["ULTRA", "SSR", "WARDEN", "WELFARE", "Hybrid"]
+        "facet": ["ULTRA", "SSR", "WARDEN", "WELFARE", "Hybrid", "Female"]
       },
       "facets": {
         "realm": "ULTRA",
@@ -907,6 +936,7 @@
         "type": "WARDEN",
         "availabilityType": "WELFARE",
         "faction": "Hybrid",
+        "gender": "Female",
         "tags": ["alert", "dispel", "keyflare", "str-up", "vulnerable", "weakness"]
       }
     },
@@ -929,6 +959,7 @@
         "dmg",
         "down",
         "faint",
+        "female",
         "fixed",
         "fixed damage",
         "fixed dmg",
@@ -990,7 +1021,7 @@
           "healing",
           "hp recovery"
         ],
-        "facet": ["CARO", "SSR", "WARDEN", "PERMANENT", "Among the Stars"]
+        "facet": ["CARO", "SSR", "WARDEN", "PERMANENT", "Among the Stars", "Female"]
       },
       "facets": {
         "realm": "CARO",
@@ -998,6 +1029,7 @@
         "type": "WARDEN",
         "availabilityType": "PERMANENT",
         "faction": "Among the Stars",
+        "gender": "Female",
         "tags": ["counter", "death-resistance", "dispel", "fixed-dmg", "heal", "steal-str", "str-down", "str-up", "weakness"]
       }
     },
@@ -1017,6 +1049,7 @@
         "dmg",
         "draw",
         "faros",
+        "female",
         "fools",
         "gen",
         "generation",
@@ -1062,7 +1095,7 @@
           "tentacle gen",
           "tentacle limit"
         ],
-        "facet": ["AEQUOR", "SSR", "CHORUS", "PERMANENT", "The Fools"]
+        "facet": ["AEQUOR", "SSR", "CHORUS", "PERMANENT", "The Fools", "Female"]
       },
       "facets": {
         "realm": "AEQUOR",
@@ -1070,6 +1103,7 @@
         "type": "CHORUS",
         "availabilityType": "PERMANENT",
         "faction": "The Fools",
+        "gender": "Female",
         "tags": ["arithmetica", "dispel", "draw", "hand-limit", "lemurian", "poison", "tentacle-dmg", "tentacles"]
       }
     },
@@ -1090,6 +1124,7 @@
         "doll",
         "doll inferno",
         "draw",
+        "female",
         "fixed",
         "fixed damage",
         "fixed dmg",
@@ -1143,7 +1178,7 @@
           "Max HP DMG",
           "Self-Damage"
         ],
-        "facet": ["CHAOS", "Genesis", "CHORUS", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "Among the Stars"]
+        "facet": ["CHAOS", "Genesis", "CHORUS", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "Among the Stars", "Female"]
       },
       "facets": {
         "realm": "CHAOS",
@@ -1151,6 +1186,7 @@
         "type": "CHORUS",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "Among the Stars",
+        "gender": "Female",
         "tags": ["arithmetica", "draw", "fixed-dmg", "heal", "max-hp-dmg", "poison", "self-harm", "vulnerable", "weakness"]
       }
     },
@@ -1167,6 +1203,7 @@
         "damage",
         "draw",
         "faded",
+        "female",
         "fools",
         "g",
         "g helot",
@@ -1215,7 +1252,7 @@
           "hp recovery",
           "Self-Damage"
         ],
-        "facet": ["CARO", "Genesis", "ASSAULT", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "The Fools"]
+        "facet": ["CARO", "Genesis", "ASSAULT", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "The Fools", "Female"]
       },
       "facets": {
         "realm": "CARO",
@@ -1223,6 +1260,7 @@
         "type": "ASSAULT",
         "availabilityType": "LIMITED_FADED_LEGACY",
         "faction": "The Fools",
+        "gender": "Female",
         "tags": ["bleed", "draw", "hand-limit", "heal", "self-harm", "str-up", "strike"]
       }
     },
@@ -1237,6 +1275,7 @@
         "chorus",
         "down",
         "draw",
+        "female",
         "g",
         "g ramona",
         "genesis",
@@ -1260,7 +1299,7 @@
         "name": ["Ramona: Timeworn", "ramona-timeworn"],
         "alias": ["ramona: timeworn", "g-ramona"],
         "tag": ["str-up", "str-down", "arithmetica", "draw", "keyflare", "STR Up", "strength up", "STR Down", "strength down"],
-        "facet": ["CHAOS", "Genesis", "CHORUS", "WELFARE", "The Unknowable"]
+        "facet": ["CHAOS", "Genesis", "CHORUS", "WELFARE", "The Unknowable", "Female"]
       },
       "facets": {
         "realm": "CHAOS",
@@ -1268,6 +1307,7 @@
         "type": "CHORUS",
         "availabilityType": "WELFARE",
         "faction": "The Unknowable",
+        "gender": "Female",
         "tags": ["arithmetica", "draw", "keyflare", "str-down", "str-up"]
       }
     },
@@ -1291,6 +1331,7 @@
         "lemuria",
         "lemurian",
         "limit",
+        "male",
         "permanent",
         "remove",
         "ssr",
@@ -1330,7 +1371,7 @@
           "tentacle gen",
           "tentacle limit"
         ],
-        "facet": ["AEQUOR", "SSR", "ASSAULT", "PERMANENT", "The Fools"]
+        "facet": ["AEQUOR", "SSR", "ASSAULT", "PERMANENT", "The Fools", "Male"]
       },
       "facets": {
         "realm": "AEQUOR",
@@ -1338,6 +1379,7 @@
         "type": "ASSAULT",
         "availabilityType": "PERMANENT",
         "faction": "The Fools",
+        "gender": "Male",
         "tags": ["dispel", "lemurian", "str-up", "tentacle-dmg", "tentacles"]
       }
     },
@@ -1362,6 +1404,7 @@
         "legacy",
         "limited",
         "limited faded legacy",
+        "male",
         "pierce",
         "pierce damage",
         "pierce dmg",
@@ -1419,7 +1462,7 @@
           "clear",
           "remove"
         ],
-        "facet": ["CHAOS", "SSR", "CHORUS", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "The Unknowable"]
+        "facet": ["CHAOS", "SSR", "CHORUS", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "The Unknowable", "Male"]
       },
       "facets": {
         "realm": "CHAOS",
@@ -1427,6 +1470,7 @@
         "type": "CHORUS",
         "availabilityType": "LIMITED_FADED_LEGACY",
         "faction": "The Unknowable",
+        "gender": "Male",
         "tags": ["arithmetica", "bleed", "dispel", "pierce-dmg", "poison", "steal-str", "str-down", "str-up", "vulnerable", "weakness"]
       }
     },
@@ -1444,6 +1488,7 @@
         "discard",
         "dispel",
         "draw",
+        "female",
         "fools",
         "hand",
         "hand limit",
@@ -1464,7 +1509,7 @@
         "name": ["Helot"],
         "alias": ["helot"],
         "tag": ["dispel", "discard", "draw", "hand-limit", "self-harm", "strike", "cleanse", "clear", "remove", "Hand Limit", "Self-Damage"],
-        "facet": ["CARO", "SSR", "ASSAULT", "PERMANENT", "The Fools"]
+        "facet": ["CARO", "SSR", "ASSAULT", "PERMANENT", "The Fools", "Female"]
       },
       "facets": {
         "realm": "CARO",
@@ -1472,6 +1517,7 @@
         "type": "ASSAULT",
         "availabilityType": "PERMANENT",
         "faction": "The Fools",
+        "gender": "Female",
         "tags": ["discard", "dispel", "draw", "hand-limit", "self-harm", "strike"]
       }
     },
@@ -1487,6 +1533,7 @@
         "death resistance",
         "down",
         "faded",
+        "female",
         "heal",
         "healing",
         "horla",
@@ -1536,7 +1583,7 @@
           "healing",
           "hp recovery"
         ],
-        "facet": ["ULTRA", "SSR", "CHORUS", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "Outlanders"]
+        "facet": ["ULTRA", "SSR", "CHORUS", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "Outlanders", "Female"]
       },
       "facets": {
         "realm": "ULTRA",
@@ -1544,6 +1591,7 @@
         "type": "CHORUS",
         "availabilityType": "LIMITED_FADED_LEGACY",
         "faction": "Outlanders",
+        "gender": "Female",
         "tags": ["counter", "death-resistance", "heal", "str-down", "str-up", "vulnerable", "weakness"]
       }
     },
@@ -1552,12 +1600,12 @@
       "id": "awakener-0025",
       "name": "Jenkin",
       "aliases": ["jenkins"],
-      "tokens": ["assault", "draw", "fools", "jenkin", "jenkins", "permanent", "ssr", "the", "the fools", "ultra"],
+      "tokens": ["assault", "draw", "female", "fools", "jenkin", "jenkins", "permanent", "ssr", "the", "the fools", "ultra"],
       "fields": {
         "name": ["Jenkin"],
         "alias": ["jenkins"],
         "tag": ["draw"],
-        "facet": ["ULTRA", "SSR", "ASSAULT", "PERMANENT", "The Fools"]
+        "facet": ["ULTRA", "SSR", "ASSAULT", "PERMANENT", "The Fools", "Female"]
       },
       "facets": {
         "realm": "ULTRA",
@@ -1565,6 +1613,7 @@
         "type": "ASSAULT",
         "availabilityType": "PERMANENT",
         "faction": "The Fools",
+        "gender": "Female",
         "tags": ["draw"]
       }
     },
@@ -1581,6 +1630,7 @@
         "clear",
         "dispel",
         "draw",
+        "female",
         "heal",
         "healing",
         "hp",
@@ -1620,7 +1670,7 @@
           "healing",
           "hp recovery"
         ],
-        "facet": ["CHAOS", "SSR", "CHORUS", "PERMANENT", "Outlanders"]
+        "facet": ["CHAOS", "SSR", "CHORUS", "PERMANENT", "Outlanders", "Female"]
       },
       "facets": {
         "realm": "CHAOS",
@@ -1628,6 +1678,7 @@
         "type": "CHORUS",
         "availabilityType": "PERMANENT",
         "faction": "Outlanders",
+        "gender": "Female",
         "tags": ["arithmetica", "dispel", "draw", "heal", "keyflare", "poison", "vulnerable", "weakness"]
       }
     },
@@ -1649,6 +1700,7 @@
         "dispel",
         "dmg",
         "draw",
+        "female",
         "kathigu",
         "kathigu ra",
         "kathigura",
@@ -1673,7 +1725,7 @@
         "name": ["Kathigu-Ra"],
         "alias": ["kathigu-ra", "kathigura"],
         "tag": ["str-up", "pierce-dmg", "dispel", "discard", "draw", "STR Up", "strength up", "Pierce DMG", "pierce damage", "cleanse", "clear", "remove"],
-        "facet": ["CHAOS", "SSR", "ASSAULT", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "Among the Stars"]
+        "facet": ["CHAOS", "SSR", "ASSAULT", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "Among the Stars", "Female"]
       },
       "facets": {
         "realm": "CHAOS",
@@ -1681,6 +1733,7 @@
         "type": "ASSAULT",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "Among the Stars",
+        "gender": "Female",
         "tags": ["discard", "dispel", "draw", "pierce-dmg", "str-up"]
       }
     },
@@ -1697,6 +1750,7 @@
         "damage",
         "dispel",
         "dmg",
+        "female",
         "harm",
         "heal",
         "healing",
@@ -1740,7 +1794,7 @@
           "hp recovery",
           "Self-Damage"
         ],
-        "facet": ["CARO", "SSR", "CHORUS", "PERMANENT", "Hybrid"]
+        "facet": ["CARO", "SSR", "CHORUS", "PERMANENT", "Hybrid", "Female"]
       },
       "facets": {
         "realm": "CARO",
@@ -1748,6 +1802,7 @@
         "type": "CHORUS",
         "availabilityType": "PERMANENT",
         "faction": "Hybrid",
+        "gender": "Female",
         "tags": ["dispel", "heal", "pierce-dmg", "self-harm", "str-up"]
       }
     },
@@ -1761,6 +1816,7 @@
         "death",
         "death resistance",
         "faded",
+        "female",
         "heal",
         "healing",
         "hp",
@@ -1781,7 +1837,7 @@
         "name": ["Lily"],
         "alias": ["lily"],
         "tag": ["poison", "death-resistance", "heal", "strike", "Death Resistance", "resistance", "healing", "hp recovery"],
-        "facet": ["CHAOS", "SSR", "WARDEN", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "Hybrid"]
+        "facet": ["CHAOS", "SSR", "WARDEN", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "Hybrid", "Female"]
       },
       "facets": {
         "realm": "CHAOS",
@@ -1789,6 +1845,7 @@
         "type": "WARDEN",
         "availabilityType": "LIMITED_FADED_LEGACY",
         "faction": "Hybrid",
+        "gender": "Female",
         "tags": ["death-resistance", "heal", "poison", "strike"]
       }
     },
@@ -1803,6 +1860,7 @@
         "discard",
         "dmg",
         "draw",
+        "female",
         "fools",
         "liz",
         "permanent",
@@ -1824,7 +1882,7 @@
         "name": ["Liz"],
         "alias": ["liz"],
         "tag": ["poison", "str-up", "pierce-dmg", "discard", "draw", "STR Up", "strength up", "Pierce DMG", "pierce damage"],
-        "facet": ["ULTRA", "SSR", "ASSAULT", "PERMANENT", "The Fools"]
+        "facet": ["ULTRA", "SSR", "ASSAULT", "PERMANENT", "The Fools", "Female"]
       },
       "facets": {
         "realm": "ULTRA",
@@ -1832,6 +1890,7 @@
         "type": "ASSAULT",
         "availabilityType": "PERMANENT",
         "faction": "The Fools",
+        "gender": "Female",
         "tags": ["discard", "draw", "pierce-dmg", "poison", "str-up"]
       }
     },
@@ -1849,6 +1908,7 @@
         "damage",
         "dispel",
         "dmg",
+        "female",
         "fixed",
         "fixed damage",
         "fixed dmg",
@@ -1888,7 +1948,7 @@
           "remove",
           "Max HP DMG"
         ],
-        "facet": ["CHAOS", "SR", "ASSAULT", "WELFARE", "Out of the Aeons"]
+        "facet": ["CHAOS", "SR", "ASSAULT", "WELFARE", "Out of the Aeons", "Female"]
       },
       "facets": {
         "realm": "CHAOS",
@@ -1896,6 +1956,7 @@
         "type": "ASSAULT",
         "availabilityType": "WELFARE",
         "faction": "Out of the Aeons",
+        "gender": "Female",
         "tags": ["dispel", "fixed-dmg", "max-hp-dmg", "str-up", "strike"]
       }
     },
@@ -1914,6 +1975,7 @@
         "down",
         "draw",
         "faded",
+        "female",
         "gen",
         "generation",
         "heal",
@@ -1991,7 +2053,7 @@
           "tentacle gen",
           "tentacle limit"
         ],
-        "facet": ["AEQUOR", "SSR", "CHORUS", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "Out of the Aeons"]
+        "facet": ["AEQUOR", "SSR", "CHORUS", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "Out of the Aeons", "Female"]
       },
       "facets": {
         "realm": "AEQUOR",
@@ -1999,6 +2061,7 @@
         "type": "CHORUS",
         "availabilityType": "LIMITED_FADED_LEGACY",
         "faction": "Out of the Aeons",
+        "gender": "Female",
         "tags": ["arithmetica", "draw", "heal", "lemurian", "pierce-dmg", "poison", "str-down", "str-up", "tentacle-dmg", "tentacles", "vulnerable", "weakness"]
       }
     },
@@ -2014,6 +2077,7 @@
         "death",
         "death resistance",
         "fainted",
+        "female",
         "limited",
         "limited astral reign",
         "mouchette",
@@ -2031,7 +2095,7 @@
         "name": ["Mouchette"],
         "alias": ["mouchette"],
         "tag": ["stun", "pursuit", "death-resistance", "strike", "petrify", "petrified", "fainted", "Death Resistance", "resistance"],
-        "facet": ["CHAOS", "SSR", "ASSAULT", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "Outlanders"]
+        "facet": ["CHAOS", "SSR", "ASSAULT", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "Outlanders", "Female"]
       },
       "facets": {
         "realm": "CHAOS",
@@ -2039,6 +2103,7 @@
         "type": "ASSAULT",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "Outlanders",
+        "gender": "Female",
         "tags": ["death-resistance", "pursuit", "strike", "stun"]
       }
     },
@@ -2057,6 +2122,7 @@
         "dispel",
         "dmg",
         "faded",
+        "female",
         "gen",
         "generation",
         "hybrid",
@@ -2108,7 +2174,7 @@
           "tentacle gen",
           "tentacle limit"
         ],
-        "facet": ["AEQUOR", "SSR", "WARDEN", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "Hybrid"]
+        "facet": ["AEQUOR", "SSR", "WARDEN", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "Hybrid", "Female"]
       },
       "facets": {
         "realm": "AEQUOR",
@@ -2116,6 +2182,7 @@
         "type": "WARDEN",
         "availabilityType": "LIMITED_FADED_LEGACY",
         "faction": "Hybrid",
+        "gender": "Female",
         "tags": ["aftershock", "arithmetica", "dispel", "keyflare", "sacrifice", "tentacle-dmg", "tentacles", "vulnerable", "weakness"]
       }
     },
@@ -2142,6 +2209,7 @@
         "dmg",
         "draw",
         "fauxborn",
+        "female",
         "g",
         "g murphy",
         "gen",
@@ -2197,7 +2265,7 @@
           "tentacle gen",
           "tentacle limit"
         ],
-        "facet": ["AEQUOR", "Genesis", "CHORUS", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "Out of the Aeons"]
+        "facet": ["AEQUOR", "Genesis", "CHORUS", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "Out of the Aeons", "Female"]
       },
       "facets": {
         "realm": "AEQUOR",
@@ -2205,6 +2273,7 @@
         "type": "CHORUS",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "Out of the Aeons",
+        "gender": "Female",
         "tags": ["aftershock", "arithmetica", "dispel", "divine-realm", "draw", "keyflare", "lemurian", "sacrifice", "tentacle-dmg", "tentacles"]
       }
     },
@@ -2218,6 +2287,7 @@
         "counter",
         "damage",
         "dmg",
+        "female",
         "fixed",
         "fixed damage",
         "fixed dmg",
@@ -2233,7 +2303,7 @@
         "name": ["Nautila"],
         "alias": ["nautila"],
         "tag": ["counter", "fixed-dmg", "Fixed DMG", "fixed damage"],
-        "facet": ["CHAOS", "SSR", "WARDEN", "PERMANENT", "The Fools"]
+        "facet": ["CHAOS", "SSR", "WARDEN", "PERMANENT", "The Fools", "Female"]
       },
       "facets": {
         "realm": "CHAOS",
@@ -2241,6 +2311,7 @@
         "type": "WARDEN",
         "availabilityType": "PERMANENT",
         "faction": "The Fools",
+        "gender": "Female",
         "tags": ["counter", "fixed-dmg"]
       }
     },
@@ -2252,6 +2323,7 @@
       "tokens": [
         "assault",
         "chaos",
+        "female",
         "nymphaea",
         "outlanders",
         "permanent",
@@ -2272,7 +2344,7 @@
         "name": ["Nymphaea"],
         "alias": ["nymphaea"],
         "tag": ["weakness", "vulnerable", "poison", "str-up", "weak", "vulnerability", "vuln", "STR Up", "strength up"],
-        "facet": ["CHAOS", "SSR", "ASSAULT", "PERMANENT", "Outlanders"]
+        "facet": ["CHAOS", "SSR", "ASSAULT", "PERMANENT", "Outlanders", "Female"]
       },
       "facets": {
         "realm": "CHAOS",
@@ -2280,6 +2352,7 @@
         "type": "ASSAULT",
         "availabilityType": "PERMANENT",
         "faction": "Outlanders",
+        "gender": "Female",
         "tags": ["poison", "str-up", "vulnerable", "weakness"]
       }
     },
@@ -2296,6 +2369,7 @@
         "dispel",
         "dmg",
         "fools",
+        "male",
         "ogier",
         "pierce",
         "pierce damage",
@@ -2333,7 +2407,7 @@
           "clear",
           "remove"
         ],
-        "facet": ["CHAOS", "SR", "WARDEN", "WELFARE", "The Fools"]
+        "facet": ["CHAOS", "SR", "WARDEN", "WELFARE", "The Fools", "Male"]
       },
       "facets": {
         "realm": "CHAOS",
@@ -2341,6 +2415,7 @@
         "type": "WARDEN",
         "availabilityType": "WELFARE",
         "faction": "The Fools",
+        "gender": "Male",
         "tags": ["dispel", "pierce-dmg", "str-up", "vulnerable"]
       }
     },
@@ -2356,6 +2431,7 @@
         "clear",
         "counter",
         "dispel",
+        "female",
         "outlanders",
         "pandia",
         "permanent",
@@ -2395,7 +2471,7 @@
           "clear",
           "remove"
         ],
-        "facet": ["CHAOS", "SSR", "ASSAULT", "PERMANENT", "Outlanders"]
+        "facet": ["CHAOS", "SSR", "ASSAULT", "PERMANENT", "Outlanders", "Female"]
       },
       "facets": {
         "realm": "CHAOS",
@@ -2403,6 +2479,7 @@
         "type": "ASSAULT",
         "availabilityType": "PERMANENT",
         "faction": "Outlanders",
+        "gender": "Female",
         "tags": ["counter", "dispel", "steal-str", "str-up", "vulnerable"]
       }
     },
@@ -2421,6 +2498,7 @@
         "fools",
         "limited",
         "limited astral reign",
+        "male",
         "pickman",
         "reign",
         "ssr",
@@ -2462,7 +2540,7 @@
           "str steal",
           "strength steal"
         ],
-        "facet": ["CARO", "SSR", "CHORUS", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "The Fools"]
+        "facet": ["CARO", "SSR", "CHORUS", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "The Fools", "Male"]
       },
       "facets": {
         "realm": "CARO",
@@ -2470,6 +2548,7 @@
         "type": "CHORUS",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "The Fools",
+        "gender": "Male",
         "tags": ["arithmetica", "discover", "draw", "steal-str", "str-up", "vulnerable", "weakness"]
       }
     },
@@ -2478,12 +2557,12 @@
       "id": "awakener-0041",
       "name": "Pollux",
       "aliases": ["pollux"],
-      "tokens": ["assault", "astral", "bleed", "discard", "draw", "hybrid", "limited", "limited astral reign", "pollux", "reign", "ssr", "ultra"],
+      "tokens": ["assault", "astral", "bleed", "discard", "draw", "hybrid", "limited", "limited astral reign", "male", "pollux", "reign", "ssr", "ultra"],
       "fields": {
         "name": ["Pollux"],
         "alias": ["pollux"],
         "tag": ["bleed", "discard", "draw"],
-        "facet": ["ULTRA", "SSR", "ASSAULT", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "Hybrid"]
+        "facet": ["ULTRA", "SSR", "ASSAULT", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "Hybrid", "Male"]
       },
       "facets": {
         "realm": "ULTRA",
@@ -2491,6 +2570,7 @@
         "type": "ASSAULT",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "Hybrid",
+        "gender": "Male",
         "tags": ["bleed", "discard", "draw"]
       }
     },
@@ -2506,6 +2586,7 @@
         "discard",
         "down",
         "draw",
+        "female",
         "keyflare",
         "ramona",
         "sr",
@@ -2546,7 +2627,7 @@
           "STR Down",
           "strength down"
         ],
-        "facet": ["CHAOS", "SR", "CHORUS", "WELFARE", "The Unknowable"]
+        "facet": ["CHAOS", "SR", "CHORUS", "WELFARE", "The Unknowable", "Female"]
       },
       "facets": {
         "realm": "CHAOS",
@@ -2554,6 +2635,7 @@
         "type": "CHORUS",
         "availabilityType": "WELFARE",
         "faction": "The Unknowable",
+        "gender": "Female",
         "tags": ["arithmetica", "discard", "draw", "keyflare", "str-down", "str-up", "vulnerable", "weakness"]
       }
     },
@@ -2573,6 +2655,7 @@
         "legacy",
         "limited",
         "limited faded legacy",
+        "male",
         "ryker",
         "ssr",
         "str",
@@ -2592,7 +2675,7 @@
         "name": ["Ryker"],
         "alias": ["ryker"],
         "tag": ["weakness", "vulnerable", "str-up", "arithmetica", "draw", "keyflare", "weak", "vulnerability", "vuln", "STR Up", "strength up"],
-        "facet": ["CHAOS", "SSR", "CHORUS", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "The Fools"]
+        "facet": ["CHAOS", "SSR", "CHORUS", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "The Fools", "Male"]
       },
       "facets": {
         "realm": "CHAOS",
@@ -2600,6 +2683,7 @@
         "type": "CHORUS",
         "availabilityType": "LIMITED_FADED_LEGACY",
         "faction": "The Fools",
+        "gender": "Male",
         "tags": ["arithmetica", "draw", "keyflare", "str-up", "vulnerable", "weakness"]
       }
     },
@@ -2622,6 +2706,7 @@
         "legacy",
         "limited",
         "limited faded legacy",
+        "male",
         "of",
         "out",
         "out of the aeons",
@@ -2663,7 +2748,7 @@
           "hp recovery",
           "Self-Damage"
         ],
-        "facet": ["CARO", "SSR", "WARDEN", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "Out of the Aeons"]
+        "facet": ["CARO", "SSR", "WARDEN", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "Out of the Aeons", "Male"]
       },
       "facets": {
         "realm": "CARO",
@@ -2671,6 +2756,7 @@
         "type": "WARDEN",
         "availabilityType": "LIMITED_FADED_LEGACY",
         "faction": "Out of the Aeons",
+        "gender": "Male",
         "tags": ["barrier", "heal", "self-harm", "str-up", "vulnerable", "weakness"]
       }
     },
@@ -2689,6 +2775,7 @@
         "death resistance",
         "dispel",
         "dmg",
+        "female",
         "gen",
         "generation",
         "limit",
@@ -2727,7 +2814,7 @@
           "tentacle gen",
           "tentacle limit"
         ],
-        "facet": ["AEQUOR", "SSR", "WARDEN", "PERMANENT", "Outlanders"]
+        "facet": ["AEQUOR", "SSR", "WARDEN", "PERMANENT", "Outlanders", "Female"]
       },
       "facets": {
         "realm": "AEQUOR",
@@ -2735,6 +2822,7 @@
         "type": "WARDEN",
         "availabilityType": "PERMANENT",
         "faction": "Outlanders",
+        "gender": "Female",
         "tags": ["aftershock", "death-resistance", "dispel", "tentacle-dmg", "tentacles"]
       }
     },
@@ -2750,6 +2838,7 @@
         "death",
         "death resistance",
         "faded",
+        "female",
         "harm",
         "heal",
         "healing",
@@ -2788,7 +2877,7 @@
           "hp recovery",
           "Self-Damage"
         ],
-        "facet": ["CARO", "SSR", "ASSAULT", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "Outlanders"]
+        "facet": ["CARO", "SSR", "ASSAULT", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "Outlanders", "Female"]
       },
       "facets": {
         "realm": "CARO",
@@ -2796,6 +2885,7 @@
         "type": "ASSAULT",
         "availabilityType": "LIMITED_FADED_LEGACY",
         "faction": "Outlanders",
+        "gender": "Female",
         "tags": ["death-resistance", "heal", "self-harm", "str-up"]
       }
     },
@@ -2814,6 +2904,7 @@
         "dmg",
         "draw",
         "faded",
+        "female",
         "fixed",
         "fixed damage",
         "fixed dmg",
@@ -2857,7 +2948,7 @@
           "fixed damage",
           "Max HP DMG"
         ],
-        "facet": ["CHAOS", "SSR", "CHORUS", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "Gateway"]
+        "facet": ["CHAOS", "SSR", "CHORUS", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "Gateway", "Female"]
       },
       "facets": {
         "realm": "CHAOS",
@@ -2865,6 +2956,7 @@
         "type": "CHORUS",
         "availabilityType": "LIMITED_FADED_LEGACY",
         "faction": "Gateway",
+        "gender": "Female",
         "tags": ["arithmetica", "barrier", "discard", "draw", "fixed-dmg", "keyflare", "max-hp-dmg", "pierce-dmg", "str-up"]
       }
     },
@@ -2881,6 +2973,7 @@
         "chorus",
         "counter",
         "faded",
+        "female",
         "keyflare",
         "legacy",
         "limited",
@@ -2921,7 +3014,7 @@
           "STR Up",
           "strength up"
         ],
-        "facet": ["CARO", "SSR", "CHORUS", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "Out of the Aeons"]
+        "facet": ["CARO", "SSR", "CHORUS", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "Out of the Aeons", "Female"]
       },
       "facets": {
         "realm": "CARO",
@@ -2929,6 +3022,7 @@
         "type": "CHORUS",
         "availabilityType": "LIMITED_FADED_LEGACY",
         "faction": "Out of the Aeons",
+        "gender": "Female",
         "tags": ["arithmetica", "bleed", "counter", "keyflare", "poison", "str-up", "vulnerable", "weakness"]
       }
     },
@@ -2946,6 +3040,7 @@
         "clear",
         "dispel",
         "draw",
+        "female",
         "permanent",
         "remove",
         "ssr",
@@ -2984,7 +3079,7 @@
           "clear",
           "remove"
         ],
-        "facet": ["ULTRA", "SSR", "CHORUS", "PERMANENT", "Among the Stars"]
+        "facet": ["ULTRA", "SSR", "CHORUS", "PERMANENT", "Among the Stars", "Female"]
       },
       "facets": {
         "realm": "ULTRA",
@@ -2992,6 +3087,7 @@
         "type": "CHORUS",
         "availabilityType": "PERMANENT",
         "faction": "Among the Stars",
+        "gender": "Female",
         "tags": ["arithmetica", "dispel", "draw", "steal-str", "str-up", "strike"]
       }
     },
@@ -3020,6 +3116,7 @@
         "limit",
         "limited",
         "limited faded legacy",
+        "male",
         "of",
         "out",
         "out of the aeons",
@@ -3073,7 +3170,7 @@
           "tentacle gen",
           "tentacle limit"
         ],
-        "facet": ["AEQUOR", "SSR", "ASSAULT", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "Out of the Aeons"]
+        "facet": ["AEQUOR", "SSR", "ASSAULT", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "Out of the Aeons", "Male"]
       },
       "facets": {
         "realm": "AEQUOR",
@@ -3081,6 +3178,7 @@
         "type": "ASSAULT",
         "availabilityType": "LIMITED_FADED_LEGACY",
         "faction": "Out of the Aeons",
+        "gender": "Male",
         "tags": ["aftershock", "dispel", "lemurian", "pierce-dmg", "str-down", "str-up", "tentacle-dmg", "tentacles"]
       }
     },
@@ -3094,6 +3192,7 @@
         "caro",
         "damage",
         "harm",
+        "male",
         "outlanders",
         "permanent",
         "self",
@@ -3111,7 +3210,7 @@
         "name": ["Uvhash"],
         "alias": ["uvhash"],
         "tag": ["str-up", "self-harm", "STR Up", "strength up", "Self-Damage"],
-        "facet": ["CARO", "SSR", "ASSAULT", "PERMANENT", "Outlanders"]
+        "facet": ["CARO", "SSR", "ASSAULT", "PERMANENT", "Outlanders", "Male"]
       },
       "facets": {
         "realm": "CARO",
@@ -3119,6 +3218,7 @@
         "type": "ASSAULT",
         "availabilityType": "PERMANENT",
         "faction": "Outlanders",
+        "gender": "Male",
         "tags": ["self-harm", "str-up"]
       }
     },
@@ -3133,6 +3233,7 @@
         "counter",
         "down",
         "faded",
+        "female",
         "legacy",
         "limited",
         "limited faded legacy",
@@ -3151,7 +3252,7 @@
         "name": ["Wanda"],
         "alias": ["wanda"],
         "tag": ["counter", "str-down", "STR Down", "strength down"],
-        "facet": ["ULTRA", "SSR", "WARDEN", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "Among the Stars"]
+        "facet": ["ULTRA", "SSR", "WARDEN", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "Among the Stars", "Female"]
       },
       "facets": {
         "realm": "ULTRA",
@@ -3159,6 +3260,7 @@
         "type": "WARDEN",
         "availabilityType": "LIMITED_FADED_LEGACY",
         "faction": "Among the Stars",
+        "gender": "Female",
         "tags": ["counter", "str-down"]
       }
     },
@@ -3176,6 +3278,7 @@
         "discard",
         "dispel",
         "draw",
+        "female",
         "keyflare",
         "permanent",
         "remove",
@@ -3190,7 +3293,7 @@
         "name": ["Winkle"],
         "alias": ["winkle"],
         "tag": ["counter", "dispel", "discard", "draw", "keyflare", "cleanse", "clear", "remove"],
-        "facet": ["ULTRA", "SSR", "WARDEN", "PERMANENT", "Among the Stars"]
+        "facet": ["ULTRA", "SSR", "WARDEN", "PERMANENT", "Among the Stars", "Female"]
       },
       "facets": {
         "realm": "ULTRA",
@@ -3198,6 +3301,7 @@
         "type": "WARDEN",
         "availabilityType": "PERMANENT",
         "faction": "Among the Stars",
+        "gender": "Female",
         "tags": ["counter", "discard", "dispel", "draw", "keyflare"]
       }
     },
@@ -3214,6 +3318,7 @@
         "damage",
         "dmg",
         "down",
+        "female",
         "fixed",
         "fixed damage",
         "fixed dmg",
@@ -3238,7 +3343,7 @@
         "name": ["Xu"],
         "alias": ["xu"],
         "tag": ["poison", "str-down", "fixed-dmg", "arithmetica", "max-hp-dmg", "STR Down", "strength down", "Fixed DMG", "fixed damage", "Max HP DMG"],
-        "facet": ["CARO", "SSR", "CHORUS", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "The Unknowable"]
+        "facet": ["CARO", "SSR", "CHORUS", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "The Unknowable", "Female"]
       },
       "facets": {
         "realm": "CARO",
@@ -3246,6 +3351,7 @@
         "type": "CHORUS",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "The Unknowable",
+        "gender": "Female",
         "tags": ["arithmetica", "fixed-dmg", "max-hp-dmg", "poison", "str-down"]
       }
     },
@@ -3268,6 +3374,7 @@
         "divine",
         "divine realm",
         "dmg",
+        "female",
         "fixed",
         "fixed damage",
         "fixed dmg",
@@ -3306,7 +3413,7 @@
           "Divine Realm",
           "alt realm"
         ],
-        "facet": ["AEQUOR", "SSR", "ASSAULT", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "The Fools"]
+        "facet": ["AEQUOR", "SSR", "ASSAULT", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "The Fools", "Female"]
       },
       "facets": {
         "realm": "AEQUOR",
@@ -3314,6 +3421,7 @@
         "type": "ASSAULT",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "The Fools",
+        "gender": "Female",
         "tags": ["aftershock", "dispel", "divine-realm", "fixed-dmg", "pursuit", "tentacle-dmg"]
       }
     },
@@ -3335,6 +3443,7 @@
         "divine",
         "divine realm",
         "dmg",
+        "female",
         "final",
         "final verdict",
         "fixed",
@@ -3380,7 +3489,7 @@
           "alt realm",
           "Self-Damage"
         ],
-        "facet": ["ULTRA", "SSR", "CHORUS", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "The Unknowable"]
+        "facet": ["ULTRA", "SSR", "CHORUS", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "The Unknowable", "Female"]
       },
       "facets": {
         "realm": "ULTRA",
@@ -3388,6 +3497,7 @@
         "type": "CHORUS",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "The Unknowable",
+        "gender": "Female",
         "tags": ["dispel", "divine-realm", "final-verdict", "fixed-dmg", "pursuit", "self-harm", "spider"]
       }
     },
@@ -3407,6 +3517,7 @@
         "discard",
         "divine",
         "divine realm",
+        "female",
         "harm",
         "limited",
         "limited astral reign",
@@ -3423,7 +3534,7 @@
         "name": ["Saya"],
         "alias": ["saya"],
         "tag": ["discard", "corrosion", "divine-realm", "self-harm", "Divine Realm", "alt realm", "Self-Damage"],
-        "facet": ["CARO", "SSR", "CHORUS", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "TBD"]
+        "facet": ["CARO", "SSR", "CHORUS", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "TBD", "Female"]
       },
       "facets": {
         "realm": "CARO",
@@ -3431,6 +3542,7 @@
         "type": "CHORUS",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "TBD",
+        "gender": "Female",
         "tags": ["corrosion", "discard", "divine-realm", "self-harm"]
       }
     },
@@ -3457,6 +3569,7 @@
         "fixed dmg",
         "limited",
         "limited astral reign",
+        "male",
         "pontos",
         "realm",
         "reign",
@@ -3493,7 +3606,7 @@
           "Divine Realm",
           "alt realm"
         ],
-        "facet": ["AEQUOR", "SSR", "WARDEN", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "TBD"]
+        "facet": ["AEQUOR", "SSR", "WARDEN", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "TBD", "Male"]
       },
       "facets": {
         "realm": "AEQUOR",
@@ -3501,6 +3614,7 @@
         "type": "WARDEN",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "TBD",
+        "gender": "Male",
         "tags": ["dispel", "divine-realm", "fixed-dmg", "str-down", "tentacle-dmg"]
       }
     },
@@ -3518,6 +3632,7 @@
         "chaos",
         "divine",
         "divine realm",
+        "female",
         "genesis",
         "glotan",
         "limited",
@@ -3538,7 +3653,7 @@
         "name": ["Lotan: Cetarchon", "lotan-cetarchon"],
         "alias": ["lotan cetarchon", "cetarchon", "glotan", "rotan"],
         "tag": ["str-up", "divine-realm", "STR Up", "strength up", "Divine Realm", "alt realm"],
-        "facet": ["CHAOS", "Genesis", "ASSAULT", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "TBD"]
+        "facet": ["CHAOS", "Genesis", "ASSAULT", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "TBD", "Female"]
       },
       "facets": {
         "realm": "CHAOS",
@@ -3546,6 +3661,7 @@
         "type": "ASSAULT",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "TBD",
+        "gender": "Female",
         "tags": ["divine-realm", "str-up"]
       }
     }

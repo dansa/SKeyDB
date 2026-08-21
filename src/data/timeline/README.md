@@ -119,6 +119,8 @@ Array of banner objects. Each banner appears as a card in the Banners section wi
 | `pinned` | boolean | no | Pinned banners sort to the top |
 | `featured` | array | no | List of featured units. See [Featured Units](#featured-units) |
 | `poolSlots` | array | no | Rotating pool slots. See [Pool Slots](#pool-slots) |
+| `derivedPool` | object | no | Database-derived pool configuration. Use `slots` for independently filtered bucket slots |
+| `linkedPresentation` | string | no | Linked-slot artwork mode: `expanded` (default, side by side), `alternating` (one labeled column alternating owner and wheel), or `paired` (one labeled column with a 60/40 owner-and-wheel split) |
 | `customArt` | string | no | Full-card banner art URL or path. Overrides featured/pool artwork when present. Paths starting with `/banners/` are resolved against `src/assets/banners/*`. |
 | `preliminary` | boolean | no | Marks dates, pools, or banner details as provisional. If `tags` is omitted, adds `Preliminary` beside the type label |
 
@@ -193,6 +195,7 @@ Each pool slot object:
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
 | `pool` | array | **yes** | Array of unit names/objects (same format as `featured` items) |
+| `label` | string | no | Persistent label displayed over the slot |
 | `linked` | boolean | no | When `true`, this slot cycles in sync with other linked slots. Used for "pick one awakener and get their wheel" banners |
 | `count` | number | no | Creates this many **identical copies** of the slot. Saves you from repeating the same pool array multiple times. Default: `1` |
 
@@ -237,6 +240,50 @@ When `linked` is true, the code auto-expands to show the awakener and their sign
   { "pool": [{ "name": "Wheel Pool", "kind": "placeholder" }] }
 ]
 ```
+
+### Derived Bucket Slots
+
+Use `derivedPool.slots` when each visual slot needs its own database filter. The banner-level
+`availabilityTypes` and `excludeNames` values are inherited by every slot. A slot can override
+`availabilityTypes` and add further exclusions.
+
+| Field | Meaning |
+|-------|---------|
+| `kind` | Required: `awakener` or `wheel` |
+| `label` | Optional persistent visual label |
+| `availabilityTypes` | Availability buckets included in this slot |
+| `limitedAwakenerType` | Awakener role filter such as `ASSAULT`, `WARDEN`, or `CHORUS` |
+| `gender` | Case-insensitive gender filter |
+| `excludeNames` | Names or aliases excluded from this slot in addition to banner-wide exclusions |
+| `linked` | For awakener slots, pair each candidate with their signature SSR wheel |
+| `count` | Number of identical copies of this filtered slot |
+
+Use `linkedPresentation: "alternating"` for banners with many linked buckets. It keeps one
+column per bucket and alternates all columns between selected awakeners and their matching
+wheels. The default `expanded` presentation renders each linked pair side by side.
+
+```json
+{
+  "linkedPresentation": "alternating",
+  "derivedPool": {
+    "availabilityTypes": ["LIMITED_ASTRAL_REIGN"],
+    "excludeNames": ["Unreleased Awakener"],
+    "slots": [
+      {
+        "kind": "awakener",
+        "label": "Assault",
+        "limitedAwakenerType": "ASSAULT",
+        "linked": true
+      },
+      {"kind": "awakener", "label": "Female", "gender": "Female", "linked": true}
+    ]
+  }
+}
+```
+
+Use `linkedPresentation: "paired"` when each bucket should always show its selected Awakener
+and matching signature wheel together. The Awakener occupies the top 60% and the wheel the
+bottom 40%; both advance as one candidate pair.
 
 ### Full Banner Example
 

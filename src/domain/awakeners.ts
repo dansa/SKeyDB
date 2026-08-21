@@ -24,6 +24,7 @@ const publicV3AwakenerCatalogRecordSchema = z
     realm: z.string().trim().min(1),
     rarity: z.string().trim().min(1).optional(),
     type: z.string().trim().min(1).optional(),
+    gender: z.string().trim().min(1).optional(),
     availabilityType: z.string().trim().min(1).optional(),
     releaseDate: z.string().trim().min(1).optional(),
     aliases: z.array(z.string().trim().min(1)).optional(),
@@ -55,6 +56,7 @@ export interface Awakener {
   realm: string
   rarity?: string
   type?: string
+  gender?: string
   availabilityType?: string
   releaseDate?: string
   aliases: string[]
@@ -148,6 +150,7 @@ const parsedAwakeners = getPublicAwakenerCatalogRecords().map((record): Awakener
     realm: awakener.realm,
     rarity: awakener.rarity,
     type: awakener.type,
+    gender: awakener.gender,
     availabilityType: awakener.availabilityType,
     releaseDate: awakener.releaseDate,
     aliases,

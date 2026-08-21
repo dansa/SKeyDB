@@ -12,6 +12,7 @@ import {
   type AvailabilityFilterId,
   type AwakenerScalingSubstatFilter,
   type DatabaseBrowseState,
+  type GenderFilterId,
   type GameplayFactionFilterId,
   type RarityFilterId,
   type RealmFilterId,
@@ -41,6 +42,7 @@ export function filterAwakenersForDatabase(
   availabilityFilter: AvailabilityFilterId,
   gameplayFactionFilters: readonly GameplayFactionFilterId[] = [],
   scalingSubstatFilters: readonly AwakenerScalingSubstatFilter[] = [],
+  genderFilter: GenderFilterId = 'ALL',
 ): Awakener[] {
   let result = awakeners
   if (realmFilter !== 'ALL') {
@@ -54,6 +56,9 @@ export function filterAwakenersForDatabase(
   }
   if (availabilityFilter !== 'ALL') {
     result = result.filter((a) => matchesAvailabilityFilter(a, availabilityFilter))
+  }
+  if (genderFilter !== 'ALL') {
+    result = result.filter((a) => a.gender === genderFilter)
   }
   if (gameplayFactionFilters.length > 0) {
     result = result.filter((a) => gameplayFactionFilters.some((filter) => a.tags.includes(filter)))
@@ -133,6 +138,7 @@ function applySorting(
 export function useDatabaseViewModel(allAwakeners: Awakener[], browseState: DatabaseBrowseState) {
   const {
     availabilityFilter,
+    genderFilter,
     groupByRealm,
     gameplayFactionFilters,
     query,
@@ -155,6 +161,7 @@ export function useDatabaseViewModel(allAwakeners: Awakener[], browseState: Data
       availabilityFilter,
       gameplayFactionFilters,
       scalingSubstatFilters,
+      genderFilter,
     )
     return applySorting(
       filtered,
@@ -167,6 +174,7 @@ export function useDatabaseViewModel(allAwakeners: Awakener[], browseState: Data
   }, [
     allAwakeners,
     availabilityFilter,
+    genderFilter,
     gameplayFactionFilters,
     query,
     realmFilter,

@@ -24,8 +24,7 @@ type PoolCycleAction =
   | {
       type: 'startTransition'
       slotIdx: number
-      poolSize: number
-      group: number[]
+      pools: BannerFeaturedUnit[][]
       initialFrames: PoolCycleFrame[]
       cycleKey: string
     }
@@ -47,37 +46,20 @@ function buildPoolSignature(poolSlots: BannerPoolSlot[]): string {
     .join('||')
 }
 
-function buildSharedGroups(fingerprints: string[]): Map<string, number[]> {
-  const groups = new Map<string, number[]>()
-  fingerprints.forEach((fp, i) => {
-    const existing = groups.get(fp)
-    if (existing) {
-      existing.push(i)
-    } else {
-      groups.set(fp, [i])
-    }
-  })
-  return groups
-}
-
-function buildInitialFrames(
-  poolSlots: BannerPoolSlot[],
-  sharedGroups: Map<string, number[]>,
-): PoolCycleFrame[] {
+function buildInitialFrames(poolSlots: BannerPoolSlot[]): PoolCycleFrame[] {
   const initial: PoolCycleFrame[] = poolSlots.map(() => ({
     activeIdx: 0,
     incomingIdx: -1,
     transitioning: false,
   }))
 
-  for (const group of sharedGroups.values()) {
-    if (group.length <= 1) continue
-    const poolSize = poolSlots[group[0]].pool.length
-    if (poolSize <= 0) continue
-
-    group.forEach((slotIdx, i) => {
-      initial[slotIdx].activeIdx = i % poolSize
-    })
+  const usedNames = new Set<string>()
+  for (const [slotIdx, slot] of poolSlots.entries()) {
+    const availableIdx = slot.pool.findIndex((unit) => !usedNames.has(unit.name.toLowerCase()))
+    initial[slotIdx].activeIdx = Math.max(0, availableIdx)
+    if (slot.pool.length > 0) {
+      usedNames.add(slot.pool[initial[slotIdx].activeIdx].name.toLowerCase())
+    }
   }
 
   return initial
@@ -102,6 +84,10 @@ function subscribeToReducedMotion(onStoreChange: () => void): () => void {
   }
 }
 
+export function usePrefersReducedMotion(): boolean {
+  return useSyncExternalStore(subscribeToReducedMotion, prefersReducedMotion, () => false)
+}
+
 function poolCycleReducer(state: PoolCycleState, action: PoolCycleAction): PoolCycleState {
   switch (action.type) {
     case 'startTransition': {
@@ -109,23 +95,24 @@ function poolCycleReducer(state: PoolCycleState, action: PoolCycleAction): PoolC
 
       if (currentFrames[action.slotIdx].transitioning) return state
 
-      const usedIndices = new Set<number>()
-      for (const index of action.group) {
-        if (index === action.slotIdx) {
+      const usedNames = new Set<string>()
+      for (const [index, pool] of action.pools.entries()) {
+        if (index === action.slotIdx || pool.length === 0) {
           continue
         }
 
-        usedIndices.add(
-          currentFrames[index].transitioning
-            ? currentFrames[index].incomingIdx
-            : currentFrames[index].activeIdx,
-        )
+        const selectedIdx = currentFrames[index].transitioning
+          ? currentFrames[index].incomingIdx
+          : currentFrames[index].activeIdx
+        usedNames.add(pool[selectedIdx].name.toLowerCase())
       }
 
-      let nextIdx = (currentFrames[action.slotIdx].activeIdx + 1) % action.poolSize
+      const pool = action.pools[action.slotIdx]
+      const poolSize = pool.length
+      let nextIdx = (currentFrames[action.slotIdx].activeIdx + 1) % poolSize
       let safety = 0
-      while (usedIndices.has(nextIdx) && safety < action.poolSize) {
-        nextIdx = (nextIdx + 1) % action.poolSize
+      while (usedNames.has(pool[nextIdx].name.toLowerCase()) && safety < poolSize) {
+        nextIdx = (nextIdx + 1) % poolSize
         safety++
       }
 
@@ -159,16 +146,8 @@ export function usePoolCycling(
 ): PoolCycleFrame[] {
   const poolCycleKey = useMemo(() => buildPoolSignature(poolSlots), [poolSlots])
   const fingerprints = useMemo(() => poolSlots.map((s) => getPoolFingerprint(s.pool)), [poolSlots])
-  const sharedGroups = useMemo(() => buildSharedGroups(fingerprints), [fingerprints])
-  const initialFrames = useMemo(
-    () => buildInitialFrames(poolSlots, sharedGroups),
-    [poolSlots, sharedGroups],
-  )
-  const reducedMotion = useSyncExternalStore(
-    subscribeToReducedMotion,
-    prefersReducedMotion,
-    () => false,
-  )
+  const initialFrames = useMemo(() => buildInitialFrames(poolSlots), [poolSlots])
+  const reducedMotion = usePrefersReducedMotion()
 
   const [cycleState, dispatch] = useReducer(poolCycleReducer, {
     frames: initialFrames,
@@ -217,8 +196,7 @@ export function usePoolCycling(
       dispatch({
         type: 'startTransition',
         slotIdx,
-        poolSize: poolSlots[slotIdx].pool.length,
-        group: sharedGroups.get(fingerprints[slotIdx]) ?? [slotIdx],
+        pools: poolSlots.map((slot) => slot.pool),
         initialFrames,
         cycleKey: poolCycleKey,
       })
@@ -235,7 +213,7 @@ export function usePoolCycling(
         clearTimeout(pendingTransition)
       }
     }
-  }, [enabled, fingerprints, initialFrames, poolCycleKey, poolSlots, reducedMotion, sharedGroups])
+  }, [enabled, fingerprints, initialFrames, poolCycleKey, poolSlots, reducedMotion])
 
   return frames
 }

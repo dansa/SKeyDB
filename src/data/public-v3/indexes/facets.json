@@ -442,6 +442,18 @@
         "order": 1000
       }
     ],
+    "gender": [
+      {
+        "value": "Female",
+        "label": "Female",
+        "order": 1000
+      },
+      {
+        "value": "Male",
+        "label": "Male",
+        "order": 1000
+      }
+    ],
     "tags": [
       {
         "value": "weakness",

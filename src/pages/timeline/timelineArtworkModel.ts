@@ -1,17 +1,27 @@
-import type {BannerFeaturedUnit, BannerPoolSlot} from '@/domain/timeline'
+import type {BannerFeaturedUnit, BannerLinkedPresentation, BannerPoolSlot} from '@/domain/timeline'
 
 import {resolveTimelineFeaturedAsset, type TimelineFeaturedAsset} from './timelineDetailResolution'
 
 export type SliceAsset = TimelineFeaturedAsset
 
+export function getMotionSafeLinkedPresentation(
+  presentation: BannerLinkedPresentation,
+  reducedMotion: boolean,
+): BannerLinkedPresentation {
+  return reducedMotion && presentation === 'alternating' ? 'paired' : presentation
+}
+
 export interface ResolvedVisualSlot {
+  alternateAssets?: SliceAsset[]
   assets: SliceAsset[]
   cycleFrameIndex: number
+  label?: string
 }
 
 export function getVisualSlotSignature(slot: ResolvedVisualSlot): string {
   return [
     String(slot.cycleFrameIndex),
+    slot.label ?? 'no-label',
     ...slot.assets.map((asset) =>
       [
         asset.label,
@@ -21,6 +31,9 @@ export function getVisualSlotSignature(slot: ResolvedVisualSlot): string {
         asset.realmId ?? 'no-realm',
         asset.isWheel ? 'wheel' : 'awakener',
       ].join(':'),
+    ),
+    ...(slot.alternateAssets ?? []).map((asset) =>
+      ['alternate', asset.label, asset.url ?? 'no-url', asset.linkTo ?? 'no-link'].join(':'),
     ),
   ].join('|')
 }
@@ -58,26 +71,38 @@ export function resolveFeaturedAssets(featured: BannerFeaturedUnit[]): SliceAsse
   return featured.map(resolveAsset)
 }
 
-export function resolvePoolSlots(poolSlots: BannerPoolSlot[]): ResolvedVisualSlot[] {
+export function resolvePoolSlots(
+  poolSlots: BannerPoolSlot[],
+  linkedPresentation: BannerLinkedPresentation = 'expanded',
+): ResolvedVisualSlot[] {
   const visual: ResolvedVisualSlot[] = []
   const resolveAsset = createFeaturedAssetResolver()
   poolSlots.forEach((slot, frameIdx) => {
     if (slot.pool.length === 0) return
 
-    visual.push({
-      assets: slot.pool.map(resolveAsset),
-      cycleFrameIndex: frameIdx,
-    })
-    if (slot.linked) {
-      visual.push({
-        assets: slot.pool.map((unit) =>
+    const assets = slot.pool.map(resolveAsset)
+    const linkedAssets = slot.linked
+      ? slot.pool.map((unit) =>
           resolveAsset({
             name: unit.name,
             kind: 'wheel-auto',
             detailLink: unit.detailLink,
           }),
-        ),
+        )
+      : undefined
+
+    visual.push({
+      alternateAssets: linkedPresentation !== 'expanded' ? linkedAssets : undefined,
+      assets,
+      cycleFrameIndex: frameIdx,
+      label: slot.label,
+    })
+    if (slot.linked) {
+      if (linkedPresentation !== 'expanded') return
+      visual.push({
+        assets: linkedAssets ?? [],
         cycleFrameIndex: frameIdx,
+        label: slot.label,
       })
     }
   })
@@ -96,6 +121,9 @@ export function getPoolPreloadUrls(visualSlots: ResolvedVisualSlot[]): string[] 
       if (asset.url) {
         urls.add(asset.url)
       }
+    })
+    slot.alternateAssets?.forEach((asset) => {
+      if (asset.url) urls.add(asset.url)
     })
   })
 

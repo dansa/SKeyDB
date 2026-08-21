@@ -165,6 +165,22 @@ describe('usePoolCycling', () => {
     }
   })
 
+  it('avoids duplicate candidates across overlapping bucket pools', () => {
+    installMatchMedia(true)
+    const slots = [
+      poolSlot(['Shared', 'Assault Two']),
+      poolSlot(['Shared', 'Male Two']),
+      poolSlot(['Shared', 'Female Two']),
+    ]
+
+    const {result} = renderHook(() => usePoolCycling(slots))
+    const visibleNames = result.current.map(
+      (frame, slotIdx) => slots[slotIdx].pool[frame.activeIdx].name,
+    )
+
+    expect(new Set(visibleNames).size).toBe(visibleNames.length)
+  })
+
   it('returns stable initial frames and skips timers until cycling is enabled', () => {
     vi.useFakeTimers()
     const setIntervalSpy = vi.spyOn(window, 'setInterval')

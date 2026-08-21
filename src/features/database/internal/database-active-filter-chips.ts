@@ -4,9 +4,11 @@ import {
 } from '@/domain/awakener-scaling-substats'
 import {
   getAvailabilityFilterLabel,
+  getGenderFilterLabel,
   getTypeFilterLabel,
   type AvailabilityFilterId,
   type DatabaseBrowseState,
+  type GenderFilterId,
   type GameplayFactionFilterId,
   type RarityFilterId,
   type RealmFilterId,
@@ -41,6 +43,7 @@ interface AwakenerActiveFilterActions {
   setRealmFilter: (next: RealmFilterId) => void
   setRarityFilter: (next: RarityFilterId) => void
   setTypeFilter: (next: TypeFilterId) => void
+  setGenderFilter: (next: GenderFilterId) => void
   setAvailabilityFilter: (next: AvailabilityFilterId) => void
   setGameplayFactionFilters: (next: GameplayFactionFilterId[]) => void
   setScalingSubstatFilters: (next: AwakenerScalingSubstatFilter[]) => void
@@ -76,6 +79,7 @@ export function buildAwakenerActiveFilterChips(
     | 'realmFilter'
     | 'rarityFilter'
     | 'typeFilter'
+    | 'genderFilter'
     | 'availabilityFilter'
     | 'gameplayFactionFilters'
     | 'scalingSubstatFilters'
@@ -119,6 +123,16 @@ export function buildAwakenerActiveFilterChips(
       label: getTypeFilterLabel(state.typeFilter),
       onClear: () => {
         actions.setTypeFilter('ALL')
+      },
+    })
+  }
+
+  if (state.genderFilter !== 'ALL') {
+    chips.push({
+      key: 'gender',
+      label: getGenderFilterLabel(state.genderFilter),
+      onClear: () => {
+        actions.setGenderFilter('ALL')
       },
     })
   }

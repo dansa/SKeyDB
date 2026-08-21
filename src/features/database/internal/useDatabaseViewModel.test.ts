@@ -35,6 +35,7 @@ function makeBrowseState(overrides: Partial<DatabaseBrowseState> = {}): Database
     realmFilter: 'ALL',
     rarityFilter: 'ALL',
     typeFilter: 'ALL',
+    genderFilter: 'ALL',
     availabilityFilter: 'ALL',
     gameplayFactionFilters: [],
     scalingSubstatFilters: [],
@@ -105,6 +106,20 @@ describe('filterAwakenersForDatabase', () => {
         (awakener) => awakener.name,
       ),
     ).toEqual(['Astral'])
+  })
+
+  it('filters awakeners by catalog gender', () => {
+    const awakeners = [
+      makeAwakener({id: 'awakener-0001', name: 'Female Awakener', gender: 'Female'}),
+      makeAwakener({id: 'awakener-0002', name: 'Male Awakener', gender: 'Male'}),
+      makeAwakener({id: 'awakener-0003', name: 'Unspecified Awakener'}),
+    ]
+
+    expect(
+      filterAwakenersForDatabase(awakeners, 'ALL', 'ALL', 'ALL', 'ALL', [], [], 'Female').map(
+        (awakener) => awakener.name,
+      ),
+    ).toEqual(['Female Awakener'])
   })
 
   it('filters gameplay faction tags and scaling substats', () => {

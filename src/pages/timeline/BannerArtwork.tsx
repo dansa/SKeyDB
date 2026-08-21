@@ -1,13 +1,14 @@
-import {useEffect, useMemo, useReducer, useRef, type MouseEvent} from 'react'
+import {useEffect, useMemo, useReducer, useRef, useState, type MouseEvent} from 'react'
 
 import {Link} from 'react-router'
 
 import type {EntityRef} from '@/domain/entities/types'
-import type {BannerFeaturedUnit, BannerPoolSlot} from '@/domain/timeline'
+import type {BannerFeaturedUnit, BannerLinkedPresentation, BannerPoolSlot} from '@/domain/timeline'
 
 import {
   expandFeatured,
   getFeaturedGridTemplate,
+  getMotionSafeLinkedPresentation,
   getPoolGridTemplate,
   getVisualSlotSignature,
   resolveFeaturedAssets,
@@ -15,11 +16,17 @@ import {
   type ResolvedVisualSlot,
   type SliceAsset,
 } from './timelineArtworkModel'
-import {TRANSITION_DURATION_MS, usePoolCycling, type PoolCycleFrame} from './usePoolCycling'
+import {
+  TRANSITION_DURATION_MS,
+  usePoolCycling,
+  usePrefersReducedMotion,
+  type PoolCycleFrame,
+} from './usePoolCycling'
 import {usePoolMontagePreload} from './usePoolMontagePreload'
 
-const SLICE_DETAIL_TARGET_CLASS =
-  'absolute inset-0 z-30 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-amber-100/95 focus-visible:shadow-[inset_0_0_0_1px_rgba(15,23,42,0.85)]'
+const SLICE_DETAIL_TARGET_BASE_CLASS =
+  'absolute z-30 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-amber-100/95 focus-visible:shadow-[inset_0_0_0_1px_rgba(15,23,42,0.85)]'
+const SLICE_DETAIL_TARGET_CLASS = `${SLICE_DETAIL_TARGET_BASE_CLASS} inset-0`
 const POOL_MONTAGE_LAYER_CLASS =
   'absolute inset-0 overflow-hidden transition-opacity ease-in-out motion-reduce:transition-none'
 const POOL_MONTAGE_TRANSITION_STYLE = {
@@ -303,17 +310,25 @@ function getPoolMontageRenderLayers(
 }
 
 function PoolMontageSlot({
+  alternateAssets,
   assets,
   frame,
+  label,
   loading,
   onOpenDetail,
+  presentation,
   showSeparator,
+  showAlternate,
 }: {
+  alternateAssets?: SliceAsset[]
   assets: SliceAsset[]
   frame: PoolCycleFrame
+  label?: string
   loading: 'eager' | 'lazy'
   onOpenDetail?: (ref: EntityRef) => void
+  presentation: BannerLinkedPresentation
   showSeparator: boolean
+  showAlternate: boolean
 }) {
   const [layerState, dispatchLayerState] = useReducer(
     poolMontageLayerReducer,
@@ -349,7 +364,12 @@ function PoolMontageSlot({
   const layers = getPoolMontageRenderLayers(layerState, frame)
   const assetA = assets[layers.aIdx]
   const assetB = assets[layers.bIdx]
-  const frontAsset = layers.front === 'a' ? assetA : assetB
+  const alternateAssetA = alternateAssets?.[layers.aIdx]
+  const alternateAssetB = alternateAssets?.[layers.bIdx]
+  const frontPrimaryAsset = layers.front === 'a' ? assetA : assetB
+  const frontAlternateAsset = layers.front === 'a' ? alternateAssetA : alternateAssetB
+  const frontAsset = showAlternate && frontAlternateAsset ? frontAlternateAsset : frontPrimaryAsset
+  const isPaired = presentation === 'paired' && Boolean(frontAlternateAsset)
 
   return (
     <div
@@ -364,7 +384,14 @@ function PoolMontageSlot({
           ...POOL_MONTAGE_TRANSITION_STYLE,
         }}
       >
-        <ArtworkVisual asset={assetA} loading={loading} showFallbackLabel={layers.front === 'a'} />
+        <PoolSlotArtworkVisual
+          alternateAsset={alternateAssetA}
+          asset={assetA}
+          loading={loading}
+          presentation={presentation}
+          showAlternate={showAlternate}
+          showFallbackLabel={layers.front === 'a'}
+        />
       </div>
       <div
         aria-hidden={layers.front !== 'b'}
@@ -374,24 +401,113 @@ function PoolMontageSlot({
           ...POOL_MONTAGE_TRANSITION_STYLE,
         }}
       >
-        <ArtworkVisual asset={assetB} loading={loading} showFallbackLabel={layers.front === 'b'} />
+        <PoolSlotArtworkVisual
+          alternateAsset={alternateAssetB}
+          asset={assetB}
+          loading={loading}
+          presentation={presentation}
+          showAlternate={showAlternate}
+          showFallbackLabel={layers.front === 'b'}
+        />
       </div>
       <div className='pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,14,0.02),rgba(2,6,14,0.04)_48%,rgba(2,6,14,0.74))]' />
+      {label ? (
+        <div
+          className={`pointer-events-none absolute left-1/2 z-20 max-w-[92%] -translate-x-1/2 border border-amber-100/15 bg-slate-950/72 px-1.5 py-1 text-center text-[0.64rem] leading-none font-extrabold tracking-[0.12em] text-amber-50/90 uppercase shadow-sm backdrop-blur-sm ${isPaired ? 'top-[calc(60%-0.4rem)] -translate-y-full' : 'top-2'}`}
+        >
+          {label}
+        </div>
+      ) : null}
       {showSeparator ? <SplitPanelSeparator /> : null}
-      <SliceDetailTarget
-        asset={frontAsset}
-        className={SLICE_DETAIL_TARGET_CLASS}
-        onOpenDetail={onOpenDetail}
-      />
+      {isPaired && frontAlternateAsset ? (
+        <>
+          <SliceDetailTarget
+            asset={frontPrimaryAsset}
+            className={`${SLICE_DETAIL_TARGET_BASE_CLASS} inset-x-0 top-0 h-[60%]`}
+            onOpenDetail={onOpenDetail}
+          />
+          <SliceDetailTarget
+            asset={frontAlternateAsset}
+            className={`${SLICE_DETAIL_TARGET_BASE_CLASS} inset-x-0 bottom-0 h-[40%]`}
+            onOpenDetail={onOpenDetail}
+          />
+        </>
+      ) : (
+        <SliceDetailTarget
+          asset={frontAsset}
+          className={SLICE_DETAIL_TARGET_CLASS}
+          onOpenDetail={onOpenDetail}
+        />
+      )}
+    </div>
+  )
+}
+
+function PoolSlotArtworkVisual({
+  alternateAsset,
+  asset,
+  loading,
+  presentation,
+  showAlternate,
+  showFallbackLabel,
+}: {
+  alternateAsset?: SliceAsset
+  asset: SliceAsset
+  loading: 'eager' | 'lazy'
+  presentation: BannerLinkedPresentation
+  showAlternate: boolean
+  showFallbackLabel: boolean
+}) {
+  if (!alternateAsset) {
+    return <ArtworkVisual asset={asset} loading={loading} showFallbackLabel={showFallbackLabel} />
+  }
+
+  if (presentation === 'paired') {
+    return (
+      <div className='absolute inset-0 grid grid-rows-[3fr_2fr]'>
+        <div className='min-h-0 overflow-hidden'>
+          <ArtworkVisual asset={asset} loading={loading} showFallbackLabel={showFallbackLabel} />
+        </div>
+        <div className='min-h-0 overflow-hidden border-t border-slate-950/80'>
+          <ArtworkVisual
+            asset={alternateAsset}
+            loading={loading}
+            showFallbackLabel={showFallbackLabel}
+          />
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div className='absolute inset-0'>
+      <div
+        className='absolute inset-0 transition-opacity duration-700 ease-in-out motion-reduce:transition-none'
+        style={{opacity: showAlternate ? 0 : 1}}
+      >
+        <ArtworkVisual asset={asset} loading={loading} showFallbackLabel={showFallbackLabel} />
+      </div>
+      <div
+        className='absolute inset-0 transition-opacity duration-700 ease-in-out motion-reduce:transition-none'
+        style={{opacity: showAlternate ? 1 : 0}}
+      >
+        <ArtworkVisual
+          asset={alternateAsset}
+          loading={loading}
+          showFallbackLabel={showFallbackLabel}
+        />
+      </div>
     </div>
   )
 }
 
 function PoolMontagePlaceholderSlot({
   asset,
+  label,
   showSeparator,
 }: {
   asset: SliceAsset
+  label?: string
   showSeparator: boolean
 }) {
   return (
@@ -400,6 +516,11 @@ function PoolMontagePlaceholderSlot({
       title={asset.label}
     >
       <ArtworkFallback label={asset.label} />
+      {label ? (
+        <div className='pointer-events-none absolute top-2 left-1/2 z-20 max-w-[92%] -translate-x-1/2 border border-amber-100/15 bg-slate-950/72 px-1.5 py-1 text-center text-[0.64rem] leading-none font-extrabold tracking-[0.12em] text-amber-50/90 uppercase shadow-sm backdrop-blur-sm'>
+          {label}
+        </div>
+      ) : null}
       {showSeparator ? <SplitPanelSeparator /> : null}
     </div>
   )
@@ -408,38 +529,65 @@ function PoolMontagePlaceholderSlot({
 function PoolMontageArtwork({
   loading,
   onOpenDetail,
+  presentation,
   poolSlots,
   visualSlots,
 }: {
   loading: 'eager' | 'lazy'
   onOpenDetail?: (ref: EntityRef) => void
+  presentation: BannerLinkedPresentation
   poolSlots: BannerPoolSlot[]
   visualSlots: ResolvedVisualSlot[]
 }) {
   const {assetsReady, rootRef} = usePoolMontagePreload(visualSlots)
   const cycleFrames = usePoolCycling(poolSlots, {enabled: assetsReady})
+  const reducedMotion = usePrefersReducedMotion()
+  const hasAlternatingSlots =
+    presentation === 'alternating' && visualSlots.some((slot) => slot.alternateAssets)
+  const effectivePresentation = getMotionSafeLinkedPresentation(presentation, reducedMotion)
+  const [showAlternate, setShowAlternate] = useState(false)
+
+  useEffect(() => {
+    if (!assetsReady || !hasAlternatingSlots || reducedMotion) return
+
+    const interval = window.setInterval(() => {
+      setShowAlternate((current) => !current)
+    }, 4000)
+
+    return () => {
+      window.clearInterval(interval)
+    }
+  }, [assetsReady, hasAlternatingSlots, reducedMotion])
 
   return (
     <div
-      className='absolute inset-0 grid bg-slate-950'
+      className='absolute inset-y-0 left-0 grid bg-slate-950'
       ref={rootRef}
-      style={{gridTemplateColumns: getPoolGridTemplate(visualSlots.length)}}
+      style={{
+        gridTemplateColumns: getPoolGridTemplate(visualSlots.length),
+        right: visualSlots.length >= 5 ? '1.75rem' : 0,
+      }}
     >
       {assetsReady
         ? visualSlots.map((vs, index) => (
             <PoolMontageSlot
+              alternateAssets={vs.alternateAssets}
               assets={vs.assets}
               frame={cycleFrames[vs.cycleFrameIndex]}
               key={getVisualSlotSignature(vs)}
+              label={vs.label}
               loading={loading}
               onOpenDetail={onOpenDetail}
+              presentation={effectivePresentation}
               showSeparator={index < visualSlots.length - 1}
+              showAlternate={showAlternate}
             />
           ))
         : visualSlots.map((vs, index) => (
             <PoolMontagePlaceholderSlot
               asset={vs.assets[0]}
               key={getVisualSlotSignature(vs)}
+              label={vs.label}
               showSeparator={index < visualSlots.length - 1}
             />
           ))}
@@ -483,6 +631,7 @@ interface BannerArtworkProps {
   customArt?: string
   featured?: BannerFeaturedUnit[]
   loading?: 'eager' | 'lazy'
+  linkedPresentation?: BannerLinkedPresentation
   poolSlots?: BannerPoolSlot[]
   title: string
   onOpenDetail?: (ref: EntityRef) => void
@@ -492,6 +641,7 @@ export function BannerArtwork({
   customArt,
   featured,
   loading = 'lazy',
+  linkedPresentation = 'expanded',
   poolSlots,
   title,
   onOpenDetail,
@@ -501,8 +651,11 @@ export function BannerArtwork({
   const displayAssets = useMemo(() => resolveFeaturedAssets(displaySlices), [displaySlices])
   const effectivePoolSlots = poolSlots ?? EMPTY_POOL_SLOTS
   const visualSlots = useMemo(
-    () => (effectivePoolSlots.length > 0 ? resolvePoolSlots(effectivePoolSlots) : null),
-    [effectivePoolSlots],
+    () =>
+      effectivePoolSlots.length > 0
+        ? resolvePoolSlots(effectivePoolSlots, linkedPresentation)
+        : null,
+    [effectivePoolSlots, linkedPresentation],
   )
 
   if (customArt) {
@@ -514,6 +667,7 @@ export function BannerArtwork({
       <PoolMontageArtwork
         loading={loading}
         onOpenDetail={onOpenDetail}
+        presentation={linkedPresentation}
         poolSlots={effectivePoolSlots}
         visualSlots={visualSlots}
       />
