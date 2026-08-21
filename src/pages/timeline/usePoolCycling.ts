@@ -84,6 +84,10 @@ function subscribeToReducedMotion(onStoreChange: () => void): () => void {
   }
 }
 
+export function usePrefersReducedMotion(): boolean {
+  return useSyncExternalStore(subscribeToReducedMotion, prefersReducedMotion, () => false)
+}
+
 function poolCycleReducer(state: PoolCycleState, action: PoolCycleAction): PoolCycleState {
   switch (action.type) {
     case 'startTransition': {
@@ -143,11 +147,7 @@ export function usePoolCycling(
   const poolCycleKey = useMemo(() => buildPoolSignature(poolSlots), [poolSlots])
   const fingerprints = useMemo(() => poolSlots.map((s) => getPoolFingerprint(s.pool)), [poolSlots])
   const initialFrames = useMemo(() => buildInitialFrames(poolSlots), [poolSlots])
-  const reducedMotion = useSyncExternalStore(
-    subscribeToReducedMotion,
-    prefersReducedMotion,
-    () => false,
-  )
+  const reducedMotion = usePrefersReducedMotion()
 
   const [cycleState, dispatch] = useReducer(poolCycleReducer, {
     frames: initialFrames,

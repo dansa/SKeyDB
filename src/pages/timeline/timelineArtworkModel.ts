@@ -4,6 +4,13 @@ import {resolveTimelineFeaturedAsset, type TimelineFeaturedAsset} from './timeli
 
 export type SliceAsset = TimelineFeaturedAsset
 
+export function getMotionSafeLinkedPresentation(
+  presentation: BannerLinkedPresentation,
+  reducedMotion: boolean,
+): BannerLinkedPresentation {
+  return reducedMotion && presentation === 'alternating' ? 'paired' : presentation
+}
+
 export interface ResolvedVisualSlot {
   alternateAssets?: SliceAsset[]
   assets: SliceAsset[]

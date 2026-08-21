@@ -5,6 +5,7 @@ import type {BannerFeaturedUnit, BannerPoolSlot} from '@/domain/timeline'
 import {
   expandFeatured,
   getFeaturedGridTemplate,
+  getMotionSafeLinkedPresentation,
   getPoolGridTemplate,
   getPoolPreloadUrls,
   getVisualSlotSignature,
@@ -12,6 +13,12 @@ import {
 } from './timelineArtworkModel'
 
 describe('timelineArtworkModel', () => {
+  it('shows linked pairs together instead of alternating when motion is reduced', () => {
+    expect(getMotionSafeLinkedPresentation('alternating', true)).toBe('paired')
+    expect(getMotionSafeLinkedPresentation('alternating', false)).toBe('alternating')
+    expect(getMotionSafeLinkedPresentation('expanded', true)).toBe('expanded')
+  })
+
   it('auto-expands a single awakener into its signature wheel slice', () => {
     const featured: BannerFeaturedUnit[] = [{name: 'Arachne', kind: 'awakener'}]
 

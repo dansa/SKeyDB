@@ -8,6 +8,7 @@ import type {BannerFeaturedUnit, BannerLinkedPresentation, BannerPoolSlot} from 
 import {
   expandFeatured,
   getFeaturedGridTemplate,
+  getMotionSafeLinkedPresentation,
   getPoolGridTemplate,
   getVisualSlotSignature,
   resolveFeaturedAssets,
@@ -15,7 +16,12 @@ import {
   type ResolvedVisualSlot,
   type SliceAsset,
 } from './timelineArtworkModel'
-import {TRANSITION_DURATION_MS, usePoolCycling, type PoolCycleFrame} from './usePoolCycling'
+import {
+  TRANSITION_DURATION_MS,
+  usePoolCycling,
+  usePrefersReducedMotion,
+  type PoolCycleFrame,
+} from './usePoolCycling'
 import {usePoolMontagePreload} from './usePoolMontagePreload'
 
 const SLICE_DETAIL_TARGET_BASE_CLASS =
@@ -535,19 +541,14 @@ function PoolMontageArtwork({
 }) {
   const {assetsReady, rootRef} = usePoolMontagePreload(visualSlots)
   const cycleFrames = usePoolCycling(poolSlots, {enabled: assetsReady})
+  const reducedMotion = usePrefersReducedMotion()
   const hasAlternatingSlots =
     presentation === 'alternating' && visualSlots.some((slot) => slot.alternateAssets)
+  const effectivePresentation = getMotionSafeLinkedPresentation(presentation, reducedMotion)
   const [showAlternate, setShowAlternate] = useState(false)
 
   useEffect(() => {
-    if (
-      !assetsReady ||
-      !hasAlternatingSlots ||
-      (typeof window.matchMedia === 'function' &&
-        window.matchMedia('(prefers-reduced-motion: reduce)').matches)
-    ) {
-      return
-    }
+    if (!assetsReady || !hasAlternatingSlots || reducedMotion) return
 
     const interval = window.setInterval(() => {
       setShowAlternate((current) => !current)
@@ -556,7 +557,7 @@ function PoolMontageArtwork({
     return () => {
       window.clearInterval(interval)
     }
-  }, [assetsReady, hasAlternatingSlots])
+  }, [assetsReady, hasAlternatingSlots, reducedMotion])
 
   return (
     <div
@@ -577,7 +578,7 @@ function PoolMontageArtwork({
               label={vs.label}
               loading={loading}
               onOpenDetail={onOpenDetail}
-              presentation={presentation}
+              presentation={effectivePresentation}
               showSeparator={index < visualSlots.length - 1}
               showAlternate={showAlternate}
             />

@@ -3,10 +3,23 @@ import {describe, expect, it} from 'vitest'
 import rawBanners from '@/data/timeline/banners.json'
 
 import {getBannerDailyScheduleEntry} from './timeline'
-import {resolveTimelineBannerDerivedPool} from './timeline-banner-pools'
+import {
+  resolveTimelineBannerDerivedPool,
+  resolveTimelineBannerPoolSlots,
+} from './timeline-banner-pools'
 import {loadTimelineBanners, timelineBanners, timelineEvents} from './timeline-data'
 
 describe('timeline data loading', () => {
+  it('preserves labels when copying manual pool slots', () => {
+    const slots = resolveTimelineBannerPoolSlots(
+      [{count: 2, label: 'Assault', pool: ['Arachne']}],
+      {resolveCustomArt: () => undefined, wheels: []},
+    )
+
+    expect(slots).toHaveLength(2)
+    expect(slots.map((slot) => slot.label)).toEqual(['Assault', 'Assault'])
+  })
+
   it('loads split event featured entries and opt-out detail links', () => {
     const splitEvent = timelineEvents.find(
       (event) => event.id === 'event-story-rerun-great-conquering',

@@ -94,7 +94,7 @@ export function resolveTimelineBannerPoolSlots(
     }
     const copies = slot.count ?? 1
     for (let i = 0; i < copies; i++) {
-      out.push({pool: [...resolved.pool], linked: resolved.linked})
+      out.push({pool: [...resolved.pool], label: resolved.label, linked: resolved.linked})
     }
   }
   return out
