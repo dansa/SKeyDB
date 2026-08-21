@@ -7,6 +7,7 @@ import {DatabaseFilters} from './DatabaseFilters'
 
 const defaultProps = {
   availabilityFilter: 'ALL' as const,
+  genderFilter: 'ALL' as const,
   gameplayFactionFilters: [],
   onAvailabilityFilterChange: vi.fn(),
   onGameplayFactionFilterToggle: vi.fn(),
@@ -17,6 +18,7 @@ const defaultProps = {
   onScalingSubstatFilterRoleChange: vi.fn(),
   onScalingSubstatFilterToggle: vi.fn(),
   onTypeFilterChange: vi.fn(),
+  onGenderFilterChange: vi.fn(),
   query: '',
   rarityFilter: 'ALL' as const,
   realmFilter: 'ALL' as const,
@@ -109,6 +111,21 @@ describe('DatabaseFilters', () => {
     fireEvent.click(screen.getByRole('button', {name: 'SSR'}))
 
     expect(onRarityFilterChange).toHaveBeenCalledWith('ALL')
+  })
+
+  it('exposes gender as an exclusive filter', () => {
+    const onGenderFilterChange = vi.fn()
+    render(
+      <DatabaseFilters
+        {...defaultProps}
+        genderFilter='Female'
+        onGenderFilterChange={onGenderFilterChange}
+      />,
+    )
+
+    fireEvent.click(screen.getByRole('button', {name: 'Female'}))
+
+    expect(onGenderFilterChange).toHaveBeenCalledWith('ALL')
   })
 
   it('right-click quick toggles exclusive and multi-select database filters', async () => {

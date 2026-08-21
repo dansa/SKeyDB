@@ -189,7 +189,7 @@ describe('timeline data loading', () => {
       'The Faraway Eden',
     ])
     expect(warden?.poolSlots?.[0]?.pool).toHaveLength(7)
-    expect(warden?.poolSlots?.[2]?.pool).toHaveLength(8)
+    expect(warden?.poolSlots?.[2]?.pool).toHaveLength(7)
     expect(chorus?.poolSlots?.[0]?.pool).toHaveLength(11)
     expect(chorus?.poolSlots?.[2]?.pool).toHaveLength(11)
     expect(assault?.poolSlots).toHaveLength(4)
@@ -205,7 +205,7 @@ describe('timeline data loading', () => {
 
     expect(faded?.poolSlots).toHaveLength(4)
     expect(faded?.poolSlots?.slice(0, 3).map((slot) => slot.pool.length)).toEqual([14, 14, 14])
-    expect(faded?.poolSlots?.[3]?.pool).toHaveLength(15)
+    expect(faded?.poolSlots?.[3]?.pool).toHaveLength(14)
     expect(faded?.poolSlots?.[0]?.pool.map((unit) => unit.name)).toContain('Tulu')
     expect(faded?.poolSlots?.[3]?.pool.map((unit) => unit.name)).toContain('Hymn of the Sovereign')
 
@@ -322,6 +322,186 @@ describe('timeline data loading', () => {
     expect(normalizedNames).toEqual(baselineNames?.filter((name) => name !== 'Arachne'))
     expect(normalizedNames).not.toContain('Arachne')
     expect(normalizedNames?.length).toBeGreaterThan(0)
+  })
+
+  it('filters derived pools by awakener gender', () => {
+    const [slot] = resolveTimelineBannerDerivedPool(
+      {
+        availabilityTypes: ['LIMITED_TEST_POOL'],
+        gender: ' female ',
+        linkedPairs: true,
+      },
+      'test-gender-pool',
+      {
+        awakeners: [
+          {
+            aliases: ['Female Owner'],
+            availabilityType: 'LIMITED_TEST_POOL',
+            faction: 'test',
+            gender: 'Female',
+            id: 'awakener-9001',
+            lineupToken: 'female-owner',
+            name: 'Female Owner',
+            rarity: 'SSR',
+            realm: 'test',
+            tags: [],
+          },
+          {
+            aliases: ['Male Owner'],
+            availabilityType: 'LIMITED_TEST_POOL',
+            faction: 'test',
+            gender: 'Male',
+            id: 'awakener-9002',
+            lineupToken: 'male-owner',
+            name: 'Male Owner',
+            rarity: 'SSR',
+            realm: 'test',
+            tags: [],
+          },
+        ],
+        wheels: [
+          {
+            aliases: ['Female Wheel'],
+            assetId: 'test-wheel',
+            awakener: 'female owner',
+            id: 'wheel-9001',
+            lineupToken: 'female-wheel',
+            mainstatKey: 'CRIT_RATE',
+            name: 'Female Wheel',
+            ownerAwakenerId: 'awakener-9001',
+            rarity: 'SSR',
+            realm: 'NEUTRAL',
+            tags: [],
+          },
+        ],
+      },
+    )
+
+    expect(slot.pool.map((unit) => unit.name)).toEqual(['Female Owner'])
+  })
+
+  it('derives independently filtered labeled slots and applies banner-wide exclusions', () => {
+    const slots = resolveTimelineBannerDerivedPool(
+      {
+        availabilityTypes: ['LIMITED_ASTRAL_REIGN'],
+        excludeNames: ['Caraboo'],
+        slots: [
+          {kind: 'awakener', label: 'Assault', limitedAwakenerType: 'ASSAULT', linked: true},
+          {kind: 'awakener', label: 'Female', gender: 'Female', linked: true},
+          {kind: 'wheel', label: 'Wheels', gender: 'Female', count: 2},
+        ],
+      },
+      'test-bucket-pool',
+      {
+        awakeners: [
+          {
+            aliases: ['Eligible'],
+            availabilityType: 'LIMITED_ASTRAL_REIGN',
+            faction: 'test',
+            gender: 'Female',
+            id: 'awakener-9001',
+            lineupToken: 'eligible',
+            name: 'Eligible',
+            rarity: 'SSR',
+            realm: 'test',
+            tags: [],
+            type: 'ASSAULT',
+          },
+          {
+            aliases: ['Caraboo'],
+            availabilityType: 'LIMITED_ASTRAL_REIGN',
+            faction: 'test',
+            gender: 'Female',
+            id: 'awakener-9002',
+            lineupToken: 'caraboo',
+            name: 'Caraboo',
+            rarity: 'SSR',
+            realm: 'test',
+            tags: [],
+            type: 'ASSAULT',
+          },
+        ],
+        wheels: [
+          {
+            aliases: ['Eligible Wheel'],
+            assetId: 'eligible-wheel',
+            awakener: 'eligible',
+            id: 'wheel-9001',
+            lineupToken: 'eligible-wheel',
+            mainstatKey: 'CRIT_RATE',
+            name: 'Eligible Wheel',
+            ownerAwakenerId: 'awakener-9001',
+            rarity: 'SSR',
+            realm: 'NEUTRAL',
+            tags: [],
+          },
+          {
+            aliases: ['Event Wheel'],
+            assetId: 'event-wheel',
+            awakener: 'eligible',
+            id: 'wheel-9999',
+            lineupToken: 'event-wheel',
+            mainstatKey: 'DMG_AMP',
+            name: 'Event Wheel',
+            ownerAwakenerId: 'awakener-9001',
+            rarity: 'SSR',
+            realm: 'NEUTRAL',
+            tags: [],
+          },
+        ],
+      },
+    )
+
+    expect(slots).toHaveLength(4)
+    expect(slots.map((slot) => slot.label)).toEqual(['Assault', 'Female', 'Wheels', 'Wheels'])
+    expect(slots[0]).toMatchObject({linked: true, pool: [{name: 'Eligible'}]})
+    expect(slots[1].pool.map((unit) => unit.name)).toEqual(['Eligible'])
+    expect(slots[2].pool.map((unit) => unit.name)).toEqual(['Eligible Wheel'])
+  })
+
+  it('loads the five linked Stars Cradled Close buckets without expanding their data slots', () => {
+    const banner = timelineBanners.find((entry) => entry.id === 'banner-stars-cradled-close')
+
+    expect(banner?.linkedPresentation).toBe('paired')
+    expect(banner?.poolSlots).toHaveLength(5)
+    expect(banner?.poolSlots?.map((slot) => slot.label)).toEqual([
+      'Assault',
+      'Warden',
+      'Chorus',
+      'Male',
+      'Female',
+    ])
+    expect(banner?.poolSlots?.every((slot) => slot.linked)).toBe(true)
+    expect(
+      banner?.poolSlots?.flatMap((slot) => slot.pool).some((unit) => unit.name === 'Caraboo'),
+    ).toBe(false)
+  })
+
+  it('loads Lightward Reminiscence banners as two Faded Legacy awakener and three wheel slots', () => {
+    const banners = timelineBanners.filter((entry) =>
+      entry.id.startsWith('banner-lightward-reminiscence-'),
+    )
+
+    expect(banners).toHaveLength(3)
+    for (const banner of banners) {
+      expect(banner.preliminary).toBeUndefined()
+      expect(banner.poolSlots).toHaveLength(5)
+      expect(banner.poolSlots?.map((slot) => slot.pool[0]?.kind)).toEqual([
+        'awakener',
+        'awakener',
+        'wheel',
+        'wheel',
+        'wheel',
+      ])
+      expect(banner.poolSlots?.[0]?.pool).toEqual(banner.poolSlots?.[1]?.pool)
+      expect(banner.poolSlots?.[2]?.pool).toEqual(banner.poolSlots?.[3]?.pool)
+      expect(banner.poolSlots?.[3]?.pool).toEqual(banner.poolSlots?.[4]?.pool)
+      expect(
+        banner.poolSlots
+          ?.flatMap((slot) => slot.pool)
+          .some((unit) => ['Dreaming of Wonderland', 'Falling Upward'].includes(unit.name)),
+      ).toBe(false)
+    }
   })
 
   it('rejects ambiguous or empty derived banner pools', () => {

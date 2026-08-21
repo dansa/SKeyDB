@@ -23,6 +23,8 @@ export const DATABASE_RARITY_FILTER_IDS = ['ALL', 'Genesis', 'SSR', 'SR'] as con
 export type RarityFilterId = (typeof DATABASE_RARITY_FILTER_IDS)[number]
 export const DATABASE_TYPE_FILTER_IDS = ['ALL', 'ASSAULT', 'WARDEN', 'CHORUS'] as const
 export type TypeFilterId = (typeof DATABASE_TYPE_FILTER_IDS)[number]
+export const DATABASE_GENDER_FILTER_IDS = ['ALL', 'Female', 'Male'] as const
+export type GenderFilterId = (typeof DATABASE_GENDER_FILTER_IDS)[number]
 export const DATABASE_AVAILABILITY_FILTER_IDS = [
   'ALL',
   'PERMANENT',
@@ -86,6 +88,10 @@ export function getTypeFilterLabel(id: TypeFilterId): string {
   return 'Chorus'
 }
 
+export function getGenderFilterLabel(id: GenderFilterId): string {
+  return id === 'ALL' ? 'All' : id
+}
+
 export const DATABASE_SORT_OPTIONS: readonly DatabaseSortKey[] = [
   'BEST_MATCH',
   'ALPHABETICAL',
@@ -101,6 +107,7 @@ export interface DatabaseBrowseState {
   realmFilter: RealmFilterId
   rarityFilter: RarityFilterId
   typeFilter: TypeFilterId
+  genderFilter: GenderFilterId
   availabilityFilter: AvailabilityFilterId
   gameplayFactionFilters: GameplayFactionFilterId[]
   scalingSubstatFilters: AwakenerScalingSubstatFilter[]
@@ -114,6 +121,7 @@ export const DATABASE_BROWSE_DEFAULTS: DatabaseBrowseState = {
   realmFilter: 'ALL',
   rarityFilter: 'ALL',
   typeFilter: 'ALL',
+  genderFilter: 'ALL',
   availabilityFilter: 'ALL',
   gameplayFactionFilters: [],
   scalingSubstatFilters: [],
@@ -202,6 +210,11 @@ export function parseDatabaseBrowseState(searchParams: URLSearchParams): Databas
       DATABASE_TYPE_FILTER_IDS,
       DATABASE_BROWSE_DEFAULTS.typeFilter,
     ),
+    genderFilter: parseEnumSearchParam(
+      searchParams.get('gender'),
+      DATABASE_GENDER_FILTER_IDS,
+      DATABASE_BROWSE_DEFAULTS.genderFilter,
+    ),
     availabilityFilter: parseEnumSearchParam(
       searchParams.get('availability'),
       DATABASE_AVAILABILITY_FILTER_IDS,
@@ -257,6 +270,13 @@ export function patchDatabaseBrowseState(
         nextState.typeFilter === DATABASE_BROWSE_DEFAULTS.typeFilter
           ? undefined
           : nextState.typeFilter,
+      )
+      setSearchParam(
+        nextParams,
+        'gender',
+        nextState.genderFilter === DATABASE_BROWSE_DEFAULTS.genderFilter
+          ? undefined
+          : nextState.genderFilter,
       )
       setSearchParam(
         nextParams,

@@ -9,14 +9,17 @@ import {
 } from '@/domain/awakener-scaling-substats'
 import {
   DATABASE_AVAILABILITY_FILTER_IDS,
+  DATABASE_GENDER_FILTER_IDS,
   DATABASE_GAMEPLAY_FACTION_FILTER_IDS,
   DATABASE_RARITY_FILTER_IDS,
   DATABASE_REALM_FILTER_IDS,
   DATABASE_TYPE_FILTER_IDS,
   getAvailabilityFilterLabel,
+  getGenderFilterLabel,
   getTypeFilterLabel,
   type AvailabilityFilterId,
   type GameplayFactionFilterId,
+  type GenderFilterId,
   type RarityFilterId,
   type RealmFilterId,
   type TypeFilterId,
@@ -34,6 +37,7 @@ interface DatabaseFiltersProps {
   realmFilter: RealmFilterId
   rarityFilter: RarityFilterId
   typeFilter: TypeFilterId
+  genderFilter: GenderFilterId
   availabilityFilter: AvailabilityFilterId
   gameplayFactionFilters: readonly GameplayFactionFilterId[]
   scalingSubstatFilters: readonly AwakenerScalingSubstatFilter[]
@@ -42,6 +46,7 @@ interface DatabaseFiltersProps {
   onRealmFilterChange: (filter: RealmFilterId) => void
   onRarityFilterChange: (filter: RarityFilterId) => void
   onTypeFilterChange: (filter: TypeFilterId) => void
+  onGenderFilterChange: (filter: GenderFilterId) => void
   onAvailabilityFilterChange: (filter: AvailabilityFilterId) => void
   onGameplayFactionFilterToggle: (filter: GameplayFactionFilterId) => void
   onScalingSubstatFilterToggle: (filter: SubstatScalingKey) => void
@@ -66,6 +71,12 @@ const typeFilterTabs = DATABASE_TYPE_FILTER_IDS.map((id) => ({
   summaryLabel: getTypeFilterLabel(id),
 }))
 
+const genderFilterTabs = DATABASE_GENDER_FILTER_IDS.map((id) => ({
+  id,
+  label: getGenderFilterLabel(id),
+  summaryLabel: getGenderFilterLabel(id),
+}))
+
 const availabilityFilterTabs = DATABASE_AVAILABILITY_FILTER_IDS.map((id) => ({
   id,
   label: getAvailabilityFilterLabel(id),
@@ -84,6 +95,7 @@ export function DatabaseFilters({
   realmFilter,
   rarityFilter,
   typeFilter,
+  genderFilter,
   availabilityFilter,
   gameplayFactionFilters,
   scalingSubstatFilters,
@@ -92,15 +104,16 @@ export function DatabaseFilters({
   onRealmFilterChange,
   onRarityFilterChange,
   onTypeFilterChange,
+  onGenderFilterChange,
   onAvailabilityFilterChange,
   onGameplayFactionFilterToggle,
   onScalingSubstatFilterRemove,
   onScalingSubstatFilterRoleChange,
   onScalingSubstatFilterToggle,
 }: DatabaseFiltersProps) {
-  const [openMobileFilter, setOpenMobileFilter] = useState<'rarity' | 'type' | 'source' | null>(
-    null,
-  )
+  const [openMobileFilter, setOpenMobileFilter] = useState<
+    'rarity' | 'type' | 'gender' | 'source' | null
+  >(null)
   const isMobileFilters = useMobileDatabaseFilters()
 
   return (
@@ -108,7 +121,7 @@ export function DatabaseFilters({
       <SearchInput
         label='Search awakeners'
         onQueryChange={onQueryChange}
-        placeholder='Name, tag, realm, or role'
+        placeholder='Name, tag, realm, gender, or role'
         query={query}
         searchInputRef={searchInputRef}
       />
@@ -141,6 +154,16 @@ export function DatabaseFilters({
                   onTypeFilterChange(next as TypeFilterId)
                 },
                 options: typeFilterTabs,
+              },
+              {
+                activeId: genderFilter,
+                defaultId: 'ALL',
+                key: 'gender',
+                label: 'Gender',
+                onChange: (next) => {
+                  onGenderFilterChange(next as GenderFilterId)
+                },
+                options: genderFilterTabs,
               },
               {
                 activeId: availabilityFilter,
@@ -184,13 +207,22 @@ export function DatabaseFilters({
             />
           </div>
 
-          <ChipFilterRow
-            activeId={typeFilter}
-            defaultId='ALL'
-            label='Type'
-            onChange={onTypeFilterChange}
-            options={typeFilterTabs}
-          />
+          <div className='grid gap-2 lg:grid-cols-2'>
+            <ChipFilterRow
+              activeId={typeFilter}
+              defaultId='ALL'
+              label='Type'
+              onChange={onTypeFilterChange}
+              options={typeFilterTabs}
+            />
+            <ChipFilterRow
+              activeId={genderFilter}
+              defaultId='ALL'
+              label='Gender'
+              onChange={onGenderFilterChange}
+              options={genderFilterTabs}
+            />
+          </div>
           <ChipFilterRow
             activeId={availabilityFilter}
             defaultId='ALL'

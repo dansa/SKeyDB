@@ -169,6 +169,7 @@ The palette is a restrained night archive: blue-slate structure, amber-gold atte
 - **Title** (700, 0.96-1.12rem, 1.12): Card names, event titles, banner heroes, and compact named entities.
 - **Body** (500, 0.86rem, 1.35): Descriptions, explanatory text, and dense readable copy. Keep prose around 65-75ch when it is not inside a card.
 - **Label** (800, 0.58-0.72rem, 0.10-0.14em tracking): Control labels, metadata labels, chips, and taxonomy tags.
+- **Mini Label** (700-800, 0.52-0.56rem, 0.10-0.14em tracking): Metadata and vertical labels inside unusually constrained artwork overlays. Do not use it for ordinary controls or prose.
 
 ### Named Rules
 

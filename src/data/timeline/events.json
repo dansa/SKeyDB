@@ -442,5 +442,57 @@
     "featured": "Horla",
     "customArt": "/events/before-spring-fades.webp",
     "rerun": true
+  },
+  {
+    "id": "event-story-caraboo",
+    "title": "New Moon and Deep Snow",
+    "category": "gameplay-event",
+    "description": "Gameplay and story event featuring Caraboo. Obtain the SR Wheel \"Serene Truth\" and limited avatar \"By the Silver Key: Caraboo\".",
+    "startDate": "2026/08/24 09:00",
+    "endDate": "2026/09/21 09:00",
+    "featured": {"name": "Caraboo", "kind": "awakener", "customArt": "/banners/caraboo.webp", "realmId": "ULTRA", "detailLink": false},
+    "customArt": "/events/new-moon-and-deep-snow.webp",
+    "pinned": true
+  },
+  {
+    "id": "event-wheel-soul-synchronization",
+    "title": "WoD Archives: After School Hours",
+    "category": "wheel-event",
+    "description": "Limited-time WoD wheel acquisition event featuring \"Soul Synchronization\".\n Complete various tasks to obtain 4 copies & 30 Pure Cores.\n Premium track: Grants +12 copies & 60 Luminous Cores.",
+    "startDate": "2026/08/24 09:00",
+    "endDate": "2026/09/21 09:00",
+    "featured": {"name": "Soul Synchronization", "kind": "wheel", "customArt": "/banners/soul-synchronization.webp", "detailLink": false},
+    "customArt": "/events/after-school-hours.webp",
+    "pricing": "1680 Silver Prime"
+  },
+  {
+    "id": "event-login-season-37",
+    "title": "Gifts from Mythag",
+    "category": "login",
+    "description": "28-day cumulative login rewards featuring 10 Luminous Cores.",
+    "startDate": "2026/08/24 09:00",
+    "endDate": "2026/09/21 09:00",
+    "customArt": "/events/gifts-from-mythag.webp"
+  },
+  {
+    "id": "event-curriculum-season-37",
+    "title": "Curriculum Honor",
+    "category": "curriculum",
+    "description": "Complete daily and weekly tasks to earn various rewards. \n T1: 680 Silver Prime - SSR wheel, 2500 Silver, 12 Luminous Cores and more. \n T2: 1280 Silver Prime - T1 + Exclusive Avatars, increased daily rewards and more.",
+    "startDate": "2026/08/24 09:00",
+    "endDate": "2026/09/21 09:00",
+    "customArt": "/events/curriculum.webp",
+    "pricing": "680-1280 Silver Prime"
+  },
+  {
+    "id": "event-story-rerun-a-million-suns-descend",
+    "title": "A Million Suns Descend",
+    "category": "gameplay-event",
+    "description": "Gameplay event rerun featuring Kathigu-Ra. Obtain the SR Wheel \"Impending Sun\" and limited avatar \"By the Silver Key: Kathigu-Ra\".",
+    "startDate": "2026/09/07 09:00",
+    "endDate": "2026/10/05 09:00",
+    "featured": "Kathigu-Ra",
+    "customArt": "/events/a-million-suns-descend.webp",
+    "rerun": true
   }
 ]

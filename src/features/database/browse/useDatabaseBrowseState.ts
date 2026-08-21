@@ -15,6 +15,7 @@ import {
   type AwakenerScalingSubstatFilter,
   type AwakenerScalingSubstatFilterRole,
   type DatabaseBrowseState,
+  type GenderFilterId,
   type GameplayFactionFilterId,
   type RarityFilterId,
   type RealmFilterId,
@@ -87,6 +88,7 @@ export function useDatabaseBrowseState() {
   })
   const {
     availabilityFilter,
+    genderFilter,
     groupByRealm,
     gameplayFactionFilters,
     query,
@@ -124,6 +126,13 @@ export function useDatabaseBrowseState() {
   const setAvailabilityFilter = useCallback(
     (next: AvailabilityFilterId) => {
       commitBrowseState({availabilityFilter: next}, 'push')
+    },
+    [commitBrowseState],
+  )
+
+  const setGenderFilter = useCallback(
+    (next: GenderFilterId) => {
+      commitBrowseState({genderFilter: next}, 'push')
     },
     [commitBrowseState],
   )
@@ -225,6 +234,7 @@ export function useDatabaseBrowseState() {
         realmFilter: 'ALL',
         rarityFilter: 'ALL',
         typeFilter: 'ALL',
+        genderFilter: 'ALL',
         availabilityFilter: 'ALL',
         gameplayFactionFilters: [],
         scalingSubstatFilters: [],
@@ -236,6 +246,7 @@ export function useDatabaseBrowseState() {
   return {
     groupByRealm,
     availabilityFilter,
+    genderFilter,
     gameplayFactionFilters,
     query,
     rarityFilter,
@@ -252,6 +263,7 @@ export function useDatabaseBrowseState() {
     setRarityFilter,
     setTypeFilter,
     setAvailabilityFilter,
+    setGenderFilter,
     setGameplayFactionFilters,
     setScalingSubstatFilters,
     toggleGameplayFactionFilter,

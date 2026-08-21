@@ -10,7 +10,7 @@ describe('database-browse-state', () => {
   it('parses known browse params and falls back safely for invalid values', () => {
     const state = parseDatabaseBrowseState(
       new URLSearchParams(
-        'q=beta&realm=AEQUOR&rarity=SR&type=WARDEN&availability=LIMITED&faction=Lemurian&scaling=CritRate,KeyflareRegen:PRIMARY,DamageAmplification:SECONDARY&sort=RELEASE_DATE&dir=DESC&group=1',
+        'q=beta&realm=AEQUOR&rarity=SR&type=WARDEN&gender=Female&availability=LIMITED&faction=Lemurian&scaling=CritRate,KeyflareRegen:PRIMARY,DamageAmplification:SECONDARY&sort=RELEASE_DATE&dir=DESC&group=1',
       ),
     )
 
@@ -19,6 +19,7 @@ describe('database-browse-state', () => {
       realmFilter: 'AEQUOR',
       rarityFilter: 'SR',
       typeFilter: 'WARDEN',
+      genderFilter: 'Female',
       availabilityFilter: 'LIMITED',
       gameplayFactionFilters: ['Lemurian'],
       scalingSubstatFilters: [
@@ -44,6 +45,7 @@ describe('database-browse-state', () => {
   it('patches browse params while preserving unrelated query values', () => {
     const nextParams = patchDatabaseBrowseState(new URLSearchParams('foo=bar&q=alpha'), {
       realmFilter: 'CHAOS',
+      genderFilter: 'Male',
       availabilityFilter: 'LIMITED_ASTRAL_REIGN',
       gameplayFactionFilters: ['Lemurian'],
       scalingSubstatFilters: [
@@ -56,7 +58,7 @@ describe('database-browse-state', () => {
     })
 
     expect(nextParams.toString()).toBe(
-      'foo=bar&q=alpha&realm=CHAOS&availability=LIMITED_ASTRAL_REIGN&faction=Lemurian&scaling=CritDamage%2CKeyflareRegen%3APRIMARY%2CDamageAmplification%3ASECONDARY&sort=ATK&dir=DESC',
+      'foo=bar&q=alpha&realm=CHAOS&gender=Male&availability=LIMITED_ASTRAL_REIGN&faction=Lemurian&scaling=CritDamage%2CKeyflareRegen%3APRIMARY%2CDamageAmplification%3ASECONDARY&sort=ATK&dir=DESC',
     )
   })
 

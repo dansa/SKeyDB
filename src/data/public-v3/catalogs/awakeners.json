@@ -23,6 +23,7 @@
       "availabilityType": "LIMITED_FADED_LEGACY",
       "releaseDate": "2024-04-27",
       "faction": "Hybrid",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
@@ -91,6 +92,7 @@
       "availabilityType": "PERMANENT",
       "releaseDate": "2023-11-29",
       "faction": "Outlanders",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "baseStatsLv1": {
         "CON": 35,
@@ -145,6 +147,7 @@
       "availabilityType": "WELFARE",
       "releaseDate": "2023-11-29",
       "faction": "Hybrid",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "baseStatsLv1": {
         "CON": 27,
@@ -199,6 +202,7 @@
       "availabilityType": "PERMANENT",
       "releaseDate": "2023-11-29",
       "faction": "Outlanders",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "baseStatsLv1": {
         "CON": 32,
@@ -253,6 +257,7 @@
       "availabilityType": "WELFARE",
       "releaseDate": "2023-11-29",
       "faction": "The Fools",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "baseStatsLv1": {
         "CON": 26,
@@ -307,6 +312,7 @@
       "availabilityType": "PERMANENT",
       "releaseDate": "2023-11-29",
       "faction": "Hybrid",
+      "gender": "Male",
       "primaryScalingBase": 20,
       "baseStatsLv1": {
         "CON": 41,
@@ -361,6 +367,7 @@
       "availabilityType": "PERMANENT",
       "releaseDate": "2023-11-29",
       "faction": "The Unknowable",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "baseStatsLv1": {
         "CON": 29,
@@ -415,6 +422,7 @@
       "availabilityType": "LIMITED_ASTRAL_REIGN",
       "releaseDate": "2025-06-02",
       "faction": "The Fools",
+      "gender": "Male",
       "primaryScalingBase": 20,
       "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
@@ -470,6 +478,7 @@
       "availabilityType": "PERMANENT",
       "releaseDate": "2023-11-29",
       "faction": "Outlanders",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "baseStatsLv1": {
         "CON": 21,
@@ -524,6 +533,7 @@
       "availabilityType": "LIMITED_ASTRAL_REIGN",
       "releaseDate": "2025-04-07",
       "faction": "The Unknowable",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
@@ -579,6 +589,7 @@
       "availabilityType": "LIMITED_ASTRAL_REIGN",
       "releaseDate": "2025-05-05",
       "faction": "The Fools",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
@@ -634,6 +645,7 @@
       "availabilityType": "LIMITED_FADED_LEGACY",
       "releaseDate": "2023-12-20",
       "faction": "The Unknowable",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
@@ -689,6 +701,7 @@
       "availabilityType": "WELFARE",
       "releaseDate": "2023-11-29",
       "faction": "Among the Stars",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "baseStatsLv1": {
         "CON": 24,
@@ -743,6 +756,7 @@
       "availabilityType": "LIMITED_ASTRAL_REIGN",
       "releaseDate": "2025-07-21",
       "faction": "Out of the Aeons",
+      "gender": "Male",
       "primaryScalingBase": 20,
       "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
@@ -798,6 +812,7 @@
       "availabilityType": "WELFARE",
       "releaseDate": "2023-11-29",
       "faction": "Hybrid",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "baseStatsLv1": {
         "CON": 39,
@@ -852,6 +867,7 @@
       "availabilityType": "PERMANENT",
       "releaseDate": "2023-11-29",
       "faction": "Among the Stars",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "baseStatsLv1": {
         "CON": 28,
@@ -906,6 +922,7 @@
       "availabilityType": "PERMANENT",
       "releaseDate": "2023-11-29",
       "faction": "The Fools",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "baseStatsLv1": {
         "CON": 26,
@@ -960,6 +977,7 @@
       "availabilityType": "LIMITED_ASTRAL_REIGN",
       "releaseDate": "2025-02-10",
       "faction": "Among the Stars",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
@@ -1015,6 +1033,7 @@
       "availabilityType": "LIMITED_FADED_LEGACY",
       "releaseDate": "2024-10-07",
       "faction": "The Fools",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
@@ -1070,6 +1089,7 @@
       "availabilityType": "WELFARE",
       "releaseDate": "2023-11-29",
       "faction": "The Unknowable",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "baseStatsLv1": {
         "CON": 32,
@@ -1124,6 +1144,7 @@
       "availabilityType": "PERMANENT",
       "releaseDate": "2023-11-29",
       "faction": "The Fools",
+      "gender": "Male",
       "primaryScalingBase": 20,
       "baseStatsLv1": {
         "CON": 44,
@@ -1178,6 +1199,7 @@
       "availabilityType": "LIMITED_FADED_LEGACY",
       "releaseDate": "2024-09-09",
       "faction": "The Unknowable",
+      "gender": "Male",
       "primaryScalingBase": 20,
       "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
@@ -1233,6 +1255,7 @@
       "availabilityType": "PERMANENT",
       "releaseDate": "2023-11-29",
       "faction": "The Fools",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "baseStatsLv1": {
         "CON": 37,
@@ -1287,6 +1310,7 @@
       "availabilityType": "LIMITED_FADED_LEGACY",
       "releaseDate": "2024-07-15",
       "faction": "Outlanders",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
@@ -1342,6 +1366,7 @@
       "availabilityType": "PERMANENT",
       "releaseDate": "2023-11-29",
       "faction": "The Fools",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "baseStatsLv1": {
         "CON": 27,
@@ -1396,6 +1421,7 @@
       "availabilityType": "PERMANENT",
       "releaseDate": "2023-11-29",
       "faction": "Outlanders",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "baseStatsLv1": {
         "CON": 30,
@@ -1450,6 +1476,7 @@
       "availabilityType": "LIMITED_ASTRAL_REIGN",
       "releaseDate": "2025-08-18",
       "faction": "Among the Stars",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
@@ -1505,6 +1532,7 @@
       "availabilityType": "PERMANENT",
       "releaseDate": "2023-11-29",
       "faction": "Hybrid",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "baseStatsLv1": {
         "CON": 19,
@@ -1559,6 +1587,7 @@
       "availabilityType": "LIMITED_FADED_LEGACY",
       "releaseDate": "2024-01-31",
       "faction": "Hybrid",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
@@ -1614,6 +1643,7 @@
       "availabilityType": "PERMANENT",
       "releaseDate": "2023-11-29",
       "faction": "The Fools",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "baseStatsLv1": {
         "CON": 29,
@@ -1668,6 +1698,7 @@
       "availabilityType": "WELFARE",
       "releaseDate": "2023-11-29",
       "faction": "Out of the Aeons",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "baseStatsLv1": {
         "CON": 34,
@@ -1722,6 +1753,7 @@
       "availabilityType": "LIMITED_FADED_LEGACY",
       "releaseDate": "2024-06-17",
       "faction": "Out of the Aeons",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
@@ -1790,6 +1822,7 @@
       "availabilityType": "LIMITED_ASTRAL_REIGN",
       "releaseDate": "2025-12-29",
       "faction": "Outlanders",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
@@ -1845,6 +1878,7 @@
       "availabilityType": "LIMITED_FADED_LEGACY",
       "releaseDate": "2024-02-21",
       "faction": "Hybrid",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
@@ -1900,6 +1934,7 @@
       "availabilityType": "LIMITED_ASTRAL_REIGN",
       "releaseDate": "2025-11-24",
       "faction": "Out of the Aeons",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
@@ -1955,6 +1990,7 @@
       "availabilityType": "PERMANENT",
       "releaseDate": "2023-11-29",
       "faction": "The Fools",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "baseStatsLv1": {
         "CON": 40,
@@ -2009,6 +2045,7 @@
       "availabilityType": "PERMANENT",
       "releaseDate": "2023-11-29",
       "faction": "Outlanders",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "baseStatsLv1": {
         "CON": 20,
@@ -2063,6 +2100,7 @@
       "availabilityType": "WELFARE",
       "releaseDate": "2023-11-29",
       "faction": "The Fools",
+      "gender": "Male",
       "primaryScalingBase": 20,
       "baseStatsLv1": {
         "CON": 36,
@@ -2117,6 +2155,7 @@
       "availabilityType": "PERMANENT",
       "releaseDate": "2023-11-29",
       "faction": "Outlanders",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "baseStatsLv1": {
         "CON": 32,
@@ -2171,6 +2210,7 @@
       "availabilityType": "LIMITED_ASTRAL_REIGN",
       "releaseDate": "2025-09-08",
       "faction": "The Fools",
+      "gender": "Male",
       "primaryScalingBase": 20,
       "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
@@ -2226,6 +2266,7 @@
       "availabilityType": "LIMITED_ASTRAL_REIGN",
       "releaseDate": "2025-10-20",
       "faction": "Hybrid",
+      "gender": "Male",
       "primaryScalingBase": 20,
       "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
@@ -2281,6 +2322,7 @@
       "availabilityType": "WELFARE",
       "releaseDate": "2023-11-29",
       "faction": "The Unknowable",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "baseStatsLv1": {
         "CON": 32,
@@ -2335,6 +2377,7 @@
       "availabilityType": "LIMITED_FADED_LEGACY",
       "releaseDate": "2024-08-12",
       "faction": "The Fools",
+      "gender": "Male",
       "primaryScalingBase": 20,
       "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
@@ -2390,6 +2433,7 @@
       "availabilityType": "LIMITED_FADED_LEGACY",
       "releaseDate": "2024-04-04",
       "faction": "Out of the Aeons",
+      "gender": "Male",
       "primaryScalingBase": 20,
       "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
@@ -2445,6 +2489,7 @@
       "availabilityType": "PERMANENT",
       "releaseDate": "2023-11-29",
       "faction": "Outlanders",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "baseStatsLv1": {
         "CON": 34,
@@ -2499,6 +2544,7 @@
       "availabilityType": "LIMITED_FADED_LEGACY",
       "releaseDate": "2024-01-10",
       "faction": "Outlanders",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
@@ -2554,6 +2600,7 @@
       "availabilityType": "LIMITED_FADED_LEGACY",
       "releaseDate": "2024-11-18",
       "faction": "Gateway",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
@@ -2609,6 +2656,7 @@
       "availabilityType": "LIMITED_FADED_LEGACY",
       "releaseDate": "2024-05-18",
       "faction": "Out of the Aeons",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
@@ -2664,6 +2712,7 @@
       "availabilityType": "PERMANENT",
       "releaseDate": "2023-11-29",
       "faction": "Among the Stars",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "baseStatsLv1": {
         "CON": 28,
@@ -2718,6 +2767,7 @@
       "availabilityType": "LIMITED_FADED_LEGACY",
       "releaseDate": "2023-11-29",
       "faction": "Out of the Aeons",
+      "gender": "Male",
       "primaryScalingBase": 20,
       "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
@@ -2773,6 +2823,7 @@
       "availabilityType": "PERMANENT",
       "releaseDate": "2023-11-29",
       "faction": "Outlanders",
+      "gender": "Male",
       "primaryScalingBase": 20,
       "baseStatsLv1": {
         "CON": 38,
@@ -2827,6 +2878,7 @@
       "availabilityType": "LIMITED_FADED_LEGACY",
       "releaseDate": "2024-03-14",
       "faction": "Among the Stars",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
@@ -2882,6 +2934,7 @@
       "availabilityType": "PERMANENT",
       "releaseDate": "2023-11-29",
       "faction": "Among the Stars",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "baseStatsLv1": {
         "CON": 30,
@@ -2936,6 +2989,7 @@
       "availabilityType": "LIMITED_ASTRAL_REIGN",
       "releaseDate": "2026-01-26",
       "faction": "The Unknowable",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
@@ -2991,6 +3045,7 @@
       "availabilityType": "LIMITED_ASTRAL_REIGN",
       "releaseDate": "2026-03-09",
       "faction": "The Fools",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
@@ -3046,6 +3101,7 @@
       "availabilityType": "LIMITED_ASTRAL_REIGN",
       "releaseDate": "2026-04-20",
       "faction": "The Unknowable",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
@@ -3101,6 +3157,7 @@
       "availabilityType": "LIMITED_ASTRAL_REIGN",
       "releaseDate": "2026-05-30",
       "faction": "TBD",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
@@ -3156,6 +3213,7 @@
       "availabilityType": "LIMITED_ASTRAL_REIGN",
       "releaseDate": "2026-06-29",
       "faction": "TBD",
+      "gender": "Male",
       "primaryScalingBase": 20,
       "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
@@ -3211,6 +3269,7 @@
       "availabilityType": "LIMITED_ASTRAL_REIGN",
       "releaseDate": "2026-07-27",
       "faction": "TBD",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {

@@ -22,9 +22,13 @@ function getAwakenerSearchOptions(): SearchOptions<Awakener> {
     getFallbackFields: (awakener) => ({
       alias: toOptionalStringArray(awakener.aliases),
       tag: toOptionalStringArray(awakener.tags),
-      facet: [awakener.realm, awakener.rarity, awakener.type, awakener.faction].filter(
-        (value): value is string => typeof value === 'string' && value.length > 0,
-      ),
+      facet: [
+        awakener.realm,
+        awakener.rarity,
+        awakener.type,
+        awakener.gender,
+        awakener.faction,
+      ].filter((value): value is string => typeof value === 'string' && value.length > 0),
     }),
   }
 }

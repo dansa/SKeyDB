@@ -271,5 +271,122 @@
     "startDate": "2026/08/10 09:00",
     "endDate": "2026/09/07 09:00",
     "featured": ["The Last Verse", "Kiss of Repose", "Doomsday Rampage"]
+  },
+  {
+    "id": "banner-caraboo",
+    "title": "Saccharine Facade / Whispers in Sugarfrost",
+    "type": "awaken",
+    "description": "Featured rate-up banners for Caraboo and her SSR Wheel \"Honeyed Deceit\".",
+    "startDate": "2026/08/24 09:00",
+    "endDate": "2026/09/21 09:00",
+    "featured": [
+      {
+        "name": "Caraboo",
+        "kind": "awakener",
+        "customArt": "/banners/caraboo.webp",
+        "realmId": "ULTRA",
+        "detailLink": false
+      },
+      {
+        "name": "Honeyed Deceit",
+        "kind": "wheel",
+        "customArt": "/banners/honeyed-deceit.webp",
+        "detailLink": false
+      }
+    ],
+    "pinned": true
+  },
+  {
+    "id": "banner-lightward-reminiscence-assault",
+    "title": "Lightward Reminiscence",
+    "type": "premium",
+    "customTags": ["Assault"],
+    "pricing": "980 Silver Prime",
+    "description": "One fivefold guaranteed awakening containing 2 Faded Legacy limited SSR Awakeners and 3 Faded Legacy limited SSR Wheels from the Assault pool.",
+    "startDate": "2026/08/24 09:00",
+    "endDate": "2026/09/21 09:00",
+    "derivedPool": {
+      "availabilityTypes": ["LIMITED_FADED_LEGACY"],
+      "limitedAwakenerType": "ASSAULT",
+      "excludeNames": ["Caraboo"],
+      "slotCount": 5,
+      "awakenerSlots": 2,
+      "wheelSlots": 3
+    }
+  },
+  {
+    "id": "banner-lightward-reminiscence-warden",
+    "title": "Lightward Reminiscence",
+    "type": "premium",
+    "customTags": ["Warden"],
+    "pricing": "980 Silver Prime",
+    "description": "One fivefold guaranteed awakening containing 2 Faded Legacy limited SSR Awakeners and 3 Faded Legacy limited SSR Wheels from the Warden pool.",
+    "startDate": "2026/08/24 09:00",
+    "endDate": "2026/09/21 09:00",
+    "derivedPool": {
+      "availabilityTypes": ["LIMITED_FADED_LEGACY"],
+      "limitedAwakenerType": "WARDEN",
+      "excludeNames": ["Caraboo"],
+      "slotCount": 5,
+      "awakenerSlots": 2,
+      "wheelSlots": 3
+    }
+  },
+  {
+    "id": "banner-lightward-reminiscence-chorus",
+    "title": "Lightward Reminiscence",
+    "type": "premium",
+    "customTags": ["Chorus"],
+    "pricing": "980 Silver Prime",
+    "description": "One fivefold guaranteed awakening containing 2 Faded Legacy limited SSR Awakeners and 3 Faded Legacy limited SSR Wheels from the Chorus pool.",
+    "startDate": "2026/08/24 09:00",
+    "endDate": "2026/09/21 09:00",
+    "derivedPool": {
+      "availabilityTypes": ["LIMITED_FADED_LEGACY"],
+      "limitedAwakenerType": "CHORUS",
+      "excludeNames": ["Caraboo"],
+      "slotCount": 5,
+      "awakenerSlots": 2,
+      "wheelSlots": 3
+    }
+  },
+  {
+    "id": "banner-stars-cradled-close",
+    "title": "Stars Cradled Close",
+    "type": "selector",
+    "description": "Select one unique Astral Reign limited Awakener in each category: Assault, Warden, Chorus, Male and Female. Any SSR obtained comes from the five selected Awakeners or their matching Wheels of Destiny.",
+    "startDate": "2026/08/24 09:00",
+    "endDate": "2026/09/21 09:00",
+    "linkedPresentation": "paired",
+    "derivedPool": {
+      "availabilityTypes": ["LIMITED_ASTRAL_REIGN"],
+      "excludeNames": ["Caraboo"],
+      "slots": [
+        {"kind": "awakener", "label": "Assault", "limitedAwakenerType": "ASSAULT", "linked": true},
+        {"kind": "awakener", "label": "Warden", "limitedAwakenerType": "WARDEN", "linked": true},
+        {"kind": "awakener", "label": "Chorus", "limitedAwakenerType": "CHORUS", "linked": true},
+        {"kind": "awakener", "label": "Male", "gender": "Male", "linked": true},
+        {"kind": "awakener", "label": "Female", "gender": "Female", "linked": true}
+      ]
+    }
+  },
+  {
+    "id": "banner-triune-verdant-sep",
+    "title": "Triune Verdant",
+    "type": "rerun",
+    "description": "Three rerun banners featuring Kathigu-Ra, Daffodil and Murphy: Fauxborn.",
+    "startDate": "2026/09/07 09:00",
+    "endDate": "2026/10/05 09:00",
+    "featured": ["Kathigu-Ra", "Daffodil", "Murphy: Fauxborn"]
+  },
+  {
+    "id": "banner-sylvan-omen-sep",
+    "title": "Sylvan Omen",
+    "type": "rerun",
+    "tags": ["rerun", "wheel"],
+    "description": "Three rerun banners featuring the Wheels Amber-Tinted Death, Treasured Rarity and Uteri Somnia.",
+    "startDate": "2026/09/07 09:00",
+    "endDate": "2026/10/05 09:00",
+    "featured": ["Amber-Tinted Death", "Treasured Rarity", "Uteri Somnia"]
   }
 ]

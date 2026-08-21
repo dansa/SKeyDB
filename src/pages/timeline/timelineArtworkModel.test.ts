@@ -83,6 +83,48 @@ describe('timelineArtworkModel', () => {
     })
   })
 
+  it('keeps linked pairs in labeled columns for alternating presentation', () => {
+    const visualSlots = resolvePoolSlots(
+      [
+        {
+          label: 'Assault',
+          linked: true,
+          pool: [{name: 'Arachne', kind: 'awakener'}],
+        },
+      ],
+      'alternating',
+    )
+
+    expect(visualSlots).toHaveLength(1)
+    expect(visualSlots[0]).toMatchObject({label: 'Assault', cycleFrameIndex: 0})
+    expect(visualSlots[0].assets[0]).toMatchObject({label: 'Arachne', isWheel: false})
+    expect(visualSlots[0].alternateAssets?.[0]).toMatchObject({
+      label: 'Eternal Weave',
+      isWheel: true,
+    })
+  })
+
+  it('keeps linked pairs in one labeled column for paired presentation', () => {
+    const visualSlots = resolvePoolSlots(
+      [
+        {
+          label: 'Assault',
+          linked: true,
+          pool: [{name: 'Arachne', kind: 'awakener'}],
+        },
+      ],
+      'paired',
+    )
+
+    expect(visualSlots).toHaveLength(1)
+    expect(visualSlots[0]).toMatchObject({label: 'Assault', cycleFrameIndex: 0})
+    expect(visualSlots[0].assets[0]).toMatchObject({label: 'Arachne', isWheel: false})
+    expect(visualSlots[0].alternateAssets?.[0]).toMatchObject({
+      label: 'Eternal Weave',
+      isWheel: true,
+    })
+  })
+
   it('skips empty pool slots before artwork rendering', () => {
     const visualSlots = resolvePoolSlots([
       {pool: []},
@@ -110,6 +152,15 @@ describe('timelineArtworkModel', () => {
 
     expect(urls).toHaveLength(1)
     expect(urls[0]).toContain('arachne')
+  })
+
+  it('preloads alternating linked wheel art', () => {
+    const visualSlots = resolvePoolSlots(
+      [{linked: true, pool: [{name: 'Arachne', kind: 'awakener'}]}],
+      'alternating',
+    )
+
+    expect(getPoolPreloadUrls(visualSlots)).toContain(visualSlots[0].alternateAssets?.[0].url)
   })
 
   it('builds stable grid templates for featured and pool artwork', () => {

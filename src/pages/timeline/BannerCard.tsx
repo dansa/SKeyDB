@@ -91,6 +91,7 @@ export function BannerCard({
           customArt={displayBanner.customArt}
           featured={displayBanner.featured}
           loading={artworkLoading}
+          linkedPresentation={displayBanner.linkedPresentation}
           onOpenDetail={onOpenDetail}
           poolSlots={displayBanner.poolSlots}
           title={displayBanner.title}

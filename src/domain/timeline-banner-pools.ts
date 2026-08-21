@@ -14,16 +14,30 @@ export type FeaturedInput =
 
 export interface PoolSlotInput {
   pool: FeaturedInput[]
+  label?: string
   linked?: boolean
   count?: number
+}
+
+export interface DerivedPoolSlotInput {
+  availabilityTypes?: string[]
+  count?: number
+  excludeNames?: string[]
+  gender?: string
+  kind: 'awakener' | 'wheel'
+  label?: string
+  limitedAwakenerType?: string
+  linked?: boolean
 }
 
 export interface DerivedPoolInput {
   availabilityTypes?: string[]
   awakenerSlots?: number
+  gender?: string
   excludeNames?: string[]
   linkedPairs?: boolean
   limitedAwakenerType?: string
+  slots?: DerivedPoolSlotInput[]
   slotCount?: number
   wheelSlots?: number
 }
@@ -75,6 +89,7 @@ export function resolveTimelineBannerPoolSlots(
   for (const slot of input) {
     const resolved: BannerPoolSlot = {
       pool: slot.pool.map((unit) => resolveTimelineBannerUnit(unit, context)),
+      label: slot.label,
       linked: slot.linked,
     }
     const copies = slot.count ?? 1
@@ -93,27 +108,111 @@ function normalizeDerivedAvailabilityTypes(input: DerivedPoolInput): Set<string>
   )
 }
 
+function resolveEligibleAwakeners(
+  input: Pick<
+    DerivedPoolInput,
+    'availabilityTypes' | 'excludeNames' | 'gender' | 'limitedAwakenerType'
+  >,
+  context: Pick<BannerPoolResolutionContext, 'awakeners'>,
+): Awakener[] {
+  const type = input.limitedAwakenerType?.trim().toUpperCase()
+  const gender = input.gender?.trim().toLowerCase()
+  const availabilityTypes = normalizeDerivedAvailabilityTypes(input)
+  const excludedNames = new Set(input.excludeNames?.map((name) => name.trim().toLowerCase()) ?? [])
+
+  return context.awakeners.filter(
+    (awakener) =>
+      awakener.rarity === 'SSR' &&
+      (!type || awakener.type === type) &&
+      (!gender || awakener.gender?.trim().toLowerCase() === gender) &&
+      Boolean(awakener.availabilityType && availabilityTypes.has(awakener.availabilityType)) &&
+      !excludedNames.has(awakener.name.toLowerCase()) &&
+      !awakener.aliases.some((alias) => excludedNames.has(alias.toLowerCase())),
+  )
+}
+
+function getSignatureWheels(wheels: Wheel[]): Wheel[] {
+  const seenOwners = new Set<string>()
+  const signatures: Wheel[] = []
+
+  for (const wheel of wheels) {
+    if (wheel.rarity !== 'SSR' || !wheel.ownerAwakenerId || seenOwners.has(wheel.ownerAwakenerId)) {
+      continue
+    }
+    seenOwners.add(wheel.ownerAwakenerId)
+    signatures.push(wheel)
+  }
+
+  return signatures
+}
+
+function resolveFilteredSlot(
+  input: DerivedPoolSlotInput,
+  bannerId: string,
+  context: Pick<BannerPoolResolutionContext, 'awakeners' | 'wheels'>,
+): BannerPoolSlot {
+  const awakeners = resolveEligibleAwakeners(input, context)
+  const awakenerIds = new Set(awakeners.map((awakener) => awakener.id))
+  const signatureWheels = getSignatureWheels(context.wheels)
+  if (input.linked) {
+    const wheelOwnerIds = new Set(
+      signatureWheels.flatMap((wheel) => (wheel.ownerAwakenerId ? [wheel.ownerAwakenerId] : [])),
+    )
+    const missingWheelAwakeners = awakeners.filter((awakener) => !wheelOwnerIds.has(awakener.id))
+    if (missingWheelAwakeners.length > 0) {
+      throw new Error(
+        `Timeline banner "${bannerId}" derived slot "${input.label ?? input.kind}" includes awakeners without SSR wheels: ${missingWheelAwakeners
+          .map((awakener) => awakener.name)
+          .join(', ')}.`,
+      )
+    }
+  }
+  const pool: BannerFeaturedUnit[] = []
+  if (input.kind === 'awakener') {
+    for (const awakener of awakeners) {
+      pool.push({name: getAwakenerDisplayName(awakener), kind: 'awakener'})
+    }
+  } else {
+    for (const wheel of signatureWheels) {
+      if (wheel.ownerAwakenerId && awakenerIds.has(wheel.ownerAwakenerId)) {
+        pool.push({name: wheel.name, kind: 'wheel'})
+      }
+    }
+  }
+
+  if (pool.length === 0) {
+    throw new Error(
+      `Timeline banner "${bannerId}" derived slot "${input.label ?? input.kind}" produced an empty pool.`,
+    )
+  }
+
+  return {pool, label: input.label, linked: input.linked}
+}
+
 export function resolveTimelineBannerDerivedPool(
   input: DerivedPoolInput,
   bannerId: string,
   context: Pick<BannerPoolResolutionContext, 'awakeners' | 'wheels'>,
 ): BannerPoolSlot[] {
-  const type = input.limitedAwakenerType?.trim().toUpperCase()
-  const availabilityTypes = normalizeDerivedAvailabilityTypes(input)
-  const excludedNames = new Set(input.excludeNames?.map((name) => name.trim().toLowerCase()) ?? [])
-  const awakeners = context.awakeners.filter(
-    (awakener) =>
-      awakener.rarity === 'SSR' &&
-      (!type || awakener.type === type) &&
-      Boolean(awakener.availabilityType && availabilityTypes.has(awakener.availabilityType)) &&
-      !excludedNames.has(awakener.name.toLowerCase()) &&
-      !awakener.aliases.some((alias) => excludedNames.has(alias.toLowerCase())),
-  )
+  if (input.slots) {
+    return input.slots.flatMap((slot) => {
+      const mergedSlot = {
+        ...slot,
+        availabilityTypes: slot.availabilityTypes ?? input.availabilityTypes,
+        excludeNames: [...(input.excludeNames ?? []), ...(slot.excludeNames ?? [])],
+      }
+      const resolved = resolveFilteredSlot(mergedSlot, bannerId, context)
+      return Array.from({length: slot.count ?? 1}, () => ({
+        ...resolved,
+        pool: [...resolved.pool],
+      }))
+    })
+  }
+
+  const awakeners = resolveEligibleAwakeners(input, context)
   const awakenerIds = new Set(awakeners.map((awakener) => awakener.id))
-  const wheels = context.wheels.filter(
-    (wheel) =>
-      wheel.rarity === 'SSR' &&
-      Boolean(wheel.ownerAwakenerId && awakenerIds.has(wheel.ownerAwakenerId)),
+  const wheels = getSignatureWheels(context.wheels).filter((wheel) =>
+    Boolean(wheel.ownerAwakenerId && awakenerIds.has(wheel.ownerAwakenerId)),
   )
 
   const awakenerPool = awakeners.map((awakener) => ({
