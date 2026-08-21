@@ -4,6 +4,10 @@ import {describe, expect, it, vi} from 'vitest'
 import './builder-page.integration-mocks'
 import {BuilderPage} from './BuilderPage'
 
+vi.mock('@/features/database/detail/databaseDetailOverlayLoader', () => ({
+  preloadDatabaseDetailOverlayOutlet: vi.fn(() => Promise.resolve({default: () => null})),
+}))
+
 vi.mock('@/features/database/detail/DeferredDatabaseDetailOverlayOutlet', async () => {
   const [actual, {useSyncExternalStore}] = await Promise.all([
     vi.importActual<
