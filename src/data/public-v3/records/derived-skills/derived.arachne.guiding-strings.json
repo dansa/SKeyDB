@@ -8,11 +8,11 @@
     "canonicalPath": "/database/awakeners/arachne/derived-skills/guiding-strings"
   },
   "ownerAwakenerId": "awakener-0056",
-  "derivedFromId": "skill.arachne.eternal-loom",
-  "rootSkillId": "skill.arachne.eternal-loom",
+  "derivedFromId": "skill.arachne.eternal-weave",
+  "rootSkillId": "skill.arachne.eternal-weave",
   "cardFamily": "effect",
   "cardTypes": ["effect"],
-  "descriptionTemplate": "Lose [Arg1]% of Max HP and gain 1 stack of {Weaver}.\nThis battle, HP lost from {Guiding Strings} and {Final Verdict} dealt by Arachne each increase by [Arg2]%.\n{Fleeting}: Arachne randomly gains 15~30 Aliemus.",
+  "descriptionTemplate": "Lose [Arg1]% of Max HP and gain 1 stack of {Weaver}.\nThis battle, HP lost from {derived:Guiding Strings} and {Final Verdict} dealt by Arachne each increase by [Arg2]%.\n{Fleeting}: Arachne randomly gains 15~30 Aliemus.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",

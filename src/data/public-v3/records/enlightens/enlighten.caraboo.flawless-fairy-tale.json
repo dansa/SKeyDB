@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 3,
+  "kind": "enlighten",
+  "id": "enlighten.caraboo.flawless-fairy-tale",
+  "name": "Flawless Fairy Tale",
+  "route": {
+    "slug": "flawless-fairy-tale",
+    "canonicalPath": "/database/awakeners/caraboo/enlightens/flawless-fairy-tale"
+  },
+  "ownerAwakenerId": "awakener-0060",
+  "slot": "OverExalt",
+  "descriptionTemplate": "{Discover} 2 sets of {derived:Caraboo's Blessing} cards with different {derived:Gifts}, each set contains 2 cards. Choose 1 set to add to hand. Permanently reduce all enemies' {STR} by 9% of Caraboo's DEF.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Caraboo"
+}

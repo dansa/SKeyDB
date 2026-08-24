@@ -15,7 +15,7 @@
   "mainstatKey": "DEATH_RESISTANCE",
   "ownerAwakenerId": "awakener-0033",
   "ownerAwakenerName": "Mouchette",
-  "lineupToken": "yK",
+  "lineupToken": "yI",
   "descriptionTemplate": "Team Unique: After the first Posse release in each turn, there is a [StateArg1]% chance to draw 1 \"Strike\" of the wielder's.",
   "descriptionArgs": {
     "StateArg1": {

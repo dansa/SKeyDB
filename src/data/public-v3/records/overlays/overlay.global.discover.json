@@ -8,7 +8,7 @@
     "canonicalPath": "/database/overlays/discover"
   },
   "overlayType": "mechanic",
-  "aliases": [],
+  "aliases": ["Discovered"],
   "textColor": "misc",
   "descriptionTemplate": "Generates random options to choose from.",
   "descriptionArgs": {}

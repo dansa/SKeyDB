@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 3,
+  "kind": "skill",
+  "id": "skill.caraboo.miracle-blessing",
+  "name": "Miracle Blessing",
+  "route": {
+    "slug": "miracle-blessing",
+    "canonicalPath": "/database/awakeners/caraboo/skills/miracle-blessing"
+  },
+  "ownerAwakenerId": "awakener-0060",
+  "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
+  "descriptionTemplate": "Gain [Block:Arg1] Shield. {Discover} {derived:Caraboo's Blessing} cards with [Arg2] different {Prices}, choose [Arg3] to place into your Draw Pile.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": ["35", "42", "49", "56", "63", "70"],
+      "stat": "DEF",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "2"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "3",
+  "lore": "<Italic:\"Want boundless treasure?\"\n\"Want unlimited power?\"\n\"Want a divine elixir to raise the dead?\"\n\"Want a crystal ball to see into hearts?\"\n\"Want a charm to win back your beloved's heart?\"\n\"Want a magic mirror that answers every question?\"\n\"Want a honeyfruit to sate every desire in an instant?\">\nWhatever wish you make, we have it all right here.\nNow, show your sincerity. Present your offerings to the Fairy Godmother!\nThe miracle is descending. Please, wait but 3 seconds!\n3, 2, 1—and... off she scampers!",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.caraboo.sevenfold-rite.skill.caraboo.miracle-blessing",
+      "operation": "override_args",
+      "upgraderId": "enlighten.caraboo.sevenfold-rite",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "E2",
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": ["35", "42", "49", "56", "63", "70"],
+            "stat": "DEF",
+            "suffix": "%"
+          },
+          "Arg2": {
+            "kind": "fixed",
+            "value": "2"
+          },
+          "Arg3": {
+            "kind": "fixed",
+            "value": "1"
+          }
+        }
+      }
+    }
+  ],
+  "ownerAwakenerName": "Caraboo"
+}

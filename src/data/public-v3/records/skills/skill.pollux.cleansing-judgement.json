@@ -41,7 +41,7 @@
       "ownerAwakenerId": "awakener-0041",
       "ownerAwakenerName": "Pollux",
       "patch": {
-        "descriptionTemplate": "Deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times}. Arithmetica Cost -1 for every {Sacred Heart} played. This card is automatically put in your hand when entering {Ultra Round}."
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times}. Arithmetica Cost -1 for every {derived:Sacred Heart} played. This card is automatically put in your hand when entering {Ultra Round}."
       }
     }
   ],

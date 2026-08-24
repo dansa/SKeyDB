@@ -737,6 +737,28 @@ describe('DatabasePage', () => {
   })
 
   it('opens a family on the variant selected by the active tier filter', async () => {
+    const mountedRelicDialogs: HTMLDialogElement[] = []
+    const observer = new MutationObserver((mutations) => {
+      for (const mutation of mutations) {
+        for (const addedNode of mutation.addedNodes) {
+          if (!(addedNode instanceof Element)) continue
+          const dialogs = [
+            ...(addedNode.matches('dialog') ? [addedNode] : []),
+            ...addedNode.querySelectorAll('dialog'),
+          ]
+          for (const dialog of dialogs) {
+            if (
+              dialog instanceof HTMLDialogElement &&
+              dialog.getAttribute('aria-label')?.endsWith(' relic details')
+            ) {
+              mountedRelicDialogs.push(dialog)
+            }
+          }
+        }
+      }
+    })
+    observer.observe(document.body, {childList: true, subtree: true})
+
     await renderDatabasePage('/database/relics/dimensional-image-24?tier=GOLD')
 
     await waitFor(() => {
@@ -744,7 +766,11 @@ describe('DatabasePage', () => {
         '?tier=GOLD&variant=relic-variant-0002',
       )
     })
+    observer.disconnect()
+
     expect(screen.getByText('Selected relic variant relic-variant-0002')).toBeInTheDocument()
+    expect(mountedRelicDialogs).toHaveLength(1)
+    expect(mountedRelicDialogs[0]).toBeInTheDocument()
   })
 
   it('replaces an invalid relic variant with the family default while preserving browse filters', async () => {
@@ -818,7 +844,7 @@ describe('DatabasePage', () => {
     ).toBeInTheDocument()
 
     await act(async () => {
-      fireEvent.click(screen.getByLabelText('Switch to alpha awakener detail'))
+      fireEvent.click(await screen.findByLabelText('Switch to alpha awakener detail'))
     })
 
     await waitFor(() =>
@@ -840,7 +866,7 @@ describe('DatabasePage', () => {
       expect(screen.getByRole('dialog', {name: /merciful nurturing details/i})).toBeInTheDocument(),
     )
 
-    fireEvent.click(screen.getByLabelText('Switch to alpha awakener detail'))
+    fireEvent.click(await screen.findByLabelText('Switch to alpha awakener detail'))
     await waitFor(() =>
       expect(screen.getByTestId('location-path')).toHaveTextContent('/database/awakeners/alpha'),
     )
@@ -849,7 +875,7 @@ describe('DatabasePage', () => {
     expect(screen.getByLabelText('Search wheels')).toBe(originalBrowseSearch)
     expect(originalBrowseSearch).toHaveValue('merciful')
 
-    fireEvent.click(screen.getByLabelText('Close detail'))
+    fireEvent.click(await screen.findByLabelText('Close detail'))
     await waitFor(() => {
       expect(screen.getByTestId('location-path')).toHaveTextContent('/database/wheels')
       expect(screen.getByTestId('location-search')).toHaveTextContent(

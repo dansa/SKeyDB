@@ -840,9 +840,9 @@
       ],
       "ownedTalents": ["talent.miryam.undying-piety", "talent.miryam.madness-omen", "talent.miryam.soulforge-aptitude", "talent.miryam.gnostic-potential"],
       "ownedEnlightens": [
+        "enlighten.miryam.final-descent",
         "enlighten.miryam.homeland-resurgence",
         "enlighten.miryam.solitary-pilgrimage",
-        "enlighten.miryam.the-ultimate-descent",
         "enlighten.miryam.unacquainted-pain",
         "enlighten.miryam.vanitys-collapse"
       ],
@@ -1450,7 +1450,7 @@
       "ownedSkills": [
         "skill.arachne.defense",
         "skill.arachne.elegy-over-fate",
-        "skill.arachne.eternal-loom",
+        "skill.arachne.eternal-weave",
         "skill.arachne.fate-binding-web",
         "skill.arachne.moira-as-i-decree",
         "skill.arachne.puppet-stage-unveiled",
@@ -1553,6 +1553,49 @@
         "enlighten.lotan-cetarchon.uncrowned-storm"
       ]
     },
+    "awakener-0060": {
+      "ownedWheels": ["wheel-0175", "wheel-0176"],
+      "ownedRelics": ["relic-0314"],
+      "ownedPosses": ["posse-0062"],
+      "ownedSkills": [
+        "skill.caraboo.defense",
+        "skill.caraboo.flawless-fairy-tale",
+        "skill.caraboo.miracle-blessing",
+        "skill.caraboo.snowy-hex",
+        "skill.caraboo.strike",
+        "skill.caraboo.ta-da-its-the-fairy",
+        "skill.caraboo.tempting-honeyfruit"
+      ],
+      "ownedDerivedSkills": [
+        "derived.caraboo.blessing",
+        "derived.caraboo.blessing-gifts",
+        "derived.caraboo.blessing-prices",
+        "derived.caraboo.gift-aliemus",
+        "derived.caraboo.gift-arithmetica",
+        "derived.caraboo.gift-dmg-amp",
+        "derived.caraboo.gift-drain",
+        "derived.caraboo.gift-draw",
+        "derived.caraboo.gift-keyflare",
+        "derived.caraboo.gift-str",
+        "derived.caraboo.gilded-words",
+        "derived.caraboo.missed-chance",
+        "derived.caraboo.veiled-malice"
+      ],
+      "ownedTalents": [
+        "talent.caraboo.eden-of-propagation",
+        "talent.caraboo.madness-omen",
+        "talent.caraboo.soulforge-aptitude",
+        "talent.caraboo.gnostic-potential"
+      ],
+      "ownedEnlightens": [
+        "enlighten.caraboo.flawless-fairy-tale",
+        "enlighten.caraboo.new-moon-at-its-zenith",
+        "enlighten.caraboo.secret-devotions",
+        "enlighten.caraboo.sevenfold-rite",
+        "enlighten.caraboo.threefold-vow"
+      ],
+      "ownedOverlays": ["overlay.caraboo.offering", "overlay.caraboo.satiety"]
+    },
     "awakener-build-0001": {},
     "awakener-build-0002": {},
     "awakener-build-0003": {},
@@ -1632,6 +1675,19 @@
     "covenant-0021": {},
     "derived.arachne.guiding-strings": {},
     "derived.arachne.infinite-threads": {},
+    "derived.caraboo.blessing": {},
+    "derived.caraboo.blessing-gifts": {},
+    "derived.caraboo.blessing-prices": {},
+    "derived.caraboo.gift-aliemus": {},
+    "derived.caraboo.gift-arithmetica": {},
+    "derived.caraboo.gift-dmg-amp": {},
+    "derived.caraboo.gift-drain": {},
+    "derived.caraboo.gift-draw": {},
+    "derived.caraboo.gift-keyflare": {},
+    "derived.caraboo.gift-str": {},
+    "derived.caraboo.gilded-words": {},
+    "derived.caraboo.missed-chance": {},
+    "derived.caraboo.veiled-malice": {},
     "derived.castor.onyx-plume": {},
     "derived.clementine.phobic-fixation": {},
     "derived.clementine.psychic-trauma": {},
@@ -1742,6 +1798,7 @@
     "derived.global.silver-key-resonance": {},
     "derived.global.slumber": {},
     "derived.global.solidify": {},
+    "derived.global.soul-synchronization": {},
     "derived.global.stagger": {},
     "derived.global.stakes-of-wisdom": {},
     "derived.global.suspicion": {},
@@ -1857,6 +1914,11 @@
     "enlighten.caecus.outcasts-anguish": {},
     "enlighten.caecus.spike-amalgamation": {},
     "enlighten.caecus.unbending-resolve": {},
+    "enlighten.caraboo.flawless-fairy-tale": {},
+    "enlighten.caraboo.new-moon-at-its-zenith": {},
+    "enlighten.caraboo.secret-devotions": {},
+    "enlighten.caraboo.sevenfold-rite": {},
+    "enlighten.caraboo.threefold-vow": {},
     "enlighten.casiah.a-thousand-and-one-miracles": {},
     "enlighten.casiah.legendary-copycat": {},
     "enlighten.casiah.minds-whisper": {},
@@ -1982,9 +2044,9 @@
     "enlighten.lotan.swords-unleashed": {},
     "enlighten.lotan.timeless-solitude": {},
     "enlighten.lotan.until-the-planets-end": {},
+    "enlighten.miryam.final-descent": {},
     "enlighten.miryam.homeland-resurgence": {},
     "enlighten.miryam.solitary-pilgrimage": {},
-    "enlighten.miryam.the-ultimate-descent": {},
     "enlighten.miryam.unacquainted-pain": {},
     "enlighten.miryam.vanitys-collapse": {},
     "enlighten.mouchette.cleave-out-a-future": {},
@@ -2123,6 +2185,8 @@
     "overlay.arachne.singularity-warp": {},
     "overlay.arachne.weaver": {},
     "overlay.caecus.outcasts-anguish": {},
+    "overlay.caraboo.offering": {},
+    "overlay.caraboo.satiety": {},
     "overlay.celeste.revival": {},
     "overlay.clementine.phobic-fixation": {},
     "overlay.clementine.psychic-trauma": {},
@@ -2164,6 +2228,7 @@
     "overlay.global.echo": {},
     "overlay.global.embryo-fusion": {},
     "overlay.global.embryo-fusion-double": {},
+    "overlay.global.enhance": {},
     "overlay.global.exhaust": {},
     "overlay.global.fainted": {},
     "overlay.global.final-rule": {},
@@ -2182,12 +2247,14 @@
     "overlay.global.perception": {},
     "overlay.global.perception-warp": {},
     "overlay.global.pierce-dmg": {},
+    "overlay.global.pistoles-de-marie": {},
     "overlay.global.poison": {},
     "overlay.global.prepare": {},
     "overlay.global.primordia-chaos": {},
     "overlay.global.primordia-mastery-scaling": {},
     "overlay.global.propagation-caro": {},
     "overlay.global.propagation-frenzy": {},
+    "overlay.global.pure-dmg": {},
     "overlay.global.pure-ultra": {},
     "overlay.global.pursuit": {},
     "overlay.global.quasar": {},
@@ -2323,6 +2390,7 @@
     "posse-0059": {},
     "posse-0060": {},
     "posse-0061": {},
+    "posse-0062": {},
     "relic-0001": {},
     "relic-0002": {},
     "relic-0003": {},
@@ -2617,6 +2685,9 @@
     "relic-0311": {},
     "relic-0312": {},
     "relic-0313": {},
+    "relic-0314": {},
+    "relic-0315": {},
+    "relic-0316": {},
     "skill.24.aberrant-vivisection": {},
     "skill.24.defense": {},
     "skill.24.frenzied-slash": {},
@@ -2647,7 +2718,7 @@
     "skill.alva.strike": {},
     "skill.arachne.defense": {},
     "skill.arachne.elegy-over-fate": {},
-    "skill.arachne.eternal-loom": {},
+    "skill.arachne.eternal-weave": {},
     "skill.arachne.fate-binding-web": {},
     "skill.arachne.moira-as-i-decree": {},
     "skill.arachne.puppet-stage-unveiled": {},
@@ -2666,6 +2737,13 @@
     "skill.caecus.shattered-halberd": {},
     "skill.caecus.strike": {},
     "skill.caecus.unbending-resolve": {},
+    "skill.caraboo.defense": {},
+    "skill.caraboo.flawless-fairy-tale": {},
+    "skill.caraboo.miracle-blessing": {},
+    "skill.caraboo.snowy-hex": {},
+    "skill.caraboo.strike": {},
+    "skill.caraboo.ta-da-its-the-fairy": {},
+    "skill.caraboo.tempting-honeyfruit": {},
     "skill.casiah.defense": {},
     "skill.casiah.magic-carnival": {},
     "skill.casiah.opening-act": {},
@@ -3056,6 +3134,10 @@
     "talent.caecus.madness-omen": {},
     "talent.caecus.rebellious-spikes": {},
     "talent.caecus.soulforge-aptitude": {},
+    "talent.caraboo.eden-of-propagation": {},
+    "talent.caraboo.gnostic-potential": {},
+    "talent.caraboo.madness-omen": {},
+    "talent.caraboo.soulforge-aptitude": {},
     "talent.casiah.gnostic-potential": {},
     "talent.casiah.madness-omen": {},
     "talent.casiah.master-of-magic": {},
@@ -3391,7 +3473,10 @@
     "wheel-0171": {},
     "wheel-0172": {},
     "wheel-0173": {},
-    "wheel-0174": {}
+    "wheel-0174": {},
+    "wheel-0175": {},
+    "wheel-0176": {},
+    "wheel-0177": {}
   },
   "reverse": {
     "awakener-0001": {},
@@ -3453,6 +3538,7 @@
     "awakener-0057": {},
     "awakener-0058": {},
     "awakener-0059": {},
+    "awakener-0060": {},
     "awakener-build-0001": {
       "awakenerId": "awakener-0001"
     },
@@ -3647,6 +3733,45 @@
     },
     "derived.arachne.infinite-threads": {
       "ownerAwakenerId": "awakener-0056"
+    },
+    "derived.caraboo.blessing": {
+      "ownerAwakenerId": "awakener-0060"
+    },
+    "derived.caraboo.blessing-gifts": {
+      "ownerAwakenerId": "awakener-0060"
+    },
+    "derived.caraboo.blessing-prices": {
+      "ownerAwakenerId": "awakener-0060"
+    },
+    "derived.caraboo.gift-aliemus": {
+      "ownerAwakenerId": "awakener-0060"
+    },
+    "derived.caraboo.gift-arithmetica": {
+      "ownerAwakenerId": "awakener-0060"
+    },
+    "derived.caraboo.gift-dmg-amp": {
+      "ownerAwakenerId": "awakener-0060"
+    },
+    "derived.caraboo.gift-drain": {
+      "ownerAwakenerId": "awakener-0060"
+    },
+    "derived.caraboo.gift-draw": {
+      "ownerAwakenerId": "awakener-0060"
+    },
+    "derived.caraboo.gift-keyflare": {
+      "ownerAwakenerId": "awakener-0060"
+    },
+    "derived.caraboo.gift-str": {
+      "ownerAwakenerId": "awakener-0060"
+    },
+    "derived.caraboo.gilded-words": {
+      "ownerAwakenerId": "awakener-0060"
+    },
+    "derived.caraboo.missed-chance": {
+      "ownerAwakenerId": "awakener-0060"
+    },
+    "derived.caraboo.veiled-malice": {
+      "ownerAwakenerId": "awakener-0060"
     },
     "derived.castor.onyx-plume": {
       "ownerAwakenerId": "awakener-0008"
@@ -3848,6 +3973,7 @@
     "derived.global.silver-key-resonance": {},
     "derived.global.slumber": {},
     "derived.global.solidify": {},
+    "derived.global.soul-synchronization": {},
     "derived.global.stagger": {},
     "derived.global.stakes-of-wisdom": {},
     "derived.global.suspicion": {},
@@ -4164,6 +4290,21 @@
     },
     "enlighten.caecus.unbending-resolve": {
       "ownerAwakenerId": "awakener-0006"
+    },
+    "enlighten.caraboo.flawless-fairy-tale": {
+      "ownerAwakenerId": "awakener-0060"
+    },
+    "enlighten.caraboo.new-moon-at-its-zenith": {
+      "ownerAwakenerId": "awakener-0060"
+    },
+    "enlighten.caraboo.secret-devotions": {
+      "ownerAwakenerId": "awakener-0060"
+    },
+    "enlighten.caraboo.sevenfold-rite": {
+      "ownerAwakenerId": "awakener-0060"
+    },
+    "enlighten.caraboo.threefold-vow": {
+      "ownerAwakenerId": "awakener-0060"
     },
     "enlighten.casiah.a-thousand-and-one-miracles": {
       "ownerAwakenerId": "awakener-0007"
@@ -4540,13 +4681,13 @@
     "enlighten.lotan.until-the-planets-end": {
       "ownerAwakenerId": "awakener-0031"
     },
+    "enlighten.miryam.final-descent": {
+      "ownerAwakenerId": "awakener-0032"
+    },
     "enlighten.miryam.homeland-resurgence": {
       "ownerAwakenerId": "awakener-0032"
     },
     "enlighten.miryam.solitary-pilgrimage": {
-      "ownerAwakenerId": "awakener-0032"
-    },
-    "enlighten.miryam.the-ultimate-descent": {
       "ownerAwakenerId": "awakener-0032"
     },
     "enlighten.miryam.unacquainted-pain": {
@@ -4963,6 +5104,12 @@
     "overlay.caecus.outcasts-anguish": {
       "ownerAwakenerId": "awakener-0006"
     },
+    "overlay.caraboo.offering": {
+      "ownerAwakenerId": "awakener-0060"
+    },
+    "overlay.caraboo.satiety": {
+      "ownerAwakenerId": "awakener-0060"
+    },
     "overlay.celeste.revival": {
       "ownerAwakenerId": "awakener-0009"
     },
@@ -5022,6 +5169,7 @@
     "overlay.global.echo": {},
     "overlay.global.embryo-fusion": {},
     "overlay.global.embryo-fusion-double": {},
+    "overlay.global.enhance": {},
     "overlay.global.exhaust": {},
     "overlay.global.fainted": {},
     "overlay.global.final-rule": {},
@@ -5040,12 +5188,14 @@
     "overlay.global.perception": {},
     "overlay.global.perception-warp": {},
     "overlay.global.pierce-dmg": {},
+    "overlay.global.pistoles-de-marie": {},
     "overlay.global.poison": {},
     "overlay.global.prepare": {},
     "overlay.global.primordia-chaos": {},
     "overlay.global.primordia-mastery-scaling": {},
     "overlay.global.propagation-caro": {},
     "overlay.global.propagation-frenzy": {},
+    "overlay.global.pure-dmg": {},
     "overlay.global.pure-ultra": {},
     "overlay.global.pursuit": {},
     "overlay.global.quasar": {},
@@ -5337,6 +5487,9 @@
     "posse-0059": {},
     "posse-0060": {},
     "posse-0061": {},
+    "posse-0062": {
+      "ownerAwakenerId": "awakener-0060"
+    },
     "relic-0001": {
       "ownerAwakenerId": "awakener-0001"
     },
@@ -5749,6 +5902,11 @@
     "relic-0311": {},
     "relic-0312": {},
     "relic-0313": {},
+    "relic-0314": {
+      "ownerAwakenerId": "awakener-0060"
+    },
+    "relic-0315": {},
+    "relic-0316": {},
     "skill.24.aberrant-vivisection": {
       "ownerAwakenerId": "awakener-0001"
     },
@@ -5839,7 +5997,7 @@
     "skill.arachne.elegy-over-fate": {
       "ownerAwakenerId": "awakener-0056"
     },
-    "skill.arachne.eternal-loom": {
+    "skill.arachne.eternal-weave": {
       "ownerAwakenerId": "awakener-0056"
     },
     "skill.arachne.fate-binding-web": {
@@ -5895,6 +6053,27 @@
     },
     "skill.caecus.unbending-resolve": {
       "ownerAwakenerId": "awakener-0006"
+    },
+    "skill.caraboo.defense": {
+      "ownerAwakenerId": "awakener-0060"
+    },
+    "skill.caraboo.flawless-fairy-tale": {
+      "ownerAwakenerId": "awakener-0060"
+    },
+    "skill.caraboo.miracle-blessing": {
+      "ownerAwakenerId": "awakener-0060"
+    },
+    "skill.caraboo.snowy-hex": {
+      "ownerAwakenerId": "awakener-0060"
+    },
+    "skill.caraboo.strike": {
+      "ownerAwakenerId": "awakener-0060"
+    },
+    "skill.caraboo.ta-da-its-the-fairy": {
+      "ownerAwakenerId": "awakener-0060"
+    },
+    "skill.caraboo.tempting-honeyfruit": {
+      "ownerAwakenerId": "awakener-0060"
     },
     "skill.casiah.defense": {
       "ownerAwakenerId": "awakener-0007"
@@ -7066,6 +7245,18 @@
     "talent.caecus.soulforge-aptitude": {
       "ownerAwakenerId": "awakener-0006"
     },
+    "talent.caraboo.eden-of-propagation": {
+      "ownerAwakenerId": "awakener-0060"
+    },
+    "talent.caraboo.gnostic-potential": {
+      "ownerAwakenerId": "awakener-0060"
+    },
+    "talent.caraboo.madness-omen": {
+      "ownerAwakenerId": "awakener-0060"
+    },
+    "talent.caraboo.soulforge-aptitude": {
+      "ownerAwakenerId": "awakener-0060"
+    },
     "talent.casiah.gnostic-potential": {
       "ownerAwakenerId": "awakener-0007"
     },
@@ -7973,6 +8164,13 @@
     "wheel-0173": {
       "ownerAwakenerId": "awakener-0059"
     },
-    "wheel-0174": {}
+    "wheel-0174": {},
+    "wheel-0175": {
+      "ownerAwakenerId": "awakener-0060"
+    },
+    "wheel-0176": {
+      "ownerAwakenerId": "awakener-0060"
+    },
+    "wheel-0177": {}
   }
 }

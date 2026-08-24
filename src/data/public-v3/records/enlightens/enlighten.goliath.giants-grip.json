@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0021",
   "slot": "OverExalt",
-  "descriptionTemplate": "When choosing {Usurp}, the Base DMG of {Blade's Dominion} placed in hand +400%, and its Arithmetica Cost becomes 0. When choosing {Dormancy}, do not place {Blade's Dominion}; instead, add 2 copies of {Decapitation Damage} to your hand, granting them the effects of {Exhaust}, {Prepare 1}, and {Retain}.",
+  "descriptionTemplate": "When choosing {derived:Usurp}, the Base DMG of {derived:Blade's Dominion} placed in hand +400%, and its Arithmetica Cost becomes 0. When choosing {derived:Dormancy}, do not place {derived:Blade's Dominion}; instead, add 2 copies of {Decapitation Damage} to your hand, granting them the effects of {Exhaust}, {Prepare 1}, and {Retain}.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Goliath"
 }

@@ -12,7 +12,7 @@
   },
   "numericId": 56,
   "ingameId": "D10",
-  "lineupToken": "4",
+  "lineupToken": "3",
   "realm": "ULTRA",
   "rarity": "SSR",
   "type": "CHORUS",
@@ -20,7 +20,7 @@
   "releaseDate": "2026-04-20",
   "faction": "The Unknowable",
   "aliases": ["arachne"],
-  "searchTags": ["Final Verdict", "Pursuit", "Fixed DMG", "Dispel", "Divine Realm", "Self-Damage", "Spider"],
+  "searchTags": ["Final Verdict", "Pursuit", "Dispel", "Divine Realm", "Self-Damage", "Spider"],
   "primaryScalingBase": 20,
   "baseStatsLv1": {
     "CON": 34,

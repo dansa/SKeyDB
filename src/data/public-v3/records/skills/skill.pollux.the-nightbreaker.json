@@ -11,7 +11,7 @@
   "slot": "OverExalt",
   "cardFamily": "exalt",
   "cardTypes": ["over_exalt"],
-  "descriptionTemplate": "In this turn, all Pollux Command Cards gain +50% {Atonement by Pain} effect; his next Command Card takes effect 1 more time. Place 1 more {Sacred Heart} into hand.",
+  "descriptionTemplate": "In this turn, all Pollux Command Cards gain +50% {Atonement by Pain} effect; his next Command Card takes effect 1 more time. Place 1 more {derived:Sacred Heart} into hand.",
   "descriptionArgs": {},
   "cardKeywords": [],
   "ownerAwakenerName": "Pollux"

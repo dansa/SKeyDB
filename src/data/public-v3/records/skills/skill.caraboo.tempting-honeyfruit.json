@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 3,
+  "kind": "skill",
+  "id": "skill.caraboo.tempting-honeyfruit",
+  "name": "Tempting Honeyfruit",
+  "route": {
+    "slug": "tempting-honeyfruit",
+    "canonicalPath": "/database/awakeners/caraboo/skills/tempting-honeyfruit"
+  },
+  "ownerAwakenerId": "awakener-0060",
+  "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
+  "descriptionTemplate": "Caraboo gains [Arg2]% Base Aliemus. {Rouse}: After using {Crimson Furnace}, the next {Miracle Blessing} costs -3 Arithmetica, and each {Discover} option is upgraded to a set that contains 1 more {derived:Caraboo's Blessing} card. Choose 1 set to shuffle into your Draw Pile.",
+  "descriptionArgs": {
+    "Arg2": {
+      "kind": "scaling",
+      "values": ["25", "30", "35", "40", "45", "50"],
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "1",
+  "lore": "Greed is the true color of human nature.\nNo one can resist the temptation of sugar, not even the Fairy Godmother herself.\nCaraboo grinned wide, baring a mouthful of pitch-black, pointed teeth.",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.caraboo.new-moon-at-its-zenith.skill.caraboo.tempting-honeyfruit",
+      "operation": "replace_description",
+      "upgraderId": "enlighten.caraboo.new-moon-at-its-zenith",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "AbsoluteAxiom",
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "patch": {
+        "descriptionTemplate": "Caraboo gains [Arg2]% Base Aliemus. {Rouse}: After using {Crimson Furnace}, the next {Miracle Blessing} costs -3 Arithmetica, and each {Discover} option is upgraded to a set that contains 2 more {derived:Caraboo's Blessing} cards. Choose 1 set to shuffle into your Draw Pile. After playing a {Blessing} card, {Embryo Fusion} +10. This fusion effect increases based on your lost HP, up to +100%."
+      }
+    }
+  ],
+  "ownerAwakenerName": "Caraboo"
+}

@@ -18,9 +18,6 @@
         "dmg",
         "faded",
         "female",
-        "fixed",
-        "fixed damage",
-        "fixed dmg",
         "four",
         "hand",
         "hand limit",
@@ -63,7 +60,6 @@
           "str-up",
           "tentacle-dmg",
           "pierce-dmg",
-          "fixed-dmg",
           "arithmetica",
           "hand-limit",
           "keyflare",
@@ -76,8 +72,6 @@
           "tentacle damage",
           "Pierce DMG",
           "pierce damage",
-          "Fixed DMG",
-          "fixed damage",
           "Hand Limit"
         ],
         "facet": ["CHAOS", "SSR", "ASSAULT", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "Hybrid", "Female"]
@@ -89,20 +83,7 @@
         "availabilityType": "LIMITED_FADED_LEGACY",
         "faction": "Hybrid",
         "gender": "Female",
-        "tags": [
-          "arithmetica",
-          "bleed",
-          "counter",
-          "fixed-dmg",
-          "hand-limit",
-          "keyflare",
-          "pierce-dmg",
-          "poison",
-          "str-up",
-          "tentacle-dmg",
-          "vulnerable",
-          "weakness"
-        ]
+        "tags": ["arithmetica", "bleed", "counter", "hand-limit", "keyflare", "pierce-dmg", "poison", "str-up", "tentacle-dmg", "vulnerable", "weakness"]
       }
     },
     {
@@ -817,9 +798,6 @@
         "damage",
         "dmg",
         "doresain",
-        "fixed",
-        "fixed damage",
-        "fixed dmg",
         "harm",
         "limited",
         "limited astral reign",
@@ -852,7 +830,6 @@
           "vulnerable",
           "str-up",
           "pierce-dmg",
-          "fixed-dmg",
           "self-harm",
           "vulnerability",
           "vuln",
@@ -860,8 +837,6 @@
           "strength up",
           "Pierce DMG",
           "pierce damage",
-          "Fixed DMG",
-          "fixed damage",
           "Self-Damage"
         ],
         "facet": ["CARO", "SSR", "ASSAULT", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "Out of the Aeons", "Male"]
@@ -873,7 +848,7 @@
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "Out of the Aeons",
         "gender": "Male",
-        "tags": ["fixed-dmg", "pierce-dmg", "self-harm", "str-up", "vulnerable"]
+        "tags": ["pierce-dmg", "self-harm", "str-up", "vulnerable"]
       }
     },
     {
@@ -952,17 +927,12 @@
         "cleanse",
         "clear",
         "counter",
-        "damage",
         "death",
         "death resistance",
         "dispel",
-        "dmg",
         "down",
         "faint",
         "female",
-        "fixed",
-        "fixed damage",
-        "fixed dmg",
         "heal",
         "healing",
         "hp",
@@ -998,7 +968,6 @@
           "str-up",
           "str-down",
           "steal-str",
-          "fixed-dmg",
           "dispel",
           "death-resistance",
           "heal",
@@ -1011,8 +980,6 @@
           "steal",
           "str steal",
           "strength steal",
-          "Fixed DMG",
-          "fixed damage",
           "cleanse",
           "clear",
           "remove",
@@ -1030,7 +997,7 @@
         "availabilityType": "PERMANENT",
         "faction": "Among the Stars",
         "gender": "Female",
-        "tags": ["counter", "death-resistance", "dispel", "fixed-dmg", "heal", "steal-str", "str-down", "str-up", "weakness"]
+        "tags": ["counter", "death-resistance", "dispel", "heal", "steal-str", "str-down", "str-up", "weakness"]
       }
     },
     {
@@ -1125,9 +1092,6 @@
         "doll inferno",
         "draw",
         "female",
-        "fixed",
-        "fixed damage",
-        "fixed dmg",
         "g",
         "g doll",
         "genesis",
@@ -1162,7 +1126,6 @@
           "weakness",
           "vulnerable",
           "poison",
-          "fixed-dmg",
           "arithmetica",
           "draw",
           "heal",
@@ -1171,8 +1134,6 @@
           "weak",
           "vulnerability",
           "vuln",
-          "Fixed DMG",
-          "fixed damage",
           "healing",
           "hp recovery",
           "Max HP DMG",
@@ -1187,7 +1148,7 @@
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "Among the Stars",
         "gender": "Female",
-        "tags": ["arithmetica", "draw", "fixed-dmg", "heal", "max-hp-dmg", "poison", "self-harm", "vulnerable", "weakness"]
+        "tags": ["arithmetica", "draw", "heal", "max-hp-dmg", "poison", "self-harm", "vulnerable", "weakness"]
       }
     },
     {
@@ -1393,10 +1354,7 @@
         "bleed",
         "chaos",
         "chorus",
-        "cleanse",
-        "clear",
         "damage",
-        "dispel",
         "dmg",
         "down",
         "faded",
@@ -1409,7 +1367,6 @@
         "pierce damage",
         "pierce dmg",
         "poison",
-        "remove",
         "ssr",
         "steal",
         "steal str",
@@ -1443,7 +1400,6 @@
           "str-down",
           "steal-str",
           "pierce-dmg",
-          "dispel",
           "arithmetica",
           "weak",
           "vulnerability",
@@ -1457,10 +1413,7 @@
           "str steal",
           "strength steal",
           "Pierce DMG",
-          "pierce damage",
-          "cleanse",
-          "clear",
-          "remove"
+          "pierce damage"
         ],
         "facet": ["CHAOS", "SSR", "CHORUS", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "The Unknowable", "Male"]
       },
@@ -1471,7 +1424,7 @@
         "availabilityType": "LIMITED_FADED_LEGACY",
         "faction": "The Unknowable",
         "gender": "Male",
-        "tags": ["arithmetica", "bleed", "dispel", "pierce-dmg", "poison", "steal-str", "str-down", "str-up", "vulnerable", "weakness"]
+        "tags": ["arithmetica", "bleed", "pierce-dmg", "poison", "steal-str", "str-down", "str-up", "vulnerable", "weakness"]
       }
     },
     {
@@ -1905,13 +1858,9 @@
         "chaos",
         "cleanse",
         "clear",
-        "damage",
         "dispel",
         "dmg",
         "female",
-        "fixed",
-        "fixed damage",
-        "fixed dmg",
         "hp",
         "lotan",
         "max",
@@ -1933,21 +1882,7 @@
       "fields": {
         "name": ["Lotan"],
         "alias": ["lotan"],
-        "tag": [
-          "str-up",
-          "fixed-dmg",
-          "dispel",
-          "max-hp-dmg",
-          "strike",
-          "STR Up",
-          "strength up",
-          "Fixed DMG",
-          "fixed damage",
-          "cleanse",
-          "clear",
-          "remove",
-          "Max HP DMG"
-        ],
+        "tag": ["str-up", "dispel", "max-hp-dmg", "strike", "STR Up", "strength up", "cleanse", "clear", "remove", "Max HP DMG"],
         "facet": ["CHAOS", "SR", "ASSAULT", "WELFARE", "Out of the Aeons", "Female"]
       },
       "facets": {
@@ -1957,7 +1892,7 @@
         "availabilityType": "WELFARE",
         "faction": "Out of the Aeons",
         "gender": "Female",
-        "tags": ["dispel", "fixed-dmg", "max-hp-dmg", "str-up", "strike"]
+        "tags": ["dispel", "max-hp-dmg", "str-up", "strike"]
       }
     },
     {
@@ -2282,27 +2217,11 @@
       "id": "awakener-0036",
       "name": "Nautila",
       "aliases": ["nautila"],
-      "tokens": [
-        "chaos",
-        "counter",
-        "damage",
-        "dmg",
-        "female",
-        "fixed",
-        "fixed damage",
-        "fixed dmg",
-        "fools",
-        "nautila",
-        "permanent",
-        "ssr",
-        "the",
-        "the fools",
-        "warden"
-      ],
+      "tokens": ["chaos", "counter", "female", "fools", "nautila", "permanent", "ssr", "the", "the fools", "warden"],
       "fields": {
         "name": ["Nautila"],
         "alias": ["nautila"],
-        "tag": ["counter", "fixed-dmg", "Fixed DMG", "fixed damage"],
+        "tag": ["counter"],
         "facet": ["CHAOS", "SSR", "WARDEN", "PERMANENT", "The Fools", "Female"]
       },
       "facets": {
@@ -2312,7 +2231,7 @@
         "availabilityType": "PERMANENT",
         "faction": "The Fools",
         "gender": "Female",
-        "tags": ["counter", "fixed-dmg"]
+        "tags": ["counter"]
       }
     },
     {
@@ -2905,9 +2824,6 @@
         "draw",
         "faded",
         "female",
-        "fixed",
-        "fixed damage",
-        "fixed dmg",
         "gateway",
         "hp",
         "keyflare",
@@ -2934,7 +2850,6 @@
           "barrier",
           "str-up",
           "pierce-dmg",
-          "fixed-dmg",
           "arithmetica",
           "discard",
           "draw",
@@ -2944,8 +2859,6 @@
           "strength up",
           "Pierce DMG",
           "pierce damage",
-          "Fixed DMG",
-          "fixed damage",
           "Max HP DMG"
         ],
         "facet": ["CHAOS", "SSR", "CHORUS", "LIMITED_FADED_LEGACY", "Limited: Faded Legacy", "Gateway", "Female"]
@@ -2957,7 +2870,7 @@
         "availabilityType": "LIMITED_FADED_LEGACY",
         "faction": "Gateway",
         "gender": "Female",
-        "tags": ["arithmetica", "barrier", "discard", "draw", "fixed-dmg", "keyflare", "max-hp-dmg", "pierce-dmg", "str-up"]
+        "tags": ["arithmetica", "barrier", "discard", "draw", "keyflare", "max-hp-dmg", "pierce-dmg", "str-up"]
       }
     },
     {
@@ -3315,13 +3228,9 @@
         "astral",
         "caro",
         "chorus",
-        "damage",
         "dmg",
         "down",
         "female",
-        "fixed",
-        "fixed damage",
-        "fixed dmg",
         "hp",
         "limited",
         "limited astral reign",
@@ -3342,7 +3251,7 @@
       "fields": {
         "name": ["Xu"],
         "alias": ["xu"],
-        "tag": ["poison", "str-down", "fixed-dmg", "arithmetica", "max-hp-dmg", "STR Down", "strength down", "Fixed DMG", "fixed damage", "Max HP DMG"],
+        "tag": ["poison", "str-down", "arithmetica", "max-hp-dmg", "STR Down", "strength down", "Max HP DMG"],
         "facet": ["CARO", "SSR", "CHORUS", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "The Unknowable", "Female"]
       },
       "facets": {
@@ -3352,7 +3261,7 @@
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "The Unknowable",
         "gender": "Female",
-        "tags": ["arithmetica", "fixed-dmg", "max-hp-dmg", "poison", "str-down"]
+        "tags": ["arithmetica", "max-hp-dmg", "poison", "str-down"]
       }
     },
     {
@@ -3442,13 +3351,9 @@
         "dispel",
         "divine",
         "divine realm",
-        "dmg",
         "female",
         "final",
         "final verdict",
-        "fixed",
-        "fixed damage",
-        "fixed dmg",
         "harm",
         "limited",
         "limited astral reign",
@@ -3473,15 +3378,12 @@
         "tag": [
           "final-verdict",
           "pursuit",
-          "fixed-dmg",
           "dispel",
           "divine-realm",
           "self-harm",
           "spider",
           "Final Verdict",
           "verdict",
-          "Fixed DMG",
-          "fixed damage",
           "cleanse",
           "clear",
           "remove",
@@ -3498,7 +3400,7 @@
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "The Unknowable",
         "gender": "Female",
-        "tags": ["dispel", "divine-realm", "final-verdict", "fixed-dmg", "pursuit", "self-harm", "spider"]
+        "tags": ["dispel", "divine-realm", "final-verdict", "pursuit", "self-harm", "spider"]
       }
     },
     {
@@ -3663,6 +3565,84 @@
         "faction": "TBD",
         "gender": "Female",
         "tags": ["divine-realm", "str-up"]
+      }
+    },
+    {
+      "kind": "awakener",
+      "id": "awakener-0060",
+      "name": "Caraboo",
+      "aliases": ["caraboo"],
+      "tokens": [
+        "alt",
+        "alt realm",
+        "astral",
+        "caraboo",
+        "caro",
+        "cleanse",
+        "clear",
+        "corrosion",
+        "damage",
+        "dispel",
+        "divine",
+        "divine realm",
+        "dmg",
+        "down",
+        "female",
+        "fixed",
+        "fixed damage",
+        "fixed dmg",
+        "limited",
+        "limited astral reign",
+        "realm",
+        "reign",
+        "remove",
+        "ssr",
+        "str",
+        "str down",
+        "str up",
+        "strength",
+        "strength down",
+        "strength up",
+        "tbd",
+        "up",
+        "warden",
+        "weak",
+        "weakness"
+      ],
+      "fields": {
+        "name": ["Caraboo"],
+        "alias": ["caraboo"],
+        "tag": [
+          "weakness",
+          "str-up",
+          "str-down",
+          "fixed-dmg",
+          "dispel",
+          "corrosion",
+          "divine-realm",
+          "weak",
+          "STR Up",
+          "strength up",
+          "STR Down",
+          "strength down",
+          "Fixed DMG",
+          "fixed damage",
+          "cleanse",
+          "clear",
+          "remove",
+          "Divine Realm",
+          "alt realm"
+        ],
+        "facet": ["CARO", "SSR", "WARDEN", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "TBD", "Female"]
+      },
+      "facets": {
+        "realm": "CARO",
+        "rarity": "SSR",
+        "type": "WARDEN",
+        "availabilityType": "LIMITED_ASTRAL_REIGN",
+        "faction": "TBD",
+        "gender": "Female",
+        "tags": ["corrosion", "dispel", "divine-realm", "fixed-dmg", "str-down", "str-up", "weakness"]
       }
     }
   ]

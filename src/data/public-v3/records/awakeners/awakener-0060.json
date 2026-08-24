@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 3,
+  "kind": "awakener",
+  "id": "awakener-0060",
+  "name": "Caraboo",
+  "route": {
+    "slug": "caraboo",
+    "canonicalPath": "/database/awakeners/caraboo"
+  },
+  "assets": {
+    "icon": "asset-awakener-0060-icon"
+  },
+  "numericId": 60,
+  "ingameId": "B11",
+  "lineupToken": "4",
+  "realm": "CARO",
+  "rarity": "SSR",
+  "type": "WARDEN",
+  "availabilityType": "LIMITED_ASTRAL_REIGN",
+  "releaseDate": "2026-08-24",
+  "faction": "TBD",
+  "aliases": ["caraboo"],
+  "searchTags": ["Weakness", "STR Up", "STR Down", "Fixed DMG", "Dispel", "Corrosion", "Divine Realm"],
+  "primaryScalingBase": 20,
+  "baseStatsLv1": {
+    "CON": 21,
+    "ATK": 26,
+    "DEF": 35
+  },
+  "substatsLv1": {
+    "CritRate": 5,
+    "CritDamage": 50,
+    "AliemusRegen": 0.4,
+    "KeyflareRegen": 15,
+    "RealmMastery": 4,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 1,
+    "ATK": 1.2,
+    "DEF": 1.65
+  },
+  "substatScaling": {
+    "CritRate": 0,
+    "CritDamage": 0,
+    "AliemusRegen": 0.4,
+    "KeyflareRegen": 0,
+    "RealmMastery": 4,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Caraboo",
+    "birthday": "27-Apr",
+    "gender": "Female",
+    "height": "4' 7.6''",
+    "weight": "73.16 lbs",
+    "gnosticIndex": "21",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "unlockCondition": "Awakener Level 1",
+        "content": "Like the most precocious of children, she is always attuned to your innermost thoughts, forever drawing out your trust and confessions, then, at just the right moment, offering you the \"blessing\" you've longed for. \nBut bear this in mind: never let her dainty frame and pitiful eyes stir compassion within you, lest you become one more of the many greedy souls that pure white form has devoured."
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "unlockCondition": "Awakener Level 3",
+        "content": "This Silver Core was recovered by Mythag's Keeper %player% in the aftermath of the Mount Ever@2t collapse incident. As the dimension in which it originally resided is no longer observable, the consequences of Silver Core extraction—as well as the proper awakening method—remain undetermined.\n\nThe following observations are transcribed from the paper handbook carried by Keeper %player%:\n\nUpon visual inspection, the Silver Core presents as exceptionally pure, showing no discernible impurities. In the absence of external interference, its overall structure trends toward regularity—as though some underlying will were straining to keep it appearing whole and composed, radiating a bright luster not unlike firelight.\n\nIts Gnosis Index, however, sits near the absolute lower bound. The actual internal structure is extraordinarily fragile and loosely bound. When the observation distance falls below 1/@1 inch, the Silver Core's self-protection response is triggered: the observer is abruptly confronted with a dense flow of particles resembling drifting ice crystals. It is presumed these particles were previously refracting incident light in a highly unusual manner, shielding the interior from direct observation.\nTo put it less professionally... I'd call this a Silver Core steeped in \"deception.\"\n\nOnce the self-protection mechanism is triggered, the observer's body enters a brief paralytic state, the pupils gradually fading until fully blanched. Throughout this window, the Silver Core continues to adjust itself, returning to the stable configuration it maintained prior to observation.\nRepeated trials indicate that the mechanism inflicts no lasting harm; however, the accompanying hypothermic symptoms pose a non-negligible risk. Note: prompt consumption of sweets—apple-based desserts in particular—provides a distinctly soothing effect. The reason for this... remains unclear... <Italic:Right?\n>\n\n\nLuckily, after everything, it's plain enough that this selfish, tightly-guarded little trickster bears no genuine ill will toward us.\n\n—Excerpt from <Italic:Mythag University Silver Core Storage Records>"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "unlockCondition": "Affinity Level 5",
+        "content": "As everyone knows, what do they call a school?\n\nAn ivory tower!\n\nIt sounds a perfect match for the title of \"Fairy\"—after all, where else could one find such a flawless paradise, filled with wealthy, leisurely people whose hearts brim with precious, naive trust, all just waiting to become devoted followers?\n\nCaraboo's cult grew at a truly astonishing pace, amassing a considerable number of followers in a very short time. The core faithful were almost entirely young Awakeners, who believed in this \"Fairy Godmother\" with near-devout fervor, willingly turning over fixed offerings of candy and sweets at regular intervals. Surprisingly, or perhaps not, Caraboo did indeed bestow blessings from time to time, most often during the traditional holidays of the Kingdom of Leonia, such as the impossible snowfall that came during the Silverfrost Eve of 3@1, and the candy rain on New Year's Eve that people still speak of to this day.\n\nThe Academic Affairs Office, it seems, never once discussed whether to put a stop to this \"on-campus proselytizing\" that, in principle, ought not to exist in the first place.\n\n\"Let them play. We all know what these children have been through. There are certain things only another child can do.\"\n\n\"Of course, don't let it go too far.\"\n\nA certain school staff member, who prefers to remain unnamed, offered the above remarks with a warm smile. According to unreliable sources, the incident preceding her afternoon tea with Caraboo was the one and only time Caraboo has ever truly attempted to cross the school's rules."
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "unlockCondition": "Affinity Level 7",
+        "content": "Caraboo was still a child when the Crusades were at their height. Alone and with no one to turn to, she resolved to travel east to the Principality of Antioch to seek out her aunt's family. Word had it that the new lands of the East stood for freedom and dreams, that even someone without a penny to their name could carve out a way there. Her Aunt Rosa had even started up a farm and was doing quite well for herself. Caraboo had been close with Aunt Rosa in her early childhood, and she made up her mind to save enough for the fare to Antioch.\n\nCaraboo drifted through the city's slums, a girl with no connections, scraping by on stealing, swindling, cheating, and conning; whatever innocence she once had was worn away completely. In time, she crossed paths with a wizard named Evagh, who made her a promise: work with him, and they'd split the offerings of his followers thirty-seventy—enough for her to save her travel fare east, and plenty left over to buy heaps of her beloved candy. And so the two formed a con artist duo, with Caraboo enshrined as a little fairy godmother in a makeshift rural temple, while Evagh gathered followers in her name as her high priest.\n\nAs Caraboo's fame in the region grew, she found herself no longer content with the current split, and threatened to walk out on the partnership, forcing Evagh to flip the arrangement into a seventy-thirty split in her favor. Now finally with the upper hand, Caraboo lived at her leisure as a false godmother, until she discovered that Evagh had been embezzling her offerings all along, secretly taking three wives and fathering four sons behind her back. Faced with this betrayal, Caraboo showed no anger. She told Evagh, in the tenderest of tones, that she had long known heading east was nothing but an empty, distant dream, that money was of no use to her, and it would be better left in his hands; her only wish was to share a meal with Evagh's family, and together discuss their future ventures in fraud.\n\nDelighted to find that Caraboo had finally come to her senses, Evagh happily extended the invitation for her to attend the banquet. As dinner drew near its end, Caraboo's expression suddenly changed, and at a single word from her, the nearby villagers—her loyal believers—came storming in, wielding farming tools and kitchenware, beating the wizard's household of eight half to death, while everything of value in the house was swept clean away. \"You're still too green to fool me\"—Caraboo departed in satisfaction, not yet noticing the small black triangle upon her own forehead..."
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "unlockCondition": "Affinity Level 9",
+        "content": "Have you ever tried telling a lie? The first lie to leave your lips always comes with a stumbling tongue, a heart that nearly leaps out of your throat, and sweat gathering in your palms; even the gentle sunlight becomes a dizzying, blinding glare.\n\nBut once a lie has been repeated ten thousand times, the fear fades away. The words spoken grow smooth, the mind grows ever clearer, and the smile settles into something quite natural.\n\nPlaying the fairy, playing the godmother, playing the kin of some figure in power—she had long since mastered the myriad layered identities she had fabricated, grown accustomed to hiding herself behind her lies, until she herself became but a part of the lies.\n\nAnd that first little hare still hides within a small farm bathed in the sunset light of her memories.\n\nOn nights when the ice thaws and the snow melts away, it quietly peeks its head out once more."
+      }
+    ]
+  }
+}

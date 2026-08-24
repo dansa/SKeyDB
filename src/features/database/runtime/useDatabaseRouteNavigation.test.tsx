@@ -1,6 +1,8 @@
 import {act, renderHook} from '@testing-library/react'
 import {afterEach, describe, expect, it, vi} from 'vitest'
 
+import type {DatabaseDetailRouteItem} from '@/features/database/detail/dbDetailRegistry'
+
 import {resolveDatabaseRuntimeDetailReference} from './databaseEntityRuntime'
 import {useDatabaseRouteNavigation} from './useDatabaseRouteNavigation'
 import {primeDatabaseRouteResolution} from './useDatabaseRouteResolution'
@@ -66,6 +68,67 @@ describe('useDatabaseRouteNavigation', () => {
 
     expect(primeDatabaseRouteResolution).toHaveBeenCalledOnce()
     expect(navigate).toHaveBeenCalledOnce()
+  })
+
+  it('primes canonical detail state before replacing the current route and preserves its hash', async () => {
+    const target = createTarget('/database/relics/test-relic')
+    vi.mocked(resolveDatabaseRuntimeDetailReference).mockResolvedValue(target)
+    const navigate = vi.fn()
+    const routeItem: DatabaseDetailRouteItem = {
+      kind: 'relic',
+      item: {
+        aliases: [],
+        assetId: 'Icon_Creation_Test',
+        categories: ['OTHER'],
+        defaultVariantCategory: 'OTHER',
+        defaultVariantId: 'relic-variant-0001',
+        description: 'Test relic',
+        id: 'relic-0001',
+        kind: 'GENERIC',
+        name: 'Test Relic',
+        rarity: 'SSR',
+        relicType: 'Relic',
+        route: {
+          canonicalPath: '/database/relics/test-relic',
+          slug: 'test-relic',
+        },
+        variantCategoryTiers: [{category: 'OTHER', tier: 'Base'}],
+        variantCount: 1,
+        variantTiers: ['Base'],
+      },
+    }
+    const {result} = renderHook(() =>
+      useDatabaseRouteNavigation({
+        activeSearch: '?tier=GOLD',
+        defaultAwakenerTab: 'upgrades',
+        locationState: {from: 'database'},
+        navigate,
+        onClose: vi.fn(),
+        routeItem,
+      }),
+    )
+
+    act(() => {
+      result.current.updateState({variant: 'relic-variant-0002'}, {hash: '#effect'})
+    })
+
+    await vi.waitFor(() => {
+      expect(primeDatabaseRouteResolution).toHaveBeenCalledWith(
+        target.pathname,
+        target.search,
+        target.resolution,
+      )
+    })
+    expect(resolveDatabaseRuntimeDetailReference).toHaveBeenCalledWith({
+      defaultAwakenerTab: 'upgrades',
+      ref: {kind: 'relic', id: 'relic-0001'},
+      search: '?tier=GOLD',
+      state: {variant: 'relic-variant-0002'},
+    })
+    expect(navigate).toHaveBeenCalledWith(
+      {hash: '#effect', pathname: target.pathname, search: target.search},
+      {replace: true, state: {from: 'database'}},
+    )
   })
 })
 

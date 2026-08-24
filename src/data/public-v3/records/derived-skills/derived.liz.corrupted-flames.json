@@ -50,7 +50,7 @@
       "ownerAwakenerId": "awakener-0030",
       "ownerAwakenerName": "Liz",
       "patch": {
-        "descriptionTemplate": "Deal [Damage:Arg2] {Pierce DMG} [Arg1] {plural:[Arg1]|time|times} to a random enemy, and inflict [Arg3]% DMG {Poison}. At turn end, if in hand or {Ultra Space}, upgrade to {Deadly Flames}. Can be played with insufficient Arithmetica, changing its effect to Gain [Energy:Arg4] Aliemus and {Exhaust}."
+        "descriptionTemplate": "Deal [Damage:Arg2] {Pierce DMG} [Arg1] {plural:[Arg1]|time|times} to a random enemy, and inflict [Arg3]% DMG {Poison}. At turn end, if in hand or {overlay:Ultra Space}, upgrade to {derived:Deadly Flames}. Can be played with insufficient Arithmetica, changing its effect to Gain [Energy:Arg4] Aliemus and {Exhaust}."
       }
     }
   ],

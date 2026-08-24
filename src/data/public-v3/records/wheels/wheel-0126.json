@@ -13,7 +13,7 @@
   "rarity": "SSR",
   "realm": "NEUTRAL",
   "mainstatKey": "REALM_MASTERY",
-  "lineupToken": "yR",
+  "lineupToken": "yP",
   "descriptionTemplate": "Team Unique: After switching Tentacle Stances, using {Crimson Furnace}, or unleashing {Annihilation}, draw the wielder's Command Card ×1; each effect has a cooldown of 3 turns. After the Exploration, all Awakeners in the team gain +[StateArg1]% Affinity.",
   "descriptionArgs": {
     "StateArg1": {

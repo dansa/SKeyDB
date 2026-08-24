@@ -25,7 +25,7 @@
     },
     {
       "set": 6,
-      "descriptionTemplate": "Team Unique: At the end of the turn, gain Keyflare equal to 200% of the wielder's Keyflare Regen. If the current Realm is {Caro}, the Effect changes to: for every 5 points of Keyflare Regen, {Embryo Fusion} +1.",
+      "descriptionTemplate": "Team Unique: At the end of the turn, gain Keyflare equal to 200% of the wielder's Keyflare Regen. If the current Realm is {Caro}, the effect changes to: for every 5 points of Keyflare Regen, {Embryo Fusion} +1.",
       "descriptionArgs": {}
     }
   ],

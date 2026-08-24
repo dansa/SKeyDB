@@ -10,6 +10,6 @@
   "overlayType": "mechanic",
   "aliases": [],
   "textColor": "misc",
-  "descriptionTemplate": "A card's {Leap} effects will trigger when played during an {Ultra Round} or if it triggers {Dimension Shuttle}.",
+  "descriptionTemplate": "A card's {Leap} effects will trigger when played during an {Ultra Round} or if it triggers {overlay:Dimension Shuttle}.",
   "descriptionArgs": {}
 }

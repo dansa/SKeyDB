@@ -10,6 +10,6 @@
   "overlayType": "mechanic",
   "aliases": [],
   "textColor": "damage",
-  "descriptionTemplate": "After playing This card, it returns to your hand. The Orison is disabled until turn end.",
+  "descriptionTemplate": "After playing this card, it returns to your hand. The Orison is disabled until turn end.",
   "descriptionArgs": {}
 }

@@ -11,7 +11,7 @@
   "slot": "Rouse",
   "cardFamily": "rouse",
   "cardTypes": ["rouse"],
-  "descriptionTemplate": "Daffodil gains [Energy:Arg1] Aliemus. {Rouse}: Whenever Daffodil's card enters {Ultra Space}, place 1 {derived:Insight} into hand, up to 2 times per turn.",
+  "descriptionTemplate": "Daffodil gains [Energy:Arg1] Aliemus. {Rouse}: Whenever Daffodil's card enters {overlay:Ultra Space}, place 1 {derived:Insight} into hand, up to 2 times per turn.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -35,7 +35,7 @@
       "ownerAwakenerId": "awakener-0012",
       "ownerAwakenerName": "Daffodil",
       "patch": {
-        "descriptionTemplate": "Daffodil gains [Energy:Arg1] Aliemus. {Rouse}: Whenever Daffodil's card enters {Ultra Space}, place 1 {derived:Insight} into hand, up to 2 times per turn. Generate 1 Temporary {Skull Reaver} with 0 Arithmetica Cost and place it into {Ultra Space}."
+        "descriptionTemplate": "Daffodil gains [Energy:Arg1] Aliemus. {Rouse}: Whenever Daffodil's card enters {overlay:Ultra Space}, place 1 {derived:Insight} into hand, up to 2 times per turn. Generate 1 Temporary {Skull Reaver} with 0 Arithmetica Cost and place it into {Ultra Space}."
       }
     }
   ],

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 3,
+  "kind": "talent",
+  "id": "talent.caraboo.soulforge-aptitude",
+  "name": "Soulforge Aptitude",
+  "route": {
+    "slug": "soulforge-aptitude",
+    "canonicalPath": "/database/awakeners/caraboo/talents/soulforge-aptitude"
+  },
+  "ownerAwakenerId": "awakener-0060",
+  "family": "soulforge_aptitude",
+  "maxLevel": 10,
+  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nCaraboo's Exalt Crit. Rate and Crit. DMG +[Arg3]%. The amount of Max HP bonus provided by {Satiety} stacks +[Arg5]%.\nIn the \"Icefields\" terrain: {Snowy Hex} Arithmetica Cost -1; DMG hits count +1; deal DMG to & inflict {Weakness} on all enemies.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "linear",
+      "base": "3",
+      "gainPerLevel": "3"
+    },
+    "Arg2": {
+      "kind": "linear",
+      "base": "50",
+      "gainPerLevel": "50"
+    },
+    "Arg3": {
+      "kind": "linear",
+      "base": "5",
+      "gainPerLevel": "5"
+    },
+    "Arg4": {
+      "kind": "linear",
+      "base": "5",
+      "gainPerLevel": "5"
+    },
+    "Arg5": {
+      "kind": "linear",
+      "base": "10",
+      "gainPerLevel": "10"
+    }
+  },
+  "ownerAwakenerName": "Caraboo"
+}

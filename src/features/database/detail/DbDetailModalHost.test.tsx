@@ -323,11 +323,6 @@ function LocationProbe() {
   return <span data-testid='location-pathname'>{location.pathname}</span>
 }
 
-function LocationSearchProbe() {
-  const location = useLocation()
-  return <span data-testid='location-search'>{location.search}</span>
-}
-
 function createNavigationPort() {
   return {close: vi.fn(), select: vi.fn(), updateState: vi.fn()}
 }
@@ -615,13 +610,12 @@ describe('DbDetailModalHost route entries', () => {
     )
   })
 
-  it('keeps the relic modal mounted while canonicalizing its default variant', async () => {
+  it('keeps the relic modal mounted while requesting its canonical default variant', async () => {
     vi.mocked(dbDetailRegistry.relic.loadRecord).mockResolvedValue(mockRelicRecord)
     const navigationPort = createNavigationPort()
 
     render(
       <MemoryRouter initialEntries={['/database/relics/dimensional-image-24']}>
-        <LocationSearchProbe />
         <DbDetailModalHost
           awakeners={awakeners}
           navigationPort={navigationPort}
@@ -638,9 +632,14 @@ describe('DbDetailModalHost route entries', () => {
     expect(
       screen.getByRole('dialog', {name: /dimensional image: "24" details/i}),
     ).toBeInTheDocument()
+    const dialog = screen.getByRole('dialog', {name: /dimensional image: "24" details/i})
     await waitFor(() => {
-      expect(screen.getByTestId('location-search')).toHaveTextContent('?variant=relic-variant-0001')
+      expect(navigationPort.updateState).toHaveBeenCalledWith(
+        {variant: 'relic-variant-0001'},
+        {hash: ''},
+      )
     })
+    expect(screen.getByRole('dialog', {name: /dimensional image: "24" details/i})).toBe(dialog)
   })
 
   it('keeps database modal chrome visible while a route record is still loading', async () => {

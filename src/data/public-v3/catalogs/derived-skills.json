@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "derived-skills",
   "kind": "derivedSkill",
-  "recordCount": 192,
+  "recordCount": 206,
   "records": [
     {
       "kind": "derivedSkill",
@@ -16,8 +16,8 @@
       "cardTypes": ["effect"],
       "ownerAwakenerId": "awakener-0056",
       "ownerAwakenerName": "Arachne",
-      "derivedFromId": "skill.arachne.eternal-loom",
-      "rootSkillId": "skill.arachne.eternal-loom"
+      "derivedFromId": "skill.arachne.eternal-weave",
+      "rootSkillId": "skill.arachne.eternal-weave"
     },
     {
       "kind": "derivedSkill",
@@ -33,6 +33,208 @@
       "ownerAwakenerName": "Arachne",
       "derivedFromId": "skill.arachne.moira-as-i-decree",
       "rootSkillId": "skill.arachne.moira-as-i-decree"
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.caraboo.blessing",
+      "name": "Blessing",
+      "route": {
+        "slug": "blessing",
+        "canonicalPath": "/database/awakeners/caraboo/derived-skills/blessing"
+      },
+      "cardFamily": "effect",
+      "cardTypes": ["effect"],
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "nodeKind": "group",
+      "derivedFromId": "skill.caraboo.miracle-blessing",
+      "rootSkillId": "skill.caraboo.miracle-blessing",
+      "childDerivedSkillIds": ["derived.caraboo.blessing-gifts", "derived.caraboo.blessing-prices"],
+      "aliases": ["Caraboo's Blessing"]
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.caraboo.blessing-gifts",
+      "name": "Gifts",
+      "route": {
+        "slug": "gifts",
+        "canonicalPath": "/database/awakeners/caraboo/derived-skills/gifts"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "nodeKind": "group",
+      "derivedFromId": "derived.caraboo.blessing",
+      "rootSkillId": "skill.caraboo.miracle-blessing",
+      "childDerivedSkillIds": [
+        "derived.caraboo.gift-str",
+        "derived.caraboo.gift-arithmetica",
+        "derived.caraboo.gift-keyflare",
+        "derived.caraboo.gift-aliemus",
+        "derived.caraboo.gift-dmg-amp",
+        "derived.caraboo.gift-draw",
+        "derived.caraboo.gift-drain"
+      ],
+      "aliases": ["Gift"]
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.caraboo.blessing-prices",
+      "name": "Price",
+      "route": {
+        "slug": "price",
+        "canonicalPath": "/database/awakeners/caraboo/derived-skills/price"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "nodeKind": "group",
+      "derivedFromId": "derived.caraboo.blessing",
+      "rootSkillId": "skill.caraboo.miracle-blessing",
+      "childDerivedSkillIds": ["derived.caraboo.missed-chance", "derived.caraboo.gilded-words", "derived.caraboo.veiled-malice"],
+      "aliases": ["Price", "Prices"]
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.caraboo.gift-aliemus",
+      "name": "Gift: Aliemus",
+      "route": {
+        "slug": "gift-aliemus",
+        "canonicalPath": "/database/awakeners/caraboo/derived-skills/gift-aliemus"
+      },
+      "cardFamily": "effect",
+      "cardTypes": ["effect"],
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "derivedFromId": "derived.caraboo.blessing-gifts",
+      "rootSkillId": "skill.caraboo.miracle-blessing"
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.caraboo.gift-arithmetica",
+      "name": "Gift: Arithmetica",
+      "route": {
+        "slug": "gift-arithmetica",
+        "canonicalPath": "/database/awakeners/caraboo/derived-skills/gift-arithmetica"
+      },
+      "cardFamily": "effect",
+      "cardTypes": ["effect"],
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "derivedFromId": "derived.caraboo.blessing-gifts",
+      "rootSkillId": "skill.caraboo.miracle-blessing"
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.caraboo.gift-dmg-amp",
+      "name": "Gift: DMG Amp.",
+      "route": {
+        "slug": "gift-dmg-amp",
+        "canonicalPath": "/database/awakeners/caraboo/derived-skills/gift-dmg-amp"
+      },
+      "cardFamily": "effect",
+      "cardTypes": ["effect"],
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "derivedFromId": "derived.caraboo.blessing-gifts",
+      "rootSkillId": "skill.caraboo.miracle-blessing"
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.caraboo.gift-drain",
+      "name": "Gift: STR Down",
+      "route": {
+        "slug": "gift-str-down",
+        "canonicalPath": "/database/awakeners/caraboo/derived-skills/gift-str-down"
+      },
+      "cardFamily": "effect",
+      "cardTypes": ["effect"],
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "derivedFromId": "derived.caraboo.blessing-gifts",
+      "rootSkillId": "skill.caraboo.miracle-blessing"
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.caraboo.gift-draw",
+      "name": "Gift: Draw",
+      "route": {
+        "slug": "gift-draw",
+        "canonicalPath": "/database/awakeners/caraboo/derived-skills/gift-draw"
+      },
+      "cardFamily": "effect",
+      "cardTypes": ["effect"],
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "derivedFromId": "derived.caraboo.blessing-gifts",
+      "rootSkillId": "skill.caraboo.miracle-blessing"
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.caraboo.gift-keyflare",
+      "name": "Gift: Keyflare",
+      "route": {
+        "slug": "gift-keyflare",
+        "canonicalPath": "/database/awakeners/caraboo/derived-skills/gift-keyflare"
+      },
+      "cardFamily": "effect",
+      "cardTypes": ["effect"],
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "derivedFromId": "derived.caraboo.blessing-gifts",
+      "rootSkillId": "skill.caraboo.miracle-blessing"
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.caraboo.gift-str",
+      "name": "Gift: STR",
+      "route": {
+        "slug": "gift-str",
+        "canonicalPath": "/database/awakeners/caraboo/derived-skills/gift-str"
+      },
+      "cardFamily": "effect",
+      "cardTypes": ["effect"],
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "derivedFromId": "derived.caraboo.blessing-gifts",
+      "rootSkillId": "skill.caraboo.miracle-blessing"
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.caraboo.gilded-words",
+      "name": "Gilded Words",
+      "route": {
+        "slug": "gilded-words",
+        "canonicalPath": "/database/awakeners/caraboo/derived-skills/gilded-words"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "derivedFromId": "derived.caraboo.blessing-prices",
+      "rootSkillId": "skill.caraboo.miracle-blessing"
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.caraboo.missed-chance",
+      "name": "Missed Chance",
+      "route": {
+        "slug": "missed-chance",
+        "canonicalPath": "/database/awakeners/caraboo/derived-skills/missed-chance"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "derivedFromId": "derived.caraboo.blessing-prices",
+      "rootSkillId": "skill.caraboo.miracle-blessing"
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.caraboo.veiled-malice",
+      "name": "Veiled Malice",
+      "route": {
+        "slug": "veiled-malice",
+        "canonicalPath": "/database/awakeners/caraboo/derived-skills/veiled-malice"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "derivedFromId": "derived.caraboo.blessing-prices",
+      "rootSkillId": "skill.caraboo.miracle-blessing"
     },
     {
       "kind": "derivedSkill",
@@ -1484,6 +1686,17 @@
     },
     {
       "kind": "derivedSkill",
+      "id": "derived.global.soul-synchronization",
+      "name": "Soul Synchronization",
+      "route": {
+        "slug": "soul-synchronization",
+        "canonicalPath": "/database/derived-skills/soul-synchronization"
+      },
+      "cardFamily": "effect",
+      "cardTypes": ["effect"]
+    },
+    {
+      "kind": "derivedSkill",
       "id": "derived.global.stagger",
       "name": "Stagger",
       "route": {
@@ -1577,7 +1790,7 @@
     {
       "kind": "derivedSkill",
       "id": "derived.global.twilight-mutated-heart",
-      "name": "Twilight: Mutated Heart",
+      "name": "Twilight: Heart of Mutation",
       "route": {
         "slug": "twilight-mutated-heart",
         "canonicalPath": "/database/derived-skills/twilight-mutated-heart"
@@ -2405,7 +2618,7 @@
     {
       "kind": "derivedSkill",
       "id": "derived.tawil.mutated-heart",
-      "name": "Mutated Heart",
+      "name": "Heart of Mutation",
       "route": {
         "slug": "mutated-heart",
         "canonicalPath": "/database/awakeners/tawil/derived-skills/mutated-heart"

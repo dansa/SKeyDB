@@ -14,7 +14,7 @@
   "aliases": [],
   "iconId": "IconS_Buff_019",
   "textColor": "shield",
-  "descriptionTemplate": "This turn, each time you are attacked, deal [Layer] DMG to the attacker.",
+  "descriptionTemplate": "Each time Active DMG is taken in this turn, deal [Layer] {Pure DMG} to the DMG Source.",
   "descriptionArgs": {
     "Layer": {
       "kind": "fixed",

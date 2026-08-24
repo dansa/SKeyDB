@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0021",
   "slot": "E3",
-  "descriptionTemplate": "{Abyssal Depths' Power} grants Goliath 25% Temporary Crit. Rate when choosing {Usurp}, or 25 Aliemus when choosing {Dormancy}.",
+  "descriptionTemplate": "{Abyssal Depths' Power} grants Goliath 25% Temporary Crit. Rate when choosing {derived:Usurp}, or 25 Aliemus when choosing {derived:Dormancy}.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Goliath"
 }

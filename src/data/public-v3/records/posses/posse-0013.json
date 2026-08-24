@@ -17,7 +17,7 @@
   "acquisitionSource": "Clear Psyche Deepdive: Feast of Flames",
   "realm": "ULTRA",
   "lineupToken": "q",
-  "descriptionTemplate": "Gain [Arg1] {Counter} and temporarily inflict [Arg2] {STR▼} on all enemies. If in an {Ultra Round}, deal DMG equal to your {Counter} to all enemies instead of inflicting {STR▼}.\nScaling guide: {Primordia Mastery Scaling}",
+  "descriptionTemplate": "Gain [Arg1] {Counter} and temporarily inflict [Arg2] {STR▼} on all enemies. If in an {Ultra Round}, trigger 100% {Counter} against all enemies instead of inflicting {STR▼}.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",

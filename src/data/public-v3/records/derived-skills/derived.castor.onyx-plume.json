@@ -54,7 +54,7 @@
       "ownerAwakenerId": "awakener-0008",
       "ownerAwakenerName": "Castor",
       "patch": {
-        "descriptionTemplate": "Deal [Damage:Arg2] DMG and draw [Arg1] {plural:[Arg1]|card|cards}. For every 3 {Onyx Plume} played, obtain 1 Arithmetica and increase Castor's Final DMG by 10% in this battle. {Retain}: Gain [Block:Arg3] Shield. {Exhaust}."
+        "descriptionTemplate": "Deal [Damage:Arg2] DMG and draw [Arg1] {plural:[Arg1]|card|cards}. For every 3 {derived:Onyx Plume} played, obtain 1 Arithmetica and increase Castor's Final DMG by 10% in this battle. {Retain}: Gain [Block:Arg3] Shield. {Exhaust}."
       }
     }
   ],

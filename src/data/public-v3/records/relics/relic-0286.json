@@ -96,7 +96,7 @@
       "tier": "Gold",
       "category": "FADED_LEGACY",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start and whenever HP is recovered, gain [Arg1] {Counter}. Can occur up to 3 times per turn. When the limit is reached, deal 1 instance of 100% {Counter} True DMG to all enemies.",
+      "descriptionTemplate": "At turn start and whenever HP is recovered, gain [Arg1] {Counter}. Can occur up to 3 times per turn. When the limit is reached, trigger 100% {Counter} against all enemies.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

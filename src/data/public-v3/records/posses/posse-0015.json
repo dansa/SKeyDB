@@ -17,7 +17,7 @@
   "acquisitionSource": "Clear Psyche Deepdive: Pale Descendant",
   "realm": "CARO",
   "lineupToken": "o",
-  "descriptionTemplate": "Inflict [Arg2] {Poison} on the highest HP enemy, and gain [Block:Arg1] Shield. If {Devour} has been triggered this turn, trigger half of that enemy's {Poison} instead of gaining Shield.\nScaling guide: {Primordia Mastery Scaling}",
+  "descriptionTemplate": "Inflict [Arg2] {Poison} on the highest HP enemy, and gain [Block:Arg1] Shield. If {Devour} has been triggered this turn, trigger that enemy's 50% {Poison} instead of gaining Shield.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",

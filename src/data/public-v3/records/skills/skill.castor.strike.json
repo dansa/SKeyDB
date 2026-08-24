@@ -11,7 +11,7 @@
   "slot": "Strike",
   "cardFamily": "command",
   "cardTypes": ["strike"],
-  "descriptionTemplate": "Deal [Damage:Arg1] DMG. Castor obtains [Energy:Arg2] Aliemus. {Quasar}: Shuffle 1 {Onyx Plume} into the Draw Pile and gain [Block:Arg3] Shield.",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG. Castor obtains [Energy:Arg2] Aliemus. {Quasar}: Shuffle 1 {derived:Onyx Plume} into the Draw Pile and gain [Block:Arg3] Shield.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

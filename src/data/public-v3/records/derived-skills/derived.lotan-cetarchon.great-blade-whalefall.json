@@ -10,7 +10,7 @@
   "ownerAwakenerId": "awakener-0059",
   "cardFamily": "effect",
   "cardTypes": ["effect"],
-  "descriptionTemplate": "Unplayable. While in hand:\nAll enemies deal 25% more DMG to your team.\nAll of Lotan: Cetarchon's Command Cards become {Deadly Duel}.\nAt the start of each turn, draw 1 {Deadly Duel}.",
+  "descriptionTemplate": "Unplayable. While in hand:\nAll enemies deal 25% more DMG to your team.\nAll of Lotan: Cetarchon's Command Cards become {derived:Deadly Duel}.\nAt the start of each turn, draw 1 {derived:Deadly Duel}.",
   "descriptionArgs": {},
   "cardKeywords": [],
   "ownerAwakenerName": "Lotan: Cetarchon"

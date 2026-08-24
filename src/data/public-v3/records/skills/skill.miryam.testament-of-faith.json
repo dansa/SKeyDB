@@ -39,7 +39,7 @@
       "ownerAwakenerId": "awakener-0032",
       "ownerAwakenerName": "Miryam",
       "patch": {
-        "descriptionTemplate": "Miryam gains [Energy:Arg1] Aliemus. {Rouse}: Tentacle Limit and Tentacle Count +1. Inflict 1 stack of {Weakness} and {Vulnerable} on all enemies. Miryam's \"Strike\" and {Exalted Pyre} Crit. Rate +100%. Place 1 {Heretical Faith} into hand. For every 2 {Sacrament} cards flipped, place 1 {Divine Realm's Illusion} into hand."
+        "descriptionTemplate": "Miryam gains [Energy:Arg1] Aliemus. {Rouse}: Tentacle Limit and Tentacle Count +1. Inflict 1 stack of {Weakness} and {Vulnerable} on all enemies. Miryam's \"Strike\" and {Exalted Pyre} Crit. Rate +100%. Place 1 {Heretical Faith} into hand. For every 2 {derived:Sacrament} cards flipped, place 1 {derived:Divine Realm's Illusion} into hand."
       }
     }
   ],

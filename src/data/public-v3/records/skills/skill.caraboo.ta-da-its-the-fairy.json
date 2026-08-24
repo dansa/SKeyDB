@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 3,
+  "kind": "skill",
+  "id": "skill.caraboo.ta-da-its-the-fairy",
+  "name": "Ta-da★It's the Fairy!",
+  "route": {
+    "slug": "ta-daits-the-fairy",
+    "canonicalPath": "/database/awakeners/caraboo/skills/ta-daits-the-fairy"
+  },
+  "ownerAwakenerId": "awakener-0060",
+  "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
+  "descriptionTemplate": "[{Devour}: Gain 1 stack of {Satiety}. Upon dealing DMG, inflict [Corrosion:Arg10] stacks of {Corrosion} on the target.] Dispel {Burn} from all cards in hand. Gain [Block:Arg2] Shield. Deal [Damage:Arg1] DMG [Arg8] times to all enemies. Each stack of {Satiety} increases Exalt Base DMG and Shield Generation by [Arg6]%. Consume all {Offering} stacks; each stack increases Exalt hit count by 1 and converts into an equal number of stacks of {Satiety}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": ["90", "108", "126", "144", "162", "180"],
+      "stat": "ATK",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": ["45", "54", "63", "72", "81", "90"],
+      "stat": "DEF",
+      "suffix": "%"
+    },
+    "Arg6": {
+      "kind": "fixed",
+      "value": "2",
+      "suffix": "%"
+    },
+    "Arg8": {
+      "kind": "fixed",
+      "value": "3"
+    },
+    "Arg10": {
+      "kind": "scaling",
+      "values": ["400", "800", "1200", "1600", "2000", "2400"],
+      "stat": "ATK",
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "150",
+  "lore": "The fairy and the wizard crossed paths on a desolate patch of ground in the corner of some little town.\nShe was smilingly beckoning to finely-dressed foreign children, while the wizard had his eyes fixed on the jingling gold bracelet on their mother's wrist.\nTheir gazes met in the air, and in an instant, each understood the other's intent.\nIn this silent contest, the wizard proved the more skilled, edging out a narrow victory on the strength of his seasoned experience.\nAnd thus, a brand-new, beautiful enterprise of swindling and scamming raised its curtain.",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.caraboo.threefold-vow.skill.caraboo.ta-da-its-the-fairy",
+      "operation": "mixed",
+      "upgraderId": "enlighten.caraboo.threefold-vow",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "E3",
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "patch": {
+        "descriptionTemplate": "[{Devour}: Gain {Satiety}. Upon dealing DMG, inflict [Corrosion:Arg10] stacks of {Corrosion} on the target.] Dispel {Burn} from all cards in hand. Gain [Block:Arg2] Shield. Deal [Damage:Arg1] DMG [Arg8] times to all enemies. Each stack of {Satiety} increases Exalt Base DMG and Shield Generation by [Arg6]%. Consume all {Offering} stacks; each stack increases Exalt hit count by 1 and converts into an equal number of stacks of {Satiety}.",
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": ["90", "108", "126", "144", "162", "180"],
+            "stat": "ATK",
+            "suffix": "%"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": ["45", "54", "63", "72", "81", "90"],
+            "stat": "DEF",
+            "suffix": "%"
+          },
+          "Arg6": {
+            "kind": "fixed",
+            "value": "3",
+            "suffix": "%"
+          },
+          "Arg8": {
+            "kind": "fixed",
+            "value": "5"
+          },
+          "Arg10": {
+            "kind": "scaling",
+            "values": ["400", "800", "1200", "1600", "2000", "2400"],
+            "stat": "ATK",
+            "suffix": "%"
+          }
+        }
+      }
+    }
+  ],
+  "ownerAwakenerName": "Caraboo"
+}

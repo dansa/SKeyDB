@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 3,
+  "kind": "posse",
+  "id": "posse-0062",
+  "name": "That Which is No Lie",
+  "route": {
+    "slug": "that-which-is-no-lie",
+    "canonicalPath": "/database/posses/that-which-is-no-lie"
+  },
+  "assets": {
+    "icon": "asset-posse-0062-icon",
+    "crystal": "asset-posse-0062-crystal",
+    "badge": "asset-posse-0062-badge"
+  },
+  "ownerAwakenerId": "awakener-0060",
+  "ownerAwakenerName": "Caraboo",
+  "acquisitionSource": "Clear Operation: Astral Reign - Ch. 6 - When the Mountain Feasts",
+  "realm": "CARO",
+  "lineupToken": "8",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield, increase Realm Mastery by [Arg2]. If Caraboo is in the party, the next {derived:Caraboo's Blessing} will not trigger \"Negative Effects\".\nScaling guide: {Primordia Mastery Scaling}",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "primordiaPosseScaled",
+      "baseFormula": "esotericResearchDepth",
+      "rounding": "ceil",
+      "multiplier": 0.104,
+      "inputs": ["accountLevel", "ownedPosseCount", "realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "utility"
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "primordiaPosseScaled",
+      "baseFormula": "fixed",
+      "baseValue": 20.0,
+      "rounding": "ceil",
+      "inputs": ["realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "utility"
+    }
+  },
+  "lore": "With it, the sin-steeped serpent tempted the pure and unknowing in Eden; with it, the envy-eaten queen deceived the snow-white, guiltless princess; with it, a mortal armed with nothing but cleverness outran the huntress of the wilds.\nYet this thing is no lie.\nIt is only that small, unspeakable desire nestled at the bottom of every human heart."
+}

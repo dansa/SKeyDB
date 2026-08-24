@@ -12,7 +12,7 @@
   "rootSkillId": "skill.jenkins.gotcha",
   "cardFamily": "command",
   "cardTypes": ["derived"],
-  "descriptionTemplate": "Shuffle 1 card that deals [Damage:Arg1] DMG X+10 times, {Swarm Impact} into the top of the Draw Pile.",
+  "descriptionTemplate": "Shuffle 1 card that deals [Damage:Arg1] DMG X+10 times, {derived:Swarm Impact} into the top of the Draw Pile.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

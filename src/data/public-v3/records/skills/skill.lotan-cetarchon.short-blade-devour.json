@@ -12,7 +12,7 @@
   "cardFamily": "command",
   "cardTypes": ["skill"],
   "countsAs": ["strike"],
-  "descriptionTemplate": "Counts as a \"Strike\". Deal [Damage:Arg1] DMG to a random enemy [Arg3] times. Gain [Power:Arg2] {STR}. After being played, shuffle this card back into your Draw Pile. Every {ordinal:3rd} time this card is played, it triggers 1 additional time. Then, the next {Long Blade: Perish} played this turn will fuse with this card to forge a {Great Blade: Whalefall}.",
+  "descriptionTemplate": "Counts as a \"Strike\". Deal [Damage:Arg1] DMG to a random enemy [Arg3] times. Gain [Power:Arg2] {STR}. After being played, shuffle this card back into your Draw Pile. Every {ordinal:3rd} time this card is played, it triggers 1 additional time. Then, the next {Long Blade: Perish} played this turn will fuse with this card to forge a {derived:Great Blade: Whalefall}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

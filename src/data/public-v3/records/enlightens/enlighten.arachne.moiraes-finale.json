@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0056",
   "slot": "AbsoluteAxiom",
-  "descriptionTemplate": "{Rouse} {Puppet Stage Unveiled} is enhanced: After triggering {Annihilation}, immediately deal {Fixed DMG} equal to 50% {Final Verdict} to all enemies. The DMG Amplification and Shield gained from the next Exalt +50%.",
+  "descriptionTemplate": "{Rouse} {Puppet Stage Unveiled} is enhanced: After triggering {Annihilation}, immediately deal {Pure DMG} equal to 50% {Final Verdict} to all enemies. The DMG Amplification and Shield gained from the next Exalt +50%.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Arachne"
 }

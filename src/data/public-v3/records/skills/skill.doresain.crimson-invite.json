@@ -11,7 +11,7 @@
   "slot": "Rouse",
   "cardFamily": "rouse",
   "cardTypes": ["rouse"],
-  "descriptionTemplate": "Doresain gains [Energy:Arg1] Aliemus. {Rouse}: Gain [Power:Arg2] {STR}, and DMG dealt by Doresain gains an additional [Arg3]% {STR} bonus. The first time Doresain scores a Kill each turn, deal {Fixed DMG} equal to 50% of the overflow DMG to other enemies.",
+  "descriptionTemplate": "Doresain gains [Energy:Arg1] Aliemus. {Rouse}: Gain [Power:Arg2] {STR}. DMG dealt by Doresain gains an extra [Arg3]% {STR} Bonus. After Doresain's first kill each turn, deal {Pure DMG} equal to 50% of the overflow DMG to other enemies.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -46,7 +46,7 @@
       "ownerAwakenerId": "awakener-0014",
       "ownerAwakenerName": "Doresain",
       "patch": {
-        "descriptionTemplate": "Doresain gains [Energy:Arg1] Aliemus. {Rouse}: Gain [Power:Arg2] {STR}. DMG dealt by Doresain gains an extra [Arg3]% {STR} Bonus. Deal {Fixed DMG} equal to [Arg4]% of current HP to all enemies. After Doresain's first kill each turn, deal {Fixed DMG} to other enemies that equals 100% of overflow DMG.",
+        "descriptionTemplate": "Doresain gains [Energy:Arg1] Aliemus. {Rouse}: Gain [Power:Arg2] {STR}. DMG dealt by Doresain gains an extra [Arg3]% {STR} Bonus. Deal {Pure DMG} equal to [Arg4]% of current HP to all enemies. After Doresain's first kill each turn, deal {Pure DMG} equal to 100% of the overflow DMG to other enemies.",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

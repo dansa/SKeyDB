@@ -56,6 +56,46 @@ describe('parseRichDescription', () => {
     ])
   })
 
+  it('preserves source formatting around nested mechanic tokens', () => {
+    const result = parseRichDescription(
+      '<Italic:2 turns of {Weakness}; 2 turns of {Fragile}.>',
+      EMPTY_CARDS,
+    )
+
+    expect(result).toEqual([
+      {
+        type: 'formatting',
+        style: 'italic',
+        segments: [
+          {type: 'text', value: '2 turns of '},
+          {type: 'mechanic', name: 'Weakness'},
+          {type: 'text', value: '; 2 turns of '},
+          {type: 'mechanic', name: 'Fragile'},
+          {type: 'text', value: '.'},
+        ],
+      },
+    ])
+  })
+
+  it('parses nested formatting tags at their matching boundaries', () => {
+    const result = parseRichDescription('<Italic:outer <Bold:inner>>', EMPTY_CARDS)
+
+    expect(result).toEqual([
+      {
+        type: 'formatting',
+        style: 'italic',
+        segments: [
+          {type: 'text', value: 'outer '},
+          {
+            type: 'formatting',
+            style: 'bold',
+            segments: [{type: 'text', value: 'inner'}],
+          },
+        ],
+      },
+    ])
+  })
+
   it('parses a skill token when card name matches', () => {
     const cards = new Set(['Poof!'])
     const result = parseRichDescription('{Poof!}: Casiah gains 3 Aliemus.', cards)

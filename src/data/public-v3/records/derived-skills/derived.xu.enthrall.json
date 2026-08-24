@@ -12,7 +12,7 @@
   "rootSkillId": "skill.xu.mist-bound-vow",
   "cardFamily": "command",
   "cardTypes": ["derived"],
-  "descriptionTemplate": "Remove all enemies' {Spellbound}. Each stack removed causes {Fixed DMG} equal to [Arg1]% of the target's Max HP and triggers [Arg2]% {Poison}.",
+  "descriptionTemplate": "Remove all enemies' {Spellbound}. Each stack removed causes {Pure DMG} equal to [Arg1]% of the target's Max HP and triggers [Arg2]% {Poison}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -36,7 +36,7 @@
       "ownerAwakenerId": "awakener-0054",
       "ownerAwakenerName": "Xu",
       "patch": {
-        "descriptionTemplate": "Remove all enemies' {Spellbound}. Each stack removed causes {Fixed DMG} equal to [Arg1]% of the target's Max HP and triggers [Arg2]% {Poison}."
+        "descriptionTemplate": "Remove all enemies' {Spellbound}. Each stack removed causes {Pure DMG} equal to [Arg1]% of the target's Max HP and triggers [Arg2]% {Poison}."
       }
     }
   ],

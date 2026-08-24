@@ -30,6 +30,8 @@ function getSegmentText(segment: RichSegment): string {
       return `[${segment.argKey}]`
     case 'argPlural':
       return `{plural:${segment.argKey}}`
+    case 'formatting':
+      return segment.segments.map(getSegmentText).join('')
     case 'scaling':
       return segment.values.join('~')
     default:
@@ -86,10 +88,10 @@ describe('hydrateGlobalDatabaseReferenceInfo', () => {
     )
 
     expect(loadPublicOverlayDetailById).toHaveBeenCalledWith('overlay.global.counter')
-    expect(info.description).toContain('When attacked')
+    expect(info.description).toContain('When taking Active DMG')
     expect(
       resolveDescriptionTemplate(info.record.descriptionTemplate, info.record.descriptionArgs),
-    ).toContain('{Counter}')
+    ).toContain('{Pure DMG}')
     expect(info.kind).toBe('overlay')
   })
 

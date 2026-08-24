@@ -41,7 +41,7 @@
     "derived.daffodil.thousand-mirage-effect-hpr-directed-catalysis",
     "derived.daffodil.thousand-mirage-effect-hpr-keyflare"
   ],
-  "descriptionTemplate": "Choose extra effects to add to a {Thousand Mirage} card.",
+  "descriptionTemplate": "Choose extra effects to add to a {derived:Thousand Mirage} card.",
   "descriptionArgs": {},
   "cardKeywords": [],
   "ownerAwakenerName": "Daffodil"

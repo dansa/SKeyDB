@@ -12,7 +12,7 @@
   },
   "numericId": 22,
   "ingameId": "D12",
-  "lineupToken": "Y",
+  "lineupToken": "X",
   "realm": "CHAOS",
   "rarity": "SSR",
   "type": "CHORUS",
@@ -20,7 +20,7 @@
   "releaseDate": "2024-09-09",
   "faction": "The Unknowable",
   "aliases": ["hameln"],
-  "searchTags": ["Weakness", "Vulnerable", "Poison", "Bleed", "STR Up", "STR Down", "Steal STR", "Pierce DMG", "Dispel", "Arithmetica"],
+  "searchTags": ["Weakness", "Vulnerable", "Poison", "Bleed", "STR Up", "STR Down", "Steal STR", "Pierce DMG", "Arithmetica"],
   "primaryScalingBase": 20,
   "baseStatsLv1": {
     "CON": 32,

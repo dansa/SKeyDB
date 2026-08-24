@@ -13,7 +13,7 @@
   "cardFamily": "command",
   "cardTypes": ["derived"],
   "childDerivedSkillIds": ["derived.tawil.six-wings"],
-  "descriptionTemplate": "When Arithmetica is insufficient, it consumes 500 Keyflare to play. Deal 4 instances of [Damage:Arg1] DMG, draw 1 card. For each hit, {Steal} [Arg2] Temporary {STR} from the target. Shuffle {Six Wings} into the Draw Pile.",
+  "descriptionTemplate": "When Arithmetica is insufficient, it consumes 500 Keyflare to play. Deal 4 instances of [Damage:Arg1] DMG, draw 1 card. For each hit, {Steal} [Arg2] Temporary {STR} from the target. Shuffle {derived:Six Wings} into the Draw Pile.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

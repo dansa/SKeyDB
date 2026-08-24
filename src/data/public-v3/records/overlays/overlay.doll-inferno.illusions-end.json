@@ -14,7 +14,7 @@
   "ownerAwakenerId": "awakener-0018",
   "aliases": [],
   "iconId": "IconS_Buff_044",
-  "descriptionTemplate": "Deal [StateArg1]% of all enemies' max HP as {Fixed DMG}. This DMG cannot be lower than 500% of the caster's max HP. After use, \"Doll: Inferno\"'s specific skill changes to {Finale}.",
+  "descriptionTemplate": "Deal [StateArg1]% of all enemies' max HP as {Pure DMG}. This DMG cannot be lower than 500% of the caster's max HP. After use, \"Doll: Inferno\"'s specific skill changes to {Finale}.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "fixed",

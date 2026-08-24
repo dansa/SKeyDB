@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0041",
   "slot": "E1",
-  "descriptionTemplate": "At the start of the battle, put 1 {Sacred Heart} into hand.",
+  "descriptionTemplate": "At the start of the battle, put 1 {derived:Sacred Heart} into hand.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Pollux"
 }

@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0008",
   "slot": "OverExalt",
-  "descriptionTemplate": "Add 3 additional {Onyx Plume} to your hand. This turn, increase the amount of Shield {Retained} by {Onyx Plume} by 10% of Castor's DEF, and each time you play an {Onyx Plume} card, additionally inflict Castor's ATK*160% stacks of {Corrosion}.",
+  "descriptionTemplate": "Add 3 additional {derived:Onyx Plume} to your hand. This turn, increase the amount of Shield {Retained} by {derived:Onyx Plume} by 10% of Castor's DEF, and each time you play an {derived:Onyx Plume} card, additionally inflict Castor's ATK*160% stacks of {Corrosion}.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Castor"
 }

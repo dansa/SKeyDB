@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.caraboo.gift-str",
+  "name": "Gift: STR",
+  "route": {
+    "slug": "gift-str",
+    "canonicalPath": "/database/awakeners/caraboo/derived-skills/gift-str"
+  },
+  "ownerAwakenerId": "awakener-0060",
+  "derivedFromId": "derived.caraboo.blessing-gifts",
+  "rootSkillId": "skill.caraboo.miracle-blessing",
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
+  "descriptionTemplate": "Gain [Arg1] {STR}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": ["60", "72", "84", "96", "108", "120"],
+      "stat": "ATK",
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.retain"
+    },
+    {
+      "id": "mechanic.prepare",
+      "value": 1
+    }
+  ],
+  "cost": "1",
+  "ownerAwakenerName": "Caraboo"
+}

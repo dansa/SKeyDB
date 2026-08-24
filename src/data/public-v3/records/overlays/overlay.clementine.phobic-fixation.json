@@ -15,7 +15,7 @@
   "aliases": [],
   "iconId": "IconS_Buff_053",
   "textColor": "affliction",
-  "descriptionTemplate": "Under the erosion of the Hive, your fears are laid bare. For each stack, DMG dealt this turn -3%, stacking up to 10 stacks.",
+  "descriptionTemplate": "Under the erosion of the Hive, your fears are laid bare. For each stack, Active and {Tentacle DMG} dealt this turn -3%, stacking up to 10 stacks.",
   "descriptionArgs": {},
   "upgrades": [
     {
@@ -27,7 +27,7 @@
       "ownerAwakenerId": "awakener-0010",
       "ownerAwakenerName": "Clementine",
       "patch": {
-        "descriptionTemplate": "Under the erosion of the Hive, your fears are laid bare. For each stack, DMG dealt this turn -3%, stacking up to 15 stacks."
+        "descriptionTemplate": "Under the erosion of the Hive, your fears are laid bare. For each stack, Active and {Tentacle DMG} dealt this turn -3%, stacking up to 15 stacks."
       }
     }
   ],

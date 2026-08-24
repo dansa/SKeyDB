@@ -82,11 +82,18 @@ export type DatabaseDetailNavigationState = Readonly<
   | {tab?: never; variant?: never}
 >
 
+export interface DatabaseDetailNavigationOptions {
+  hash?: string
+}
+
 /** Generic navigation boundary shared by route-backed and owner-scoped overlay details. */
 export interface DatabaseDetailNavigationPort {
   close: () => void
   select: (ref: EntityRef, state?: DatabaseDetailNavigationState) => void
-  updateState: (state: DatabaseDetailNavigationState) => void
+  updateState: (
+    state: DatabaseDetailNavigationState,
+    options?: DatabaseDetailNavigationOptions,
+  ) => void
 }
 
 export type DatabaseDetailRouteItem =

@@ -12,7 +12,7 @@
   "cardFamily": "command",
   "cardTypes": ["skill"],
   "countsAs": ["strike"],
-  "descriptionTemplate": "Deal [Damage:Arg1] DMG, trigger [Arg3]% of the target's {Poison}. If a Critical Hit occurs, the trigger ratio increases to [Arg4]%. This counts as a \"Strike\". For each stack of {Endure}, increase DMG by 2 and remove {Endure} after use.",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG, trigger [Arg3]% of the target's {Poison}. If a Critical Hit occurs, the trigger ratio increases to [Arg4]%. Counts as a \"Strike\". For each stack of {Endure}, increase DMG by 2 and remove {Endure} after use.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -52,7 +52,7 @@
       "ownerAwakenerId": "awakener-0029",
       "ownerAwakenerName": "Lily",
       "patch": {
-        "descriptionTemplate": "Deal [Damage:Arg1] DMG, trigger [Arg3]% of the target's {Poison}. If a Critical Hit occurs, the trigger rate increases to [Arg4]%. Treated as a Strike. For each stack of {Endure}, increase DMG by 2, and remove {Endure} after use. This card's Crit. Rate +20%.",
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG, trigger [Arg3]% of the target's {Poison}. If a Critical Hit occurs, the trigger rate increases to [Arg4]%. Counts as a Strike. For each stack of {Endure}, increase DMG by 2, and remove {Endure} after use. This card's Crit. Rate +20%.",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

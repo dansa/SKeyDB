@@ -14,7 +14,7 @@
   "cardFamily": "effect",
   "cardTypes": ["effect"],
   "childDerivedSkillIds": ["derived.hameln.ascending-scale", "derived.hameln.descending-scale"],
-  "descriptionTemplate": "Choose: {Ascending Scale} or {Descending Scale}.",
+  "descriptionTemplate": "Choose: {derived:Ascending Scale} or {derived:Descending Scale}.",
   "descriptionArgs": {},
   "cardKeywords": [
     {

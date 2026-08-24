@@ -10,7 +10,7 @@
   "ownerAwakenerId": "awakener-0021",
   "family": "soulforge_aptitude",
   "maxLevel": 10,
-  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nGoliath's Base DMG +[Arg3]%, and {Blade's Dominion} temporarily increases Goliath's Final DMG by [Arg4]%.\nWhen there are 1/2/3 other {Lemurian} Awakeners in the team, all Awakeners' {STR} Generation +6%/15%/30%.",
+  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nGoliath's Base DMG +[Arg3]%, and {derived:Blade's Dominion} temporarily increases Goliath's Final DMG by [Arg4]%.\nWhen there are 1/2/3 other {Lemurian} Awakeners in the team, all Awakeners' {STR} Generation +6%/15%/30%.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "linear",

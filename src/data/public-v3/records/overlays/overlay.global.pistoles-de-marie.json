@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 3,
+  "kind": "overlay",
+  "id": "overlay.global.pistoles-de-marie",
+  "name": "Pistoles de Marie",
+  "route": {
+    "slug": "pistoles-de-marie",
+    "canonicalPath": "/database/overlays/pistoles-de-marie"
+  },
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "May gain or lose Aliemus, {STR}, HP, Keyflare, and Arithmetica and draw cards.",
+  "descriptionArgs": {}
+}

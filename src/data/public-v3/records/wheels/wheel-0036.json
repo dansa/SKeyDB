@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0025",
   "ownerAwakenerName": "Jenkin",
   "lineupToken": "2",
-  "descriptionTemplate": "Team Unique: After the wielder deals DMG, there is a [StateArg1]% chance to draw 1 of their Command Cards and reduce its Arithmetica Cost by 1. This effect activates only once per turn.",
+  "descriptionTemplate": "Team Unique: After the wielder deals Active DMG, there is a [StateArg1]% chance to draw 1 of their Command Cards and reduce its Arithmetica Cost by 1. This effect activates only once per turn.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

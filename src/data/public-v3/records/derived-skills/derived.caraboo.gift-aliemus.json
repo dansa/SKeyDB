@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.caraboo.gift-aliemus",
+  "name": "Gift: Aliemus",
+  "route": {
+    "slug": "gift-aliemus",
+    "canonicalPath": "/database/awakeners/caraboo/derived-skills/gift-aliemus"
+  },
+  "ownerAwakenerId": "awakener-0060",
+  "derivedFromId": "derived.caraboo.blessing-gifts",
+  "rootSkillId": "skill.caraboo.miracle-blessing",
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
+  "descriptionTemplate": "All Awakeners gain [Arg1] Fixed Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": ["15", "17", "19", "21", "23", "25"]
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.retain"
+    },
+    {
+      "id": "mechanic.prepare",
+      "value": 1
+    }
+  ],
+  "cost": "1",
+  "ownerAwakenerName": "Caraboo"
+}

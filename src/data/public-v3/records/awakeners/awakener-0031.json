@@ -12,7 +12,7 @@
   },
   "numericId": 31,
   "ingameId": "C04",
-  "lineupToken": "k",
+  "lineupToken": "j",
   "realm": "CHAOS",
   "rarity": "SR",
   "type": "ASSAULT",
@@ -20,7 +20,7 @@
   "releaseDate": "2023-11-29",
   "faction": "Out of the Aeons",
   "aliases": ["lotan"],
-  "searchTags": ["STR Up", "Fixed DMG", "Dispel", "Max HP DMG", "Strike"],
+  "searchTags": ["STR Up", "Dispel", "Max HP DMG", "Strike"],
   "primaryScalingBase": 20,
   "baseStatsLv1": {
     "CON": 34,

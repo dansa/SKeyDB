@@ -75,7 +75,7 @@
       "tier": "Silver",
       "category": "FADED_LEGACY",
       "rarity": "N",
-      "descriptionTemplate": "Every time you lose HP, gain [Arg1] {plural:[Arg1]|stack|stacks} of {Counter}. If this is the {ordinal:3rd} trigger in a single turn, deal {Counter} DMG to all enemies 1 time.",
+      "descriptionTemplate": "Every time you lose HP, gain [Arg1] {plural:[Arg1]|stack|stacks} of {Counter}. If this is the {ordinal:3rd} trigger in a single turn, trigger 100% {Counter} against all enemies.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

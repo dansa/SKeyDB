@@ -13,8 +13,8 @@
   "rarity": "SSR",
   "realm": "NEUTRAL",
   "mainstatKey": "REALM_MASTERY",
-  "lineupToken": "y6",
-  "descriptionTemplate": "After the exploration starts, shuffle 1 {Vernal Message} into the deck: Arithmetica Cost 1, gain [StateArg1] Keyflare, permanently transforms into {Sakura Blossoms} after played: Arithmetica Cost 1, gain [StateArg2] Keyflare, after playing it permanently transforms into {Hanafubuki}: Arithmetica Cost 1, gain [StateArg3] Keyflare, permanently transforms into {Ichigo Ichie} after played: Arithmetica Cost 1, choose 1 from 3 random unlocked Posse to immediately unleash and trigger 2 times, permanently transforms into {Vernal Message} after played. All of these cards have {Retain}.",
+  "lineupToken": "y4",
+  "descriptionTemplate": "Team Unique: After the exploration starts, shuffle 1 {Vernal Message} into the deck: Arithmetica Cost 1, gain [StateArg1] Keyflare, permanently transforms into {Sakura Blossoms} after played: Arithmetica Cost 1, gain [StateArg2] Keyflare, after playing it permanently transforms into {Hanafubuki}: Arithmetica Cost 1, gain [StateArg3] Keyflare, permanently transforms into {Ichigo Ichie} after played: Arithmetica Cost 1, choose 1 from 3 random unlocked Posse to immediately unleash and trigger 2 times, permanently transforms into {Vernal Message} after played. All of these cards have {Retain}.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

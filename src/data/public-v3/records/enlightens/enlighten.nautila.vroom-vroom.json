@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0036",
   "slot": "OverExalt",
-  "descriptionTemplate": "Current Shield +50%, ignore the Shield Limit. Increases {Fixed DMG} against all enemies to 500% of {Counter}.",
+  "descriptionTemplate": "Current Shield +50%, ignore the Shield Limit. {Counter} Trigger Rate is increased to 500%.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Nautila"
 }

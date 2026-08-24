@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0016",
   "slot": "E3",
-  "descriptionTemplate": "Each time {Death Resistance} is triggered, deal 100% {Counter} {Fixed DMG} to front row enemies. Each time {Death Resistance} is triggered in this battle, increase {Fixed DMG} by 25%.",
+  "descriptionTemplate": "Each time {Death Resistance} is triggered, trigger 100% {Counter} on front row enemies. Each time {Death Resistance} is triggered in this battle, {Counter} Trigger Rate +25%.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Faint"
 }

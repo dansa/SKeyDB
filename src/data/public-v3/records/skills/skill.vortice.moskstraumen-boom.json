@@ -11,7 +11,7 @@
   "slot": "OverExalt",
   "cardFamily": "exalt",
   "cardTypes": ["over_exalt"],
-  "descriptionTemplate": "The Crit. DMG gained per Tentacle Sacrificed is doubled. The next 5 {Vortex! Shell!} unleashed trigger 2 times.",
+  "descriptionTemplate": "The Crit. DMG gained per Tentacle Sacrificed is doubled. The next 5 {derived:Vortex! Shell!} unleashed trigger 2 times.",
   "descriptionArgs": {},
   "cardKeywords": [],
   "ownerAwakenerName": "Vortice"

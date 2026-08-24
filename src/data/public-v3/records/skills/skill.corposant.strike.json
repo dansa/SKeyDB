@@ -42,7 +42,7 @@
       "ownerAwakenerId": "awakener-0011",
       "ownerAwakenerName": "Corposant",
       "patch": {
-        "descriptionTemplate": "Deal [Damage:Arg1] DMG. Corposant obtains [Energy:Arg4] Aliemus. {Aftershock}: The Aliemus gained the next time This card is played +[Arg3], stacking up to 2 times.",
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG. Corposant obtains [Energy:Arg4] Aliemus. {Aftershock}: The Aliemus gained the next time this card is played +[Arg3], stacking up to 2 times.",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

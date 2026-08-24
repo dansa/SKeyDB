@@ -15,8 +15,8 @@
   "mainstatKey": "SIGIL_YIELD",
   "ownerAwakenerId": "awakener-0059",
   "ownerAwakenerName": "Lotan: Cetarchon",
-  "lineupToken": "ze",
-  "descriptionTemplate": "Team Unique: Wielder's \"Strike\" Crit. DMG increased by [StateArg1]%. At the end of the turn, the wielder's next Exalt Crit. DMG is increased by a percentage equal to [StateArg2]% of their Base Aliemus, stacking up to 5 times.",
+  "lineupToken": "zc",
+  "descriptionTemplate": "Team Unique: The wielder's \"Strike\" Crit. DMG +[StateArg1]%. At the end of each turn, the wielder's next Exalt Crit. DMG is increased by a percentage equal to [StateArg2]% of their Base Aliemus, stacking up to 5 times.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

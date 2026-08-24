@@ -455,7 +455,7 @@ describe('derived-skills', () => {
       expect.objectContaining({
         cost: '0',
         descriptionTemplate:
-          "Deal [Arg1]% of the target's max HP as {Fixed DMG} to the enemy in the last row. This DMG cannot be less than 300% of your own max HP.",
+          "Deal {Pure DMG} equal to [Arg1]% of the target's max HP to the enemy in the backmost row. This DMG cannot be less than 300% of your own max HP.",
         descriptionArgs: {
           Arg1: {kind: 'fixed', value: '15', suffix: '%'},
         },
@@ -655,7 +655,7 @@ describe('derived-skills', () => {
     expect(getDerivedSkillById('derived.daffodil.thousand-mirage', derivedSkills)).toEqual(
       expect.objectContaining({
         descriptionTemplate:
-          'Customize a {Thousand Mirage} card by choosing a base card and adding extra effects.',
+          'Customize a {derived:Thousand Mirage} card by choosing a base card and adding extra effects.',
       }),
     )
 
@@ -790,6 +790,10 @@ describe('derived-skills', () => {
       'derived.global.memories-seed-of-abundance',
       'derived.global.memories-utopian-veil',
       'derived.global.twilight-envoys-verdict',
+      'derived.global.twilight-mutated-heart',
+      'derived.tawil.mutated-heart',
+      'derived.caraboo.blessing-prices',
+      'derived.caraboo.gift-drain',
     ])
     const mismatches = derivedSkills.filter((entry) => {
       if (reviewedStableIdExceptions.has(entry.id)) return false

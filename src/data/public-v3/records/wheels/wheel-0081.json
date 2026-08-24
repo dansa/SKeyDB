@@ -14,7 +14,7 @@
   "realm": "NEUTRAL",
   "mainstatKey": "DEATH_RESISTANCE",
   "lineupToken": "V",
-  "descriptionTemplate": "Team Unique: The wielder's {Counter} +[StateArg1]%. \"Defense\" grants Temporary {Counter} equal to the wielder's DEF ×[StateArg2]%. In Boss Battles, this becomes 3 times the Temporary {Counter}. After {Death Resistance} triggers, deals {Fixed DMG} equal to the wielder's {Counter} stack count [StateArg3]% to all enemies.",
+  "descriptionTemplate": "Team Unique: The wielder's {Counter} +[StateArg1]%. \"Defense\" grants Temporary {Counter} equal to [StateArg2]% of the wielder's DEF. In Boss Battles, this becomes 3 times the Temporary {Counter}. After {Death Resistance} triggers, trigger [StateArg3]% {Counter} against all enemies.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

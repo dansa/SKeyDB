@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0011",
   "ownerAwakenerName": "Corposant",
   "lineupToken": "ye",
-  "descriptionTemplate": "Shield gained from the wielder's Exalt +[StateArg1]%.\nAfter the wielder Exalts, all Awakeners gain +[StateArg2]% Temp. Crit. DMG, and another +1% for each Tentacle.\nThe first time {Death Resistance} triggers each investigation, recover [StateArg3]% of Max HP at the start of your next turn.",
+  "descriptionTemplate": "Team Unique: Shield gained from the wielder's Exalt +[StateArg1]%.\nAfter the wielder Exalts, all Awakeners gain +[StateArg2]% Temp. Crit. DMG, and another +1% for each Tentacle.\nThe first time {Death Resistance} triggers each investigation, recover [StateArg3]% of Max HP at the start of your next turn.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

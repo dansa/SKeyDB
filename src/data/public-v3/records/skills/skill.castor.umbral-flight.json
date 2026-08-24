@@ -11,7 +11,7 @@
   "slot": "Skill1",
   "cardFamily": "command",
   "cardTypes": ["skill"],
-  "descriptionTemplate": "Deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times}, increase other allies' Temporary Crit. DMG by [Arg3]%. {Quasar}: Shuffle 1 {Onyx Plume} into the Draw Pile and gain [Block:Arg4] Shield.",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times}, increase other allies' Temporary Crit. DMG by [Arg3]%. {Quasar}: Shuffle 1 {derived:Onyx Plume} into the Draw Pile and gain [Block:Arg4] Shield.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -48,7 +48,7 @@
       "ownerAwakenerId": "awakener-0008",
       "ownerAwakenerName": "Castor",
       "patch": {
-        "descriptionTemplate": "Deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times}, increase other allies' Temporary Crit. DMG by [Arg3]%. For every {Onyx Plume} played this turn, Arithmetica Cost -1. {Quasar}: Shuffle 1 {Onyx Plume} into the Draw Pile and gain [Block:Arg4] Shield."
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times}, increase other allies' Temporary Crit. DMG by [Arg3]%. For every {derived:Onyx Plume} played this turn, Arithmetica Cost -1. {Quasar}: Shuffle 1 {derived:Onyx Plume} into the Draw Pile and gain [Block:Arg4] Shield."
       }
     }
   ],

@@ -40,7 +40,7 @@
       "ownerAwakenerId": "awakener-0014",
       "ownerAwakenerName": "Doresain",
       "patch": {
-        "descriptionTemplate": "Deal [Damage:Arg1] {Pierce DMG} to all enemies. After playing, subsequent {Evernight's Revel} played this turn enjoys an additional 100% {STR} bonus.",
+        "descriptionTemplate": "Deal [Damage:Arg1] {Pierce DMG} to all enemies. After playing, subsequent {derived:Evernight's Revel} played this turn enjoys an additional 100% {STR} bonus.",
         "descriptionArgs": {
           "Arg1": {
             "kind": "fixed",

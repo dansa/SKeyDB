@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0131",
   "rarity": "SR",
   "aliases": [],
-  "descriptionTemplate": "Upon pickup, Team DMG Amplification x150%. At turn start, deal [Arg1] DMG to a random enemy. For each Posse used in this battle, increase the DMG dealt by [Arg2]. This DMG bonus enjoys Team DMG Amplification bonus.",
+  "descriptionTemplate": "Upon pickup, Team DMG Amplification x150%. At turn start, deal [Arg1] {Pure DMG} to a random enemy. For each Posse used in this battle, increase the DMG dealt by [Arg2]. This DMG bonus enjoys Team DMG Amplification bonus.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
@@ -42,7 +42,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "Upon pickup, Team DMG Amplification x150%. At turn start, deal [Arg1] DMG to a random enemy. For each Posse used in this battle, increase the DMG dealt by [Arg2]. This DMG bonus enjoys Team DMG Amplification bonus.",
+      "descriptionTemplate": "Upon pickup, Team DMG Amplification x150%. At turn start, deal [Arg1] {Pure DMG} to a random enemy. For each Posse used in this battle, increase the DMG dealt by [Arg2]. This DMG bonus enjoys Team DMG Amplification bonus.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

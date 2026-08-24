@@ -12,7 +12,7 @@
   "rootSkillId": "skill.daffodil.sea-of-primordial-essence",
   "cardFamily": "command",
   "cardTypes": ["derived"],
-  "descriptionTemplate": "Obtain [Arg1] Keyflare. In this battle, the base DMG of {Skull Reaver} and {Thousand Mirage} +10%.",
+  "descriptionTemplate": "Obtain [Arg1] Keyflare. In this battle, the base DMG of {Skull Reaver} and {derived:Thousand Mirage} +10%.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",

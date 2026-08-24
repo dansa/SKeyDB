@@ -16,8 +16,8 @@ describe('buildRelicDatabaseViewResult', () => {
   const relics = getRelics()
 
   it('keeps the public catalog at family grain', () => {
-    expect(relics).toHaveLength(294)
-    expect(buildRelicDatabaseViewResult(relics, defaults).relics).toHaveLength(294)
+    expect(relics).toHaveLength(297)
+    expect(buildRelicDatabaseViewResult(relics, defaults).relics).toHaveLength(297)
   })
 
   it('searches aliases, owner Awakeners, and facets', () => {

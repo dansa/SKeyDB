@@ -148,6 +148,7 @@
     "endDate": "2026/06/15 09:00",
     "derivedPool": {
       "availabilityTypes": ["LIMITED_ASTRAL_REIGN"],
+      "excludeNames": ["Caraboo"],
       "slotCount": 4,
       "awakenerSlots": 3,
       "wheelSlots": 1
@@ -162,7 +163,11 @@
     "description": "Guaranteed awakening featuring 2 limited SSR Awakeners and 3 limited SSR Wheels, with triple copies for each obtained item.",
     "startDate": "2026/05/30 09:00",
     "endDate": "2026/06/29 09:00",
-    "derivedPool": {"limitedAwakenerType": "ASSAULT", "slotCount": 4}
+    "derivedPool": {
+      "limitedAwakenerType": "ASSAULT",
+      "excludeNames": ["Caraboo"],
+      "slotCount": 4
+    }
   },
   {
     "id": "banner-stars-in-full-bloom-warden",
@@ -173,7 +178,11 @@
     "description": "Guaranteed awakening featuring 2 limited SSR Awakeners and 3 limited SSR Wheels, with triple copies for each obtained item.",
     "startDate": "2026/05/30 09:00",
     "endDate": "2026/06/29 09:00",
-    "derivedPool": {"limitedAwakenerType": "WARDEN", "slotCount": 4}
+    "derivedPool": {
+      "limitedAwakenerType": "WARDEN",
+      "excludeNames": ["Caraboo"],
+      "slotCount": 4
+    }
   },
   {
     "id": "banner-stars-in-full-bloom-chorus",
@@ -184,7 +193,11 @@
     "description": "Guaranteed awakening featuring 2 limited SSR Awakeners and 3 limited SSR Wheels, with triple copies for each obtained item.",
     "startDate": "2026/05/30 09:00",
     "endDate": "2026/06/29 09:00",
-    "derivedPool": {"limitedAwakenerType": "CHORUS", "slotCount": 4}
+    "derivedPool": {
+      "limitedAwakenerType": "CHORUS",
+      "excludeNames": ["Caraboo"],
+      "slotCount": 4
+    }
   },
   {
     "id": "banner-triune-verdant-jun",
@@ -283,15 +296,12 @@
       {
         "name": "Caraboo",
         "kind": "awakener",
-        "customArt": "/banners/caraboo.webp",
-        "realmId": "ULTRA",
-        "detailLink": false
+        "customArt": "/banners/caraboo.webp"
       },
       {
         "name": "Honeyed Deceit",
         "kind": "wheel",
-        "customArt": "/banners/honeyed-deceit.webp",
-        "detailLink": false
+        "customArt": "/banners/honeyed-deceit.webp"
       }
     ],
     "pinned": true

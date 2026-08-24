@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0316",
+  "name": "Pistoles de Marie",
+  "route": {
+    "slug": "pistoles-de-marie",
+    "canonicalPath": "/database/relics/pistoles-de-marie"
+  },
+  "assets": {
+    "icon": "asset-relic-0316-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0568",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "Arithmetica Limit and draws per turn +1. At the start of your turn, {Discover} 3 {overlay:Pistoles de Marie}—only one is Real. Picking the Real one grants its positive effect and dispels 1 random debuff, and resets this card's bonus. Picking a Fake one inflicts its negative effect, and your next {Discover} gains +1 Real option with doubled effects.",
+  "descriptionArgs": {},
+  "lore": "Sweet and precious... or is it?",
+  "variants": [
+    {
+      "id": "relic-variant-0568",
+      "name": "Pistoles de Marie",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "Arithmetica Limit and draws per turn +1. At the start of your turn, {Discover} 3 {overlay:Pistoles de Marie}—only one is Real. Picking the Real one grants its positive effect and dispels 1 random debuff, and resets this card's bonus. Picking a Fake one inflicts its negative effect, and your next {Discover} gains +1 Real option with doubled effects.",
+      "descriptionArgs": {},
+      "lore": "Sweet and precious... or is it?"
+    }
+  ]
+}

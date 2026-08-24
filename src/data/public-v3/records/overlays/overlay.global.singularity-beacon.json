@@ -14,6 +14,6 @@
   "aliases": [],
   "iconId": "IconS_Buff_067",
   "textColor": "affliction",
-  "descriptionTemplate": "Each stack increases this card's Final DMG, Fixed {STR} & {Tentacle DMG} gain, Fixed {Poison} & {Counter} by 2%, and its Final Fixed Shield, Fixed HP Recovery, and {STR▼} by 1% This card cannot trigger {Dimension Shuttle}.",
+  "descriptionTemplate": "Each stack increases this card's Final DMG, Fixed {STR} & {Tentacle DMG} gain, Fixed {Poison} & {Counter} by 2%, and its Final Fixed Shield, Fixed HP Recovery, and {STR▼} by 1% this card cannot trigger {overlay:Dimension Shuttle}.",
   "descriptionArgs": {}
 }

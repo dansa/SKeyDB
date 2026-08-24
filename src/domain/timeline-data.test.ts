@@ -147,6 +147,25 @@ describe('timeline data loading', () => {
     ])
   })
 
+  it('enables released Caraboo timeline details without prerelease realm overrides', () => {
+    const carabooBanner = timelineBanners.find((banner) => banner.id === 'banner-caraboo')
+    const carabooEvent = timelineEvents.find((event) => event.id === 'event-story-caraboo')
+    const soulSynchronizationEvent = timelineEvents.find(
+      (event) => event.id === 'event-wheel-soul-synchronization',
+    )
+
+    expect(carabooBanner?.featured).toMatchObject([
+      {kind: 'awakener', name: 'Caraboo', detailLink: undefined, realmId: undefined},
+      {kind: 'wheel', name: 'Honeyed Deceit', detailLink: undefined},
+    ])
+    expect(carabooEvent?.featured).toMatchObject([
+      {kind: 'awakener', name: 'Caraboo', detailLink: undefined, realmId: undefined},
+    ])
+    expect(soulSynchronizationEvent?.featured).toMatchObject([
+      {kind: 'wheel', name: 'Soul Synchronization', detailLink: undefined},
+    ])
+  })
+
   it('derives Stars in Full Bloom premium pools by limited SSR awakener type', () => {
     const assault = timelineBanners.find(
       (banner) => banner.id === 'banner-stars-in-full-bloom-assault',

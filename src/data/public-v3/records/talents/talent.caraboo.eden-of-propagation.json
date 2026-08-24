@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 3,
+  "kind": "talent",
+  "id": "talent.caraboo.eden-of-propagation",
+  "name": "Eden of Propagation",
+  "route": {
+    "slug": "eden-of-propagation",
+    "canonicalPath": "/database/awakeners/caraboo/talents/eden-of-propagation"
+  },
+  "ownerAwakenerId": "awakener-0060",
+  "family": "passive",
+  "descriptionTemplate": "When Caraboo is on the team, the {Caro} Realm is tricked into becoming {Propagation: Caro}.\n\n{Embryo Fusion}: The {Embryo Fusion} gained per turn increases to 50~100, scaling with HP lost. The {Embryo Fusion} cap increases from 100 to 200. Upon reaching the cap, add 1 {Propagule Embryo} into hand.\n\n{Propagule Embryo}: Playing this card no longer grants Crit. Rate. {Devour} no longer grants Shield or Temporary {STR}. The first time each Awakener consumes a {Propagule Embryo} each turn, they gain 40 stacks of {Propagation Fiesta}: Each stack enhances the following Final effects of that Awakener's next Exalt this turn by 1%: Final DMG, Fixed Shield, Fixed HP Recovery, Fixed {STR}/{STR▼}, {Tentacle DMG} Bonus, Fixed {Poison}, and Fixed {Counter}.\n\n{Crimson Furnace}: The auto-accumulation At turn start changes to 10% of HP lost, up to 50% of Max HP. No longer accumulates at the end of battle. 3 turns cooldown.\n\nCrimson Corrosion: After using {Crimson Furnace}, inflict {Corrosion} on all enemies equal to 1% of their Max HP. The more {Crimson Furnace} consumed, the stronger the {Corrosion} effect, up to +100%. Deals 5× {Corrosion} effect against \"Empty Shell\" enemies.\n\nAt the start of exploration, Max HP +10%, team DMG Amplification +50%, and all Awakeners gain 20 stacks of {Propagation Fiesta} At turn start. If the team consists only of {Caro} or {Chaos} Awakeners, the DMG Amplification granted by this effect is doubled.\nRealm Mastery becomes {Propagation: Caro Mastery}: Each point of Realm Mastery increases the {Propagation Fiesta} stacks gained from {Propagation: Caro} by 0.05%.\n\nIf the team consists only of {Caro} or {Chaos} Awakeners, the {Propagation: Caro Mastery} effect is doubled.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Caraboo"
+}

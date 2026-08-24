@@ -15,7 +15,7 @@
   "mainstatKey": "CRIT_DMG",
   "ownerAwakenerId": "awakener-0058",
   "ownerAwakenerName": "Pontos",
-  "lineupToken": "y8",
+  "lineupToken": "y6",
   "descriptionTemplate": "Team Unique: The wielder's {STR▼} effect +[StateArg1]%. After switching to the {Raging Waves} stance, Temporary Crit. DMG increases by an amount equal to [StateArg1]% of the wielder's Base Crit. DMG, with a 3-turn cooldown.",
   "descriptionArgs": {
     "StateArg1": {

@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0513",
   "rarity": "N",
   "aliases": ["Trigon Prism+"],
-  "descriptionTemplate": "Whenever a card enters the {Ultra Space}, draw [Arg1] Command Cards belonging to This card's owner from the Draw Pile. If unable to draw, gain an equal amount of Arithmetica instead. This effect can trigger at most 2 times per turn.",
+  "descriptionTemplate": "Whenever a card enters the {Ultra Space}, draw [Arg1] Command Cards belonging to this card's owner from the Draw Pile. If unable to draw, gain an equal amount of Arithmetica instead. This effect can trigger at most 2 times per turn.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -33,7 +33,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "Whenever a card enters the {Ultra Space}, draw [Arg1] Command Cards belonging to This card's owner from the Draw Pile. If unable to draw, gain an equal amount of Arithmetica instead. This effect can trigger at most 2 times per turn.",
+      "descriptionTemplate": "Whenever a card enters the {Ultra Space}, draw [Arg1] Command Cards belonging to this card's owner from the Draw Pile. If unable to draw, gain an equal amount of Arithmetica instead. This effect can trigger at most 2 times per turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -49,7 +49,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "Whenever a card enters the {Ultra Space}, draw [Arg1] Command Cards belonging to This card's owner from the Draw Pile. If unable to draw, gain an equal amount of Arithmetica instead. This effect can trigger at most 2 times per turn.",
+      "descriptionTemplate": "Whenever a card enters the {Ultra Space}, draw [Arg1] Command Cards belonging to this card's owner from the Draw Pile. If unable to draw, gain an equal amount of Arithmetica instead. This effect can trigger at most 2 times per turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

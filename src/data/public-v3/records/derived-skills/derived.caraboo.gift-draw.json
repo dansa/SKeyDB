@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.caraboo.gift-draw",
+  "name": "Gift: Draw",
+  "route": {
+    "slug": "gift-draw",
+    "canonicalPath": "/database/awakeners/caraboo/derived-skills/gift-draw"
+  },
+  "ownerAwakenerId": "awakener-0060",
+  "derivedFromId": "derived.caraboo.blessing-gifts",
+  "rootSkillId": "skill.caraboo.miracle-blessing",
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
+  "descriptionTemplate": "Draw [Arg1] cards.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "8"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.retain"
+    },
+    {
+      "id": "mechanic.prepare",
+      "value": 1
+    }
+  ],
+  "cost": "1",
+  "ownerAwakenerName": "Caraboo"
+}

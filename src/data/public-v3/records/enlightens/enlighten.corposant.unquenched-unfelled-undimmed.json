@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0011",
   "slot": "AbsoluteAxiom",
-  "descriptionTemplate": "{Rouse} {Sunken in the Profound} is enhanced: The first {Lightning Retribution} and {Ominous Semaphore} Corposant plays each turn place 1 additional {Pilot} into hand. {Pilot} effect +50%.",
+  "descriptionTemplate": "{Rouse} {Sunken in the Profound} is enhanced: The first {Lightning Retribution} and {Ominous Semaphore} Corposant plays each turn place 1 additional {derived:Pilot} into hand. {derived:Pilot} effect +50%.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Corposant"
 }

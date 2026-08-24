@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.soul-synchronization",
+  "name": "Soul Synchronization",
+  "route": {
+    "slug": "soul-synchronization",
+    "canonicalPath": "/database/derived-skills/soul-synchronization"
+  },
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
+  "descriptionTemplate": "Gain 1 Arithmetica when played.\n{Retain}: While in hand, this card accumulates Fixed HP Recovery (equal to [Arg1]% of the wielder's CON) and [Arg2] Fixed Aliemus per turn. If the wielder takes fatal damage, this card prevents their death, releases all stored HP and Aliemus to them, and is then {Destroyed}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": ["3", "4", "5", "6"],
+      "scalingContext": "wheelRefinement",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": ["1", "2", "3", "4"],
+      "scalingContext": "wheelRefinement"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "0"
+}

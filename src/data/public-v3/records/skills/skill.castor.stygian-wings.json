@@ -11,7 +11,7 @@
   "slot": "Skill2",
   "cardFamily": "command",
   "cardTypes": ["skill"],
-  "descriptionTemplate": "Gain [Block:Arg1] Shield, inflict {Weakness} on all enemies for 1 turn. {Quasar}: Shuffle 1 {Onyx Plume} into the Draw Pile, Gain [Block:Arg3] Shield.",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield, inflict {Weakness} on all enemies for 1 turn. {Quasar}: Shuffle 1 {derived:Onyx Plume} into the Draw Pile, Gain [Block:Arg3] Shield.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -39,7 +39,7 @@
       "ownerAwakenerId": "awakener-0008",
       "ownerAwakenerName": "Castor",
       "patch": {
-        "descriptionTemplate": "Gain [Block:Arg1] Shield, inflict {Weakness} on all enemies for 1 turn. For every {Onyx Plume} in hand, Gain [Energy:Arg2] Aliemus. {Quasar}: Shuffle 1 {Onyx Plume} into the Draw Pile, Gain [Block:Arg3] Shield.",
+        "descriptionTemplate": "Gain [Block:Arg1] Shield, inflict {Weakness} on all enemies for 1 turn. For every {derived:Onyx Plume} in hand, Gain [Energy:Arg2] Aliemus. {Quasar}: Shuffle 1 {derived:Onyx Plume} into the Draw Pile, Gain [Block:Arg3] Shield.",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

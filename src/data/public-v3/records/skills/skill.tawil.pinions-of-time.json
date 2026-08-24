@@ -11,7 +11,7 @@
   "slot": "Skill2",
   "cardFamily": "command",
   "cardTypes": ["skill"],
-  "descriptionTemplate": "Obtain [Power:Arg1] {STR}. Shuffle {Twin Wings} into the Draw Pile.",
+  "descriptionTemplate": "Obtain [Power:Arg1] {STR}. Shuffle {derived:Twin Wings} into the Draw Pile.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -37,7 +37,7 @@
       "ownerAwakenerId": "awakener-0047",
       "ownerAwakenerName": "Tawil",
       "patch": {
-        "descriptionTemplate": "Obtain [Power:Arg1] {STR} and 1 {derived:Insight}. Shuffle {Twin Wings} into the Draw Pile."
+        "descriptionTemplate": "Obtain [Power:Arg1] {STR} and 1 {derived:Insight}. Shuffle {derived:Twin Wings} into the Draw Pile."
       }
     }
   ],

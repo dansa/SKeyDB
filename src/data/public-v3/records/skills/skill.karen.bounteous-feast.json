@@ -11,7 +11,7 @@
   "slot": "OverExalt",
   "cardFamily": "exalt",
   "cardTypes": ["over_exalt"],
-  "descriptionTemplate": "Shuffle 1 {Marvelous Cuisine} into the Draw Pile and Discard Pile respectively.",
+  "descriptionTemplate": "Shuffle 1 {derived:Marvelous Cuisine} into the Draw Pile and Discard Pile respectively.",
   "descriptionArgs": {},
   "cardKeywords": [],
   "ownerAwakenerName": "Karen"

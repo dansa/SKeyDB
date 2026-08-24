@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0065",
   "rarity": "SSR",
   "aliases": [],
-  "descriptionTemplate": "At turn start, deal [Arg1] DMG to a random enemy. After playing \"Strike\" 7 times in this battle, the DMG dealt will change to [Arg2]. After playing \"Strike\" 21 times, instantly deal [Arg3] DMG to all enemies.",
+  "descriptionTemplate": "At turn start, deal [Arg1] {Pure DMG} to a random enemy. After playing \"Strike\" 7 times in this battle, the DMG dealt will change to [Arg2]. After playing \"Strike\" 21 times, instantly deal [Arg3] {Pure DMG} to all enemies.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
@@ -52,7 +52,7 @@
       "tier": "Gold",
       "category": "FADED_LEGACY",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, deal [Arg1] DMG to a random enemy. After playing \"Strike\" 7 times in this battle, the DMG dealt will change to [Arg2]. After playing \"Strike\" 21 times, instantly deal [Arg3] DMG to all enemies.",
+      "descriptionTemplate": "At turn start, deal [Arg1] {Pure DMG} to a random enemy. After playing \"Strike\" 7 times in this battle, the DMG dealt will change to [Arg2]. After playing \"Strike\" 21 times, instantly deal [Arg3] {Pure DMG} to all enemies.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

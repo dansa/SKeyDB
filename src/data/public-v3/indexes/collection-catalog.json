@@ -60,7 +60,8 @@
       "awakener-0056",
       "awakener-0057",
       "awakener-0058",
-      "awakener-0059"
+      "awakener-0059",
+      "awakener-0060"
     ],
     "covenants": [
       "covenant-0001",
@@ -138,7 +139,8 @@
       "posse-0050",
       "posse-0051",
       "posse-0052",
-      "posse-0053"
+      "posse-0053",
+      "posse-0062"
     ],
     "relics": [
       "relic-0001",
@@ -434,7 +436,10 @@
       "relic-0310",
       "relic-0311",
       "relic-0312",
-      "relic-0313"
+      "relic-0313",
+      "relic-0314",
+      "relic-0315",
+      "relic-0316"
     ],
     "wheels": [
       "wheel-0001",
@@ -576,7 +581,10 @@
       "wheel-0171",
       "wheel-0172",
       "wheel-0173",
-      "wheel-0174"
+      "wheel-0174",
+      "wheel-0175",
+      "wheel-0176",
+      "wheel-0177"
     ]
   },
   "content": {
@@ -670,7 +678,8 @@
         "awakener-0048",
         "awakener-0051",
         "awakener-0054",
-        "awakener-0057"
+        "awakener-0057",
+        "awakener-0060"
       ],
       "CHAOS": [
         "awakener-0001",
@@ -762,7 +771,8 @@
         "awakener-0055",
         "awakener-0056",
         "awakener-0057",
-        "awakener-0058"
+        "awakener-0058",
+        "awakener-0060"
       ]
     },
     "possesByRealm": {
@@ -778,7 +788,8 @@
         "posse-0040",
         "posse-0042",
         "posse-0047",
-        "posse-0051"
+        "posse-0051",
+        "posse-0062"
       ],
       "CHAOS": [
         "posse-0009",
@@ -1076,7 +1087,10 @@
         "relic-0308",
         "relic-0309",
         "relic-0310",
-        "relic-0313"
+        "relic-0313",
+        "relic-0314",
+        "relic-0315",
+        "relic-0316"
       ]
     },
     "wheelsByRealm": {
@@ -1109,7 +1123,8 @@
         "wheel-0011",
         "wheel-0012",
         "wheel-0013",
-        "wheel-0167"
+        "wheel-0167",
+        "wheel-0175"
       ],
       "CHAOS": [
         "wheel-0014",
@@ -1213,7 +1228,9 @@
         "wheel-0169",
         "wheel-0170",
         "wheel-0173",
-        "wheel-0174"
+        "wheel-0174",
+        "wheel-0176",
+        "wheel-0177"
       ],
       "ULTRA": [
         "wheel-0030",
@@ -1298,7 +1315,8 @@
         "wheel-0137",
         "wheel-0168",
         "wheel-0169",
-        "wheel-0173"
+        "wheel-0173",
+        "wheel-0176"
       ],
       "SSR": [
         "wheel-0001",
@@ -1375,7 +1393,9 @@
         "wheel-0170",
         "wheel-0171",
         "wheel-0172",
-        "wheel-0174"
+        "wheel-0174",
+        "wheel-0175",
+        "wheel-0177"
       ]
     }
   }

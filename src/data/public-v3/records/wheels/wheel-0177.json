@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 3,
+  "kind": "wheel",
+  "id": "wheel-0177",
+  "name": "Soul Synchronization",
+  "route": {
+    "slug": "soul-synchronization",
+    "canonicalPath": "/database/wheels/soul-synchronization"
+  },
+  "assets": {
+    "icon": "asset-wheel-0177-icon"
+  },
+  "rarity": "SSR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "SIGIL_YIELD",
+  "lineupToken": "zf",
+  "descriptionTemplate": "Team Unique: At the start of exploration, add 1 {Soul Synchronization} to your deck.\n{derived:Soul Synchronization} (0 Arithmetica Cost): Gain 1 Arithmetica when played.\n{Retain}: While in hand, this card accumulates Fixed HP Recovery (equal to [StateArg1]% of the wielder's CON) and [StateArg2] Fixed Aliemus per turn. If the wielder takes fatal damage, this card prevents their death, releases all stored HP and Aliemus to them, and is then {Destroyed}.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": ["3", "4", "5", "6"],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": ["1", "2", "3", "4"]
+    },
+    "StateArg3": {
+      "kind": "scaling",
+      "values": ["1", "2", "3", "4"]
+    }
+  },
+  "lore": "The laboratory stood empty, its precision instruments arranged in perfect order. Only the countless cables broke the stillness, crisscrossing like coiled serpents, slithering along the floor and dangling from the ceiling.\n\nThe signals of thought flowed like an invisible river, but the Genius had long grown accustomed to navigating such currents. The brain was their wellspring; from there they streamed through mechanical conduits and pooled, at last, within this newly wrought vessel.\n\nAs consciousness passed through the channels, long-buried memories surfaced along with it. Family. Mythag. Experiments left unfinished. In that hazy moment, the Genius recalled a time many years ago, when she had not yet shed the shackles of her original flesh. There had been a certain idle student who used to circle her with great interest, eyes bright with the light of curiosity.\n\n\"Do you think an artificial body can house a true soul?\"\n\nMortals were forever imagining things far beyond the reach of their sight. It was a vulgar question. But as a teacher, she had offered a few words in reply, though she did not so much as lift her eyes.\n\n\"Is your own body not, in its way, a manufactured thing? The workings of the heart, the limbs, the five senses—how do they truly differ from a machine?\"\n\n\"Enough. Rather than wasting your time on such wandering thoughts, put in the effort to sharpen that rusting brain of yours. Otherwise, that blood-coursing flesh of yours will only prove more useless still.\"\n\nNow the one who had asked the question was long since buried beneath the sands of time, gone from the world. Only the brain vat that carried her intellect remained, thinking still, and thinking on forever.\n\nWhat the world called a soul was nothing more than the electrochemical activity woven together by some 86 billion neurons. Flesh or machine, the difference in raw material could not change the essential truth: they were only vessels.\n\nYes, mortals were powerless. But she, being a Genius, could do it, and had already done it. Only in this way could the truths of the world be unveiled, could the summit of knowledge be reached.\n\nSight was only light passing through the eye, gathering at last into an image upon the retina.\n\nSmell was only molecules of scent binding to their receptors, tracing chemical pathways across the nerves.\n\nHearing was only sound waves transduced within the cochlea, converted into electrical signals sent upward to the cortex.\n\nThe chamber where the doll now stood was very dim. The faint light wavered, too weak even to cast a shadow. Her eyes were half closed, for she knew that even were she to open them, the scene reflected there would be as it always was, unchanging.\n\nThe room had been swept clean of every speck of dust. The fluids in their jars and vials were sealed tightly away. The body had no need to breathe, still less to draw in this scentless air for the sake of testing its senses.\n\nOnly a single cold, mechanical chime echoed through the empty laboratory:\n\n\"Consciousness synchronization complete. Body activation confirmed.\"\n\nThat was enough.\n\nIt was an inorganic voice, and yet it sounded almost familiar, as though it anchored her to the reality of the material world. Or perhaps it was simply reminding her, in its plain and simple way, that her brief moment of rest was over, and that it was time once again to give herself over to a new round of research.",
+  "searchTags": ["Arithmetica", "Heal"]
+}

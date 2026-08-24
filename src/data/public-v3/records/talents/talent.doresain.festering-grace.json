@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0014",
   "family": "passive",
-  "descriptionTemplate": "After Doresain gains a {Corpse}, put 1 \"Evernight's Revel\" into hand.",
+  "descriptionTemplate": "After Doresain gains a {Corpse}, put 1 {derived:Evernight's Revel} into hand.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Doresain"
 }

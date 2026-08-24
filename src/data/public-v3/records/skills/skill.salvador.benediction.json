@@ -41,7 +41,7 @@
       "ownerAwakenerId": "awakener-0044",
       "ownerAwakenerName": "Salvador",
       "patch": {
-        "descriptionTemplate": "Salvador gains [Energy:Arg1] Aliemus. {Rouse}: Place 1 {Sanctuary of Mercy} into hand. At turn end, gain [Power:Arg2] {STR}. {Crimson Furnace} accumulated by {He Who Protects} and {Blessed are the Bones} +25%, and when {Liberation} is selected for {End of Suffering}, every 1% of Max HP consumed from Furnace improves Final DMG from 2% to 5%."
+        "descriptionTemplate": "Salvador gains [Energy:Arg1] Aliemus. {Rouse}: Place 1 {Sanctuary of Mercy} into hand. At turn end, gain [Power:Arg2] {STR}. {Crimson Furnace} accumulated by {He Who Protects} and {Blessed are the Bones} +25%, and when {derived:Liberation} is selected for {End of Suffering}, every 1% of Max HP consumed from Furnace improves Final DMG from 2% to 5%."
       }
     }
   ],

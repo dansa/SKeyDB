@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 3,
+  "kind": "overlay",
+  "id": "overlay.caraboo.satiety",
+  "name": "Satiety",
+  "route": {
+    "slug": "satiety",
+    "canonicalPath": "/database/awakeners/caraboo/overlays/satiety"
+  },
+  "assets": {
+    "icon": "asset-overlay.caraboo.satiety-icon"
+  },
+  "overlayType": "mechanic",
+  "ownerAwakenerId": "awakener-0060",
+  "aliases": [],
+  "iconId": "IconS_Buff_091",
+  "textColor": "damage",
+  "descriptionTemplate": "Each stack increases Max HP by 10% of Caraboo's CON (Max 50 stacks). At max stacks, excess stacks instead heal for 3× this HP value. Up to 10 stacks of {Satiety} can be gained per non-Boss battle. {Satiety} Persists between battles.",
+  "descriptionArgs": {},
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.caraboo.threefold-vow.overlay.caraboo.satiety",
+      "operation": "replace_description",
+      "upgraderId": "enlighten.caraboo.threefold-vow",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "E3",
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "patch": {
+        "descriptionTemplate": "Each stack increases Max HP by 15% of Caraboo's CON (Max 50 stacks). At max stacks, excess stacks instead heal for 3× this HP value. Up to 10 stacks of {Satiety} can be gained per non-Boss Battle. {Satiety} persists between battles."
+      }
+    }
+  ],
+  "ownerAwakenerName": "Caraboo"
+}

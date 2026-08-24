@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0044",
   "ownerAwakenerName": "Salvador",
   "lineupToken": "xO",
-  "descriptionTemplate": "Team Unique: At turn end, the wielder gains [StateArg1] Aliemus. When taking DMG, gain Shield equal to [StateArg2]% of the DMG at the start of next turn. If the current Realm is {Caro}, gain {Crimson Furnace} equal to [StateArg2]% of the DMG instead.",
+  "descriptionTemplate": "Team Unique: At turn end, the wielder gains [StateArg1] Aliemus. When taking Active and {Tentacle DMG}, gain Shield equal to [StateArg2]% of the DMG at the start of next turn. If the current Realm is {Caro}, gain {Crimson Furnace} equal to [StateArg2]% of the DMG instead.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "fixed",

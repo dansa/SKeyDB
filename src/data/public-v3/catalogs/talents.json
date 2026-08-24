@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "talents",
   "kind": "talent",
-  "recordCount": 222,
+  "recordCount": 226,
   "records": [
     {
       "kind": "talent",
@@ -2872,6 +2872,58 @@
       },
       "ownerAwakenerId": "awakener-0059",
       "ownerAwakenerName": "Lotan: Cetarchon",
+      "family": "gnostic_potential",
+      "maxLevel": 5,
+      "defaultMaxed": true
+    },
+    {
+      "kind": "talent",
+      "id": "talent.caraboo.eden-of-propagation",
+      "name": "Eden of Propagation",
+      "route": {
+        "slug": "eden-of-propagation",
+        "canonicalPath": "/database/awakeners/caraboo/talents/eden-of-propagation"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "family": "passive"
+    },
+    {
+      "kind": "talent",
+      "id": "talent.caraboo.madness-omen",
+      "name": "Madness Omen",
+      "route": {
+        "slug": "madness-omen",
+        "canonicalPath": "/database/awakeners/caraboo/talents/madness-omen"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "kind": "talent",
+      "id": "talent.caraboo.soulforge-aptitude",
+      "name": "Soulforge Aptitude",
+      "route": {
+        "slug": "soulforge-aptitude",
+        "canonicalPath": "/database/awakeners/caraboo/talents/soulforge-aptitude"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "kind": "talent",
+      "id": "talent.caraboo.gnostic-potential",
+      "name": "Gnostic Potential",
+      "route": {
+        "slug": "gnostic-potential",
+        "canonicalPath": "/database/awakeners/caraboo/talents/gnostic-potential"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
       "family": "gnostic_potential",
       "maxLevel": 5,
       "defaultMaxed": true

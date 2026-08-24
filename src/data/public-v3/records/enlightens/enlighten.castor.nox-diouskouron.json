@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0008",
   "slot": "AbsoluteAxiom",
-  "descriptionTemplate": "{Rouse} {Skybound Oath} is enhanced: Castor's first {Onyx Plume} each turn inflicts {Cleansing Feathers} {Corrosion} on the front-row enemy. {Corrosion} removal DMG: 300% → 500%.",
+  "descriptionTemplate": "{Rouse} {Skybound Oath} is enhanced: Castor's first {derived:Onyx Plume} each turn inflicts {Cleansing Feathers} {Corrosion} on the front-row enemy. {Corrosion} removal DMG: 300% → 500%.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Castor"
 }

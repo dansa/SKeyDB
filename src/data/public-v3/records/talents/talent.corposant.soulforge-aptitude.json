@@ -10,7 +10,7 @@
   "ownerAwakenerId": "awakener-0011",
   "family": "soulforge_aptitude",
   "maxLevel": 10,
-  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nAt the start of battle, all enemies take [Arg3]% more {Tentacle DMG}. This effect doubles against {Aequor} enemies. The DMG dealt by {Lightning Retribution} to {Aequor} enemies +[Arg4]%.",
+  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nAt the start of battle, all enemies take [Arg3]% more {Tentacle DMG}. This effect doubles against {Aequor} enemies. The Active DMG dealt by {Lightning Retribution} to {Aequor} enemies +[Arg4]%.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "linear",

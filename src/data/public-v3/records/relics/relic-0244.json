@@ -89,7 +89,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SR",
-      "descriptionTemplate": "At the start of the battle, {Rouse} all Awakeners, place {Twilight: Mutated Heart} into hand. At turn start, you can choose to discard any number of cards in hand and draw the same amount. Gain [Arg1] Temporary {STR} in odd-numbered turns, and place \"{Unyielding Will β} into hand. Gain [Arg2] Temporary {Alert} in even-numbered turns, and place {Hideβ} into hand",
+      "descriptionTemplate": "At the start of the battle, {Rouse} all Awakeners, place {derived:Twilight: Heart of Mutation} into hand. At turn start, you can choose to discard any number of cards in hand and draw the same amount. Gain [Arg1] Temporary {STR} in odd-numbered turns, and place \"{Unyielding Will β} into hand. Gain [Arg2] Temporary {Alert} in even-numbered turns, and place {Hideβ} into hand",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -135,7 +135,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SR",
-      "descriptionTemplate": "At battle start, {Rouse} all Awakeners, place {Twilight: The Envoy's Verdict} into hand, and double the team's DMG Amplification. The {Weakness} effect inflicted by you increases from 25% to 50%. At the end of each turn, gain Shield equal to [Arg1]% of Max HP and deal {Fixed DMG} equal to [Arg2] x Shield to all enemies.",
+      "descriptionTemplate": "At battle start, {Rouse} all Awakeners, place {Twilight: The Envoy's Verdict} into hand, and double the team's DMG Amplification. The {Weakness} effect inflicted by you increases from 25% to 50%. At the end of each turn, gain Shield equal to [Arg1]% of Max HP and deal {Pure DMG} equal to [Arg2] x Shield to all enemies.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

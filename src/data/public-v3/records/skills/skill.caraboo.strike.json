@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 3,
+  "kind": "skill",
+  "id": "skill.caraboo.strike",
+  "name": "Strike",
+  "route": {
+    "slug": "strike",
+    "canonicalPath": "/database/awakeners/caraboo/skills/strike"
+  },
+  "ownerAwakenerId": "awakener-0060",
+  "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG. Caraboo gains [Energy:Arg2] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": ["10", "12", "14", "16", "18", "20"],
+      "stat": "ATK",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": ["5", "6", "7", "8", "9", "10"]
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1",
+  "lore": "<Italic:\"This fairy's making her move! My super attack magic can shatter any defense!\">",
+  "ownerAwakenerName": "Caraboo"
+}

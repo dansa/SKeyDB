@@ -12,7 +12,7 @@
   "rootSkillId": "skill.erica.unleash-mecha",
   "cardFamily": "command",
   "cardTypes": ["skill"],
-  "descriptionTemplate": "Gain [Arg1] Temporary {Alert}. Obtain Keyflare equal to Erica's Keyflare Regen. Dispel self {Fragile} state. Whenever a card enters {Ultra Space}, transform into {Unleash: Mecha}.",
+  "descriptionTemplate": "Gain [Arg1] Temporary {Alert}. Obtain Keyflare equal to Erica's Keyflare Regen. Dispel self {Fragile} state. Whenever a card enters {overlay:Ultra Space}, transform into {Unleash: Mecha}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -33,7 +33,7 @@
       "ownerAwakenerId": "awakener-0015",
       "ownerAwakenerName": "Erica",
       "patch": {
-        "descriptionTemplate": "Gain [Arg1] Temporary {Alert}. Obtain Keyflare equal to Erica's Keyflare Regen. Dispel self {Fragile} State. Place 1 of Erica's \"Defense\" with {Exhaust} into hand. Whenever a card enters {Ultra Space}, transform into {Unleash: Mecha}."
+        "descriptionTemplate": "Gain [Arg1] Temporary {Alert}. Obtain Keyflare equal to Erica's Keyflare Regen. Dispel self {Fragile} State. Place 1 of Erica's \"Defense\" with {Exhaust} into hand. Whenever a card enters {overlay:Ultra Space}, transform into {Unleash: Mecha}."
       }
     }
   ],

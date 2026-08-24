@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.caraboo.gilded-words",
+  "name": "Gilded Words",
+  "route": {
+    "slug": "gilded-words",
+    "canonicalPath": "/database/awakeners/caraboo/derived-skills/gilded-words"
+  },
+  "ownerAwakenerId": "awakener-0060",
+  "derivedFromId": "derived.caraboo.blessing-prices",
+  "rootSkillId": "skill.caraboo.miracle-blessing",
+  "descriptionTemplate": "Reduces the associated {derived:Gift} effect by 50%.",
+  "descriptionArgs": {},
+  "cardKeywords": [],
+  "ownerAwakenerName": "Caraboo"
+}

@@ -355,6 +355,12 @@
       "legacyId": 59,
       "legacyName": "lotan-cetarchon",
       "id": "awakener-0059"
+    },
+    {
+      "codecIndex": 60,
+      "legacyId": 60,
+      "legacyName": "caraboo",
+      "id": "awakener-0060"
     }
   ],
   "wheels": [
@@ -1057,6 +1063,21 @@
       "codecIndex": 140,
       "legacyId": "wheel-0174",
       "id": "wheel-0174"
+    },
+    {
+      "codecIndex": 141,
+      "legacyId": "wheel-0175",
+      "id": "wheel-0175"
+    },
+    {
+      "codecIndex": 142,
+      "legacyId": "wheel-0176",
+      "id": "wheel-0176"
+    },
+    {
+      "codecIndex": 143,
+      "legacyId": "wheel-0177",
+      "id": "wheel-0177"
     }
   ],
   "covenants": [
@@ -1431,6 +1452,11 @@
       "codecIndex": 55,
       "legacyId": "posse-0053",
       "id": "posse-0053"
+    },
+    {
+      "codecIndex": 56,
+      "legacyId": "posse-0062",
+      "id": "posse-0062"
     }
   ]
 }

@@ -15,7 +15,7 @@
   "mainstatKey": "DEATH_RESISTANCE",
   "ownerAwakenerId": "awakener-0033",
   "ownerAwakenerName": "Mouchette",
-  "lineupToken": "yM",
+  "lineupToken": "yK",
   "descriptionTemplate": "The Base DMG of the wielder's Exalt and {Pursuit} each +[StateArg1]%.\nAfter any Awakener's Strike Command is played, DMG dealt by the wielder's Strike Commands this turn increases by [StateArg2]% of the wielder's ATK.\n(This effect stacks up to 8 times.)",
   "descriptionArgs": {
     "StateArg1": {

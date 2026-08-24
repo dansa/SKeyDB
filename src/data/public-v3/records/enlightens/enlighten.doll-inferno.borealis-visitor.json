@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0018",
   "slot": "E1",
-  "descriptionTemplate": "{Self-Destruct} Transformation applies 1 turn of {Vulnerable} to all enemies when {Elation} is chosen, and applies 1 turn of {Weakness} to all enemies when \"Curse\" is chosen.",
+  "descriptionTemplate": "{Self-Destruct} Transformation applies 1 turn of {Vulnerable} to all enemies when {derived:Elation} is chosen, and applies 1 turn of {Weakness} to all enemies when {derived:Curse} is chosen.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Doll: Inferno"
 }

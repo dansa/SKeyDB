@@ -12,7 +12,7 @@
   },
   "numericId": 47,
   "ingameId": "C15",
-  "lineupToken": "X",
+  "lineupToken": "W",
   "realm": "CHAOS",
   "rarity": "SSR",
   "type": "CHORUS",
@@ -20,7 +20,7 @@
   "releaseDate": "2024-11-18",
   "faction": "Gateway",
   "aliases": ["tawil"],
-  "searchTags": ["Barrier", "STR Up", "Pierce DMG", "Fixed DMG", "Arithmetica", "Discard", "Draw", "Keyflare", "Max HP DMG"],
+  "searchTags": ["Barrier", "STR Up", "Pierce DMG", "Arithmetica", "Discard", "Draw", "Keyflare", "Max HP DMG"],
   "primaryScalingBase": 20,
   "baseStatsLv1": {
     "CON": 32,

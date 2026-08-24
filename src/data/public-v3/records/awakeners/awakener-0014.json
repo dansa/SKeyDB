@@ -12,7 +12,7 @@
   },
   "numericId": 14,
   "ingameId": "B10",
-  "lineupToken": "xi",
+  "lineupToken": "xh",
   "realm": "CARO",
   "rarity": "SSR",
   "type": "ASSAULT",
@@ -20,7 +20,7 @@
   "releaseDate": "2025-07-21",
   "faction": "Out of the Aeons",
   "aliases": ["doresain"],
-  "searchTags": ["Vulnerable", "STR Up", "Pierce DMG", "Fixed DMG", "Self-Damage"],
+  "searchTags": ["Vulnerable", "STR Up", "Pierce DMG", "Self-Damage"],
   "primaryScalingBase": 20,
   "baseStatsLv1": {
     "CON": 35,

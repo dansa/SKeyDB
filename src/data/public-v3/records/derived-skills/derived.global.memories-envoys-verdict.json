@@ -10,7 +10,7 @@
   "derivedFromId": "derived.global.twilight-envoys-verdict",
   "cardFamily": "effect",
   "cardTypes": ["effect"],
-  "descriptionTemplate": "Deal {Fixed DMG} equal to 25% of Max HP to backline enemies and gain Shield equal to 25% of Max HP.",
+  "descriptionTemplate": "Deal {Pure DMG} equal to 25% of Max HP to back-row enemies and gain Shield equal to 25% of Max HP.",
   "descriptionArgs": {},
   "cardKeywords": [
     {

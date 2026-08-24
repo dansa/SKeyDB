@@ -11,7 +11,7 @@
   "slot": "Skill1",
   "cardFamily": "command",
   "cardTypes": ["skill"],
-  "descriptionTemplate": "Shuffle 1 {Swarm Impact} that deals [Damage:Arg1] DMG X+4 times into the top of your Draw Pile. {Leap}: Additionally, shuffle 1 {Get 'em! Brown!} into the top of your Draw Pile.",
+  "descriptionTemplate": "Shuffle 1 {derived:Swarm Impact} that deals [Damage:Arg1] DMG X+4 times into the top of your Draw Pile. {Leap}: Additionally, shuffle 1 {Get 'em! Brown!} into the top of your Draw Pile.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

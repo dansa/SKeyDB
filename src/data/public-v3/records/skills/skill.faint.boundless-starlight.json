@@ -11,7 +11,7 @@
   "slot": "Rouse",
   "cardFamily": "rouse",
   "cardTypes": ["rouse"],
-  "descriptionTemplate": "Faint gains [Energy:Arg1] Aliemus. {Rouse}: Gain [Counterattack:Arg3] stacks of {Counter}. The {Death Resistance} decay rate is reduced from 50% to 45% during this battle. When Faint plays a card, {Steal} [Arg2] {STR} from all enemies. At turn end, deal {Fixed DMG} equal to 50% of Faint's {Counter}.",
+  "descriptionTemplate": "Faint gains [Energy:Arg1] Aliemus. {Rouse}: Gain [Counterattack:Arg3] {plural:[Counterattack:Arg3]|stack|stacks} of {Counter}. The {Death Resistance} decay rate is reduced from 50% to 45% during this battle. When Faint plays a card, {Steal} [Arg2] {STR} from all enemies. At turn end, trigger 50% {Counter} against the front-row enemy.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -52,7 +52,7 @@
       "ownerAwakenerId": "awakener-0016",
       "ownerAwakenerName": "Faint",
       "patch": {
-        "descriptionTemplate": "Faint gains [Energy:Arg1] Aliemus. {Rouse}: Immediately and permanently {Steal} [Arg4] {STR} from all enemies. Gain [Counterattack:Arg3] {plural:[Counterattack:Arg3]|stack|stacks} of {Counter}. The {Death Resistance} decay rate for this battle is reduced from 50% to 45%. When Faint plays a card, {Steal} [Arg2] {STR} from all enemies. At turn end, deal {Fixed DMG} equal to 50% of Faint's {Counter}.",
+        "descriptionTemplate": "Faint gains [Energy:Arg1] Aliemus. {Rouse}: Immediately and permanently {Steal} [Arg4] {STR} from all enemies. Gain [Counterattack:Arg3] {plural:[Counterattack:Arg3]|stack|stacks} of {Counter}. The {Death Resistance} decay rate for this battle is reduced from 50% to 45%. When Faint plays a card, {Steal} [Arg2] {STR} from all enemies. At turn end, trigger 50% {Counter} against the front-row enemy.",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

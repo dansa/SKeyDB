@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "kind": "derivedSkill",
   "id": "derived.global.twilight-mutated-heart",
-  "name": "Twilight: Mutated Heart",
+  "name": "Twilight: Heart of Mutation",
   "route": {
     "slug": "twilight-mutated-heart",
     "canonicalPath": "/database/derived-skills/twilight-mutated-heart"

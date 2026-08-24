@@ -71,7 +71,12 @@ function getRelatedReferences(
 }
 
 function getRelatedReferencePreview(entry: DatabaseReferenceInfo): string {
-  return entry.description.replace(/[{}]/g, '').replace(/\s+/g, ' ').trim()
+  return entry.description
+    .replace(/<(?:Italic|Bold):([^<>]*)>/gi, '$1')
+    .replace(/\{(?:derived(?:-skill)?|overlay):([^{}]+)\}/gi, '$1')
+    .replace(/[{}]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
 }
 
 function buildRelatedReferenceEntry(entry: DatabaseReferenceInfo): KeyedDatabaseReferenceEntry {

@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0014",
   "slot": "AbsoluteAxiom",
-  "descriptionTemplate": "{Rouse} {Crimson Invite} is enhanced: When played, immediately deal {Fixed DMG} equal to 20% of current HP to all enemies. After Doresain's first kill each turn, deal {Fixed DMG} to other enemies that equals 100% of overflow DMG.",
+  "descriptionTemplate": "{Rouse} {Crimson Invite} is enhanced: When played, immediately deal {Pure DMG} equal to 20% of current HP to all enemies. After Doresain's first kill each turn, deal {Pure DMG} to other enemies that equals 100% of overflow DMG.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Doresain"
 }

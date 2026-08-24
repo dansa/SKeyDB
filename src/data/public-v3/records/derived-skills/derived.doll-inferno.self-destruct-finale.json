@@ -12,7 +12,7 @@
   "rootSkillId": "skill.doll-inferno.self-destruct",
   "cardFamily": "command",
   "cardTypes": ["skill"],
-  "descriptionTemplate": "Max HP reduced by 10%. Trigger the {Elation} and {Curse} effects.",
+  "descriptionTemplate": "Max HP reduced by 10%. Trigger the {derived:Elation} and {derived:Curse} effects.",
   "descriptionArgs": {},
   "cardKeywords": [],
   "cost": "2",

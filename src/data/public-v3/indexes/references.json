@@ -1117,6 +1117,18 @@
         "id": "derived.miryam.call-of-the-divine-realm"
       }
     ],
+    "caraboo": [
+      {
+        "kind": "awakener",
+        "id": "awakener-0060"
+      }
+    ],
+    "caraboos blessing": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.caraboo.blessing"
+      }
+    ],
     "caro": [
       {
         "kind": "overlay",
@@ -1873,6 +1885,12 @@
         "id": "enlighten.alva.crusade-to-utopia"
       }
     ],
+    "crystal globe": [
+      {
+        "kind": "relic",
+        "id": "relic-0315"
+      }
+    ],
     "crystallized tear": [
       {
         "kind": "enlighten",
@@ -2101,6 +2119,12 @@
         "id": "overlay.global.destroy"
       }
     ],
+    "destroyed": [
+      {
+        "kind": "overlay",
+        "id": "overlay.global.destroy"
+      }
+    ],
     "deus ex machina": [
       {
         "kind": "covenant",
@@ -2219,6 +2243,12 @@
       {
         "kind": "relic",
         "id": "relic-0006"
+      }
+    ],
+    "dimensional image caraboo": [
+      {
+        "kind": "relic",
+        "id": "relic-0314"
       }
     ],
     "dimensional image casiah": [
@@ -2575,6 +2605,12 @@
         "id": "overlay.global.discover"
       }
     ],
+    "discovered": [
+      {
+        "kind": "overlay",
+        "id": "overlay.global.discover"
+      }
+    ],
     "distant melody": [
       {
         "kind": "skill",
@@ -2851,12 +2887,6 @@
         "id": "derived.wanda.echoes-of-whispers"
       }
     ],
-    "eden of propagation": [
-      {
-        "kind": "talent",
-        "id": "talent.saya.eden-of-propagation"
-      }
-    ],
     "eerie hook": [
       {
         "kind": "relic",
@@ -3013,6 +3043,12 @@
         "id": "skill.winkle.energy-beam"
       }
     ],
+    "enhance": [
+      {
+        "kind": "overlay",
+        "id": "overlay.global.enhance"
+      }
+    ],
     "enlightenment of death": [
       {
         "kind": "talent",
@@ -3103,22 +3139,10 @@
         "id": "enlighten.liz.eternal-flames"
       }
     ],
-    "eternal loom": [
-      {
-        "kind": "skill",
-        "id": "skill.arachne.eternal-loom"
-      }
-    ],
     "eternal requiem": [
       {
         "kind": "wheel",
         "id": "wheel-0040"
-      }
-    ],
-    "eternal weave": [
-      {
-        "kind": "wheel",
-        "id": "wheel-0128"
       }
     ],
     "ever barren rainbow": [
@@ -3371,6 +3395,12 @@
       {
         "kind": "enlighten",
         "id": "enlighten.erica.final-decree"
+      }
+    ],
+    "final descent": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.miryam.final-descent"
       }
     ],
     "final rule": [
@@ -3757,10 +3787,64 @@
         "id": "posse-0021"
       }
     ],
+    "gift": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.caraboo.blessing-gifts"
+      }
+    ],
+    "gift aliemus": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.caraboo.gift-aliemus"
+      }
+    ],
+    "gift arithmetica": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.caraboo.gift-arithmetica"
+      }
+    ],
+    "gift dmg amp": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.caraboo.gift-dmg-amp"
+      }
+    ],
+    "gift draw": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.caraboo.gift-draw"
+      }
+    ],
+    "gift keyflare": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.caraboo.gift-keyflare"
+      }
+    ],
     "gift of decay": [
       {
         "kind": "wheel",
         "id": "wheel-0022"
+      }
+    ],
+    "gift str": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.caraboo.gift-str"
+      }
+    ],
+    "gift str down": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.caraboo.gift-drain"
+      }
+    ],
+    "gifts": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.caraboo.blessing-gifts"
       }
     ],
     "gilded frame": [
@@ -3779,6 +3863,12 @@
       {
         "kind": "relic",
         "id": "relic-0174"
+      }
+    ],
+    "gilded words": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.caraboo.gilded-words"
       }
     ],
     "give and take": [
@@ -3997,6 +4087,12 @@
         "id": "wheel-0017"
       }
     ],
+    "heart of mutation": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.tawil.mutated-heart"
+      }
+    ],
     "heart of silver": [
       {
         "kind": "wheel",
@@ -4139,6 +4235,12 @@
       {
         "kind": "derivedSkill",
         "id": "derived.tawil.honey-mead"
+      }
+    ],
+    "honeyed deceit": [
+      {
+        "kind": "wheel",
+        "id": "wheel-0175"
       }
     ],
     "honeyed ink": [
@@ -5287,6 +5389,12 @@
         "id": "enlighten.casiah.minds-whisper"
       }
     ],
+    "miracle blessing": [
+      {
+        "kind": "skill",
+        "id": "skill.caraboo.miracle-blessing"
+      }
+    ],
     "miracles dawn": [
       {
         "kind": "posse",
@@ -5303,6 +5411,12 @@
       {
         "kind": "awakenerBuild",
         "id": "awakener-build-0032"
+      }
+    ],
+    "missed chance": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.caraboo.missed-chance"
       }
     ],
     "mist bound vow": [
@@ -5587,6 +5701,12 @@
         "id": "enlighten.lily.never-forget"
       }
     ],
+    "new moon at its zenith": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.caraboo.new-moon-at-its-zenith"
+      }
+    ],
     "newborn sanguivore": [
       {
         "kind": "enlighten",
@@ -5705,6 +5825,12 @@
       {
         "kind": "derivedSkill",
         "id": "derived.ramona-timeworn.ode-to-tomorrow"
+      }
+    ],
+    "offering": [
+      {
+        "kind": "overlay",
+        "id": "overlay.caraboo.offering"
       }
     ],
     "ogais notes": [
@@ -6361,6 +6487,18 @@
         "id": "relic-0239"
       }
     ],
+    "price": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.caraboo.blessing-prices"
+      }
+    ],
+    "prices": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.caraboo.blessing-prices"
+      }
+    ],
     "primal chord": [
       {
         "kind": "skill",
@@ -6587,6 +6725,12 @@
       {
         "kind": "skill",
         "id": "skill.arachne.puppet-stage-unveiled"
+      }
+    ],
+    "pure dmg": [
+      {
+        "kind": "overlay",
+        "id": "overlay.global.pure-dmg"
       }
     ],
     "pure rationality": [
@@ -7255,6 +7399,12 @@
         "id": "skill.leigh.sanguivore"
       }
     ],
+    "satiety": [
+      {
+        "kind": "overlay",
+        "id": "overlay.caraboo.satiety"
+      }
+    ],
     "saya": [
       {
         "kind": "awakener",
@@ -7309,6 +7459,12 @@
         "id": "talent.faint.secondary-swaddle"
       }
     ],
+    "secret devotions": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.caraboo.secret-devotions"
+      }
+    ],
     "seed of chaos": [
       {
         "kind": "enlighten",
@@ -7345,6 +7501,12 @@
         "id": "enlighten.nymphaea.sentiment-oc-anique"
       }
     ],
+    "serene truth": [
+      {
+        "kind": "wheel",
+        "id": "wheel-0176"
+      }
+    ],
     "serpents husk": [
       {
         "kind": "relic",
@@ -7355,6 +7517,12 @@
       {
         "kind": "skill",
         "id": "skill.ogier.seven-arts-and-virtues"
+      }
+    ],
+    "sevenfold rite": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.caraboo.sevenfold-rite"
       }
     ],
     "sever and scar": [
@@ -7715,6 +7883,12 @@
       {
         "kind": "skill",
         "id": "skill.horla.snarl-psalm"
+      }
+    ],
+    "snowy hex": [
+      {
+        "kind": "skill",
+        "id": "skill.caraboo.snowy-hex"
       }
     ],
     "solar disc": [
@@ -8143,6 +8317,12 @@
         "id": "enlighten.erica.system-reboot"
       }
     ],
+    "ta daits the fairy": [
+      {
+        "kind": "skill",
+        "id": "skill.caraboo.ta-da-its-the-fairy"
+      }
+    ],
     "tablet of scriptures": [
       {
         "kind": "wheel",
@@ -8191,6 +8371,12 @@
         "id": "overlay.global.temporary-str"
       }
     ],
+    "tempting honeyfruit": [
+      {
+        "kind": "skill",
+        "id": "skill.caraboo.tempting-honeyfruit"
+      }
+    ],
     "tentacle dmg": [
       {
         "kind": "overlay",
@@ -8219,6 +8405,12 @@
       {
         "kind": "awakenerBuild",
         "id": "awakener-build-0048"
+      }
+    ],
+    "that which is no lie": [
+      {
+        "kind": "posse",
+        "id": "posse-0062"
       }
     ],
     "the birthing deep": [
@@ -8359,12 +8551,6 @@
         "id": "skill.tawil.the-silver-key-gate"
       }
     ],
-    "the ultimate descent": [
-      {
-        "kind": "enlighten",
-        "id": "enlighten.miryam.the-ultimate-descent"
-      }
-    ],
     "the unrivaled": [
       {
         "kind": "enlighten",
@@ -8417,6 +8603,12 @@
       {
         "kind": "derivedSkill",
         "id": "derived.daffodil.thousand-mirage-poison"
+      }
+    ],
+    "threefold vow": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.caraboo.threefold-vow"
       }
     ],
     "thus spoke the outcast": [
@@ -8609,6 +8801,12 @@
       {
         "kind": "awakener",
         "id": "awakener-0001"
+      }
+    ],
+    "twilight heart of mutation": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.twilight-mutated-heart"
       }
     ],
     "twilight honey mead": [
@@ -9041,6 +9239,12 @@
       {
         "kind": "wheel",
         "id": "wheel-0041"
+      }
+    ],
+    "veiled malice": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.caraboo.veiled-malice"
       }
     ],
     "vengeance unchained": [
@@ -9522,6 +9726,10 @@
     "blessing": [
       {
         "kind": "derivedSkill",
+        "id": "derived.caraboo.blessing"
+      },
+      {
+        "kind": "derivedSkill",
         "id": "derived.daffodil.thousand-mirage-effect-blessing"
       },
       {
@@ -9617,6 +9825,10 @@
       {
         "kind": "skill",
         "id": "skill.caecus.defense"
+      },
+      {
+        "kind": "skill",
+        "id": "skill.caraboo.defense"
       },
       {
         "kind": "skill",
@@ -9895,6 +10107,16 @@
         "id": "derived.tawil.echoes-of-the-past"
       }
     ],
+    "eden of propagation": [
+      {
+        "kind": "talent",
+        "id": "talent.caraboo.eden-of-propagation"
+      },
+      {
+        "kind": "talent",
+        "id": "talent.saya.eden-of-propagation"
+      }
+    ],
     "elegy over fate": [
       {
         "kind": "enlighten",
@@ -9913,6 +10135,16 @@
       {
         "kind": "overlay",
         "id": "overlay.xu.enthrall"
+      }
+    ],
+    "eternal weave": [
+      {
+        "kind": "skill",
+        "id": "skill.arachne.eternal-weave"
+      },
+      {
+        "kind": "wheel",
+        "id": "wheel-0128"
       }
     ],
     "evernights revel": [
@@ -9953,6 +10185,16 @@
       {
         "kind": "skill",
         "id": "skill.helot-catena.fettered-malice"
+      }
+    ],
+    "flawless fairy tale": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.caraboo.flawless-fairy-tale"
+      },
+      {
+        "kind": "skill",
+        "id": "skill.caraboo.flawless-fairy-tale"
       }
     ],
     "fleeting beauty": [
@@ -10023,6 +10265,10 @@
       {
         "kind": "talent",
         "id": "talent.caecus.gnostic-potential"
+      },
+      {
+        "kind": "talent",
+        "id": "talent.caraboo.gnostic-potential"
       },
       {
         "kind": "talent",
@@ -10398,6 +10644,10 @@
       },
       {
         "kind": "talent",
+        "id": "talent.caraboo.madness-omen"
+      },
+      {
+        "kind": "talent",
         "id": "talent.casiah.madness-omen"
       },
       {
@@ -10725,6 +10975,16 @@
         "id": "skill.daffodil.phantasmal-haze"
       }
     ],
+    "pistoles de marie": [
+      {
+        "kind": "overlay",
+        "id": "overlay.global.pistoles-de-marie"
+      },
+      {
+        "kind": "relic",
+        "id": "relic-0316"
+      }
+    ],
     "private afternoon": [
       {
         "kind": "derivedSkill",
@@ -10825,6 +11085,16 @@
         "id": "talent.ramona.silverheart-resonance"
       }
     ],
+    "soul synchronization": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.soul-synchronization"
+      },
+      {
+        "kind": "wheel",
+        "id": "wheel-0177"
+      }
+    ],
     "soulforge aptitude": [
       {
         "kind": "talent",
@@ -10853,6 +11123,10 @@
       {
         "kind": "talent",
         "id": "talent.caecus.soulforge-aptitude"
+      },
+      {
+        "kind": "talent",
+        "id": "talent.caraboo.soulforge-aptitude"
       },
       {
         "kind": "talent",
@@ -11295,6 +11569,10 @@
       {
         "kind": "skill",
         "id": "skill.caecus.strike"
+      },
+      {
+        "kind": "skill",
+        "id": "skill.caraboo.strike"
       },
       {
         "kind": "skill",

@@ -50,10 +50,10 @@ describe('decodeIngameTeamCode', () => {
   it('matches observed in-game sample token order for laaI prefix', () => {
     const decoded = decodeIngameTeamCode('@@laaIaaaaaaaaaaaaX@@')
 
-    expect(decoded.team.slots[0].awakenerId).toBe('awakener-0013')
+    expect(decoded.team.slots[0].awakenerId).toBe('awakener-0026')
     expect(decoded.team.slots[1].awakenerId).toBeUndefined()
     expect(decoded.team.slots[2].awakenerId).toBeUndefined()
-    expect(decoded.team.slots[3].awakenerId).toBe('awakener-0012')
+    expect(decoded.team.slots[3].awakenerId).toBe('awakener-0003')
   })
 
   it('encodes in-game wrapper format with canonical slot ordering', () => {
@@ -122,7 +122,7 @@ describe('decodeIngameTeamCode', () => {
       ],
     }
 
-    expect(encodeIngameTeamCode(team)).toBe('@@UliXxW5aaxY1xVxDaaaa2@@')
+    expect(encodeIngameTeamCode(team)).toBe('@@TkhWxW5aaxY1xVxDaaaa2@@')
   })
 
   it('encodes covenant set tokens into the covenant payload zone', () => {
@@ -163,7 +163,7 @@ describe('decodeIngameTeamCode', () => {
       ],
     }
 
-    expect(encodeIngameTeamCode(team)).toBe('@@UliXxW5aaxY1xVxDwaaa2@@')
+    expect(encodeIngameTeamCode(team)).toBe('@@TkhWxW5aaxY1xVxDwaaa2@@')
   })
 
   it('leaves covenant unset and warns when a covenant token is unknown', () => {
@@ -181,7 +181,7 @@ describe('decodeIngameTeamCode', () => {
   })
 
   it('decodes legacy long covenant tails without shifting wheel or posse parsing', () => {
-    const code = '@@UliXxW5aaxY1xVxDaaaaaaaaax1aaaaaaaaaaaaaa2@@'
+    const code = '@@TkhWxW5aaxY1xVxDaaaaaaaaax1aaaaaaaaaaaaaa2@@'
     const decoded = decodeIngameTeamCode(code)
 
     expect(decoded.team.slots[0].awakenerId).toBe('awakener-0018')

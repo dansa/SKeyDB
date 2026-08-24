@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0015",
   "slot": "E1",
-  "descriptionTemplate": "{Unleash: Mecha} places 1 \"Basic Strike\" with {Exhaust} into hand, and {Retract: Mecha} places 1 \"Basic Defense\" with {Exhaust} into hand.",
+  "descriptionTemplate": "{Unleash: Mecha} places 1 \"Basic Strike\" with {Exhaust} into hand, and {derived:Retract: Mecha} places 1 \"Basic Defense\" with {Exhaust} into hand.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Erica"
 }

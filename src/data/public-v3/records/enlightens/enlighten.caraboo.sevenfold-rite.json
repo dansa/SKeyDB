@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 3,
+  "kind": "enlighten",
+  "id": "enlighten.caraboo.sevenfold-rite",
+  "name": "Sevenfold Rite",
+  "route": {
+    "slug": "sevenfold-rite",
+    "canonicalPath": "/database/awakeners/caraboo/enlightens/sevenfold-rite"
+  },
+  "ownerAwakenerId": "awakener-0060",
+  "slot": "E2",
+  "descriptionTemplate": "Every {ordinal:7th} time Caraboo plays \"Strike\" or \"Defense\", gain 1 stack of {Offering} and {Discover} 2 {derived:Caraboo's Blessing} cards with different {derived:Price}. Choose 1 to add to your hand.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Caraboo"
+}

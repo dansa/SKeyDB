@@ -12,7 +12,7 @@
   },
   "numericId": 54,
   "ingameId": "B14",
-  "lineupToken": "xj",
+  "lineupToken": "xi",
   "realm": "CARO",
   "rarity": "SSR",
   "type": "CHORUS",
@@ -20,7 +20,7 @@
   "releaseDate": "2026-01-26",
   "faction": "The Unknowable",
   "aliases": ["xu"],
-  "searchTags": ["Poison", "STR Down", "Fixed DMG", "Arithmetica", "Max HP DMG"],
+  "searchTags": ["Poison", "STR Down", "Arithmetica", "Max HP DMG"],
   "primaryScalingBase": 20,
   "baseStatsLv1": {
     "CON": 48,

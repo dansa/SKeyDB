@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.caraboo.gift-drain",
+  "name": "Gift: STR Down",
+  "route": {
+    "slug": "gift-str-down",
+    "canonicalPath": "/database/awakeners/caraboo/derived-skills/gift-str-down"
+  },
+  "ownerAwakenerId": "awakener-0060",
+  "derivedFromId": "derived.caraboo.blessing-gifts",
+  "rootSkillId": "skill.caraboo.miracle-blessing",
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
+  "descriptionTemplate": "Temporarily reduce all enemies' {STR▼} by [Exhaustion:Arg1].",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": ["35", "42", "49", "56", "63", "70"],
+      "stat": "DEF",
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.retain"
+    },
+    {
+      "id": "mechanic.prepare",
+      "value": 1
+    }
+  ],
+  "cost": "1",
+  "ownerAwakenerName": "Caraboo"
+}

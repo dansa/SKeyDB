@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.caraboo.blessing",
+  "name": "Blessing",
+  "route": {
+    "slug": "blessing",
+    "canonicalPath": "/database/awakeners/caraboo/derived-skills/blessing"
+  },
+  "ownerAwakenerId": "awakener-0060",
+  "nodeKind": "group",
+  "derivedFromId": "skill.caraboo.miracle-blessing",
+  "rootSkillId": "skill.caraboo.miracle-blessing",
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
+  "childDerivedSkillIds": ["derived.caraboo.blessing-gifts", "derived.caraboo.blessing-prices"],
+  "descriptionTemplate": "{derived:Caraboo's Blessing} is a Buff Card with Arithmetica Cost 1 that has {Retain}, {Prepare}, and {Exhaust}.\nWhen played, gain a {Gift} with a {Price} and 1 stack of {Offering}. There are 3 types of {derived:Caraboo's Blessing}:\n\"Instant {derived:Caraboo's Blessing}\": Prevents {derived:Missed Chance}.\n\"Lavish {derived:Caraboo's Blessing}\": Prevents {derived:Gilded Words}.\n\"Tender {derived:Caraboo's Blessing}\": Prevents {derived:Veiled Malice}.",
+  "descriptionArgs": {},
+  "cardKeywords": [],
+  "cost": "1",
+  "aliases": ["Caraboo's Blessing"],
+  "ownerAwakenerName": "Caraboo"
+}

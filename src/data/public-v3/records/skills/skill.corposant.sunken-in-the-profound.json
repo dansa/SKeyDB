@@ -11,7 +11,7 @@
   "slot": "Rouse",
   "cardFamily": "rouse",
   "cardTypes": ["rouse"],
-  "descriptionTemplate": "Corposant gains [Energy:Arg1] Aliemus. {Rouse}: Gain 1 Tentacle, add 2 {Pilot} cards into hand. After switching to the {Tranquil Sea} stance, gain [Block:Arg2] Shield, with a 3-turn cooldown.",
+  "descriptionTemplate": "Corposant gains [Energy:Arg1] Aliemus. {Rouse}: Gain 1 Tentacle, add 2 {derived:Pilot} cards into hand. After switching to the {Tranquil Sea} stance, gain [Block:Arg2] Shield, with a 3-turn cooldown.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -46,7 +46,7 @@
       "ownerAwakenerId": "awakener-0011",
       "ownerAwakenerName": "Corposant",
       "patch": {
-        "descriptionTemplate": "Corposant gains [Energy:Arg1] Aliemus. {Rouse}: Gain 1 Tentacle, add 2 {Pilot} into hand. For the first {Lightning Retribution} and {Ominous Semaphore} Corposant plays each turn, place 1 additional {Pilot} into hand. {Pilot} effect +50%. After switching to {Tranquil Sea} stance, gain [Block:Arg2] Shield, with a 3-turn cooldown."
+        "descriptionTemplate": "Corposant gains [Energy:Arg1] Aliemus. {Rouse}: Gain 1 Tentacle, add 2 {derived:Pilot} into hand. For the first {Lightning Retribution} and {Ominous Semaphore} Corposant plays each turn, place 1 additional {derived:Pilot} into hand. {derived:Pilot} effect +50%. After switching to {Tranquil Sea} stance, gain [Block:Arg2] Shield, with a 3-turn cooldown."
       }
     },
     {

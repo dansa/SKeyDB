@@ -17,7 +17,7 @@
   "acquisitionSource": "Clear Psyche Deepdive: The Fall of Giant",
   "realm": "AEQUOR",
   "lineupToken": "s",
-  "descriptionTemplate": "Gain 1 Arithmetica and [Arg1] {STR}, then grant a chosen Awakener [Arg2] Aliemus. If your Tentacle Stance is {Raging Waves}, instead gain +15% Temporary Crit. Rate & Crit. DMG.\nScaling guide: {Primordia Mastery Scaling}",
+  "descriptionTemplate": "Gain 1 Arithmetica and [Arg1] {STR}, then grant a chosen Awakener [Arg2] Aliemus. If your Tentacle Stance is {Raging Waves}, instead gain +[Arg3] Temporary Crit. Rate & Crit. DMG.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
@@ -35,6 +35,16 @@
       "baseValue": 15.0,
       "rounding": "ceil",
       "inputs": ["realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "utility"
+    },
+    "Arg3": {
+      "kind": "computed",
+      "formulaKey": "primordiaPosseScaled",
+      "baseFormula": "fixed",
+      "baseValue": 15.0,
+      "rounding": "ceil",
+      "inputs": ["realmMasteryFinal", "primordiaAllChaosTeam"],
+      "suffix": "%",
       "scalingBucket": "utility"
     }
   },

@@ -13,7 +13,7 @@
   "cardFamily": "command",
   "cardTypes": ["derived"],
   "countsAs": ["strike"],
-  "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies. {STR} has [Arg2] {plural:[Arg2]|time|times} the effect on {Blade's Dominion}, this card counts as a \"Strike\".",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies. {STR} has [Arg2] {plural:[Arg2]|time|times} the effect on {derived:Blade's Dominion}, this card counts as a \"Strike\".",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0033",
   "slot": "AbsoluteAxiom",
-  "descriptionTemplate": "{Rouse} {Mist Realm Vestige} is enhanced: When played, generate 1 Temporary {Mortal Blast} and reduce the Arithmetica Cost of these 2 {Mortal Blast} to 0. Mouchette's Talent \"Dramatic Encounter\" trigger limit per turn increases to 5.",
+  "descriptionTemplate": "{Rouse} {Mist Realm Vestige} is enhanced: When played, generate 1 Temporary {Mortal Blast} and reduce the Arithmetica Cost of these 2 {Mortal Blast} to 0. Mouchette's Talent {derived:Dramatic Encounter} trigger limit per turn increases to 5.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Mouchette"
 }

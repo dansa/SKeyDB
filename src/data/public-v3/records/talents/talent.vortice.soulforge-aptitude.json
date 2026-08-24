@@ -10,7 +10,7 @@
   "ownerAwakenerId": "awakener-0055",
   "family": "soulforge_aptitude",
   "maxLevel": 10,
-  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\n{Vortex! Shell!} Base {Fixed DMG} +[Arg3]%.\nVortice removes the target's {Fortress} and \"Temporary {Fortress}\" effects before unleashing Exalt; if successfully removed, this Exalt's Crit. DMG +[Arg4]%.",
+  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\n{derived:Vortex! Shell!} {Fixed DMG} +[Arg3]%.\nVortice removes the target's {Fortress} and \"Temporary {Fortress}\" effects before unleashing Exalt; if successfully removed, this Exalt's Crit. DMG +[Arg4]%.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "linear",

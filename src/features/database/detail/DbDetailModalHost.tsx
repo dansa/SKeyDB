@@ -1,7 +1,7 @@
 import {Suspense, useEffect, useMemo, useState, useSyncExternalStore, type ReactNode} from 'react'
 
 import {FaMagnifyingGlass, FaXmark} from 'react-icons/fa6'
-import {Navigate, useLocation, useNavigate} from 'react-router'
+import {useLocation, useNavigate} from 'react-router'
 
 import type {AwakenerDatabaseSelection} from '@/domain/awakener-database-state'
 import type {Awakener} from '@/domain/awakeners'
@@ -747,9 +747,6 @@ function DbDetailRelicRouteModal({
   navigation,
   routeItem,
 }: DbDetailKindRouteModalProps<'relic'>) {
-  const location = useLocation()
-  const locationState: unknown = location.state
-  const registryEntry = dbDetailRegistry.relic
   return (
     <DbDetailRouteRecordBoundary
       activeRef={activeRef}
@@ -758,24 +755,50 @@ function DbDetailRelicRouteModal({
       navigationPort={navigationPort}
       routeItem={routeItem}
     >
-      {(record) => {
-        const resolution = resolveRelicDetailRoutePolicy({location, record, routeItem})
-
-        return (
-          <>
-            {resolution.replaceTarget ? (
-              <Navigate replace state={locationState} to={resolution.replaceTarget} />
-            ) : null}
-            {registryEntry.render({
-              item: resolution.renderItem,
-              lookup,
-              navigation,
-              navigationPort,
-              record,
-            })}
-          </>
-        )
-      }}
+      {(record) => (
+        <DbDetailResolvedRelicRouteModal
+          lookup={lookup}
+          navigation={navigation}
+          navigationPort={navigationPort}
+          record={record}
+          routeItem={routeItem}
+        />
+      )}
     </DbDetailRouteRecordBoundary>
   )
+}
+
+interface DbDetailResolvedRelicRouteModalProps {
+  lookup: DatabaseDetailCatalogLookup
+  navigation: DatabaseDetailResultNavigation | null
+  navigationPort: DatabaseDetailNavigationPort
+  record: DatabaseDetailRecordByKind['relic']
+  routeItem: DatabaseDetailRouteItemByKind['relic']
+}
+
+function DbDetailResolvedRelicRouteModal({
+  lookup,
+  navigation,
+  navigationPort,
+  record,
+  routeItem,
+}: DbDetailResolvedRelicRouteModalProps) {
+  const location = useLocation()
+  const resolution = resolveRelicDetailRoutePolicy({location, record, routeItem})
+  const canonicalHash = resolution.replaceTarget?.hash
+  const canonicalSearch = resolution.replaceTarget?.search
+  const canonicalVariantId = resolution.renderItem.variantId
+
+  useEffect(() => {
+    if (canonicalSearch === undefined || !canonicalVariantId) return
+    navigationPort.updateState({variant: canonicalVariantId}, {hash: canonicalHash})
+  }, [canonicalHash, canonicalSearch, canonicalVariantId, navigationPort])
+
+  return dbDetailRegistry.relic.render({
+    item: resolution.renderItem,
+    lookup,
+    navigation,
+    navigationPort,
+    record,
+  })
 }

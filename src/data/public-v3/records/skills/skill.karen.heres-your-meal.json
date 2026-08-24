@@ -11,7 +11,7 @@
   "slot": "Exalt",
   "cardFamily": "exalt",
   "cardTypes": ["exalt"],
-  "descriptionTemplate": "Remove the {Stagnation} state from all cards in hand. Restore [Heal:Arg1] HP. Add 1 {Marvelous Cuisine} to your hand. Inflict [{Poison}:Arg2] {plural:[{Poison}:Arg2]|stack|stacks} of {Poison} on all enemies.",
+  "descriptionTemplate": "Remove the {Stagnation} state from all cards in hand. Restore [Heal:Arg1] HP. Add 1 {derived:Marvelous Cuisine} to your hand. Inflict [{Poison}:Arg2] {plural:[{Poison}:Arg2]|stack|stacks} of {Poison} on all enemies.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -39,7 +39,7 @@
       "ownerAwakenerId": "awakener-0026",
       "ownerAwakenerName": "Karen",
       "patch": {
-        "descriptionTemplate": "Remove the {Stagnation} state from all cards in hand. Restore [Heal:Arg1] HP. Add 1 {Marvelous Cuisine} to your hand. Inflict [{Poison}:Arg2] {plural:[{Poison}:Arg2]|stack|stacks} of {Poison} on all enemies."
+        "descriptionTemplate": "Remove the {Stagnation} state from all cards in hand. Restore [Heal:Arg1] HP. Add 1 {derived:Marvelous Cuisine} to your hand. Inflict [{Poison}:Arg2] {plural:[{Poison}:Arg2]|stack|stacks} of {Poison} on all enemies."
       }
     }
   ],

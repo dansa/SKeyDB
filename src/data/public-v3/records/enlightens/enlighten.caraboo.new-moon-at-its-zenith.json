@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 3,
+  "kind": "enlighten",
+  "id": "enlighten.caraboo.new-moon-at-its-zenith",
+  "name": "New Moon at Its Zenith",
+  "route": {
+    "slug": "new-moon-at-its-zenith",
+    "canonicalPath": "/database/awakeners/caraboo/enlightens/new-moon-at-its-zenith"
+  },
+  "ownerAwakenerId": "awakener-0060",
+  "slot": "AbsoluteAxiom",
+  "descriptionTemplate": "{Rouse} {Tempting Honeyfruit} is enhanced.\nAfter using {Crimson Furnace}, the next {Miracle Blessing} Discovers 1 additional {derived:Caraboo's Blessing} card per set. After playing a {derived:Caraboo's Blessing} card, {Embryo Fusion} +10. This fusion effect increases based on your lost HP, up to +100%.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Caraboo"
+}

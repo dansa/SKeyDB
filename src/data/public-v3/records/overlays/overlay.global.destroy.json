@@ -8,7 +8,7 @@
     "canonicalPath": "/database/overlays/destroy"
   },
   "overlayType": "mechanic",
-  "aliases": [],
+  "aliases": ["Destroyed"],
   "textColor": "misc",
   "descriptionTemplate": "Remains in deck after battle, but permanently removed once played or consumed.",
   "descriptionArgs": {}

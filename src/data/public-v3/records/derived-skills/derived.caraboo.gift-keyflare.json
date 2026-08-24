@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.caraboo.gift-keyflare",
+  "name": "Gift: Keyflare",
+  "route": {
+    "slug": "gift-keyflare",
+    "canonicalPath": "/database/awakeners/caraboo/derived-skills/gift-keyflare"
+  },
+  "ownerAwakenerId": "awakener-0060",
+  "derivedFromId": "derived.caraboo.blessing-gifts",
+  "rootSkillId": "skill.caraboo.miracle-blessing",
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
+  "descriptionTemplate": "Gain [Arg1] Keyflare.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": ["1000", "1200", "1400", "1600", "1800", "2000"]
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.retain"
+    },
+    {
+      "id": "mechanic.prepare",
+      "value": 1
+    }
+  ],
+  "cost": "1",
+  "ownerAwakenerName": "Caraboo"
+}

@@ -338,7 +338,7 @@ Murphy, Shrouded Birth, Mind Barrier, Steppenwolf
 Corposant, Dear Papa Noel, We Will Meet Again, Steppenwolf
 The Lone Seed
 
-@@Oir7xbxSxYxHmJyUyTxfhQuExRxp6gNKxCxfhQuExRxfhQuEyAG@@`
+@@TkhWxW5aaxY1xVxDwaaa2@@`
 
     const parsed = decodeImportCode(pasted)
     expect(parsed.kind).toBe('single')

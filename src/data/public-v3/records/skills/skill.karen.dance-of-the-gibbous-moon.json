@@ -11,7 +11,7 @@
   "slot": "Rouse",
   "cardFamily": "rouse",
   "cardTypes": ["rouse"],
-  "descriptionTemplate": "Karen gains [Energy:Arg1] Aliemus. {Rouse}: After Karen plays a card, restore [Heal:Arg2] HP and Gain [Energy:Arg3] Aliemus. After playing {Marvelous Cuisine}, inflict [{Poison}:Arg4] {plural:[{Poison}:Arg4]|stack|stacks} of {Poison} on all enemies.",
+  "descriptionTemplate": "Karen gains [Energy:Arg1] Aliemus. {Rouse}: After Karen plays a card, restore [Heal:Arg2] HP and Gain [Energy:Arg3] Aliemus. After playing {derived:Marvelous Cuisine}, inflict [{Poison}:Arg4] {plural:[{Poison}:Arg4]|stack|stacks} of {Poison} on all enemies.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -51,7 +51,7 @@
       "ownerAwakenerId": "awakener-0026",
       "ownerAwakenerName": "Karen",
       "patch": {
-        "descriptionTemplate": "Karen gains [Energy:Arg1] Aliemus. {Rouse}: After Karen plays a card, recover [Heal:Arg2] HP and gain [Energy:Arg3] Aliemus. At the end of the turn, if Karen's Command Card is {Retained}, the HP Recovery and Aliemus Generation trigger 2 times. After playing {Marvelous Cuisine}, inflict [{Poison}:Arg4] stacks of {Poison} on all enemies."
+        "descriptionTemplate": "Karen gains [Energy:Arg1] Aliemus. {Rouse}: After Karen plays a card, recover [Heal:Arg2] HP and gain [Energy:Arg3] Aliemus. At the end of the turn, if Karen's Command Card is {Retained}, the HP Recovery and Aliemus Generation trigger 2 times. After playing {derived:Marvelous Cuisine}, inflict [{Poison}:Arg4] stacks of {Poison} on all enemies."
       }
     }
   ],

@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0062",
   "rarity": "N",
   "aliases": ["Alfonso's Artifact+"],
-  "descriptionTemplate": "Whenever a card enters {Ultra Space}, if the Awakener of This card is different from that of other cards in {Ultra Space}, place [Arg1] {derived:Insight} cards in hand.",
+  "descriptionTemplate": "Whenever a card enters {Ultra Space}, if the Awakener of this card is different from that of other cards in {Ultra Space}, place [Arg1] {derived:Insight} cards in hand.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -33,7 +33,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "Whenever a card enters {Ultra Space}, if the Awakener of This card is different from that of other cards in {Ultra Space}, place [Arg1] {derived:Insight} cards in hand.",
+      "descriptionTemplate": "Whenever a card enters {Ultra Space}, if the Awakener of this card is different from that of other cards in {Ultra Space}, place [Arg1] {derived:Insight} cards in hand.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -49,7 +49,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "Whenever a card enters {Ultra Space}, if the Awakener of This card is different from that of other cards in {Ultra Space}, place [Arg1] {derived:Insight} cards in hand.",
+      "descriptionTemplate": "Whenever a card enters {Ultra Space}, if the Awakener of this card is different from that of other cards in {Ultra Space}, place [Arg1] {derived:Insight} cards in hand.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

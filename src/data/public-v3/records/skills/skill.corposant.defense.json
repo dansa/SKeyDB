@@ -42,7 +42,7 @@
       "ownerAwakenerId": "awakener-0011",
       "ownerAwakenerName": "Corposant",
       "patch": {
-        "descriptionTemplate": "Gain [Block:Arg1] Shield. Corposant obtains [Energy:Arg4] Aliemus. {Aftershock}: This card generates [Arg3] more Aliemus next time, up to 2 stacks.",
+        "descriptionTemplate": "Gain [Block:Arg1] Shield. Corposant obtains [Energy:Arg4] Aliemus. {Aftershock}: this card generates [Arg3] more Aliemus next time, up to 2 stacks.",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

@@ -11,7 +11,7 @@
   "slot": "Exalt",
   "cardFamily": "exalt",
   "cardTypes": ["exalt"],
-  "descriptionTemplate": "Remove own {STR▼} state. All enemies' {STR▼} -[Exhaustion:Arg8] temporarily. Deal {Fixed DMG} equal to [Arg2]% {Tentacle DMG} to the lowest-HP enemy. If this kills the target, generate 1 Permanent {Gaunt} into hand. Max 3 Permanent {Gaunts} generated per battle.",
+  "descriptionTemplate": "Remove own {STR▼} state. All enemies' {STR▼} -[Exhaustion:Arg8] temporarily. Deal {Fixed DMG} equal to [Arg2]% {Tentacle DMG} to the lowest-HP enemy. If this kills the target, generate 1 Permanent {derived:Gaunt} into hand. Max 3 Permanent {derived:Gaunts} generated per battle.",
   "descriptionArgs": {
     "Arg2": {
       "kind": "scaling",

@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0032",
   "family": "passive",
-  "descriptionTemplate": "At the start of the battle, place 1 {Obsession} into hand.\nMiryam's \"Basic Strike\" enjoys 50% {Tentacle DMG} bonus.\nFor every 1% Crit. DMG provided by Miryam and her equipped Wheel of Destiny & Covenant, enhance her Exalt's {STR} Generation, {Tentacle DMG}, Aliemus, and {Poison} Application/Trigger effects by 0.2%.",
+  "descriptionTemplate": "At the start of the battle, place 1 {derived:Obsession} into hand.\nMiryam's \"Basic Strike\" enjoys 50% {Tentacle DMG} bonus.\nFor every 1% Crit. DMG provided by Miryam and her equipped Wheel of Destiny & Covenant, enhance her Exalt's {STR} Generation, {Tentacle DMG}, Aliemus, and {Poison} Application/Trigger effects by 0.2%.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Miryam"
 }
