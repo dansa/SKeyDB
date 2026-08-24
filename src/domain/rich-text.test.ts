@@ -77,6 +77,25 @@ describe('parseRichDescription', () => {
     ])
   })
 
+  it('parses nested formatting tags at their matching boundaries', () => {
+    const result = parseRichDescription('<Italic:outer <Bold:inner>>', EMPTY_CARDS)
+
+    expect(result).toEqual([
+      {
+        type: 'formatting',
+        style: 'italic',
+        segments: [
+          {type: 'text', value: 'outer '},
+          {
+            type: 'formatting',
+            style: 'bold',
+            segments: [{type: 'text', value: 'inner'}],
+          },
+        ],
+      },
+    ])
+  })
+
   it('parses a skill token when card name matches', () => {
     const cards = new Set(['Poof!'])
     const result = parseRichDescription('{Poof!}: Casiah gains 3 Aliemus.', cards)

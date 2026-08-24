@@ -533,6 +533,34 @@ function normalizeBareOverlayMechanicSegments(
 
 const FORMATTING_TAG_PATTERN = /<(Italic|Bold):/gi
 
+function findFormattingTagClose(text: string, contentStart: number): number {
+  const lowerText = text.toLowerCase()
+  let depth = 1
+
+  for (let index = contentStart; index < text.length; index += 1) {
+    if (lowerText.startsWith('<italic:', index)) {
+      depth += 1
+      index += '<italic:'.length - 1
+      continue
+    }
+    if (lowerText.startsWith('<bold:', index)) {
+      depth += 1
+      index += '<bold:'.length - 1
+      continue
+    }
+    if (text[index] !== '>') {
+      continue
+    }
+
+    depth -= 1
+    if (depth === 0) {
+      return index
+    }
+  }
+
+  return -1
+}
+
 function parseRichDescriptionTokens(
   text: string,
   context: RichTextParseContext,
@@ -574,11 +602,14 @@ function parseFormattingSegments(
 ): RichSegment[] {
   const segments: RichSegment[] = []
   let lastIndex = 0
-  FORMATTING_TAG_PATTERN.lastIndex = 0
-  let match = FORMATTING_TAG_PATTERN.exec(text)
+  const formattingTagPattern = new RegExp(
+    FORMATTING_TAG_PATTERN.source,
+    FORMATTING_TAG_PATTERN.flags,
+  )
+  let match = formattingTagPattern.exec(text)
 
   while (match) {
-    const closeIndex = text.indexOf('>', FORMATTING_TAG_PATTERN.lastIndex)
+    const closeIndex = findFormattingTagClose(text, formattingTagPattern.lastIndex)
     if (closeIndex < 0) {
       break
     }
@@ -589,15 +620,15 @@ function parseFormattingSegments(
     }
 
     const style = match[1].toLowerCase() === 'bold' ? 'bold' : 'italic'
-    const content = text.slice(FORMATTING_TAG_PATTERN.lastIndex, closeIndex)
+    const content = text.slice(formattingTagPattern.lastIndex, closeIndex)
     segments.push({
       type: 'formatting',
       style,
       segments: parseFormattingSegments(content, context, descriptionArgs),
     })
     lastIndex = closeIndex + 1
-    FORMATTING_TAG_PATTERN.lastIndex = lastIndex
-    match = FORMATTING_TAG_PATTERN.exec(text)
+    formattingTagPattern.lastIndex = lastIndex
+    match = formattingTagPattern.exec(text)
   }
 
   if (lastIndex < text.length) {
