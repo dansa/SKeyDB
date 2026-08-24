@@ -1004,6 +1004,23 @@
       "availabilityType": "LIMITED_ASTRAL_REIGN",
       "releaseDate": "2026-07-27"
     },
+    "awakener-0060": {
+      "kind": "awakener",
+      "id": "awakener-0060",
+      "name": "Caraboo",
+      "route": {
+        "slug": "caraboo",
+        "canonicalPath": "/database/awakeners/caraboo"
+      },
+      "assets": {
+        "icon": "asset-awakener-0060-icon"
+      },
+      "realm": "CARO",
+      "rarity": "SSR",
+      "type": "WARDEN",
+      "availabilityType": "LIMITED_ASTRAL_REIGN",
+      "releaseDate": "2026-08-24"
+    },
     "awakener-build-0001": {
       "kind": "awakenerBuild",
       "id": "awakener-build-0001",
@@ -1949,6 +1966,152 @@
       },
       "ownerAwakenerId": "awakener-0056",
       "ownerAwakenerName": "Arachne"
+    },
+    "derived.caraboo.blessing": {
+      "kind": "derivedSkill",
+      "id": "derived.caraboo.blessing",
+      "name": "Blessing",
+      "route": {
+        "slug": "blessing",
+        "canonicalPath": "/database/awakeners/caraboo/derived-skills/blessing"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "nodeKind": "group"
+    },
+    "derived.caraboo.blessing-gifts": {
+      "kind": "derivedSkill",
+      "id": "derived.caraboo.blessing-gifts",
+      "name": "Gifts",
+      "route": {
+        "slug": "gifts",
+        "canonicalPath": "/database/awakeners/caraboo/derived-skills/gifts"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "nodeKind": "group"
+    },
+    "derived.caraboo.blessing-prices": {
+      "kind": "derivedSkill",
+      "id": "derived.caraboo.blessing-prices",
+      "name": "Price",
+      "route": {
+        "slug": "price",
+        "canonicalPath": "/database/awakeners/caraboo/derived-skills/price"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "nodeKind": "group"
+    },
+    "derived.caraboo.gift-aliemus": {
+      "kind": "derivedSkill",
+      "id": "derived.caraboo.gift-aliemus",
+      "name": "Gift: Aliemus",
+      "route": {
+        "slug": "gift-aliemus",
+        "canonicalPath": "/database/awakeners/caraboo/derived-skills/gift-aliemus"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo"
+    },
+    "derived.caraboo.gift-arithmetica": {
+      "kind": "derivedSkill",
+      "id": "derived.caraboo.gift-arithmetica",
+      "name": "Gift: Arithmetica",
+      "route": {
+        "slug": "gift-arithmetica",
+        "canonicalPath": "/database/awakeners/caraboo/derived-skills/gift-arithmetica"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo"
+    },
+    "derived.caraboo.gift-dmg-amp": {
+      "kind": "derivedSkill",
+      "id": "derived.caraboo.gift-dmg-amp",
+      "name": "Gift: DMG Amp.",
+      "route": {
+        "slug": "gift-dmg-amp",
+        "canonicalPath": "/database/awakeners/caraboo/derived-skills/gift-dmg-amp"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo"
+    },
+    "derived.caraboo.gift-drain": {
+      "kind": "derivedSkill",
+      "id": "derived.caraboo.gift-drain",
+      "name": "Gift: STR Down",
+      "route": {
+        "slug": "gift-str-down",
+        "canonicalPath": "/database/awakeners/caraboo/derived-skills/gift-str-down"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo"
+    },
+    "derived.caraboo.gift-draw": {
+      "kind": "derivedSkill",
+      "id": "derived.caraboo.gift-draw",
+      "name": "Gift: Draw",
+      "route": {
+        "slug": "gift-draw",
+        "canonicalPath": "/database/awakeners/caraboo/derived-skills/gift-draw"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo"
+    },
+    "derived.caraboo.gift-keyflare": {
+      "kind": "derivedSkill",
+      "id": "derived.caraboo.gift-keyflare",
+      "name": "Gift: Keyflare",
+      "route": {
+        "slug": "gift-keyflare",
+        "canonicalPath": "/database/awakeners/caraboo/derived-skills/gift-keyflare"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo"
+    },
+    "derived.caraboo.gift-str": {
+      "kind": "derivedSkill",
+      "id": "derived.caraboo.gift-str",
+      "name": "Gift: STR",
+      "route": {
+        "slug": "gift-str",
+        "canonicalPath": "/database/awakeners/caraboo/derived-skills/gift-str"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo"
+    },
+    "derived.caraboo.gilded-words": {
+      "kind": "derivedSkill",
+      "id": "derived.caraboo.gilded-words",
+      "name": "Gilded Words",
+      "route": {
+        "slug": "gilded-words",
+        "canonicalPath": "/database/awakeners/caraboo/derived-skills/gilded-words"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo"
+    },
+    "derived.caraboo.missed-chance": {
+      "kind": "derivedSkill",
+      "id": "derived.caraboo.missed-chance",
+      "name": "Missed Chance",
+      "route": {
+        "slug": "missed-chance",
+        "canonicalPath": "/database/awakeners/caraboo/derived-skills/missed-chance"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo"
+    },
+    "derived.caraboo.veiled-malice": {
+      "kind": "derivedSkill",
+      "id": "derived.caraboo.veiled-malice",
+      "name": "Veiled Malice",
+      "route": {
+        "slug": "veiled-malice",
+        "canonicalPath": "/database/awakeners/caraboo/derived-skills/veiled-malice"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo"
     },
     "derived.castor.onyx-plume": {
       "kind": "derivedSkill",
@@ -3034,6 +3197,15 @@
         "canonicalPath": "/database/derived-skills/solidify"
       }
     },
+    "derived.global.soul-synchronization": {
+      "kind": "derivedSkill",
+      "id": "derived.global.soul-synchronization",
+      "name": "Soul Synchronization",
+      "route": {
+        "slug": "soul-synchronization",
+        "canonicalPath": "/database/derived-skills/soul-synchronization"
+      }
+    },
     "derived.global.stagger": {
       "kind": "derivedSkill",
       "id": "derived.global.stagger",
@@ -3109,7 +3281,7 @@
     "derived.global.twilight-mutated-heart": {
       "kind": "derivedSkill",
       "id": "derived.global.twilight-mutated-heart",
-      "name": "Twilight: Mutated Heart",
+      "name": "Twilight: Heart of Mutation",
       "route": {
         "slug": "twilight-mutated-heart",
         "canonicalPath": "/database/derived-skills/twilight-mutated-heart"
@@ -3718,7 +3890,7 @@
     "derived.tawil.mutated-heart": {
       "kind": "derivedSkill",
       "id": "derived.tawil.mutated-heart",
-      "name": "Mutated Heart",
+      "name": "Heart of Mutation",
       "route": {
         "slug": "mutated-heart",
         "canonicalPath": "/database/awakeners/tawil/derived-skills/mutated-heart"
@@ -4310,6 +4482,66 @@
       "ownerAwakenerId": "awakener-0006",
       "ownerAwakenerName": "Caecus",
       "slot": "OverExalt"
+    },
+    "enlighten.caraboo.flawless-fairy-tale": {
+      "kind": "enlighten",
+      "id": "enlighten.caraboo.flawless-fairy-tale",
+      "name": "Flawless Fairy Tale",
+      "route": {
+        "slug": "flawless-fairy-tale",
+        "canonicalPath": "/database/awakeners/caraboo/enlightens/flawless-fairy-tale"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "slot": "OverExalt"
+    },
+    "enlighten.caraboo.new-moon-at-its-zenith": {
+      "kind": "enlighten",
+      "id": "enlighten.caraboo.new-moon-at-its-zenith",
+      "name": "New Moon at Its Zenith",
+      "route": {
+        "slug": "new-moon-at-its-zenith",
+        "canonicalPath": "/database/awakeners/caraboo/enlightens/new-moon-at-its-zenith"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "slot": "AbsoluteAxiom"
+    },
+    "enlighten.caraboo.secret-devotions": {
+      "kind": "enlighten",
+      "id": "enlighten.caraboo.secret-devotions",
+      "name": "Secret Devotions",
+      "route": {
+        "slug": "secret-devotions",
+        "canonicalPath": "/database/awakeners/caraboo/enlightens/secret-devotions"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "slot": "E1"
+    },
+    "enlighten.caraboo.sevenfold-rite": {
+      "kind": "enlighten",
+      "id": "enlighten.caraboo.sevenfold-rite",
+      "name": "Sevenfold Rite",
+      "route": {
+        "slug": "sevenfold-rite",
+        "canonicalPath": "/database/awakeners/caraboo/enlightens/sevenfold-rite"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "slot": "E2"
+    },
+    "enlighten.caraboo.threefold-vow": {
+      "kind": "enlighten",
+      "id": "enlighten.caraboo.threefold-vow",
+      "name": "Threefold Vow",
+      "route": {
+        "slug": "threefold-vow",
+        "canonicalPath": "/database/awakeners/caraboo/enlightens/threefold-vow"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "slot": "E3"
     },
     "enlighten.casiah.a-thousand-and-one-miracles": {
       "kind": "enlighten",
@@ -5811,6 +6043,18 @@
       "ownerAwakenerName": "Lotan",
       "slot": "OverExalt"
     },
+    "enlighten.miryam.final-descent": {
+      "kind": "enlighten",
+      "id": "enlighten.miryam.final-descent",
+      "name": "Final Descent",
+      "route": {
+        "slug": "final-descent",
+        "canonicalPath": "/database/awakeners/miryam/enlightens/final-descent"
+      },
+      "ownerAwakenerId": "awakener-0032",
+      "ownerAwakenerName": "Miryam",
+      "slot": "E2"
+    },
     "enlighten.miryam.homeland-resurgence": {
       "kind": "enlighten",
       "id": "enlighten.miryam.homeland-resurgence",
@@ -5834,18 +6078,6 @@
       "ownerAwakenerId": "awakener-0032",
       "ownerAwakenerName": "Miryam",
       "slot": "E1"
-    },
-    "enlighten.miryam.the-ultimate-descent": {
-      "kind": "enlighten",
-      "id": "enlighten.miryam.the-ultimate-descent",
-      "name": "The Ultimate Descent",
-      "route": {
-        "slug": "the-ultimate-descent",
-        "canonicalPath": "/database/awakeners/miryam/enlightens/the-ultimate-descent"
-      },
-      "ownerAwakenerId": "awakener-0032",
-      "ownerAwakenerName": "Miryam",
-      "slot": "E2"
     },
     "enlighten.miryam.unacquainted-pain": {
       "kind": "enlighten",
@@ -7518,6 +7750,36 @@
       "ownerAwakenerName": "Caecus",
       "overlayType": "mechanic"
     },
+    "overlay.caraboo.offering": {
+      "kind": "overlay",
+      "id": "overlay.caraboo.offering",
+      "name": "Offering",
+      "route": {
+        "slug": "offering",
+        "canonicalPath": "/database/awakeners/caraboo/overlays/offering"
+      },
+      "assets": {
+        "icon": "asset-overlay.caraboo.offering-icon"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "overlayType": "mechanic"
+    },
+    "overlay.caraboo.satiety": {
+      "kind": "overlay",
+      "id": "overlay.caraboo.satiety",
+      "name": "Satiety",
+      "route": {
+        "slug": "satiety",
+        "canonicalPath": "/database/awakeners/caraboo/overlays/satiety"
+      },
+      "assets": {
+        "icon": "asset-overlay.caraboo.satiety-icon"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "overlayType": "mechanic"
+    },
     "overlay.celeste.revival": {
       "kind": "overlay",
       "id": "overlay.celeste.revival",
@@ -8003,6 +8265,19 @@
       },
       "overlayType": "mechanic"
     },
+    "overlay.global.enhance": {
+      "kind": "overlay",
+      "id": "overlay.global.enhance",
+      "name": "Enhance",
+      "route": {
+        "slug": "enhance",
+        "canonicalPath": "/database/overlays/enhance"
+      },
+      "assets": {
+        "icon": "asset-overlay.global.enhance-icon"
+      },
+      "overlayType": "mechanic"
+    },
     "overlay.global.exhaust": {
       "kind": "overlay",
       "id": "overlay.global.exhaust",
@@ -8195,6 +8470,16 @@
       },
       "overlayType": "mechanic"
     },
+    "overlay.global.pistoles-de-marie": {
+      "kind": "overlay",
+      "id": "overlay.global.pistoles-de-marie",
+      "name": "Pistoles de Marie",
+      "route": {
+        "slug": "pistoles-de-marie",
+        "canonicalPath": "/database/overlays/pistoles-de-marie"
+      },
+      "overlayType": "mechanic"
+    },
     "overlay.global.poison": {
       "kind": "overlay",
       "id": "overlay.global.poison",
@@ -8258,6 +8543,16 @@
       },
       "assets": {
         "icon": "asset-overlay.global.propagation-frenzy-icon"
+      },
+      "overlayType": "mechanic"
+    },
+    "overlay.global.pure-dmg": {
+      "kind": "overlay",
+      "id": "overlay.global.pure-dmg",
+      "name": "Pure DMG",
+      "route": {
+        "slug": "pure-dmg",
+        "canonicalPath": "/database/overlays/pure-dmg"
       },
       "overlayType": "mechanic"
     },
@@ -10174,6 +10469,23 @@
         "badge": "asset-posse-0061-badge"
       },
       "realm": "OTHER"
+    },
+    "posse-0062": {
+      "kind": "posse",
+      "id": "posse-0062",
+      "name": "That Which is No Lie",
+      "route": {
+        "slug": "that-which-is-no-lie",
+        "canonicalPath": "/database/posses/that-which-is-no-lie"
+      },
+      "assets": {
+        "icon": "asset-posse-0062-icon",
+        "crystal": "asset-posse-0062-crystal",
+        "badge": "asset-posse-0062-badge"
+      },
+      "realm": "CARO",
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo"
     },
     "relic-0001": {
       "kind": "relic",
@@ -14095,6 +14407,47 @@
       },
       "rarity": "SSR"
     },
+    "relic-0314": {
+      "kind": "relic",
+      "id": "relic-0314",
+      "name": "Dimensional Image: Caraboo",
+      "route": {
+        "slug": "dimensional-image-caraboo",
+        "canonicalPath": "/database/relics/dimensional-image-caraboo"
+      },
+      "assets": {
+        "icon": "asset-relic-0314-icon"
+      },
+      "rarity": "SSR",
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo"
+    },
+    "relic-0315": {
+      "kind": "relic",
+      "id": "relic-0315",
+      "name": "Crystal Globe",
+      "route": {
+        "slug": "crystal-globe",
+        "canonicalPath": "/database/relics/crystal-globe"
+      },
+      "assets": {
+        "icon": "asset-relic-0315-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0316": {
+      "kind": "relic",
+      "id": "relic-0316",
+      "name": "Pistoles de Marie",
+      "route": {
+        "slug": "pistoles-de-marie",
+        "canonicalPath": "/database/relics/pistoles-de-marie"
+      },
+      "assets": {
+        "icon": "asset-relic-0316-icon"
+      },
+      "rarity": "SSR"
+    },
     "skill.24.aberrant-vivisection": {
       "kind": "skill",
       "id": "skill.24.aberrant-vivisection",
@@ -14455,13 +14808,13 @@
       "ownerAwakenerName": "Arachne",
       "slot": "OverExalt"
     },
-    "skill.arachne.eternal-loom": {
+    "skill.arachne.eternal-weave": {
       "kind": "skill",
-      "id": "skill.arachne.eternal-loom",
-      "name": "Eternal Loom",
+      "id": "skill.arachne.eternal-weave",
+      "name": "Eternal Weave",
       "route": {
-        "slug": "eternal-loom",
-        "canonicalPath": "/database/awakeners/arachne/skills/eternal-loom"
+        "slug": "eternal-weave",
+        "canonicalPath": "/database/awakeners/arachne/skills/eternal-weave"
       },
       "ownerAwakenerId": "awakener-0056",
       "ownerAwakenerName": "Arachne",
@@ -14682,6 +15035,90 @@
       "ownerAwakenerId": "awakener-0006",
       "ownerAwakenerName": "Caecus",
       "slot": "OverExalt"
+    },
+    "skill.caraboo.defense": {
+      "kind": "skill",
+      "id": "skill.caraboo.defense",
+      "name": "Defense",
+      "route": {
+        "slug": "defense",
+        "canonicalPath": "/database/awakeners/caraboo/skills/defense"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "slot": "Defense"
+    },
+    "skill.caraboo.flawless-fairy-tale": {
+      "kind": "skill",
+      "id": "skill.caraboo.flawless-fairy-tale",
+      "name": "Flawless Fairy Tale",
+      "route": {
+        "slug": "flawless-fairy-tale",
+        "canonicalPath": "/database/awakeners/caraboo/skills/flawless-fairy-tale"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "slot": "OverExalt"
+    },
+    "skill.caraboo.miracle-blessing": {
+      "kind": "skill",
+      "id": "skill.caraboo.miracle-blessing",
+      "name": "Miracle Blessing",
+      "route": {
+        "slug": "miracle-blessing",
+        "canonicalPath": "/database/awakeners/caraboo/skills/miracle-blessing"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "slot": "Skill1"
+    },
+    "skill.caraboo.snowy-hex": {
+      "kind": "skill",
+      "id": "skill.caraboo.snowy-hex",
+      "name": "Snowy Hex",
+      "route": {
+        "slug": "snowy-hex",
+        "canonicalPath": "/database/awakeners/caraboo/skills/snowy-hex"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "slot": "Skill2"
+    },
+    "skill.caraboo.strike": {
+      "kind": "skill",
+      "id": "skill.caraboo.strike",
+      "name": "Strike",
+      "route": {
+        "slug": "strike",
+        "canonicalPath": "/database/awakeners/caraboo/skills/strike"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "slot": "Strike"
+    },
+    "skill.caraboo.ta-da-its-the-fairy": {
+      "kind": "skill",
+      "id": "skill.caraboo.ta-da-its-the-fairy",
+      "name": "Ta-da★It's the Fairy!",
+      "route": {
+        "slug": "ta-daits-the-fairy",
+        "canonicalPath": "/database/awakeners/caraboo/skills/ta-daits-the-fairy"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "slot": "Exalt"
+    },
+    "skill.caraboo.tempting-honeyfruit": {
+      "kind": "skill",
+      "id": "skill.caraboo.tempting-honeyfruit",
+      "name": "Tempting Honeyfruit",
+      "route": {
+        "slug": "tempting-honeyfruit",
+        "canonicalPath": "/database/awakeners/caraboo/skills/tempting-honeyfruit"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "slot": "Rouse"
     },
     "skill.casiah.defense": {
       "kind": "skill",
@@ -19383,6 +19820,58 @@
       },
       "ownerAwakenerId": "awakener-0006",
       "ownerAwakenerName": "Caecus",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    "talent.caraboo.eden-of-propagation": {
+      "kind": "talent",
+      "id": "talent.caraboo.eden-of-propagation",
+      "name": "Eden of Propagation",
+      "route": {
+        "slug": "eden-of-propagation",
+        "canonicalPath": "/database/awakeners/caraboo/talents/eden-of-propagation"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "family": "passive"
+    },
+    "talent.caraboo.gnostic-potential": {
+      "kind": "talent",
+      "id": "talent.caraboo.gnostic-potential",
+      "name": "Gnostic Potential",
+      "route": {
+        "slug": "gnostic-potential",
+        "canonicalPath": "/database/awakeners/caraboo/talents/gnostic-potential"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "family": "gnostic_potential",
+      "maxLevel": 5,
+      "defaultMaxed": true
+    },
+    "talent.caraboo.madness-omen": {
+      "kind": "talent",
+      "id": "talent.caraboo.madness-omen",
+      "name": "Madness Omen",
+      "route": {
+        "slug": "madness-omen",
+        "canonicalPath": "/database/awakeners/caraboo/talents/madness-omen"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    "talent.caraboo.soulforge-aptitude": {
+      "kind": "talent",
+      "id": "talent.caraboo.soulforge-aptitude",
+      "name": "Soulforge Aptitude",
+      "route": {
+        "slug": "soulforge-aptitude",
+        "canonicalPath": "/database/awakeners/caraboo/talents/soulforge-aptitude"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
       "family": "soulforge_aptitude",
       "maxLevel": 10
     },
@@ -24202,6 +24691,55 @@
       "realm": "NEUTRAL",
       "rarity": "SSR",
       "mainstatKey": "REALM_MASTERY"
+    },
+    "wheel-0175": {
+      "kind": "wheel",
+      "id": "wheel-0175",
+      "name": "Honeyed Deceit",
+      "route": {
+        "slug": "honeyed-deceit",
+        "canonicalPath": "/database/wheels/honeyed-deceit"
+      },
+      "assets": {
+        "icon": "asset-wheel-0175-icon"
+      },
+      "realm": "CARO",
+      "rarity": "SSR",
+      "mainstatKey": "REALM_MASTERY",
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo"
+    },
+    "wheel-0176": {
+      "kind": "wheel",
+      "id": "wheel-0176",
+      "name": "Serene Truth",
+      "route": {
+        "slug": "serene-truth",
+        "canonicalPath": "/database/wheels/serene-truth"
+      },
+      "assets": {
+        "icon": "asset-wheel-0176-icon"
+      },
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "REALM_MASTERY",
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo"
+    },
+    "wheel-0177": {
+      "kind": "wheel",
+      "id": "wheel-0177",
+      "name": "Soul Synchronization",
+      "route": {
+        "slug": "soul-synchronization",
+        "canonicalPath": "/database/wheels/soul-synchronization"
+      },
+      "assets": {
+        "icon": "asset-wheel-0177-icon"
+      },
+      "realm": "NEUTRAL",
+      "rarity": "SSR",
+      "mainstatKey": "SIGIL_YIELD"
     }
   },
   "scopes": {
@@ -24322,7 +24860,8 @@
       "awakener-0056",
       "awakener-0057",
       "awakener-0058",
-      "awakener-0059"
+      "awakener-0059",
+      "awakener-0060"
     ],
     "covenants": [
       "covenant-0001",
@@ -24350,6 +24889,19 @@
     "derived-skills": [
       "derived.arachne.guiding-strings",
       "derived.arachne.infinite-threads",
+      "derived.caraboo.blessing",
+      "derived.caraboo.blessing-gifts",
+      "derived.caraboo.blessing-prices",
+      "derived.caraboo.gift-aliemus",
+      "derived.caraboo.gift-arithmetica",
+      "derived.caraboo.gift-dmg-amp",
+      "derived.caraboo.gift-drain",
+      "derived.caraboo.gift-draw",
+      "derived.caraboo.gift-keyflare",
+      "derived.caraboo.gift-str",
+      "derived.caraboo.gilded-words",
+      "derived.caraboo.missed-chance",
+      "derived.caraboo.veiled-malice",
       "derived.castor.onyx-plume",
       "derived.clementine.phobic-fixation",
       "derived.clementine.psychic-trauma",
@@ -24460,6 +25012,7 @@
       "derived.global.silver-key-resonance",
       "derived.global.slumber",
       "derived.global.solidify",
+      "derived.global.soul-synchronization",
       "derived.global.stagger",
       "derived.global.stakes-of-wisdom",
       "derived.global.suspicion",
@@ -24577,6 +25130,11 @@
       "enlighten.caecus.outcasts-anguish",
       "enlighten.caecus.spike-amalgamation",
       "enlighten.caecus.unbending-resolve",
+      "enlighten.caraboo.flawless-fairy-tale",
+      "enlighten.caraboo.new-moon-at-its-zenith",
+      "enlighten.caraboo.secret-devotions",
+      "enlighten.caraboo.sevenfold-rite",
+      "enlighten.caraboo.threefold-vow",
       "enlighten.casiah.a-thousand-and-one-miracles",
       "enlighten.casiah.legendary-copycat",
       "enlighten.casiah.minds-whisper",
@@ -24702,9 +25260,9 @@
       "enlighten.lotan.swords-unleashed",
       "enlighten.lotan.timeless-solitude",
       "enlighten.lotan.until-the-planets-end",
+      "enlighten.miryam.final-descent",
       "enlighten.miryam.homeland-resurgence",
       "enlighten.miryam.solitary-pilgrimage",
-      "enlighten.miryam.the-ultimate-descent",
       "enlighten.miryam.unacquainted-pain",
       "enlighten.miryam.vanitys-collapse",
       "enlighten.mouchette.cleave-out-a-future",
@@ -24845,6 +25403,8 @@
       "overlay.arachne.singularity-warp",
       "overlay.arachne.weaver",
       "overlay.caecus.outcasts-anguish",
+      "overlay.caraboo.offering",
+      "overlay.caraboo.satiety",
       "overlay.celeste.revival",
       "overlay.clementine.phobic-fixation",
       "overlay.clementine.psychic-trauma",
@@ -24886,6 +25446,7 @@
       "overlay.global.echo",
       "overlay.global.embryo-fusion",
       "overlay.global.embryo-fusion-double",
+      "overlay.global.enhance",
       "overlay.global.exhaust",
       "overlay.global.fainted",
       "overlay.global.final-rule",
@@ -24904,12 +25465,14 @@
       "overlay.global.perception",
       "overlay.global.perception-warp",
       "overlay.global.pierce-dmg",
+      "overlay.global.pistoles-de-marie",
       "overlay.global.poison",
       "overlay.global.prepare",
       "overlay.global.primordia-chaos",
       "overlay.global.primordia-mastery-scaling",
       "overlay.global.propagation-caro",
       "overlay.global.propagation-frenzy",
+      "overlay.global.pure-dmg",
       "overlay.global.pure-ultra",
       "overlay.global.pursuit",
       "overlay.global.quasar",
@@ -25046,7 +25609,8 @@
       "posse-0058",
       "posse-0059",
       "posse-0060",
-      "posse-0061"
+      "posse-0061",
+      "posse-0062"
     ],
     "relics": [
       "relic-0001",
@@ -25342,7 +25906,10 @@
       "relic-0310",
       "relic-0311",
       "relic-0312",
-      "relic-0313"
+      "relic-0313",
+      "relic-0314",
+      "relic-0315",
+      "relic-0316"
     ],
     "skills": [
       "skill.24.aberrant-vivisection",
@@ -25375,7 +25942,7 @@
       "skill.alva.strike",
       "skill.arachne.defense",
       "skill.arachne.elegy-over-fate",
-      "skill.arachne.eternal-loom",
+      "skill.arachne.eternal-weave",
       "skill.arachne.fate-binding-web",
       "skill.arachne.moira-as-i-decree",
       "skill.arachne.puppet-stage-unveiled",
@@ -25394,6 +25961,13 @@
       "skill.caecus.shattered-halberd",
       "skill.caecus.strike",
       "skill.caecus.unbending-resolve",
+      "skill.caraboo.defense",
+      "skill.caraboo.flawless-fairy-tale",
+      "skill.caraboo.miracle-blessing",
+      "skill.caraboo.snowy-hex",
+      "skill.caraboo.strike",
+      "skill.caraboo.ta-da-its-the-fairy",
+      "skill.caraboo.tempting-honeyfruit",
       "skill.casiah.defense",
       "skill.casiah.magic-carnival",
       "skill.casiah.opening-act",
@@ -25786,6 +26360,10 @@
       "talent.caecus.madness-omen",
       "talent.caecus.rebellious-spikes",
       "talent.caecus.soulforge-aptitude",
+      "talent.caraboo.eden-of-propagation",
+      "talent.caraboo.gnostic-potential",
+      "talent.caraboo.madness-omen",
+      "talent.caraboo.soulforge-aptitude",
       "talent.casiah.gnostic-potential",
       "talent.casiah.madness-omen",
       "talent.casiah.master-of-magic",
@@ -26123,7 +26701,10 @@
       "wheel-0171",
       "wheel-0172",
       "wheel-0173",
-      "wheel-0174"
+      "wheel-0174",
+      "wheel-0175",
+      "wheel-0176",
+      "wheel-0177"
     ]
   }
 }

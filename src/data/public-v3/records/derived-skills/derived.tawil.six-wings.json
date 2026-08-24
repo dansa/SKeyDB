@@ -13,7 +13,7 @@
   "cardFamily": "command",
   "cardTypes": ["derived"],
   "childDerivedSkillIds": ["derived.tawil.memories"],
-  "descriptionTemplate": "Can be played by consuming 500 Keyflare when Arithmetica is insufficient. Deal 6 instances of [Damage:Arg1] {Pierce DMG}. You can choose one out of six {Memories} to trigger its effect; this \"Memory\" cannot be selected again during this exploration.",
+  "descriptionTemplate": "Can be played by consuming 500 Keyflare when Arithmetica is insufficient. Deal 6 instances of [Damage:Arg1] {Pierce DMG}. You can choose one out of six {derived:Memories} to trigger its effect; this \"Memory\" cannot be selected again during this exploration.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

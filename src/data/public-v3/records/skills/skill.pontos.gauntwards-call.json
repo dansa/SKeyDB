@@ -11,7 +11,7 @@
   "slot": "Skill2",
   "cardFamily": "command",
   "cardTypes": ["skill"],
-  "descriptionTemplate": "If released for the first time in this battle, generate 3 different {Gaunts} into hand and gain [Block:Arg1] Shield. For every 4 permanent {Gaunts} owned, upgrade 1 of them into \"Conjoined {Gaunts}\". Otherwise, draw 3 {Gaunt} cards.",
+  "descriptionTemplate": "If released for the first time in this battle, generate 3 different {derived:Gaunts} into hand and gain [Block:Arg1] Shield. For every 4 permanent {derived:Gaunts} owned, upgrade 1 of them into \"Conjoined {derived:Gaunts}\". Otherwise, draw 3 {derived:Gaunt} cards.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

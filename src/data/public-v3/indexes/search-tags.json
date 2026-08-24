@@ -7,7 +7,7 @@
       "section": "affix",
       "aliases": ["weak"],
       "order": 100,
-      "count": 22
+      "count": 25
     },
     {
       "id": "vulnerable",
@@ -71,7 +71,7 @@
       "section": "affix",
       "aliases": ["strength up"],
       "order": 210,
-      "count": 48
+      "count": 49
     },
     {
       "id": "str-down",
@@ -79,7 +79,7 @@
       "section": "affix",
       "aliases": ["strength down", "str down"],
       "order": 220,
-      "count": 14
+      "count": 15
     },
     {
       "id": "tentacle-dmg",
@@ -127,7 +127,7 @@
       "section": "mechanic",
       "aliases": ["fixed damage"],
       "order": 255,
-      "count": 11
+      "count": 3
     },
     {
       "id": "aftershock",
@@ -159,7 +159,7 @@
       "section": "archetype",
       "aliases": [],
       "order": 900,
-      "count": 29
+      "count": 30
     },
     {
       "id": "death-resistance",
@@ -183,7 +183,7 @@
       "section": "affix",
       "aliases": [],
       "order": 925,
-      "count": 2
+      "count": 3
     },
     {
       "id": "divine-realm",
@@ -191,7 +191,7 @@
       "section": "archetype",
       "aliases": ["alt realm"],
       "order": 930,
-      "count": 6
+      "count": 7
     },
     {
       "id": "draw",
@@ -207,7 +207,7 @@
       "section": "archetype",
       "aliases": ["shield generation"],
       "order": 945,
-      "count": 37
+      "count": 39
     },
     {
       "id": "hand-limit",
@@ -223,7 +223,7 @@
       "section": "archetype",
       "aliases": ["healing", "hp recovery"],
       "order": 960,
-      "count": 32
+      "count": 33
     },
     {
       "id": "keyflare",
@@ -335,7 +335,7 @@
       "section": "archetype",
       "aliases": [],
       "order": 1070,
-      "count": 8
+      "count": 9
     },
     {
       "id": "sigil-gain",

@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0026",
   "slot": "OverExalt",
-  "descriptionTemplate": "Shuffle 1 {Marvelous Cuisine} into the Draw Pile and Discard Pile respectively.",
+  "descriptionTemplate": "Shuffle 1 {derived:Marvelous Cuisine} into the Draw Pile and Discard Pile respectively.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Karen"
 }

@@ -12,7 +12,7 @@
   },
   "numericId": 16,
   "ingameId": "B09",
-  "lineupToken": "s",
+  "lineupToken": "r",
   "realm": "CARO",
   "rarity": "SSR",
   "type": "WARDEN",
@@ -20,7 +20,7 @@
   "releaseDate": "2023-11-29",
   "faction": "Among the Stars",
   "aliases": ["faint"],
-  "searchTags": ["Weakness", "Counter", "STR Up", "STR Down", "Steal STR", "Fixed DMG", "Dispel", "Death Resistance", "Heal"],
+  "searchTags": ["Weakness", "Counter", "STR Up", "STR Down", "Steal STR", "Dispel", "Death Resistance", "Heal"],
   "primaryScalingBase": 20,
   "baseStatsLv1": {
     "CON": 28,

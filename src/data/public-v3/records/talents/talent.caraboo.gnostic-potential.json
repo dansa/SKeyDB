@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "talent",
+  "id": "talent.caraboo.gnostic-potential",
+  "name": "Gnostic Potential",
+  "route": {
+    "slug": "gnostic-potential",
+    "canonicalPath": "/database/awakeners/caraboo/talents/gnostic-potential"
+  },
+  "ownerAwakenerId": "awakener-0060",
+  "family": "gnostic_potential",
+  "maxLevel": 5,
+  "defaultMaxed": true,
+  "descriptionTemplate": "This Awakener gains [Arg1] Levels of Base Attributes.\n·CON +[Talent_Attr_Lv_physique]\n·ATK +[Talent_Attr_Lv_atk]\n·DEF +[Talent_Attr_Lv_def]",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "linear",
+      "base": "2",
+      "gainPerLevel": "2"
+    },
+    "Talent_Attr_Lv_physique": {
+      "kind": "linear",
+      "base": "2",
+      "gainPerLevel": "2"
+    },
+    "Talent_Attr_Lv_atk": {
+      "kind": "scaling",
+      "values": ["3", "5", "8", "10", "12"]
+    },
+    "Talent_Attr_Lv_def": {
+      "kind": "scaling",
+      "values": ["4", "7", "10", "14", "17"]
+    }
+  },
+  "ownerAwakenerName": "Caraboo"
+}

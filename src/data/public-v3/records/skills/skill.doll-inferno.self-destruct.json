@@ -11,7 +11,7 @@
   "slot": "Skill1",
   "cardFamily": "command",
   "cardTypes": ["skill"],
-  "descriptionTemplate": "Choose {Elation} or {Curse}.\n{Self-Destruct: Finale}",
+  "descriptionTemplate": "Choose {derived:Elation} or {derived:Curse}.\n{Self-Destruct: Finale}",
   "descriptionArgs": {},
   "cardKeywords": [],
   "cost": "2",

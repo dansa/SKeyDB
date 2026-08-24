@@ -11,7 +11,7 @@
   "slot": "Exalt",
   "cardFamily": "exalt",
   "cardTypes": ["exalt"],
-  "descriptionTemplate": "Consumes {Great Blade: Whalefall} to unleash. Deal [Damage:Arg1] guaranteed Critical Hit DMG to the enemy with the highest DMG, which enjoys a [Arg2]% {STR} Bonus. For each +1 DMG {Great Blade: Whalefall} is causing the target to deal to you, {Mundus Severance} deals +[Arg4] DMG.",
+  "descriptionTemplate": "Consumes {derived:Great Blade: Whalefall} to unleash. Deal [Damage:Arg1] guaranteed Critical Hit DMG to the enemy with the highest DMG, which enjoys a [Arg2]% {STR} Bonus. For each +1 DMG {derived:Great Blade: Whalefall} is causing the target to deal to you, {Mundus Severance} deals +[Arg4] DMG.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

@@ -85,7 +85,7 @@ describe('searchAwakeners', () => {
       .slice(0, 6)
       .map((x) => x.name)
 
-    expect(names).toEqual(['caecus', 'casiah', 'castor', 'celeste', 'clementine', 'corposant'])
+    expect(names).toEqual(['caecus', 'caraboo', 'casiah', 'castor', 'celeste', 'clementine'])
   })
 
   it('keeps two-character character searches out of substring and facet noise', () => {
@@ -116,7 +116,7 @@ describe('searchAwakeners', () => {
       .slice(0, 3)
       .map((x) => x.name)
 
-    expect(names).toEqual(['caecus', 'casiah', 'castor'])
+    expect(names).toEqual(['caecus', 'caraboo', 'casiah'])
   })
 
   it('keeps one-character queries focused on names instead of broad tag matches', () => {

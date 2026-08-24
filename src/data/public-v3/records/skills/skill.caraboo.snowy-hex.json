@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 3,
+  "kind": "skill",
+  "id": "skill.caraboo.snowy-hex",
+  "name": "Snowy Hex",
+  "route": {
+    "slug": "snowy-hex",
+    "canonicalPath": "/database/awakeners/caraboo/skills/snowy-hex"
+  },
+  "ownerAwakenerId": "awakener-0060",
+  "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
+  "descriptionTemplate": "Deal [Arg1] {Fixed DMG} to the enemy with the highest HP. Apply [Arg2] turns of {Weakness}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": ["5000", "6000", "7000", "8000", "9000", "10000"],
+      "stat": "ATK",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "2"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "2",
+  "lore": "On every clear night when snow was about to fall, Caraboo would climb up beside the chimney and gaze quietly into the dim sky. Pointing her wand toward the heavens, she would trace out an incantation of her own making. And then the drifting powder snow would carry her back to that snowy night when she had once handed over her soul.",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.caraboo.secret-devotions.skill.caraboo.snowy-hex",
+      "operation": "mixed",
+      "upgraderId": "enlighten.caraboo.secret-devotions",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "E1",
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "patch": {
+        "descriptionTemplate": "Deal [Arg1] {Fixed DMG} to the enemy with the highest HP. Apply [Arg2] turns of {Weakness}. Gain [Energy:Arg3] Aliemus.",
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": ["5000", "6000", "7000", "8000", "9000", "10000"],
+            "stat": "ATK",
+            "suffix": "%",
+            "substatBonus": {
+              "substat": "RealmMastery",
+              "multiplier": "0.15",
+              "mode": "additive_factor",
+              "baseMultiplier": "1.3"
+            }
+          },
+          "Arg2": {
+            "kind": "fixed",
+            "value": "2"
+          },
+          "Arg3": {
+            "kind": "fixed",
+            "value": "10",
+            "substatBonus": {
+              "substat": "RealmMastery",
+              "multiplier": "0.05",
+              "mode": "additive"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "ownerAwakenerName": "Caraboo"
+}

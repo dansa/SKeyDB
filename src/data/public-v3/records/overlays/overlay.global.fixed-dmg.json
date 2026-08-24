@@ -10,6 +10,6 @@
   "overlayType": "mechanic",
   "aliases": [],
   "textColor": "misc",
-  "descriptionTemplate": "Deals a fixed amount of DMG, unaffected by states such as {STR}, {Weakness}, or {Vulnerability}.",
+  "descriptionTemplate": "Cannot Critical Hit, not considered Base DMG, and not affected by Final DMG bonuses or similar effects.",
   "descriptionArgs": {}
 }

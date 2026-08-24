@@ -35,6 +35,8 @@ function getRichSegmentKeyParts(segment: RichSegment): string {
       return `${segment.type}:${segment.channel ?? ''}:${segment.argKey}`
     case 'argPlural':
       return `${segment.type}:${segment.channel ?? ''}:${segment.argKey}:${segment.singular}:${segment.plural}`
+    case 'formatting':
+      return `${segment.type}:${segment.style}:${segment.segments.map(getRichSegmentKeyParts).join('|')}`
   }
 }
 

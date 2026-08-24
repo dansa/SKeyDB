@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0032",
   "slot": "E3",
-  "descriptionTemplate": "{Ritual} effect +30%. For each {Sacrament} converted into {Obsession}, increase Miryam's Base DMG and the Base {Poison} of {Pray to the Abyss} by 15% in this battle.",
+  "descriptionTemplate": "{Ritual} effect +30%. For each {derived:Sacrament} converted into {derived:Obsession}, increase Miryam's Base DMG and the Base {Poison} of {Pray to the Abyss} by 15% in this battle.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Miryam"
 }

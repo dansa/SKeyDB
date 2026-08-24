@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0314",
+  "name": "Dimensional Image: Caraboo",
+  "route": {
+    "slug": "dimensional-image-caraboo",
+    "canonicalPath": "/database/relics/dimensional-image-caraboo"
+  },
+  "assets": {
+    "icon": "asset-relic-0314-icon"
+  },
+  "relicType": "Dimensional Image",
+  "categories": ["DIMENSIONAL_IMAGE"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0566",
+  "ownerAwakenerId": "awakener-0060",
+  "ownerAwakenerName": "Caraboo",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "At turn start, Caraboo gains [Arg1] Aliemus. Caraboo's {derived:Caraboo's Blessing} cards offers 1 more option upon being {Discovered}. Caraboo's Exalt inflicts {Corrosion} stacks equal to the amount of DMG dealt.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0566",
+      "name": "Dimensional Image: Caraboo",
+      "label": "Dimensional Image",
+      "variantType": "DIMENSIONAL_IMAGE",
+      "tier": "Unique",
+      "category": "DIMENSIONAL_IMAGE",
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "rarity": "SSR",
+      "descriptionTemplate": "At turn start, Caraboo gains [Arg1] Aliemus. Caraboo's {derived:Caraboo's Blessing} cards offers 1 more option upon being {Discovered}. Caraboo's Exalt inflicts {Corrosion} stacks equal to the amount of DMG dealt.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        }
+      }
+    }
+  ]
+}

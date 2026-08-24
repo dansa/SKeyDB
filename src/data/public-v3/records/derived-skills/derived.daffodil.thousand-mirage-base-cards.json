@@ -12,7 +12,7 @@
   "derivedFromId": "derived.daffodil.thousand-mirage",
   "rootSkillId": "skill.daffodil.sea-of-primordial-essence",
   "childDerivedSkillIds": ["derived.daffodil.thousand-mirage-poison", "derived.daffodil.thousand-mirage-counter", "derived.daffodil.thousand-mirage-damage"],
-  "descriptionTemplate": "Choose a base {Thousand Mirage} card before adding extra effects.",
+  "descriptionTemplate": "Choose a base {derived:Thousand Mirage} card before adding extra effects.",
   "descriptionArgs": {},
   "cardKeywords": [],
   "ownerAwakenerName": "Daffodil"

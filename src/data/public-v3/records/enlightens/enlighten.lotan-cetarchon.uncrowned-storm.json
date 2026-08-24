@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0059",
   "slot": "E3",
-  "descriptionTemplate": "Doubles the DMG Bonus {Great Blade: Whalefall} provides for {Mundus Severance}. The first {Deadly Duel} played each turn no longer consumes Arithmetica.",
+  "descriptionTemplate": "Doubles the DMG Bonus {derived:Great Blade: Whalefall} provides for {Mundus Severance}. The first {derived:Deadly Duel} played each turn no longer consumes Arithmetica.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Lotan: Cetarchon"
 }

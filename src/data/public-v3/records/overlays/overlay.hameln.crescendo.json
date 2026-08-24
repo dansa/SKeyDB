@@ -10,7 +10,7 @@
   "overlayType": "mechanic",
   "ownerAwakenerId": "awakener-0022",
   "aliases": [],
-  "descriptionTemplate": "Play This card to grant Hameln 3 Aliemus.",
+  "descriptionTemplate": "Play this card to grant Hameln 3 Aliemus.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Hameln"
 }

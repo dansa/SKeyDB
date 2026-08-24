@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0008",
   "slot": "E1",
-  "descriptionTemplate": "At the start of the battle, place 1 {Onyx Plume} into hand.",
+  "descriptionTemplate": "At the start of the battle, place 1 {derived:Onyx Plume} into hand.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Castor"
 }

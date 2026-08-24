@@ -12,7 +12,7 @@
   "rootSkillId": "skill.helot-catena.fettered-malice",
   "cardFamily": "effect",
   "cardTypes": ["effect"],
-  "descriptionTemplate": "Choose a Base Command Card of Helot: Catena and place it into hand.",
+  "descriptionTemplate": "Choose a Basic Command Card of Helot: Catena and place it into hand.",
   "descriptionArgs": {},
   "cardKeywords": [
     {

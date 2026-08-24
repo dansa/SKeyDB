@@ -11,7 +11,7 @@
   "slot": "Rouse",
   "cardFamily": "rouse",
   "cardTypes": ["rouse"],
-  "descriptionTemplate": "Lotan: Cetarchon gains [Arg2]% Base Aliemus. {Rouse}: Lotan: Cetarchon's Command Cards deal +1 instance of DMG.\nAt turn start, if {Great Blade: Whalefall} is in hand:\nThe first {Deadly Duel} played that turn empowers your next {Mundus Severance}—for each 1 Aliemus it steals, {Mundus Severance} deals +1% Final DMG (max 90%).",
+  "descriptionTemplate": "Lotan: Cetarchon gains [Arg2]% Base Aliemus. {Rouse}: Lotan: Cetarchon's Command Cards deal +1 instance of DMG.\nAt turn start, if {derived:Great Blade: Whalefall} is in hand:\nThe first {derived:Deadly Duel} played that turn empowers your next {Mundus Severance}—for each 1 Aliemus it steals, {Mundus Severance} deals +1% Final DMG (max 90%).",
   "descriptionArgs": {
     "Arg2": {
       "kind": "scaling",
@@ -36,7 +36,7 @@
       "ownerAwakenerId": "awakener-0059",
       "ownerAwakenerName": "Lotan: Cetarchon",
       "patch": {
-        "descriptionTemplate": "Lotan: Cetarchon gains [Arg2]% Base Aliemus. {Rouse}: Lotan: Cetarchon's Command Cards deal +1 instance of DMG.\nLotan: Cetarchon receives +50% Aliemus through {Deadly Duel}. At turn start, if {Great Blade: Whalefall} is in hand:\nThe first {Deadly Duel} played that turn empowers your next {Mundus Severance}—for each 1 Aliemus it steals, {Mundus Severance} deals +1.5% Final DMG (max 135%)."
+        "descriptionTemplate": "Lotan: Cetarchon gains [Arg2]% Base Aliemus. {Rouse}: Lotan: Cetarchon's Command Cards deal +1 instance of DMG.\nLotan: Cetarchon receives +50% Aliemus through {derived:Deadly Duel}. At turn start, if {derived:Great Blade: Whalefall} is in hand:\nThe first {derived:Deadly Duel} played that turn empowers your next {Mundus Severance}—for each 1 Aliemus it steals, {Mundus Severance} deals +1.5% Final DMG (max 135%)."
       }
     }
   ],

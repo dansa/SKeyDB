@@ -13,8 +13,8 @@
   "rarity": "SSR",
   "realm": "NEUTRAL",
   "mainstatKey": "CRIT_RATE",
-  "lineupToken": "yJ",
-  "descriptionTemplate": "Team Unique: After unleashing a Posse, the wielder's Crit. Rate is temporarily increased by [StateArg1]%.",
+  "lineupToken": "yH",
+  "descriptionTemplate": "Team Unique: After unleashing a Posse, the wielder's Crit. Rate is temporarily+[StateArg1]%.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

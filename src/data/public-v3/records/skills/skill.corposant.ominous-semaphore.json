@@ -11,7 +11,7 @@
   "slot": "Skill2",
   "cardFamily": "command",
   "cardTypes": ["skill"],
-  "descriptionTemplate": "Gain [Energy:Arg1] Aliemus. Put [Arg2] {Pilot} into hand.",
+  "descriptionTemplate": "Gain [Energy:Arg1] Aliemus. Put [Arg2] {derived:Pilot} into hand.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -35,7 +35,7 @@
       "ownerAwakenerId": "awakener-0011",
       "ownerAwakenerName": "Corposant",
       "patch": {
-        "descriptionTemplate": "Gain [Energy:Arg1] Aliemus. Put [Arg2] {Pilot} into hand. Apply {Weakness} to all enemies for 1 turn."
+        "descriptionTemplate": "Gain [Energy:Arg1] Aliemus. Put [Arg2] {derived:Pilot} into hand. Apply {Weakness} to all enemies for 1 turn."
       }
     }
   ],

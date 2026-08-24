@@ -11,7 +11,7 @@
   "slot": "Exalt",
   "cardFamily": "exalt",
   "cardTypes": ["exalt"],
-  "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies. Your next Pollux Command Card this turn gains {Atonement by Pain}. Put 1 {Sacred Heart} into hand.",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies. Your next Pollux Command Card this turn gains {Atonement by Pain}. Put 1 {derived:Sacred Heart} into hand.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

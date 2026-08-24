@@ -13,7 +13,7 @@
   "rarity": "SSR",
   "realm": "NEUTRAL",
   "mainstatKey": "SIGIL_YIELD",
-  "lineupToken": "yI",
+  "lineupToken": "yG",
   "descriptionTemplate": "Team Unique: After resetting stock at \"D-Mark\" and {Ashen Ruins}, the wielder gains [StateArg1] Aliemus.",
   "descriptionArgs": {
     "StateArg1": {

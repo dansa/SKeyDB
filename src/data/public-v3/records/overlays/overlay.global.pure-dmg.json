@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 3,
+  "kind": "overlay",
+  "id": "overlay.global.pure-dmg",
+  "name": "Pure DMG",
+  "route": {
+    "slug": "pure-dmg",
+    "canonicalPath": "/database/overlays/pure-dmg"
+  },
+  "overlayType": "mechanic",
+  "aliases": [],
+  "textColor": "misc",
+  "descriptionTemplate": "Cannot Critical Hit, not considered as DMG dealt by the corresponding Awakener.",
+  "descriptionArgs": {}
+}

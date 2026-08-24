@@ -19,7 +19,7 @@
     "derived.tawil.utopian-veil",
     "derived.tawil.polar-dusklight"
   ],
-  "descriptionTemplate": "Choose 1 of these {Memories} to trigger its effect. A chosen memory cannot be selected again during this exploration.",
+  "descriptionTemplate": "Choose 1 of these {derived:Memories} to trigger its effect. A chosen memory cannot be selected again during this exploration.",
   "descriptionArgs": {},
   "cardKeywords": [],
   "ownerAwakenerName": "Tawil"

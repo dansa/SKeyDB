@@ -11,7 +11,7 @@
   "slot": "Rouse",
   "cardFamily": "rouse",
   "cardTypes": ["rouse"],
-  "descriptionTemplate": "Arachne gains Aliemus equal to [Arg2]% of her Base Aliemus. {Rouse}: {Annihilation} changes to: \"Pull a chosen Command Card out from {Ultra Space} and into hand; it triggers +1 time when played. The next Command Card played triggers {Dimension Shuttle}.\"",
+  "descriptionTemplate": "Arachne gains Aliemus equal to [Arg2]% of her Base Aliemus. {Rouse}: {Annihilation} changes to: \"Pull a chosen Command Card out from {Ultra Space} and into hand; it triggers +1 time when played. The next Command Card played triggers {overlay:Dimension Shuttle}.\"",
   "descriptionArgs": {
     "Arg2": {
       "kind": "scaling",
@@ -36,7 +36,7 @@
       "ownerAwakenerId": "awakener-0056",
       "ownerAwakenerName": "Arachne",
       "patch": {
-        "descriptionTemplate": "Arachne gains Aliemus equal to [Arg2]% of her Base Aliemus. {Rouse}: {Annihilation} changes to: \"Pull a chosen Command Card out from {Ultra Space} and into hand; it triggers +1 time when played. For each enemy, deal {Fixed DMG} to them equal to 50% of their {Final Verdict}. Shield and DMG Amplification gained from Arachne's next Exalt +50%. The next Command Card played triggers {Dimension Shuttle}.\""
+        "descriptionTemplate": "Arachne gains Aliemus equal to [Arg2]% of her Base Aliemus. {Rouse}: {Annihilation} changes to: \"Pull a chosen Command Card out from {Ultra Space} and into hand; it triggers +1 time when played. For each enemy, deal {Pure DMG} to them equal to 50% of their {Final Verdict}. Shield and DMG Amplification gained from Arachne's next Exalt +50%. The next Command Card played triggers {overlay:Dimension Shuttle}.\""
       }
     }
   ],

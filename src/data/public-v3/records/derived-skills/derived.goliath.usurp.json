@@ -12,7 +12,7 @@
   "rootSkillId": "skill.goliath.abyssal-depths-power",
   "cardFamily": "command",
   "cardTypes": ["skill"],
-  "descriptionTemplate": "Add 3 {Blade's Dominion} to your hand, gain Temporary {STR} equal to [Arg1]% {Tentacle DMG}.",
+  "descriptionTemplate": "Add 3 {derived:Blade's Dominion} to your hand, gain Temporary {STR} equal to [Arg1]% {Tentacle DMG}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -31,7 +31,7 @@
       "ownerAwakenerId": "awakener-0021",
       "ownerAwakenerName": "Goliath",
       "patch": {
-        "descriptionTemplate": "Add 3 {Blade's Dominion} to your hand, obtain Temporary {STR} equal to [Arg1]% {Tentacle DMG}. Goliath obtains [Arg2]% Temporary Crit. Rate.",
+        "descriptionTemplate": "Add 3 {derived:Blade's Dominion} to your hand, obtain Temporary {STR} equal to [Arg1]% {Tentacle DMG}. Goliath obtains [Arg2]% Temporary Crit. Rate.",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

@@ -11,7 +11,7 @@
   "slot": "Rouse",
   "cardFamily": "rouse",
   "cardTypes": ["rouse"],
-  "descriptionTemplate": "Pollux gains [Energy:Arg1] Aliemus. {Rouse}: Gain 3 stacks of {Sin Mark} when played and after the discard phase, plus 1 additional stack of {Sin Mark} for each card in hand. {Sacred Heart} inflicts {Bleed} equal to 100% DMG.",
+  "descriptionTemplate": "Pollux gains [Energy:Arg1] Aliemus. {Rouse}: Gain 3 stacks of {Sin Mark} when played and after the discard phase, plus 1 additional stack of {Sin Mark} for each card in hand. {derived:Sacred Heart} inflicts {Bleed} equal to 100% DMG.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -35,7 +35,7 @@
       "ownerAwakenerId": "awakener-0041",
       "ownerAwakenerName": "Pollux",
       "patch": {
-        "descriptionTemplate": "Pollux gains [Energy:Arg1] Aliemus. {Rouse}: Gain 3 stacks of {Sin Mark} when played and after the discard phase, plus 1 additional stack of {Sin Mark} for each card in hand. {Sacred Heart} inflicts {Bleed} equal to 100% DMG. After being shuffled into the Draw Pile by playing it, that {Sacred Heart}'s Arithmetica Cost becomes 0 this turn and applies {Bleed} equal to 100% DMG."
+        "descriptionTemplate": "Pollux gains [Energy:Arg1] Aliemus. {Rouse}: Gain 3 stacks of {Sin Mark} when played and after the discard phase, plus 1 additional stack of {Sin Mark} for each card in hand. {derived:Sacred Heart} inflicts {Bleed} equal to 100% DMG. After being shuffled into the Draw Pile by playing it, that {derived:Sacred Heart}'s Arithmetica Cost becomes 0 this turn and applies {Bleed} equal to 100% DMG."
       }
     }
   ],

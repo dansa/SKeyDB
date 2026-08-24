@@ -15,7 +15,7 @@
   "mainstatKey": "CRIT_DMG",
   "ownerAwakenerId": "awakener-0014",
   "ownerAwakenerName": "Doresain",
-  "lineupToken": "yO",
+  "lineupToken": "yM",
   "descriptionTemplate": "Team Unique: The wielder's Base DMG +[StateArg1]%. Whenever the wielder kills an enemy, accumulate {Crimson Furnace} equal to [StateArg2]% of the wielder's ATK if the current Realm is {Caro}.",
   "descriptionArgs": {
     "StateArg1": {

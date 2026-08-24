@@ -13,8 +13,8 @@
   "rarity": "SSR",
   "realm": "NEUTRAL",
   "mainstatKey": "ALIEMUS_REGEN",
-  "lineupToken": "yH",
-  "descriptionTemplate": "Team Unique: After the wielder releases Exalt, Exalt Base DMG +[StateArg1]%, Shield and HP Recovery +[StateArg2]%, stacking up to 5 times. After completing exploration, the Affinity gained by the wielder +[StateArg3]%.",
+  "lineupToken": "yF",
+  "descriptionTemplate": "Team Unique: After the wielder releases Exalt, Exalt Base DMG +[StateArg1]%, Shield and HP Recovery +[StateArg2]%, stacking up to 5 times. During exploration, the Affinity gained by the wielder +[StateArg3]%.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

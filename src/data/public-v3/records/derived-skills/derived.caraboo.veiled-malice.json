@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.caraboo.veiled-malice",
+  "name": "Veiled Malice",
+  "route": {
+    "slug": "veiled-malice",
+    "canonicalPath": "/database/awakeners/caraboo/derived-skills/veiled-malice"
+  },
+  "ownerAwakenerId": "awakener-0060",
+  "derivedFromId": "derived.caraboo.blessing-prices",
+  "rootSkillId": "skill.caraboo.miracle-blessing",
+  "descriptionTemplate": "Inflicts 1 random negative effect on your team:\n<Italic:2 turns of {Weakness}; 2 turns of {Fragile}, 2 turns of {Blighten}; {Poison} stacks equal to 1% Max HP; 2 stacks of {Void}; 1 stack of {Stagnation} on 2 random cards in hand; or generates 2 Temporary Symptom Cards (which do not persist across battles) and places them on top of the Draw Pile.>",
+  "descriptionArgs": {},
+  "cardKeywords": [],
+  "ownerAwakenerName": "Caraboo"
+}

@@ -15,7 +15,7 @@
   "mainstatKey": "KEYFLARE_REGEN",
   "ownerAwakenerId": "awakener-0035",
   "ownerAwakenerName": "Murphy: Fauxborn",
-  "lineupToken": "yQ",
+  "lineupToken": "yO",
   "descriptionTemplate": "Team Unique: The wielder's Keyflare Regen, Exalt Final DMG & Shield +[StateArg1]%.",
   "descriptionArgs": {
     "StateArg1": {

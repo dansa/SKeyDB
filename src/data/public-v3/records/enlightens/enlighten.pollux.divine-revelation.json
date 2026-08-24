@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0041",
   "slot": "E3",
-  "descriptionTemplate": "When {Exhausted} at its {ordinal:3rd} use, {Sacred Heart} causes Pollux's next Command Card to take effect 1 additional time.",
+  "descriptionTemplate": "When {Exhausted} at its {ordinal:3rd} use, {derived:Sacred Heart} causes Pollux's next Command Card to take effect 1 additional time.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Pollux"
 }

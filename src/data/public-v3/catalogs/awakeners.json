@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "awakeners",
   "kind": "awakener",
-  "recordCount": 59,
+  "recordCount": 60,
   "records": [
     {
       "kind": "awakener",
@@ -56,22 +56,9 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "T",
+      "lineupToken": "S",
       "aliases": ["24", "twenty-four"],
-      "searchTags": [
-        "Weakness",
-        "Vulnerable",
-        "Poison",
-        "Bleed",
-        "Counter",
-        "STR Up",
-        "Tentacle DMG",
-        "Pierce DMG",
-        "Fixed DMG",
-        "Arithmetica",
-        "Hand Limit",
-        "Keyflare"
-      ]
+      "searchTags": ["Weakness", "Vulnerable", "Poison", "Bleed", "Counter", "STR Up", "Tentacle DMG", "Pierce DMG", "Arithmetica", "Hand Limit", "Keyflare"]
     },
     {
       "kind": "awakener",
@@ -124,7 +111,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "S",
+      "lineupToken": "R",
       "aliases": ["agrippa"],
       "searchTags": ["Poison", "Alert", "STR Up", "Draw", "Spider"]
     },
@@ -179,7 +166,7 @@
         "DamageAmplification": 0.8,
         "DeathResistance": 0
       },
-      "lineupToken": "J",
+      "lineupToken": "I",
       "aliases": ["aigis"],
       "searchTags": ["Vulnerable", "Stun", "Draw", "Keyflare"]
     },
@@ -234,7 +221,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 5.6
       },
-      "lineupToken": "G",
+      "lineupToken": "F",
       "aliases": ["alva"],
       "searchTags": ["Vulnerable", "Alert", "Dispel", "Death Resistance", "Discard", "Draw", "Strike"]
     },
@@ -289,7 +276,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "o",
+      "lineupToken": "n",
       "aliases": ["aurita"],
       "searchTags": ["STR Up", "Tentacle DMG", "Pierce DMG", "Aftershock", "Discard", "Draw", "Tentacle Generation"]
     },
@@ -344,7 +331,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "M",
+      "lineupToken": "L",
       "aliases": ["caecus"],
       "searchTags": ["Vulnerable", "Counter", "STR Up", "Tentacle DMG", "Dispel", "Heal", "Tentacle Generation"]
     },
@@ -399,7 +386,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "n",
+      "lineupToken": "m",
       "aliases": ["casiah"],
       "searchTags": ["STR Up", "Aftershock", "Arithmetica", "Discard", "Draw"]
     },
@@ -455,7 +442,7 @@
         "DamageAmplification": 1.6,
         "DeathResistance": 0
       },
-      "lineupToken": "7",
+      "lineupToken": "6",
       "aliases": ["castor"],
       "searchTags": ["Weakness", "Corrosion", "Draw"]
     },
@@ -510,7 +497,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 2.8
       },
-      "lineupToken": "h",
+      "lineupToken": "g",
       "aliases": ["celeste"],
       "searchTags": ["Weakness", "Tentacle DMG", "Dispel", "Arithmetica", "Heal", "Tentacle Generation"]
     },
@@ -566,7 +553,7 @@
         "DamageAmplification": 0.8,
         "DeathResistance": 0
       },
-      "lineupToken": "9",
+      "lineupToken": "8",
       "aliases": ["clementine"],
       "searchTags": ["Bleed", "STR Up", "STR Down", "Dispel", "Keyflare"]
     },
@@ -622,7 +609,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 5.6
       },
-      "lineupToken": "6",
+      "lineupToken": "5",
       "aliases": ["corposant"],
       "searchTags": ["Weakness", "Vulnerable", "STR Up", "Tentacle DMG", "Aftershock", "Death Resistance", "Discard", "Draw", "Tentacle Generation"]
     },
@@ -678,7 +665,7 @@
         "DamageAmplification": 0.8,
         "DeathResistance": 0
       },
-      "lineupToken": "I",
+      "lineupToken": "H",
       "aliases": ["daffodil"],
       "searchTags": ["Weakness", "Vulnerable", "Poison", "Counter", "STR Up", "Pierce DMG", "Arithmetica", "Draw", "Keyflare"]
     },
@@ -733,7 +720,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "l",
+      "lineupToken": "k",
       "aliases": ["doll"],
       "searchTags": ["Weakness", "Dispel", "Discard", "Heal"]
     },
@@ -789,9 +776,9 @@
         "DamageAmplification": 0.8,
         "DeathResistance": 0
       },
-      "lineupToken": "xi",
+      "lineupToken": "xh",
       "aliases": ["doresain"],
-      "searchTags": ["Vulnerable", "STR Up", "Pierce DMG", "Fixed DMG", "Self-Damage"]
+      "searchTags": ["Vulnerable", "STR Up", "Pierce DMG", "Self-Damage"]
     },
     {
       "kind": "awakener",
@@ -844,7 +831,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "V",
+      "lineupToken": "U",
       "aliases": ["erica"],
       "searchTags": ["Weakness", "Vulnerable", "Alert", "STR Up", "Dispel", "Keyflare"]
     },
@@ -899,9 +886,9 @@
         "DamageAmplification": 0,
         "DeathResistance": 5.6
       },
-      "lineupToken": "s",
+      "lineupToken": "r",
       "aliases": ["faint"],
-      "searchTags": ["Weakness", "Counter", "STR Up", "STR Down", "Steal STR", "Fixed DMG", "Dispel", "Death Resistance", "Heal"]
+      "searchTags": ["Weakness", "Counter", "STR Up", "STR Down", "Steal STR", "Dispel", "Death Resistance", "Heal"]
     },
     {
       "kind": "awakener",
@@ -954,7 +941,7 @@
         "DamageAmplification": 1.6,
         "DeathResistance": 0
       },
-      "lineupToken": "q",
+      "lineupToken": "p",
       "aliases": ["faros"],
       "searchTags": ["Poison", "Tentacle DMG", "Dispel", "Arithmetica", "Draw", "Hand Limit", "Lemurian", "Tentacle Generation"]
     },
@@ -1010,9 +997,9 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "U",
+      "lineupToken": "T",
       "aliases": ["doll: inferno", "g-doll"],
-      "searchTags": ["Weakness", "Vulnerable", "Poison", "Fixed DMG", "Arithmetica", "Draw", "Heal", "Max HP DMG", "Self-Damage"]
+      "searchTags": ["Weakness", "Vulnerable", "Poison", "Arithmetica", "Draw", "Heal", "Max HP DMG", "Self-Damage"]
     },
     {
       "kind": "awakener",
@@ -1066,7 +1053,7 @@
         "DamageAmplification": 1.6,
         "DeathResistance": 0
       },
-      "lineupToken": "i",
+      "lineupToken": "h",
       "aliases": ["helot: catena", "g-helot"],
       "searchTags": ["Bleed", "STR Up", "Draw", "Hand Limit", "Heal", "Self-Damage", "Strike"]
     },
@@ -1121,7 +1108,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "j",
+      "lineupToken": "i",
       "aliases": ["ramona: timeworn", "g-ramona"],
       "searchTags": ["STR Up", "STR Down", "Arithmetica", "Draw", "Keyflare"]
     },
@@ -1176,7 +1163,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "f",
+      "lineupToken": "e",
       "aliases": ["goliath"],
       "searchTags": ["STR Up", "Tentacle DMG", "Dispel", "Lemurian", "Tentacle Generation"]
     },
@@ -1232,9 +1219,9 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "Y",
+      "lineupToken": "X",
       "aliases": ["hameln"],
-      "searchTags": ["Weakness", "Vulnerable", "Poison", "Bleed", "STR Up", "STR Down", "Steal STR", "Pierce DMG", "Dispel", "Arithmetica"]
+      "searchTags": ["Weakness", "Vulnerable", "Poison", "Bleed", "STR Up", "STR Down", "Steal STR", "Pierce DMG", "Arithmetica"]
     },
     {
       "kind": "awakener",
@@ -1287,7 +1274,7 @@
         "DamageAmplification": 1.6,
         "DeathResistance": 0
       },
-      "lineupToken": "F",
+      "lineupToken": "E",
       "aliases": ["helot"],
       "searchTags": ["Dispel", "Discard", "Draw", "Hand Limit", "Self-Damage", "Strike"]
     },
@@ -1343,7 +1330,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 5.6
       },
-      "lineupToken": "B",
+      "lineupToken": "A",
       "aliases": ["horla"],
       "searchTags": ["Weakness", "Vulnerable", "Counter", "STR Up", "STR Down", "Death Resistance", "Heal"]
     },
@@ -1398,7 +1385,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "L",
+      "lineupToken": "K",
       "aliases": ["jenkins"],
       "searchTags": ["Draw"]
     },
@@ -1453,7 +1440,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 2.8
       },
-      "lineupToken": "m",
+      "lineupToken": "l",
       "aliases": ["karen"],
       "searchTags": ["Weakness", "Vulnerable", "Poison", "Dispel", "Arithmetica", "Draw", "Heal", "Keyflare"]
     },
@@ -1509,7 +1496,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "1",
+      "lineupToken": "Z",
       "aliases": ["kathigu-ra", "kathigura"],
       "searchTags": ["STR Up", "Pierce DMG", "Dispel", "Discard", "Draw"]
     },
@@ -1564,7 +1551,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 2.8
       },
-      "lineupToken": "P",
+      "lineupToken": "O",
       "aliases": ["leigh"],
       "searchTags": ["STR Up", "Pierce DMG", "Dispel", "Heal", "Self-Damage"]
     },
@@ -1620,7 +1607,7 @@
         "DamageAmplification": 1.6,
         "DeathResistance": 2.8
       },
-      "lineupToken": "w",
+      "lineupToken": "v",
       "aliases": ["lily"],
       "searchTags": ["Poison", "Death Resistance", "Heal", "Strike"]
     },
@@ -1675,7 +1662,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "d",
+      "lineupToken": "c",
       "aliases": ["liz"],
       "searchTags": ["Poison", "STR Up", "Pierce DMG", "Discard", "Draw"]
     },
@@ -1730,9 +1717,9 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "k",
+      "lineupToken": "j",
       "aliases": ["lotan"],
-      "searchTags": ["STR Up", "Fixed DMG", "Dispel", "Max HP DMG", "Strike"]
+      "searchTags": ["STR Up", "Dispel", "Max HP DMG", "Strike"]
     },
     {
       "kind": "awakener",
@@ -1786,7 +1773,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "A",
+      "lineupToken": "w",
       "aliases": ["miryam"],
       "searchTags": [
         "Weakness",
@@ -1855,7 +1842,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 5.6
       },
-      "lineupToken": "xg",
+      "lineupToken": "xf",
       "aliases": ["mouchette"],
       "searchTags": ["Stun", "Pursuit", "Death Resistance", "Strike"]
     },
@@ -1911,7 +1898,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "r",
+      "lineupToken": "q",
       "aliases": ["murphy"],
       "searchTags": ["Weakness", "Vulnerable", "Tentacle DMG", "Aftershock", "Dispel", "Arithmetica", "Keyflare", "Tentacle Generation", "Sacrifice"]
     },
@@ -1967,7 +1954,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "H",
+      "lineupToken": "G",
       "aliases": ["murphy: fauxborn", "g-murphy"],
       "searchTags": ["Tentacle DMG", "Aftershock", "Dispel", "Arithmetica", "Divine Realm", "Draw", "Keyflare", "Lemurian", "Tentacle Generation", "Sacrifice"]
     },
@@ -2022,9 +2009,9 @@
         "DamageAmplification": 0.8,
         "DeathResistance": 0
       },
-      "lineupToken": "g",
+      "lineupToken": "f",
       "aliases": ["nautila"],
-      "searchTags": ["Counter", "Fixed DMG"]
+      "searchTags": ["Counter"]
     },
     {
       "kind": "awakener",
@@ -2077,7 +2064,7 @@
         "DamageAmplification": 1.6,
         "DeathResistance": 0
       },
-      "lineupToken": "v",
+      "lineupToken": "u",
       "aliases": ["nymphaea"],
       "searchTags": ["Weakness", "Vulnerable", "Poison", "STR Up"]
     },
@@ -2132,7 +2119,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "D",
+      "lineupToken": "C",
       "aliases": ["ogier"],
       "searchTags": ["Vulnerable", "STR Up", "Pierce DMG", "Dispel"]
     },
@@ -2243,7 +2230,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "0",
+      "lineupToken": "9",
       "aliases": ["pickman"],
       "searchTags": ["Weakness", "Vulnerable", "STR Up", "Steal STR", "Discover", "Arithmetica", "Draw"]
     },
@@ -2299,7 +2286,7 @@
         "DamageAmplification": 0.8,
         "DeathResistance": 0
       },
-      "lineupToken": "3",
+      "lineupToken": "2",
       "aliases": ["pollux"],
       "searchTags": ["Bleed", "Discard", "Draw"]
     },
@@ -2354,7 +2341,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "N",
+      "lineupToken": "M",
       "aliases": ["ramona"],
       "searchTags": ["Weakness", "Vulnerable", "STR Up", "STR Down", "Arithmetica", "Discard", "Draw", "Keyflare"]
     },
@@ -2410,7 +2397,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "W",
+      "lineupToken": "V",
       "aliases": ["ryker"],
       "searchTags": ["Weakness", "Vulnerable", "STR Up", "Arithmetica", "Draw", "Keyflare"]
     },
@@ -2466,7 +2453,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "R",
+      "lineupToken": "Q",
       "aliases": ["salvador"],
       "searchTags": ["Weakness", "Vulnerable", "Barrier", "STR Up", "Heal", "Self-Damage"]
     },
@@ -2521,7 +2508,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 5.6
       },
-      "lineupToken": "K",
+      "lineupToken": "J",
       "aliases": ["sanga"],
       "searchTags": ["Tentacle DMG", "Aftershock", "Dispel", "Death Resistance", "Tentacle Generation"]
     },
@@ -2577,7 +2564,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "C",
+      "lineupToken": "B",
       "aliases": ["sorel"],
       "searchTags": ["STR Up", "Death Resistance", "Heal", "Self-Damage"]
     },
@@ -2633,9 +2620,9 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "X",
+      "lineupToken": "W",
       "aliases": ["tawil"],
-      "searchTags": ["Barrier", "STR Up", "Pierce DMG", "Fixed DMG", "Arithmetica", "Discard", "Draw", "Keyflare", "Max HP DMG"]
+      "searchTags": ["Barrier", "STR Up", "Pierce DMG", "Arithmetica", "Discard", "Draw", "Keyflare", "Max HP DMG"]
     },
     {
       "kind": "awakener",
@@ -2689,7 +2676,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "O",
+      "lineupToken": "N",
       "aliases": ["thais"],
       "searchTags": ["Weakness", "Vulnerable", "Poison", "Bleed", "Counter", "STR Up", "Arithmetica", "Keyflare"]
     },
@@ -2744,7 +2731,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "p",
+      "lineupToken": "o",
       "aliases": ["tinct"],
       "searchTags": ["STR Up", "Steal STR", "Dispel", "Arithmetica", "Draw", "Strike"]
     },
@@ -2800,7 +2787,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "e",
+      "lineupToken": "d",
       "aliases": ["tulu"],
       "searchTags": ["STR Up", "STR Down", "Tentacle DMG", "Pierce DMG", "Aftershock", "Dispel", "Lemurian", "Tentacle Generation"]
     },
@@ -2855,7 +2842,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "Q",
+      "lineupToken": "P",
       "aliases": ["uvhash"],
       "searchTags": ["STR Up", "Self-Damage"]
     },
@@ -2911,7 +2898,7 @@
         "DamageAmplification": 1.6,
         "DeathResistance": 0
       },
-      "lineupToken": "E",
+      "lineupToken": "D",
       "aliases": ["wanda"],
       "searchTags": ["Counter", "STR Down"]
     },
@@ -2966,7 +2953,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "u",
+      "lineupToken": "t",
       "aliases": ["winkle"],
       "searchTags": ["Counter", "Dispel", "Discard", "Draw", "Keyflare"]
     },
@@ -3022,9 +3009,9 @@
         "DamageAmplification": 1.6,
         "DeathResistance": 2.8
       },
-      "lineupToken": "xj",
+      "lineupToken": "xi",
       "aliases": ["xu"],
-      "searchTags": ["Poison", "STR Down", "Fixed DMG", "Arithmetica", "Max HP DMG"]
+      "searchTags": ["Poison", "STR Down", "Arithmetica", "Max HP DMG"]
     },
     {
       "kind": "awakener",
@@ -3078,7 +3065,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "xm",
+      "lineupToken": "xl",
       "aliases": ["vortice"],
       "searchTags": ["Tentacle DMG", "Pursuit", "Fixed DMG", "Aftershock", "Dispel", "Divine Realm"]
     },
@@ -3134,9 +3121,9 @@
         "DamageAmplification": 0,
         "DeathResistance": 2.8
       },
-      "lineupToken": "4",
+      "lineupToken": "3",
       "aliases": ["arachne"],
-      "searchTags": ["Final Verdict", "Pursuit", "Fixed DMG", "Dispel", "Divine Realm", "Self-Damage", "Spider"]
+      "searchTags": ["Final Verdict", "Pursuit", "Dispel", "Divine Realm", "Self-Damage", "Spider"]
     },
     {
       "kind": "awakener",
@@ -3190,7 +3177,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "xk",
+      "lineupToken": "xj",
       "aliases": ["saya"],
       "searchTags": ["Discard", "Corrosion", "Divine Realm", "Self-Damage"]
     },
@@ -3246,7 +3233,7 @@
         "DamageAmplification": 0.8,
         "DeathResistance": 0
       },
-      "lineupToken": "xr",
+      "lineupToken": "xq",
       "aliases": ["pontos"],
       "searchTags": ["STR Down", "Tentacle DMG", "Fixed DMG", "Dispel", "Divine Realm"]
     },
@@ -3302,9 +3289,65 @@
         "DamageAmplification": 0,
         "DeathResistance": 2.8
       },
-      "lineupToken": "xt",
+      "lineupToken": "xs",
       "aliases": ["lotan cetarchon", "cetarchon", "glotan", "rotan"],
       "searchTags": ["STR Up", "Divine Realm"]
+    },
+    {
+      "kind": "awakener",
+      "id": "awakener-0060",
+      "name": "Caraboo",
+      "route": {
+        "slug": "caraboo",
+        "canonicalPath": "/database/awakeners/caraboo"
+      },
+      "assets": {
+        "icon": "asset-awakener-0060-icon"
+      },
+      "numericId": 60,
+      "ingameId": "B11",
+      "realm": "CARO",
+      "rarity": "SSR",
+      "type": "WARDEN",
+      "availabilityType": "LIMITED_ASTRAL_REIGN",
+      "releaseDate": "2026-08-24",
+      "faction": "TBD",
+      "gender": "Female",
+      "primaryScalingBase": 20,
+      "defaultPrimaryStatBonusLevel": 10,
+      "baseStatsLv1": {
+        "CON": 21,
+        "ATK": 26,
+        "DEF": 35
+      },
+      "substatsLv1": {
+        "CritRate": 5,
+        "CritDamage": 50,
+        "AliemusRegen": 0.4,
+        "KeyflareRegen": 15,
+        "RealmMastery": 4,
+        "SigilYield": 0,
+        "DamageAmplification": 0,
+        "DeathResistance": 0
+      },
+      "statScaling": {
+        "CON": 1,
+        "ATK": 1.2,
+        "DEF": 1.65
+      },
+      "substatScaling": {
+        "CritRate": 0,
+        "CritDamage": 0,
+        "AliemusRegen": 0.4,
+        "KeyflareRegen": 0,
+        "RealmMastery": 4,
+        "SigilYield": 0,
+        "DamageAmplification": 0,
+        "DeathResistance": 0
+      },
+      "lineupToken": "4",
+      "aliases": ["caraboo"],
+      "searchTags": ["Weakness", "STR Up", "STR Down", "Fixed DMG", "Dispel", "Corrosion", "Divine Realm"]
     }
   ]
 }

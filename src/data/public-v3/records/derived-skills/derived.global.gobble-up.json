@@ -9,7 +9,7 @@
   },
   "cardFamily": "effect",
   "cardTypes": ["effect"],
-  "descriptionTemplate": "Instead create all 3 Discovered Skill Cards, but their Arithmetica Costs are not reduced.",
+  "descriptionTemplate": "Instead create all 3 {Discovered} Skill Cards, but their Arithmetica Costs are not reduced.",
   "descriptionArgs": {},
   "cardKeywords": [],
   "cost": "0"

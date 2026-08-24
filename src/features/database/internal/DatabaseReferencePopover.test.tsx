@@ -657,7 +657,7 @@ describe('DatabaseReferencePopover', () => {
               cardKeywords: [],
               variants: [],
             },
-            description: 'Choose Memory One for a sharpened {Barrier}.',
+            description: '<Italic:Choose {derived:Memory One} for a sharpened {Barrier}.>',
             descriptionRank: 1,
             descriptionMaxRank: 6,
             influencingEnlightenSlots: [],

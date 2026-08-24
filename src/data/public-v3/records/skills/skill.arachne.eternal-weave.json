@@ -1,17 +1,17 @@
 {
   "schemaVersion": 3,
   "kind": "skill",
-  "id": "skill.arachne.eternal-loom",
-  "name": "Eternal Loom",
+  "id": "skill.arachne.eternal-weave",
+  "name": "Eternal Weave",
   "route": {
-    "slug": "eternal-loom",
-    "canonicalPath": "/database/awakeners/arachne/skills/eternal-loom"
+    "slug": "eternal-weave",
+    "canonicalPath": "/database/awakeners/arachne/skills/eternal-weave"
   },
   "ownerAwakenerId": "awakener-0056",
   "slot": "Skill1",
   "cardFamily": "command",
   "cardTypes": ["skill"],
-  "descriptionTemplate": "Inflict [FateCut:Arg1] {Final Verdict} on all enemies, then create 1 {Guiding Strings}.",
+  "descriptionTemplate": "Inflict [FateCut:Arg1] {Final Verdict} on all enemies, then create 1 {derived:Guiding Strings}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -25,7 +25,7 @@
   "lore": "From the first day of her birth, she saw the threads of fate spread.\nFollowing the trail of the threads, she stepped through the gateway, accepting her endless destiny as a prisoner.\nThe threads passed through the spinning wheel known as Moirae, through city walls and straits, through oaths and lies, through every soul that believed it was making its own choices.\nIn this mirage of freedom, the spinning wheel turns, ceaselessly, for all eternity.",
   "upgrades": [
     {
-      "id": "upgrade.enlighten.arachne.universe-as-i-conceive.skill.arachne.eternal-loom",
+      "id": "upgrade.enlighten.arachne.universe-as-i-conceive.skill.arachne.eternal-weave",
       "operation": "override_args",
       "upgraderId": "enlighten.arachne.universe-as-i-conceive",
       "upgraderType": "enlighten",

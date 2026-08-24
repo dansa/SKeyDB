@@ -37,7 +37,7 @@
       "ownerAwakenerId": "awakener-0058",
       "ownerAwakenerName": "Pontos",
       "patch": {
-        "descriptionTemplate": "Deal [Damage:Arg1] DMG. Pontos gains [Energy:Arg2] Aliemus. Draw 1 {Gaunt} at the {ordinal:1st} play each turn."
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG. Pontos gains [Energy:Arg2] Aliemus. Draw 1 {derived:Gaunt} at the {ordinal:1st} play each turn."
       }
     }
   ],

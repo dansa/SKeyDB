@@ -12,7 +12,7 @@
   "derivedFromId": "skill.pontos.gauntwards-call",
   "rootSkillId": "skill.pontos.gauntwards-call",
   "childDerivedSkillIds": ["derived.pontos.raid-gaunt", "derived.pontos.vex-gaunt", "derived.pontos.slay-gaunt"],
-  "descriptionTemplate": "{Gaunts} are Pontos's Buff Cards, with 3 types: {Raid-Gaunt}, {Vex-Gaunt}, and {Slay-Gaunt}. Conjoined {Gaunts} cost 1 additional Arithmetica, take effect 1 additional time, and count as 2 {Gaunt} cards in the deck. If all {Gaunts} have been upgraded, place 1 {Adv. Insight} with {Destroy} into hand.",
+  "descriptionTemplate": "{derived:Gaunts} are Pontos's Buff Cards, with 3 types: {derived:Raid-Gaunt}, {derived:Vex-Gaunt}, and {derived:Slay-Gaunt}. Conjoined {derived:Gaunts} cost 1 additional Arithmetica, take effect 1 additional time, and count as 2 {derived:Gaunt} cards in the deck. If all {derived:Gaunts} have been upgraded, place 1 {Adv. Insight} with {Destroy} into hand.",
   "descriptionArgs": {},
   "cardKeywords": [],
   "aliases": ["Gaunt"],

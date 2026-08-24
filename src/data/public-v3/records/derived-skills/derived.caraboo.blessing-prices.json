@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.caraboo.blessing-prices",
+  "name": "Price",
+  "route": {
+    "slug": "price",
+    "canonicalPath": "/database/awakeners/caraboo/derived-skills/price"
+  },
+  "ownerAwakenerId": "awakener-0060",
+  "nodeKind": "group",
+  "derivedFromId": "derived.caraboo.blessing",
+  "rootSkillId": "skill.caraboo.miracle-blessing",
+  "childDerivedSkillIds": ["derived.caraboo.missed-chance", "derived.caraboo.gilded-words", "derived.caraboo.veiled-malice"],
+  "descriptionTemplate": "{derived:Price} comes in 3 types:\n\n{derived:Missed Chance}: Delays the associated {derived:Gift} effect by 2 turns.\n{derived:Gilded Words}: Reduces the associated {derived:Gift} effect by 50%.\n{derived:Veiled Malice}: Inflicts 1 random negative effect on your team:\n<Italic:2 turns of {Weakness}; 2 turns of {Fragile}, 2 turns of {Blighten}; {Poison} stacks equal to 1% Max HP; 2 stacks of {Void}; 1 stack of {Stagnation} on 2 random cards in hand; or generates 2 Temporary Symptom Cards (which do not persist across battles) and places them on top of the Draw Pile.>",
+  "descriptionArgs": {},
+  "cardKeywords": [],
+  "aliases": ["Price", "Prices"],
+  "ownerAwakenerName": "Caraboo"
+}

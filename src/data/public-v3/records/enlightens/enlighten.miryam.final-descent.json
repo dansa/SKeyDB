@@ -1,11 +1,11 @@
 {
   "schemaVersion": 3,
   "kind": "enlighten",
-  "id": "enlighten.miryam.the-ultimate-descent",
-  "name": "The Ultimate Descent",
+  "id": "enlighten.miryam.final-descent",
+  "name": "Final Descent",
   "route": {
-    "slug": "the-ultimate-descent",
-    "canonicalPath": "/database/awakeners/miryam/enlightens/the-ultimate-descent"
+    "slug": "final-descent",
+    "canonicalPath": "/database/awakeners/miryam/enlightens/final-descent"
   },
   "ownerAwakenerId": "awakener-0032",
   "slot": "E2",

@@ -673,7 +673,7 @@ describe('useDatabasePopoverController', () => {
       )
     })
     expect(
-      await screen.findByText(/When attacked/, undefined, COLD_POPOVER_FIND_OPTIONS),
+      await screen.findByText(/When taking Active DMG/, undefined, COLD_POPOVER_FIND_OPTIONS),
     ).toBeInTheDocument()
     expect(screen.queryByText('Details coming soon')).not.toBeInTheDocument()
   })
@@ -701,7 +701,7 @@ describe('useDatabasePopoverController', () => {
       )
     })
     expect(
-      await screen.findByText(/When attacked/, undefined, COLD_POPOVER_FIND_OPTIONS),
+      await screen.findByText(/When taking Active DMG/, undefined, COLD_POPOVER_FIND_OPTIONS),
     ).toBeInTheDocument()
     expect(screen.queryByText('Details coming soon')).not.toBeInTheDocument()
   })

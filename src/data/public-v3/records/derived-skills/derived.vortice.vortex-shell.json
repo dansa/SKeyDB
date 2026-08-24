@@ -39,8 +39,14 @@
       "ownerAwakenerId": "awakener-0055",
       "ownerAwakenerName": "Vortice",
       "patch": {
-        "descriptionTemplate": "Deal [Arg4] +[Float:Arg3]% of target's Max HP as {Fixed DMG} to the enemy with the highest HP, {Tentacle DMG} +[TentaclePower:Arg2].",
+        "descriptionTemplate": "Deal [Arg1] {Fixed DMG} and {Pure DMG} equal to [Float:Arg3]% of the target's Max HP to the enemy with the highest HP. {Tentacle DMG} +[TentaclePower:Arg2].",
         "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": ["500", "1000", "1500", "2000", "2500", "3000"],
+            "stat": "ATK",
+            "suffix": "%"
+          },
           "Arg2": {
             "kind": "scaling",
             "values": ["7.5", "9", "10.5", "12", "13.5", "15"],
@@ -56,12 +62,6 @@
               "multiplier": "0.005",
               "mode": "additive"
             }
-          },
-          "Arg4": {
-            "kind": "scaling",
-            "values": ["500", "1000", "1500", "2000", "2500", "3000"],
-            "stat": "ATK",
-            "suffix": "%"
           }
         }
       }

@@ -10,6 +10,6 @@
   "overlayType": "mechanic",
   "aliases": ["Resonance 1", "Resonance 2", "Resonance 3", "Resonance 4", "Resonance 5"],
   "textColor": "misc",
-  "descriptionTemplate": "If other Awakeners have played a total of X Command Cards, trigger follow-up effects after playing This card. The Awakener whom This card belongs to will have their {Resonance} reset when any of their card is played, or at turn end.",
+  "descriptionTemplate": "If other Awakeners have played a total of X Command Cards, trigger follow-up effects after playing this card. The Awakener whom this card belongs to will have their {Resonance} reset when any of their card is played, or at turn end.",
   "descriptionArgs": {}
 }

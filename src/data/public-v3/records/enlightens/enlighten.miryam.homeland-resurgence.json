@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0032",
   "slot": "AbsoluteAxiom",
-  "descriptionTemplate": "{Rouse} {Testament of Faith} is enhanced: For every 2 {Sacrament} cards flipped, place 1 {Divine Realm's Illusion} into hand.",
+  "descriptionTemplate": "{Rouse} {Testament of Faith} is enhanced: For every 2 {derived:Sacrament} cards flipped, place 1 {derived:Divine Realm's Illusion} into hand.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Miryam"
 }

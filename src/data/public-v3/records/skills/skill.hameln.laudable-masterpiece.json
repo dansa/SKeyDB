@@ -11,7 +11,7 @@
   "slot": "Rouse",
   "cardFamily": "rouse",
   "cardTypes": ["rouse"],
-  "descriptionTemplate": "Hameln gains [Energy:Arg1] Aliemus. {Rouse}: At turn start, place 1 {Symphony of Harmony} into hand",
+  "descriptionTemplate": "Hameln gains [Energy:Arg1] Aliemus. {Rouse}: At turn start, place 1 {derived:Symphony of Harmony} into hand",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -35,7 +35,7 @@
       "ownerAwakenerId": "awakener-0022",
       "ownerAwakenerName": "Hameln",
       "patch": {
-        "descriptionTemplate": "Hameln gains [Energy:Arg1] Aliemus. {Rouse}: At turn start, place 1 {Symphony of Harmony} into hand. At turn start, for every card with {Rondino} or {Crescendo}, Hameln gains [Energy:Arg2] Aliemus. When unleashing {Primal Chord}, for every 2 Command Cards with {Rondino} or {Crescendo} exist, DMG count +1",
+        "descriptionTemplate": "Hameln gains [Energy:Arg1] Aliemus. {Rouse}: At turn start, place 1 {derived:Symphony of Harmony} into hand. At turn start, for every card with {Rondino} or {Crescendo}, Hameln gains [Energy:Arg2] Aliemus. When unleashing {Primal Chord}, for every 2 Command Cards with {Rondino} or {Crescendo} exist, DMG count +1",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

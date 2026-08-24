@@ -929,6 +929,22 @@
       "facets": {
         "realm": "OTHER"
       }
+    },
+    {
+      "kind": "posse",
+      "id": "posse-0062",
+      "name": "That Which is No Lie",
+      "aliases": [],
+      "tokens": ["caraboo", "caro", "is", "lie", "no", "that", "that which is no lie", "which"],
+      "fields": {
+        "name": ["That Which is No Lie", "that-which-is-no-lie"],
+        "owner": ["Caraboo"],
+        "facet": ["CARO"]
+      },
+      "facets": {
+        "realm": "CARO",
+        "owner": "awakener-0060"
+      }
     }
   ]
 }

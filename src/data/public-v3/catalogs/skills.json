@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "skills",
   "kind": "skill",
-  "recordCount": 413,
+  "recordCount": 420,
   "records": [
     {
       "kind": "skill",
@@ -427,11 +427,11 @@
     },
     {
       "kind": "skill",
-      "id": "skill.arachne.eternal-loom",
-      "name": "Eternal Loom",
+      "id": "skill.arachne.eternal-weave",
+      "name": "Eternal Weave",
       "route": {
-        "slug": "eternal-loom",
-        "canonicalPath": "/database/awakeners/arachne/skills/eternal-loom"
+        "slug": "eternal-weave",
+        "canonicalPath": "/database/awakeners/arachne/skills/eternal-weave"
       },
       "cardFamily": "command",
       "cardTypes": ["skill"],
@@ -690,6 +690,104 @@
       "ownerAwakenerId": "awakener-0006",
       "ownerAwakenerName": "Caecus",
       "slot": "OverExalt"
+    },
+    {
+      "kind": "skill",
+      "id": "skill.caraboo.defense",
+      "name": "Defense",
+      "route": {
+        "slug": "defense",
+        "canonicalPath": "/database/awakeners/caraboo/skills/defense"
+      },
+      "cardFamily": "command",
+      "cardTypes": ["defense"],
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "slot": "Defense"
+    },
+    {
+      "kind": "skill",
+      "id": "skill.caraboo.flawless-fairy-tale",
+      "name": "Flawless Fairy Tale",
+      "route": {
+        "slug": "flawless-fairy-tale",
+        "canonicalPath": "/database/awakeners/caraboo/skills/flawless-fairy-tale"
+      },
+      "cardFamily": "exalt",
+      "cardTypes": ["over_exalt"],
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "slot": "OverExalt"
+    },
+    {
+      "kind": "skill",
+      "id": "skill.caraboo.miracle-blessing",
+      "name": "Miracle Blessing",
+      "route": {
+        "slug": "miracle-blessing",
+        "canonicalPath": "/database/awakeners/caraboo/skills/miracle-blessing"
+      },
+      "cardFamily": "command",
+      "cardTypes": ["skill"],
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "slot": "Skill1"
+    },
+    {
+      "kind": "skill",
+      "id": "skill.caraboo.snowy-hex",
+      "name": "Snowy Hex",
+      "route": {
+        "slug": "snowy-hex",
+        "canonicalPath": "/database/awakeners/caraboo/skills/snowy-hex"
+      },
+      "cardFamily": "command",
+      "cardTypes": ["skill"],
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "slot": "Skill2"
+    },
+    {
+      "kind": "skill",
+      "id": "skill.caraboo.strike",
+      "name": "Strike",
+      "route": {
+        "slug": "strike",
+        "canonicalPath": "/database/awakeners/caraboo/skills/strike"
+      },
+      "cardFamily": "command",
+      "cardTypes": ["strike"],
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "slot": "Strike"
+    },
+    {
+      "kind": "skill",
+      "id": "skill.caraboo.ta-da-its-the-fairy",
+      "name": "Ta-da★It's the Fairy!",
+      "route": {
+        "slug": "ta-daits-the-fairy",
+        "canonicalPath": "/database/awakeners/caraboo/skills/ta-daits-the-fairy"
+      },
+      "cardFamily": "exalt",
+      "cardTypes": ["exalt"],
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "slot": "Exalt"
+    },
+    {
+      "kind": "skill",
+      "id": "skill.caraboo.tempting-honeyfruit",
+      "name": "Tempting Honeyfruit",
+      "route": {
+        "slug": "tempting-honeyfruit",
+        "canonicalPath": "/database/awakeners/caraboo/skills/tempting-honeyfruit"
+      },
+      "cardFamily": "rouse",
+      "cardTypes": ["rouse"],
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "slot": "Rouse"
     },
     {
       "kind": "skill",

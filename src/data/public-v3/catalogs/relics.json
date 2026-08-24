@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "relics",
   "kind": "relic",
-  "recordCount": 294,
+  "recordCount": 297,
   "records": [
     {
       "kind": "relic",
@@ -8339,6 +8339,83 @@
       "categories": ["EVENT"],
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0565",
+      "aliases": [],
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0314",
+      "name": "Dimensional Image: Caraboo",
+      "route": {
+        "slug": "dimensional-image-caraboo",
+        "canonicalPath": "/database/relics/dimensional-image-caraboo"
+      },
+      "assets": {
+        "icon": "asset-relic-0314-icon"
+      },
+      "rarity": "SSR",
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "relicType": "Dimensional Image",
+      "categories": ["DIMENSIONAL_IMAGE"],
+      "variantCount": 1,
+      "defaultVariantId": "relic-variant-0566",
+      "aliases": [],
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0315",
+      "name": "Crystal Globe",
+      "route": {
+        "slug": "crystal-globe",
+        "canonicalPath": "/database/relics/crystal-globe"
+      },
+      "assets": {
+        "icon": "asset-relic-0315-icon"
+      },
+      "rarity": "SSR",
+      "relicType": "Event",
+      "categories": ["EVENT"],
+      "variantCount": 1,
+      "defaultVariantId": "relic-variant-0567",
+      "aliases": [],
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0316",
+      "name": "Pistoles de Marie",
+      "route": {
+        "slug": "pistoles-de-marie",
+        "canonicalPath": "/database/relics/pistoles-de-marie"
+      },
+      "assets": {
+        "icon": "asset-relic-0316-icon"
+      },
+      "rarity": "SSR",
+      "relicType": "Event",
+      "categories": ["EVENT"],
+      "variantCount": 1,
+      "defaultVariantId": "relic-variant-0568",
       "aliases": [],
       "variantTiers": ["Special"],
       "variantCategoryTiers": [

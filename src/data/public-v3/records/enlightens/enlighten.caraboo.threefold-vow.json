@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 3,
+  "kind": "enlighten",
+  "id": "enlighten.caraboo.threefold-vow",
+  "name": "Threefold Vow",
+  "route": {
+    "slug": "threefold-vow",
+    "canonicalPath": "/database/awakeners/caraboo/enlightens/threefold-vow"
+  },
+  "ownerAwakenerId": "awakener-0060",
+  "slot": "E3",
+  "descriptionTemplate": "Caraboo's Exalt DMG hits count +2. The Max HP bonus from each stack of {Satiety} +50%. Exalt Base DMG and Shield Generation +50%.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Caraboo"
+}

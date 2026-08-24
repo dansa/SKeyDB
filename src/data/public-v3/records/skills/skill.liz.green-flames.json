@@ -11,7 +11,7 @@
   "slot": "Skill2",
   "cardFamily": "command",
   "cardTypes": ["skill"],
-  "descriptionTemplate": "Deal [Damage:Arg1] {Pierce DMG}, inflict [Arg2]% of DMG as {Poison}. At turn end, if in hand or in {Ultra Space}, upgrade to {Corrupted Flames}. Can be played with insufficient Arithmetica, changing its effect to Gain [Energy:Arg3] Aliemus and {Exhaust}.",
+  "descriptionTemplate": "Deal [Damage:Arg1] {Pierce DMG}, inflict [Arg2]% of DMG as {Poison}. At turn end, if in hand or in {overlay:Ultra Space}, upgrade to {derived:Corrupted Flames}. Can be played with insufficient Arithmetica, changing its effect to Gain [Energy:Arg3] Aliemus and {Exhaust}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

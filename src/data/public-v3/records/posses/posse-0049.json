@@ -17,7 +17,7 @@
   "acquisitionSource": "Clear Psyche Deepdive: No More the Shore",
   "realm": "AEQUOR",
   "lineupToken": "5",
-  "descriptionTemplate": "Grant a chosen Awakener [Arg1] Aliemus, and all other Awakeners [Arg2] Aliemus. If Vortice is in the team, she performs her {Pursuit}: {Vortex! Shell!}\nScaling guide: {Primordia Mastery Scaling}",
+  "descriptionTemplate": "Grant a chosen Awakener [Arg1] Aliemus, and all other Awakeners [Arg2] Aliemus. If Vortice is in the team, she performs her {Pursuit}: {derived:Vortex! Shell!}\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",

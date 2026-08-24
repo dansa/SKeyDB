@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0057",
   "slot": "E3",
-  "descriptionTemplate": "{Viscera Blossoms} deals an additional 0.5% of the target's Max HP as {Corrosion}. For every stack of {Gynoecium} consumed by {Song of Saya}, the next time {Viscera Blossoms} is played, draw 1 additional card.",
+  "descriptionTemplate": "{Viscera Blossoms} additionally inflicts {Corrosion} equal to 0.5% of the target's Max HP. For each {Gynoecium} stack consumed by {Song of Saya}, draw 1 additional card upon playing {Viscera Blossoms} next time.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Saya"
 }

@@ -15,7 +15,7 @@
   "aliases": [],
   "iconId": "IconS_Buff_079",
   "textColor": "shield",
-  "descriptionTemplate": "Each stack inflicts {Sacrifice} stacks equal to 1% of DMG received. Stacks up to 75. Removed at turn end.",
+  "descriptionTemplate": "Each stack inflicts {Sacrifice} stacks equal to 1% of Active or {Tentacle DMG} taken. Stacks up to 75. Removed at turn end.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Murphy: Fauxborn"
 }

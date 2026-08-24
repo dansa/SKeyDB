@@ -11,7 +11,7 @@
   "slot": "Skill1",
   "cardFamily": "command",
   "cardTypes": ["skill"],
-  "descriptionTemplate": "Obtain [Power:Arg1] Temporary {STR}. Obtain Keyflare equal to Erica's Keyflare Regen. Dispel self {Weakness} state. Whenever 1 card enters {Ultra Space}, transform to {Retract: Mecha}.",
+  "descriptionTemplate": "Obtain [Power:Arg1] Temporary {STR}. Obtain Keyflare equal to Erica's Keyflare Regen. Dispel self {Weakness} state. Whenever 1 card enters {overlay:Ultra Space}, transform to {derived:Retract: Mecha}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -33,7 +33,7 @@
       "ownerAwakenerId": "awakener-0015",
       "ownerAwakenerName": "Erica",
       "patch": {
-        "descriptionTemplate": "Obtain [Power:Arg1] Temporary {STR}. Obtain Keyflare equal to Erica's Keyflare Regen. Dispel self {Weakness} state. Add 1 \"Strike\" with {Exhaust} attached by Erica to your hand. Whenever a card enters the {Ultra Space}, transform into {Retract: Mecha}."
+        "descriptionTemplate": "Obtain [Power:Arg1] Temporary {STR}. Obtain Keyflare equal to Erica's Keyflare Regen. Dispel self {Weakness} state. Add 1 \"Strike\" with {Exhaust} attached by Erica to your hand. Whenever a card enters the {overlay:Ultra Space}, transform into {derived:Retract: Mecha}."
       }
     }
   ],

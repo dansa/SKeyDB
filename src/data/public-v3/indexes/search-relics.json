@@ -6111,6 +6111,59 @@
         "categories": ["EVENT"],
         "variantTiers": ["Special"]
       }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0314",
+      "name": "Dimensional Image: Caraboo",
+      "aliases": [],
+      "tokens": ["caraboo", "dimensional", "dimensional image", "dimensional image caraboo", "image", "ssr", "unique"],
+      "fields": {
+        "name": ["Dimensional Image: Caraboo", "dimensional-image-caraboo"],
+        "owner": ["Caraboo"],
+        "facet": ["SSR", "Dimensional Image", "DIMENSIONAL_IMAGE", "Unique"]
+      },
+      "facets": {
+        "rarity": "SSR",
+        "relicType": "Dimensional Image",
+        "categories": ["DIMENSIONAL_IMAGE"],
+        "variantTiers": ["Unique"],
+        "owner": "awakener-0060"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0315",
+      "name": "Crystal Globe",
+      "aliases": [],
+      "tokens": ["crystal", "crystal globe", "event", "globe", "special", "ssr"],
+      "fields": {
+        "name": ["Crystal Globe", "crystal-globe"],
+        "facet": ["SSR", "Event", "Special"]
+      },
+      "facets": {
+        "rarity": "SSR",
+        "relicType": "Event",
+        "categories": ["EVENT"],
+        "variantTiers": ["Special"]
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0316",
+      "name": "Pistoles de Marie",
+      "aliases": [],
+      "tokens": ["de", "event", "marie", "pistoles", "pistoles de marie", "special", "ssr"],
+      "fields": {
+        "name": ["Pistoles de Marie", "pistoles-de-marie"],
+        "facet": ["SSR", "Event", "Special"]
+      },
+      "facets": {
+        "rarity": "SSR",
+        "relicType": "Event",
+        "categories": ["EVENT"],
+        "variantTiers": ["Special"]
+      }
     }
   ]
 }

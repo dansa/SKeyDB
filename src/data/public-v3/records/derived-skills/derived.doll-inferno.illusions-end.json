@@ -12,7 +12,7 @@
   "cardFamily": "effect",
   "cardTypes": ["effect"],
   "childDerivedSkillIds": ["derived.doll-inferno.self-destruct-finale", "derived.doll-inferno.fates-descent-finale"],
-  "descriptionTemplate": "Deal 25% of each enemy's Max HP as {Fixed DMG}, with a minimum DMG equal to [Arg1]% of your Max HP. After use, \"Doll: Inferno\"'s specific skills switch to {Finale Form}. The effect of {Illusion's End} activates only once.",
+  "descriptionTemplate": "Deal {Pure DMG} equal to 25% of each enemy's Max HP to all enemies, with a minimum DMG equal to [Arg1]% of your Max HP. After use, \"Doll: Inferno\"'s specific skills switch to {Finale Form}. The effect of {Illusion's End} activates only once.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -39,7 +39,7 @@
       "ownerAwakenerId": "awakener-0018",
       "ownerAwakenerName": "Doll: Inferno",
       "patch": {
-        "descriptionTemplate": "Deal 30% of all enemies' Max HP as {Fixed DMG}. This DMG will not be less than [Arg1]% of your Max HP. Restores 30% of lost HP. After use, \"Doll: Inferno\"'s specific skills switch to {Finale Form}. The effect of {Illusion's End} activates only once."
+        "descriptionTemplate": "Deal {Pure DMG} equal to 30% of each enemy's Max HP to all enemies, with a minimum DMG equal to [Arg1]% of your Max HP, restoring 30% of lost HP. After use, \"Doll: Inferno\"'s specific skills switch to {Finale Form}. The effect of {Illusion's End} activates only once."
       }
     }
   ],

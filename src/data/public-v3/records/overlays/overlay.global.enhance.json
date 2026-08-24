@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 3,
+  "kind": "overlay",
+  "id": "overlay.global.enhance",
+  "name": "Enhance",
+  "route": {
+    "slug": "enhance",
+    "canonicalPath": "/database/overlays/enhance"
+  },
+  "assets": {
+    "icon": "asset-overlay.global.enhance-icon"
+  },
+  "overlayType": "mechanic",
+  "aliases": [],
+  "iconId": "IconS_Buff_071",
+  "descriptionTemplate": "For each stack, the DMG dealt by this card, Fixed {STR} and {Tentacle DMG} Boost, and the final effect of Fixed {Poison} and Fixed {Counter} +2%; the final effect of Fixed Shield, Fixed HP Recovery, and {STR▼} +1%. Removed after being played.",
+  "descriptionArgs": {}
+}

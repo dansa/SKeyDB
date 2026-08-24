@@ -11,7 +11,7 @@
   "slot": "Rouse",
   "cardFamily": "rouse",
   "cardTypes": ["rouse"],
-  "descriptionTemplate": "Mouchette gains [Energy:Arg1] Aliemus. {Rouse}: {Dramatic Encounter} DMG instances +2. Each time {Dramatic Encounter} is triggered, Mouchette's \"Strike\" Temporary Final DMG +25%. Immediately generate 1 Temporary {Mortal Blast}.",
+  "descriptionTemplate": "Mouchette gains [Energy:Arg1] Aliemus. {Rouse}: {derived:Dramatic Encounter} DMG instances +2. Each time {derived:Dramatic Encounter} is triggered, Mouchette's \"Strike\" Temporary Final DMG +25%. Immediately generate 1 Temporary {Mortal Blast}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -35,7 +35,7 @@
       "ownerAwakenerId": "awakener-0033",
       "ownerAwakenerName": "Mouchette",
       "patch": {
-        "descriptionTemplate": "Mouchette gains [Energy:Arg1] Aliemus. {Rouse}: {Dramatic Encounter} DMG instances +2. The trigger limit per turn is increased to 5. Each time {Dramatic Encounter} is triggered, Mouchette's \"Strike\" Temporary Final DMG +25%. Immediately generate 2 Temporary {Mortal Blast} with 0 Arithmetica Cost."
+        "descriptionTemplate": "Mouchette gains [Energy:Arg1] Aliemus. {Rouse}: {derived:Dramatic Encounter} DMG instances +2. The trigger limit per turn is increased to 5. Each time {derived:Dramatic Encounter} is triggered, Mouchette's \"Strike\" Temporary Final DMG +25%. Immediately generate 2 Temporary {Mortal Blast} with 0 Arithmetica Cost."
       }
     }
   ],

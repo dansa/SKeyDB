@@ -12,7 +12,7 @@
   },
   "numericId": 36,
   "ingameId": "C07",
-  "lineupToken": "g",
+  "lineupToken": "f",
   "realm": "CHAOS",
   "rarity": "SSR",
   "type": "WARDEN",
@@ -20,7 +20,7 @@
   "releaseDate": "2023-11-29",
   "faction": "The Fools",
   "aliases": ["nautila"],
-  "searchTags": ["Counter", "Fixed DMG"],
+  "searchTags": ["Counter"],
   "primaryScalingBase": 20,
   "baseStatsLv1": {
     "CON": 40,

@@ -10,7 +10,7 @@
   "ownerAwakenerId": "awakener-0054",
   "family": "soulforge_aptitude",
   "maxLevel": 10,
-  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nAll Awakeners' {Poison} Trigger effect +[Arg3]%.\nEach stack of {Spellbound} additionally reduces the DMG dealt by \"Humanoid\" enemies by 1%, and when {Spellbound} is removed, each stack deals {Fixed DMG} equal to 1% of target's Max HP on \"Humanoid\" enemies.",
+  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nAll Awakeners' {Poison} Trigger effect +[Arg3]%.\nEach stack of {Spellbound} additionally reduces the DMG dealt by \"Humanoid\" enemies by 1%, and when {Spellbound} is removed, each stack deals {Pure DMG} equal to 1% of target's Max HP on \"Humanoid\" enemies.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "linear",

@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "kind": "derivedSkill",
   "id": "derived.tawil.mutated-heart",
-  "name": "Mutated Heart",
+  "name": "Heart of Mutation",
   "route": {
     "slug": "mutated-heart",
     "canonicalPath": "/database/awakeners/tawil/derived-skills/mutated-heart"

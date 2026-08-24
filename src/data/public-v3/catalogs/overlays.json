@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "overlays",
   "kind": "overlay",
-  "recordCount": 145,
+  "recordCount": 150,
   "records": [
     {
       "kind": "overlay",
@@ -99,6 +99,40 @@
       "ownerAwakenerId": "awakener-0006",
       "ownerAwakenerName": "Caecus",
       "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "kind": "overlay",
+      "id": "overlay.caraboo.offering",
+      "name": "Offering",
+      "route": {
+        "slug": "offering",
+        "canonicalPath": "/database/awakeners/caraboo/overlays/offering"
+      },
+      "assets": {
+        "icon": "asset-overlay.caraboo.offering-icon"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "overlayType": "mechanic",
+      "textColor": "light",
+      "aliases": []
+    },
+    {
+      "kind": "overlay",
+      "id": "overlay.caraboo.satiety",
+      "name": "Satiety",
+      "route": {
+        "slug": "satiety",
+        "canonicalPath": "/database/awakeners/caraboo/overlays/satiety"
+      },
+      "assets": {
+        "icon": "asset-overlay.caraboo.satiety-icon"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "overlayType": "mechanic",
+      "textColor": "damage",
       "aliases": []
     },
     {
@@ -507,7 +541,7 @@
       },
       "overlayType": "mechanic",
       "textColor": "misc",
-      "aliases": []
+      "aliases": ["Destroyed"]
     },
     {
       "kind": "overlay",
@@ -546,7 +580,7 @@
       },
       "overlayType": "mechanic",
       "textColor": "misc",
-      "aliases": []
+      "aliases": ["Discovered"]
     },
     {
       "kind": "overlay",
@@ -645,6 +679,20 @@
       "route": {
         "slug": "embryo-fusion-double",
         "canonicalPath": "/database/overlays/embryo-fusion-double"
+      },
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "kind": "overlay",
+      "id": "overlay.global.enhance",
+      "name": "Enhance",
+      "route": {
+        "slug": "enhance",
+        "canonicalPath": "/database/overlays/enhance"
+      },
+      "assets": {
+        "icon": "asset-overlay.global.enhance-icon"
       },
       "overlayType": "mechanic",
       "aliases": []
@@ -876,6 +924,17 @@
     },
     {
       "kind": "overlay",
+      "id": "overlay.global.pistoles-de-marie",
+      "name": "Pistoles de Marie",
+      "route": {
+        "slug": "pistoles-de-marie",
+        "canonicalPath": "/database/overlays/pistoles-de-marie"
+      },
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "kind": "overlay",
       "id": "overlay.global.poison",
       "name": "Poison",
       "route": {
@@ -948,6 +1007,18 @@
       "overlayType": "mechanic",
       "textColor": "damage",
       "aliases": ["Propagation Frenzy", "Breeding Frenzy"]
+    },
+    {
+      "kind": "overlay",
+      "id": "overlay.global.pure-dmg",
+      "name": "Pure DMG",
+      "route": {
+        "slug": "pure-dmg",
+        "canonicalPath": "/database/overlays/pure-dmg"
+      },
+      "overlayType": "mechanic",
+      "textColor": "misc",
+      "aliases": []
     },
     {
       "kind": "overlay",

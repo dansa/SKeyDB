@@ -11,7 +11,7 @@
   "slot": "OverExalt",
   "cardFamily": "exalt",
   "cardTypes": ["over_exalt"],
-  "descriptionTemplate": "No longer consume {Dreamlure}, simultaneously trigger {Hypnotic Veins}, {Slumber Counter}, and {Echoes of Whispers}.",
+  "descriptionTemplate": "No longer consume {Dreamlure}, simultaneously trigger {derived:Hypnotic Veins}, {derived:Slumber Counter}, and {derived:Echoes of Whispers}.",
   "descriptionArgs": {},
   "cardKeywords": [],
   "ownerAwakenerName": "Wanda"

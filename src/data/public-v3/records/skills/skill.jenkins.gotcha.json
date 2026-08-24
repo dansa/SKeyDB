@@ -11,7 +11,7 @@
   "slot": "OverExalt",
   "cardFamily": "exalt",
   "cardTypes": ["over_exalt"],
-  "descriptionTemplate": "Place 1 {Ultimate Assemble!} with {Exhaust} into hand.",
+  "descriptionTemplate": "Place 1 {derived:Ultimate Assemble!} with {Exhaust} into hand.",
   "descriptionArgs": {},
   "cardKeywords": [],
   "ownerAwakenerName": "Jenkin"

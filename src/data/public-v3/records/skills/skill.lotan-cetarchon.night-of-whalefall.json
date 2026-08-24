@@ -11,7 +11,7 @@
   "slot": "OverExalt",
   "cardFamily": "exalt",
   "cardTypes": ["over_exalt"],
-  "descriptionTemplate": "Before dealing DMG, gain {STR} equal to the amount of extra DMG {Great Blade: Whalefall} is causing the target to deal to you. This Exalt enjoys ×2 {STR} Bonus.",
+  "descriptionTemplate": "Before dealing DMG, gain {STR} equal to the amount of extra DMG {derived:Great Blade: Whalefall} is causing the target to deal to you. This Exalt enjoys ×2 {STR} Bonus.",
   "descriptionArgs": {},
   "cardKeywords": [],
   "ownerAwakenerName": "Lotan: Cetarchon"

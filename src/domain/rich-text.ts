@@ -51,6 +51,11 @@ export interface ArgPluralSegment {
   singular: string
   plural: string
 }
+export interface FormattingSegment {
+  type: 'formatting'
+  style: 'bold' | 'italic'
+  segments: RichSegment[]
+}
 
 export interface RichTextParseOptions {
   excludedSkillNames?: Iterable<string>
@@ -74,6 +79,7 @@ export type RichSegment =
   | ScalingSegment
   | DescriptionArgSegment
   | ArgPluralSegment
+  | FormattingSegment
 
 const LINE_BREAK_BEFORE_MECHANICS = new Set(['Aftershock', 'Leap', 'Quasar', 'Rouse'])
 
@@ -507,6 +513,13 @@ function normalizeBareOverlayMechanicSegments(
   const nextSegments: RichSegment[] = []
 
   for (const segment of segments) {
+    if (segment.type === 'formatting') {
+      nextSegments.push({
+        ...segment,
+        segments: normalizeBareOverlayMechanicSegments(segment.segments, options),
+      })
+      continue
+    }
     if (segment.type !== 'text') {
       nextSegments.push(segment)
       continue
@@ -518,28 +531,14 @@ function normalizeBareOverlayMechanicSegments(
   return nextSegments
 }
 
-export function buildRichTextParseContext(
-  cardNames: ReadonlySet<string>,
-  options?: RichTextParseOptions,
-): RichTextParseContext {
-  const cardNameByLower = new Map<string, string>()
-  for (const cardName of cardNames) {
-    cardNameByLower.set(cardName.toLowerCase(), cardName)
-  }
+const FORMATTING_TAG_PATTERN = /<(Italic|Bold):/gi
 
-  return {
-    cardNameByLower,
-    options: normalizeParseOptions(options),
-  }
-}
-
-export function parseRichDescriptionWithContext(
+function parseRichDescriptionTokens(
   text: string,
   context: RichTextParseContext,
   descriptionArgs?: Record<string, PublicDescriptionArg>,
 ): RichSegment[] {
   const segments: RichSegment[] = []
-
   let remaining = text
   while (remaining.length > 0) {
     const nextMatch = findNextRichMatch(remaining)
@@ -565,6 +564,69 @@ export function parseRichDescriptionWithContext(
               ? consumeOrdinalMatch(remaining, segments, nextMatch)
               : consumeScalingMatch(remaining, segments, nextMatch)
   }
+  return segments
+}
+
+function parseFormattingSegments(
+  text: string,
+  context: RichTextParseContext,
+  descriptionArgs?: Record<string, PublicDescriptionArg>,
+): RichSegment[] {
+  const segments: RichSegment[] = []
+  let lastIndex = 0
+  FORMATTING_TAG_PATTERN.lastIndex = 0
+  let match = FORMATTING_TAG_PATTERN.exec(text)
+
+  while (match) {
+    const closeIndex = text.indexOf('>', FORMATTING_TAG_PATTERN.lastIndex)
+    if (closeIndex < 0) {
+      break
+    }
+    if (match.index > lastIndex) {
+      segments.push(
+        ...parseRichDescriptionTokens(text.slice(lastIndex, match.index), context, descriptionArgs),
+      )
+    }
+
+    const style = match[1].toLowerCase() === 'bold' ? 'bold' : 'italic'
+    const content = text.slice(FORMATTING_TAG_PATTERN.lastIndex, closeIndex)
+    segments.push({
+      type: 'formatting',
+      style,
+      segments: parseFormattingSegments(content, context, descriptionArgs),
+    })
+    lastIndex = closeIndex + 1
+    FORMATTING_TAG_PATTERN.lastIndex = lastIndex
+    match = FORMATTING_TAG_PATTERN.exec(text)
+  }
+
+  if (lastIndex < text.length) {
+    segments.push(...parseRichDescriptionTokens(text.slice(lastIndex), context, descriptionArgs))
+  }
+  return segments
+}
+
+export function buildRichTextParseContext(
+  cardNames: ReadonlySet<string>,
+  options?: RichTextParseOptions,
+): RichTextParseContext {
+  const cardNameByLower = new Map<string, string>()
+  for (const cardName of cardNames) {
+    cardNameByLower.set(cardName.toLowerCase(), cardName)
+  }
+
+  return {
+    cardNameByLower,
+    options: normalizeParseOptions(options),
+  }
+}
+
+export function parseRichDescriptionWithContext(
+  text: string,
+  context: RichTextParseContext,
+  descriptionArgs?: Record<string, PublicDescriptionArg>,
+): RichSegment[] {
+  const segments = parseFormattingSegments(text, context, descriptionArgs)
 
   const normalizedSegments = normalizeBareOverlayMechanicSegments(segments, context.options)
 

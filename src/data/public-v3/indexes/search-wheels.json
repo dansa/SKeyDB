@@ -4284,6 +4284,79 @@
         "rarity": "SSR",
         "mainstatKey": "REALM_MASTERY"
       }
+    },
+    {
+      "kind": "wheel",
+      "id": "wheel-0175",
+      "name": "Honeyed Deceit",
+      "aliases": [],
+      "tokens": [
+        "caraboo",
+        "caro",
+        "deceit",
+        "embryo",
+        "embryo fusion",
+        "fusion",
+        "generation",
+        "honeyed",
+        "honeyed deceit",
+        "shield",
+        "shield generation",
+        "ssr",
+        "weak",
+        "weakness"
+      ],
+      "fields": {
+        "name": ["Honeyed Deceit", "honeyed-deceit"],
+        "owner": ["Caraboo"],
+        "tag": ["weakness", "shield", "embryo-fusion", "weak", "shield generation", "Embryo Fusion"],
+        "facet": ["CARO", "SSR"]
+      },
+      "facets": {
+        "realm": "CARO",
+        "rarity": "SSR",
+        "mainstatKey": "REALM_MASTERY",
+        "owner": "awakener-0060",
+        "tags": ["embryo-fusion", "shield", "weakness"]
+      }
+    },
+    {
+      "kind": "wheel",
+      "id": "wheel-0176",
+      "name": "Serene Truth",
+      "aliases": [],
+      "tokens": ["caraboo", "generation", "neutral", "serene", "serene truth", "shield", "shield generation", "sr", "truth", "weak", "weakness"],
+      "fields": {
+        "name": ["Serene Truth", "serene-truth"],
+        "owner": ["Caraboo"],
+        "tag": ["weakness", "shield", "weak", "shield generation"],
+        "facet": ["NEUTRAL", "SR"]
+      },
+      "facets": {
+        "realm": "NEUTRAL",
+        "rarity": "SR",
+        "mainstatKey": "REALM_MASTERY",
+        "owner": "awakener-0060",
+        "tags": ["shield", "weakness"]
+      }
+    },
+    {
+      "kind": "wheel",
+      "id": "wheel-0177",
+      "name": "Soul Synchronization",
+      "aliases": [],
+      "tokens": ["arithmetica", "heal", "healing", "hp", "hp recovery", "neutral", "recovery", "soul", "soul synchronization", "ssr", "synchronization"],
+      "fields": {
+        "name": ["Soul Synchronization", "soul-synchronization"],
+        "tag": ["arithmetica", "heal", "healing", "hp recovery"],
+        "facet": ["NEUTRAL", "SSR"]
+      },
+      "facets": {
+        "realm": "NEUTRAL",
+        "rarity": "SSR",
+        "mainstatKey": "SIGIL_YIELD",
+        "tags": ["arithmetica", "heal"]
+      }
     }
   ]
 }

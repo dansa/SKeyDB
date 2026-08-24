@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.caraboo.missed-chance",
+  "name": "Missed Chance",
+  "route": {
+    "slug": "missed-chance",
+    "canonicalPath": "/database/awakeners/caraboo/derived-skills/missed-chance"
+  },
+  "ownerAwakenerId": "awakener-0060",
+  "derivedFromId": "derived.caraboo.blessing-prices",
+  "rootSkillId": "skill.caraboo.miracle-blessing",
+  "descriptionTemplate": "Delays the associated {derived:Gift} effect by 2 turns.",
+  "descriptionArgs": {},
+  "cardKeywords": [],
+  "ownerAwakenerName": "Caraboo"
+}

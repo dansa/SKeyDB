@@ -35,9 +35,9 @@
   "lore": "Bloodshed, corpses, or piercing pain—none of it matters.\nThese are insignificant sacrifices for the return of the divine kingdom.\nShe only regrets not being the chosen one, not the girl imprisoned in the cage.",
   "upgrades": [
     {
-      "id": "upgrade.enlighten.miryam.the-ultimate-descent.skill.miryam.the-chosen-one",
+      "id": "upgrade.enlighten.miryam.final-descent.skill.miryam.the-chosen-one",
       "operation": "mixed",
-      "upgraderId": "enlighten.miryam.the-ultimate-descent",
+      "upgraderId": "enlighten.miryam.final-descent",
       "upgraderType": "enlighten",
       "upgraderSlot": "E2",
       "ownerAwakenerId": "awakener-0032",

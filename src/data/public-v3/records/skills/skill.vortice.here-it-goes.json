@@ -45,7 +45,7 @@
       "ownerAwakenerId": "awakener-0055",
       "ownerAwakenerName": "Vortice",
       "patch": {
-        "descriptionTemplate": "Vortice gains Aliemus equal to [Arg5]% of her Base Aliemus. {Rouse}: Draw 1 {Reload!}. After Vortice unleashes {Pursuit}, her next Exalt gains an extra [Arg2]% {Tentacle DMG} Bonus, and the next Exalt deals {Fixed DMG} equal to [Arg4]% of Max HP to the enemy with the highest HP, stacking up to [Arg3] {plural:[Arg3]|time|times}.",
+        "descriptionTemplate": "Vortice gains Aliemus equal to [Arg5]% of her Base Aliemus. {Rouse}: Draw 1 {Reload!}. After Vortice unleashes {Pursuit}, her next Exalt gains an extra [Arg2]% {Tentacle DMG} Bonus, and the next Exalt deals {Pure DMG} equal to [Arg4]% of Max HP to the enemy with the highest HP, stacking up to [Arg3] {plural:[Arg3]|time|times}.",
         "descriptionArgs": {
           "Arg2": {
             "kind": "scaling",

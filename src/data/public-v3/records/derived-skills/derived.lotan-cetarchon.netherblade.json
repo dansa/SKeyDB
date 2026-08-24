@@ -11,7 +11,7 @@
   "cardFamily": "command",
   "cardTypes": ["pursuit"],
   "countsAs": ["strike"],
-  "descriptionTemplate": "At the start of the turn after releasing {Mundus Severance}, deal [Damage:Arg1] DMG to all enemies. For each 1 additional DMG {Great Blade: Whalefall} causes the highest-DMG enemy to deal, this {Pursuit} deals +[Arg2] DMG. Counts as a Strike.",
+  "descriptionTemplate": "At the start of the turn after releasing {Mundus Severance}, deal [Damage:Arg1] DMG to all enemies. For each 1 additional DMG {derived:Great Blade: Whalefall} causes the highest-DMG enemy to deal, this {Pursuit} deals +[Arg2] DMG. Counts as a Strike.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",

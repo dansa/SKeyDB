@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0044",
   "slot": "AbsoluteAxiom",
-  "descriptionTemplate": "{Rouse} {Benediction} is enhanced: {Crimson Furnace} accumulated by {He Who Protects} and {Blessed are the Bones} +25%. When {Liberation} is selected for {End of Suffering}, every 1% Max HP consumed from Furnace improves Final DMG from 2% to 5%.",
+  "descriptionTemplate": "{Rouse} {Benediction} is enhanced: {Crimson Furnace} accumulated by {He Who Protects} and {Blessed are the Bones} +25%. When {derived:Liberation} is selected for {End of Suffering}, every 1% Max HP consumed from Furnace improves Final DMG from 2% to 5%.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Salvador"
 }

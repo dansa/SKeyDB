@@ -142,6 +142,32 @@ export function RichSegmentRenderer({
         stats,
       })
     }
+
+    case 'formatting': {
+      const content = segment.segments.map((child, index) => (
+        <RichSegmentRenderer
+          descriptionArgs={descriptionArgs}
+          formulaContext={formulaContext}
+          descriptionMaxRank={descriptionMaxRank}
+          descriptionRank={descriptionRank}
+          key={`${segment.style}:${index.toString()}`}
+          onMechanicClick={onMechanicClick}
+          onSkillClick={onSkillClick}
+          overlayByName={overlayByName}
+          segment={child}
+          showVisibleScaling={showVisibleScaling}
+          showTagIcons={showTagIcons}
+          skillLevel={skillLevel}
+          stats={stats}
+          variant={variant}
+        />
+      ))
+      return segment.style === 'italic' ? (
+        <em className='italic'>{content}</em>
+      ) : (
+        <strong className='font-semibold'>{content}</strong>
+      )
+    }
   }
 }
 

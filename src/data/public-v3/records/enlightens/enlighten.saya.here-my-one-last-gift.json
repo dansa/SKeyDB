@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0057",
   "slot": "AbsoluteAxiom",
-  "descriptionTemplate": "Gnosis {Rouse} {Cognitive Alteration} is Enhanced. After using {Crimson Furnace}, Saya gains 50 Aliemus and 1 stack of {Gynoecium}.",
+  "descriptionTemplate": "{Rouse} {Cognitive Alteration} is enhanced. After using {Crimson Furnace}, Saya gains 50 Aliemus and 1 stack of {Gynoecium}.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Saya"
 }

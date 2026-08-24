@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.caraboo.gift-arithmetica",
+  "name": "Gift: Arithmetica",
+  "route": {
+    "slug": "gift-arithmetica",
+    "canonicalPath": "/database/awakeners/caraboo/derived-skills/gift-arithmetica"
+  },
+  "ownerAwakenerId": "awakener-0060",
+  "derivedFromId": "derived.caraboo.blessing-gifts",
+  "rootSkillId": "skill.caraboo.miracle-blessing",
+  "cardFamily": "effect",
+  "cardTypes": ["effect"],
+  "descriptionTemplate": "Gain [Arg1] Arithmetica.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "6"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.retain"
+    },
+    {
+      "id": "mechanic.prepare",
+      "value": 1
+    }
+  ],
+  "cost": "1",
+  "ownerAwakenerName": "Caraboo"
+}

@@ -13,7 +13,7 @@
   "rarity": "SSR",
   "realm": "NEUTRAL",
   "mainstatKey": "DEATH_RESISTANCE",
-  "lineupToken": "yS",
+  "lineupToken": "yQ",
   "descriptionTemplate": "Team Unique: Your first purchase of an \"Orison\" in the \"D-Mark\" store or your first purchase of a discounted item in the {Ashen Ruins} has a [StateArg1]% chance to cost 0 Black Sigils. This can trigger only once per Exploration.",
   "descriptionArgs": {
     "StateArg1": {

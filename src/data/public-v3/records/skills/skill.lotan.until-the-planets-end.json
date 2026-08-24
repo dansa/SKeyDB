@@ -11,7 +11,7 @@
   "slot": "OverExalt",
   "cardFamily": "exalt",
   "cardTypes": ["over_exalt"],
-  "descriptionTemplate": "Deal an additional {Fixed DMG} equal to 15% of the target's Max HP to all enemies. The Base DMG of {Beast of Chaos} +100% for this battle.",
+  "descriptionTemplate": "Deal an additional {Pure DMG} equal to 15% of the target's Max HP to all enemies. The Base DMG of {Beast of Chaos} +100% for this battle.",
   "descriptionArgs": {},
   "cardKeywords": [],
   "ownerAwakenerName": "Lotan"

@@ -11,7 +11,7 @@
   "slot": "Skill1",
   "cardFamily": "command",
   "cardTypes": ["skill"],
-  "descriptionTemplate": "Randomly deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times}, with a [Arg3]% {Tentacle DMG} Bonus, and each time DMG is dealt, target's {Tentacle DMG} taken this turn +[Arg4]%. Add [Arg5] copies of {Pilot} into hand. {Aftershock}: This card returns to the top of the Draw Pile.",
+  "descriptionTemplate": "Randomly deal [Damage:Arg1] DMG [Arg2] {plural:[Arg2]|time|times}, with a [Arg3]% {Tentacle DMG} Bonus, and each time DMG is dealt, target's {Tentacle DMG} taken this turn +[Arg4]%. Add [Arg5] copies of {derived:Pilot} into hand. {Aftershock}: this card returns to the top of the Draw Pile.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

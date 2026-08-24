@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0023",
   "slot": "E1",
-  "descriptionTemplate": "At the start of the battle, place 1 {Irregular Form} into hand.",
+  "descriptionTemplate": "At the start of the battle, place 1 {derived:Irregular Form} into hand.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Helot"
 }

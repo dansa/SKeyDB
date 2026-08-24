@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "enlightens",
   "kind": "enlighten",
-  "recordCount": 295,
+  "recordCount": 300,
   "records": [
     {
       "kind": "enlighten",
@@ -423,6 +423,66 @@
       "ownerAwakenerId": "awakener-0006",
       "ownerAwakenerName": "Caecus",
       "slot": "OverExalt"
+    },
+    {
+      "kind": "enlighten",
+      "id": "enlighten.caraboo.flawless-fairy-tale",
+      "name": "Flawless Fairy Tale",
+      "route": {
+        "slug": "flawless-fairy-tale",
+        "canonicalPath": "/database/awakeners/caraboo/enlightens/flawless-fairy-tale"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "slot": "OverExalt"
+    },
+    {
+      "kind": "enlighten",
+      "id": "enlighten.caraboo.new-moon-at-its-zenith",
+      "name": "New Moon at Its Zenith",
+      "route": {
+        "slug": "new-moon-at-its-zenith",
+        "canonicalPath": "/database/awakeners/caraboo/enlightens/new-moon-at-its-zenith"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "kind": "enlighten",
+      "id": "enlighten.caraboo.secret-devotions",
+      "name": "Secret Devotions",
+      "route": {
+        "slug": "secret-devotions",
+        "canonicalPath": "/database/awakeners/caraboo/enlightens/secret-devotions"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "slot": "E1"
+    },
+    {
+      "kind": "enlighten",
+      "id": "enlighten.caraboo.sevenfold-rite",
+      "name": "Sevenfold Rite",
+      "route": {
+        "slug": "sevenfold-rite",
+        "canonicalPath": "/database/awakeners/caraboo/enlightens/sevenfold-rite"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "slot": "E2"
+    },
+    {
+      "kind": "enlighten",
+      "id": "enlighten.caraboo.threefold-vow",
+      "name": "Threefold Vow",
+      "route": {
+        "slug": "threefold-vow",
+        "canonicalPath": "/database/awakeners/caraboo/enlightens/threefold-vow"
+      },
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "slot": "E3"
     },
     {
       "kind": "enlighten",
@@ -1926,6 +1986,18 @@
     },
     {
       "kind": "enlighten",
+      "id": "enlighten.miryam.final-descent",
+      "name": "Final Descent",
+      "route": {
+        "slug": "final-descent",
+        "canonicalPath": "/database/awakeners/miryam/enlightens/final-descent"
+      },
+      "ownerAwakenerId": "awakener-0032",
+      "ownerAwakenerName": "Miryam",
+      "slot": "E2"
+    },
+    {
+      "kind": "enlighten",
       "id": "enlighten.miryam.homeland-resurgence",
       "name": "Homeland Resurgence",
       "route": {
@@ -1947,18 +2019,6 @@
       "ownerAwakenerId": "awakener-0032",
       "ownerAwakenerName": "Miryam",
       "slot": "E1"
-    },
-    {
-      "kind": "enlighten",
-      "id": "enlighten.miryam.the-ultimate-descent",
-      "name": "The Ultimate Descent",
-      "route": {
-        "slug": "the-ultimate-descent",
-        "canonicalPath": "/database/awakeners/miryam/enlightens/the-ultimate-descent"
-      },
-      "ownerAwakenerId": "awakener-0032",
-      "ownerAwakenerName": "Miryam",
-      "slot": "E2"
     },
     {
       "kind": "enlighten",

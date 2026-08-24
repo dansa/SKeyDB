@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0315",
+  "name": "Crystal Globe",
+  "route": {
+    "slug": "crystal-globe",
+    "canonicalPath": "/database/relics/crystal-globe"
+  },
+  "assets": {
+    "icon": "asset-relic-0315-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0567",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "The current terrain counts as \"Icefield.\"\nIn Hyperborea: After the Draw Phase, apply 1 stack of {Stagnation} and {Retain} to the 2 unfrozen Command Cards with the highest Arithmetica Cost in hand. When any Command Card has at least 3 stacks of {Stagnation}, remove its {Stagnation} and {Retain} (obtained from this battle), Freeze it, and apply 25 stacks of {overlay:Enhance}.",
+  "descriptionArgs": {},
+  "lore": "It does not bring the cold.\nIt merely reminds the earth that winter never left.",
+  "variants": [
+    {
+      "id": "relic-variant-0567",
+      "name": "Crystal Globe",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "The current terrain counts as \"Icefield.\"\nIn Hyperborea: After the Draw Phase, apply 1 stack of {Stagnation} and {Retain} to the 2 unfrozen Command Cards with the highest Arithmetica Cost in hand. When any Command Card has at least 3 stacks of {Stagnation}, remove its {Stagnation} and {Retain} (obtained from this battle), Freeze it, and apply 25 stacks of {overlay:Enhance}.",
+      "descriptionArgs": {},
+      "lore": "It does not bring the cold.\nIt merely reminds the earth that winter never left."
+    }
+  ]
+}

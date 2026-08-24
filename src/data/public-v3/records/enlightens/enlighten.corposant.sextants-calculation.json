@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0011",
   "slot": "E2",
-  "descriptionTemplate": "{Ominous Semaphore} inflicts {Weakness} on all enemies for 1 turn. For each Tentacle present, the Shield, {STR}, and {Tentacle DMG} gained by {Pilot} +5%, up to 50%.",
+  "descriptionTemplate": "{Ominous Semaphore} inflicts {Weakness} on all enemies for 1 turn. For each Tentacle present, the Shield, {STR}, and {Tentacle DMG} gained by {derived:Pilot} +5%, up to 50%.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Corposant"
 }

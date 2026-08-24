@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0022",
   "slot": "E3",
-  "descriptionTemplate": "After triggering the {Melody} effect or playing the {Symphony of Harmony}, Hameln gains 1% Crit. Rate and Crit. DMG. For every 10 triggers, the number of DMG instances of {Soul Overture} and {Primal Chord} +1 in this battle, up to 3 times.",
+  "descriptionTemplate": "After triggering the {Melody} effect or playing the {derived:Symphony of Harmony}, Hameln gains 1% Crit. Rate and Crit. DMG. For every 10 triggers, the number of DMG instances of {Soul Overture} and {Primal Chord} +1 in this battle, up to 3 times.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Hameln"
 }

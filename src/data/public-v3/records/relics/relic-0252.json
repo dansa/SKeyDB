@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0426",
   "rarity": "N",
   "aliases": ["Radium Jawbone+", "☆Radium Jawbone☆"],
-  "descriptionTemplate": "After releasing \"Exalt, \" all enemies take 1 instance of {Fixed DMG} equal to [Arg2]% of team's Max HP and trigger [Arg2]% {Poison}.",
+  "descriptionTemplate": "After releasing \"Exalt, \" all enemies take 1 instance of {Pure DMG} equal to [Arg2]% of team's Max HP and trigger [Arg2]% {Poison}.",
   "descriptionArgs": {
     "Arg2": {
       "kind": "fixed",
@@ -34,7 +34,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "After releasing \"Exalt, \" all enemies take 1 instance of {Fixed DMG} equal to [Arg2]% of team's Max HP and trigger [Arg2]% {Poison}.",
+      "descriptionTemplate": "After releasing \"Exalt, \" all enemies take 1 instance of {Pure DMG} equal to [Arg2]% of team's Max HP and trigger [Arg2]% {Poison}.",
       "descriptionArgs": {
         "Arg2": {
           "kind": "fixed",
@@ -51,7 +51,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "After releasing \"Exalt, \" all enemies take 1 instance of {Fixed DMG} equal to [Arg2]% of team's Max HP and trigger [Arg2]% {Poison}.",
+      "descriptionTemplate": "After releasing \"Exalt, \" all enemies take 1 instance of {Pure DMG} equal to [Arg2]% of team's Max HP and trigger [Arg2]% {Poison}.",
       "descriptionArgs": {
         "Arg2": {
           "kind": "fixed",

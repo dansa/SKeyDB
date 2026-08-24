@@ -5,6 +5,7 @@ import type {NavigateFunction} from 'react-router'
 import type {DatabaseAwakenerTab} from '@/domain/database-paths'
 import type {EntityRef} from '@/domain/entities/types'
 import type {
+  DatabaseDetailNavigationOptions,
   DatabaseDetailNavigationPort,
   DatabaseDetailNavigationState,
   DatabaseDetailRouteItem,
@@ -38,7 +39,11 @@ export function useDatabaseRouteNavigation({
   )
 
   return useMemo(() => {
-    const select = (ref: EntityRef, state: DatabaseDetailNavigationState = {}) => {
+    const select = (
+      ref: EntityRef,
+      state: DatabaseDetailNavigationState = {},
+      options?: DatabaseDetailNavigationOptions,
+    ) => {
       const requestVersion = ++requestVersionRef.current
       void resolveDatabaseRuntimeDetailReference({
         defaultAwakenerTab,
@@ -49,10 +54,11 @@ export function useDatabaseRouteNavigation({
         .then((target) => {
           if (requestVersion !== requestVersionRef.current || !target) return
           primeDatabaseRouteResolution(target.pathname, target.search, target.resolution)
-          void navigate(
-            {pathname: target.pathname, search: target.search},
-            {replace: true, state: locationState},
-          )
+          const nextLocation =
+            options?.hash === undefined
+              ? {pathname: target.pathname, search: target.search}
+              : {hash: options.hash, pathname: target.pathname, search: target.search}
+          void navigate(nextLocation, {replace: true, state: locationState})
         })
         .catch(() => undefined)
     }
@@ -63,8 +69,8 @@ export function useDatabaseRouteNavigation({
         onClose()
       },
       select,
-      updateState: (state) => {
-        if (routeItem) select({kind: routeItem.kind, id: routeItem.item.id}, state)
+      updateState: (state, options) => {
+        if (routeItem) select({kind: routeItem.kind, id: routeItem.item.id}, state, options)
       },
     }
   }, [activeSearch, defaultAwakenerTab, locationState, navigate, onClose, routeItem])

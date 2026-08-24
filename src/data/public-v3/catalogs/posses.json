@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "posses",
   "kind": "posse",
-  "recordCount": 61,
+  "recordCount": 62,
   "records": [
     {
       "kind": "posse",
@@ -1166,6 +1166,24 @@
           "scalingBucket": "utility"
         }
       }
+    },
+    {
+      "kind": "posse",
+      "id": "posse-0062",
+      "name": "That Which is No Lie",
+      "route": {
+        "slug": "that-which-is-no-lie",
+        "canonicalPath": "/database/posses/that-which-is-no-lie"
+      },
+      "assets": {
+        "icon": "asset-posse-0062-icon",
+        "crystal": "asset-posse-0062-crystal",
+        "badge": "asset-posse-0062-badge"
+      },
+      "realm": "CARO",
+      "ownerAwakenerId": "awakener-0060",
+      "ownerAwakenerName": "Caraboo",
+      "lineupToken": "8"
     }
   ]
 }

@@ -1002,6 +1002,23 @@
         ]
       }
     },
+    "asset-awakener-0060-icon": {
+      "id": "asset-awakener-0060-icon",
+      "slot": "icon",
+      "kind": "awakener",
+      "ownerId": "awakener-0060",
+      "assetId": "caraboo",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/awk-cards/caraboo.webp",
+        "candidates": [
+          "src/assets/awk-cards/caraboo.webp",
+          "src/assets/awk-cards/caraboo.png",
+          "src/assets/awk-portraits/caraboo.webp",
+          "src/assets/awk-portraits/caraboo.png"
+        ]
+      }
+    },
     "asset-wheel-0001-icon": {
       "id": "asset-wheel-0001-icon",
       "slot": "icon",
@@ -2680,6 +2697,42 @@
         "status": "available",
         "path": "src/assets/wheels/Weapon_Full_JP09.webp",
         "candidates": ["src/assets/wheels/Weapon_Full_JP09.webp", "src/assets/wheels/Weapon_Full_JP09.png"]
+      }
+    },
+    "asset-wheel-0175-icon": {
+      "id": "asset-wheel-0175-icon",
+      "slot": "icon",
+      "kind": "wheel",
+      "ownerId": "wheel-0175",
+      "assetId": "Weapon_Full_B11",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/wheels/Weapon_Full_B11.webp",
+        "candidates": ["src/assets/wheels/Weapon_Full_B11.webp", "src/assets/wheels/Weapon_Full_B11.png"]
+      }
+    },
+    "asset-wheel-0176-icon": {
+      "id": "asset-wheel-0176-icon",
+      "slot": "icon",
+      "kind": "wheel",
+      "ownerId": "wheel-0176",
+      "assetId": "Weapon_Full_SR37",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/wheels/Weapon_Full_SR37.webp",
+        "candidates": ["src/assets/wheels/Weapon_Full_SR37.webp", "src/assets/wheels/Weapon_Full_SR37.png"]
+      }
+    },
+    "asset-wheel-0177-icon": {
+      "id": "asset-wheel-0177-icon",
+      "slot": "icon",
+      "kind": "wheel",
+      "ownerId": "wheel-0177",
+      "assetId": "Weapon_Full_JP10",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/wheels/Weapon_Full_JP10.webp",
+        "candidates": ["src/assets/wheels/Weapon_Full_JP10.webp", "src/assets/wheels/Weapon_Full_JP10.png"]
       }
     },
     "asset-relic-0001-icon": {
@@ -7680,6 +7733,57 @@
         ]
       }
     },
+    "asset-relic-0314-icon": {
+      "id": "asset-relic-0314-icon",
+      "slot": "icon",
+      "kind": "relic",
+      "ownerId": "relic-0314",
+      "assetId": "Icon_Creation_Unique_B11",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/relics/Icon_Creation_Unique_B11.webp",
+        "candidates": [
+          "src/assets/relics/Icon_Creation_Unique_B11.webp",
+          "src/assets/relics/Icon_Creation_Unique_B11.png",
+          "src/assets/relics/portraits/Icon_Creation_Unique_B11.webp",
+          "src/assets/relics/portraits/Icon_Creation_Unique_B11.png"
+        ]
+      }
+    },
+    "asset-relic-0315-icon": {
+      "id": "asset-relic-0315-icon",
+      "slot": "icon",
+      "kind": "relic",
+      "ownerId": "relic-0315",
+      "assetId": "Icon_Creation_183",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/relics/Icon_Creation_183.webp",
+        "candidates": [
+          "src/assets/relics/Icon_Creation_183.webp",
+          "src/assets/relics/Icon_Creation_183.png",
+          "src/assets/relics/portraits/Icon_Creation_183.webp",
+          "src/assets/relics/portraits/Icon_Creation_183.png"
+        ]
+      }
+    },
+    "asset-relic-0316-icon": {
+      "id": "asset-relic-0316-icon",
+      "slot": "icon",
+      "kind": "relic",
+      "ownerId": "relic-0316",
+      "assetId": "Icon_Creation_182",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/relics/Icon_Creation_182.webp",
+        "candidates": [
+          "src/assets/relics/Icon_Creation_182.webp",
+          "src/assets/relics/Icon_Creation_182.png",
+          "src/assets/relics/portraits/Icon_Creation_182.webp",
+          "src/assets/relics/portraits/Icon_Creation_182.png"
+        ]
+      }
+    },
     "asset-covenant-0001-icon": {
       "id": "asset-covenant-0001-icon",
       "slot": "icon",
@@ -10128,6 +10232,42 @@
         "candidates": ["src/assets/posse/Icon/KeyToken_Skill_00.webp", "src/assets/posse/Icon/KeyToken_Skill_00.png"]
       }
     },
+    "asset-posse-0062-badge": {
+      "id": "asset-posse-0062-badge",
+      "slot": "badge",
+      "kind": "posse",
+      "ownerId": "posse-0062",
+      "assetId": "KeyToken_Props_56",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/Badge/KeyToken_Props_56.webp",
+        "candidates": ["src/assets/posse/Badge/KeyToken_Props_56.webp", "src/assets/posse/Badge/KeyToken_Props_56.png"]
+      }
+    },
+    "asset-posse-0062-crystal": {
+      "id": "asset-posse-0062-crystal",
+      "slot": "crystal",
+      "kind": "posse",
+      "ownerId": "posse-0062",
+      "assetId": "KeyToken_Crystal_56",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/FullArt/KeyToken_Crystal_56.webp",
+        "candidates": ["src/assets/posse/FullArt/KeyToken_Crystal_56.webp", "src/assets/posse/FullArt/KeyToken_Crystal_56.png"]
+      }
+    },
+    "asset-posse-0062-icon": {
+      "id": "asset-posse-0062-icon",
+      "slot": "icon",
+      "kind": "posse",
+      "ownerId": "posse-0062",
+      "assetId": "KeyToken_Skill_56",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/Icon/KeyToken_Skill_56.webp",
+        "candidates": ["src/assets/posse/Icon/KeyToken_Skill_56.webp", "src/assets/posse/Icon/KeyToken_Skill_56.png"]
+      }
+    },
     "asset-overlay.aigis.petrify-icon": {
       "id": "asset-overlay.aigis.petrify-icon",
       "slot": "icon",
@@ -10186,6 +10326,30 @@
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_045.webp",
         "candidates": ["src/assets/icons/IconS_Buff_045.webp", "src/assets/icons/IconS_Buff_045.png"]
+      }
+    },
+    "asset-overlay.caraboo.offering-icon": {
+      "id": "asset-overlay.caraboo.offering-icon",
+      "slot": "icon",
+      "kind": "overlay",
+      "ownerId": "overlay.caraboo.offering",
+      "assetId": "IconS_Buff_092",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/IconS_Buff_092.webp",
+        "candidates": ["src/assets/icons/IconS_Buff_092.webp", "src/assets/icons/IconS_Buff_092.png"]
+      }
+    },
+    "asset-overlay.caraboo.satiety-icon": {
+      "id": "asset-overlay.caraboo.satiety-icon",
+      "slot": "icon",
+      "kind": "overlay",
+      "ownerId": "overlay.caraboo.satiety",
+      "assetId": "IconS_Buff_091",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/IconS_Buff_091.webp",
+        "candidates": ["src/assets/icons/IconS_Buff_091.webp", "src/assets/icons/IconS_Buff_091.png"]
       }
     },
     "asset-overlay.clementine.phobic-fixation-icon": {
@@ -10414,6 +10578,18 @@
         "status": "available",
         "path": "src/assets/icons/IconS_Buff_067.webp",
         "candidates": ["src/assets/icons/IconS_Buff_067.webp", "src/assets/icons/IconS_Buff_067.png"]
+      }
+    },
+    "asset-overlay.global.enhance-icon": {
+      "id": "asset-overlay.global.enhance-icon",
+      "slot": "icon",
+      "kind": "overlay",
+      "ownerId": "overlay.global.enhance",
+      "assetId": "IconS_Buff_071",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/IconS_Buff_071.webp",
+        "candidates": ["src/assets/icons/IconS_Buff_071.webp", "src/assets/icons/IconS_Buff_071.png"]
       }
     },
     "asset-overlay.global.fainted-icon": {
@@ -11075,6 +11251,9 @@
     "awakener-0059": {
       "icon": "asset-awakener-0059-icon"
     },
+    "awakener-0060": {
+      "icon": "asset-awakener-0060-icon"
+    },
     "wheel-0001": {
       "icon": "asset-wheel-0001-icon"
     },
@@ -11494,6 +11673,15 @@
     },
     "wheel-0174": {
       "icon": "asset-wheel-0174-icon"
+    },
+    "wheel-0175": {
+      "icon": "asset-wheel-0175-icon"
+    },
+    "wheel-0176": {
+      "icon": "asset-wheel-0176-icon"
+    },
+    "wheel-0177": {
+      "icon": "asset-wheel-0177-icon"
     },
     "relic-0001": {
       "icon": "asset-relic-0001-icon"
@@ -12377,6 +12565,15 @@
     "relic-0313": {
       "icon": "asset-relic-0313-icon"
     },
+    "relic-0314": {
+      "icon": "asset-relic-0314-icon"
+    },
+    "relic-0315": {
+      "icon": "asset-relic-0315-icon"
+    },
+    "relic-0316": {
+      "icon": "asset-relic-0316-icon"
+    },
     "covenant-0001": {
       "icon": "asset-covenant-0001-icon"
     },
@@ -12745,6 +12942,11 @@
       "crystal": "asset-posse-0061-crystal",
       "badge": "asset-posse-0061-badge"
     },
+    "posse-0062": {
+      "icon": "asset-posse-0062-icon",
+      "crystal": "asset-posse-0062-crystal",
+      "badge": "asset-posse-0062-badge"
+    },
     "overlay.aigis.petrify": {
       "icon": "asset-overlay.aigis.petrify-icon"
     },
@@ -12759,6 +12961,12 @@
     },
     "overlay.caecus.outcasts-anguish": {
       "icon": "asset-overlay.caecus.outcasts-anguish-icon"
+    },
+    "overlay.caraboo.offering": {
+      "icon": "asset-overlay.caraboo.offering-icon"
+    },
+    "overlay.caraboo.satiety": {
+      "icon": "asset-overlay.caraboo.satiety-icon"
     },
     "overlay.clementine.phobic-fixation": {
       "icon": "asset-overlay.clementine.phobic-fixation-icon"
@@ -12816,6 +13024,9 @@
     },
     "overlay.global.dimension-shuttle": {
       "icon": "asset-overlay.global.dimension-shuttle-icon"
+    },
+    "overlay.global.enhance": {
+      "icon": "asset-overlay.global.enhance-icon"
     },
     "overlay.global.fainted": {
       "icon": "asset-overlay.global.fainted-icon"

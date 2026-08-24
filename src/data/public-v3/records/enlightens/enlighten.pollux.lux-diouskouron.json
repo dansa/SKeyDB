@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0041",
   "slot": "AbsoluteAxiom",
-  "descriptionTemplate": "{Rouse} {Path of Ablution} is enhanced: When a {Sacred Heart} is played and shuffled back, make that card cost 0 Arithmetica and additionally inflict 100% DMG as {Bleed} this turn.",
+  "descriptionTemplate": "{Rouse} {Path of Ablution} is enhanced: When a {derived:Sacred Heart} is played and shuffled back, make that card cost 0 Arithmetica and additionally inflict 100% DMG as {Bleed} this turn.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Pollux"
 }

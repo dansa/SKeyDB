@@ -11,7 +11,7 @@
   "slot": "OverExalt",
   "cardFamily": "exalt",
   "cardTypes": ["over_exalt"],
-  "descriptionTemplate": "Additionally, place 2 copies of \"Thousand Mirage\" into hand, increasing the Base DMG of {Skull Reaver} by 50% in this battle.",
+  "descriptionTemplate": "Additionally, place 2 copies of {derived:Thousand Mirage} into hand, increasing the Base DMG of {Skull Reaver} by 50% in this battle.",
   "descriptionArgs": {},
   "cardKeywords": [],
   "ownerAwakenerName": "Daffodil"

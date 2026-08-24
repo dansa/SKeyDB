@@ -25,7 +25,7 @@
     },
     {
       "set": 6,
-      "descriptionTemplate": "Team Unique: At the start of battle, gain {STR} equal to 12% of the wielder's ATK. If the current Realm is {Aequor}, instead gain the following effect: \"At the start of each turn, there is a (50 + 0.25 × the team's Realm Mastery)% chance to gain 1 stack of Tentacle Gathering. If this chance exceeds 100%, multiple stacks can be gained. This chance is doubled in Boss Battles.\"",
+      "descriptionTemplate": "Team Unique: At the start of battle, gain {STR} equal to 12% of the wielder's ATK. If the current Realm is {Aequor}, instead gain the following effect: “At the start of each turn, there is a (50 + 0.25 × the team's Realm Mastery)% chance to gain 1 stack of Tentacle Gathering. If this chance exceeds 100%, multiple stacks can be gained. This chance is doubled in Boss Battles.”",
       "descriptionArgs": {}
     }
   ],

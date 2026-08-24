@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0025",
   "slot": "E1",
-  "descriptionTemplate": "For each use of {Get 'em! Brown!} in this battle, the Base DMG of {Swarm Impact} +[Arg1]% of ATK (effect scales with {Get 'em! Brown!} skill level).",
+  "descriptionTemplate": "For each use of {Get 'em! Brown!} in this battle, the Base DMG of {derived:Swarm Impact} +[Arg1]% of ATK (effect scales with {Get 'em! Brown!} skill level).",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
