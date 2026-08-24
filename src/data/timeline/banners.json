@@ -296,15 +296,12 @@
       {
         "name": "Caraboo",
         "kind": "awakener",
-        "customArt": "/banners/caraboo.webp",
-        "realmId": "ULTRA",
-        "detailLink": false
+        "customArt": "/banners/caraboo.webp"
       },
       {
         "name": "Honeyed Deceit",
         "kind": "wheel",
-        "customArt": "/banners/honeyed-deceit.webp",
-        "detailLink": false
+        "customArt": "/banners/honeyed-deceit.webp"
       }
     ],
     "pinned": true

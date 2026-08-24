@@ -44,16 +44,24 @@ function getTokenSegmentName(
   return segment.name
 }
 
+function collectDescriptionTokens(segments: readonly RichSegment[], tokens: Set<string>): void {
+  for (const segment of segments) {
+    if (isTokenSegment(segment)) {
+      tokens.add(getTokenSegmentName(segment))
+      continue
+    }
+    if (segment.type === 'formatting') {
+      collectDescriptionTokens(segment.segments, tokens)
+    }
+  }
+}
+
 function getDistinctDescriptionTokens(
   record: DescribedRecord,
   referenceLayer: ResolvedDatabaseReferenceLayer,
 ): string[] {
   const tokens = new Set<string>()
-  for (const segment of parseDatabaseRichDescription({record, referenceLayer})) {
-    if (isTokenSegment(segment)) {
-      tokens.add(getTokenSegmentName(segment))
-    }
-  }
+  collectDescriptionTokens(parseDatabaseRichDescription({record, referenceLayer}), tokens)
   return [...tokens]
 }
 
@@ -146,6 +154,25 @@ async function loadWheelRecords(): Promise<WheelFullRecord[]> {
 }
 
 describe('database reference layer audit', () => {
+  it('collects reference tokens nested inside formatting segments', () => {
+    const record: DescribedRecord = {
+      id: 'wheel-formatted-reference-audit',
+      kind: 'wheel',
+      displayName: 'Formatted Reference Audit',
+      descriptionTemplate: '<Italic:Gain {Nested Mechanic}.>',
+      descriptionArgs: {},
+    }
+    const referenceLayer: ResolvedDatabaseReferenceLayer = {
+      cardNames: new Set(),
+      accessibleOverlays: [],
+      referenceInfoByName: new Map(),
+      referenceInfoById: new Map(),
+      overlayByName: new Map(),
+    }
+
+    expect(getDistinctDescriptionTokens(record, referenceLayer)).toEqual(['Nested Mechanic'])
+  })
+
   it('keeps wheel detail reference tokens resolvable for the shared wheel-layer contract', async () => {
     const wheelRecords = await loadWheelRecords()
     const blockingIssues: TokenAuditIssue[] = []

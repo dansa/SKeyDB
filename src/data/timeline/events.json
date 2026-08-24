@@ -450,7 +450,7 @@
     "description": "Gameplay and story event featuring Caraboo. Obtain the SR Wheel \"Serene Truth\" and limited avatar \"By the Silver Key: Caraboo\".",
     "startDate": "2026/08/24 09:00",
     "endDate": "2026/09/21 09:00",
-    "featured": {"name": "Caraboo", "kind": "awakener", "customArt": "/banners/caraboo.webp", "realmId": "ULTRA", "detailLink": false},
+    "featured": {"name": "Caraboo", "kind": "awakener", "customArt": "/banners/caraboo.webp"},
     "customArt": "/events/new-moon-and-deep-snow.webp",
     "pinned": true
   },
@@ -461,7 +461,7 @@
     "description": "Limited-time WoD wheel acquisition event featuring \"Soul Synchronization\".\n Complete various tasks to obtain 4 copies & 30 Pure Cores.\n Premium track: Grants +12 copies & 60 Luminous Cores.",
     "startDate": "2026/08/24 09:00",
     "endDate": "2026/09/21 09:00",
-    "featured": {"name": "Soul Synchronization", "kind": "wheel", "customArt": "/banners/soul-synchronization.webp", "detailLink": false},
+    "featured": {"name": "Soul Synchronization", "kind": "wheel", "customArt": "/banners/soul-synchronization.webp"},
     "customArt": "/events/after-school-hours.webp",
     "pricing": "1680 Silver Prime"
   },
