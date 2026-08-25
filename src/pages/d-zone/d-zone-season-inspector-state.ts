@@ -9,6 +9,9 @@ export interface AlertSelectionState {
   alertId: string | null
 }
 
+const LEGACY_HIGHEST_ALERT_ID = 'alert-5'
+const LEGACY_ALERT_NAME_RE = /^Alert\s+/i
+
 function getAlertLevel(alertId: string): number | null {
   const level = Number(/^alert-(\d+)$/.exec(alertId)?.[1] ?? Number.NaN)
   return Number.isFinite(level) ? level : null
@@ -37,6 +40,24 @@ function getHighestAvailableAlertIdAtOrBelow(
 
 export function buildDefaultOpenWaveIds(defaultOpenWaveId: string | undefined): Set<string> {
   return new Set(defaultOpenWaveId ? [defaultOpenWaveId] : [])
+}
+
+export function getPersistedAlertPreferenceId({
+  alertOptions,
+  selectedAlertId,
+}: {
+  alertOptions: DzoneAlertOption[]
+  selectedAlertId: string
+}): string {
+  const selectedAlert = alertOptions.find((alert) => alert.id === selectedAlertId)
+  const highestAlert = alertOptions.at(-1)
+  const usesNamedFourDifficultyFormat =
+    alertOptions.length === 4 &&
+    alertOptions.every((alert) => !LEGACY_ALERT_NAME_RE.test(alert.name))
+
+  return usesNamedFourDifficultyFormat && selectedAlert?.id === highestAlert?.id
+    ? LEGACY_HIGHEST_ALERT_ID
+    : selectedAlertId
 }
 
 export function getResolvedOpenWaveIds({

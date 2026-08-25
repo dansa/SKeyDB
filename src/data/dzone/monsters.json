@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "scope": "monsters",
-  "recordCount": 322,
+  "recordCount": 325,
   "records": [
     {
       "id": "dzone-monster-0264",
@@ -857,6 +857,14 @@
       "badges": ["Boss"]
     },
     {
+      "id": "dzone-monster-0327",
+      "name": "\"Veilweaver\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0014", "enemy-characteristic-0006", "enemy-characteristic-0015"],
+      "descriptionTemplate": "A personal attendant to the Goddess of Fate. She weaves the stage curtains with her own hands, helping her mistress compose both the opening acts and the final bows of entire worlds. Every stage she tends runs with ruthless precision, reflecting the will of her master.",
+      "assetName": "Portrait_Small_Monster_S2C0502_AT",
+      "badges": ["Boss"]
+    },
+    {
       "id": "dzone-monster-0111",
       "name": "\"Vengeance Blade\"",
       "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008", "enemy-characteristic-0013"],
@@ -1538,6 +1546,14 @@
       "descriptionTemplate": "The fry has become king—this foul bloodline grows stronger daily.",
       "assetName": "Portrait_Small_Monster_S2C0401",
       "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0326",
+      "name": "Fractured Matriarch",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0014", "enemy-characteristic-0006"],
+      "descriptionTemplate": "The core of a Leng Spider swarm. Acting as an anchor, it absorbs scattered Dimensional Embers to spawn new Leng Spiders. On rare occasions, Arachne bestows upon it a complete Thread of Fate—the highest grace a Leng Spider can receive.",
+      "assetName": "Portrait_Small_Monster_S2C0501_AT",
+      "badges": ["Elite"]
     },
     {
       "id": "dzone-monster-0130",
@@ -2305,6 +2321,14 @@
       "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0015"],
       "descriptionTemplate": "In the poem's Cité, they yearn for Colette's grace.",
       "assetName": "Portrait_Small_Monster_DCD06_02"
+    },
+    {
+      "id": "dzone-monster-0325",
+      "name": "Thread Devourer",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0014", "enemy-characteristic-0007"],
+      "descriptionTemplate": "A mass of shattered destinies converging, biting and devouring one another in an unrecognizable storm. Every thread strives to become the one true fate, and every thread is destined to fail.",
+      "assetName": "Portrait_Small_Monster_S2C0503",
+      "badges": ["Elite"]
     },
     {
       "id": "dzone-monster-0243",

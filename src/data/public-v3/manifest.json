@@ -1,10 +1,10 @@
 {
   "schemaVersion": 3,
-  "gameDataVersion": "compiled-sha256-d21b08570c96a44e",
-  "generatedAt": "2026-08-24T00:17:11Z",
-  "buildId": "public-v3-sha256-aa02581ea9d3c0d6",
+  "gameDataVersion": "compiled-sha256-c339d00e3b843ddc",
+  "generatedAt": "2026-08-25T21:04:09Z",
+  "buildId": "public-v3-sha256-de2a02b68324a3ac",
   "build": {
-    "gameDataVersion": "compiled-sha256-d21b08570c96a44e",
+    "gameDataVersion": "compiled-sha256-c339d00e3b843ddc",
     "recordCount": 1941,
     "scopes": ["awakeners", "wheels", "relics", "covenants", "posses", "skills", "derived-skills", "talents", "enlightens", "overlays", "awakener-builds"]
   },
@@ -3866,8 +3866,8 @@
       "sha256": "e592ee625ef1a5e2d30d65d47bab6270c016171c203c376262b2f90020d55271"
     },
     "records/relics/relic-0061.json": {
-      "bytes": 2843,
-      "sha256": "b2be6052f152ab3cfb1a6c7453810488ae7012fe3bf41486cc175710062bd1e1"
+      "bytes": 2851,
+      "sha256": "a85fb206b861f9d88a78b25ba64f2e28e898ac2b4131d52092a73dbb4ac2ad6f"
     },
     "records/relics/relic-0062.json": {
       "bytes": 1677,
@@ -4262,8 +4262,8 @@
       "sha256": "efcb2df045881f444c352890b86bb50b460fa5427dcb5a64a111fde57e46d185"
     },
     "records/relics/relic-0167.json": {
-      "bytes": 2677,
-      "sha256": "a3aa62097eb63cc3570c3fc0109cfc788d6e05cc325d7792e0441da37e84ac20"
+      "bytes": 2691,
+      "sha256": "9a7f325fd3464fc2afff60ec1ffcf8c969de6cc4a5ce73509ad2ca9cb7097148"
     },
     "records/relics/relic-0168.json": {
       "bytes": 3758,
@@ -4682,8 +4682,8 @@
       "sha256": "27920fd4db40d2ff13c1e5bbf38085fbf32945beaad3b268866d006ae83b3d83"
     },
     "records/relics/relic-0284.json": {
-      "bytes": 2624,
-      "sha256": "4e9691a8280b48b226bd276e8471ce585a6c7f4647727dbdf5a71fcfbf6be2db"
+      "bytes": 2632,
+      "sha256": "a96a804602b6b29d1c16da1500f6b5dd3baaf4ab6d7dab4e1e3e7f8046cd9ff5"
     },
     "records/relics/relic-0285.json": {
       "bytes": 1027,
@@ -4698,8 +4698,8 @@
       "sha256": "dbcb975027c7323be0bba3cf15d9caf6e6755dac81e0a4dcba9c5df5bb92cd7b"
     },
     "records/relics/relic-0288.json": {
-      "bytes": 3124,
-      "sha256": "2b1dc27b813128c232f3ec6a5645da906eaafd84aeabf9141507e56ea73ed3dd"
+      "bytes": 3132,
+      "sha256": "daa7a155bc2691c3938fe7725d8cf160f5f512bf72a773a665760e806b73e8d7"
     },
     "records/relics/relic-0289.json": {
       "bytes": 2139,
@@ -5018,8 +5018,8 @@
       "sha256": "46572985459bdf5ec1d0664ce3c8c4d99acee77473a7a05e97a152c97a747d14"
     },
     "records/skills/skill.caraboo.miracle-blessing.json": {
-      "bytes": 2213,
-      "sha256": "49cc16e33654db9577cf5746bda790823ccd80654b50f9556f5e4dd7b937d595"
+      "bytes": 2233,
+      "sha256": "b054c6e5a7ef2d98727424af1b6506a604c95b2ec7cce695bdf12d2134eada76"
     },
     "records/skills/skill.caraboo.snowy-hex.json": {
       "bytes": 2388,
@@ -7762,8 +7762,8 @@
       "sha256": "e80a2e5dfd4269a7f57710448a293a9bde47a726e00e72691e68ad5684d129d5"
     },
     "records/wheels/wheel-0093.json": {
-      "bytes": 1802,
-      "sha256": "a8ddbe5fd1f4acfa3c32a2080e6d6e058525acd33d9e35e69e0394232238870e"
+      "bytes": 1795,
+      "sha256": "a8484998c2e31e281f8a909d121f0fc8efcc6d41139ef12560b4debcfeeb194c"
     },
     "records/wheels/wheel-0094.json": {
       "bytes": 2400,

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "scope": "dzones",
-  "recordCount": 67,
+  "recordCount": 68,
   "records": [
     {
       "id": "dzone-0001",
@@ -672,6 +672,16 @@
       "stageEffect": "Astral Reign",
       "realm": "CARO",
       "seasonPath": "seasons/dzone0067.json"
+    },
+    {
+      "id": "dzone-0068",
+      "period": 68,
+      "name": "Dissoluted Abyss",
+      "start": "2026-08-31T01:00:00Z",
+      "end": "2026-09-14T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "realm": "ULTRA",
+      "seasonPath": "seasons/dzone0068.json"
     }
   ]
 }

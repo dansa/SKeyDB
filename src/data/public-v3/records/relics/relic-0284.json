@@ -66,7 +66,7 @@
       "tier": "Silver",
       "category": "FADED_LEGACY",
       "rarity": "N",
-      "descriptionTemplate": "Whenever a Command Card enters {Ultra Space}, grant the corresponding Awakener 15 Aliemus.",
+      "descriptionTemplate": "Whenever a Command Card enters {overlay:Ultra Space}, grant the corresponding Awakener 15 Aliemus.",
       "descriptionArgs": {},
       "lore": "A pocket watch found both in a clock shop and an insect museum.\nIt has been incorporated into the university's collection since the Flood."
     }
