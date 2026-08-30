@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0043",
   "ownerAwakenerName": "Ryker",
   "lineupToken": "xJ",
-  "descriptionTemplate": "At the start of battle, the Crit. Rate of the wielder's Command Cards +[StateArg1]% for each Relic acquired.\nAfter the wielder Exalts, roll a 4-sided die; they gain +X% Temp. Crit. DMG & {X} Aliemus, where X is [StateArg2] times the result. If the result is 4 or higher, also grant other Awakeners half of this effect.",
+  "descriptionTemplate": "Team Unique: At the start of battle, the Crit. Rate of the wielder's Command Cards +[StateArg1]% for each Relic acquired.\nAfter the wielder Exalts, roll a 4-sided die; they gain +X% Temp. Crit. DMG & {X} Aliemus, where X is [StateArg2] times the result. If the result is 4 or higher, also grant other Awakeners half of this effect.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "fixed",

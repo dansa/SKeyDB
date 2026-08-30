@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0028",
   "ownerAwakenerName": "Leigh",
   "lineupToken": "xk",
-  "descriptionTemplate": "HP recovered by the wielder +[StateArg2]%.\nAt the start of each turn, gain Temporary {STR} and Shield equal to [StateArg1]% of the total amount of HP you lost last turn.",
+  "descriptionTemplate": "Team Unique: The wielder's HP Recovery +[StateArg2]%.\nAt the start of each turn, gain Temporary {STR} and Shield equal to [StateArg1]% of the total amount of HP lost last turn.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

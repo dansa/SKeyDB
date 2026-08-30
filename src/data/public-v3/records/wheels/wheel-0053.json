@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0006",
   "ownerAwakenerName": "Caecus",
   "lineupToken": "e",
-  "descriptionTemplate": "Shield gained from and HP recovered by the wielder each increase by [StateArg1]% of their CON, and {Counter} gained from them +[StateArg3]%.\nWhenever one of the wielder's Defense Commands is played, gain {Counter} equal to [StateArg4]% of their DEF.\nAt the start of battle, gain {STR} and {Tentacle DMG} equal to [StateArg2]% of the wielder's CON.",
+  "descriptionTemplate": "Team Unique: The wielder's Shield Generation and HP Recovery each increase by [StateArg1]% of the wielder's CON, and {Counter} Generation +[StateArg3]%.\nWhenever one of the wielder's Defense Commands is played, gain {Counter} equal to [StateArg4]% of the wielder's DEF.\nAt the start of battle, gain {STR} and {Tentacle DMG} equal to [StateArg2]% of the wielder's CON.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

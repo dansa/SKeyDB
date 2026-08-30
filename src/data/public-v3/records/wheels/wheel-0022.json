@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0037",
   "ownerAwakenerName": "Nymphaea",
   "lineupToken": "o",
-  "descriptionTemplate": "{Poison} inflicted by the wielder +[StateArg1]%.\nAs part of the wielder's Exalt, first they inflict {Poison} on all enemies equal to [StateArg2]% of their ATK; then resolve the Exalt's effects.\nWhenever you unleash a Posse, the wielder gains [StateArg3] Aliemus.",
+  "descriptionTemplate": "Team Unique: The wielder's {Poison} Infliction +[StateArg1]%.\nAs part of the wielder's Exalt, first inflict {Poison} equal to [StateArg2]% of the wielder's ATK on all enemies; then resolve the Exalt's effects.\nWhenever Posse is unleashed, the wielder gains [StateArg3] Aliemus.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

@@ -9,17 +9,11 @@
   },
   "cardFamily": "effect",
   "cardTypes": ["effect"],
-  "descriptionTemplate": "Deal to all enemies fixed {Corrosion} equal to [Arg1]% of the wielder's ATK and [Arg2]% of their Max HP, apply {Perception Warp} to all Command Cards of all other Awakeners, and Shuffle 1 {derived:Falling Upward} into the Draw Pile.",
+  "descriptionTemplate": "Deal Fixed {Corrosion} to all enemies equal to [Arg1]% of the wielder's ATK plus 0.4% of their Max HP. Then, apply {Perception Warp} to the Command Cards of all other Awakeners on the field, and shuffle 1 {derived:Falling Upward} into the Draw Pile.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
       "values": ["1500", "2000", "2500", "3000"],
-      "scalingContext": "wheelRefinement",
-      "suffix": "%"
-    },
-    "Arg2": {
-      "kind": "scaling",
-      "values": ["0.4", "0.6", "0.8", "1"],
       "scalingContext": "wheelRefinement",
       "suffix": "%"
     }

@@ -12,7 +12,7 @@
   "rootSkillId": "skill.caraboo.miracle-blessing",
   "cardFamily": "effect",
   "cardTypes": ["effect"],
-  "descriptionTemplate": "Gain [Arg1] {STR}.",
+  "descriptionTemplate": "Gain [Power:Arg1] {STR}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

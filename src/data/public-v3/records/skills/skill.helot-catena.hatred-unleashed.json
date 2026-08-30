@@ -11,7 +11,7 @@
   "slot": "Skill1",
   "cardFamily": "command",
   "cardTypes": ["skill"],
-  "descriptionTemplate": "Deal [Damage:Arg1] DMG and equal {Bleed} to all enemies, and gain [Power:Arg2] {STR}.",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG to, and inflict an equal amount of {Bleed} on all enemies. Gain [Power:Arg2] {STR}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -39,7 +39,7 @@
       "ownerAwakenerId": "awakener-0019",
       "ownerAwakenerName": "Helot: Catena",
       "patch": {
-        "descriptionTemplate": "Deal [Damage:Arg1] DMG and equal {Bleed} to all enemies, and gain [Power:Arg2] {STR}. If HP is below 50%, the gained {STR} is doubled."
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG to, and inflict an equal amount of {Bleed} on all enemies, and gain [Power:Arg2] {STR}. If HP is below 50%, the gained {STR} is doubled."
       }
     }
   ],

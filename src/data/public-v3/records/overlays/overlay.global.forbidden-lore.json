@@ -9,7 +9,7 @@
   },
   "overlayType": "help",
   "aliases": ["Forbidden Lore Level", "Somatic Research", "Esoteric Research", "Occult Research"],
-  "descriptionTemplate": "The {Forbidden Lore Level} (FL) starts equal to the Keeper Level (KL) and governs the strength of all three research depths. It is overridden and set to the average level of Awakeners and Keeper Level if that average is larger than KL.\n{Somatic Research}: [Arg1]\nDictates how much Team HP is gained for every 100 points of the Awakener's CON stat.\n{Esoteric Research}: [Arg2]\nDictates the power of {STR} Generation, {Tentacle DMG}, Shield, HP Recovery, and {STR} Reduction effects caused by Relics, {Orisons}, and Posses.\n{Occult Research}: [Arg3]\nDictates the strength of Fixed {Poison}, Fixed {Counter}, {Fixed DMG}, and Fixed {Bleed} effects of Relics, {Orisons}, and Posses.",
+  "descriptionTemplate": "The {Forbidden Lore Level} (FL) starts equal to the Keeper Level (KL) and governs the strength of all three research depths. It is overridden and set to the average level of Awakeners and Keeper Level if that average is larger than KL.\n{Somatic Research}: [Arg1]\nDictates how much Team HP is gained for every 100 points of the Awakener's CON stat.\n{Esoteric Research}: [Arg2]\nDictates the power of {STR} Generation, {Tentacle DMG}, Shield Generation, HP Recovery, and {STR▼} Infliction effects caused by Relics, {Orisons}, and Posses.\n{Occult Research}: [Arg3]\nDictates the strength of Fixed {Poison}, Fixed {Counter}, {Fixed DMG}, and Fixed {Bleed} effects of Relics, {Orisons}, and Posses.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",

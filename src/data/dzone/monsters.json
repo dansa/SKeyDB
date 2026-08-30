@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "scope": "monsters",
-  "recordCount": 325,
+  "recordCount": 332,
   "records": [
     {
       "id": "dzone-monster-0264",
@@ -699,6 +699,14 @@
       "badges": ["Elite"]
     },
     {
+      "id": "dzone-monster-0328",
+      "name": "\"Soul Reaper\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008", "enemy-characteristic-0012"],
+      "descriptionTemplate": "O bloodthirsty monster, when she breaks her chains, she will whisper her wish for \"vengeance\" upon all the world.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_B05EX_AF",
+      "badges": ["Boss"]
+    },
+    {
       "id": "dzone-monster-0147",
       "name": "\"Stereo\"",
       "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0007", "enemy-characteristic-0014"],
@@ -854,14 +862,6 @@
       "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0018"],
       "descriptionTemplate": "In the only poem she wrote, she described gardens, sunshine, and laughter. She buried her friend's body with petals. In the poem, she was as kind as a rose.",
       "assetName": "Portrait_Small_Monster_DCD06_01_BOSSSIZE",
-      "badges": ["Boss"]
-    },
-    {
-      "id": "dzone-monster-0327",
-      "name": "\"Veilweaver\"",
-      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0014", "enemy-characteristic-0006", "enemy-characteristic-0015"],
-      "descriptionTemplate": "A personal attendant to the Goddess of Fate. She weaves the stage curtains with her own hands, helping her mistress compose both the opening acts and the final bows of entire worlds. Every stage she tends runs with ruthless precision, reflecting the will of her master.",
-      "assetName": "Portrait_Small_Monster_S2C0502_AT",
       "badges": ["Boss"]
     },
     {
@@ -1548,14 +1548,6 @@
       "badges": ["Boss"]
     },
     {
-      "id": "dzone-monster-0326",
-      "name": "Fractured Matriarch",
-      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0014", "enemy-characteristic-0006"],
-      "descriptionTemplate": "The core of a Leng Spider swarm. Acting as an anchor, it absorbs scattered Dimensional Embers to spawn new Leng Spiders. On rare occasions, Arachne bestows upon it a complete Thread of Fate—the highest grace a Leng Spider can receive.",
-      "assetName": "Portrait_Small_Monster_S2C0501_AT",
-      "badges": ["Elite"]
-    },
-    {
       "id": "dzone-monster-0130",
       "name": "Frenzied Wild Dog",
       "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0006"],
@@ -1601,12 +1593,26 @@
       "assetName": "Portrait_Small_Monster_C0101_BT"
     },
     {
+      "id": "dzone-monster-0330",
+      "name": "Hati",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0016", "enemy-characteristic-0006", "enemy-characteristic-0005"],
+      "descriptionTemplate": "The hound that chases the moon shall be sealed in ice and snow.",
+      "assetName": "Portrait_Small_Monster_S2C0601_BT"
+    },
+    {
       "id": "dzone-monster-0260",
       "name": "Helot",
       "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008", "enemy-characteristic-0012"],
       "descriptionTemplate": "A swift Awakener assassin who calls herself Helot. She seems to have a subtle connection with Lily.",
       "assetName": "Portrait_Minihead_EnemyAwaker_B05_AF",
       "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0335",
+      "name": "Hollowheart Saint",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0016"],
+      "descriptionTemplate": "Her crimson heart is offered to the heartless. She who loved the world most deeply is forever numb to its suffering.",
+      "assetName": "Portrait_Small_Monster_S2C0602_AT"
     },
     {
       "id": "dzone-monster-0092",
@@ -1703,6 +1709,13 @@
       "assetName": "Portrait_Small_Monster_S0403"
     },
     {
+      "id": "dzone-monster-0331",
+      "name": "Lantern Wendigo",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0006", "enemy-characteristic-0005"],
+      "descriptionTemplate": "No matter how desperately you search, the embers of old cannot be rekindled. It yields nothing but lies.",
+      "assetName": "Portrait_Small_Monster_S2C0603_AT"
+    },
+    {
       "id": "dzone-monster-0201",
       "name": "Lantern: Commander",
       "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0015", "enemy-characteristic-0002", "enemy-characteristic-0016"],
@@ -1760,6 +1773,14 @@
       "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0016"],
       "descriptionTemplate": "Ordinary follower of the Church of the Lightbearers. Blindly worships the destruction proclaimed in their doctrine.",
       "assetName": "Portrait_Small_Monster_S0402"
+    },
+    {
+      "id": "dzone-monster-0336",
+      "name": "Lord of Everwinter",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0006", "enemy-characteristic-0005"],
+      "descriptionTemplate": "Bid farewell to all life and hope—the eternal winter is now upon you.",
+      "assetName": "Portrait_Small_Monster_S2C0603_BT",
+      "badges": ["Boss"]
     },
     {
       "id": "dzone-monster-0004",
@@ -2126,6 +2147,13 @@
       "badges": ["Elite"]
     },
     {
+      "id": "dzone-monster-0329",
+      "name": "Skoll",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0016", "enemy-characteristic-0006"],
+      "descriptionTemplate": "The hound that chases the sun shall be scorched by its blaze.",
+      "assetName": "Portrait_Small_Monster_S2C0601_AT"
+    },
+    {
       "id": "dzone-monster-0204",
       "name": "Snow Mountain's Cocoon",
       "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0015", "enemy-characteristic-0005"],
@@ -2215,6 +2243,14 @@
       "assetName": "Portrait_Small_Monster_C0102_AT"
     },
     {
+      "id": "dzone-monster-0332",
+      "name": "The All-Pitying One",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0016"],
+      "descriptionTemplate": "Through her hands, God pities humanity; through her hands, God buries them.",
+      "assetName": "Portrait_Small_Monster_S2C0602_AT",
+      "badges": ["Elite"]
+    },
+    {
       "id": "dzone-monster-0173",
       "name": "The Awakened",
       "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0003", "enemy-characteristic-0006"],
@@ -2237,11 +2273,26 @@
       "assetName": "Portrait_Small_Monster_C0102_DT"
     },
     {
+      "id": "dzone-monster-0333",
+      "name": "The Flamebounds",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0006", "enemy-characteristic-0005"],
+      "descriptionTemplate": "Offer the heart as a wick, the throat as a stand, the flesh as oil. Ah, devout traveler, the Wendigos shall pray for you by this lamp's light.",
+      "assetName": "Portrait_Small_Monster_S2C0603_AT",
+      "badges": ["Elite"]
+    },
+    {
       "id": "dzone-monster-0140",
       "name": "The Forsaken",
       "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0015"],
       "descriptionTemplate": "A Hysterical patient abandoned by his beloved, no longer able to tell reality from memory.",
       "assetName": "Portrait_Small_Monster_C0102_DT"
+    },
+    {
+      "id": "dzone-monster-0337",
+      "name": "The Hati Pack",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0016", "enemy-characteristic-0006", "enemy-characteristic-0005"],
+      "descriptionTemplate": "Within the savage frame flows the blood of gods. When the moon is devoured, the gods shall meet their twilight.",
+      "assetName": "Portrait_Small_Monster_S2C0601_BT"
     },
     {
       "id": "dzone-monster-0212",
@@ -2288,6 +2339,13 @@
       "badges": ["Boss"]
     },
     {
+      "id": "dzone-monster-0334",
+      "name": "The Skoll Pack",
+      "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0016", "enemy-characteristic-0006"],
+      "descriptionTemplate": "Within the savage frame flows the blood of giants. When the sun is devoured, the gods shall meet their twilight.",
+      "assetName": "Portrait_Small_Monster_S2C0601_AT"
+    },
+    {
       "id": "dzone-monster-0017",
       "name": "The Supplicant",
       "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0003"],
@@ -2321,14 +2379,6 @@
       "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0015"],
       "descriptionTemplate": "In the poem's Cité, they yearn for Colette's grace.",
       "assetName": "Portrait_Small_Monster_DCD06_02"
-    },
-    {
-      "id": "dzone-monster-0325",
-      "name": "Thread Devourer",
-      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0014", "enemy-characteristic-0007"],
-      "descriptionTemplate": "A mass of shattered destinies converging, biting and devouring one another in an unrecognizable storm. Every thread strives to become the one true fate, and every thread is destined to fail.",
-      "assetName": "Portrait_Small_Monster_S2C0503",
-      "badges": ["Elite"]
     },
     {
       "id": "dzone-monster-0243",

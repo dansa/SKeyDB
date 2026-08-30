@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0019",
   "ownerAwakenerName": "Helot: Catena",
   "lineupToken": "xZ",
-  "descriptionTemplate": "Team Unique: The wielder's Base DMG +[StateArg1]%. At the start of the battle, the wielder gains 25 stacks of \"Snow\". Playing a card grants 2 Aliemus and removes 1 stack. Once all \"Snow\" stacks are removed, the wielder gains [StateArg2]% Crit. Rate.",
+  "descriptionTemplate": "Team Unique: The wielder's Base DMG +[StateArg1]%. At the start of battle, the wielder gains 25 stacks of \"Snow\". Playing a card grants 2 Aliemus and removes 1 stack. Once all \"Snow\" stacks are removed, the wielder gains [StateArg2]% Crit. Rate.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

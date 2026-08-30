@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0030",
   "ownerAwakenerName": "Liz",
   "lineupToken": "t",
-  "descriptionTemplate": "Team Unique: The wielder's Active DMG +an amount equal to the wielder's ATK ×[StateArg3]%. After playing or discarding 1 of the wielder's Command Cards, deal DMG equal to the wielder's ATK ×[StateArg1]% as {Poison} to a random enemy once. After the {Ultra Round} ends, there is a [StateArg2]% chance to trigger 100% {Poison} on all enemies.",
+  "descriptionTemplate": "Team Unique: The wielder's Active DMG +an amount equal to the wielder's ATK ×[StateArg3]%. After playing or discarding 1 of the wielder's Command Cards, deal {Poison} equal to the wielder's ATK ×[StateArg1]% to a random enemy once. After the {Ultra Round} ends, there is a [StateArg2]% chance to trigger 100% {Poison} on all enemies.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0050",
   "family": "passive",
-  "descriptionTemplate": "For every point of Aliemus Regen Level Tulu and his equipped WoD & Covenant have, \"Strike\" enjoys +5% {Tentacle DMG} and {STR} bonus. {Abyss Order} receives 15% {Tentacle DMG} and {STR} DMG boost.",
+  "descriptionTemplate": "For every point of Aliemus Regen Lv. Tulu and his equipped WoD & Covenant have, \"Strike\" enjoys +5% {Tentacle DMG} and {STR} bonus. {Abyss Order} receives 15% {Tentacle DMG} and {STR} DMG boost.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Tulu"
 }

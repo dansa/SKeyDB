@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0044",
   "ownerAwakenerName": "Salvador",
   "lineupToken": "xC",
-  "descriptionTemplate": "Team Unique: The wielder's Shield Generation +[StateArg1]%, and HP Recovery +[StateArg1]%. At the end of odd turns, the wielder's Crit. Rate + [StateArg2]%, gaining [StateArg3] Aliemus; at the end of even turns, the wielder's Crit. DMG +[StateArg2]%, gaining [StateArg4] Keyflare. If the current realm is {Caro}, the maximum accumulation of the {Crimson Furnace} +[StateArg5]%.",
+  "descriptionTemplate": "Team Unique: The wielder's Shield Generation +[StateArg1]%, and HP Recovery +[StateArg1]%. At the end of odd turns, the wielder's Crit. Rate +[StateArg2]%, gaining [StateArg3] Aliemus; at the end of even turns, the wielder's Crit. DMG +[StateArg2]%, gaining [StateArg4] Keyflare. If the current realm is {Caro}, the {Crimson Furnace} maximum accumulation +[StateArg5]%.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

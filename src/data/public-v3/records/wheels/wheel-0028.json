@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0027",
   "ownerAwakenerName": "Kathigu-Ra",
   "lineupToken": "yn",
-  "descriptionTemplate": "The wielder's Base DMG +[StateArg1]%, and {STR} gained from them +[StateArg2]%.\nWhenever one of the wielder's Command Cards is played, gain Temporary {STR} equal to [StateArg3]% of their ATK.\n(This effect stacks up to 5 times.)",
+  "descriptionTemplate": "Team Unique: The wielder's Base DMG +[StateArg1]%, and {STR} Generation +[StateArg2]%. Whenever one of the wielder's Command Cards is played, gain Temporary {STR} equal to [StateArg3]% of their ATK. (This effect stacks up to 5 times.)",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

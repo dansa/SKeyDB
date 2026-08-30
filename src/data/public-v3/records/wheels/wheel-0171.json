@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0058",
   "ownerAwakenerName": "Pontos",
   "lineupToken": "y7",
-  "descriptionTemplate": "Team Unique: The wielder's {STR▼} effect +[StateArg1]%. For the current exploration, each kill increases the wielder's fixed Aliemus recovery at turn end by 2, stacking up to [StateArg2] times. After switching to the {Raging Waves} stance, Temporary Crit. DMG increases by an amount equal to [StateArg1]% of the wielder's Base Crit. DMG, with a 3-turn cooldown.",
+  "descriptionTemplate": "Team Unique: The wielder's {STR▼} Infliction +[StateArg1]%. For the current exploration, each kill increases the wielder's Fixed Aliemus recovery at turn end by 2, stacking up to [StateArg2] times. After switching to the {Raging Waves} stance, Temporary Crit. DMG increases by an amount equal to [StateArg1]% of the wielder's Base Crit. DMG, with a 3-turn cooldown.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

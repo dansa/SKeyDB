@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0021",
   "ownerAwakenerName": "Goliath",
   "lineupToken": "1",
-  "descriptionTemplate": "After the wielder Exalts, their Crit. DMG +[StateArg1]% this turn, and each of their cards in your hand has a [StateArg2]% chance to have their Arithmetica Cost reduced by 1 until the end of the turn.",
+  "descriptionTemplate": "Team Unique: After the wielder Exalts, their Crit. DMG +[StateArg1]% this turn, and each of their cards in hand has a [StateArg2]% chance to have their Arithmetica Cost reduced by 1 until the end of the turn.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

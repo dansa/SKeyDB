@@ -12,7 +12,7 @@
   "rootSkillId": "skill.miryam.pray-to-the-abyss",
   "cardFamily": "effect",
   "cardTypes": ["effect"],
-  "descriptionTemplate": "Miryam gains [Arg1] Aliemus. At turn end, if this card is in hand, it will transform into {derived:Sacrament} at the cost of reducing the next turn's Draw by 1.",
+  "descriptionTemplate": "Miryam gains [Energy:Arg1] Aliemus. At turn end, if this card is in hand, it will transform into {derived:Sacrament} at the cost of reducing the next turn's Draw by 1.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",

@@ -14,7 +14,7 @@
   "realm": "NEUTRAL",
   "mainstatKey": "REALM_MASTERY",
   "lineupToken": "za",
-  "descriptionTemplate": "Team Unique: After the exploration begins, add 1 {derived:Mortal Sojourn} to the deck. {Mortal Sojourn}: Costs 0 Arithmetica. Deal fixed {Corrosion} DMG to all enemies equal to [StateArg1]% of the wielder's ATK and [Float:StateArg4]% of their Max HP, apply {Perception Warp} to Command Cards of other Awakeners on the field, and shuffle 1 {derived:Falling Upward} into the Draw Pile. {Retain}. {Exhaust}.",
+  "descriptionTemplate": "Team Unique: At the start of exploration, add 1 {derived:Mortal Sojourn} to the deck.\n{Mortal Sojourn} (Costs 0 Arithmetica): Inflict Fixed {Corrosion} on all enemies equal to [StateArg1]% of the wielder's ATK plus [Float:StateArg4]% of their Max HP. Then, apply {Perception Warp} to the Command Cards of all other Awakeners on the field, and shuffle 1 {derived:Falling Upward} into the Draw Pile. {Retain}. {Exhaust}",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

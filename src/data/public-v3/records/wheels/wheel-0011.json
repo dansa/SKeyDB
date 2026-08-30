@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0014",
   "ownerAwakenerName": "Doresain",
   "lineupToken": "yN",
-  "descriptionTemplate": "Team Unique: The wielder's Base DMG +[StateArg1]% During this exploration, every time the wielder kills an enemy, their Crit. Rate +2% and Exalt Base DMG +[StateArg2]%, up to 10 times. If the current Realm is {Caro}, the wielder gains an extra [StateArg4] Aliemus when they directly consume {Embryo} (cooldown 3 turns).",
+  "descriptionTemplate": "Team Unique: The wielder's Base DMG +[StateArg1]%. During this exploration, every time the wielder kills an enemy, their Crit. Rate +2% and Exalt Base DMG +[StateArg2]%, up to 10 times. If the current Realm is {Caro}, the wielder gains an extra [StateArg4] Aliemus when they directly consume {Embryo} (3-turn cooldown).",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

@@ -10,7 +10,7 @@
   "ownerAwakenerId": "awakener-0009",
   "family": "soulforge_aptitude",
   "maxLevel": 10,
-  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nCeleste generates [Arg3]% more {Tentacle DMG}, and after playing the first Command Card each turn, trigger the Talent {Voyage Horn} an additional 4 times.",
+  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nCeleste's {Tentacle DMG} Generation +[Arg3]%, and after playing the first Command Card each turn, trigger the Talent {Voyage Horn} an additional 4 times.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "linear",

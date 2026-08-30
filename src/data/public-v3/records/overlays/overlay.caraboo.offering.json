@@ -15,7 +15,7 @@
   "aliases": [],
   "iconId": "IconS_Buff_092",
   "textColor": "light",
-  "descriptionTemplate": "You're a part of the Blessing~! Can be consumed by Caraboo's Exalt for a buff, stacks up to 5. Persists across battles.",
+  "descriptionTemplate": "<Italic:You're a part of the Blessing~!> Can be consumed by Caraboo's Exalt for a buff, stacks up to 5. Persists across battles.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Caraboo"
 }

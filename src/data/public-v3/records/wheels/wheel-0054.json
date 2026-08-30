@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0005",
   "ownerAwakenerName": "Aurita",
   "lineupToken": "9",
-  "descriptionTemplate": "Whenever one of the wielder's cards is played, they gain 1 Aliemus.\nAt the start of battle, gain {STR} equal to [StateArg1]% of the wielder's ATK and {Tentacle DMG} equal to [StateArg2]% of their ATK.\nAt the start of each following turn, gain {STR} equal to [StateArg3]% of the wielder's ATK and {Tentacle DMG} equal to [StateArg4]% of their ATK.",
+  "descriptionTemplate": "Team Unique: Whenever one of the wielder's cards is played, they gain 1 Aliemus.\nAt the start of battle, gain {STR} equal to [StateArg1]% of the wielder's ATK and {Tentacle DMG} equal to [StateArg2]% of their ATK.\nAt the start of each following turn, gain {STR} equal to [StateArg3]% of the wielder's ATK and {Tentacle DMG} equal to [StateArg4]% of their ATK.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

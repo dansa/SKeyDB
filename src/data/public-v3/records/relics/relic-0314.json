@@ -18,7 +18,7 @@
   "ownerAwakenerName": "Caraboo",
   "rarity": "SSR",
   "aliases": [],
-  "descriptionTemplate": "At turn start, Caraboo gains [Arg1] Aliemus. Caraboo's {derived:Caraboo's Blessing} cards offers 1 more option upon being {Discovered}. Caraboo's Exalt inflicts {Corrosion} stacks equal to the amount of DMG dealt.",
+  "descriptionTemplate": "At turn start, Caraboo gains [Arg1] Aliemus. Caraboo's {derived:Caraboo's Blessing} cards offers 1 more option upon being {Discovered}. For each instance of DMG dealt by Exalt, inflicts {Corrosion} stacks equal to the DMG dealt after Exalt concludes.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -36,7 +36,7 @@
       "ownerAwakenerId": "awakener-0060",
       "ownerAwakenerName": "Caraboo",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Caraboo gains [Arg1] Aliemus. Caraboo's {derived:Caraboo's Blessing} cards offers 1 more option upon being {Discovered}. Caraboo's Exalt inflicts {Corrosion} stacks equal to the amount of DMG dealt.",
+      "descriptionTemplate": "At turn start, Caraboo gains [Arg1] Aliemus. Caraboo's {derived:Caraboo's Blessing} cards offers 1 more option upon being {Discovered}. For each instance of DMG dealt by Exalt, inflicts {Corrosion} stacks equal to the DMG dealt after Exalt concludes.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

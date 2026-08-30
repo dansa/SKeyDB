@@ -14,7 +14,7 @@
   "realm": "NEUTRAL",
   "mainstatKey": "REALM_MASTERY",
   "lineupToken": "O",
-  "descriptionTemplate": "Team Unique: The team's Max HP +10%. The Healing and Shield provided by the wielder increase by [StateArg3]%. After playing the wielder's \"Strike,\" restore [StateArg1]% of lost HP. After playing the wielder's \"Defense,\" gain Shield equal to [StateArg2]% of current life. This effect can trigger up to 1 time each per turn.",
+  "descriptionTemplate": "Team Unique: The team's Max HP +10%. The wielder's HP Recovery and Shield Generation +[StateArg3]%. After playing the wielder's \"Strike,\" restore [StateArg1]% of lost HP. After playing the wielder's \"Defense,\" gain Shield equal to [StateArg2]% of current HP. Each effect can trigger up to 1 time per turn.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

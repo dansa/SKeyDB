@@ -24,7 +24,7 @@
     "Argent Return: Scathe",
     "Argent Return: Sorrow"
   ],
-  "descriptionTemplate": "At the start of the battle, gain [Arg4] {STR}, and increase the Keyflare Cap by 100%. The Keyflare gained per point of Arithmetica consumed +100%. After using {Keyflare Rouse} or unleashing Posse, gain Temporary {STR} equal to 20% of the current {STR} and grant all Awakeners 20 Aliemus.",
+  "descriptionTemplate": "At the start of the battle, gain [Arg4] {STR}, and increase the Keyflare Limit by 100%. The Keyflare gained per point of Arithmetica consumed +100%. After using {Keyflare Rouse} or unleashing Posse, gain Temporary {STR} equal to 20% of the current {STR} and grant all Awakeners 20 Aliemus.",
   "descriptionArgs": {
     "Arg4": {
       "kind": "computed",
@@ -43,7 +43,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SR",
-      "descriptionTemplate": "At the start of the battle, gain [Arg4] {STR}, and increase the Keyflare Cap by 100%. The Keyflare gained per point of Arithmetica consumed +100%. After using {Keyflare Rouse} or unleashing Posse, gain Temporary {STR} equal to 20% of the current {STR} and grant all Awakeners 20 Aliemus.",
+      "descriptionTemplate": "At the start of the battle, gain [Arg4] {STR}, and increase the Keyflare Limit by 100%. The Keyflare gained per point of Arithmetica consumed +100%. After using {Keyflare Rouse} or unleashing Posse, gain Temporary {STR} equal to 20% of the current {STR} and grant all Awakeners 20 Aliemus.",
       "descriptionArgs": {
         "Arg4": {
           "kind": "computed",

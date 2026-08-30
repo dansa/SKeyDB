@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0027",
   "ownerAwakenerName": "Kathigu-Ra",
   "lineupToken": "yE",
-  "descriptionTemplate": "Team Unique: The wielder's Base DMG is boosted by [StateArg1]%. After playing 5 Command Cards from the wielder, the wielder gains [StateArg2]% Temporary Crit. Rate. This effect can only trigger once per turn.",
+  "descriptionTemplate": "Team Unique: The wielder's Base DMG +[StateArg1]%. After playing 5 of the wielder's Command Cards, the wielder gains [StateArg2]% Temporary Crit. Rate. This effect can only trigger once per turn.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

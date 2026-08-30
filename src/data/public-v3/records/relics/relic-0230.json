@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0385",
   "rarity": "SR",
   "aliases": [],
-  "descriptionTemplate": "Tawil's DMG, Shield, and Healing +50%. At the start of combat, Tawil gains 120 Aliemus.",
+  "descriptionTemplate": "Tawil's DMG, Shield, and HP Recovery +50%. At the start of battle, Tawil gains 120 Aliemus.",
   "descriptionArgs": {},
   "lore": "Stepping out from the Gateway, He sets foot on the only correct path.",
   "variants": [
@@ -28,7 +28,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SR",
-      "descriptionTemplate": "Tawil's DMG, Shield, and Healing +50%. At the start of combat, Tawil gains 120 Aliemus.",
+      "descriptionTemplate": "Tawil's DMG, Shield, and HP Recovery +50%. At the start of battle, Tawil gains 120 Aliemus.",
       "descriptionArgs": {},
       "lore": "Stepping out from the Gateway, He sets foot on the only correct path."
     }

@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0052",
   "ownerAwakenerName": "Wanda",
   "lineupToken": "xN",
-  "descriptionTemplate": "Team Unique: Increases the wielder's Shield and {Counter} by [StateArg1]%. When attacked, there is a [StateArg2]% chance for all Awakeners to gain 1 Aliemus.",
+  "descriptionTemplate": "Team Unique: The wielder's Shield Generation and {Counter} Generation +[StateArg1]%. When attacked, there is a [StateArg2]% chance for all Awakeners to gain 1 Aliemus.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",
