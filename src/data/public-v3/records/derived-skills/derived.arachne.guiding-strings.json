@@ -10,8 +10,8 @@
   "ownerAwakenerId": "awakener-0056",
   "derivedFromId": "skill.arachne.eternal-weave",
   "rootSkillId": "skill.arachne.eternal-weave",
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "Lose [Arg1]% of Max HP and gain 1 stack of {Weaver}.\nThis battle, HP lost from {derived:Guiding Strings} and {Final Verdict} dealt by Arachne each increase by [Arg2]%.\n{Fleeting}: Arachne randomly gains [Energy:Arg7]-[Energy:Arg8] Aliemus.",
   "descriptionArgs": {
     "Arg1": {

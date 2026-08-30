@@ -7,8 +7,8 @@
     "slug": "barbed-trident",
     "canonicalPath": "/database/derived-skills/barbed-trident"
   },
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "Gain [Arg1] Temporary {STR}.",
   "descriptionArgs": {
     "Arg1": {

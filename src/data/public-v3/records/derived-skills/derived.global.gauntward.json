@@ -7,8 +7,8 @@
     "slug": "gauntward",
     "canonicalPath": "/database/derived-skills/gauntward"
   },
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "Choose {Escort} or {Hunt}.",
   "descriptionArgs": {},
   "cardKeywords": [

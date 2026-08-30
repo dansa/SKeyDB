@@ -7,8 +7,8 @@
     "slug": "silver-key-dawn",
     "canonicalPath": "/database/derived-skills/silver-key-dawn"
   },
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "Choose 1 unlocked Posse from 3 randomly unlocked Posses to activate immediately, and it will take effect twice.",
   "descriptionArgs": {},
   "cardKeywords": [

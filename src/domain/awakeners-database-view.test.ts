@@ -66,6 +66,7 @@ function buildSkill(
   displayName: string,
   kind: AwakenerSkillRecord['kind'],
 ): AwakenerSkillRecord {
+  const cardFamily = kind === 'rouse' ? 'rouse' : kind === 'exalt' ? 'exalt' : 'command'
   return {
     id,
     ownerAwakenerId: 999,
@@ -79,6 +80,9 @@ function buildSkill(
       },
     },
     cardKeywords: [{id: 'mechanic.retain'}],
+    cardFamily,
+    cardTypes: [kind],
+    countsAs: [],
     variants: [],
   }
 }
@@ -98,6 +102,9 @@ function buildDerived(id: string, displayName: string): DerivedSkillRecord {
     },
     childDerivedSkillIds: [],
     cardKeywords: [],
+    cardFamily: 'command',
+    cardTypes: ['derived'],
+    countsAs: [],
     variants: [],
   }
 }
@@ -619,8 +626,8 @@ describe('awakeners-database-view', () => {
 
     expect(view.commandCards.map((entry) => entry.key)).toEqual(['C1', 'C2', 'C3', 'C4', 'C5'])
     expect(view.exalts.map((entry) => ({key: entry.key, label: entry.label}))).toEqual([
-      {key: 'Exalt', label: 'Card · Exalt · Cost —'},
-      {key: 'OverExalt', label: 'Card · Over Exalt · Cost —'},
+      {key: 'Exalt', label: 'Cost — · Exalt'},
+      {key: 'OverExalt', label: 'Cost — · Exalt'},
     ])
     expect(view.overExalt?.key).toBe('OverExalt')
     expect(view.enlightens.map((entry) => ({key: entry.key, label: entry.label}))).toEqual([

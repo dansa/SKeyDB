@@ -331,6 +331,12 @@ export const skillKindSchema = z.enum([
   'other',
 ])
 
+const cardClassificationShape = {
+  cardFamily: nonEmptyStringSchema.optional(),
+  cardTypes: z.array(nonEmptyStringSchema).optional(),
+  countsAs: z.array(nonEmptyStringSchema).optional(),
+}
+
 export const cardVariantSchema = describedRecordSchema.extend({
   id: nonEmptyStringSchema,
   unlockEnlightenSlot: z.enum(ENLIGHTEN_SLOT_KEYS).optional(),
@@ -349,6 +355,7 @@ export const awakenerSkillSchema = describedRecordSchema.extend({
   continuationRefs: z.array(descriptionContinuationRefSchema).optional(),
   cardKeywords: cardKeywordsSchema,
   variants: z.array(awakenersSkillVariantSchema).default([]),
+  ...cardClassificationShape,
 })
 
 export const awakenerTalentSchema = describedRecordSchema.extend({
@@ -381,6 +388,7 @@ export const derivedSkillSchema = describedRecordSchema.extend({
   childPosseIds: z.array(nonEmptyStringSchema).optional(),
   cardKeywords: cardKeywordsSchema,
   variants: z.array(cardVariantSchema).default([]),
+  ...cardClassificationShape,
 })
 
 export const overlayTypeSchema = z.enum(['realm', 'mechanic', 'tag', 'help'])

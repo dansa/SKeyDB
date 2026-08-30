@@ -8,8 +8,8 @@
     "canonicalPath": "/database/derived-skills/remembrance-utopian-veil"
   },
   "derivedFromId": "derived.global.twilight-utopian-veil",
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "Gain 2 Arithmetica. View 3 Posse, choose 1 to release immediately, dispel debuffs, and restore 25% of lost HP.",
   "descriptionArgs": {},
   "cardKeywords": [

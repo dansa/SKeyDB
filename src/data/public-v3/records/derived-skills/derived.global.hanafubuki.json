@@ -7,8 +7,8 @@
     "slug": "hanafubuki",
     "canonicalPath": "/database/derived-skills/hanafubuki"
   },
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "Gain [Arg1] Keyflare and put {Ichigo Ichie} into the Discard Pile.",
   "descriptionArgs": {
     "Arg1": {

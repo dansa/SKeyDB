@@ -8,8 +8,8 @@
     "canonicalPath": "/database/derived-skills/remembrance-honey-wine"
   },
   "derivedFromId": "derived.global.twilight-honey-mead",
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "Obtain 2 stacks of Temporary {Barrier}. At the start of next turn, draw 3 additional cards and obtain 3 Arithmetica.",
   "descriptionArgs": {},
   "cardKeywords": [

@@ -7,8 +7,8 @@
     "slug": "divine-dedication",
     "canonicalPath": "/database/derived-skills/divine-dedication"
   },
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "Choose a {Ritual}, limited to one of each type.\nReturn to hand after being discarded",
   "descriptionArgs": {},
   "cardKeywords": [

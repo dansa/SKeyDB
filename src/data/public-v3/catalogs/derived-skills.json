@@ -12,8 +12,8 @@
         "slug": "guiding-strings",
         "canonicalPath": "/database/awakeners/arachne/derived-skills/guiding-strings"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0056",
       "ownerAwakenerName": "Arachne",
       "derivedFromId": "skill.arachne.eternal-weave",
@@ -42,8 +42,8 @@
         "slug": "blessing",
         "canonicalPath": "/database/awakeners/caraboo/derived-skills/blessing"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0060",
       "ownerAwakenerName": "Caraboo",
       "nodeKind": "group",
@@ -100,8 +100,8 @@
         "slug": "gift-aliemus",
         "canonicalPath": "/database/awakeners/caraboo/derived-skills/gift-aliemus"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0060",
       "ownerAwakenerName": "Caraboo",
       "derivedFromId": "derived.caraboo.blessing-gifts",
@@ -115,8 +115,8 @@
         "slug": "gift-arithmetica",
         "canonicalPath": "/database/awakeners/caraboo/derived-skills/gift-arithmetica"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0060",
       "ownerAwakenerName": "Caraboo",
       "derivedFromId": "derived.caraboo.blessing-gifts",
@@ -130,8 +130,8 @@
         "slug": "gift-dmg-amp",
         "canonicalPath": "/database/awakeners/caraboo/derived-skills/gift-dmg-amp"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0060",
       "ownerAwakenerName": "Caraboo",
       "derivedFromId": "derived.caraboo.blessing-gifts",
@@ -145,8 +145,8 @@
         "slug": "gift-str-down",
         "canonicalPath": "/database/awakeners/caraboo/derived-skills/gift-str-down"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0060",
       "ownerAwakenerName": "Caraboo",
       "derivedFromId": "derived.caraboo.blessing-gifts",
@@ -160,8 +160,8 @@
         "slug": "gift-draw",
         "canonicalPath": "/database/awakeners/caraboo/derived-skills/gift-draw"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0060",
       "ownerAwakenerName": "Caraboo",
       "derivedFromId": "derived.caraboo.blessing-gifts",
@@ -175,8 +175,8 @@
         "slug": "gift-keyflare",
         "canonicalPath": "/database/awakeners/caraboo/derived-skills/gift-keyflare"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0060",
       "ownerAwakenerName": "Caraboo",
       "derivedFromId": "derived.caraboo.blessing-gifts",
@@ -190,8 +190,8 @@
         "slug": "gift-str",
         "canonicalPath": "/database/awakeners/caraboo/derived-skills/gift-str"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0060",
       "ownerAwakenerName": "Caraboo",
       "derivedFromId": "derived.caraboo.blessing-gifts",
@@ -289,8 +289,8 @@
         "slug": "pilot",
         "canonicalPath": "/database/awakeners/corposant/derived-skills/pilot"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0011",
       "ownerAwakenerName": "Corposant",
       "derivedFromId": "skill.corposant.sunken-in-the-profound",
@@ -888,8 +888,8 @@
         "slug": "illusions-end",
         "canonicalPath": "/database/awakeners/doll-inferno/derived-skills/illusions-end"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0018",
       "ownerAwakenerName": "Doll: Inferno",
       "derivedFromId": "talent.doll-inferno.path-of-annihilation",
@@ -948,8 +948,8 @@
         "slug": "adsorption",
         "canonicalPath": "/database/derived-skills/adsorption"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "derivedFromId": "derived.global.prion-virus"
     },
     {
@@ -960,8 +960,8 @@
         "slug": "adv-insight",
         "canonicalPath": "/database/derived-skills/adv-insight"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -971,8 +971,8 @@
         "slug": "arouse",
         "canonicalPath": "/database/derived-skills/arouse"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -982,8 +982,8 @@
         "slug": "assemble",
         "canonicalPath": "/database/derived-skills/assemble"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "derivedFromId": "derived.global.gluttonous-attack"
     },
     {
@@ -994,8 +994,8 @@
         "slug": "barbed-trident",
         "canonicalPath": "/database/derived-skills/barbed-trident"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1005,8 +1005,8 @@
         "slug": "bone-of-agony",
         "canonicalPath": "/database/derived-skills/bone-of-agony"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1016,8 +1016,8 @@
         "slug": "bone-of-blades",
         "canonicalPath": "/database/derived-skills/bone-of-blades"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1027,8 +1027,8 @@
         "slug": "bone-of-fury",
         "canonicalPath": "/database/derived-skills/bone-of-fury"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1038,8 +1038,8 @@
         "slug": "brilliance-of-humanity",
         "canonicalPath": "/database/derived-skills/brilliance-of-humanity"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1049,8 +1049,8 @@
         "slug": "coalsie-smack",
         "canonicalPath": "/database/derived-skills/coalsie-smack"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1060,8 +1060,8 @@
         "slug": "cocoon-of-revival",
         "canonicalPath": "/database/derived-skills/cocoon-of-revival"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "childDerivedSkillIds": ["derived.global.pupation", "derived.global.devour-card"]
     },
     {
@@ -1101,8 +1101,8 @@
         "slug": "0-countdown",
         "canonicalPath": "/database/derived-skills/0-countdown"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "derivedFromId": "derived.global.countdown"
     },
     {
@@ -1113,8 +1113,8 @@
         "slug": "1-countdown",
         "canonicalPath": "/database/derived-skills/1-countdown"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "derivedFromId": "derived.global.countdown"
     },
     {
@@ -1125,8 +1125,8 @@
         "slug": "2-countdown",
         "canonicalPath": "/database/derived-skills/2-countdown"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "derivedFromId": "derived.global.countdown"
     },
     {
@@ -1137,8 +1137,8 @@
         "slug": "3-countdown",
         "canonicalPath": "/database/derived-skills/3-countdown"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "derivedFromId": "derived.global.countdown"
     },
     {
@@ -1149,8 +1149,8 @@
         "slug": "4-countdown",
         "canonicalPath": "/database/derived-skills/4-countdown"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "derivedFromId": "derived.global.countdown"
     },
     {
@@ -1161,8 +1161,8 @@
         "slug": "5-countdown",
         "canonicalPath": "/database/derived-skills/5-countdown"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "derivedFromId": "derived.global.countdown"
     },
     {
@@ -1173,8 +1173,8 @@
         "slug": "devour",
         "canonicalPath": "/database/derived-skills/devour"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "derivedFromId": "derived.global.cocoon-of-revival"
     },
     {
@@ -1185,8 +1185,8 @@
         "slug": "divine-dedication",
         "canonicalPath": "/database/derived-skills/divine-dedication"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1196,8 +1196,8 @@
         "slug": "dreaming-of-wonderland",
         "canonicalPath": "/database/derived-skills/dreaming-of-wonderland"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1207,8 +1207,8 @@
         "slug": "echoes-of-lost-shadows",
         "canonicalPath": "/database/derived-skills/echoes-of-lost-shadows"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1218,8 +1218,8 @@
         "slug": "echoes-of-the-past",
         "canonicalPath": "/database/derived-skills/echoes-of-the-past"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1229,8 +1229,8 @@
         "slug": "embryo",
         "canonicalPath": "/database/derived-skills/embryo"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1240,8 +1240,8 @@
         "slug": "falling-upward",
         "canonicalPath": "/database/derived-skills/falling-upward"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1251,8 +1251,8 @@
         "slug": "fleeting-beauty",
         "canonicalPath": "/database/derived-skills/fleeting-beauty"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1262,8 +1262,8 @@
         "slug": "flicker-of-humanity",
         "canonicalPath": "/database/derived-skills/flicker-of-humanity"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1273,8 +1273,8 @@
         "slug": "forbidden-truth",
         "canonicalPath": "/database/derived-skills/forbidden-truth"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1284,8 +1284,8 @@
         "slug": "gauntward",
         "canonicalPath": "/database/derived-skills/gauntward"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1295,8 +1295,8 @@
         "slug": "glow-of-humanity",
         "canonicalPath": "/database/derived-skills/glow-of-humanity"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1306,8 +1306,8 @@
         "slug": "gluttonous-attack",
         "canonicalPath": "/database/derived-skills/gluttonous-attack"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "childDerivedSkillIds": ["derived.global.one-way", "derived.global.assemble"]
     },
     {
@@ -1318,8 +1318,8 @@
         "slug": "gobble-up",
         "canonicalPath": "/database/derived-skills/gobble-up"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1329,8 +1329,8 @@
         "slug": "hanafubuki",
         "canonicalPath": "/database/derived-skills/hanafubuki"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1340,8 +1340,8 @@
         "slug": "hide-beta",
         "canonicalPath": "/database/derived-skills/hide-beta"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1351,8 +1351,8 @@
         "slug": "ichigo-ichie",
         "canonicalPath": "/database/derived-skills/ichigo-ichie"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1362,8 +1362,8 @@
         "slug": "infinite-silver-vault",
         "canonicalPath": "/database/derived-skills/infinite-silver-vault"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1373,8 +1373,8 @@
         "slug": "insight",
         "canonicalPath": "/database/derived-skills/insight"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1384,8 +1384,8 @@
         "slug": "inspire-offsprings",
         "canonicalPath": "/database/derived-skills/inspire-offsprings"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1395,8 +1395,8 @@
         "slug": "leahs-coin",
         "canonicalPath": "/database/derived-skills/leahs-coin"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1406,8 +1406,8 @@
         "slug": "light-cone-boundary",
         "canonicalPath": "/database/derived-skills/light-cone-boundary"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1417,8 +1417,8 @@
         "slug": "luster-of-humanity",
         "canonicalPath": "/database/derived-skills/luster-of-humanity"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1428,8 +1428,8 @@
         "slug": "memories-emissarys-verdict",
         "canonicalPath": "/database/derived-skills/memories-emissarys-verdict"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "derivedFromId": "derived.global.twilight-envoys-verdict"
     },
     {
@@ -1440,8 +1440,8 @@
         "slug": "remembrance-honey-wine",
         "canonicalPath": "/database/derived-skills/remembrance-honey-wine"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "derivedFromId": "derived.global.twilight-honey-mead"
     },
     {
@@ -1452,8 +1452,8 @@
         "slug": "memories-innocent-return-gift",
         "canonicalPath": "/database/derived-skills/memories-innocent-return-gift"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "derivedFromId": "derived.global.twilight-innocent-return-gift"
     },
     {
@@ -1464,8 +1464,8 @@
         "slug": "memories-mutated-heart",
         "canonicalPath": "/database/derived-skills/memories-mutated-heart"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "derivedFromId": "derived.global.twilight-mutated-heart"
     },
     {
@@ -1476,8 +1476,8 @@
         "slug": "remembrance-core-of-abundance",
         "canonicalPath": "/database/derived-skills/remembrance-core-of-abundance"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "derivedFromId": "derived.global.twilight-seed-of-abundance"
     },
     {
@@ -1488,8 +1488,8 @@
         "slug": "memories-unfinished-wax-sculpture",
         "canonicalPath": "/database/derived-skills/memories-unfinished-wax-sculpture"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "derivedFromId": "derived.global.twilight-unfinished-wax-sculpture"
     },
     {
@@ -1500,8 +1500,8 @@
         "slug": "remembrance-utopian-veil",
         "canonicalPath": "/database/derived-skills/remembrance-utopian-veil"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "derivedFromId": "derived.global.twilight-utopian-veil"
     },
     {
@@ -1512,8 +1512,8 @@
         "slug": "mortal-sojourn",
         "canonicalPath": "/database/derived-skills/mortal-sojourn"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1523,8 +1523,8 @@
         "slug": "one-way",
         "canonicalPath": "/database/derived-skills/one-way"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "derivedFromId": "derived.global.gluttonous-attack"
     },
     {
@@ -1535,8 +1535,8 @@
         "slug": "palette",
         "canonicalPath": "/database/derived-skills/palette"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1546,8 +1546,8 @@
         "slug": "parasol",
         "canonicalPath": "/database/derived-skills/parasol"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1557,8 +1557,8 @@
         "slug": "prion-virus",
         "canonicalPath": "/database/derived-skills/prion-virus"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "childDerivedSkillIds": ["derived.global.adsorption", "derived.global.solidify"]
     },
     {
@@ -1569,8 +1569,8 @@
         "slug": "private-afternoon",
         "canonicalPath": "/database/derived-skills/private-afternoon"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1580,8 +1580,8 @@
         "slug": "propagule-embryo",
         "canonicalPath": "/database/derived-skills/propagule-embryo"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1591,8 +1591,8 @@
         "slug": "protect-offsprings",
         "canonicalPath": "/database/derived-skills/protect-offsprings"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1602,8 +1602,8 @@
         "slug": "pupation",
         "canonicalPath": "/database/derived-skills/pupation"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "derivedFromId": "derived.global.cocoon-of-revival"
     },
     {
@@ -1614,8 +1614,8 @@
         "slug": "radiance-of-humanity",
         "canonicalPath": "/database/derived-skills/radiance-of-humanity"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1625,8 +1625,8 @@
         "slug": "sakura-blossoms",
         "canonicalPath": "/database/derived-skills/sakura-blossoms"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1636,8 +1636,8 @@
         "slug": "silver-key-dawn",
         "canonicalPath": "/database/derived-skills/silver-key-dawn"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1647,8 +1647,8 @@
         "slug": "silver-key-gleam",
         "canonicalPath": "/database/derived-skills/silver-key-gleam"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1658,8 +1658,8 @@
         "slug": "silver-key-resonance",
         "canonicalPath": "/database/derived-skills/silver-key-resonance"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1669,8 +1669,8 @@
         "slug": "slumber",
         "canonicalPath": "/database/derived-skills/slumber"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1680,8 +1680,8 @@
         "slug": "solidify",
         "canonicalPath": "/database/derived-skills/solidify"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "derivedFromId": "derived.global.prion-virus"
     },
     {
@@ -1692,8 +1692,8 @@
         "slug": "soul-synchronization",
         "canonicalPath": "/database/derived-skills/soul-synchronization"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1714,8 +1714,8 @@
         "slug": "stakes-of-wisdom",
         "canonicalPath": "/database/derived-skills/stakes-of-wisdom"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1737,8 +1737,8 @@
         "slug": "toxic-infusion",
         "canonicalPath": "/database/derived-skills/toxic-infusion"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1748,8 +1748,8 @@
         "slug": "toxic-outbreak",
         "canonicalPath": "/database/derived-skills/toxic-outbreak"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1759,8 +1759,8 @@
         "slug": "twilight-the-envoys-verdict",
         "canonicalPath": "/database/derived-skills/twilight-the-envoys-verdict"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "childDerivedSkillIds": ["derived.global.memories-envoys-verdict"]
     },
     {
@@ -1771,8 +1771,8 @@
         "slug": "twilight-honey-mead",
         "canonicalPath": "/database/derived-skills/twilight-honey-mead"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "childDerivedSkillIds": ["derived.global.memories-honey-mead"]
     },
     {
@@ -1783,8 +1783,8 @@
         "slug": "twilight-innocent-return-gift",
         "canonicalPath": "/database/derived-skills/twilight-innocent-return-gift"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "childDerivedSkillIds": ["derived.global.memories-innocent-return-gift"]
     },
     {
@@ -1795,8 +1795,8 @@
         "slug": "twilight-mutated-heart",
         "canonicalPath": "/database/derived-skills/twilight-mutated-heart"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "childDerivedSkillIds": ["derived.global.memories-mutated-heart"]
     },
     {
@@ -1807,8 +1807,8 @@
         "slug": "twilight-seed-of-abundance",
         "canonicalPath": "/database/derived-skills/twilight-seed-of-abundance"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "childDerivedSkillIds": ["derived.global.memories-seed-of-abundance"]
     },
     {
@@ -1819,8 +1819,8 @@
         "slug": "twilight-unfinished-wax-sculpture",
         "canonicalPath": "/database/derived-skills/twilight-unfinished-wax-sculpture"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "childDerivedSkillIds": ["derived.global.memories-unfinished-wax-sculpture"]
     },
     {
@@ -1831,8 +1831,8 @@
         "slug": "twilight-utopian-veil",
         "canonicalPath": "/database/derived-skills/twilight-utopian-veil"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "childDerivedSkillIds": ["derived.global.memories-utopian-veil"]
     },
     {
@@ -1843,8 +1843,8 @@
         "slug": "unyielding-will-beta",
         "canonicalPath": "/database/derived-skills/unyielding-will-beta"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1854,8 +1854,8 @@
         "slug": "vernal-message",
         "canonicalPath": "/database/derived-skills/vernal-message"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"]
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
     },
     {
       "kind": "derivedSkill",
@@ -1911,8 +1911,8 @@
         "slug": "ascending-scale",
         "canonicalPath": "/database/awakeners/hameln/derived-skills/ascending-scale"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0022",
       "ownerAwakenerName": "Hameln",
       "derivedFromId": "derived.hameln.symphony-of-harmony",
@@ -1926,8 +1926,8 @@
         "slug": "descending-scale",
         "canonicalPath": "/database/awakeners/hameln/derived-skills/descending-scale"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0022",
       "ownerAwakenerName": "Hameln",
       "derivedFromId": "derived.hameln.symphony-of-harmony",
@@ -1941,8 +1941,8 @@
         "slug": "symphony-of-harmony",
         "canonicalPath": "/database/awakeners/hameln/derived-skills/symphony-of-harmony"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0022",
       "ownerAwakenerName": "Hameln",
       "nodeKind": "group",
@@ -1974,8 +1974,8 @@
         "slug": "irregular-form-chains",
         "canonicalPath": "/database/awakeners/helot-catena/derived-skills/irregular-form-chains"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0019",
       "ownerAwakenerName": "Helot: Catena",
       "derivedFromId": "skill.helot-catena.fettered-malice",
@@ -1989,8 +1989,8 @@
         "slug": "irregular-form",
         "canonicalPath": "/database/awakeners/helot/derived-skills/irregular-form"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0023",
       "ownerAwakenerName": "Helot",
       "derivedFromId": "skill.helot.blood-for-blood",
@@ -2034,8 +2034,8 @@
         "slug": "marvelous-cuisine",
         "canonicalPath": "/database/awakeners/karen/derived-skills/marvelous-cuisine"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0026",
       "ownerAwakenerName": "Karen",
       "derivedFromId": "skill.karen.dance-of-the-gibbous-moon",
@@ -2107,8 +2107,8 @@
         "slug": "great-blade-whalefall",
         "canonicalPath": "/database/awakeners/lotan-cetarchon/derived-skills/great-blade-whalefall"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0059",
       "ownerAwakenerName": "Lotan: Cetarchon"
     },
@@ -2225,8 +2225,8 @@
         "slug": "iron-resolve",
         "canonicalPath": "/database/awakeners/miryam/derived-skills/iron-resolve"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0032",
       "ownerAwakenerName": "Miryam",
       "derivedFromId": "derived.miryam.heretical-faith",
@@ -2240,8 +2240,8 @@
         "slug": "obsession",
         "canonicalPath": "/database/awakeners/miryam/derived-skills/obsession"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0032",
       "ownerAwakenerName": "Miryam",
       "derivedFromId": "derived.miryam.sacrament",
@@ -2255,8 +2255,8 @@
         "slug": "revelate-devotion",
         "canonicalPath": "/database/awakeners/miryam/derived-skills/revelate-devotion"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0032",
       "ownerAwakenerName": "Miryam",
       "derivedFromId": "derived.miryam.heretical-faith",
@@ -2270,8 +2270,8 @@
         "slug": "sacrament",
         "canonicalPath": "/database/awakeners/miryam/derived-skills/sacrament"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0032",
       "ownerAwakenerName": "Miryam",
       "derivedFromId": "skill.miryam.pray-to-the-abyss",
@@ -2318,8 +2318,8 @@
         "slug": "inspiration",
         "canonicalPath": "/database/awakeners/pickman/derived-skills/inspiration"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0040",
       "ownerAwakenerName": "Pickman",
       "derivedFromId": "skill.pickman.chromaphage",
@@ -2364,8 +2364,8 @@
         "slug": "raid-gaunt",
         "canonicalPath": "/database/awakeners/pontos/derived-skills/raid-gaunt"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0058",
       "ownerAwakenerName": "Pontos",
       "derivedFromId": "derived.pontos.gaunts",
@@ -2379,8 +2379,8 @@
         "slug": "slay-gaunt",
         "canonicalPath": "/database/awakeners/pontos/derived-skills/slay-gaunt"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0058",
       "ownerAwakenerName": "Pontos",
       "derivedFromId": "derived.pontos.gaunts",
@@ -2394,8 +2394,8 @@
         "slug": "vex-gaunt",
         "canonicalPath": "/database/awakeners/pontos/derived-skills/vex-gaunt"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0058",
       "ownerAwakenerName": "Pontos",
       "derivedFromId": "derived.pontos.gaunts",
@@ -2439,8 +2439,8 @@
         "slug": "octahedron-dice",
         "canonicalPath": "/database/awakeners/ryker/derived-skills/octahedron-dice"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0043",
       "ownerAwakenerName": "Ryker"
     },
@@ -2452,8 +2452,8 @@
         "slug": "shining-octahedron-dice",
         "canonicalPath": "/database/awakeners/ryker/derived-skills/shining-octahedron-dice"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0043",
       "ownerAwakenerName": "Ryker"
     },
@@ -2510,8 +2510,8 @@
         "slug": "sanctuary-of-mercy",
         "canonicalPath": "/database/awakeners/salvador/derived-skills/sanctuary-of-mercy"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0044",
       "ownerAwakenerName": "Salvador",
       "derivedFromId": "skill.salvador.benediction",
@@ -2525,8 +2525,8 @@
         "slug": "echoes-of-the-past",
         "canonicalPath": "/database/awakeners/tawil/derived-skills/echoes-of-the-past"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0047",
       "ownerAwakenerName": "Tawil",
       "derivedFromId": "skill.tawil.the-silver-key-gate",
@@ -2540,8 +2540,8 @@
         "slug": "emissarys-verdict",
         "canonicalPath": "/database/awakeners/tawil/derived-skills/emissarys-verdict"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0047",
       "ownerAwakenerName": "Tawil",
       "derivedFromId": "derived.tawil.memories",
@@ -2571,8 +2571,8 @@
         "slug": "honey-mead",
         "canonicalPath": "/database/awakeners/tawil/derived-skills/honey-mead"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0047",
       "ownerAwakenerName": "Tawil",
       "derivedFromId": "derived.tawil.memories",
@@ -2586,8 +2586,8 @@
         "slug": "innocent-return-gift",
         "canonicalPath": "/database/awakeners/tawil/derived-skills/innocent-return-gift"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0047",
       "ownerAwakenerName": "Tawil",
       "derivedFromId": "derived.tawil.memories",
@@ -2623,8 +2623,8 @@
         "slug": "mutated-heart",
         "canonicalPath": "/database/awakeners/tawil/derived-skills/mutated-heart"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0047",
       "ownerAwakenerName": "Tawil",
       "derivedFromId": "derived.tawil.memories",
@@ -2638,8 +2638,8 @@
         "slug": "polar-dusklight",
         "canonicalPath": "/database/awakeners/tawil/derived-skills/polar-dusklight"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0047",
       "ownerAwakenerName": "Tawil",
       "derivedFromId": "derived.tawil.memories",
@@ -2653,8 +2653,8 @@
         "slug": "silver-key-dawn",
         "canonicalPath": "/database/awakeners/tawil/derived-skills/silver-key-dawn"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0047",
       "ownerAwakenerName": "Tawil",
       "derivedFromId": "skill.tawil.the-silver-key-gate",
@@ -2700,8 +2700,8 @@
         "slug": "utopian-veil",
         "canonicalPath": "/database/awakeners/tawil/derived-skills/utopian-veil"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0047",
       "ownerAwakenerName": "Tawil",
       "derivedFromId": "derived.tawil.memories",
@@ -2760,8 +2760,8 @@
         "slug": "scion-of-purity",
         "canonicalPath": "/database/awakeners/thais/derived-skills/scion-of-purity"
       },
-      "cardFamily": "effect",
-      "cardTypes": ["effect"],
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
       "ownerAwakenerId": "awakener-0048",
       "ownerAwakenerName": "Thais",
       "derivedFromId": "skill.thais.ad-matrem-vocatus",

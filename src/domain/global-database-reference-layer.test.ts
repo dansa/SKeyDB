@@ -283,26 +283,59 @@ describe('buildDatabaseDerivedSkillReferenceInfo', () => {
     aliases: [],
     descriptionTemplate: 'Gain Aliemus.',
     descriptionArgs: {},
+    cardFamily: 'command',
+    cardTypes: ['derived'],
+    countsAs: [],
     cardKeywords: [],
     childDerivedSkillIds: [],
     variants: [],
   }
 
   it.each([
-    ['0', 'Card · Derived · Cost 0'],
-    ['3', 'Card · Derived · Cost 3'],
+    ['0', 'Cost 0 · Command · Derived'],
+    ['3', 'Cost 3 · Command · Derived'],
   ])('includes cost %s without repeating the card name', (cost, expectedLabel) => {
     expect(buildDatabaseDerivedSkillReferenceInfo({...record, cost}).label).toBe(expectedLabel)
   })
 
   it('labels synthetic groups without presenting a fake cost', () => {
     expect(buildDatabaseDerivedSkillReferenceInfo({...record, nodeKind: 'group'}).label).toBe(
-      'Card · Derived Group',
+      'Group · Command · Derived',
     )
   })
 })
 
 describe('buildGlobalDatabaseReferenceLayer', () => {
+  it('uses canonical card metadata in skill popovers', () => {
+    const referenceLayer = buildGlobalDatabaseReferenceLayer({
+      awakenerSkills: [
+        {
+          id: 'skill.test.mortal-blast',
+          ownerAwakenerId: 999,
+          kind: 'command',
+          displayName: 'Mortal Blast',
+          cost: '1',
+          cardFamily: 'command',
+          cardTypes: ['skill'],
+          countsAs: ['strike'],
+          descriptionTemplate: 'Deal damage.',
+          descriptionArgs: {},
+          cardKeywords: [],
+          variants: [],
+        },
+      ],
+      covenants: [],
+      derivedSkills: [],
+      overlays: [],
+      posses: [],
+      wheels: [],
+    })
+
+    expect(referenceLayer.referenceInfoById.get('skill.test.mortal-blast')?.label).toBe(
+      'Cost 1 · Command · Skill · Counts as Strike',
+    )
+  })
+
   it('keeps same-named overlays ahead of skills and derived records', () => {
     const referenceLayer = buildGlobalDatabaseReferenceLayer({
       awakenerSkills: [

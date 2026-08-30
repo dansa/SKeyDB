@@ -84,6 +84,8 @@ function cloneSkillRecord(record: AwakenerSkillRecord): AwakenerSkillRecord {
     ...record,
     descriptionArgs: cloneDescriptionArgs(record.descriptionArgs),
     cardKeywords: cloneCardKeywords(record.cardKeywords),
+    cardTypes: [...(record.cardTypes ?? [])],
+    countsAs: [...(record.countsAs ?? [])],
     variants: record.variants.map((variant) => ({
       ...variant,
       descriptionArgs: cloneDescriptionArgs(variant.descriptionArgs),
@@ -99,6 +101,8 @@ function cloneDerivedSkillRecord(record: DerivedSkillRecord): DerivedSkillRecord
     childDerivedSkillIds: [...record.childDerivedSkillIds],
     childPosseIds: record.childPosseIds ? [...record.childPosseIds] : undefined,
     cardKeywords: cloneCardKeywords(record.cardKeywords),
+    cardTypes: [...(record.cardTypes ?? [])],
+    countsAs: [...(record.countsAs ?? [])],
     variants: record.variants.map((variant) => ({
       ...variant,
       descriptionArgs: cloneDescriptionArgs(variant.descriptionArgs),

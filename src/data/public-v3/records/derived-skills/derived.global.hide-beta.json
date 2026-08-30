@@ -7,8 +7,8 @@
     "slug": "hide-beta",
     "canonicalPath": "/database/derived-skills/hide-beta"
   },
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "Place all Awakeners' \"Defense\" into hand and set their Arithmetica Cost to 0.",
   "descriptionArgs": {},
   "cardKeywords": [

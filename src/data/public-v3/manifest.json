@@ -1,10 +1,10 @@
 {
   "schemaVersion": 3,
-  "gameDataVersion": "compiled-sha256-d0891b3a5c55f3d7",
-  "generatedAt": "2026-08-28T12:18:01Z",
-  "buildId": "public-v3-sha256-7320417e957ba6f0",
+  "gameDataVersion": "compiled-sha256-87939c0e96e48abb",
+  "generatedAt": "2026-08-30T20:00:01Z",
+  "buildId": "public-v3-sha256-d703e647aac84efb",
   "build": {
-    "gameDataVersion": "compiled-sha256-d0891b3a5c55f3d7",
+    "gameDataVersion": "compiled-sha256-87939c0e96e48abb",
     "recordCount": 1941,
     "scopes": ["awakeners", "wheels", "relics", "covenants", "posses", "skills", "derived-skills", "talents", "enlightens", "overlays", "awakener-builds"]
   },
@@ -110,8 +110,8 @@
       "sha256": "5832835009dc99e350259267c602e122062a9fa735d52df61c7d2794d7bdfe7b"
     },
     "catalogs/derived-skills.json": {
-      "bytes": 97275,
-      "sha256": "55a306362461acba33e8985984cb653b5698dcaa12fe68af62380ecb0b72a9d4"
+      "bytes": 96819,
+      "sha256": "65b388d7cc0894df3cd676c24340a0905a4ddd68e88b5ca954a58882c81b6c44"
     },
     "catalogs/enlightens.json": {
       "bytes": 112484,
@@ -754,8 +754,8 @@
       "sha256": "b11b4bf178adbb38e5d456a94fb91e53f8ade2e3d3569397d826f6c3aa3888cd"
     },
     "records/derived-skills/derived.arachne.guiding-strings.json": {
-      "bytes": 1154,
-      "sha256": "5f0ba9d848f16e850c7e95e55f42602c254740c1d8281d59294e26c398abe4b7"
+      "bytes": 1150,
+      "sha256": "f9efd3e877dd03ed3ea27063f79b3fd55c63af06d05f114a81711f2b72536275"
     },
     "records/derived-skills/derived.arachne.infinite-threads.json": {
       "bytes": 1410,
@@ -770,36 +770,36 @@
       "sha256": "7c579ad3595b0ffe1cea194cb2113116a9b1d598d3a309d919b899e57f5a08b3"
     },
     "records/derived-skills/derived.caraboo.blessing.json": {
-      "bytes": 1164,
-      "sha256": "be367438aec8365329aeb0c4aa9901194c09550ebe132f6b8f0f9b2a7d131f57"
+      "bytes": 1160,
+      "sha256": "bb7645d91153e193a992d1571841155719daded658f662349e3d5f70d02df623"
     },
     "records/derived-skills/derived.caraboo.gift-aliemus.json": {
-      "bytes": 855,
-      "sha256": "2ae9dc118bf827d28fab5b2e17d24ec78968fc6c425ee68a7548235a34edffd4"
+      "bytes": 851,
+      "sha256": "68c0006bc486e48f3a9e8514303428b400bafa2278588b3ed073a32a7a333d4e"
     },
     "records/derived-skills/derived.caraboo.gift-arithmetica.json": {
-      "bytes": 819,
-      "sha256": "a2fee3fa671da47d64249327f3320bc40b9c8e04ad9af32b7ad004159204107f"
+      "bytes": 815,
+      "sha256": "3a43aa723fb1392dc6fd44fe42813d6142c44a0fa5cf7fb1fed55ae29a0c8013"
     },
     "records/derived-skills/derived.caraboo.gift-dmg-amp.json": {
-      "bytes": 880,
-      "sha256": "d58b3d1757133f54262f5bd4c985a5bdd8a941bc0362d171db19026f1a47ddf8"
+      "bytes": 876,
+      "sha256": "b0f73b7a44376350434abbc13e2e8cf6dcc6858e137c6f1aceadf034d44ae0d5"
     },
     "records/derived-skills/derived.caraboo.gift-drain.json": {
-      "bytes": 920,
-      "sha256": "5a730b5206dcf9ce6f371de16966639e06bdb0c91a8199d6cac1a440916f94ad"
+      "bytes": 916,
+      "sha256": "c348b1903c93006e426fa1d0fbda3e7131f94011f31266b6832e6d0b67ce60fc"
     },
     "records/derived-skills/derived.caraboo.gift-draw.json": {
-      "bytes": 785,
-      "sha256": "345cf2e8636be2d1bd66aaf4aae3e123e596616d55722327b068eda0ca7093ab"
+      "bytes": 781,
+      "sha256": "0ba966a58409bea1a9d71eade6a17b9a0931aef111994c1201d110d83d0b41a4"
     },
     "records/derived-skills/derived.caraboo.gift-keyflare.json": {
-      "bytes": 852,
-      "sha256": "7bb94b0f77e467e285ac097c22245188b476e3bcb8dfb0dc0b1ad21cbec0d14f"
+      "bytes": 848,
+      "sha256": "61db362190b776a0bdaf3b0a4bc034fbc76c7bc98c51fdfa87f2ffc51f40dc36"
     },
     "records/derived-skills/derived.caraboo.gift-str.json": {
-      "bytes": 867,
-      "sha256": "65010f68b89a0489ca180bf892ca666765da4a8c24896124eafe779d1db52dca"
+      "bytes": 863,
+      "sha256": "3110dfd70c808904ce3ee09f961cf6248e7dc6ec88148b240cf5f9d95e3b9447"
     },
     "records/derived-skills/derived.caraboo.gilded-words.json": {
       "bytes": 547,
@@ -826,8 +826,8 @@
       "sha256": "47eb1ffdb588147bde2febb1dfc64e93bf5fb742cd53c6804f27d180f3f61d93"
     },
     "records/derived-skills/derived.corposant.pilot.json": {
-      "bytes": 2136,
-      "sha256": "05d65c895a9f60a889a8ac518ba2e0bfbddea3de32f8c5252105e17a95d69503"
+      "bytes": 2132,
+      "sha256": "0596128f6151e24b78a6c053856c3df97ebb3d0bd37e924afb75ab9c6840c4d3"
     },
     "records/derived-skills/derived.daffodil.thousand-mirage-base-cards.json": {
       "bytes": 820,
@@ -978,8 +978,8 @@
       "sha256": "4e7ed9e6447f73765d272b4c96575bdd11e46a6f615903f5ccd926f00a0c28fc"
     },
     "records/derived-skills/derived.doll-inferno.illusions-end.json": {
-      "bytes": 1799,
-      "sha256": "5564d2068e306271fcd2ff87724a46d01df559292bd899bfe14dd63b528efbc4"
+      "bytes": 1795,
+      "sha256": "0fd6883335b830bf0d361741633a025710359d685584822cb512d16766794ab6"
     },
     "records/derived-skills/derived.doll-inferno.self-destruct-finale.json": {
       "bytes": 698,
@@ -994,324 +994,324 @@
       "sha256": "74537ce0ee6b6df22f9640058fc8a6141d8e73a7822e79de2ce381ba479fb93f"
     },
     "records/derived-skills/derived.global.adsorption.json": {
-      "bytes": 634,
-      "sha256": "4eb4a71b9228225b79db3eef76deea423d3c4c9c9e3449ec48cf2919d6e6cf2a"
+      "bytes": 630,
+      "sha256": "ca1a95ce973a75518196a7adf65239abc1de470503f441d333cc404321cb7d13"
     },
     "records/derived-skills/derived.global.adv-insight.json": {
-      "bytes": 489,
-      "sha256": "cc949713899120628130be441b59703cb85fe2dbe9dc23a096a930390eb0e49d"
+      "bytes": 485,
+      "sha256": "98ce38ea3903dd8bec84f96f6af70a2471d657a3376ea525d7f016583169348c"
     },
     "records/derived-skills/derived.global.arouse.json": {
-      "bytes": 596,
-      "sha256": "ae6daae01c718091293b8f8d128382a7031155f8e5d3b00ae522846e10c83b4e"
+      "bytes": 592,
+      "sha256": "5886654a97353fbd08aed0550940aa6af9f79384a8ce286cc1f301b8d97567bf"
     },
     "records/derived-skills/derived.global.assemble.json": {
-      "bytes": 486,
-      "sha256": "e31319b8f23f11509664bfca0f6f827141edc6c3737e8ff6f7bf10370b3eec8d"
+      "bytes": 482,
+      "sha256": "62831f5668d6aaaacdefc8ae828bd76ae3d580dc6719bff1f90deaabc48f65a3"
     },
     "records/derived-skills/derived.global.barbed-trident.json": {
-      "bytes": 695,
-      "sha256": "0e773d00fb325ee78d61b633dd7ae53efbf35cd4fc33326d6f8f1a9b660b6184"
+      "bytes": 691,
+      "sha256": "acbaaca089074e30e978e91f8dfcf4a78d8a99996a06ed7147ffa90d03901d51"
     },
     "records/derived-skills/derived.global.bone-of-agony.json": {
-      "bytes": 804,
-      "sha256": "de5d72b96fd925dfef9d493dd2e9c72c80d6df29fc403e1f0ad1c12cacf04894"
+      "bytes": 800,
+      "sha256": "e54e21ceef1f08c2dd40297cf82cd745f9769fb58021e7117d2d5c331f57b14b"
     },
     "records/derived-skills/derived.global.bone-of-blades.json": {
-      "bytes": 908,
-      "sha256": "1c059d744e963f919cded2f68ff4cbda983cdd3c4747f72e74545a941c88d81f"
+      "bytes": 904,
+      "sha256": "4b8a96592c833cdb5e7d7fe62d25e4b608ecb703780206bd2438831acd514198"
     },
     "records/derived-skills/derived.global.bone-of-fury.json": {
-      "bytes": 623,
-      "sha256": "c21670a2ebffcc0a6e9bd6dfce86e6ccc29c8309cb053014eb59046e0ce43866"
+      "bytes": 619,
+      "sha256": "2a73443a2359bf98b59ff47ec942dea61770e4bfaa25a5377e8b1d358bbe0f05"
     },
     "records/derived-skills/derived.global.brilliance-of-humanity.json": {
-      "bytes": 684,
-      "sha256": "901a09514be73b38f096ca45605b5a8bd85d89edd4254550fddec9e3adcc998e"
+      "bytes": 680,
+      "sha256": "2ca14f340d4cdced4409c219269828654393063edd2e1b4e85ed913079491299"
     },
     "records/derived-skills/derived.global.coalsie-smack.json": {
-      "bytes": 603,
-      "sha256": "0cb52bd23a4301a524018c8cb377cc098d6ee8e66cb3e45f252a851be57526b7"
+      "bytes": 599,
+      "sha256": "f88bf08d444382e71bedc2714a1b4fc328423f351294355c9c0b6a5224fd1ce2"
     },
     "records/derived-skills/derived.global.cocoon-of-revival.json": {
-      "bytes": 599,
-      "sha256": "de9bb7d29f4cd90c1a13c33545eda9bff08b90540f8db3ca1a2c47aa592f7ea3"
+      "bytes": 595,
+      "sha256": "3c7eb8e413744f5f8f55d022a10fd1dcffe8e52f975a1004b786d71badd8c2c5"
     },
     "records/derived-skills/derived.global.convulsion.json": {
       "bytes": 377,
       "sha256": "1fa65bfd0fc4d5494507e7da9531f735b589eb09879065cb985a78776c117a9f"
     },
     "records/derived-skills/derived.global.countdown-0.json": {
-      "bytes": 666,
-      "sha256": "363bcdfb3c6ec7114f6019f10ef908a64eca766d433116ab3632d6536381f1fc"
+      "bytes": 662,
+      "sha256": "3713279ce954bd8ec43741b7694c6bcd61e0f92ad3a24d341ce2f56e130cc8cb"
     },
     "records/derived-skills/derived.global.countdown-1.json": {
-      "bytes": 468,
-      "sha256": "d7781f7b4d756515d062e98b1d9925ec6fc9f8456ac696a031dcf287d8b8cb44"
+      "bytes": 464,
+      "sha256": "d790f1c5bdf0fb0c1f525236026f45d9ddc9280b245c912ac098f32b5f9ab3c4"
     },
     "records/derived-skills/derived.global.countdown-2.json": {
-      "bytes": 468,
-      "sha256": "74c7f0567643cc6dfbced0a9c50285e54f03e2fac5084598045fa2f76392b533"
+      "bytes": 464,
+      "sha256": "4326c19768b64b2dd02036f28145d574ef6e0aea299b46c6bcd239bd46b8d0f6"
     },
     "records/derived-skills/derived.global.countdown-3.json": {
-      "bytes": 468,
-      "sha256": "5247ea2af64a82309762354036c42e922196ed947c32873b57bc1f906ce63b11"
+      "bytes": 464,
+      "sha256": "3366ddf04cd2d7dc6cbed140435c8d7271f1770ce2542295ce69678302824d37"
     },
     "records/derived-skills/derived.global.countdown-4.json": {
-      "bytes": 468,
-      "sha256": "7cf824656cacbbdd46e1ef7e9ea48f11fbf6cf10ba7564a95672db84ddbeb811"
+      "bytes": 464,
+      "sha256": "1d7757547f1bfa9f0ba954d20077c51e5e528b3b352654fc8f105bff5268628c"
     },
     "records/derived-skills/derived.global.countdown-5.json": {
-      "bytes": 468,
-      "sha256": "96d514b834f836b7aa2a16b7b685842abe3ae4927ecf5b1602db5e3545a7eb41"
+      "bytes": 464,
+      "sha256": "b2db897167f17ea08bdda348f9def49c084e03a92b7f30a053481e5f8b247cea"
     },
     "records/derived-skills/derived.global.countdown.json": {
       "bytes": 773,
       "sha256": "b677469623f518667fc39634b6b01c65e5594aeb267e347f6ba6a0312828b611"
     },
     "records/derived-skills/derived.global.devour-card.json": {
-      "bytes": 439,
-      "sha256": "1149bc0d0ebd152a53859b2169dcc82c3d2adb43d229238b5efa9b6304bb32d9"
+      "bytes": 435,
+      "sha256": "e549b8bfb816c80fc95320a62d591b632e3487c832e849c3eb33b7dba9a4de2a"
     },
     "records/derived-skills/derived.global.divine-dedication.json": {
-      "bytes": 561,
-      "sha256": "0d58fc7dfc7c15a3ef75cd839fd06f5b998e677dc96cdb2ac48a332461032e84"
+      "bytes": 557,
+      "sha256": "4f37cdb8b7790d0da71c820e115ebea50b4906c0c72cd16405ff0c6cf297dff7"
     },
     "records/derived-skills/derived.global.dreaming-of-wonderland.json": {
-      "bytes": 687,
-      "sha256": "de72253650cbdaade4c543b75968c11f0a383ac530fbba712e3eb4ac787ac408"
+      "bytes": 683,
+      "sha256": "ba9439a90ca3c897265df98774247cbf9f9fcdf48d8b312bdcf9092bfc606160"
     },
     "records/derived-skills/derived.global.echoes-of-lost-shadows.json": {
-      "bytes": 536,
-      "sha256": "37e64e278b8cbaeb0367689db3810c2bf1f2020402c9ebe9feae619fad6a67ea"
+      "bytes": 532,
+      "sha256": "35fde6122cad180452534303fe298252ead3a55234348119cf5517d0f0cf7983"
     },
     "records/derived-skills/derived.global.echoes-of-the-past.json": {
-      "bytes": 555,
-      "sha256": "23674cf2622bb89f43871719949fda9c75de3f14f8139c6501b4597a77571385"
+      "bytes": 551,
+      "sha256": "759ceb8138df164b2f402e34fcab8d311db62e4b281d507267e2f44cc22c364e"
     },
     "records/derived-skills/derived.global.embryo.json": {
-      "bytes": 726,
-      "sha256": "d61f937da576ad3a2e5739df753bcc4b201b957a0f36c6b91e3e8403b9773133"
+      "bytes": 722,
+      "sha256": "f0bdacda8dd9422799d00b07a4a915f629056b7e82a63c5a4bbea1e413543bd6"
     },
     "records/derived-skills/derived.global.falling-upward.json": {
-      "bytes": 762,
-      "sha256": "f028cda798eab6ca604de8ded4a13588b0860134102bb9e4252561e48bdafb34"
+      "bytes": 758,
+      "sha256": "3590b125f9d6cc1b36baad7069bf074b81a495bab692d1cf238c2217df8ce90a"
     },
     "records/derived-skills/derived.global.fleeting-beauty.json": {
-      "bytes": 662,
-      "sha256": "c212f9b734ec20fd6e4c3a68fe6f8bc42eb44b74c82d0ab35674c1ba451a229f"
+      "bytes": 658,
+      "sha256": "2c83fddbfeca18ff889c45770f4f8aaf5941732eb5d94253157b896d2e0a6698"
     },
     "records/derived-skills/derived.global.flicker-of-humanity.json": {
-      "bytes": 679,
-      "sha256": "3fcdc66c3dc8b9c60869b0036f245a74c8666896d6b467425914a6948dd2d278"
+      "bytes": 675,
+      "sha256": "86eb3d8f24d4d2ddcf67caca0681315c1cc0605dc7baee15a4cc354f1dcc24f8"
     },
     "records/derived-skills/derived.global.forbidden-truth.json": {
-      "bytes": 716,
-      "sha256": "a9eb0ba32cd0ae18f04a731ed2885b5e8183e06a3d92203c97730bd17f0d52ee"
+      "bytes": 712,
+      "sha256": "dd808700fb01d76a1019ee3c1552d05fc8007249c0ec33734047d56fea1939e6"
     },
     "records/derived-skills/derived.global.gauntward.json": {
-      "bytes": 426,
-      "sha256": "c3ffcdf98ec94b31fc9abac3f63a2e5e257d28f0310b84ecd17eb2046e2f1095"
+      "bytes": 422,
+      "sha256": "000bf6b5f927310c5ab577319262fc7ae2ed1738bca6a9e98c2303a0ed4fa6ae"
     },
     "records/derived-skills/derived.global.glow-of-humanity.json": {
-      "bytes": 667,
-      "sha256": "8fd29be36d992576f6f185993f6b1606135e3cadd0528a5f8f19918927309393"
+      "bytes": 663,
+      "sha256": "b90c04e7e91cdc9717670b892f6b3ae1863ed5fed3d9683e597837427e33a5df"
     },
     "records/derived-skills/derived.global.gluttonous-attack.json": {
-      "bytes": 588,
-      "sha256": "9ebf825216e71ec3a41e25f4d6550af1767a720b04e5cdde148eb17e3660d89d"
+      "bytes": 584,
+      "sha256": "7a6a5cf352382e1f9cd010a73476d81c857d28a95fcc098abf13e7584e9d58c2"
     },
     "records/derived-skills/derived.global.gobble-up.json": {
-      "bytes": 447,
-      "sha256": "c0c7fe2a715a1ae598811933b0e28bd55da645d12917cacf842d06d48787100b"
+      "bytes": 443,
+      "sha256": "0855fb4737e2cd9a14fd4b9810eca443a18ecf5bdf57ccce5e003b9ab1a15413"
     },
     "records/derived-skills/derived.global.hanafubuki.json": {
-      "bytes": 656,
-      "sha256": "3dcbaf61b3b3d31792b088f5abea28cb73d07775e04d26599da4579716021c3e"
+      "bytes": 652,
+      "sha256": "f185ce97fa2a5ec95f402a2d294d03fa847fcade2f05eaa76e82b8c1200b5501"
     },
     "records/derived-skills/derived.global.hide-beta.json": {
-      "bytes": 477,
-      "sha256": "9fadcc9a3f7d89d019ae0f199d288bffd00bcf89d91ae0458bcb9989e0febb49"
+      "bytes": 473,
+      "sha256": "90d019574fa0c4df6abd1c619dd805941f42ea0f0e339f45862b1bc61791f154"
     },
     "records/derived-skills/derived.global.ichigo-ichie.json": {
-      "bytes": 507,
-      "sha256": "b16768894da58ab82e9e71bbae5e1dfdf066e5f48ad71cd057e616da33f47d9e"
+      "bytes": 503,
+      "sha256": "ca71a29bb80bd1390a9972c682fe522adf207a01c68ddeeb5f92cc9079cd0e84"
     },
     "records/derived-skills/derived.global.infinite-silver-vault.json": {
-      "bytes": 613,
-      "sha256": "014f3775fd888142004b41db84bffc78e1ea9fb858161f54814438e489e93731"
+      "bytes": 609,
+      "sha256": "52e744942cad3850764967986b51c5cc000af7e3e4ea17b03dc52198be603438"
     },
     "records/derived-skills/derived.global.insight.json": {
-      "bytes": 471,
-      "sha256": "5437748b6e8b8a909ca6feffcd05f324fb0840bd5584e35d42de2a7105d8ea69"
+      "bytes": 467,
+      "sha256": "f23988e9de93d9529ab4a01c368a6f2b76c47c5aca3c2ced1e2c799ef7966a72"
     },
     "records/derived-skills/derived.global.inspire-offsprings.json": {
-      "bytes": 488,
-      "sha256": "6739273264669b9eaad3cdd22c97068e5858ef598d53065bab5e912e09e29834"
+      "bytes": 484,
+      "sha256": "968d595f6994e8a7d16761e9670bfd8afaeb59199fd1d827514726a99518bd98"
     },
     "records/derived-skills/derived.global.leahs-coin.json": {
-      "bytes": 482,
-      "sha256": "8823f52bf27899dee939a758c7667dd8daf67dffe88b86838d5692080840e84d"
+      "bytes": 478,
+      "sha256": "d427144f5d58a82d2eb095171cb4285c062d6965a73605e94b3f0b6711df962f"
     },
     "records/derived-skills/derived.global.light-cone-boundary.json": {
-      "bytes": 485,
-      "sha256": "9ff0e16f189539ec5efbc639187a8dfee1ba2c4075ad0131f4d008cb47a2b1ed"
+      "bytes": 481,
+      "sha256": "c032622d01c2f9c30387ffaa5c4fe916a954923c5f26daeb54fbff56c88f12d3"
     },
     "records/derived-skills/derived.global.luster-of-humanity.json": {
-      "bytes": 675,
-      "sha256": "f5d7c0a0523444fdad020c711d176dd0a2e35586bb10dc963122c9f590630ae0"
+      "bytes": 671,
+      "sha256": "520d2371375a2ada31f83ca2dbded15e45e7eae84e5e8a374e47d671a6eac92d"
     },
     "records/derived-skills/derived.global.memories-envoys-verdict.json": {
-      "bytes": 670,
-      "sha256": "da46ef0c65e0ea1611cb250810852ef7b0739af355c250bfec4768ed317c2e44"
+      "bytes": 666,
+      "sha256": "24ddf199fde4596e753a166416b30ad8c8398157dc21ca76a60bb2147d69355c"
     },
     "records/derived-skills/derived.global.memories-honey-mead.json": {
-      "bytes": 668,
-      "sha256": "63814ec4d4fe786515da9129771690b263773e08e85d11d84317b58f48deab2d"
+      "bytes": 664,
+      "sha256": "6eb546d5c30ca96021e0837f58602bcd6dc4d633301eb031aed5d795b836947f"
     },
     "records/derived-skills/derived.global.memories-innocent-return-gift.json": {
-      "bytes": 832,
-      "sha256": "9cfdea53b97c2a45d8c0cbf55fcac2be3f0b044d73b609333443c2eb999d43ab"
+      "bytes": 828,
+      "sha256": "a29635aa85204c8e36545563db6d46276d70ff026059e47978af8fedcfbd214e"
     },
     "records/derived-skills/derived.global.memories-mutated-heart.json": {
-      "bytes": 690,
-      "sha256": "60b71aadd1e981466a7b6cdd73ac5923d0bb1496a7615db89e3b3fa6a72ec2e9"
+      "bytes": 686,
+      "sha256": "152b4583ec9236343e6037eeabaa80fa8fc3b662548fed52200a942956398435"
     },
     "records/derived-skills/derived.global.memories-seed-of-abundance.json": {
-      "bytes": 763,
-      "sha256": "b2a2caf0a7ce816d48bcf4b45254f41ac733641a7d01541f94c85fc2de9f5f88"
+      "bytes": 759,
+      "sha256": "f00e3b6478b49c1884e3154d943ace6ad1eae38341215029ecd8ee44b7d68088"
     },
     "records/derived-skills/derived.global.memories-unfinished-wax-sculpture.json": {
-      "bytes": 758,
-      "sha256": "cfc1bfd1e5b14588f58037e9365c347487076831d41f111bf385934150b87a47"
+      "bytes": 754,
+      "sha256": "cf759d7dcd3f380dadae17c16fc81a42a90d63fb3c7239494e2636118f4650b9"
     },
     "records/derived-skills/derived.global.memories-utopian-veil.json": {
-      "bytes": 672,
-      "sha256": "9633300415f594ee62b43e1e4479130a81b5cdd2b4ec63b54382e019f83df8a1"
+      "bytes": 668,
+      "sha256": "5ba8441310c8adc3f2a64e17dcb9545a018cdbd343c62352d53c8fd8027ddd42"
     },
     "records/derived-skills/derived.global.mortal-sojourn.json": {
-      "bytes": 874,
-      "sha256": "9f3afc08484a93d74175a6c1b63b6d82ff25c2a60aad1f087e0f254c91b29963"
+      "bytes": 1026,
+      "sha256": "bae0d40e1a8061162daf0653c8e8c0bed5c1b54fc7fa0e4c802afb664381795c"
     },
     "records/derived-skills/derived.global.one-way.json": {
-      "bytes": 488,
-      "sha256": "8b4ce2f1635951b86f402fbfce705a027157ba5a85e5e4b0c687910110eb11e5"
+      "bytes": 484,
+      "sha256": "452592b0181fda2d41a1ce1b6bbceb33872cb9256a3ec8787434887ced8306b6"
     },
     "records/derived-skills/derived.global.palette.json": {
-      "bytes": 445,
-      "sha256": "84acd53aed8c9ba23a190e6d32ad75149b856230d718bbce761f8823eedd73a2"
+      "bytes": 441,
+      "sha256": "e88307393f87b75aa04d6c1931f4362318fc3b2a9348ed06009016388ba73573"
     },
     "records/derived-skills/derived.global.parasol.json": {
-      "bytes": 669,
-      "sha256": "3abc4fbe451715bbc440ff3b456ae988f527b58d3fb84c067f8bbfa847380404"
+      "bytes": 665,
+      "sha256": "4360349816fa82514a54487b5fe512c6515511822f73dd4ab5da700c81695595"
     },
     "records/derived-skills/derived.global.prion-virus.json": {
-      "bytes": 570,
-      "sha256": "058decbdcd96235d6e59e1f7ff4b5c6dd4da00fe1c6296572a0175c772fb75db"
+      "bytes": 566,
+      "sha256": "c81a061d0acc35ca4d34e2adea3e06c7da062b284ef5c9aa1c57b7668da8abc3"
     },
     "records/derived-skills/derived.global.private-afternoon.json": {
-      "bytes": 658,
-      "sha256": "79c099ca30e2dd29196e0063fa4ffffddca2a4c9a04f6ea6d95a2f5125fe1da8"
+      "bytes": 654,
+      "sha256": "49bde0df3dcbb6f257f539f38cf78f82072c77444438d56d21146d1ff90a8c6d"
     },
     "records/derived-skills/derived.global.propagule-embryo.json": {
-      "bytes": 1047,
-      "sha256": "c953257bb3229ab09f9a184ee1ff266d6f1602a6d458c8042fad6fbe2c889537"
+      "bytes": 1043,
+      "sha256": "301682af3294ab258939ec79e4783fe9d72fda8bdea79844a25dc9bcae088346"
     },
     "records/derived-skills/derived.global.protect-offsprings.json": {
-      "bytes": 509,
-      "sha256": "d6a5ea20f083e3e131440daf507f48adb5055eb96d623583df2d69496fae31cc"
+      "bytes": 505,
+      "sha256": "24bd2736534772233cc849e832b32f05f48bc62ecd4b34b9f37770472ea76089"
     },
     "records/derived-skills/derived.global.pupation.json": {
-      "bytes": 426,
-      "sha256": "8a990ddc82563be0e01d8c21eec395ac207939f41820b5289cef562838e67218"
+      "bytes": 422,
+      "sha256": "ef92b91df41e30dff1b0f22aae30c1e36393da1a25f6208511d5e86123bbec85"
     },
     "records/derived-skills/derived.global.radiance-of-humanity.json": {
-      "bytes": 683,
-      "sha256": "213d3895b9634d459228224a67964033a1f8df9139a02011f81756c30583b53b"
+      "bytes": 679,
+      "sha256": "2ee58cc87c09e4cc4803e1b0b761e43410aaa41cc6f9837800910e13e104fe24"
     },
     "records/derived-skills/derived.global.sakura-blossoms.json": {
-      "bytes": 674,
-      "sha256": "9560d79ee2ac44de1e0dd7e89c177115025fece7c51c25c0d7dd000df3064e02"
+      "bytes": 670,
+      "sha256": "99c01c134ad6db4e9daa466e4e9d508defd4833c8416c7e1c17075786e5b675d"
     },
     "records/derived-skills/derived.global.silver-key-dawn.json": {
-      "bytes": 579,
-      "sha256": "96f152863cf6a4e26d951961aa8ab180a11a0054d06bee4db88009cd4210695c"
+      "bytes": 575,
+      "sha256": "c0d0b76e3ed1dcc0b796065795cbd37959e5e4fa744222495d4d7d2af121f2e2"
     },
     "records/derived-skills/derived.global.silver-key-gleam.json": {
-      "bytes": 537,
-      "sha256": "29e33008f1f73dafc892c9556b91d495173d537bcc168b769f912de5afbe729a"
+      "bytes": 533,
+      "sha256": "6d15ca58165eb284e8bd0c1a6ca86eb974a5834b497217534c58e14446dbc037"
     },
     "records/derived-skills/derived.global.silver-key-resonance.json": {
-      "bytes": 646,
-      "sha256": "89ef3eac1781c307630db44aec47c00153086514ff80a9be8cba141e6db96a9d"
+      "bytes": 642,
+      "sha256": "9ec57bd1265fe517792ca6aa980086afbaec739fe8980358ee3eed559db9fd91"
     },
     "records/derived-skills/derived.global.slumber.json": {
-      "bytes": 815,
-      "sha256": "487de635a00ef4cb4bddcb7d9e8a8ecf700e9c8cee49a8117e16fd68d3d05a70"
+      "bytes": 811,
+      "sha256": "708404bd45c2be411b2e60e24d57987c3cd3cbfc6e6378d17e6aec5c26fa86fb"
     },
     "records/derived-skills/derived.global.solidify.json": {
-      "bytes": 860,
-      "sha256": "b866f9358e6043da0ceaf19c1c488109e071accff08f9b7d9c5c521f73e76909"
+      "bytes": 856,
+      "sha256": "1ac044c5394abc62d792efa74d51db8f662bd23307d2dd3a358cf1d4abb12288"
     },
     "records/derived-skills/derived.global.soul-synchronization.json": {
-      "bytes": 1027,
-      "sha256": "56e5df2b79a6fdae3062a8540024ccda40adf615de59e04d60a9d39d24e7e3b7"
+      "bytes": 1023,
+      "sha256": "08c422bc1732790181ce035d0419eb411bb2cb1f6bcca59510df42cf3f3fd4d1"
     },
     "records/derived-skills/derived.global.stagger.json": {
       "bytes": 402,
       "sha256": "f7902874e3a2f74eb51125eb699cafc5fd5a3e2562b5498e859c329134b66008"
     },
     "records/derived-skills/derived.global.stakes-of-wisdom.json": {
-      "bytes": 821,
-      "sha256": "14860606aad2d39c9c18c2fbe65a015b7174362bd91f89985023e65d8af26ed2"
+      "bytes": 817,
+      "sha256": "425cd2a3e5af93e96a7d5048b2fe7a548e15d3680f55bdd56b872ae3971ea7da"
     },
     "records/derived-skills/derived.global.suspicion.json": {
       "bytes": 954,
       "sha256": "e25d5e06360c2da5081ad4a93f12dead6adb2387c0d9f2a3076d9b49d3a7031a"
     },
     "records/derived-skills/derived.global.toxic-infusion.json": {
-      "bytes": 736,
-      "sha256": "f7a5343450991f082ff8c7676ce3e07096be2684e1bbda23eb969c8801dab7e5"
+      "bytes": 732,
+      "sha256": "0d4572c986d8b83b14f2f0bfbc1bfb3706904f7d35294689297fa896d46a024a"
     },
     "records/derived-skills/derived.global.toxic-outbreak.json": {
-      "bytes": 783,
-      "sha256": "9328693136b2b8cf1ca43a0d28aa4f99bac90a97a9c3fb2dd47e4991890f26c9"
+      "bytes": 779,
+      "sha256": "e7ac2788e70f3a96f1f0d09992a44b6f7aa593b333f55914f24f83a951f347f5"
     },
     "records/derived-skills/derived.global.twilight-envoys-verdict.json": {
-      "bytes": 764,
-      "sha256": "e25b645da585144664938ebc9982e21aa47554bf307cf80b752c8fd5ce1a6d76"
+      "bytes": 760,
+      "sha256": "03e6efdee499cffbb6a4f541575416243d02e62653248bee511fb191c77b70cb"
     },
     "records/derived-skills/derived.global.twilight-honey-mead.json": {
-      "bytes": 727,
-      "sha256": "d87f66384b0967a3a7e1842d2ef1b9fe0bb1474e042e3006a97cb2fb9be27945"
+      "bytes": 723,
+      "sha256": "963a74366b35a7d60a0efd8a36453297df3bffcbe2f3f85cb38109f08c65a366"
     },
     "records/derived-skills/derived.global.twilight-innocent-return-gift.json": {
-      "bytes": 791,
-      "sha256": "e79e800299d253f18aeaeb6a44760f7425fd0c0f67ced641503e3e337d7c80f7"
+      "bytes": 787,
+      "sha256": "6361058d58cc4068ef3d9bc132fb03c6e4b25aed601fa8f47714ec73ed4f4a7e"
     },
     "records/derived-skills/derived.global.twilight-mutated-heart.json": {
-      "bytes": 754,
-      "sha256": "1c7f490753468405237a1ce7e8578304393da75db260ce19bf7bc095486244b8"
+      "bytes": 750,
+      "sha256": "b618bc35ea3235f6cdf38c74a50cdae27ca2bc484d237d8ff580a3e8064aa820"
     },
     "records/derived-skills/derived.global.twilight-seed-of-abundance.json": {
-      "bytes": 773,
-      "sha256": "8151a394bf31d841236af09ca39df7f449ba21bbfa41f511e7c6e61ccd453a4f"
+      "bytes": 769,
+      "sha256": "c9c8940452e07e4db497d6503cb52d5d198bf42e2a1703ba76601718a50c2d8e"
     },
     "records/derived-skills/derived.global.twilight-unfinished-wax-sculpture.json": {
-      "bytes": 816,
-      "sha256": "31c9d213f0883000a28c8688e8ace1de26714095bec24ab4b7b43c7ea2c058ae"
+      "bytes": 812,
+      "sha256": "0ab2192d278f3061b119d62cfc897da77571315d6b0e79035d3e3acda1f5d4de"
     },
     "records/derived-skills/derived.global.twilight-utopian-veil.json": {
-      "bytes": 747,
-      "sha256": "e0d2d30048533516b54af3ebc23201c71f26b54e5ca2831895815932b0460661"
+      "bytes": 743,
+      "sha256": "f2f9c3517ba20a5f72cdac28ccb45abc682bb383e150d0a398844ee224612568"
     },
     "records/derived-skills/derived.global.unyielding-will-beta.json": {
-      "bytes": 681,
-      "sha256": "8d08008122de7fc66b1fdcc749419c689389fd7a8418ebcc07c7998a308c83f5"
+      "bytes": 677,
+      "sha256": "166b2f0b13d5c049bcf91a8326c3a9bdbe4ad3544d1776ad50c3df2739ab9086"
     },
     "records/derived-skills/derived.global.vernal-message.json": {
-      "bytes": 674,
-      "sha256": "21856a44e7bcf5e0a2179a4b8684b4fe08a14e181cdefb916f25cacc76eb33d6"
+      "bytes": 670,
+      "sha256": "8acdd34ba8979a9b1ea7ae2032cdc9e0716a07268839bd378b66d413f468b522"
     },
     "records/derived-skills/derived.goliath.blades-dominion.json": {
       "bytes": 1132,
@@ -1326,28 +1326,28 @@
       "sha256": "2bdcac46e0491481eeccef4696dc6468d13a7a614ca8d045899d1b02c1169fd3"
     },
     "records/derived-skills/derived.hameln.ascending-scale.json": {
-      "bytes": 670,
-      "sha256": "11b7840a31cc6c23c1df95eede96ad2076bc5fde3787323b9736bce7049502c0"
+      "bytes": 666,
+      "sha256": "abb7c0d4bfc37215f449c2234a2cdb861ce0f45d9a7b213e54df12e0f71e7c29"
     },
     "records/derived-skills/derived.hameln.descending-scale.json": {
-      "bytes": 649,
-      "sha256": "29faa861ce1f6ec3f734d1dc5b646cc0f5db0a4fc329e6c8570ab1570dbc4697"
+      "bytes": 645,
+      "sha256": "0e36d4dbfa6236549bd4f6af508ae0ffd2bfa318910c9b73d8f1bc63989f21d7"
     },
     "records/derived-skills/derived.hameln.symphony-of-harmony.json": {
-      "bytes": 866,
-      "sha256": "40fd4afb86bac386b3c18f50a4e394bf9a68e2af2f4d0bc62e905900bbdfd970"
+      "bytes": 862,
+      "sha256": "3ec6e63dea26f9cbd70060502906f4d3955a94b08b67c5170aa27b7b64590a49"
     },
     "records/derived-skills/derived.helot-catena.bloodthirsty-flail.json": {
       "bytes": 1691,
       "sha256": "afd4a8d6b541c51a126eba2f990592f8814e3921b181894987dc8fe33abc9500"
     },
     "records/derived-skills/derived.helot-catena.irregular-form-chains.json": {
-      "bytes": 780,
-      "sha256": "692552a1b5a03e57308a043b2832fe4047dba674cbde6d22a7eb0c507162a4ad"
+      "bytes": 776,
+      "sha256": "a7a31771e57bf6a7165c8c62bb548e06e537e27848ffbebefc3a8b56be109e4b"
     },
     "records/derived-skills/derived.helot.irregular-form.json": {
-      "bytes": 771,
-      "sha256": "cf8d8a40d9a00329d1842a51de2b837f6c6526ffed40f289cf2222123ed5ecf8"
+      "bytes": 767,
+      "sha256": "a0be92708e7c48c492d6ec6df1fbaddf430530e2e67751a07ea54c35c0a6df87"
     },
     "records/derived-skills/derived.jenkins.swarm-impact.json": {
       "bytes": 926,
@@ -1358,8 +1358,8 @@
       "sha256": "8dae45c2dbb5d35c965c548bacc0f20d506debb17a003a39b005d67a3e6a9a75"
     },
     "records/derived-skills/derived.karen.marvelous-cuisine.json": {
-      "bytes": 807,
-      "sha256": "b93af2512ec0a184aa4200fd2c7e3813ddae9ec6821d6af5645aedde8bac9ee9"
+      "bytes": 803,
+      "sha256": "1c351f15f6f75de0fcdeddf687df29316d4bab2cfbcc4a09be64aea707ecbf06"
     },
     "records/derived-skills/derived.kathigu-ra.hyperflare.json": {
       "bytes": 1591,
@@ -1378,8 +1378,8 @@
       "sha256": "af308e0cc009e8c519a63659527e3cd00361eb341ae0019483f2772d234bb435"
     },
     "records/derived-skills/derived.lotan-cetarchon.great-blade-whalefall.json": {
-      "bytes": 705,
-      "sha256": "50019c15691cbde1f77fbf306c3b779611b046d60609d7722b58c3caf6551f5d"
+      "bytes": 701,
+      "sha256": "41e863238b0880e0d3e9b441e0d3bc15567ab8ada33b4182826739d441c59bd6"
     },
     "records/derived-skills/derived.lotan-cetarchon.netherblade.json": {
       "bytes": 1637,
@@ -1410,20 +1410,20 @@
       "sha256": "f24cb42c0cda9546f0e4a3d08d1f3f6c61f1549ca51dc9fd68e1b0cd57335172"
     },
     "records/derived-skills/derived.miryam.iron-resolve.json": {
-      "bytes": 727,
-      "sha256": "e07a4ee0c48be1106817da86433c7dcebc1703b063f0a78b3d60c09f906c7eab"
+      "bytes": 723,
+      "sha256": "d76244a50e5797e00240c4956e82003ba2e7fa81ba256776b092240b7c270470"
     },
     "records/derived-skills/derived.miryam.obsession.json": {
-      "bytes": 863,
-      "sha256": "0318762e3b72c6f87c131d2d33454c0d09449a66c008e0a5e74443be397c8bbe"
+      "bytes": 859,
+      "sha256": "d3bb1feb7c7ce275999fe43a54e4c861d2e041619099cbbd7d8934ea09f39414"
     },
     "records/derived-skills/derived.miryam.revelate-devotion.json": {
-      "bytes": 795,
-      "sha256": "0ffb620bf284a3c7d93783660a61fa75e083e74249a7fda21694677ca5e9d11e"
+      "bytes": 791,
+      "sha256": "758f1230772bb5fbdffa30f2e4f9e4acea110124efe808f9c0a323a1623f237a"
     },
     "records/derived-skills/derived.miryam.sacrament.json": {
-      "bytes": 808,
-      "sha256": "841acffe5d96b3511825b109ae63b6eb0248b0cfe9af3970299b2225ba45c8aa"
+      "bytes": 804,
+      "sha256": "6e6ec8f06164c6bdb2bb291945020db5c93ba2c30f9bcc0ef42bbde33d38bad2"
     },
     "records/derived-skills/derived.miryam.the-end-of-belief.json": {
       "bytes": 1116,
@@ -1434,8 +1434,8 @@
       "sha256": "d249937027aa61dba819fbb3da29022d9439c428ad8d319478e0fb66fb46cba5"
     },
     "records/derived-skills/derived.pickman.inspiration.json": {
-      "bytes": 640,
-      "sha256": "07fbd5f059b1334e67898a2f383c632f5b2c4f7b8212d99986d9551c12ed769c"
+      "bytes": 636,
+      "sha256": "701e35951b5c56705f3771ab214352352b8262fc76bf15e12a35511b80345e3a"
     },
     "records/derived-skills/derived.pollux.sacred-heart.json": {
       "bytes": 1680,
@@ -1446,16 +1446,16 @@
       "sha256": "db40e789acf5147f9eba609c94bd9c73e3f8d1631b6b26506da797d60201272f"
     },
     "records/derived-skills/derived.pontos.raid-gaunt.json": {
-      "bytes": 1315,
-      "sha256": "9616e6e12f73a943c3345c513d57655218748d3e6629da0e2c1177d74dd6c485"
+      "bytes": 1311,
+      "sha256": "884f6dc358fc5b832a3b51d92b27a0a059b4cb6595ccd39bb29cb6e44d43be6b"
     },
     "records/derived-skills/derived.pontos.slay-gaunt.json": {
-      "bytes": 2781,
-      "sha256": "32c6e144adfee83036aab54d988625538f05191fac7c1c4df0137f60eca34290"
+      "bytes": 2777,
+      "sha256": "cb2497f7757061d5f50100b71abc42fea7102c8b5f2a4f448a5a542483bd98d8"
     },
     "records/derived-skills/derived.pontos.vex-gaunt.json": {
-      "bytes": 1464,
-      "sha256": "5ab25c75a2a09e378b369f609c8971532d4a1472785ddad4cfd76b5612b7eb2c"
+      "bytes": 1460,
+      "sha256": "d0f352ebbedb264ab82abbe175b1f7a88411e4973e52187e9d4e398b120c8aa5"
     },
     "records/derived-skills/derived.ramona-timeworn.ode-to-tomorrow.json": {
       "bytes": 730,
@@ -1466,12 +1466,12 @@
       "sha256": "1f85b5d81660f0a1c753317cf1afc69283cf9fef9e59cbb85e01b80af2d6d7f4"
     },
     "records/derived-skills/derived.ryker.octahedron-dice.json": {
-      "bytes": 1028,
-      "sha256": "b119acf03869aa944d0abd6b97223279477516b6f34bff7b4667d87ce1357739"
+      "bytes": 1024,
+      "sha256": "eb630e936ab23f66a007a6ec278e8ee96f54cfe065bfc70c446f2e66935d6a4c"
     },
     "records/derived-skills/derived.ryker.shining-octahedron-dice.json": {
-      "bytes": 1107,
-      "sha256": "7a838ddb86cac71644dd402db8a86301dbab2928223d38dee6e1a6519404f713"
+      "bytes": 1103,
+      "sha256": "965f3e63b32a917b850617ec2d672e3f53628af96aa725aea342b10fd67d3dd4"
     },
     "records/derived-skills/derived.salvador.dedication.json": {
       "bytes": 656,
@@ -1486,44 +1486,44 @@
       "sha256": "608d51a3d38ccd3a9ea8f7c10b7ed59f1b7b06471b0a98c502251a28afbb3c17"
     },
     "records/derived-skills/derived.salvador.sanctuary-of-mercy.json": {
-      "bytes": 889,
-      "sha256": "aa969e08912ee936a013ea7b7ea197316b3553ad5ba1287208e8da721fed8053"
+      "bytes": 885,
+      "sha256": "024999d277ddcd371c75e7a992bf67d87f5ed907d66a62d8dfe3c110e1081570"
     },
     "records/derived-skills/derived.tawil.echoes-of-the-past.json": {
-      "bytes": 746,
-      "sha256": "8597200482fab413e4cb39acded3b481ca3d27b33a1a46104b3fccdd764c0060"
+      "bytes": 742,
+      "sha256": "dd2233648061a98c7034ab6a9a22ee5c7b46d11f24c982c0e2d80500167e0cb6"
     },
     "records/derived-skills/derived.tawil.emissarys-verdict.json": {
-      "bytes": 796,
-      "sha256": "13f92612771580eb303cab4486c409a659ee4aa48de7f5d2d03021b8cd7eee4c"
+      "bytes": 792,
+      "sha256": "140c11d3a17dcb0bace425282bc27e2cf6c31adecfe520289d4190b96e2bfc95"
     },
     "records/derived-skills/derived.tawil.four-wings.json": {
       "bytes": 1150,
       "sha256": "2c97d740898b13c96c249c57a04ce59b097b501a6087ab1f0e3662c74d0585df"
     },
     "records/derived-skills/derived.tawil.honey-mead.json": {
-      "bytes": 575,
-      "sha256": "7838622afe405ad8e3adb71c3dc8651376b34fc4844e4c2ae94a7e7da6b520f4"
+      "bytes": 571,
+      "sha256": "5a2b58cafe8b8733acd79894ef18b84f8edcf21c52b1689a79726394b781a8aa"
     },
     "records/derived-skills/derived.tawil.innocent-return-gift.json": {
-      "bytes": 692,
-      "sha256": "35efe7ea9f67a4e985f1110f1d733a7efc70421b227401b6483c518268d021c2"
+      "bytes": 688,
+      "sha256": "2035f2a05436962aa0250b8e958481270e15ae0b878b0ea1748857a245c9d370"
     },
     "records/derived-skills/derived.tawil.memories.json": {
       "bytes": 861,
       "sha256": "dd19ca85f90fe15f4ac75894d836ff18acd7b0e41fc38193b19108caa32389f8"
     },
     "records/derived-skills/derived.tawil.mutated-heart.json": {
-      "bytes": 637,
-      "sha256": "97d76d541c10ab10f7b0f4ae6952dd592e3a4f2bec2c70f8abe73c70e7ef8c8d"
+      "bytes": 633,
+      "sha256": "1cc8bba49ebbf67b7bed1f98cb3712d57972086f4837e406d1ae80d54269365a"
     },
     "records/derived-skills/derived.tawil.polar-dusklight.json": {
-      "bytes": 666,
-      "sha256": "5792fd4bd1b5f6a25976a4a769ce0265ea5e91a109c09189f62f701d421778e2"
+      "bytes": 662,
+      "sha256": "8d42fff34b73f2943d7bcec9d63fe9a9d1a52ca324d90c47f595467506cc88f7"
     },
     "records/derived-skills/derived.tawil.silver-key-dawn.json": {
-      "bytes": 770,
-      "sha256": "37b666ae3ae496bfe17ac5a6b17d51a0302a85d3fd0e66763a7e60843a4971e7"
+      "bytes": 766,
+      "sha256": "84bdf54a62ef31bd55030776527e6bfe78687282d33b4a00c2a51fd463186ad3"
     },
     "records/derived-skills/derived.tawil.six-wings.json": {
       "bytes": 1039,
@@ -1534,8 +1534,8 @@
       "sha256": "99c64ca0d35573ace3c1738f65376522b0381f65f571720a192d02388a3e81e6"
     },
     "records/derived-skills/derived.tawil.utopian-veil.json": {
-      "bytes": 594,
-      "sha256": "317b74c0c7c3f89e3dad224e6765d65e4fc4ed7e618e769cb587086709525b03"
+      "bytes": 590,
+      "sha256": "16b42aaf6faa6c0ac0065214e1f365119e64dd4a23307afc03e74a972063a592"
     },
     "records/derived-skills/derived.thais.blood-of-coition.json": {
       "bytes": 1163,
@@ -1550,8 +1550,8 @@
       "sha256": "00a1c7deb07685d9d3a68218980273cb79b68cdd5f26c3f78bd71a1984963718"
     },
     "records/derived-skills/derived.thais.scion-of-purity.json": {
-      "bytes": 853,
-      "sha256": "46826aeff587ea43325ee6dd5581894ac31bcdce92bfef5ec358761c05119ed4"
+      "bytes": 849,
+      "sha256": "c376bee8a184dd637e5e73940c8e9d197b2e6e906fd11e1a905b5be1eb0f172b"
     },
     "records/derived-skills/derived.vortice.vortex-shell.json": {
       "bytes": 2209,

@@ -7,8 +7,8 @@
     "slug": "embryo",
     "canonicalPath": "/database/derived-skills/embryo"
   },
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "{Caro} Awakeners consume this on Exalt to trigger {Devour}. On play: One Awakener gains [Energy:Arg1] Aliemus and +[Arg2]% Crit Rate this turn.",
   "descriptionArgs": {
     "Arg1": {

@@ -10,8 +10,8 @@
   "ownerAwakenerId": "awakener-0058",
   "derivedFromId": "derived.pontos.gaunts",
   "rootSkillId": "skill.pontos.gauntwards-call",
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "Deal {Fixed DMG} equal to [Arg5]% {Tentacle DMG} to the lowest-HP enemy, and gain Temporary Crit. DMG equal to [Arg3]% of Pontos's Base Crit. DMG.",
   "descriptionArgs": {
     "Arg3": {

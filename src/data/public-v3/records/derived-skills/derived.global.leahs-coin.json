@@ -7,8 +7,8 @@
     "slug": "leahs-coin",
     "canonicalPath": "/database/derived-skills/leahs-coin"
   },
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "Gain 2 Arithmetica, draw 2 cards.",
   "descriptionArgs": {},
   "cardKeywords": [

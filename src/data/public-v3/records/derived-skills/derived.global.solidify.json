@@ -8,8 +8,8 @@
     "canonicalPath": "/database/derived-skills/solidify"
   },
   "derivedFromId": "derived.global.prion-virus",
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "Gain [Arg1] {plural:[Arg1]|stack|stacks} of {STR}, and suffer from [Arg2] {plural:[Arg2]|stack|stacks} of {Poison}.",
   "descriptionArgs": {
     "Arg1": {

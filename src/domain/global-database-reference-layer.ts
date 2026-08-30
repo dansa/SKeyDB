@@ -8,6 +8,7 @@ import type {
   DerivedSkillRecord,
   FullStats,
 } from './awakener-source-schema'
+import {formatCanonicalCardMetadata} from './card-classification'
 import {buildCardKeywordFooterText} from './card-keywords'
 import {getCovenants, type Covenant} from './covenants'
 import type {CovenantFullRecord} from './covenants-full'
@@ -171,7 +172,7 @@ function buildAwakenerSkillReferenceInfo(
     kind: 'skill',
     id: record.id,
     name: record.displayName,
-    label: record.displayName,
+    label: formatCanonicalCardMetadata(record, record.cost ?? '—'),
     record,
     description: resolved.description,
     keywordFooterText: buildCardKeywordFooterText(record.cardKeywords),

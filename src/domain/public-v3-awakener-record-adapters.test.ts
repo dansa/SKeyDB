@@ -143,6 +143,9 @@ describe('public V3 awakener record adapters', () => {
       name: 'Cached Rouse',
       ownerAwakenerId: 'awakener-0001',
       slot: 'Rouse',
+      cardFamily: 'rouse',
+      cardTypes: ['rouse'],
+      countsAs: [],
       publicOnly: 'kept',
     })
 
@@ -150,6 +153,9 @@ describe('public V3 awakener record adapters', () => {
     expect(adaptPublicV3SkillRecord(parsed)).toEqual(
       expect.objectContaining({
         cardKeywords: [],
+        cardFamily: 'rouse',
+        cardTypes: ['rouse'],
+        countsAs: [],
         descriptionArgs: {},
         descriptionTemplate: '',
       }),

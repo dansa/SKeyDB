@@ -7,8 +7,8 @@
     "slug": "echoes-of-the-past",
     "canonicalPath": "/database/derived-skills/echoes-of-the-past"
   },
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "Restore Current HP and Shield to the state at the end of the previous Turn.",
   "descriptionArgs": {},
   "cardKeywords": [

@@ -87,8 +87,17 @@ export function makeSkillRecord(
   overrides: Partial<AwakenerSkillRecord> &
     Pick<AwakenerSkillRecord, 'id' | 'kind' | 'displayName'>,
 ): AwakenerSkillRecord {
+  const cardFamily =
+    overrides.kind === 'rouse'
+      ? 'rouse'
+      : overrides.kind === 'exalt' || overrides.kind === 'over_exalt'
+        ? 'exalt'
+        : 'command'
   return {
     cost: '1',
+    cardFamily,
+    cardTypes: [overrides.kind === 'command' ? 'skill' : overrides.kind],
+    countsAs: [],
     descriptionTemplate: `${overrides.displayName} text`,
     descriptionArgs: {},
     cardKeywords: [],
@@ -125,8 +134,11 @@ export function makeDerivedSkillRecord(
   overrides: Partial<DerivedSkillRecord> & Pick<DerivedSkillRecord, 'id' | 'displayName'>,
 ): DerivedSkillRecord {
   return {
-    nodeKind: 'single',
+    nodeKind: 'card',
     cost: '0',
+    cardFamily: 'command',
+    cardTypes: ['derived'],
+    countsAs: [],
     descriptionTemplate: `${overrides.displayName} text`,
     descriptionArgs: {},
     childDerivedSkillIds: [],

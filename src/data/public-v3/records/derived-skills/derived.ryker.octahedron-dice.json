@@ -8,8 +8,8 @@
     "canonicalPath": "/database/awakeners/ryker/derived-skills/octahedron-dice"
   },
   "ownerAwakenerId": "awakener-0043",
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "Roll a [Arg2]-sided die, gain Temporary {STR} equal to the die roll*[Arg1]. If the roll is 4 or higher, {Vulnerable} all enemies for 1 turn. If the roll is 6 or higher, the gained Temporary {STR} is doubled.",
   "descriptionArgs": {
     "Arg1": {

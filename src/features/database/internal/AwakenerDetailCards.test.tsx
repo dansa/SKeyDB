@@ -125,6 +125,22 @@ describe('AwakenerDetailCards', () => {
           ],
           keywordFooterText: '{Retain}, {Prepare 2}',
         }),
+        makeDatabaseDescribedEntry({
+          key: 'C4',
+          label: 'Card · C4 · Cost 1',
+          record: makeSkillRecord({
+            id: 'skill.test.mortal-blast',
+            kind: 'command',
+            displayName: 'Mortal Blast',
+            cardFamily: 'command',
+            cardTypes: ['skill'],
+            countsAs: ['strike'],
+            cost: '1',
+            descriptionTemplate: 'Mortal Blast text',
+          }),
+          resolved: {description: 'Mortal Blast text'} as never,
+          descriptionMaxRank: 6,
+        }),
       ],
       promotedExtras: [
         makeDatabaseDescribedEntry({
@@ -165,21 +181,28 @@ describe('AwakenerDetailCards', () => {
     expect(screen.getAllByText('T1')).toHaveLength(3)
     expect(screen.getByText('Cost 2')).toBeInTheDocument()
     expect(screen.getByText('Rouse text|{Retain}, {Prepare 2}')).toBeInTheDocument()
-    expect(screen.getByText('Derived Cards')).toBeInTheDocument()
+    expect(screen.getByText('Base Cards')).toBeInTheDocument()
+    expect(screen.getByText('Extra Cards')).toBeInTheDocument()
     expect(screen.getByText('Important Extra')).toBeInTheDocument()
     expect(screen.getByText('Important Extra').closest('[data-card-header]')).toHaveTextContent(
-      /Important Extra.*Derived.*Cost 0/,
+      /Important Extra.*Cost 0.*Command.*Derived/,
     )
     expect(screen.getByText('Extra text|{Exhaust}')).toBeInTheDocument()
     expect(
       screen.getByText('Twisted Carrion Revel').closest('[data-card-header]'),
-    ).toHaveTextContent(/Twisted Carrion Revel.*Exalt.*Cost 100/)
+    ).toHaveTextContent(/Twisted Carrion Revel.*Cost 100.*Exalt/)
     expect(
       screen.getByText('Mediating Personalities').closest('[data-card-header]'),
-    ).toHaveTextContent(/Mediating Personalities.*Rouse.*Cost 2/)
+    ).toHaveTextContent(/Mediating Personalities.*Cost 2.*Rouse/)
+    expect(screen.getByText('Mortal Blast').closest('[data-card-header]')).toHaveTextContent(
+      /Mortal Blast.*Cost 1.*Command.*Skill.*Counts as Strike/,
+    )
+    expect(screen.getByText('Counts as Strike').parentElement).toHaveTextContent(
+      '·Counts as Strike',
+    )
     expect(
       screen.getByRole('button', {name: 'Over Exalt'}).closest('[data-card-header]'),
-    ).toHaveTextContent(/Face Death in Fiery Resolve.*Over Exalt.*Cost 200/)
+    ).toHaveTextContent(/Face Death in Fiery Resolve.*Cost 200.*Exalt.*Over Exalt/)
 
     fireEvent.click(screen.getByRole('button', {name: 'Over Exalt'}))
     expect(openRootReferenceByName).toHaveBeenCalledWith('Over Exalt', expect.anything())

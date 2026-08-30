@@ -10,8 +10,8 @@
   "ownerAwakenerId": "awakener-0058",
   "derivedFromId": "derived.pontos.gaunts",
   "rootSkillId": "skill.pontos.gauntwards-call",
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "Shuffle [Arg1] {derived:Insight} into the Draw Pile. Other Awakeners gain [Energy:Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {

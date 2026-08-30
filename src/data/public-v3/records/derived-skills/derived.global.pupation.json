@@ -8,8 +8,8 @@
     "canonicalPath": "/database/derived-skills/pupation"
   },
   "derivedFromId": "derived.global.cocoon-of-revival",
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "Gain Shield equal to 30% of Max HP.",
   "descriptionArgs": {},
   "cardKeywords": []

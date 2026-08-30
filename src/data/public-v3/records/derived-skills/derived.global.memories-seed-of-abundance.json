@@ -8,8 +8,8 @@
     "canonicalPath": "/database/derived-skills/remembrance-core-of-abundance"
   },
   "derivedFromId": "derived.global.twilight-seed-of-abundance",
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "Choose 1 non-Derived Command Card and shuffle 10 original copies of it into the Draw Pile. Reduced the Arithmetica Cost of these cards by 2 until the next time they are played.",
   "descriptionArgs": {},
   "cardKeywords": [

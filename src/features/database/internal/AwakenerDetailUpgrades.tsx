@@ -8,7 +8,7 @@ import type {ResolvedDatabaseReferenceLayer} from '@/domain/database-reference-l
 import {getRelicPortraitAssetByAssetId} from '@/domain/relic-assets'
 import {getPortraitRelicByAwakenerId, loadRelicDescriptionById} from '@/domain/relics'
 
-import {useDatabasePopoverControllerContext} from './database-popover-context'
+import {DatabaseRootReferenceLabel} from './DatabaseRootReferenceLabel'
 import {DatabaseScopedRichDescription} from './DatabaseScopedRichDescription'
 import {DetailSection, type DetailSectionItem} from './DetailSection'
 import {getStarSize, scaledFontStyle, type FontScale} from './font-scale'
@@ -62,7 +62,6 @@ export function AwakenerDetailUpgrades({
   showVisibleScaling = true,
   showTagIcons = true,
 }: AwakenerDetailUpgradesProps) {
-  const popoverController = useDatabasePopoverControllerContext()
   const portraitRelic = getPortraitRelicByAwakenerId(awakener.id)
   const [loadedPortraitRelicDescription, setLoadedPortraitRelicDescription] = useState<{
     relicId: string
@@ -150,19 +149,10 @@ export function AwakenerDetailUpgrades({
     if (shellView.overExalt) {
       items.push({
         key: 'OverExalt',
-        label: popoverController ? (
-          <button
-            className='cursor-pointer text-slate-500 transition-colors hover:text-amber-100'
-            onClick={(event) => {
-              popoverController.openRootReferenceByName('Over Exalt', event)
-            }}
-            style={scaledFontStyle(12)}
-            type='button'
-          >
+        label: (
+          <DatabaseRootReferenceLabel referenceName='Over Exalt' style={scaledFontStyle(12)}>
             Over-Exaltation
-          </button>
-        ) : (
-          'Over-Exaltation'
+          </DatabaseRootReferenceLabel>
         ),
         name: shellView.overExalt.record.displayName,
         description: shellView.overExalt.resolved.description,
@@ -177,19 +167,10 @@ export function AwakenerDetailUpgrades({
     if (absoluteAxiom) {
       items.push({
         key: 'AbsoluteAxiom',
-        label: popoverController ? (
-          <button
-            className='cursor-pointer text-slate-500 transition-colors hover:text-amber-100'
-            onClick={(event) => {
-              popoverController.openRootReferenceByName('Absolute Axiom', event)
-            }}
-            style={scaledFontStyle(12)}
-            type='button'
-          >
+        label: (
+          <DatabaseRootReferenceLabel referenceName='Absolute Axiom' style={scaledFontStyle(12)}>
             Absolute Axiom
-          </button>
-        ) : (
-          'Absolute Axiom'
+          </DatabaseRootReferenceLabel>
         ),
         name: absoluteAxiom.record.displayName,
         description: absoluteAxiom.resolved.description,
@@ -200,7 +181,7 @@ export function AwakenerDetailUpgrades({
     }
 
     return items
-  }, [fontScale, popoverController, shellView])
+  }, [fontScale, shellView])
 
   if (!shellView) {
     return <p className='py-4 text-xs text-slate-400'>Loading…</p>

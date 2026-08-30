@@ -1,4 +1,4 @@
-import {useMemo, type ReactNode} from 'react'
+import {useMemo} from 'react'
 
 import type {
   AwakenerEnlightenRecord,
@@ -9,6 +9,7 @@ import {
   type DatabaseDescribedEntry,
   type ResolvedAwakenerDatabaseShellView,
 } from '@/domain/awakeners-database-view'
+import {getCanonicalCardClassificationLabels} from '@/domain/card-classification'
 import type {ResolvedDatabaseReferenceLayer} from '@/domain/database-reference-layer'
 
 import {AwakenerEnlightenInfluenceBadges} from './AwakenerEnlightenInfluenceBadges'
@@ -18,7 +19,7 @@ import {
   getDatabaseDetailBodyTextStyle,
   getDatabaseDetailSectionHeadingStyle,
 } from './database-detail-typography'
-import {useDatabasePopoverControllerContext} from './database-popover-context'
+import {DatabaseRootReferenceLabel} from './DatabaseRootReferenceLabel'
 import {DatabaseScopedRichDescription} from './DatabaseScopedRichDescription'
 import {
   DATABASE_ITEM_NAME_CLASS,
@@ -49,8 +50,8 @@ type CardCostKind = Parameters<typeof getCardDisplayCost>[1]
 
 interface CardSectionMeta {
   key: string
-  label: ReactNode
   costKind: CardCostKind
+  classificationReferenceName?: string
 }
 
 function AwakenerCardDescription({
@@ -122,6 +123,10 @@ function AwakenerCardSection<TRecord extends AwakenerSkillRecord | DerivedSkillR
       <div>
         {entries.map((entry, index) => {
           const meta = getEntryMeta(entry)
+          const metadataLabels = [
+            `Cost ${getCardDisplayCost(entry.record.cost, meta.costKind, exaltBaseCost)}`,
+            ...getCanonicalCardClassificationLabels(entry.record),
+          ]
 
           return (
             <div key={meta.key}>
@@ -136,11 +141,33 @@ function AwakenerCardSection<TRecord extends AwakenerSkillRecord | DerivedSkillR
                       className='mt-0.5 flex flex-wrap items-center gap-x-1.5 gap-y-0.5 text-slate-500'
                       style={getDatabaseDetailBodyTextStyle()}
                     >
-                      {meta.label}
-                      <span className='text-slate-600'>·</span>
-                      <span className={`${DATABASE_STAT_TOKEN_CLASS} whitespace-nowrap`}>
-                        Cost {getCardDisplayCost(entry.record.cost, meta.costKind, exaltBaseCost)}
-                      </span>
+                      {metadataLabels.map((label, labelIndex) => {
+                        const labelNode =
+                          label === meta.classificationReferenceName ? (
+                            <DatabaseRootReferenceLabel referenceName={label}>
+                              {label}
+                            </DatabaseRootReferenceLabel>
+                          ) : (
+                            <span>{label}</span>
+                          )
+
+                        return labelIndex === 0 ? (
+                          <span
+                            key={`${label}:${labelIndex.toString()}`}
+                            className={`${DATABASE_STAT_TOKEN_CLASS} whitespace-nowrap`}
+                          >
+                            {label}
+                          </span>
+                        ) : (
+                          <span
+                            key={`${label}:${labelIndex.toString()}`}
+                            className='inline-flex items-center gap-1.5 whitespace-nowrap'
+                          >
+                            <span className='text-slate-600'>·</span>
+                            {labelNode}
+                          </span>
+                        )
+                      })}
                     </div>
                   </div>
                   <div className='flex shrink-0 items-center gap-2'>
@@ -183,8 +210,6 @@ export function AwakenerDetailCards({
   showVisibleScaling = true,
   showTagIcons = true,
 }: AwakenerDetailCardsProps) {
-  const popoverController = useDatabasePopoverControllerContext()
-
   const exaltBaseCost = useMemo(
     () => shellView?.exalts.find((entry) => entry.key === 'Exalt')?.record.cost,
     [shellView],
@@ -205,22 +230,8 @@ export function AwakenerDetailCards({
           formulaContext={shellView.formulaContext}
           getEntryMeta={(entry) => ({
             key: entry.key.toLowerCase(),
-            label:
-              entry.key === 'OverExalt' && popoverController ? (
-                <button
-                  className='cursor-pointer text-slate-500 transition-colors hover:text-amber-100'
-                  onClick={(event) => {
-                    popoverController.openRootReferenceByName('Over Exalt', event)
-                  }}
-                  style={getDatabaseDetailBodyTextStyle()}
-                  type='button'
-                >
-                  Over Exalt
-                </button>
-              ) : (
-                <span>{entry.key === 'OverExalt' ? 'Over Exalt' : 'Exalt'}</span>
-              ),
             costKind: entry.record.kind,
+            classificationReferenceName: entry.key === 'OverExalt' ? 'Over Exalt' : undefined,
           })}
           onToggleEnlightenSlot={onToggleEnlightenSlot}
           referenceLayer={referenceLayer}
@@ -238,22 +249,8 @@ export function AwakenerDetailCards({
           formulaContext={shellView.formulaContext}
           getEntryMeta={(entry) => ({
             key: entry.key,
-            label:
-              entry.key === 'C1' && popoverController ? (
-                <button
-                  className='cursor-pointer text-slate-500 transition-colors hover:text-amber-100'
-                  onClick={(event) => {
-                    popoverController.openRootReferenceByName('Rouse', event)
-                  }}
-                  style={getDatabaseDetailBodyTextStyle()}
-                  type='button'
-                >
-                  Rouse
-                </button>
-              ) : (
-                <span>{entry.key === 'C1' ? 'Rouse' : entry.key}</span>
-              ),
             costKind: entry.record.kind,
+            classificationReferenceName: entry.key === 'C1' ? 'Rouse' : undefined,
           })}
           onToggleEnlightenSlot={onToggleEnlightenSlot}
           referenceLayer={referenceLayer}
@@ -262,7 +259,7 @@ export function AwakenerDetailCards({
           showVisibleScaling={showVisibleScaling}
           skillLevel={shellView.skillLevel}
           stats={shellView.stats}
-          title='Command Cards'
+          title='Base Cards'
         />
 
         {shellView.promotedExtras.length > 0 ? (
@@ -272,7 +269,6 @@ export function AwakenerDetailCards({
             formulaContext={shellView.formulaContext}
             getEntryMeta={(entry) => ({
               key: entry.record.id,
-              label: <span>Derived</span>,
               costKind: 'other',
             })}
             onToggleEnlightenSlot={onToggleEnlightenSlot}
@@ -282,7 +278,7 @@ export function AwakenerDetailCards({
             showVisibleScaling={showVisibleScaling}
             skillLevel={shellView.skillLevel}
             stats={shellView.stats}
-            title='Derived Cards'
+            title='Extra Cards'
           />
         ) : null}
       </div>

@@ -16,6 +16,10 @@ import {
   type AwakenerFullResolveOptions,
   type ResolvedAwakenerFullRecord,
 } from './awakeners-full-resolver'
+import {
+  formatCanonicalCardMetadata,
+  getCanonicalCardClassificationLabels,
+} from './card-classification'
 import {buildCardKeywordFooterText} from './card-keywords'
 import type {
   DatabaseInfluenceBadge,
@@ -193,14 +197,17 @@ function resolveEnlightenEntry(
   }
 }
 
-function formatCardLabel(name: string, cost: string | undefined): string {
-  return `Card · ${name} · Cost ${cost ?? '—'}`
+function formatCardLabel(
+  record: Pick<AwakenerSkillRecord | DerivedSkillRecord, 'cardFamily' | 'cardTypes' | 'countsAs'>,
+  cost: string | undefined,
+): string {
+  return formatCanonicalCardMetadata(record, cost ?? '—')
 }
 
 function getDerivedSkillLabel(skill: DerivedSkillRecord): string {
   return skill.nodeKind === 'group'
-    ? 'Card · Derived Group'
-    : formatCardLabel('Derived', skill.cost)
+    ? ['Group', ...getCanonicalCardClassificationLabels(skill)].join(' · ')
+    : formatCardLabel(skill, skill.cost)
 }
 
 function resolveTalentRank(
@@ -417,11 +424,11 @@ function resolveDerivedEntryWithInfluences(
 }
 
 const COMMAND_CARD_SPECS = [
-  {key: 'C1', name: 'Rouse'},
-  {key: 'C2', name: 'C2'},
-  {key: 'C3', name: 'C3'},
-  {key: 'C4', name: 'C4'},
-  {key: 'C5', name: 'C5'},
+  {key: 'C1'},
+  {key: 'C2'},
+  {key: 'C3'},
+  {key: 'C4'},
+  {key: 'C5'},
 ] as const
 
 function buildCommandCardEntries(
@@ -432,10 +439,10 @@ function buildCommandCardEntries(
   lookups: DatabaseEntryInfluenceLookups,
   badgeLookups: DatabaseInfluenceBadgeLookups,
 ): DatabaseDescribedEntry<AwakenerSkillRecord>[] {
-  return COMMAND_CARD_SPECS.map(({key, name}) =>
+  return COMMAND_CARD_SPECS.map(({key}) =>
     resolveSkillEntryWithInfluences(
       key,
-      formatCardLabel(name, cards[key].cost),
+      formatCardLabel(cards[key], cards[key].cost),
       cards[key],
       skillLevel,
       stats,
@@ -457,7 +464,7 @@ function buildExaltEntries(
   const exalts = [
     resolveSkillEntryWithInfluences(
       'Exalt',
-      formatCardLabel('Exalt', cards.Exalt.cost),
+      formatCardLabel(cards.Exalt, cards.Exalt.cost),
       cards.Exalt,
       skillLevel,
       stats,
@@ -471,7 +478,7 @@ function buildExaltEntries(
     exalts.push(
       resolveSkillEntryWithInfluences(
         'OverExalt',
-        formatCardLabel('Over Exalt', cards.OverExalt.cost),
+        formatCardLabel(cards.OverExalt, cards.OverExalt.cost),
         cards.OverExalt,
         skillLevel,
         stats,
