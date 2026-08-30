@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 3,
+  "kind": "orison",
+  "id": "orison-0001",
+  "name": "Finesse",
+  "route": {
+    "slug": "finesse",
+    "canonicalPath": "/database/orisons/finesse"
+  },
+  "assets": {
+    "icon": "asset-orison-0001-icon"
+  },
+  "orisonType": "STANDARD",
+  "variantCount": 2,
+  "defaultVariantId": "orison-variant-0001",
+  "aliases": [],
+  "descriptionTemplate": "When played, draw [Arg1] {plural:[Arg1]|card|cards}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "variants": [
+    {
+      "id": "orison-variant-0001",
+      "name": "Finesse",
+      "tier": "Common",
+      "descriptionTemplate": "When played, draw [Arg1] {plural:[Arg1]|card|cards}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "orisonType": "STANDARD",
+      "assets": {
+        "icon": "asset-orison-variant-0001-icon"
+      }
+    },
+    {
+      "id": "orison-variant-0002",
+      "name": "Adv. Finesse",
+      "tier": "Advanced",
+      "descriptionTemplate": "When played, draw [Arg1] {plural:[Arg1]|card|cards}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "2"
+        }
+      },
+      "orisonType": "STANDARD",
+      "assets": {
+        "icon": "asset-orison-variant-0002-icon"
+      }
+    }
+  ]
+}

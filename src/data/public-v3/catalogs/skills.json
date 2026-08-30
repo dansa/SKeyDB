@@ -4127,7 +4127,8 @@
       "cardTypes": ["exalt"],
       "ownerAwakenerId": "awakener-0040",
       "ownerAwakenerName": "Pickman",
-      "slot": "Exalt"
+      "slot": "Exalt",
+      "orisonIds": ["orison-0001", "orison-0002", "orison-0003", "orison-0016", "orison-0017", "orison-0006", "orison-0014", "orison-0018"]
     },
     {
       "kind": "skill",
@@ -5303,7 +5304,8 @@
       "cardTypes": ["rouse"],
       "ownerAwakenerId": "awakener-0049",
       "ownerAwakenerName": "Tinct",
-      "slot": "Rouse"
+      "slot": "Rouse",
+      "orisonIds": ["orison-0001", "orison-0002", "orison-0003", "orison-0004", "orison-0005", "orison-0006"]
     },
     {
       "kind": "skill",

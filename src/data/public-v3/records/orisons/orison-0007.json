@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 3,
+  "kind": "orison",
+  "id": "orison-0007",
+  "name": "Echo",
+  "route": {
+    "slug": "echo",
+    "canonicalPath": "/database/orisons/echo"
+  },
+  "assets": {
+    "icon": "asset-orison-0007-icon"
+  },
+  "orisonType": "STANDARD",
+  "variantCount": 2,
+  "defaultVariantId": "orison-variant-0013",
+  "aliases": [],
+  "descriptionTemplate": "The engraved card gains {Exhaust} and {Innate}. When played, takes effect [Arg1] additional {plural:[Arg1]|time|times}, and you receive [Arg2] Black Sigils.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "1"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "5"
+    }
+  },
+  "variants": [
+    {
+      "id": "orison-variant-0013",
+      "name": "Echo",
+      "tier": "Common",
+      "descriptionTemplate": "The engraved card gains {Exhaust} and {Innate}. When played, takes effect [Arg1] additional {plural:[Arg1]|time|times}, and you receive [Arg2] Black Sigils.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "1"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "5"
+        }
+      },
+      "orisonType": "STANDARD",
+      "assets": {
+        "icon": "asset-orison-variant-0013-icon"
+      }
+    },
+    {
+      "id": "orison-variant-0014",
+      "name": "Adv. Echo",
+      "tier": "Advanced",
+      "descriptionTemplate": "When played, takes effect [Arg1] additional {plural:[Arg1]|time|times}, and you receive [Arg2] Black Sigils. (This Orison also affixed {Exhaust} and {Innate} to the card.)",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "2"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "10"
+        }
+      },
+      "orisonType": "STANDARD",
+      "assets": {
+        "icon": "asset-orison-variant-0014-icon"
+      }
+    }
+  ]
+}

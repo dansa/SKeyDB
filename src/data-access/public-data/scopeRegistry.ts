@@ -46,7 +46,7 @@ export const PUBLIC_SCOPE_DESCRIPTORS = buildPublicScopeDescriptors()
 
 export type PublicDataScopeWithCapability<TCapability extends PublicScopeCapability> =
   TCapability extends 'search'
-    ? 'awakeners' | 'covenants' | 'posses' | 'relics' | 'wheels'
+    ? 'awakeners' | 'covenants' | 'orisons' | 'posses' | 'relics' | 'wheels'
     : PublicDataScope
 
 export type SearchablePublicDataScope = PublicDataScopeWithCapability<'search'>

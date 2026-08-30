@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 3,
+  "kind": "orison",
+  "id": "orison-0019",
+  "name": "Ensemble",
+  "route": {
+    "slug": "ensemble",
+    "canonicalPath": "/database/orisons/ensemble"
+  },
+  "assets": {
+    "icon": "asset-orison-0019-icon"
+  },
+  "orisonType": "SPECIAL",
+  "variantCount": 2,
+  "defaultVariantId": "orison-variant-0037",
+  "aliases": [],
+  "descriptionTemplate": "When played for the first time each turn, takes effect 1 additional time.",
+  "descriptionArgs": {},
+  "variants": [
+    {
+      "id": "orison-variant-0037",
+      "name": "Ensemble",
+      "tier": "Common",
+      "descriptionTemplate": "When played for the first time each turn, takes effect 1 additional time.",
+      "descriptionArgs": {},
+      "orisonType": "SPECIAL",
+      "assets": {
+        "icon": "asset-orison-variant-0037-icon"
+      }
+    },
+    {
+      "id": "orison-variant-0038",
+      "name": "Adv. Ensemble",
+      "tier": "Advanced",
+      "descriptionTemplate": "When played for the first time each turn, takes effect 2 additional times.",
+      "descriptionArgs": {},
+      "orisonType": "SPECIAL",
+      "assets": {
+        "icon": "asset-orison-variant-0038-icon"
+      }
+    }
+  ]
+}

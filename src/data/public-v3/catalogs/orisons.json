@@ -1,0 +1,419 @@
+{
+  "schemaVersion": 3,
+  "scope": "orisons",
+  "kind": "orison",
+  "recordCount": 24,
+  "records": [
+    {
+      "kind": "orison",
+      "id": "orison-0001",
+      "name": "Finesse",
+      "route": {
+        "slug": "finesse",
+        "canonicalPath": "/database/orisons/finesse"
+      },
+      "assets": {
+        "icon": "asset-orison-0001-icon"
+      },
+      "orisonType": "STANDARD",
+      "variantCount": 2,
+      "defaultVariantId": "orison-variant-0001",
+      "aliases": [],
+      "variantTiers": ["Common", "Advanced"]
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0002",
+      "name": "Computation",
+      "route": {
+        "slug": "computation",
+        "canonicalPath": "/database/orisons/computation"
+      },
+      "assets": {
+        "icon": "asset-orison-0002-icon"
+      },
+      "orisonType": "STANDARD",
+      "variantCount": 2,
+      "defaultVariantId": "orison-variant-0003",
+      "aliases": [],
+      "variantTiers": ["Common", "Advanced"]
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0003",
+      "name": "Berserk",
+      "route": {
+        "slug": "berserk",
+        "canonicalPath": "/database/orisons/berserk"
+      },
+      "assets": {
+        "icon": "asset-orison-0003-icon"
+      },
+      "orisonType": "STANDARD",
+      "variantCount": 2,
+      "defaultVariantId": "orison-variant-0005",
+      "aliases": [],
+      "variantTiers": ["Common", "Advanced"]
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0004",
+      "name": "Vulnerable",
+      "route": {
+        "slug": "vulnerable",
+        "canonicalPath": "/database/orisons/vulnerable"
+      },
+      "assets": {
+        "icon": "asset-orison-0004-icon"
+      },
+      "orisonType": "STANDARD",
+      "variantCount": 2,
+      "defaultVariantId": "orison-variant-0007",
+      "aliases": [],
+      "variantTiers": ["Common", "Advanced"]
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0005",
+      "name": "Weakness",
+      "route": {
+        "slug": "weakness",
+        "canonicalPath": "/database/orisons/weakness"
+      },
+      "assets": {
+        "icon": "asset-orison-0005-icon"
+      },
+      "orisonType": "STANDARD",
+      "variantCount": 2,
+      "defaultVariantId": "orison-variant-0009",
+      "aliases": [],
+      "variantTiers": ["Common", "Advanced"]
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0006",
+      "name": "Bastion",
+      "route": {
+        "slug": "bastion",
+        "canonicalPath": "/database/orisons/bastion"
+      },
+      "assets": {
+        "icon": "asset-orison-0006-icon"
+      },
+      "orisonType": "STANDARD",
+      "variantCount": 2,
+      "defaultVariantId": "orison-variant-0011",
+      "aliases": [],
+      "variantTiers": ["Common", "Advanced"]
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0007",
+      "name": "Echo",
+      "route": {
+        "slug": "echo",
+        "canonicalPath": "/database/orisons/echo"
+      },
+      "assets": {
+        "icon": "asset-orison-0007-icon"
+      },
+      "orisonType": "STANDARD",
+      "variantCount": 2,
+      "defaultVariantId": "orison-variant-0013",
+      "aliases": [],
+      "variantTiers": ["Common", "Advanced"]
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0008",
+      "name": "Mirror",
+      "route": {
+        "slug": "mirror",
+        "canonicalPath": "/database/orisons/mirror"
+      },
+      "assets": {
+        "icon": "asset-orison-0008-icon"
+      },
+      "orisonType": "STANDARD",
+      "variantCount": 2,
+      "defaultVariantId": "orison-variant-0015",
+      "aliases": [],
+      "variantTiers": ["Common", "Advanced"]
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0009",
+      "name": "Spike",
+      "route": {
+        "slug": "spike",
+        "canonicalPath": "/database/orisons/spike"
+      },
+      "assets": {
+        "icon": "asset-orison-0009-icon"
+      },
+      "orisonType": "STANDARD",
+      "variantCount": 2,
+      "defaultVariantId": "orison-variant-0017",
+      "aliases": [],
+      "variantTiers": ["Common", "Advanced"]
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0010",
+      "name": "Toxin",
+      "route": {
+        "slug": "toxin",
+        "canonicalPath": "/database/orisons/toxin"
+      },
+      "assets": {
+        "icon": "asset-orison-0010-icon"
+      },
+      "orisonType": "STANDARD",
+      "variantCount": 2,
+      "defaultVariantId": "orison-variant-0019",
+      "aliases": [],
+      "variantTiers": ["Common", "Advanced"]
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0011",
+      "name": "Dominion",
+      "route": {
+        "slug": "dominion",
+        "canonicalPath": "/database/orisons/dominion"
+      },
+      "assets": {
+        "icon": "asset-orison-0011-icon"
+      },
+      "realm": "AEQUOR",
+      "orisonType": "STANDARD",
+      "variantCount": 2,
+      "defaultVariantId": "orison-variant-0021",
+      "aliases": [],
+      "variantTiers": ["Common", "Advanced"]
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0012",
+      "name": "Bloodlust",
+      "route": {
+        "slug": "bloodlust",
+        "canonicalPath": "/database/orisons/bloodlust"
+      },
+      "assets": {
+        "icon": "asset-orison-0012-icon"
+      },
+      "realm": "CARO",
+      "orisonType": "STANDARD",
+      "variantCount": 2,
+      "defaultVariantId": "orison-variant-0023",
+      "aliases": [],
+      "variantTiers": ["Common", "Advanced"]
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0013",
+      "name": "Warp",
+      "route": {
+        "slug": "warp",
+        "canonicalPath": "/database/orisons/warp"
+      },
+      "assets": {
+        "icon": "asset-orison-0013-icon"
+      },
+      "realm": "ULTRA",
+      "orisonType": "STANDARD",
+      "variantCount": 2,
+      "defaultVariantId": "orison-variant-0025",
+      "aliases": [],
+      "variantTiers": ["Common", "Advanced"]
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0014",
+      "name": "Might",
+      "route": {
+        "slug": "might",
+        "canonicalPath": "/database/orisons/might"
+      },
+      "assets": {
+        "icon": "asset-orison-0014-icon"
+      },
+      "orisonType": "STANDARD",
+      "variantCount": 2,
+      "defaultVariantId": "orison-variant-0027",
+      "aliases": [],
+      "variantTiers": ["Common", "Advanced"]
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0015",
+      "name": "Burst",
+      "route": {
+        "slug": "burst",
+        "canonicalPath": "/database/orisons/burst"
+      },
+      "assets": {
+        "icon": "asset-orison-0015-icon"
+      },
+      "orisonType": "STANDARD",
+      "variantCount": 2,
+      "defaultVariantId": "orison-variant-0029",
+      "aliases": [],
+      "variantTiers": ["Common", "Advanced"]
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0016",
+      "name": "Catalyst",
+      "route": {
+        "slug": "catalyst",
+        "canonicalPath": "/database/orisons/catalyst"
+      },
+      "assets": {
+        "icon": "asset-orison-0016-icon"
+      },
+      "orisonType": "STANDARD",
+      "variantCount": 2,
+      "defaultVariantId": "orison-variant-0031",
+      "aliases": ["Catalysis"],
+      "variantTiers": ["Common", "Advanced"]
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0017",
+      "name": "Insight",
+      "route": {
+        "slug": "insight",
+        "canonicalPath": "/database/orisons/insight"
+      },
+      "assets": {
+        "icon": "asset-orison-0017-icon"
+      },
+      "orisonType": "STANDARD",
+      "variantCount": 2,
+      "defaultVariantId": "orison-variant-0033",
+      "aliases": [],
+      "variantTiers": ["Common", "Advanced"]
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0018",
+      "name": "Drain",
+      "route": {
+        "slug": "drain",
+        "canonicalPath": "/database/orisons/drain"
+      },
+      "assets": {
+        "icon": "asset-orison-0018-icon"
+      },
+      "orisonType": "STANDARD",
+      "variantCount": 2,
+      "defaultVariantId": "orison-variant-0035",
+      "aliases": [],
+      "variantTiers": ["Common", "Advanced"]
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0019",
+      "name": "Ensemble",
+      "route": {
+        "slug": "ensemble",
+        "canonicalPath": "/database/orisons/ensemble"
+      },
+      "assets": {
+        "icon": "asset-orison-0019-icon"
+      },
+      "orisonType": "SPECIAL",
+      "variantCount": 2,
+      "defaultVariantId": "orison-variant-0037",
+      "aliases": [],
+      "variantTiers": ["Common", "Advanced"]
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0020",
+      "name": "Birth",
+      "route": {
+        "slug": "birth",
+        "canonicalPath": "/database/orisons/birth"
+      },
+      "assets": {
+        "icon": "asset-orison-0020-icon"
+      },
+      "orisonType": "SPECIAL",
+      "variantCount": 1,
+      "defaultVariantId": "orison-variant-0039",
+      "aliases": [],
+      "variantTiers": ["Common"]
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0021",
+      "name": "Lex Genis",
+      "route": {
+        "slug": "lex-genis",
+        "canonicalPath": "/database/orisons/lex-genis"
+      },
+      "assets": {
+        "icon": "asset-orison-0021-icon"
+      },
+      "orisonType": "SPECIAL",
+      "variantCount": 2,
+      "defaultVariantId": "orison-variant-0040",
+      "aliases": [],
+      "variantTiers": ["Advanced", "Cursed"]
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0022",
+      "name": "Lex Volis",
+      "route": {
+        "slug": "lex-volis",
+        "canonicalPath": "/database/orisons/lex-volis"
+      },
+      "assets": {
+        "icon": "asset-orison-0022-icon"
+      },
+      "orisonType": "SPECIAL",
+      "variantCount": 2,
+      "defaultVariantId": "orison-variant-0042",
+      "aliases": [],
+      "variantTiers": ["Advanced", "Cursed"]
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0023",
+      "name": "Lex Nous",
+      "route": {
+        "slug": "lex-nous",
+        "canonicalPath": "/database/orisons/lex-nous"
+      },
+      "assets": {
+        "icon": "asset-orison-0023-icon"
+      },
+      "orisonType": "SPECIAL",
+      "variantCount": 2,
+      "defaultVariantId": "orison-variant-0044",
+      "aliases": [],
+      "variantTiers": ["Advanced", "Cursed"]
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0024",
+      "name": "Abyss Echo",
+      "route": {
+        "slug": "abyss-echo",
+        "canonicalPath": "/database/orisons/abyss-echo"
+      },
+      "assets": {
+        "icon": "asset-orison-0024-icon"
+      },
+      "orisonType": "SPECIAL",
+      "variantCount": 1,
+      "defaultVariantId": "orison-variant-0046",
+      "aliases": [],
+      "variantTiers": ["Unique"]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 3,
+  "kind": "orison",
+  "id": "orison-0023",
+  "name": "Lex Nous",
+  "route": {
+    "slug": "lex-nous",
+    "canonicalPath": "/database/orisons/lex-nous"
+  },
+  "assets": {
+    "icon": "asset-orison-0023-icon"
+  },
+  "orisonType": "SPECIAL",
+  "variantCount": 2,
+  "defaultVariantId": "orison-variant-0044",
+  "aliases": [],
+  "descriptionTemplate": "Play to draw 2 cards, their Arithmetica Cost reduces the actual consumption of Orison cards, and it is effective only once per battle.",
+  "descriptionArgs": {},
+  "variants": [
+    {
+      "id": "orison-variant-0044",
+      "name": "Lex Nous",
+      "tier": "Advanced",
+      "descriptionTemplate": "Play to draw 2 cards, their Arithmetica Cost reduces the actual consumption of Orison cards, and it is effective only once per battle.",
+      "descriptionArgs": {},
+      "orisonType": "SPECIAL",
+      "assets": {
+        "icon": "asset-orison-variant-0044-icon"
+      }
+    },
+    {
+      "id": "orison-variant-0045",
+      "name": "Adv. Lex Nous",
+      "tier": "Cursed",
+      "descriptionTemplate": "Play to draw 4 cards; their Arithmetica Cost reduces by the Cost of this card, effective only once per battle.",
+      "descriptionArgs": {},
+      "orisonType": "SPECIAL",
+      "assets": {
+        "icon": "asset-orison-variant-0045-icon"
+      }
+    }
+  ]
+}

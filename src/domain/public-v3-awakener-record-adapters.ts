@@ -80,6 +80,8 @@ export type PublicV3SkillRecord = PublicV3OwnedRecord & {
   descriptionTemplate?: string
   slot?: string
   upgrades?: PublicV3UpgradeEntry[]
+  orisonIds?: string[]
+  orisonApplications?: unknown[]
 }
 
 export type PublicV3TalentRecord = PublicV3OwnedRecord & {
@@ -127,6 +129,8 @@ const publicV3SkillRecordShape = {
   descriptionTemplate: z.string().optional(),
   slot: z.string().optional(),
   upgrades: z.array(publicV3UpgradeEntrySchema).optional(),
+  orisonIds: z.array(z.string()).optional(),
+  orisonApplications: z.array(z.unknown()).optional(),
 }
 const publicV3TalentRecordShape = {
   kind: z.literal('talent'),

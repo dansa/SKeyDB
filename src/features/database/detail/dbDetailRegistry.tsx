@@ -22,6 +22,8 @@ import {
 } from '@/domain/database-paths'
 import type {EntityRef} from '@/domain/entities/types'
 import {formatAwakenerNameForUi} from '@/domain/name-format'
+import {getOrisonAssetByAssetId} from '@/domain/orison-assets'
+import type {Orison, PublicOrisonRecord} from '@/domain/orisons'
 import {getPosseAssetById} from '@/domain/posse-assets'
 import {getPosses, type Posse} from '@/domain/posses'
 import type {PosseFullRecord} from '@/domain/posses-full'
@@ -55,6 +57,10 @@ function loadRelicDetailModalModule() {
   return import('@/features/database/internal/RelicDetailModal')
 }
 
+function loadOrisonDetailModalModule() {
+  return import('@/features/database/internal/OrisonDetailModal')
+}
+
 const AwakenerDetailModal = lazy(() =>
   loadAwakenerDetailModalModule().then((module) => ({
     default: module.AwakenerDetailModal,
@@ -72,6 +78,9 @@ const SimpleArtifactDetailModal = lazy(() =>
 )
 const RelicDetailModal = lazy(() =>
   loadRelicDetailModalModule().then((module) => ({default: module.RelicDetailModal})),
+)
+const OrisonDetailModal = lazy(() =>
+  loadOrisonDetailModalModule().then((module) => ({default: module.OrisonDetailModal})),
 )
 
 export type {DatabaseDetailKind} from '@/domain/database-entity-definitions'
@@ -102,6 +111,7 @@ export type DatabaseDetailRouteItem =
   | {kind: 'posse'; item: Posse}
   | {kind: 'covenant'; item: Covenant}
   | {kind: 'relic'; item: Relic; variantId?: string}
+  | {kind: 'orison'; item: Orison; variantId?: string}
 
 export type DatabaseDetailRouteItemByKind = {
   [Kind in DatabaseDetailKind]: Extract<DatabaseDetailRouteItem, {kind: Kind}>
@@ -113,6 +123,7 @@ export interface DatabaseDetailRecordByKind {
   posse: PosseFullRecord
   covenant: CovenantFullRecord
   relic: PublicRelicRecord
+  orison: PublicOrisonRecord
 }
 
 interface DatabaseDetailCatalogItemByKind {
@@ -121,6 +132,7 @@ interface DatabaseDetailCatalogItemByKind {
   posse: Posse
   covenant: Covenant
   relic: Relic
+  orison: Orison
 }
 
 interface DatabaseDetailCatalogIndex<Kind extends DatabaseDetailKind> {
@@ -136,6 +148,7 @@ export type DatabaseDetailCatalogLookup = {
 interface DatabaseDetailCatalogs {
   awakeners: readonly Awakener[]
   relics: readonly Relic[]
+  orisons: readonly Orison[]
   wheels: readonly Wheel[]
 }
 
@@ -216,9 +229,10 @@ function createCatalogIndex<Kind extends DatabaseDetailKind>(
 export function createDatabaseDetailCatalogLookup({
   awakeners,
   relics,
+  orisons,
   wheels,
 }: DatabaseDetailCatalogs): DatabaseDetailCatalogLookup {
-  const catalogs = {awakeners, relics, wheels}
+  const catalogs = {awakeners, orisons, relics, wheels}
   return Object.fromEntries(
     DATABASE_ENTITY_DEFINITIONS.map(({detailKind}) => [
       detailKind,
@@ -309,6 +323,11 @@ async function loadCovenantDetailRecord(id: string) {
 async function loadRelicDetailRecord(id: string) {
   const {loadRelicRecordById} = await import('@/domain/relics')
   return loadRelicRecordById(id)
+}
+
+async function loadOrisonDetailRecord(id: string) {
+  const {loadOrisonRecordById} = await import('@/domain/orisons')
+  return loadOrisonRecordById(id)
 }
 
 export const dbDetailRegistry: DatabaseDetailRegistry = {
@@ -507,6 +526,41 @@ export const dbDetailRegistry: DatabaseDetailRegistry = {
       />
     ),
     resolveReference: (lookup, reference) => resolveCatalogReference('relic', lookup, reference),
+    selectResult: (navigation, ref) => {
+      navigation.select(ref)
+    },
+  },
+  orison: {
+    createOverlayRouteItem: (lookup, id) => {
+      const item = lookup.orison.byId.get(id)
+      return item ? {kind: 'orison', item} : null
+    },
+    getCatalogItems: ({orisons}) => orisons,
+    loadRecord: loadOrisonDetailRecord,
+    loadShell: loadOrisonDetailModalModule,
+    loadingLabel: 'Loading orison details...',
+    loadingMaxWidth: 'standard',
+    loadingSearchPlaceholder: null,
+    missingBrowsePath: buildDatabaseEntityBrowsePath('orisons'),
+    presentResult: (orison) => ({
+      id: orison.id,
+      imageSrc: getOrisonAssetByAssetId(orison.assetId),
+      imageTreatment: 'icon',
+      name: orison.name,
+    }),
+    render: ({item, navigation, navigationPort, record}) => (
+      <OrisonDetailModal
+        fullData={record}
+        item={item.item}
+        navigation={navigation}
+        onClose={navigationPort.close}
+        onOrisonVariantChange={(variantId) => {
+          navigationPort.updateState({variant: variantId})
+        }}
+        selectedVariantId={item.variantId}
+      />
+    ),
+    resolveReference: (lookup, reference) => resolveCatalogReference('orison', lookup, reference),
     selectResult: (navigation, ref) => {
       navigation.select(ref)
     },

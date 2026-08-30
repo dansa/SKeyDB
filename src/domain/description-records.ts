@@ -54,6 +54,14 @@ export interface RelicDatabaseDescriptionRecord {
   descriptionArgs: Record<string, PublicDescriptionArg>
 }
 
+export interface OrisonDatabaseDescriptionRecord {
+  id: string
+  kind: 'orison'
+  displayName: string
+  descriptionTemplate: string
+  descriptionArgs: Record<string, PublicDescriptionArg>
+}
+
 export type DescribedRecord =
   | AwakenerSkillRecord
   | AwakenerTalentRecord
@@ -64,6 +72,7 @@ export type DescribedRecord =
   | PosseDatabaseDescriptionRecord
   | CovenantDatabaseDescriptionRecord
   | RelicDatabaseDescriptionRecord
+  | OrisonDatabaseDescriptionRecord
 
 export interface ResolvedDescribedRecordArgEntry {
   key: string

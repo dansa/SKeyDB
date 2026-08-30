@@ -7784,6 +7784,892 @@
         ]
       }
     },
+    "asset-orison-0001-icon": {
+      "id": "asset-orison-0001-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0001",
+      "assetId": "UI_Rune_3_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_3_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_3_Big.webp", "src/assets/icons/UI_Rune_3_Big.png"]
+      }
+    },
+    "asset-orison-variant-0001-icon": {
+      "id": "asset-orison-variant-0001-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0001",
+      "variantId": "orison-variant-0001",
+      "assetId": "UI_Rune_3_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_3_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_3_Big.webp", "src/assets/icons/UI_Rune_3_Big.png"]
+      }
+    },
+    "asset-orison-variant-0002-icon": {
+      "id": "asset-orison-variant-0002-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0001",
+      "variantId": "orison-variant-0002",
+      "assetId": "UI_Rune_3_Big_High",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_3_Big_High.webp",
+        "candidates": ["src/assets/icons/UI_Rune_3_Big_High.webp", "src/assets/icons/UI_Rune_3_Big_High.png"]
+      }
+    },
+    "asset-orison-0002-icon": {
+      "id": "asset-orison-0002-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0002",
+      "assetId": "UI_Rune_4_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_4_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_4_Big.webp", "src/assets/icons/UI_Rune_4_Big.png"]
+      }
+    },
+    "asset-orison-variant-0003-icon": {
+      "id": "asset-orison-variant-0003-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0002",
+      "variantId": "orison-variant-0003",
+      "assetId": "UI_Rune_4_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_4_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_4_Big.webp", "src/assets/icons/UI_Rune_4_Big.png"]
+      }
+    },
+    "asset-orison-variant-0004-icon": {
+      "id": "asset-orison-variant-0004-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0002",
+      "variantId": "orison-variant-0004",
+      "assetId": "UI_Rune_4_Big_High",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_4_Big_High.webp",
+        "candidates": ["src/assets/icons/UI_Rune_4_Big_High.webp", "src/assets/icons/UI_Rune_4_Big_High.png"]
+      }
+    },
+    "asset-orison-0003-icon": {
+      "id": "asset-orison-0003-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0003",
+      "assetId": "UI_Rune_5_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_5_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_5_Big.webp", "src/assets/icons/UI_Rune_5_Big.png"]
+      }
+    },
+    "asset-orison-variant-0005-icon": {
+      "id": "asset-orison-variant-0005-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0003",
+      "variantId": "orison-variant-0005",
+      "assetId": "UI_Rune_5_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_5_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_5_Big.webp", "src/assets/icons/UI_Rune_5_Big.png"]
+      }
+    },
+    "asset-orison-variant-0006-icon": {
+      "id": "asset-orison-variant-0006-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0003",
+      "variantId": "orison-variant-0006",
+      "assetId": "UI_Rune_5_Big_High",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_5_Big_High.webp",
+        "candidates": ["src/assets/icons/UI_Rune_5_Big_High.webp", "src/assets/icons/UI_Rune_5_Big_High.png"]
+      }
+    },
+    "asset-orison-0004-icon": {
+      "id": "asset-orison-0004-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0004",
+      "assetId": "UI_Rune_1_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_1_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_1_Big.webp", "src/assets/icons/UI_Rune_1_Big.png"]
+      }
+    },
+    "asset-orison-variant-0007-icon": {
+      "id": "asset-orison-variant-0007-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0004",
+      "variantId": "orison-variant-0007",
+      "assetId": "UI_Rune_1_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_1_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_1_Big.webp", "src/assets/icons/UI_Rune_1_Big.png"]
+      }
+    },
+    "asset-orison-variant-0008-icon": {
+      "id": "asset-orison-variant-0008-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0004",
+      "variantId": "orison-variant-0008",
+      "assetId": "UI_Rune_1_Big_High",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_1_Big_High.webp",
+        "candidates": ["src/assets/icons/UI_Rune_1_Big_High.webp", "src/assets/icons/UI_Rune_1_Big_High.png"]
+      }
+    },
+    "asset-orison-0005-icon": {
+      "id": "asset-orison-0005-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0005",
+      "assetId": "UI_Rune_2_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_2_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_2_Big.webp", "src/assets/icons/UI_Rune_2_Big.png"]
+      }
+    },
+    "asset-orison-variant-0009-icon": {
+      "id": "asset-orison-variant-0009-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0005",
+      "variantId": "orison-variant-0009",
+      "assetId": "UI_Rune_2_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_2_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_2_Big.webp", "src/assets/icons/UI_Rune_2_Big.png"]
+      }
+    },
+    "asset-orison-variant-0010-icon": {
+      "id": "asset-orison-variant-0010-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0005",
+      "variantId": "orison-variant-0010",
+      "assetId": "UI_Rune_2_Big_High",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_2_Big_High.webp",
+        "candidates": ["src/assets/icons/UI_Rune_2_Big_High.webp", "src/assets/icons/UI_Rune_2_Big_High.png"]
+      }
+    },
+    "asset-orison-0006-icon": {
+      "id": "asset-orison-0006-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0006",
+      "assetId": "UI_Rune_6_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_6_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_6_Big.webp", "src/assets/icons/UI_Rune_6_Big.png"]
+      }
+    },
+    "asset-orison-variant-0011-icon": {
+      "id": "asset-orison-variant-0011-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0006",
+      "variantId": "orison-variant-0011",
+      "assetId": "UI_Rune_6_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_6_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_6_Big.webp", "src/assets/icons/UI_Rune_6_Big.png"]
+      }
+    },
+    "asset-orison-variant-0012-icon": {
+      "id": "asset-orison-variant-0012-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0006",
+      "variantId": "orison-variant-0012",
+      "assetId": "UI_Rune_6_Big_High",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_6_Big_High.webp",
+        "candidates": ["src/assets/icons/UI_Rune_6_Big_High.webp", "src/assets/icons/UI_Rune_6_Big_High.png"]
+      }
+    },
+    "asset-orison-0007-icon": {
+      "id": "asset-orison-0007-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0007",
+      "assetId": "UI_Rune_7_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_7_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_7_Big.webp", "src/assets/icons/UI_Rune_7_Big.png"]
+      }
+    },
+    "asset-orison-variant-0013-icon": {
+      "id": "asset-orison-variant-0013-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0007",
+      "variantId": "orison-variant-0013",
+      "assetId": "UI_Rune_7_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_7_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_7_Big.webp", "src/assets/icons/UI_Rune_7_Big.png"]
+      }
+    },
+    "asset-orison-variant-0014-icon": {
+      "id": "asset-orison-variant-0014-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0007",
+      "variantId": "orison-variant-0014",
+      "assetId": "UI_Rune_7_Big_High",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_7_Big_High.webp",
+        "candidates": ["src/assets/icons/UI_Rune_7_Big_High.webp", "src/assets/icons/UI_Rune_7_Big_High.png"]
+      }
+    },
+    "asset-orison-0008-icon": {
+      "id": "asset-orison-0008-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0008",
+      "assetId": "UI_Rune_8_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_8_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_8_Big.webp", "src/assets/icons/UI_Rune_8_Big.png"]
+      }
+    },
+    "asset-orison-variant-0015-icon": {
+      "id": "asset-orison-variant-0015-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0008",
+      "variantId": "orison-variant-0015",
+      "assetId": "UI_Rune_8_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_8_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_8_Big.webp", "src/assets/icons/UI_Rune_8_Big.png"]
+      }
+    },
+    "asset-orison-variant-0016-icon": {
+      "id": "asset-orison-variant-0016-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0008",
+      "variantId": "orison-variant-0016",
+      "assetId": "UI_Rune_8_Big_High",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_8_Big_High.webp",
+        "candidates": ["src/assets/icons/UI_Rune_8_Big_High.webp", "src/assets/icons/UI_Rune_8_Big_High.png"]
+      }
+    },
+    "asset-orison-0009-icon": {
+      "id": "asset-orison-0009-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0009",
+      "assetId": "UI_Rune_9_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_9_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_9_Big.webp", "src/assets/icons/UI_Rune_9_Big.png"]
+      }
+    },
+    "asset-orison-variant-0017-icon": {
+      "id": "asset-orison-variant-0017-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0009",
+      "variantId": "orison-variant-0017",
+      "assetId": "UI_Rune_9_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_9_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_9_Big.webp", "src/assets/icons/UI_Rune_9_Big.png"]
+      }
+    },
+    "asset-orison-variant-0018-icon": {
+      "id": "asset-orison-variant-0018-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0009",
+      "variantId": "orison-variant-0018",
+      "assetId": "UI_Rune_9_Big_High",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_9_Big_High.webp",
+        "candidates": ["src/assets/icons/UI_Rune_9_Big_High.webp", "src/assets/icons/UI_Rune_9_Big_High.png"]
+      }
+    },
+    "asset-orison-0010-icon": {
+      "id": "asset-orison-0010-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0010",
+      "assetId": "UI_Rune_10_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_10_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_10_Big.webp", "src/assets/icons/UI_Rune_10_Big.png"]
+      }
+    },
+    "asset-orison-variant-0019-icon": {
+      "id": "asset-orison-variant-0019-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0010",
+      "variantId": "orison-variant-0019",
+      "assetId": "UI_Rune_10_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_10_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_10_Big.webp", "src/assets/icons/UI_Rune_10_Big.png"]
+      }
+    },
+    "asset-orison-variant-0020-icon": {
+      "id": "asset-orison-variant-0020-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0010",
+      "variantId": "orison-variant-0020",
+      "assetId": "UI_Rune_10_Big_High",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_10_Big_High.webp",
+        "candidates": ["src/assets/icons/UI_Rune_10_Big_High.webp", "src/assets/icons/UI_Rune_10_Big_High.png"]
+      }
+    },
+    "asset-orison-0011-icon": {
+      "id": "asset-orison-0011-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0011",
+      "assetId": "UI_Rune_11_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_11_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_11_Big.webp", "src/assets/icons/UI_Rune_11_Big.png"]
+      }
+    },
+    "asset-orison-variant-0021-icon": {
+      "id": "asset-orison-variant-0021-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0011",
+      "variantId": "orison-variant-0021",
+      "assetId": "UI_Rune_11_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_11_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_11_Big.webp", "src/assets/icons/UI_Rune_11_Big.png"]
+      }
+    },
+    "asset-orison-variant-0022-icon": {
+      "id": "asset-orison-variant-0022-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0011",
+      "variantId": "orison-variant-0022",
+      "assetId": "UI_Rune_11_Big_High",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_11_Big_High.webp",
+        "candidates": ["src/assets/icons/UI_Rune_11_Big_High.webp", "src/assets/icons/UI_Rune_11_Big_High.png"]
+      }
+    },
+    "asset-orison-0012-icon": {
+      "id": "asset-orison-0012-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0012",
+      "assetId": "UI_Rune_12_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_12_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_12_Big.webp", "src/assets/icons/UI_Rune_12_Big.png"]
+      }
+    },
+    "asset-orison-variant-0023-icon": {
+      "id": "asset-orison-variant-0023-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0012",
+      "variantId": "orison-variant-0023",
+      "assetId": "UI_Rune_12_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_12_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_12_Big.webp", "src/assets/icons/UI_Rune_12_Big.png"]
+      }
+    },
+    "asset-orison-variant-0024-icon": {
+      "id": "asset-orison-variant-0024-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0012",
+      "variantId": "orison-variant-0024",
+      "assetId": "UI_Rune_12_Big_High",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_12_Big_High.webp",
+        "candidates": ["src/assets/icons/UI_Rune_12_Big_High.webp", "src/assets/icons/UI_Rune_12_Big_High.png"]
+      }
+    },
+    "asset-orison-0013-icon": {
+      "id": "asset-orison-0013-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0013",
+      "assetId": "UI_Rune_13_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_13_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_13_Big.webp", "src/assets/icons/UI_Rune_13_Big.png"]
+      }
+    },
+    "asset-orison-variant-0025-icon": {
+      "id": "asset-orison-variant-0025-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0013",
+      "variantId": "orison-variant-0025",
+      "assetId": "UI_Rune_13_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_13_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_13_Big.webp", "src/assets/icons/UI_Rune_13_Big.png"]
+      }
+    },
+    "asset-orison-variant-0026-icon": {
+      "id": "asset-orison-variant-0026-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0013",
+      "variantId": "orison-variant-0026",
+      "assetId": "UI_Rune_13_Big_High",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_13_Big_High.webp",
+        "candidates": ["src/assets/icons/UI_Rune_13_Big_High.webp", "src/assets/icons/UI_Rune_13_Big_High.png"]
+      }
+    },
+    "asset-orison-0014-icon": {
+      "id": "asset-orison-0014-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0014",
+      "assetId": "UI_Rune_14_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_14_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_14_Big.webp", "src/assets/icons/UI_Rune_14_Big.png"]
+      }
+    },
+    "asset-orison-variant-0027-icon": {
+      "id": "asset-orison-variant-0027-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0014",
+      "variantId": "orison-variant-0027",
+      "assetId": "UI_Rune_14_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_14_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_14_Big.webp", "src/assets/icons/UI_Rune_14_Big.png"]
+      }
+    },
+    "asset-orison-variant-0028-icon": {
+      "id": "asset-orison-variant-0028-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0014",
+      "variantId": "orison-variant-0028",
+      "assetId": "UI_Rune_14_Big_High",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_14_Big_High.webp",
+        "candidates": ["src/assets/icons/UI_Rune_14_Big_High.webp", "src/assets/icons/UI_Rune_14_Big_High.png"]
+      }
+    },
+    "asset-orison-0015-icon": {
+      "id": "asset-orison-0015-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0015",
+      "assetId": "UI_Rune_15_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_15_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_15_Big.webp", "src/assets/icons/UI_Rune_15_Big.png"]
+      }
+    },
+    "asset-orison-variant-0029-icon": {
+      "id": "asset-orison-variant-0029-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0015",
+      "variantId": "orison-variant-0029",
+      "assetId": "UI_Rune_15_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_15_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_15_Big.webp", "src/assets/icons/UI_Rune_15_Big.png"]
+      }
+    },
+    "asset-orison-variant-0030-icon": {
+      "id": "asset-orison-variant-0030-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0015",
+      "variantId": "orison-variant-0030",
+      "assetId": "UI_Rune_15_Big_High",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_15_Big_High.webp",
+        "candidates": ["src/assets/icons/UI_Rune_15_Big_High.webp", "src/assets/icons/UI_Rune_15_Big_High.png"]
+      }
+    },
+    "asset-orison-0016-icon": {
+      "id": "asset-orison-0016-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0016",
+      "assetId": "UI_Rune_16_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_16_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_16_Big.webp", "src/assets/icons/UI_Rune_16_Big.png"]
+      }
+    },
+    "asset-orison-variant-0031-icon": {
+      "id": "asset-orison-variant-0031-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0016",
+      "variantId": "orison-variant-0031",
+      "assetId": "UI_Rune_16_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_16_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_16_Big.webp", "src/assets/icons/UI_Rune_16_Big.png"]
+      }
+    },
+    "asset-orison-variant-0032-icon": {
+      "id": "asset-orison-variant-0032-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0016",
+      "variantId": "orison-variant-0032",
+      "assetId": "UI_Rune_16_Big_High",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_16_Big_High.webp",
+        "candidates": ["src/assets/icons/UI_Rune_16_Big_High.webp", "src/assets/icons/UI_Rune_16_Big_High.png"]
+      }
+    },
+    "asset-orison-0017-icon": {
+      "id": "asset-orison-0017-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0017",
+      "assetId": "UI_Rune_17_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_17_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_17_Big.webp", "src/assets/icons/UI_Rune_17_Big.png"]
+      }
+    },
+    "asset-orison-variant-0033-icon": {
+      "id": "asset-orison-variant-0033-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0017",
+      "variantId": "orison-variant-0033",
+      "assetId": "UI_Rune_17_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_17_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_17_Big.webp", "src/assets/icons/UI_Rune_17_Big.png"]
+      }
+    },
+    "asset-orison-variant-0034-icon": {
+      "id": "asset-orison-variant-0034-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0017",
+      "variantId": "orison-variant-0034",
+      "assetId": "UI_Rune_17_Big_High",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_17_Big_High.webp",
+        "candidates": ["src/assets/icons/UI_Rune_17_Big_High.webp", "src/assets/icons/UI_Rune_17_Big_High.png"]
+      }
+    },
+    "asset-orison-0018-icon": {
+      "id": "asset-orison-0018-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0018",
+      "assetId": "UI_Rune_18_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_18_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_18_Big.webp", "src/assets/icons/UI_Rune_18_Big.png"]
+      }
+    },
+    "asset-orison-variant-0035-icon": {
+      "id": "asset-orison-variant-0035-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0018",
+      "variantId": "orison-variant-0035",
+      "assetId": "UI_Rune_18_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_18_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_18_Big.webp", "src/assets/icons/UI_Rune_18_Big.png"]
+      }
+    },
+    "asset-orison-variant-0036-icon": {
+      "id": "asset-orison-variant-0036-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0018",
+      "variantId": "orison-variant-0036",
+      "assetId": "UI_Rune_18_Big_High",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_18_Big_High.webp",
+        "candidates": ["src/assets/icons/UI_Rune_18_Big_High.webp", "src/assets/icons/UI_Rune_18_Big_High.png"]
+      }
+    },
+    "asset-orison-0019-icon": {
+      "id": "asset-orison-0019-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0019",
+      "assetId": "UI_Rune_19_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_19_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_19_Big.webp", "src/assets/icons/UI_Rune_19_Big.png"]
+      }
+    },
+    "asset-orison-variant-0037-icon": {
+      "id": "asset-orison-variant-0037-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0019",
+      "variantId": "orison-variant-0037",
+      "assetId": "UI_Rune_19_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_19_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_19_Big.webp", "src/assets/icons/UI_Rune_19_Big.png"]
+      }
+    },
+    "asset-orison-variant-0038-icon": {
+      "id": "asset-orison-variant-0038-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0019",
+      "variantId": "orison-variant-0038",
+      "assetId": "UI_Rune_19_Big_High",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_19_Big_High.webp",
+        "candidates": ["src/assets/icons/UI_Rune_19_Big_High.webp", "src/assets/icons/UI_Rune_19_Big_High.png"]
+      }
+    },
+    "asset-orison-0020-icon": {
+      "id": "asset-orison-0020-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0020",
+      "assetId": "UI_Rune_20_Big_High",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_20_Big_High.webp",
+        "candidates": ["src/assets/icons/UI_Rune_20_Big_High.webp", "src/assets/icons/UI_Rune_20_Big_High.png"]
+      }
+    },
+    "asset-orison-variant-0039-icon": {
+      "id": "asset-orison-variant-0039-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0020",
+      "variantId": "orison-variant-0039",
+      "assetId": "UI_Rune_20_Big_High",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_20_Big_High.webp",
+        "candidates": ["src/assets/icons/UI_Rune_20_Big_High.webp", "src/assets/icons/UI_Rune_20_Big_High.png"]
+      }
+    },
+    "asset-orison-0021-icon": {
+      "id": "asset-orison-0021-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0021",
+      "assetId": "UI_Rune_21_Big_High",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_21_Big_High.webp",
+        "candidates": ["src/assets/icons/UI_Rune_21_Big_High.webp", "src/assets/icons/UI_Rune_21_Big_High.png"]
+      }
+    },
+    "asset-orison-variant-0040-icon": {
+      "id": "asset-orison-variant-0040-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0021",
+      "variantId": "orison-variant-0040",
+      "assetId": "UI_Rune_21_Big_High",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_21_Big_High.webp",
+        "candidates": ["src/assets/icons/UI_Rune_21_Big_High.webp", "src/assets/icons/UI_Rune_21_Big_High.png"]
+      }
+    },
+    "asset-orison-variant-0041-icon": {
+      "id": "asset-orison-variant-0041-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0021",
+      "variantId": "orison-variant-0041",
+      "assetId": "UI_Rune_21_Big_High",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_21_Big_High.webp",
+        "candidates": ["src/assets/icons/UI_Rune_21_Big_High.webp", "src/assets/icons/UI_Rune_21_Big_High.png"]
+      }
+    },
+    "asset-orison-0022-icon": {
+      "id": "asset-orison-0022-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0022",
+      "assetId": "UI_Rune_22_Big_High",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_22_Big_High.webp",
+        "candidates": ["src/assets/icons/UI_Rune_22_Big_High.webp", "src/assets/icons/UI_Rune_22_Big_High.png"]
+      }
+    },
+    "asset-orison-variant-0042-icon": {
+      "id": "asset-orison-variant-0042-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0022",
+      "variantId": "orison-variant-0042",
+      "assetId": "UI_Rune_22_Big_High",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_22_Big_High.webp",
+        "candidates": ["src/assets/icons/UI_Rune_22_Big_High.webp", "src/assets/icons/UI_Rune_22_Big_High.png"]
+      }
+    },
+    "asset-orison-variant-0043-icon": {
+      "id": "asset-orison-variant-0043-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0022",
+      "variantId": "orison-variant-0043",
+      "assetId": "UI_Rune_22_Big_High",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_22_Big_High.webp",
+        "candidates": ["src/assets/icons/UI_Rune_22_Big_High.webp", "src/assets/icons/UI_Rune_22_Big_High.png"]
+      }
+    },
+    "asset-orison-0023-icon": {
+      "id": "asset-orison-0023-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0023",
+      "assetId": "UI_Rune_23_Big_High",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_23_Big_High.webp",
+        "candidates": ["src/assets/icons/UI_Rune_23_Big_High.webp", "src/assets/icons/UI_Rune_23_Big_High.png"]
+      }
+    },
+    "asset-orison-variant-0044-icon": {
+      "id": "asset-orison-variant-0044-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0023",
+      "variantId": "orison-variant-0044",
+      "assetId": "UI_Rune_23_Big_High",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_23_Big_High.webp",
+        "candidates": ["src/assets/icons/UI_Rune_23_Big_High.webp", "src/assets/icons/UI_Rune_23_Big_High.png"]
+      }
+    },
+    "asset-orison-variant-0045-icon": {
+      "id": "asset-orison-variant-0045-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0023",
+      "variantId": "orison-variant-0045",
+      "assetId": "UI_Rune_23_Big_High",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_23_Big_High.webp",
+        "candidates": ["src/assets/icons/UI_Rune_23_Big_High.webp", "src/assets/icons/UI_Rune_23_Big_High.png"]
+      }
+    },
+    "asset-orison-0024-icon": {
+      "id": "asset-orison-0024-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0024",
+      "assetId": "UI_Rune_7_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_7_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_7_Big.webp", "src/assets/icons/UI_Rune_7_Big.png"]
+      }
+    },
+    "asset-orison-variant-0046-icon": {
+      "id": "asset-orison-variant-0046-icon",
+      "slot": "icon",
+      "kind": "orison",
+      "ownerId": "orison-0024",
+      "variantId": "orison-variant-0046",
+      "assetId": "UI_Rune_7_Big",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/UI_Rune_7_Big.webp",
+        "candidates": ["src/assets/icons/UI_Rune_7_Big.webp", "src/assets/icons/UI_Rune_7_Big.png"]
+      }
+    },
     "asset-covenant-0001-icon": {
       "id": "asset-covenant-0001-icon",
       "slot": "icon",
@@ -12573,6 +13459,78 @@
     },
     "relic-0316": {
       "icon": "asset-relic-0316-icon"
+    },
+    "orison-0001": {
+      "icon": "asset-orison-0001-icon"
+    },
+    "orison-0002": {
+      "icon": "asset-orison-0002-icon"
+    },
+    "orison-0003": {
+      "icon": "asset-orison-0003-icon"
+    },
+    "orison-0004": {
+      "icon": "asset-orison-0004-icon"
+    },
+    "orison-0005": {
+      "icon": "asset-orison-0005-icon"
+    },
+    "orison-0006": {
+      "icon": "asset-orison-0006-icon"
+    },
+    "orison-0007": {
+      "icon": "asset-orison-0007-icon"
+    },
+    "orison-0008": {
+      "icon": "asset-orison-0008-icon"
+    },
+    "orison-0009": {
+      "icon": "asset-orison-0009-icon"
+    },
+    "orison-0010": {
+      "icon": "asset-orison-0010-icon"
+    },
+    "orison-0011": {
+      "icon": "asset-orison-0011-icon"
+    },
+    "orison-0012": {
+      "icon": "asset-orison-0012-icon"
+    },
+    "orison-0013": {
+      "icon": "asset-orison-0013-icon"
+    },
+    "orison-0014": {
+      "icon": "asset-orison-0014-icon"
+    },
+    "orison-0015": {
+      "icon": "asset-orison-0015-icon"
+    },
+    "orison-0016": {
+      "icon": "asset-orison-0016-icon"
+    },
+    "orison-0017": {
+      "icon": "asset-orison-0017-icon"
+    },
+    "orison-0018": {
+      "icon": "asset-orison-0018-icon"
+    },
+    "orison-0019": {
+      "icon": "asset-orison-0019-icon"
+    },
+    "orison-0020": {
+      "icon": "asset-orison-0020-icon"
+    },
+    "orison-0021": {
+      "icon": "asset-orison-0021-icon"
+    },
+    "orison-0022": {
+      "icon": "asset-orison-0022-icon"
+    },
+    "orison-0023": {
+      "icon": "asset-orison-0023-icon"
+    },
+    "orison-0024": {
+      "icon": "asset-orison-0024-icon"
     },
     "covenant-0001": {
       "icon": "asset-covenant-0001-icon"

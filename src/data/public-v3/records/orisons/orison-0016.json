@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 3,
+  "kind": "orison",
+  "id": "orison-0016",
+  "name": "Catalyst",
+  "route": {
+    "slug": "catalyst",
+    "canonicalPath": "/database/orisons/catalyst"
+  },
+  "assets": {
+    "icon": "asset-orison-0016-icon"
+  },
+  "orisonType": "STANDARD",
+  "variantCount": 2,
+  "defaultVariantId": "orison-variant-0031",
+  "aliases": ["Catalysis"],
+  "descriptionTemplate": "When played, all other Awakeners gain [Arg1] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "5"
+    }
+  },
+  "variants": [
+    {
+      "id": "orison-variant-0031",
+      "name": "Catalyst",
+      "tier": "Common",
+      "descriptionTemplate": "When played, all other Awakeners gain [Arg1] Aliemus.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "5"
+        }
+      },
+      "orisonType": "STANDARD",
+      "assets": {
+        "icon": "asset-orison-variant-0031-icon"
+      }
+    },
+    {
+      "id": "orison-variant-0032",
+      "name": "Adv. Catalysis",
+      "tier": "Advanced",
+      "descriptionTemplate": "When played, all other Awakeners gain [Arg1] Aliemus.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "10"
+        }
+      },
+      "orisonType": "STANDARD",
+      "assets": {
+        "icon": "asset-orison-variant-0032-icon"
+      }
+    }
+  ]
+}

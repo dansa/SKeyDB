@@ -7663,6 +7663,321 @@
       "ownerAwakenerName": "Xu",
       "slot": "E3"
     },
+    "orison-0001": {
+      "kind": "orison",
+      "id": "orison-0001",
+      "name": "Finesse",
+      "route": {
+        "slug": "finesse",
+        "canonicalPath": "/database/orisons/finesse"
+      },
+      "assets": {
+        "icon": "asset-orison-0001-icon"
+      },
+      "orisonType": "STANDARD"
+    },
+    "orison-0002": {
+      "kind": "orison",
+      "id": "orison-0002",
+      "name": "Computation",
+      "route": {
+        "slug": "computation",
+        "canonicalPath": "/database/orisons/computation"
+      },
+      "assets": {
+        "icon": "asset-orison-0002-icon"
+      },
+      "orisonType": "STANDARD"
+    },
+    "orison-0003": {
+      "kind": "orison",
+      "id": "orison-0003",
+      "name": "Berserk",
+      "route": {
+        "slug": "berserk",
+        "canonicalPath": "/database/orisons/berserk"
+      },
+      "assets": {
+        "icon": "asset-orison-0003-icon"
+      },
+      "orisonType": "STANDARD"
+    },
+    "orison-0004": {
+      "kind": "orison",
+      "id": "orison-0004",
+      "name": "Vulnerable",
+      "route": {
+        "slug": "vulnerable",
+        "canonicalPath": "/database/orisons/vulnerable"
+      },
+      "assets": {
+        "icon": "asset-orison-0004-icon"
+      },
+      "orisonType": "STANDARD"
+    },
+    "orison-0005": {
+      "kind": "orison",
+      "id": "orison-0005",
+      "name": "Weakness",
+      "route": {
+        "slug": "weakness",
+        "canonicalPath": "/database/orisons/weakness"
+      },
+      "assets": {
+        "icon": "asset-orison-0005-icon"
+      },
+      "orisonType": "STANDARD"
+    },
+    "orison-0006": {
+      "kind": "orison",
+      "id": "orison-0006",
+      "name": "Bastion",
+      "route": {
+        "slug": "bastion",
+        "canonicalPath": "/database/orisons/bastion"
+      },
+      "assets": {
+        "icon": "asset-orison-0006-icon"
+      },
+      "orisonType": "STANDARD"
+    },
+    "orison-0007": {
+      "kind": "orison",
+      "id": "orison-0007",
+      "name": "Echo",
+      "route": {
+        "slug": "echo",
+        "canonicalPath": "/database/orisons/echo"
+      },
+      "assets": {
+        "icon": "asset-orison-0007-icon"
+      },
+      "orisonType": "STANDARD"
+    },
+    "orison-0008": {
+      "kind": "orison",
+      "id": "orison-0008",
+      "name": "Mirror",
+      "route": {
+        "slug": "mirror",
+        "canonicalPath": "/database/orisons/mirror"
+      },
+      "assets": {
+        "icon": "asset-orison-0008-icon"
+      },
+      "orisonType": "STANDARD"
+    },
+    "orison-0009": {
+      "kind": "orison",
+      "id": "orison-0009",
+      "name": "Spike",
+      "route": {
+        "slug": "spike",
+        "canonicalPath": "/database/orisons/spike"
+      },
+      "assets": {
+        "icon": "asset-orison-0009-icon"
+      },
+      "orisonType": "STANDARD"
+    },
+    "orison-0010": {
+      "kind": "orison",
+      "id": "orison-0010",
+      "name": "Toxin",
+      "route": {
+        "slug": "toxin",
+        "canonicalPath": "/database/orisons/toxin"
+      },
+      "assets": {
+        "icon": "asset-orison-0010-icon"
+      },
+      "orisonType": "STANDARD"
+    },
+    "orison-0011": {
+      "kind": "orison",
+      "id": "orison-0011",
+      "name": "Dominion",
+      "route": {
+        "slug": "dominion",
+        "canonicalPath": "/database/orisons/dominion"
+      },
+      "assets": {
+        "icon": "asset-orison-0011-icon"
+      },
+      "realm": "AEQUOR",
+      "orisonType": "STANDARD"
+    },
+    "orison-0012": {
+      "kind": "orison",
+      "id": "orison-0012",
+      "name": "Bloodlust",
+      "route": {
+        "slug": "bloodlust",
+        "canonicalPath": "/database/orisons/bloodlust"
+      },
+      "assets": {
+        "icon": "asset-orison-0012-icon"
+      },
+      "realm": "CARO",
+      "orisonType": "STANDARD"
+    },
+    "orison-0013": {
+      "kind": "orison",
+      "id": "orison-0013",
+      "name": "Warp",
+      "route": {
+        "slug": "warp",
+        "canonicalPath": "/database/orisons/warp"
+      },
+      "assets": {
+        "icon": "asset-orison-0013-icon"
+      },
+      "realm": "ULTRA",
+      "orisonType": "STANDARD"
+    },
+    "orison-0014": {
+      "kind": "orison",
+      "id": "orison-0014",
+      "name": "Might",
+      "route": {
+        "slug": "might",
+        "canonicalPath": "/database/orisons/might"
+      },
+      "assets": {
+        "icon": "asset-orison-0014-icon"
+      },
+      "orisonType": "STANDARD"
+    },
+    "orison-0015": {
+      "kind": "orison",
+      "id": "orison-0015",
+      "name": "Burst",
+      "route": {
+        "slug": "burst",
+        "canonicalPath": "/database/orisons/burst"
+      },
+      "assets": {
+        "icon": "asset-orison-0015-icon"
+      },
+      "orisonType": "STANDARD"
+    },
+    "orison-0016": {
+      "kind": "orison",
+      "id": "orison-0016",
+      "name": "Catalyst",
+      "route": {
+        "slug": "catalyst",
+        "canonicalPath": "/database/orisons/catalyst"
+      },
+      "assets": {
+        "icon": "asset-orison-0016-icon"
+      },
+      "orisonType": "STANDARD"
+    },
+    "orison-0017": {
+      "kind": "orison",
+      "id": "orison-0017",
+      "name": "Insight",
+      "route": {
+        "slug": "insight",
+        "canonicalPath": "/database/orisons/insight"
+      },
+      "assets": {
+        "icon": "asset-orison-0017-icon"
+      },
+      "orisonType": "STANDARD"
+    },
+    "orison-0018": {
+      "kind": "orison",
+      "id": "orison-0018",
+      "name": "Drain",
+      "route": {
+        "slug": "drain",
+        "canonicalPath": "/database/orisons/drain"
+      },
+      "assets": {
+        "icon": "asset-orison-0018-icon"
+      },
+      "orisonType": "STANDARD"
+    },
+    "orison-0019": {
+      "kind": "orison",
+      "id": "orison-0019",
+      "name": "Ensemble",
+      "route": {
+        "slug": "ensemble",
+        "canonicalPath": "/database/orisons/ensemble"
+      },
+      "assets": {
+        "icon": "asset-orison-0019-icon"
+      },
+      "orisonType": "SPECIAL"
+    },
+    "orison-0020": {
+      "kind": "orison",
+      "id": "orison-0020",
+      "name": "Birth",
+      "route": {
+        "slug": "birth",
+        "canonicalPath": "/database/orisons/birth"
+      },
+      "assets": {
+        "icon": "asset-orison-0020-icon"
+      },
+      "orisonType": "SPECIAL"
+    },
+    "orison-0021": {
+      "kind": "orison",
+      "id": "orison-0021",
+      "name": "Lex Genis",
+      "route": {
+        "slug": "lex-genis",
+        "canonicalPath": "/database/orisons/lex-genis"
+      },
+      "assets": {
+        "icon": "asset-orison-0021-icon"
+      },
+      "orisonType": "SPECIAL"
+    },
+    "orison-0022": {
+      "kind": "orison",
+      "id": "orison-0022",
+      "name": "Lex Volis",
+      "route": {
+        "slug": "lex-volis",
+        "canonicalPath": "/database/orisons/lex-volis"
+      },
+      "assets": {
+        "icon": "asset-orison-0022-icon"
+      },
+      "orisonType": "SPECIAL"
+    },
+    "orison-0023": {
+      "kind": "orison",
+      "id": "orison-0023",
+      "name": "Lex Nous",
+      "route": {
+        "slug": "lex-nous",
+        "canonicalPath": "/database/orisons/lex-nous"
+      },
+      "assets": {
+        "icon": "asset-orison-0023-icon"
+      },
+      "orisonType": "SPECIAL"
+    },
+    "orison-0024": {
+      "kind": "orison",
+      "id": "orison-0024",
+      "name": "Abyss Echo",
+      "route": {
+        "slug": "abyss-echo",
+        "canonicalPath": "/database/orisons/abyss-echo"
+      },
+      "assets": {
+        "icon": "asset-orison-0024-icon"
+      },
+      "orisonType": "SPECIAL"
+    },
     "overlay.24.realm-and-persona": {
       "kind": "overlay",
       "id": "overlay.24.realm-and-persona",
@@ -25395,6 +25710,32 @@
       "enlighten.xu.gu-wang-yan",
       "enlighten.xu.karmic-grave",
       "enlighten.xu.nirvanas-kiss"
+    ],
+    "orisons": [
+      "orison-0001",
+      "orison-0002",
+      "orison-0003",
+      "orison-0004",
+      "orison-0005",
+      "orison-0006",
+      "orison-0007",
+      "orison-0008",
+      "orison-0009",
+      "orison-0010",
+      "orison-0011",
+      "orison-0012",
+      "orison-0013",
+      "orison-0014",
+      "orison-0015",
+      "orison-0016",
+      "orison-0017",
+      "orison-0018",
+      "orison-0019",
+      "orison-0020",
+      "orison-0021",
+      "orison-0022",
+      "orison-0023",
+      "orison-0024"
     ],
     "overlays": [
       "overlay.24.realm-and-persona",

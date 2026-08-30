@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 3,
+  "kind": "orison",
+  "id": "orison-0003",
+  "name": "Berserk",
+  "route": {
+    "slug": "berserk",
+    "canonicalPath": "/database/orisons/berserk"
+  },
+  "assets": {
+    "icon": "asset-orison-0003-icon"
+  },
+  "orisonType": "STANDARD",
+  "variantCount": 2,
+  "defaultVariantId": "orison-variant-0005",
+  "aliases": [],
+  "descriptionTemplate": "When played, this card's Awakener gains [Arg1] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "10"
+    }
+  },
+  "variants": [
+    {
+      "id": "orison-variant-0005",
+      "name": "Berserk",
+      "tier": "Common",
+      "descriptionTemplate": "When played, this card's Awakener gains [Arg1] Aliemus.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "10"
+        }
+      },
+      "orisonType": "STANDARD",
+      "assets": {
+        "icon": "asset-orison-variant-0005-icon"
+      }
+    },
+    {
+      "id": "orison-variant-0006",
+      "name": "Adv. Berserk",
+      "tier": "Advanced",
+      "descriptionTemplate": "When played, this card's Awakener gains [Arg1] Aliemus.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "20"
+        }
+      },
+      "orisonType": "STANDARD",
+      "assets": {
+        "icon": "asset-orison-variant-0006-icon"
+      }
+    }
+  ]
+}

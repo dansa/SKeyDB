@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 3,
+  "kind": "orison",
+  "id": "orison-0004",
+  "name": "Vulnerable",
+  "route": {
+    "slug": "vulnerable",
+    "canonicalPath": "/database/orisons/vulnerable"
+  },
+  "assets": {
+    "icon": "asset-orison-0004-icon"
+  },
+  "orisonType": "STANDARD",
+  "variantCount": 2,
+  "defaultVariantId": "orison-variant-0007",
+  "aliases": [],
+  "descriptionTemplate": "When played, inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Vulnerable} on all enemies.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "variants": [
+    {
+      "id": "orison-variant-0007",
+      "name": "Vulnerable",
+      "tier": "Common",
+      "descriptionTemplate": "When played, inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Vulnerable} on all enemies.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "orisonType": "STANDARD",
+      "assets": {
+        "icon": "asset-orison-variant-0007-icon"
+      }
+    },
+    {
+      "id": "orison-variant-0008",
+      "name": "Adv. Vulnerable",
+      "tier": "Advanced",
+      "descriptionTemplate": "When played, inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Vulnerable} on all enemies.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "2"
+        }
+      },
+      "orisonType": "STANDARD",
+      "assets": {
+        "icon": "asset-orison-variant-0008-icon"
+      }
+    }
+  ]
+}

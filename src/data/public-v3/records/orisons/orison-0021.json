@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 3,
+  "kind": "orison",
+  "id": "orison-0021",
+  "name": "Lex Genis",
+  "route": {
+    "slug": "lex-genis",
+    "canonicalPath": "/database/orisons/lex-genis"
+  },
+  "assets": {
+    "icon": "asset-orison-0021-icon"
+  },
+  "orisonType": "SPECIAL",
+  "variantCount": 2,
+  "defaultVariantId": "orison-variant-0040",
+  "aliases": [],
+  "descriptionTemplate": "Play to gain 3 additional Base Copies of {Retain} and {Exhaust}, effective only once per battle.",
+  "descriptionArgs": {},
+  "variants": [
+    {
+      "id": "orison-variant-0040",
+      "name": "Lex Genis",
+      "tier": "Advanced",
+      "descriptionTemplate": "Play to gain 3 additional Base Copies of {Retain} and {Exhaust}, effective only once per battle.",
+      "descriptionArgs": {},
+      "orisonType": "SPECIAL",
+      "assets": {
+        "icon": "asset-orison-variant-0040-icon"
+      }
+    },
+    {
+      "id": "orison-variant-0041",
+      "name": "Adv. Lex Genis",
+      "tier": "Cursed",
+      "descriptionTemplate": "Play to gain 3 Arithmetica Cost -1 and attach {Retain} and {Exhaust} as Base Copies, effective only once per battle.",
+      "descriptionArgs": {},
+      "orisonType": "SPECIAL",
+      "assets": {
+        "icon": "asset-orison-variant-0041-icon"
+      }
+    }
+  ]
+}

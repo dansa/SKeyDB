@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 3,
+  "kind": "orison",
+  "id": "orison-0011",
+  "name": "Dominion",
+  "route": {
+    "slug": "dominion",
+    "canonicalPath": "/database/orisons/dominion"
+  },
+  "assets": {
+    "icon": "asset-orison-0011-icon"
+  },
+  "orisonType": "STANDARD",
+  "variantCount": 2,
+  "defaultVariantId": "orison-variant-0021",
+  "realm": "AEQUOR",
+  "aliases": [],
+  "descriptionTemplate": "When played, trigger [Arg1] Tentacle {plural:[Arg1]|attack|attacks}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "2"
+    }
+  },
+  "variants": [
+    {
+      "id": "orison-variant-0021",
+      "name": "Dominion",
+      "tier": "Common",
+      "descriptionTemplate": "When played, trigger [Arg1] Tentacle {plural:[Arg1]|attack|attacks}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "2"
+        }
+      },
+      "orisonType": "STANDARD",
+      "realm": "AEQUOR",
+      "assets": {
+        "icon": "asset-orison-variant-0021-icon"
+      }
+    },
+    {
+      "id": "orison-variant-0022",
+      "name": "Adv. Dominion",
+      "tier": "Advanced",
+      "descriptionTemplate": "When played, trigger [Arg1] Tentacle {plural:[Arg1]|attack|attacks}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "4"
+        }
+      },
+      "orisonType": "STANDARD",
+      "realm": "AEQUOR",
+      "assets": {
+        "icon": "asset-orison-variant-0022-icon"
+      }
+    }
+  ]
+}

@@ -26,6 +26,14 @@
       "recordCount": 297
     },
     {
+      "scope": "orisons",
+      "kind": "orison",
+      "idPrefix": "orison",
+      "capabilities": ["catalog", "detailRecord", "search", "snapshot"],
+      "searchable": true,
+      "recordCount": 24
+    },
+    {
       "scope": "covenants",
       "kind": "covenant",
       "idPrefix": "covenant",
@@ -114,6 +122,14 @@
       "capabilities": ["catalog", "detailRecord", "search", "snapshot"],
       "searchable": true,
       "recordCount": 297
+    },
+    "orisons": {
+      "scope": "orisons",
+      "kind": "orison",
+      "idPrefix": "orison",
+      "capabilities": ["catalog", "detailRecord", "search", "snapshot"],
+      "searchable": true,
+      "recordCount": 24
     },
     "covenants": {
       "scope": "covenants",

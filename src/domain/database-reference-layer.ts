@@ -31,6 +31,7 @@ export interface DatabaseReferenceInfo<TRecord extends DescribedRecord = Describ
     | 'posse'
     | 'covenant'
     | 'relic'
+    | 'orison'
   id: string
   name: string
   label: string

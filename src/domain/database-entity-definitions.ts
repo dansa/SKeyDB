@@ -86,6 +86,14 @@ export const DATABASE_ENTITY_DEFINITIONS = defineDatabaseEntityDefinitions([
     tab: {label: 'Covenants'},
   },
   {
+    entity: 'orisons',
+    detailKind: 'orison',
+    publicDataScope: 'orisons',
+    browsePath: '/database/orisons',
+    detailPathPrefix: '/database/orisons',
+    tab: {label: 'Orisons'},
+  },
+  {
     entity: 'relics',
     detailKind: 'relic',
     publicDataScope: 'relics',

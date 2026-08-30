@@ -1,5 +1,6 @@
 import type {Awakener} from '@/domain/awakeners'
 import type {Covenant} from '@/domain/covenants'
+import type {Orison} from '@/domain/orisons'
 import type {Posse} from '@/domain/posses'
 import type {Relic} from '@/domain/relics'
 import type {Wheel} from '@/domain/wheels'
@@ -29,4 +30,8 @@ export function createCovenantDetailResultSet(
 
 export function createRelicDetailResultSet(relics: readonly Relic[]): DatabaseDetailResultSet {
   return createDatabaseDetailResultSet('relic', relics)
+}
+
+export function createOrisonDetailResultSet(orisons: readonly Orison[]): DatabaseDetailResultSet {
+  return createDatabaseDetailResultSet('orison', orisons)
 }

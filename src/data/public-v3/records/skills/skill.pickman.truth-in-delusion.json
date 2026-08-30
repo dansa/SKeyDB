@@ -28,5 +28,57 @@
   "cardKeywords": [],
   "cost": "100",
   "lore": "Do not fear my gaze, come to me, draw closer to me...\nIn the magnificent mirage created by the brush, let me bestow upon you supreme beauty.",
+  "orisonApplications": [
+    {
+      "id": "orison-application.pickman.painted-orisons",
+      "displayName": "Painted Orisons",
+      "applicationMode": "EXACT_VARIANT_POOL",
+      "selection": "DISCOVER_THREE_CHOOSE_ONE",
+      "members": [
+        {
+          "orisonId": "orison-0001",
+          "defaultVariantId": "orison-variant-0001",
+          "upgradedVariantId": "orison-variant-0002"
+        },
+        {
+          "orisonId": "orison-0002",
+          "defaultVariantId": "orison-variant-0003",
+          "upgradedVariantId": "orison-variant-0004"
+        },
+        {
+          "orisonId": "orison-0003",
+          "defaultVariantId": "orison-variant-0005",
+          "upgradedVariantId": "orison-variant-0006"
+        },
+        {
+          "orisonId": "orison-0016",
+          "defaultVariantId": "orison-variant-0031",
+          "upgradedVariantId": "orison-variant-0032"
+        },
+        {
+          "orisonId": "orison-0017",
+          "defaultVariantId": "orison-variant-0033",
+          "upgradedVariantId": "orison-variant-0034"
+        },
+        {
+          "orisonId": "orison-0006",
+          "defaultVariantId": "orison-variant-0011",
+          "upgradedVariantId": "orison-variant-0012"
+        },
+        {
+          "orisonId": "orison-0014",
+          "defaultVariantId": "orison-variant-0027",
+          "upgradedVariantId": "orison-variant-0028"
+        },
+        {
+          "orisonId": "orison-0018",
+          "defaultVariantId": "orison-variant-0035",
+          "upgradedVariantId": "orison-variant-0036"
+        }
+      ],
+      "upgradedById": "enlighten.pickman.centered-composition"
+    }
+  ],
+  "orisonIds": ["orison-0001", "orison-0002", "orison-0003", "orison-0016", "orison-0017", "orison-0006", "orison-0014", "orison-0018"],
   "ownerAwakenerName": "Pickman"
 }

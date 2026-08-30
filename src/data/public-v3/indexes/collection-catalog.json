@@ -775,6 +775,11 @@
         "awakener-0060"
       ]
     },
+    "orisonsByRealm": {
+      "AEQUOR": ["orison-0011"],
+      "CARO": ["orison-0012"],
+      "ULTRA": ["orison-0013"]
+    },
     "possesByRealm": {
       "AEQUOR": ["posse-0010", "posse-0014", "posse-0021", "posse-0025", "posse-0031", "posse-0035", "posse-0044", "posse-0049", "posse-0052"],
       "CARO": [

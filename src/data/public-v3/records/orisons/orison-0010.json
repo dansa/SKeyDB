@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 3,
+  "kind": "orison",
+  "id": "orison-0010",
+  "name": "Toxin",
+  "route": {
+    "slug": "toxin",
+    "canonicalPath": "/database/orisons/toxin"
+  },
+  "assets": {
+    "icon": "asset-orison-0010-icon"
+  },
+  "orisonType": "STANDARD",
+  "variantCount": 2,
+  "defaultVariantId": "orison-variant-0019",
+  "aliases": [],
+  "descriptionTemplate": "When played, inflict [Arg1] {Poison} on all enemies, then trigger [Arg2]% of each enemy's {Poison}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.12,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "25",
+      "suffix": "%"
+    }
+  },
+  "variants": [
+    {
+      "id": "orison-variant-0019",
+      "name": "Toxin",
+      "tier": "Common",
+      "descriptionTemplate": "When played, inflict [Arg1] {Poison} on all enemies, then trigger [Arg2]% of each enemy's {Poison}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.12,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "25",
+          "suffix": "%"
+        }
+      },
+      "orisonType": "STANDARD",
+      "assets": {
+        "icon": "asset-orison-variant-0019-icon"
+      }
+    },
+    {
+      "id": "orison-variant-0020",
+      "name": "Adv. Toxin",
+      "tier": "Advanced",
+      "descriptionTemplate": "When played, inflict [Arg1] {Poison} on all enemies, then trigger [Arg2]% of each enemy's {Poison}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.24,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "50",
+          "suffix": "%"
+        }
+      },
+      "orisonType": "STANDARD",
+      "assets": {
+        "icon": "asset-orison-variant-0020-icon"
+      }
+    }
+  ]
+}

@@ -54,6 +54,14 @@ describe('database entity definition spine', () => {
         tab: {label: 'Covenants'},
       },
       {
+        entity: 'orisons',
+        detailKind: 'orison',
+        publicDataScope: 'orisons',
+        browsePath: '/database/orisons',
+        detailPathPrefix: '/database/orisons',
+        tab: {label: 'Orisons'},
+      },
+      {
         entity: 'relics',
         detailKind: 'relic',
         publicDataScope: 'relics',

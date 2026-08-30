@@ -44,5 +44,37 @@
       }
     }
   ],
+  "orisonApplications": [
+    {
+      "id": "orison-application.tinct.voices-from-beyond",
+      "displayName": "Voices from Beyond Orison Effects",
+      "applicationMode": "TEMPORARY_ANALOG",
+      "selection": "ONE_RANDOM_PER_CARD",
+      "expires": "BATTLE_END",
+      "members": [
+        {
+          "orisonId": "orison-0001"
+        },
+        {
+          "orisonId": "orison-0002"
+        },
+        {
+          "orisonId": "orison-0003"
+        },
+        {
+          "orisonId": "orison-0004"
+        },
+        {
+          "orisonId": "orison-0005"
+        },
+        {
+          "orisonId": "orison-0006"
+        }
+      ],
+      "upgradedById": "enlighten.tinct.when-crimson-meets-thorns",
+      "upgradeEffect": "GENERATED_STRIKE_EFFECT_X2"
+    }
+  ],
+  "orisonIds": ["orison-0001", "orison-0002", "orison-0003", "orison-0004", "orison-0005", "orison-0006"],
   "ownerAwakenerName": "Tinct"
 }

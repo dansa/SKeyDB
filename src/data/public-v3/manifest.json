@@ -1,12 +1,25 @@
 {
   "schemaVersion": 3,
-  "gameDataVersion": "compiled-sha256-87939c0e96e48abb",
-  "generatedAt": "2026-08-30T20:00:01Z",
-  "buildId": "public-v3-sha256-d703e647aac84efb",
+  "gameDataVersion": "compiled-sha256-62b676ff2902dbf3",
+  "generatedAt": "2026-08-30T21:49:27Z",
+  "buildId": "public-v3-sha256-c2392ffb88ff4ae7",
   "build": {
-    "gameDataVersion": "compiled-sha256-87939c0e96e48abb",
-    "recordCount": 1941,
-    "scopes": ["awakeners", "wheels", "relics", "covenants", "posses", "skills", "derived-skills", "talents", "enlightens", "overlays", "awakener-builds"]
+    "gameDataVersion": "compiled-sha256-62b676ff2902dbf3",
+    "recordCount": 1965,
+    "scopes": [
+      "awakeners",
+      "wheels",
+      "relics",
+      "orisons",
+      "covenants",
+      "posses",
+      "skills",
+      "derived-skills",
+      "talents",
+      "enlightens",
+      "overlays",
+      "awakener-builds"
+    ]
   },
   "scopes": {
     "awakeners": {
@@ -26,6 +39,12 @@
       "catalog": "catalogs/relics.json",
       "recordPattern": "records/relics/{id}.json",
       "count": 297
+    },
+    "orisons": {
+      "kind": "orison",
+      "catalog": "catalogs/orisons.json",
+      "recordPattern": "records/orisons/{id}.json",
+      "count": 24
     },
     "covenants": {
       "kind": "covenant",
@@ -89,6 +108,7 @@
     "builderCatalog": "indexes/builder-catalog.json",
     "searchAwakeners": "indexes/search-awakeners.json",
     "searchCovenants": "indexes/search-covenants.json",
+    "searchOrisons": "indexes/search-orisons.json",
     "searchPosses": "indexes/search-posses.json",
     "searchRelics": "indexes/search-relics.json",
     "searchWheels": "indexes/search-wheels.json"
@@ -117,6 +137,10 @@
       "bytes": 112484,
       "sha256": "f54fe9fe13c92d22e5bed08ef7a8f845bb0b14d18460b1a857215c311c973c9b"
     },
+    "catalogs/orisons.json": {
+      "bytes": 10606,
+      "sha256": "cf4f0c75196f0cb8a7965ada9a2da9f5b4fec602792cb81ee15110d27503a341"
+    },
     "catalogs/overlays.json": {
       "bytes": 57277,
       "sha256": "6b31e8caa7d840661449f2123e296b8654c8636291f46dd56c2bcbfc47f84525"
@@ -130,8 +154,8 @@
       "sha256": "05838e823322d86a5b0aa0bdfa6d6206a7a10926967c2f851aa63b49a8fb4824"
     },
     "catalogs/skills.json": {
-      "bytes": 172714,
-      "sha256": "ee0c960dceae6e193f2b8db2092f13861aaedb565afe5837d659d34b52db00a4"
+      "bytes": 172966,
+      "sha256": "1fa756e9863e65df4c7433c812976c43bb6a4a7f8cf8a992ca6e5b2a2a9027df"
     },
     "catalogs/talents.json": {
       "bytes": 88715,
@@ -142,40 +166,40 @@
       "sha256": "be54d1886d5fbdef4e67c10fe0cabeff5f433227996d6482f817a0e9a080d9e1"
     },
     "indexes/assets.json": {
-      "bytes": 439286,
-      "sha256": "48b0ba77b3f6e4b2fa5b78497cf943d8d0ca2913af7a5d70865af09288abdab5"
+      "bytes": 472816,
+      "sha256": "4f277dbc4515d0c5b19c5c1d2f85946012604ccab4a900d1a965ab33fdcaaf46"
     },
     "indexes/builder-catalog.json": {
       "bytes": 23638,
       "sha256": "a2d30839487b85aec38ec0665ffef70f10f13424c83185be73821092aeec710a"
     },
     "indexes/collection-catalog.json": {
-      "bytes": 30573,
-      "sha256": "42d416ef70b91b1eb0aeed4a1c236fcb8d3610595587d9bd233769eafe31f15e"
+      "bytes": 30699,
+      "sha256": "a3722c45d1deffce20bbf79eb7650e2d097b1cac635aedcacd808bec31fd8048"
     },
     "indexes/entities.json": {
-      "bytes": 818079,
-      "sha256": "bd8de5836cfb51cd3023b3d2e555a3f681ba3ed08f6613813f0dcb13ecdddc16"
+      "bytes": 826094,
+      "sha256": "bc5b60cc98e7ecbf6e412216e4ad9871ae2d20db11ece1c1fc4c5eea53f36a55"
     },
     "indexes/facets.json": {
-      "bytes": 62081,
-      "sha256": "f1eba224ec0a20c3a6de58455318dd9946f5ff2941f0f4f0ccbc51618240be7f"
+      "bytes": 63000,
+      "sha256": "3db1d1fddeeec9d51e316764a01a9d3a939d0bc84b8f63308a3f3b25bd07c3c4"
     },
     "indexes/references.json": {
-      "bytes": 235551,
-      "sha256": "500afb111a154ae86997a4def2c73f9ce24bc469a6d0efe77911524b5be7b546"
+      "bytes": 237667,
+      "sha256": "ae7751e3512169357221727f605d1de7eeb205d605bc7c04fc5a5b9138f2bc6b"
     },
     "indexes/relationships.json": {
-      "bytes": 265137,
-      "sha256": "b38a9d67252b2c44d322fe437e89a307ebdb9ddb00ee01f3e3780a65c67eff7e"
+      "bytes": 268065,
+      "sha256": "00d84ebeabd33c35073d77299640ba96687db2f980b33649ee1c6e599889d652"
     },
     "indexes/routes.json": {
-      "bytes": 444891,
-      "sha256": "56e28bc9c8f8fb25478e67b3f89646ffbcaea2513e4ba85b4c583ffb3e2327c7"
+      "bytes": 449067,
+      "sha256": "fc6c687ba804233170f611a3c0a215a80df546a6fafa7f6894b49007ee46cc6c"
     },
     "indexes/scopes.json": {
-      "bytes": 4915,
-      "sha256": "ab93d174ab167c4d6b751debc6cfc41d83009ecd4abc7a51c9f7d24f91582ee1"
+      "bytes": 5354,
+      "sha256": "843a73bb15b479d9259ededed05f0f8792ff0049c133efed09187ead5ca0f02a"
     },
     "indexes/search-awakeners.json": {
       "bytes": 86996,
@@ -184,6 +208,10 @@
     "indexes/search-covenants.json": {
       "bytes": 5517,
       "sha256": "0b0af58f64e3b7cd32ffedd69b5107c286ec3773cb67046330cb112a301843e1"
+    },
+    "indexes/search-orisons.json": {
+      "bytes": 9598,
+      "sha256": "35bf9a0c6793adfceac006b29a798eb84be80c1547a958396fbb27fa9e8fcba2"
     },
     "indexes/search-posses.json": {
       "bytes": 25960,
@@ -2776,6 +2804,102 @@
     "records/enlightens/enlighten.xu.nirvanas-kiss.json": {
       "bytes": 492,
       "sha256": "f49957e10e740a9133160905714e0b874954190f856cde92a91c8ddccdc727fc"
+    },
+    "records/orisons/orison-0001.json": {
+      "bytes": 1350,
+      "sha256": "098cee8764c11fd6f4027706d3fbe1feabd3c8ae1edb6f01b9d14030559a2b0f"
+    },
+    "records/orisons/orison-0002.json": {
+      "bytes": 1325,
+      "sha256": "6299d09480ccf2181d769eefbad56340f751ee2b26bf286c0f4aefd6890195c2"
+    },
+    "records/orisons/orison-0003.json": {
+      "bytes": 1362,
+      "sha256": "08f5ab1e1f3141dcd2451e4171b9b9c1bb829f3a91171092e360d6ad73390460"
+    },
+    "records/orisons/orison-0004.json": {
+      "bytes": 1473,
+      "sha256": "bca4cfca947bcccefb17add311ff84f04f68e316adbbd24b3d72c23a10cf86d9"
+    },
+    "records/orisons/orison-0005.json": {
+      "bytes": 1457,
+      "sha256": "ff84a25994395cd9df8a7393bc208aeb971c9123efadf4ab16fb234d4c36f8e9"
+    },
+    "records/orisons/orison-0006.json": {
+      "bytes": 1730,
+      "sha256": "bb83f2e67eba3392c0e9adf138a3f0ea56bcf4741add275a07ef685218e45444"
+    },
+    "records/orisons/orison-0007.json": {
+      "bytes": 1884,
+      "sha256": "fe54d00552c2f083a3182eb6ace1f89a2b7c81586bd12d5eb08f3474a6179a81"
+    },
+    "records/orisons/orison-0008.json": {
+      "bytes": 1664,
+      "sha256": "8641b9beb63a9abe2f061175ca0014badcd37089589e40ccd2ae0f45fbb6acb9"
+    },
+    "records/orisons/orison-0009.json": {
+      "bytes": 2173,
+      "sha256": "8d95c4f83c1edc85fa6d25418c5125459b208101bfbd9dc6778711ec64ab3c6d"
+    },
+    "records/orisons/orison-0010.json": {
+      "bytes": 2208,
+      "sha256": "19000d7a21dd085e8534c3b511b78a8893d981be1fca14efa5749912557e1dd8"
+    },
+    "records/orisons/orison-0011.json": {
+      "bytes": 1474,
+      "sha256": "0bf25b893caaaee1f9a21035a51b55c1a0a7bbd362eb7253e3178c6bcfe56bef"
+    },
+    "records/orisons/orison-0012.json": {
+      "bytes": 1383,
+      "sha256": "1dd553c0e8598b4f62968e6c2e2e70eb42455da5ce85ff9688166831713ab835"
+    },
+    "records/orisons/orison-0013.json": {
+      "bytes": 1500,
+      "sha256": "fd5847b097184b7d3b4382483d76ed5441deb3632b535cacfd6017d4bd21313d"
+    },
+    "records/orisons/orison-0014.json": {
+      "bytes": 1738,
+      "sha256": "efa15bf8faac35fb365df2d0af3f8ca9c71ddf7a304f3122a2e8c077d70475a1"
+    },
+    "records/orisons/orison-0015.json": {
+      "bytes": 1970,
+      "sha256": "f8c1f07dead7b821acd807faf4dd4ad821ec85fbe6aa8f72979819b46d7742ff"
+    },
+    "records/orisons/orison-0016.json": {
+      "bytes": 1371,
+      "sha256": "7939458e37f9234a63b95cc3ca271a2ade3e3c05235a83a00ae9a25b053df940"
+    },
+    "records/orisons/orison-0017.json": {
+      "bytes": 1611,
+      "sha256": "8025f3d07e06b6af3c01ef8e556c00681d184a98608c1fd26a5ffe3408863300"
+    },
+    "records/orisons/orison-0018.json": {
+      "bytes": 1798,
+      "sha256": "20a2afeb8dd7c98f264b3001d2f75594e63edcbb0932e86c29aed2301a0d94c8"
+    },
+    "records/orisons/orison-0019.json": {
+      "bytes": 1181,
+      "sha256": "e0461fea5b49a2c79813fe9d3c03de51bdac019f300dc224d8f8ef543840dd38"
+    },
+    "records/orisons/orison-0020.json": {
+      "bytes": 866,
+      "sha256": "2dff1249f6036ecab6dbc520721923402920f619fb88001809a81fda7e431d12"
+    },
+    "records/orisons/orison-0021.json": {
+      "bytes": 1274,
+      "sha256": "181451f266d44a60026de8a203d1c0095dc83cfa1f5c95111c9e59bd20ee5f55"
+    },
+    "records/orisons/orison-0022.json": {
+      "bytes": 1383,
+      "sha256": "105a79bb4ce7b376b85a2a01b1bedadb335a40aa31578d28573c9a8252429aa2"
+    },
+    "records/orisons/orison-0023.json": {
+      "bytes": 1339,
+      "sha256": "5d21a8bfa9b8e97822423344fbb655a6eab9d206aec7f1b0d562e9192bf2567a"
+    },
+    "records/orisons/orison-0024.json": {
+      "bytes": 1084,
+      "sha256": "35b6bbf1a15953649405cfcc3657c4189ccc6ab120973692686008db1f71fb92"
     },
     "records/overlays/overlay.24.realm-and-persona.json": {
       "bytes": 2921,
@@ -5986,8 +6110,8 @@
       "sha256": "efaae8b01ebf5c8689b656849d7180851de7ac6853ef41d47287817083d21185"
     },
     "records/skills/skill.pickman.truth-in-delusion.json": {
-      "bytes": 1192,
-      "sha256": "9941055247cc1982069f26ff94f6a7a52ea7da1ff4dcdb9af16c58ad4092c29c"
+      "bytes": 2967,
+      "sha256": "12f1c94aba0473a147fb58bb75eb5f3c7fe673c52720c345bcdac99dfb5e58e5"
     },
     "records/skills/skill.pollux.cleansing-judgement.json": {
       "bytes": 1797,
@@ -6322,8 +6446,8 @@
       "sha256": "63631848b8833450c33544d3582d7af1cbcffc69b32844e2f9b9fe05aed2da16"
     },
     "records/skills/skill.tinct.voices-from-beyond.json": {
-      "bytes": 1966,
-      "sha256": "70256d8ab8a05978e275f5233c153c3b9761e0a8ab534866a4b616e593ca002d"
+      "bytes": 2839,
+      "sha256": "ab569bd78583f3889a4058c36ade06cf10f8e38b37b219075132085091695bff"
     },
     "records/skills/skill.tulu.abyss-order.json": {
       "bytes": 2346,

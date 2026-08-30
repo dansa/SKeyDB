@@ -14,7 +14,7 @@ export interface EntityBrowseProps {
 }
 
 interface SimpleArtifactBrowseLayoutOptions {
-  activeEntity: Extract<DatabaseEntityId, 'posses' | 'covenants'>
+  activeEntity: Extract<DatabaseEntityId, 'posses' | 'covenants' | 'orisons'>
   activeFilterChips: readonly ActiveFilterChip[]
   filteredCount: number
   filters: ReactNode

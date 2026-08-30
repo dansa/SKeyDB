@@ -5,6 +5,7 @@ const PUBLIC_ID_PATTERNS: Partial<Record<EntityKind, RegExp>> = {
   awakener: /^awakener-\d{4}$/,
   awakenerBuild: /^awakener-build-\d{4}$/,
   covenant: /^covenant-\d{4}$/,
+  orison: /^orison-\d{4}$/,
   posse: /^posse-\d{4}$/,
   relic: /^relic-\d{4}$/,
   wheel: /^wheel-\d{4}$/,

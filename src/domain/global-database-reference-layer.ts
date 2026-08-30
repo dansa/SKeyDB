@@ -27,8 +27,10 @@ import {
   type CovenantDatabaseDescriptionRecord,
   type PosseDatabaseDescriptionRecord,
   type RelicDatabaseDescriptionRecord,
+  type OrisonDatabaseDescriptionRecord,
   type WheelDatabaseDescriptionRecord,
 } from './description-records'
+import {getOrisons, getDefaultOrisonVariant, type Orison} from './orisons'
 import {getPosses, type Posse} from './posses'
 import type {PosseFullRecord} from './posses-full'
 import type {PublicFormulaContext} from './public-formula-context'
@@ -41,6 +43,7 @@ type ArtifactDescriptionRecord =
   | PosseDatabaseDescriptionRecord
   | CovenantDatabaseDescriptionRecord
   | RelicDatabaseDescriptionRecord
+  | OrisonDatabaseDescriptionRecord
 
 export function buildPosseDatabaseDescriptionRecord(
   record: Pick<
@@ -296,6 +299,23 @@ function buildWheelReferenceEntries(
   )
 }
 
+function buildOrisonReferenceEntries(
+  records: Orison[],
+): DatabaseReferenceInfo<ArtifactDescriptionRecord>[] {
+  return records.map((record) =>
+    buildArtifactReferenceStub(
+      {
+        id: record.id,
+        kind: 'orison',
+        displayName: record.name,
+        descriptionTemplate: '',
+        descriptionArgs: {},
+      },
+      `Orison · ${record.orisonType === 'STANDARD' ? 'Standard' : 'Special'}`,
+    ),
+  )
+}
+
 export interface BuildGlobalDatabaseReferenceLayerOptions {
   formulaContext?: PublicFormulaContext
   overlays?: AwakenerOverlayRecord[]
@@ -304,6 +324,7 @@ export interface BuildGlobalDatabaseReferenceLayerOptions {
   posses?: Posse[]
   covenants?: Covenant[]
   wheels?: Wheel[]
+  orisons?: Orison[]
   extraReferences?: {record: ArtifactDescriptionRecord; label: string}[]
 }
 
@@ -314,6 +335,7 @@ export function buildGlobalDatabaseReferenceLayer({
   extraReferences = [],
   formulaContext,
   overlays = getAwakenerOverlays(),
+  orisons = getOrisons(),
   posses = getPosses(),
   wheels = getWheels(),
 }: BuildGlobalDatabaseReferenceLayerOptions = {}): ResolvedDatabaseReferenceLayer {
@@ -331,8 +353,15 @@ export function buildGlobalDatabaseReferenceLayer({
   const wheelInfos = buildWheelReferenceEntries(wheels)
   const posseInfos = buildPosseReferenceEntries(posses, formulaContext)
   const covenantInfos = buildCovenantReferenceEntries(covenants)
+  const orisonInfos = buildOrisonReferenceEntries(orisons)
 
-  referenceInfos.addMany([...extraReferenceInfos, ...wheelInfos, ...posseInfos, ...covenantInfos])
+  referenceInfos.addMany([
+    ...extraReferenceInfos,
+    ...wheelInfos,
+    ...posseInfos,
+    ...covenantInfos,
+    ...orisonInfos,
+  ])
 
   for (const record of referencedDerivedSkills) {
     referenceInfos.add(
@@ -360,6 +389,7 @@ export function buildGlobalDatabaseReferenceLayer({
       ...wheelInfos.map((info) => info.name),
       ...posseInfos.map((info) => info.name),
       ...covenantInfos.map((info) => info.name),
+      ...orisonInfos.map((info) => info.name),
       ...referencedDerivedSkills.map((entry) => entry.displayName),
       ...referencedDerivedSkills.flatMap((entry) => getDatabaseDerivedSkillAliases(entry)),
       ...referencedAwakenerSkills.map((entry) => entry.displayName),
@@ -441,6 +471,26 @@ export async function hydrateGlobalDatabaseReferenceInfo(
 
   if (info.kind === 'relic') {
     return info
+  }
+
+  if (info.kind === 'orison') {
+    const {loadOrisonRecordById} = await import('./orisons')
+    const record = await loadOrisonRecordById(info.id)
+    if (!record) return info
+    const variant = getDefaultOrisonVariant(record)
+    return buildArtifactReferenceInfo(
+      {
+        id: record.id,
+        kind: 'orison',
+        displayName: record.name,
+        descriptionTemplate: variant.descriptionTemplate || record.descriptionTemplate,
+        descriptionArgs: Object.keys(variant.descriptionArgs).length
+          ? variant.descriptionArgs
+          : record.descriptionArgs,
+      },
+      info.label,
+      formulaContext,
+    )
   }
 
   const {loadPublicCovenantDetailById} = await import('./public-detail-record-adapters')

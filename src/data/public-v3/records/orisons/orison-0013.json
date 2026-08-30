@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 3,
+  "kind": "orison",
+  "id": "orison-0013",
+  "name": "Warp",
+  "route": {
+    "slug": "warp",
+    "canonicalPath": "/database/orisons/warp"
+  },
+  "assets": {
+    "icon": "asset-orison-0013-icon"
+  },
+  "orisonType": "STANDARD",
+  "variantCount": 2,
+  "defaultVariantId": "orison-variant-0025",
+  "realm": "ULTRA",
+  "aliases": [],
+  "descriptionTemplate": "When played, add [Arg1] copy of it to a Temporary {overlay:Ultra Space} slot.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "variants": [
+    {
+      "id": "orison-variant-0025",
+      "name": "Warp",
+      "tier": "Common",
+      "descriptionTemplate": "When played, add [Arg1] copy of it to a Temporary {overlay:Ultra Space} slot.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "orisonType": "STANDARD",
+      "realm": "ULTRA",
+      "assets": {
+        "icon": "asset-orison-variant-0025-icon"
+      }
+    },
+    {
+      "id": "orison-variant-0026",
+      "name": "Adv. Warp",
+      "tier": "Advanced",
+      "descriptionTemplate": "When played, add [Arg1] {plural:[Arg1]|copy|copies} of it to Temporary {overlay:Ultra Space} slots.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "2"
+        }
+      },
+      "orisonType": "STANDARD",
+      "realm": "ULTRA",
+      "assets": {
+        "icon": "asset-orison-variant-0026-icon"
+      }
+    }
+  ]
+}

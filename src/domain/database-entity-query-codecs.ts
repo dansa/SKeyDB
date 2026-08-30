@@ -1,6 +1,10 @@
 import {parseDatabaseBrowseState, patchDatabaseBrowseState} from './database-browse-state'
 import {DATABASE_ENTITY_DEFINITIONS, type DatabaseEntityId} from './database-entity-definitions'
 import {
+  parseOrisonDatabaseBrowseState,
+  patchOrisonDatabaseBrowseState,
+} from './orison-database-browse-state'
+import {
   parseRelicDatabaseBrowseState,
   patchRelicDatabaseBrowseState,
 } from './relic-database-browse-state'
@@ -60,6 +64,19 @@ const DATABASE_ENTITY_QUERY_CODEC_BY_ID = {
       )
       const variantId = searchParams.get('variant')?.trim()
       if (includeDetailState && variantId && /^relic-variant-\d{4}$/.test(variantId)) {
+        sanitized.set('variant', variantId)
+      }
+      return sanitized
+    },
+  },
+  orisons: {
+    sanitize: (searchParams, {includeDetailState}) => {
+      const sanitized = patchOrisonDatabaseBrowseState(
+        new URLSearchParams(),
+        parseOrisonDatabaseBrowseState(searchParams),
+      )
+      const variantId = searchParams.get('variant')?.trim()
+      if (includeDetailState && variantId && /^orison-variant-\d{4}$/.test(variantId)) {
         sanitized.set('variant', variantId)
       }
       return sanitized

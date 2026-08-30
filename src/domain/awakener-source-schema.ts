@@ -337,6 +337,24 @@ const cardClassificationShape = {
   countsAs: z.array(nonEmptyStringSchema).optional(),
 }
 
+const orisonApplicationMemberSchema = z.looseObject({
+  orisonId: nonEmptyStringSchema,
+  defaultVariantId: nonEmptyStringSchema.optional(),
+  upgradedVariantId: nonEmptyStringSchema.optional(),
+  upgradedById: nonEmptyStringSchema.optional(),
+  upgradeEffect: nonEmptyStringSchema.optional(),
+})
+
+export const orisonApplicationSchema = z.looseObject({
+  id: nonEmptyStringSchema,
+  displayName: nonEmptyStringSchema,
+  applicationMode: z.enum(['EXACT_VARIANT_POOL', 'TEMPORARY_ANALOG']),
+  selection: nonEmptyStringSchema.optional(),
+  expires: nonEmptyStringSchema.optional(),
+  upgradedById: nonEmptyStringSchema.optional(),
+  members: z.array(orisonApplicationMemberSchema).default([]),
+})
+
 export const cardVariantSchema = describedRecordSchema.extend({
   id: nonEmptyStringSchema,
   unlockEnlightenSlot: z.enum(ENLIGHTEN_SLOT_KEYS).optional(),
@@ -355,6 +373,8 @@ export const awakenerSkillSchema = describedRecordSchema.extend({
   continuationRefs: z.array(descriptionContinuationRefSchema).optional(),
   cardKeywords: cardKeywordsSchema,
   variants: z.array(awakenersSkillVariantSchema).default([]),
+  orisonIds: z.array(nonEmptyStringSchema).optional(),
+  orisonApplications: z.array(orisonApplicationSchema).optional(),
   ...cardClassificationShape,
 })
 
