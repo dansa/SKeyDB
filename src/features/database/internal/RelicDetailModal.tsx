@@ -1,4 +1,4 @@
-import {Fragment, useEffect, useMemo} from 'react'
+import {Fragment, useMemo} from 'react'
 
 import {useStore} from 'zustand'
 
@@ -14,7 +14,6 @@ import {
   type PublicRelicRecord,
   type Relic,
 } from '@/domain/relics'
-import {isDatabaseDetailNavigationKeyOwner} from '@/features/database/detail/database-detail-navigation-keys'
 import {DbDetailShell} from '@/features/database/detail/DbDetailShell'
 import {OwnerAwakenerMetaLink} from '@/features/database/detail/OwnerAwakenerMetaLink'
 import {ResponsiveDetailArt} from '@/features/database/detail/ResponsiveDetailArt'
@@ -32,11 +31,12 @@ import {
 import {collectionOwnershipStore} from '@/stores/collectionOwnershipStore'
 
 import type {DatabaseDetailResultNavigation} from '../detail/database-detail-result-navigation'
+import {DatabaseFamilyVariantMobileSwitcher} from './DatabaseFamilyVariantMobileSwitcher'
+import {DatabaseFamilyVariantRail} from './DatabaseFamilyVariantRail'
 import {DatabaseScopedRichDescription} from './DatabaseScopedRichDescription'
 import {getRelicVariantMetadataLabels} from './relic-database-presentation'
-import {RelicVariantMobileSwitcher} from './RelicVariantMobileSwitcher'
-import {RelicVariantRail} from './RelicVariantRail'
 import {useDatabaseDetailPreferences} from './useDatabaseDetailPreferences'
+import {useDatabaseFamilyVariantNavigationKeys} from './useDatabaseFamilyVariantNavigationKeys'
 import {useDatabasePopoverController} from './useDatabasePopoverController'
 import {WheelLoreText} from './WheelLoreText'
 
@@ -44,49 +44,6 @@ function getNonEmptyText(primary: string | undefined, fallback: string | undefin
   if (primary?.trim()) return primary
   if (fallback?.trim()) return fallback
   return ''
-}
-
-function useRelicVariantNavigationKeys({
-  onSelect,
-  selectedId,
-  variants,
-}: {
-  onSelect?: (variantId?: string) => void
-  selectedId: string
-  variants: PublicRelicRecord['variants']
-}) {
-  useEffect(() => {
-    if (!onSelect || variants.length <= 1) {
-      return
-    }
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (
-        event.defaultPrevented ||
-        event.altKey ||
-        event.ctrlKey ||
-        event.metaKey ||
-        event.shiftKey ||
-        isDatabaseDetailNavigationKeyOwner(event.target)
-      ) {
-        return
-      }
-
-      const selectedIndex = variants.findIndex((variant) => variant.id === selectedId)
-      const offset = event.key === 'ArrowUp' ? -1 : event.key === 'ArrowDown' ? 1 : 0
-      const destination = offset === 0 ? undefined : variants[selectedIndex + offset]
-
-      if (destination) {
-        event.preventDefault()
-        onSelect(destination.id)
-      }
-    }
-
-    window.addEventListener('keydown', handleKeyDown)
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown)
-    }
-  }, [onSelect, selectedId, variants])
 }
 
 interface RelicDetailModalProps {
@@ -121,7 +78,7 @@ export function RelicDetailModal({
   const selectedVariant =
     (selectedVariantId ? getRelicVariantById(fullData, selectedVariantId) : undefined) ??
     getDefaultRelicVariant(fullData)
-  useRelicVariantNavigationKeys({
+  useDatabaseFamilyVariantNavigationKeys({
     onSelect: onRelicVariantChange,
     selectedId: selectedVariant.id,
     variants: fullData.variants,
@@ -175,7 +132,7 @@ export function RelicDetailModal({
       sideArtContainerClassName='p-4'
       sideArtWidthClassName='w-[12rem]'
       sideArtFooter={
-        <RelicVariantRail
+        <DatabaseFamilyVariantRail
           itemName={item.name}
           onSelect={(variantId) => {
             onRelicVariantChange?.(variantId)
@@ -236,7 +193,7 @@ export function RelicDetailModal({
             </div>
           </div>
 
-          <RelicVariantMobileSwitcher
+          <DatabaseFamilyVariantMobileSwitcher
             onSelect={(variantId) => {
               onRelicVariantChange?.(variantId)
             }}

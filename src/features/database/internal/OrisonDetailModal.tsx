@@ -18,12 +18,17 @@ import {
   DATABASE_DETAIL_BODY_CLASS,
   DATABASE_DETAIL_HEADER_META_CLASS,
   DATABASE_DETAIL_HEADER_TITLE_CLASS,
+  DATABASE_DETAIL_META_ROW_CLASS,
+  DATABASE_DETAIL_META_SEPARATOR_CLASS,
   DATABASE_DETAIL_SECTION_HEADING_CLASS,
   getDatabaseDetailBodyStyle,
   getDatabaseDetailSectionHeadingStyle,
 } from './database-detail-typography'
+import {DatabaseFamilyVariantMobileSwitcher} from './DatabaseFamilyVariantMobileSwitcher'
+import {DatabaseFamilyVariantRail} from './DatabaseFamilyVariantRail'
 import {DatabaseScopedRichDescription} from './DatabaseScopedRichDescription'
 import {useDatabaseDetailPreferences} from './useDatabaseDetailPreferences'
+import {useDatabaseFamilyVariantNavigationKeys} from './useDatabaseFamilyVariantNavigationKeys'
 import {useDatabasePopoverController} from './useDatabasePopoverController'
 
 export function OrisonDetailModal({
@@ -49,6 +54,20 @@ export function OrisonDetailModal({
   const selectedVariant =
     (selectedVariantId ? getOrisonVariantById(fullData, selectedVariantId) : undefined) ??
     getDefaultOrisonVariant(fullData)
+  const variantOptions = useMemo(
+    () =>
+      fullData.variants.map((variant) => ({
+        id: variant.id,
+        label: variant.tier,
+        name: variant.name,
+      })),
+    [fullData.variants],
+  )
+  useDatabaseFamilyVariantNavigationKeys({
+    onSelect: onOrisonVariantChange,
+    selectedId: selectedVariant.id,
+    variants: fullData.variants,
+  })
   const effectRecord = useMemo<OrisonDatabaseDescriptionRecord>(
     () => ({
       id: selectedVariant.id,
@@ -75,26 +94,6 @@ export function OrisonDetailModal({
     showTagIcons: preferences.shared.showTagIcons,
   })
   const artAsset = getOrisonAssetByAssetId(item.assetId)
-  const variantSelector =
-    fullData.variants.length > 1 ? (
-      <div className='grid gap-1.5'>
-        {fullData.variants.map((variant) => (
-          <button
-            aria-current={variant.id === selectedVariant.id ? 'true' : undefined}
-            className={
-              variant.id === selectedVariant.id
-                ? 'ui-compact-control border-amber-200/55 text-amber-100'
-                : 'ui-compact-control text-slate-300'
-            }
-            key={variant.id}
-            onClick={() => onOrisonVariantChange?.(variant.id)}
-            type='button'
-          >
-            {variant.tier}
-          </button>
-        ))}
-      </div>
-    ) : null
 
   return (
     <DbDetailShell
@@ -110,7 +109,17 @@ export function OrisonDetailModal({
       sideArtClassName='object-contain'
       sideArtContainerClassName='p-4'
       sideArtWidthClassName='w-[12rem]'
-      sideArtFooter={variantSelector}
+      sideArtFooter={
+        <DatabaseFamilyVariantRail
+          entityLabel='Orison'
+          itemName={item.name}
+          onSelect={(variantId) => {
+            onOrisonVariantChange?.(variantId)
+          }}
+          selectedId={selectedVariant.id}
+          variants={variantOptions}
+        />
+      }
       updateSharedPreferences={updateSharedPreferences}
     >
       {({isMobileViewport, openArtViewer}) => (
@@ -136,28 +145,24 @@ export function OrisonDetailModal({
               </ResponsiveDetailArt>
               <div className='min-w-0'>
                 <h3 className={DATABASE_DETAIL_HEADER_TITLE_CLASS}>{item.name}</h3>
-                <p className={DATABASE_DETAIL_HEADER_META_CLASS}>
-                  {selectedVariant.tier} ·{' '}
-                  {selectedVariant.orisonType === 'STANDARD' ? 'Standard' : 'Special'}
+                <p
+                  className={`${DATABASE_DETAIL_META_ROW_CLASS} ${DATABASE_DETAIL_HEADER_META_CLASS}`}
+                >
+                  <span>{selectedVariant.tier}</span>
+                  <span className={DATABASE_DETAIL_META_SEPARATOR_CLASS}>•</span>
+                  <span>{selectedVariant.orisonType === 'STANDARD' ? 'Standard' : 'Special'}</span>
                 </p>
               </div>
             </div>
           </div>
-          {fullData.variants.length > 1 ? (
-            <div className='mt-4 flex flex-wrap gap-2 lg:hidden'>
-              {fullData.variants.map((variant) => (
-                <button
-                  aria-pressed={variant.id === selectedVariant.id}
-                  className='ui-compact-control'
-                  key={variant.id}
-                  onClick={() => onOrisonVariantChange?.(variant.id)}
-                  type='button'
-                >
-                  {variant.tier}
-                </button>
-              ))}
-            </div>
-          ) : null}
+          <DatabaseFamilyVariantMobileSwitcher
+            entityLabel='Orison'
+            onSelect={(variantId) => {
+              onOrisonVariantChange?.(variantId)
+            }}
+            selectedId={selectedVariant.id}
+            variants={variantOptions}
+          />
           <div className='ui-scrollbar min-h-0 flex-1 overflow-y-auto pr-1 pb-6 pl-2'>
             <section className='mt-5'>
               <h4
