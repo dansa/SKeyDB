@@ -15,7 +15,7 @@
   "setEffects": [
     {
       "set": 3,
-      "descriptionTemplate": "Aliemus Regen Level +[Arg1]",
+      "descriptionTemplate": "Aliemus Regen Lv. +[Arg1]",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

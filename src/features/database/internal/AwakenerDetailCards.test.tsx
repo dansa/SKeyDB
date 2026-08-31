@@ -16,15 +16,17 @@ vi.mock('./RichDescription', () => ({
     text,
     record,
     keywordFooterText,
+    skillLevel,
   }: {
     text?: string
     record?: {descriptionTemplate?: string}
     keywordFooterText?: string
+    skillLevel?: number
   }) => (
-    <>
+    <span data-skill-level={skillLevel}>
       {record?.descriptionTemplate ?? text}
       {keywordFooterText ? `|${keywordFooterText}` : ''}
-    </>
+    </span>
   ),
 }))
 
@@ -125,6 +127,22 @@ describe('AwakenerDetailCards', () => {
           ],
           keywordFooterText: '{Retain}, {Prepare 2}',
         }),
+        makeDatabaseDescribedEntry({
+          key: 'C4',
+          label: 'Card · C4 · Cost 1',
+          record: makeSkillRecord({
+            id: 'skill.test.mortal-blast',
+            kind: 'command',
+            displayName: 'Mortal Blast',
+            cardFamily: 'command',
+            cardTypes: ['skill'],
+            countsAs: ['strike'],
+            cost: '1',
+            descriptionTemplate: 'Mortal Blast text',
+          }),
+          resolved: {description: 'Mortal Blast text'} as never,
+          descriptionMaxRank: 6,
+        }),
       ],
       promotedExtras: [
         makeDatabaseDescribedEntry({
@@ -165,21 +183,32 @@ describe('AwakenerDetailCards', () => {
     expect(screen.getAllByText('T1')).toHaveLength(3)
     expect(screen.getByText('Cost 2')).toBeInTheDocument()
     expect(screen.getByText('Rouse text|{Retain}, {Prepare 2}')).toBeInTheDocument()
-    expect(screen.getByText('Derived Cards')).toBeInTheDocument()
+    expect(screen.getByText('Base Cards')).toBeInTheDocument()
+    expect(screen.getByText('Extra Cards')).toBeInTheDocument()
     expect(screen.getByText('Important Extra')).toBeInTheDocument()
     expect(screen.getByText('Important Extra').closest('[data-card-header]')).toHaveTextContent(
-      /Important Extra.*Derived.*Cost 0/,
+      /Important Extra.*Cost 0.*Command.*Derived/,
     )
     expect(screen.getByText('Extra text|{Exhaust}')).toBeInTheDocument()
     expect(
       screen.getByText('Twisted Carrion Revel').closest('[data-card-header]'),
-    ).toHaveTextContent(/Twisted Carrion Revel.*Exalt.*Cost 100/)
+    ).toHaveTextContent(/Twisted Carrion Revel.*Cost 100.*Exalt/)
     expect(
       screen.getByText('Mediating Personalities').closest('[data-card-header]'),
-    ).toHaveTextContent(/Mediating Personalities.*Rouse.*Cost 2/)
+    ).toHaveTextContent(/Mediating Personalities.*Cost 2.*Rouse/)
+    expect(screen.getByText('Mortal Blast').closest('[data-card-header]')).toHaveTextContent(
+      /Mortal Blast.*Cost 1.*Command.*Skill.*Counts as Strike/,
+    )
+    expect(screen.getByText('Counts as Strike').parentElement).toHaveTextContent(
+      '·Counts as Strike',
+    )
     expect(
       screen.getByRole('button', {name: 'Over Exalt'}).closest('[data-card-header]'),
-    ).toHaveTextContent(/Face Death in Fiery Resolve.*Over Exalt.*Cost 200/)
+    ).toHaveTextContent(/Face Death in Fiery Resolve.*Cost 200.*Exalt.*Over Exalt/)
+    expect(screen.getByRole('button', {name: 'Over Exalt'})).toHaveClass(
+      'database-inherit-font-size',
+    )
+    expect(screen.getByRole('button', {name: 'Rouse'})).toHaveClass('database-inherit-font-size')
 
     fireEvent.click(screen.getByRole('button', {name: 'Over Exalt'}))
     expect(openRootReferenceByName).toHaveBeenCalledWith('Over Exalt', expect.anything())
@@ -188,5 +217,64 @@ describe('AwakenerDetailCards', () => {
     expect(openRootReferenceByName).toHaveBeenCalledWith('Rouse', expect.anything())
 
     expect(onToggleEnlightenSlot).not.toHaveBeenCalled()
+  })
+
+  it('renders temporary Orison analogues as end-of-description references', () => {
+    const shellView = makeDatabaseShellView({
+      skillLevel: 4,
+      commandCards: [
+        makeDatabaseDescribedEntry({
+          key: 'C1',
+          label: 'Card · Rouse · Cost 1',
+          record: makeSkillRecord({
+            id: 'skill.tinct.voices-from-beyond',
+            kind: 'rouse',
+            displayName: 'Voices from Beyond',
+            cost: '1',
+            descriptionTemplate: 'Localized skill description.',
+            orisonApplications: [
+              {
+                id: 'orison-application.tinct.voices-from-beyond',
+                displayName: 'Voices from Beyond Orison Effects',
+                applicationMode: 'TEMPORARY_ANALOG',
+                selection: 'ONE_RANDOM_PER_CARD',
+                expires: 'BATTLE_END',
+                members: [
+                  {
+                    orisonId: 'orison-0006',
+                    temporaryEffect: {
+                      descriptionTemplate: 'Gain [Block:Arg1] Shield',
+                      descriptionArgs: {
+                        Arg1: {
+                          kind: 'scaling',
+                          values: ['10', '12', '14', '16', '18', '20'],
+                          stat: 'DEF',
+                          suffix: '%',
+                        },
+                      },
+                    },
+                  },
+                ],
+              },
+            ],
+          }),
+          resolved: {description: 'Localized skill description.'} as never,
+          descriptionMaxRank: 6,
+          descriptionRank: 4,
+          keywordFooterText: '{orison:Bastion}',
+        }),
+      ],
+    })
+
+    render(
+      <DatabasePopoverContext.Provider value={popoverContext}>
+        <AwakenerDetailCards referenceLayer={null} shellView={shellView} />
+      </DatabasePopoverContext.Provider>,
+    )
+
+    expect(screen.queryByRole('region', {name: 'Voices from Beyond Orison Effects'})).toBeNull()
+    expect(screen.getByText(/Localized skill description/)).toHaveTextContent(
+      /Localized skill description.*\{orison:Bastion\}/,
+    )
   })
 })

@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0017",
   "ownerAwakenerName": "Faros",
   "lineupToken": "v",
-  "descriptionTemplate": "The wielder's Strike Commands have a [StateArg1]% chance to gain 1 Arithmetica and trigger 10% of each enemy's {Poison}. This effect triggers only once each turn.\nIf the Realm includes {Aequor}, this effect also triggers 1 Tentacle attack.",
+  "descriptionTemplate": "Team Unique: The wielder's Strike Commands have a [StateArg1]% chance to gain 1 Arithmetica and trigger 10% of each enemy's {Poison}. This effect triggers only once each turn.\nIf the Realm includes {Aequor}, this effect also triggers 1 Tentacle attack.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

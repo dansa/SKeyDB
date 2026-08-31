@@ -10,8 +10,8 @@
   "ownerAwakenerId": "awakener-0058",
   "derivedFromId": "derived.pontos.gaunts",
   "rootSkillId": "skill.pontos.gauntwards-call",
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "All enemies' {STR▼} -[Exhaustion:Arg1] temporarily. {Tentacle DMG} +[TentaclePower:Arg2].",
   "descriptionArgs": {
     "Arg1": {

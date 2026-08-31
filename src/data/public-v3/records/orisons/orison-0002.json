@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 3,
+  "kind": "orison",
+  "id": "orison-0002",
+  "name": "Computation",
+  "route": {
+    "slug": "computation",
+    "canonicalPath": "/database/orisons/computation"
+  },
+  "assets": {
+    "icon": "asset-orison-0002-icon"
+  },
+  "orisonType": "STANDARD",
+  "variantCount": 2,
+  "defaultVariantId": "orison-variant-0003",
+  "aliases": [],
+  "descriptionTemplate": "When played, gain [Arg1] Arithmetica.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "variants": [
+    {
+      "id": "orison-variant-0003",
+      "name": "Computation",
+      "tier": "Common",
+      "descriptionTemplate": "When played, gain [Arg1] Arithmetica.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "orisonType": "STANDARD",
+      "assets": {
+        "icon": "asset-orison-variant-0003-icon"
+      }
+    },
+    {
+      "id": "orison-variant-0004",
+      "name": "Adv. Computation",
+      "tier": "Advanced",
+      "descriptionTemplate": "When played, gain [Arg1] Arithmetica.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "2"
+        }
+      },
+      "orisonType": "STANDARD",
+      "assets": {
+        "icon": "asset-orison-variant-0004-icon"
+      }
+    }
+  ]
+}

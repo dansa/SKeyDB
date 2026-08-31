@@ -14,6 +14,8 @@ import {
   type DatabaseAwakenerTab,
 } from '@/domain/database-paths'
 import type {EntityRef} from '@/domain/entities/types'
+import type {Orison} from '@/domain/orisons'
+import {getDefaultOrisonVariant, getOrisons, getOrisonVariantById} from '@/domain/orisons'
 import type {Relic} from '@/domain/relics'
 import {getRelics} from '@/domain/relics'
 import type {Wheel} from '@/domain/wheels'
@@ -50,6 +52,7 @@ import {resolveRelicDetailRoutePolicy} from './relic-detail-route-policy'
 
 type DatabaseDetailRef = EntityRef & {kind: DatabaseDetailKind}
 const EMPTY_RELICS: readonly Relic[] = []
+const EMPTY_ORISONS: readonly Orison[] = []
 
 interface OverlayAwakenerTabState {
   activeTab: DatabaseAwakenerTab
@@ -63,6 +66,7 @@ export interface DbDetailModalHostProps {
   resultSet?: DatabaseDetailResultSet | null
   routeItem: DatabaseDetailRouteItem | null
   relics?: readonly Relic[]
+  orisons?: readonly Orison[]
   tabSlug?: string
   wheels: Wheel[]
 }
@@ -78,6 +82,7 @@ export function DatabaseDetailOverlayOutlet(props: DatabaseDetailOverlayOutletPr
       awakeners={getAwakeners()}
       overlaySession={props.session}
       relics={getRelics()}
+      orisons={getOrisons()}
       routeItem={null}
       wheels={getWheels()}
     />
@@ -311,14 +316,15 @@ export function DbDetailModalHost({
   navigationPort,
   overlaySession,
   relics = EMPTY_RELICS,
+  orisons = EMPTY_ORISONS,
   resultSet = null,
   routeItem,
   tabSlug,
   wheels,
 }: DbDetailModalHostProps) {
   const detailLookup = useMemo(
-    () => createDatabaseDetailCatalogLookup({awakeners, relics, wheels}),
-    [awakeners, relics, wheels],
+    () => createDatabaseDetailCatalogLookup({awakeners, orisons, relics, wheels}),
+    [awakeners, orisons, relics, wheels],
   )
   const overlayRef = useOverlaySessionTop(overlaySession)
   const activeRef: DatabaseDetailRef | null = routeItem
@@ -551,6 +557,17 @@ function DbDetailRouteModal({
       />
     )
   }
+  if (routeItem.kind === 'orison') {
+    return (
+      <DbDetailOrisonRouteModal
+        activeRef={activeRef}
+        lookup={lookup}
+        navigationPort={navigationPort}
+        navigation={navigation}
+        routeItem={routeItem}
+      />
+    )
+  }
   return (
     <DbDetailNonAwakenerRouteModal
       activeRef={activeRef}
@@ -573,7 +590,7 @@ interface DbDetailKindRouteModalProps<Kind extends DatabaseDetailKind> {
 }
 
 interface DbDetailNonAwakenerRouteModalProps<
-  Kind extends Exclude<DatabaseDetailKind, 'awakener' | 'relic'>,
+  Kind extends Exclude<DatabaseDetailKind, 'awakener' | 'relic' | 'orison'>,
 > extends DbDetailKindRouteModalProps<Kind> {
   kind: Kind
 }
@@ -709,7 +726,7 @@ function DbDetailAwakenerRouteModal({
 }
 
 function DbDetailNonAwakenerRouteModal<
-  Kind extends Exclude<DatabaseDetailKind, 'awakener' | 'relic'>,
+  Kind extends Exclude<DatabaseDetailKind, 'awakener' | 'relic' | 'orison'>,
 >({
   activeRef,
   lookup,
@@ -738,6 +755,67 @@ function DbDetailNonAwakenerRouteModal<
       }
     </DbDetailRouteRecordBoundary>
   )
+}
+
+function DbDetailOrisonRouteModal({
+  activeRef,
+  lookup,
+  navigationPort,
+  navigation,
+  routeItem,
+}: DbDetailKindRouteModalProps<'orison'>) {
+  return (
+    <DbDetailRouteRecordBoundary
+      activeRef={activeRef}
+      kind='orison'
+      navigation={navigation}
+      navigationPort={navigationPort}
+      routeItem={routeItem}
+    >
+      {(record) => (
+        <DbDetailResolvedOrisonRouteModal
+          lookup={lookup}
+          navigation={navigation}
+          navigationPort={navigationPort}
+          record={record}
+          routeItem={routeItem}
+        />
+      )}
+    </DbDetailRouteRecordBoundary>
+  )
+}
+
+function DbDetailResolvedOrisonRouteModal({
+  lookup,
+  navigation,
+  navigationPort,
+  record,
+  routeItem,
+}: {
+  lookup: DatabaseDetailCatalogLookup
+  navigation: DatabaseDetailResultNavigation | null
+  navigationPort: DatabaseDetailNavigationPort
+  record: DatabaseDetailRecordByKind['orison']
+  routeItem: DatabaseDetailRouteItemByKind['orison']
+}) {
+  const selectedVariant =
+    (routeItem.variantId ? getOrisonVariantById(record, routeItem.variantId) : undefined) ??
+    getDefaultOrisonVariant(record)
+  const canonicalVariantId = selectedVariant.id
+
+  useEffect(() => {
+    if (routeItem.variantId !== canonicalVariantId) {
+      navigationPort.updateState({variant: canonicalVariantId})
+    }
+  }, [canonicalVariantId, navigationPort, routeItem.variantId])
+
+  return dbDetailRegistry.orison.render({
+    item: {...routeItem, variantId: canonicalVariantId},
+    lookup,
+    navigation,
+    navigationPort,
+    record,
+  })
 }
 
 function DbDetailRelicRouteModal({

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 3,
+  "kind": "orison",
+  "id": "orison-0020",
+  "name": "Birth",
+  "route": {
+    "slug": "birth",
+    "canonicalPath": "/database/orisons/birth"
+  },
+  "assets": {
+    "icon": "asset-orison-0020-icon"
+  },
+  "orisonType": "SPECIAL",
+  "variantCount": 1,
+  "defaultVariantId": "orison-variant-0039",
+  "aliases": [],
+  "descriptionTemplate": "Card Obtained {Retain}, if in hand at turn end, Obtain a Base Copy with {Retain} and {Exhaust}.",
+  "descriptionArgs": {},
+  "variants": [
+    {
+      "id": "orison-variant-0039",
+      "name": "Birth",
+      "tier": "Common",
+      "descriptionTemplate": "Card Obtained {Retain}, if in hand at turn end, Obtain a Base Copy with {Retain} and {Exhaust}.",
+      "descriptionArgs": {},
+      "orisonType": "SPECIAL",
+      "assets": {
+        "icon": "asset-orison-variant-0039-icon"
+      }
+    }
+  ]
+}

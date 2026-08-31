@@ -10,8 +10,8 @@
   "ownerAwakenerId": "awakener-0047",
   "derivedFromId": "derived.tawil.memories",
   "rootSkillId": "skill.tawil.pinions-of-time",
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "Deal {Pure DMG} equal to [Arg1]% of the target's max HP to the enemy in the backmost row. This DMG cannot be less than 300% of your own max HP.",
   "descriptionArgs": {
     "Arg1": {

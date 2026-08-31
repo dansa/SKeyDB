@@ -7,8 +7,8 @@
     "slug": "adv-insight",
     "canonicalPath": "/database/derived-skills/adv-insight"
   },
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "Draw 2 cards and gain 2 Arithmetica.",
   "descriptionArgs": {},
   "cardKeywords": [

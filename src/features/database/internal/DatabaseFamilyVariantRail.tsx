@@ -1,23 +1,23 @@
 import {useCallback, useEffect, useRef, useState} from 'react'
 
-import type {PublicRelicVariant} from '@/domain/relics'
-
 import {buildRelicVariantLabels} from './relic-database-presentation'
 import {scrollRelicVariantIntoView} from './relic-variant-scroll'
 
-interface RelicVariantRailProps {
+interface DatabaseFamilyVariantRailProps {
+  entityLabel?: string
   itemName: string
   onSelect: (variantId: string) => void
   selectedId: string
-  variants: readonly PublicRelicVariant[]
+  variants: readonly {id: string; label: string; name: string}[]
 }
 
-export function RelicVariantRail({
+export function DatabaseFamilyVariantRail({
+  entityLabel = 'Relic',
   itemName,
   onSelect,
   selectedId,
   variants,
-}: RelicVariantRailProps) {
+}: DatabaseFamilyVariantRailProps) {
   const labels = buildRelicVariantLabels(variants)
   const scrollRef = useRef<HTMLDivElement | null>(null)
   const selectedRef = useRef<HTMLButtonElement | null>(null)
@@ -51,7 +51,7 @@ export function RelicVariantRail({
 
   return (
     <section
-      aria-label='Relic variants'
+      aria-label={`${entityLabel} variants`}
       className='h-52 shrink-0 border-t border-slate-700/55 bg-slate-950/72'
     >
       <div className='flex h-10 items-center justify-between border-b border-slate-800/80 px-4'>
@@ -72,7 +72,7 @@ export function RelicVariantRail({
             return (
               <button
                 aria-current={selected ? 'true' : undefined}
-                aria-label={`Select relic variant ${label}`}
+                aria-label={`Select ${entityLabel.toLowerCase()} variant ${label}`}
                 className={`mx-2 flex min-h-10 w-[calc(100%-1rem)] items-center border-l-2 px-3 py-2 text-left transition-colors focus-visible:ring-2 focus-visible:ring-amber-200/35 focus-visible:outline-none motion-reduce:transition-none ${selected ? 'border-amber-300/80 bg-amber-300/[.07] text-amber-100' : 'border-transparent text-slate-300 hover:border-slate-600 hover:bg-slate-900/70 hover:text-slate-100'}`}
                 key={variant.id}
                 onClick={() => {

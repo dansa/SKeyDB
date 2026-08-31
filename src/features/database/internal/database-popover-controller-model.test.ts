@@ -103,6 +103,16 @@ describe('database popover controller model', () => {
 
   it('limits lazy hydration to global reference kinds without descriptions', () => {
     expect(needsLazyReferenceHydration(skillReference({description: ''}))).toBe(true)
+    expect(
+      needsLazyReferenceHydration(
+        skillReference({kind: 'orison', id: 'orison-0001', name: 'Insight', description: ''}),
+      ),
+    ).toBe(true)
+    expect(
+      needsLazyReferenceHydration(
+        skillReference({kind: 'relic', id: 'relic-0207', name: 'Malignant Child', description: ''}),
+      ),
+    ).toBe(true)
     expect(needsLazyReferenceHydration(skillReference())).toBe(false)
   })
 

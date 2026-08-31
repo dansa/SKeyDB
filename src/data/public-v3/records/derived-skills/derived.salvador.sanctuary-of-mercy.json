@@ -10,8 +10,8 @@
   "ownerAwakenerId": "awakener-0044",
   "derivedFromId": "skill.salvador.benediction",
   "rootSkillId": "skill.salvador.benediction",
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "Gain [Arg1] {plural:[Arg1]|stack|stacks} of Temporary {Barrier}, {Embryo Fusion} +[Arg2].",
   "descriptionArgs": {
     "Arg1": {

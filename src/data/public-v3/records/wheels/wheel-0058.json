@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0009",
   "ownerAwakenerName": "Celeste",
   "lineupToken": "f",
-  "descriptionTemplate": "HP recovered by the wielder +[StateArg1]%.\nWhen the wielder Exalts, recover [StateArg2]% of missing HP at the start of your next turn.",
+  "descriptionTemplate": "Team Unique: The wielder's HP Recovery +[StateArg1]%.\nWhen the wielder Exalts, recover [StateArg2]% of missing HP at the start of next turn.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

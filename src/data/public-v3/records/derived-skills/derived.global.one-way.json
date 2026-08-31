@@ -8,8 +8,8 @@
     "canonicalPath": "/database/derived-skills/one-way"
   },
   "derivedFromId": "derived.global.gluttonous-attack",
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "Add 3 \"Strike\" cards with 0 Arithmetica Cost to the hand for 1 Awakener, and grant them 10 Aliemus.",
   "descriptionArgs": {},
   "cardKeywords": []

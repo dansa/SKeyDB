@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0020",
   "family": "passive",
-  "descriptionTemplate": "Ramona: Timeworn obtains an additional 2.5 Keyflare Regen attribute. Each Affinity level additionally grants Ramona: Timeworn 0.5 Keyflare Regen attribute.\nFor each Keyflare Regen Level attribute, the {Loop} effect of \"Basic Strike\" grants Ramona: Timeworn 0.2% Crit. Rate, and the {Loop} effect of \"Basic Defense\" grants Ramona: Timeworn 0.2 Aliemus.",
+  "descriptionTemplate": "Ramona: Timeworn obtains an additional 2.5 Keyflare Regen attribute. Each Affinity level additionally grants Ramona: Timeworn 0.5 Keyflare Regen attribute.\nFor each Keyflare Regen Lv. attribute, the {Loop} effect of \"Basic Strike\" grants Ramona: Timeworn 0.2% Crit. Rate, and the {Loop} effect of \"Basic Defense\" grants Ramona: Timeworn 0.2 Aliemus.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Ramona: Timeworn"
 }

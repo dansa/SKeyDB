@@ -7,8 +7,8 @@
     "slug": "gobble-up",
     "canonicalPath": "/database/derived-skills/gobble-up"
   },
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "Instead create all 3 {Discovered} Skill Cards, but their Arithmetica Costs are not reduced.",
   "descriptionArgs": {},
   "cardKeywords": [],

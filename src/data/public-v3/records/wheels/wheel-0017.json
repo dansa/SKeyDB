@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0038",
   "ownerAwakenerName": "Ogier",
   "lineupToken": "8",
-  "descriptionTemplate": "Shield gained from the wielder's Exalt +[StateArg2]%.\nAfter the wielder Exalts, gain Temporary {STR} equal to [StateArg1]% of the wielder's DEF. If Awakeners were {Fragile} before the Exalt was released, {STR} gained this way is doubled.",
+  "descriptionTemplate": "Team Unique: The wielder's Exalt Shield Generation +[StateArg2]%.\nAfter the wielder Exalts, gain Temporary {STR} equal to [StateArg1]% of the wielder's DEF. If Awakeners were {Fragile} before the Exalt was released, {STR} gained this way is doubled.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

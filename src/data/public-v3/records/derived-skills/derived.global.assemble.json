@@ -8,8 +8,8 @@
     "canonicalPath": "/database/derived-skills/assemble"
   },
   "derivedFromId": "derived.global.gluttonous-attack",
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "Put one \"Strike\" with 0 Arithmetica Cost for each Awakener into hand, and they gain 5 Aliemus",
   "descriptionArgs": {},
   "cardKeywords": []

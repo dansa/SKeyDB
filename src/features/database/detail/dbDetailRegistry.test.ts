@@ -7,6 +7,7 @@ import {
   databaseAwakeners,
   databaseCovenants,
   databasePosses,
+  databaseOrisons,
   databaseRelics,
   databaseWheels,
 } from '../data'
@@ -32,6 +33,7 @@ function createNavigationPort(): DatabaseDetailNavigationPort {
 describe('database detail registry adapters', () => {
   const lookup = createDatabaseDetailCatalogLookup({
     awakeners: databaseAwakeners,
+    orisons: databaseOrisons,
     relics: databaseRelics,
     wheels: databaseWheels,
   })
@@ -42,6 +44,7 @@ describe('database detail registry adapters', () => {
     expect(getDatabaseDetailKindForEntity('posses')).toBe('posse')
     expect(getDatabaseDetailKindForEntity('covenants')).toBe('covenant')
     expect(getDatabaseDetailKindForEntity('relics')).toBe('relic')
+    expect(getDatabaseDetailKindForEntity('orisons')).toBe('orison')
   })
 
   it('has exact registry coverage for every declared detail kind', () => {

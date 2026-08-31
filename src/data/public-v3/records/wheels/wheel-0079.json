@@ -14,7 +14,7 @@
   "realm": "NEUTRAL",
   "mainstatKey": "DMG_AMP",
   "lineupToken": "6",
-  "descriptionTemplate": "Team Unique: The wielder's {Poison} inflicted +[StateArg1]%. \"Strike\" deals DMG equal to [StateArg2]% of the attacker's ATK as {Poison}. This effect can trigger a maximum of 3 times per turn.",
+  "descriptionTemplate": "Team Unique: The wielder's {Poison} Infliction +[StateArg1]%. \"Strike\" inflicts {Poison} equal to [StateArg2]% of the wielder's ATK on the target enemy. This effect can trigger a maximum of 3 times per turn.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

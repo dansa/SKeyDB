@@ -7,8 +7,8 @@
     "slug": "vernal-message",
     "canonicalPath": "/database/derived-skills/vernal-message"
   },
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "Gain [Arg1] Keyflare and put {Sakura Blossoms} into the Discard Pile.",
   "descriptionArgs": {
     "Arg1": {

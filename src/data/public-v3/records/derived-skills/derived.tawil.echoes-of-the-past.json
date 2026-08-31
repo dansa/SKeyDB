@@ -10,8 +10,8 @@
   "ownerAwakenerId": "awakener-0047",
   "derivedFromId": "skill.tawil.the-silver-key-gate",
   "rootSkillId": "skill.tawil.the-silver-key-gate",
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "Restore Current HP and Shield to the state at the end of the previous Turn.",
   "descriptionArgs": {},
   "cardKeywords": [

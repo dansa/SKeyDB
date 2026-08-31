@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 3,
+  "kind": "orison",
+  "id": "orison-0006",
+  "name": "Bastion",
+  "route": {
+    "slug": "bastion",
+    "canonicalPath": "/database/orisons/bastion"
+  },
+  "assets": {
+    "icon": "asset-orison-0006-icon"
+  },
+  "orisonType": "STANDARD",
+  "variantCount": 2,
+  "defaultVariantId": "orison-variant-0011",
+  "aliases": [],
+  "descriptionTemplate": "When played, gain [Arg1] Shield.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.075,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "variants": [
+    {
+      "id": "orison-variant-0011",
+      "name": "Bastion",
+      "tier": "Common",
+      "descriptionTemplate": "When played, gain [Arg1] Shield.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.075,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "orisonType": "STANDARD",
+      "assets": {
+        "icon": "asset-orison-variant-0011-icon"
+      }
+    },
+    {
+      "id": "orison-variant-0012",
+      "name": "Adv. Bastion",
+      "tier": "Advanced",
+      "descriptionTemplate": "When played, gain [Arg1] Shield.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.15,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "orisonType": "STANDARD",
+      "assets": {
+        "icon": "asset-orison-variant-0012-icon"
+      }
+    }
+  ]
+}

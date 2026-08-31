@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0026",
   "ownerAwakenerName": "Karen",
   "lineupToken": "xh",
-  "descriptionTemplate": "{Poison} inflicted by the wielder +[StateArg3]%.\nAfter the wielder Exalts, recover HP equal to [StateArg1]% of their CON, plus another [StateArg2]% of their CON for each unspent Arithmetica.",
+  "descriptionTemplate": "Team Unique: The wielder's {Poison} Infliction +[StateArg3]%. After the wielder Exalts, recover HP equal to [StateArg1]% of their CON, plus another [StateArg2]% of their CON for each unspent Arithmetica.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

@@ -288,6 +288,46 @@ describe('parseRichDescription', () => {
     ])
   })
 
+  it('parses typed Orison and Relic tokens as explicit family references', () => {
+    const result = parseRichDescription(
+      '{orison:Insight} and {relic:Malignant Child}.',
+      EMPTY_CARDS,
+    )
+
+    expect(result).toEqual([
+      {type: 'skill', name: 'Insight', referenceKind: 'orison'},
+      {type: 'text', value: ' and '},
+      {type: 'skill', name: 'Malignant Child', referenceKind: 'relic'},
+      {type: 'text', value: '.'},
+    ])
+  })
+
+  it('preserves compact family and exact variant references with a visible label', () => {
+    const result = parseRichDescription(
+      '{orison:0002@v-0003|Computation} and {relic:0207@v-0340|Malignant Child}.',
+      EMPTY_CARDS,
+    )
+
+    expect(result).toEqual([
+      {
+        type: 'skill',
+        name: 'Computation',
+        referenceKind: 'orison',
+        referenceId: 'orison-0002',
+        referenceVariantId: 'orison-variant-0003',
+      },
+      {type: 'text', value: ' and '},
+      {
+        type: 'skill',
+        name: 'Malignant Child',
+        referenceKind: 'relic',
+        referenceId: 'relic-0207',
+        referenceVariantId: 'relic-variant-0340',
+      },
+      {type: 'text', value: '.'},
+    ])
+  })
+
   it('promotes bare multi-word overlay names in prose into mechanic segments', () => {
     const result = parseRichDescription(
       'Gain Tentacle DMG and Death Resistance.',

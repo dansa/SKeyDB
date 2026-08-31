@@ -15,6 +15,7 @@ import {dzonePreferencesStore, hydrateDZoneSelectedAlertId} from '@/stores/dzone
 import {getDzoneAlertShortName} from './d-zone-display-text'
 import {
   buildDefaultOpenWaveIds,
+  getPersistedAlertPreferenceId,
   getResolvedOpenWaveIds,
   getSelectedAlertId,
   toggleResolvedOpenWaveId,
@@ -90,8 +91,12 @@ export function DZoneSeasonInspector({
   })
 
   function selectAlert(alertId: string) {
-    setPersistedSelectedAlertId(alertId)
-    setAlertSelectionState({alertId})
+    const preferenceAlertId = getPersistedAlertPreferenceId({
+      alertOptions,
+      selectedAlertId: alertId,
+    })
+    setPersistedSelectedAlertId(preferenceAlertId)
+    setAlertSelectionState({alertId: preferenceAlertId})
   }
 
   function toggleWave(waveId: string) {

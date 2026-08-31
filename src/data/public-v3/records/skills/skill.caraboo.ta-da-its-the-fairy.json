@@ -11,7 +11,7 @@
   "slot": "Exalt",
   "cardFamily": "exalt",
   "cardTypes": ["exalt"],
-  "descriptionTemplate": "[{Devour}: Gain 1 stack of {Satiety}. Upon dealing DMG, inflict [Corrosion:Arg10] stacks of {Corrosion} on the target.] Dispel {Burn} from all cards in hand. Gain [Block:Arg2] Shield. Deal [Damage:Arg1] DMG [Arg8] times to all enemies. Each stack of {Satiety} increases Exalt Base DMG and Shield Generation by [Arg6]%. Consume all {Offering} stacks; each stack increases Exalt hit count by 1 and converts into an equal number of stacks of {Satiety}.",
+  "descriptionTemplate": "[{Devour}: Gain 1 stack of {Satiety}. For each instance of DMG dealt by Exalt, inflicts [Corrosion:Arg10] stacks of {Corrosion} equal to the DMG dealt after Exalt concludes.] Dispel {Burn} from all cards in hand. Gain [Block:Arg2] Shield. Deal [Damage:Arg1] DMG [Arg8] times to all enemies. Each stack of {Satiety} increases Exalt Base DMG and Shield Generation by [Arg6]%. Consume all {Offering} stacks; each stack increases Exalt hit count by 1 and converts into an equal number of stacks of {Satiety}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -54,7 +54,7 @@
       "ownerAwakenerId": "awakener-0060",
       "ownerAwakenerName": "Caraboo",
       "patch": {
-        "descriptionTemplate": "[{Devour}: Gain {Satiety}. Upon dealing DMG, inflict [Corrosion:Arg10] stacks of {Corrosion} on the target.] Dispel {Burn} from all cards in hand. Gain [Block:Arg2] Shield. Deal [Damage:Arg1] DMG [Arg8] times to all enemies. Each stack of {Satiety} increases Exalt Base DMG and Shield Generation by [Arg6]%. Consume all {Offering} stacks; each stack increases Exalt hit count by 1 and converts into an equal number of stacks of {Satiety}.",
+        "descriptionTemplate": "[{Devour}: Gain {Satiety}. For each instance of DMG dealt by Exalt, inflicts [Corrosion:Arg10] stacks of {Corrosion} equal to the DMG dealt after Exalt concludes.] Dispel {Burn} from all cards in hand. Gain [Block:Arg2] Shield. Deal [Damage:Arg1] DMG [Arg8] times to all enemies. Each stack of {Satiety} increases Exalt Base DMG and Shield Generation by [Arg6]%. Consume all {Offering} stacks; each stack increases Exalt hit count by 1 and converts into an equal number of stacks of {Satiety}.",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

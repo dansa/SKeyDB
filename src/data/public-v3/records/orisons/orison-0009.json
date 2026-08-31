@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 3,
+  "kind": "orison",
+  "id": "orison-0009",
+  "name": "Spike",
+  "route": {
+    "slug": "spike",
+    "canonicalPath": "/database/orisons/spike"
+  },
+  "assets": {
+    "icon": "asset-orison-0009-icon"
+  },
+  "orisonType": "STANDARD",
+  "variantCount": 2,
+  "defaultVariantId": "orison-variant-0017",
+  "aliases": [],
+  "descriptionTemplate": "When played, gain [Arg1] {Counter}, then trigger [Arg2]% {Counter} against all enemies.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "occultResearchDepth",
+      "multiplier": 0.06,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "50",
+      "suffix": "%"
+    }
+  },
+  "variants": [
+    {
+      "id": "orison-variant-0017",
+      "name": "Spike",
+      "tier": "Common",
+      "descriptionTemplate": "When played, gain [Arg1] {Counter}, then trigger [Arg2]% {Counter} against all enemies.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.06,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "50",
+          "suffix": "%"
+        }
+      },
+      "orisonType": "STANDARD",
+      "assets": {
+        "icon": "asset-orison-variant-0017-icon"
+      }
+    },
+    {
+      "id": "orison-variant-0018",
+      "name": "Adv. Spike",
+      "tier": "Advanced",
+      "descriptionTemplate": "When played, gain [Arg1] {Counter}, then trigger [Arg2]% {Counter} against all enemies.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "occultResearchDepth",
+          "multiplier": 0.12,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "100",
+          "suffix": "%"
+        }
+      },
+      "orisonType": "STANDARD",
+      "assets": {
+        "icon": "asset-orison-variant-0018-icon"
+      }
+    }
+  ]
+}

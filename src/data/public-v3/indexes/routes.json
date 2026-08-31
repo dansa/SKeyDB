@@ -3007,6 +3007,152 @@
         "canonicalPath": "/database/relics/yellow-snail"
       }
     },
+    "orisons": {
+      "abyss-echo": {
+        "kind": "orison",
+        "id": "orison-0024",
+        "canonicalSlug": "abyss-echo",
+        "canonicalPath": "/database/orisons/abyss-echo"
+      },
+      "bastion": {
+        "kind": "orison",
+        "id": "orison-0006",
+        "canonicalSlug": "bastion",
+        "canonicalPath": "/database/orisons/bastion"
+      },
+      "berserk": {
+        "kind": "orison",
+        "id": "orison-0003",
+        "canonicalSlug": "berserk",
+        "canonicalPath": "/database/orisons/berserk"
+      },
+      "birth": {
+        "kind": "orison",
+        "id": "orison-0020",
+        "canonicalSlug": "birth",
+        "canonicalPath": "/database/orisons/birth"
+      },
+      "bloodlust": {
+        "kind": "orison",
+        "id": "orison-0012",
+        "canonicalSlug": "bloodlust",
+        "canonicalPath": "/database/orisons/bloodlust"
+      },
+      "burst": {
+        "kind": "orison",
+        "id": "orison-0015",
+        "canonicalSlug": "burst",
+        "canonicalPath": "/database/orisons/burst"
+      },
+      "catalyst": {
+        "kind": "orison",
+        "id": "orison-0016",
+        "canonicalSlug": "catalyst",
+        "canonicalPath": "/database/orisons/catalyst"
+      },
+      "computation": {
+        "kind": "orison",
+        "id": "orison-0002",
+        "canonicalSlug": "computation",
+        "canonicalPath": "/database/orisons/computation"
+      },
+      "dominion": {
+        "kind": "orison",
+        "id": "orison-0011",
+        "canonicalSlug": "dominion",
+        "canonicalPath": "/database/orisons/dominion"
+      },
+      "drain": {
+        "kind": "orison",
+        "id": "orison-0018",
+        "canonicalSlug": "drain",
+        "canonicalPath": "/database/orisons/drain"
+      },
+      "echo": {
+        "kind": "orison",
+        "id": "orison-0007",
+        "canonicalSlug": "echo",
+        "canonicalPath": "/database/orisons/echo"
+      },
+      "ensemble": {
+        "kind": "orison",
+        "id": "orison-0019",
+        "canonicalSlug": "ensemble",
+        "canonicalPath": "/database/orisons/ensemble"
+      },
+      "finesse": {
+        "kind": "orison",
+        "id": "orison-0001",
+        "canonicalSlug": "finesse",
+        "canonicalPath": "/database/orisons/finesse"
+      },
+      "insight": {
+        "kind": "orison",
+        "id": "orison-0017",
+        "canonicalSlug": "insight",
+        "canonicalPath": "/database/orisons/insight"
+      },
+      "lex-genis": {
+        "kind": "orison",
+        "id": "orison-0021",
+        "canonicalSlug": "lex-genis",
+        "canonicalPath": "/database/orisons/lex-genis"
+      },
+      "lex-nous": {
+        "kind": "orison",
+        "id": "orison-0023",
+        "canonicalSlug": "lex-nous",
+        "canonicalPath": "/database/orisons/lex-nous"
+      },
+      "lex-volis": {
+        "kind": "orison",
+        "id": "orison-0022",
+        "canonicalSlug": "lex-volis",
+        "canonicalPath": "/database/orisons/lex-volis"
+      },
+      "might": {
+        "kind": "orison",
+        "id": "orison-0014",
+        "canonicalSlug": "might",
+        "canonicalPath": "/database/orisons/might"
+      },
+      "mirror": {
+        "kind": "orison",
+        "id": "orison-0008",
+        "canonicalSlug": "mirror",
+        "canonicalPath": "/database/orisons/mirror"
+      },
+      "spike": {
+        "kind": "orison",
+        "id": "orison-0009",
+        "canonicalSlug": "spike",
+        "canonicalPath": "/database/orisons/spike"
+      },
+      "toxin": {
+        "kind": "orison",
+        "id": "orison-0010",
+        "canonicalSlug": "toxin",
+        "canonicalPath": "/database/orisons/toxin"
+      },
+      "vulnerable": {
+        "kind": "orison",
+        "id": "orison-0004",
+        "canonicalSlug": "vulnerable",
+        "canonicalPath": "/database/orisons/vulnerable"
+      },
+      "warp": {
+        "kind": "orison",
+        "id": "orison-0013",
+        "canonicalSlug": "warp",
+        "canonicalPath": "/database/orisons/warp"
+      },
+      "weakness": {
+        "kind": "orison",
+        "id": "orison-0005",
+        "canonicalSlug": "weakness",
+        "canonicalPath": "/database/orisons/weakness"
+      }
+    },
     "covenants": {
       "april-tribute": {
         "kind": "covenant",
@@ -11813,6 +11959,7 @@
         "canonicalPath": "/database/relics/pure-silver-core"
       }
     },
+    "orisons": {},
     "covenants": {
       "photosynthesis-rite": {
         "kind": "covenant",

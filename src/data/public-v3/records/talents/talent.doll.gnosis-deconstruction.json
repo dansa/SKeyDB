@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0013",
   "family": "passive",
-  "descriptionTemplate": "For every 1 Aliemus Regen Level attribute Doll has, increase the HP Recovery effects of {Outer Surgery} and {Equivalent Exchange} by 0.5%.",
+  "descriptionTemplate": "For every 1 Aliemus Regen Lv. attribute Doll has, increase the HP Recovery effects of {Outer Surgery} and {Equivalent Exchange} by 0.5%.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Doll"
 }

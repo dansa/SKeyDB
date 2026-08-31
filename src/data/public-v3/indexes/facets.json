@@ -1178,6 +1178,59 @@
       }
     ]
   },
+  "orisons": {
+    "realm": [
+      {
+        "value": "AEQUOR",
+        "label": "Aequor",
+        "order": 10
+      },
+      {
+        "value": "CARO",
+        "label": "Caro",
+        "order": 20
+      },
+      {
+        "value": "ULTRA",
+        "label": "Ultra",
+        "order": 30
+      }
+    ],
+    "orisonType": [
+      {
+        "value": "SPECIAL",
+        "label": "Special",
+        "order": 1000
+      },
+      {
+        "value": "STANDARD",
+        "label": "Standard",
+        "order": 1000
+      }
+    ],
+    "variantTiers": [
+      {
+        "value": "Common",
+        "label": "Common",
+        "order": -2
+      },
+      {
+        "value": "Advanced",
+        "label": "Advanced",
+        "order": -1
+      },
+      {
+        "value": "Cursed",
+        "label": "Cursed",
+        "order": 2
+      },
+      {
+        "value": "Unique",
+        "label": "Unique",
+        "order": 7
+      }
+    ]
+  },
   "overlays": {
     "overlayType": [
       {

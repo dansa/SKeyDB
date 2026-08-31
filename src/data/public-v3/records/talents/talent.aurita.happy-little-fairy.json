@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0005",
   "family": "passive",
-  "descriptionTemplate": "For every 1 Aliemus Regen Level Aurita has, gain {Tentacle DMG} equal to 1% of her ATK at the start of battle. For every 1% Crit. Rate Aurita has, gain {Tentacle DMG} equal to 1% of her ATK at the start of battle.",
+  "descriptionTemplate": "For every 1 Aliemus Regen Lv. Aurita has, gain {Tentacle DMG} equal to 1% of her ATK at the start of battle. For every 1% Crit. Rate Aurita has, gain {Tentacle DMG} equal to 1% of her ATK at the start of battle.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Aurita"
 }

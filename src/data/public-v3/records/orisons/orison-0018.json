@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 3,
+  "kind": "orison",
+  "id": "orison-0018",
+  "name": "Drain",
+  "route": {
+    "slug": "drain",
+    "canonicalPath": "/database/orisons/drain"
+  },
+  "assets": {
+    "icon": "asset-orison-0018-icon"
+  },
+  "orisonType": "STANDARD",
+  "variantCount": 2,
+  "defaultVariantId": "orison-variant-0035",
+  "aliases": [],
+  "descriptionTemplate": "When played, inflict [Arg1] Temp. {STR▼} on all enemies.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.035,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "variants": [
+    {
+      "id": "orison-variant-0035",
+      "name": "Drain",
+      "tier": "Common",
+      "descriptionTemplate": "When played, inflict [Arg1] Temp. {STR▼} on all enemies.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.035,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "orisonType": "STANDARD",
+      "assets": {
+        "icon": "asset-orison-variant-0035-icon"
+      }
+    },
+    {
+      "id": "orison-variant-0036",
+      "name": "Adv. Drain",
+      "tier": "Advanced",
+      "descriptionTemplate": "When played, inflict [Arg1] Temp. {STR▼} on all enemies.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.07,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "orisonType": "STANDARD",
+      "assets": {
+        "icon": "asset-orison-variant-0036-icon"
+      }
+    }
+  ]
+}

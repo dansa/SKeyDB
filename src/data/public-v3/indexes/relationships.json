@@ -1052,7 +1052,8 @@
         "overlay.pickman.painted-orisons",
         "overlay.pickman.painted-relics"
       ],
-      "awakenerBuilds": ["awakener-build-0040"]
+      "awakenerBuilds": ["awakener-build-0040"],
+      "relatedOrisons": ["orison-0001", "orison-0002", "orison-0003", "orison-0006", "orison-0014", "orison-0016", "orison-0017", "orison-0018"]
     },
     "awakener-0041": {
       "ownedWheels": ["wheel-0042", "wheel-0113"],
@@ -1292,7 +1293,8 @@
         "enlighten.tinct.stellar-reverberation",
         "enlighten.tinct.when-crimson-meets-thorns"
       ],
-      "awakenerBuilds": ["awakener-build-0049"]
+      "awakenerBuilds": ["awakener-build-0049"],
+      "relatedOrisons": ["orison-0001", "orison-0002", "orison-0003", "orison-0004", "orison-0005", "orison-0006"]
     },
     "awakener-0050": {
       "ownedWheels": ["wheel-0050", "wheel-0107"],
@@ -2179,6 +2181,30 @@
     "enlighten.xu.gu-wang-yan": {},
     "enlighten.xu.karmic-grave": {},
     "enlighten.xu.nirvanas-kiss": {},
+    "orison-0001": {},
+    "orison-0002": {},
+    "orison-0003": {},
+    "orison-0004": {},
+    "orison-0005": {},
+    "orison-0006": {},
+    "orison-0007": {},
+    "orison-0008": {},
+    "orison-0009": {},
+    "orison-0010": {},
+    "orison-0011": {},
+    "orison-0012": {},
+    "orison-0013": {},
+    "orison-0014": {},
+    "orison-0015": {},
+    "orison-0016": {},
+    "orison-0017": {},
+    "orison-0018": {},
+    "orison-0019": {},
+    "orison-0020": {},
+    "orison-0021": {},
+    "orison-0022": {},
+    "orison-0023": {},
+    "orison-0024": {},
     "overlay.24.realm-and-persona": {},
     "overlay.aigis.petrify": {},
     "overlay.arachne.final-verdict": {},
@@ -2981,7 +3007,9 @@
     "skill.pickman.lifelike-rendition": {},
     "skill.pickman.morgue-studio": {},
     "skill.pickman.strike": {},
-    "skill.pickman.truth-in-delusion": {},
+    "skill.pickman.truth-in-delusion": {
+      "relatedOrisons": ["orison-0001", "orison-0002", "orison-0003", "orison-0006", "orison-0014", "orison-0016", "orison-0017", "orison-0018"]
+    },
     "skill.pollux.cleansing-judgement": {},
     "skill.pollux.defense": {},
     "skill.pollux.path-of-ablution": {},
@@ -3065,7 +3093,9 @@
     "skill.tinct.requiem": {},
     "skill.tinct.starlight-aurora": {},
     "skill.tinct.strike": {},
-    "skill.tinct.voices-from-beyond": {},
+    "skill.tinct.voices-from-beyond": {
+      "relatedOrisons": ["orison-0001", "orison-0002", "orison-0003", "orison-0004", "orison-0005", "orison-0006"]
+    },
     "skill.tulu.abyss-order": {},
     "skill.tulu.defense": {},
     "skill.tulu.immortal-majesty": {},
@@ -5086,6 +5116,60 @@
     "enlighten.xu.nirvanas-kiss": {
       "ownerAwakenerId": "awakener-0054"
     },
+    "orison-0001": {
+      "relatedSkills": ["skill.pickman.truth-in-delusion", "skill.tinct.voices-from-beyond"],
+      "relatedAwakeners": ["awakener-0040", "awakener-0049"]
+    },
+    "orison-0002": {
+      "relatedSkills": ["skill.pickman.truth-in-delusion", "skill.tinct.voices-from-beyond"],
+      "relatedAwakeners": ["awakener-0040", "awakener-0049"]
+    },
+    "orison-0003": {
+      "relatedSkills": ["skill.pickman.truth-in-delusion", "skill.tinct.voices-from-beyond"],
+      "relatedAwakeners": ["awakener-0040", "awakener-0049"]
+    },
+    "orison-0004": {
+      "relatedSkills": ["skill.tinct.voices-from-beyond"],
+      "relatedAwakeners": ["awakener-0049"]
+    },
+    "orison-0005": {
+      "relatedSkills": ["skill.tinct.voices-from-beyond"],
+      "relatedAwakeners": ["awakener-0049"]
+    },
+    "orison-0006": {
+      "relatedSkills": ["skill.pickman.truth-in-delusion", "skill.tinct.voices-from-beyond"],
+      "relatedAwakeners": ["awakener-0040", "awakener-0049"]
+    },
+    "orison-0007": {},
+    "orison-0008": {},
+    "orison-0009": {},
+    "orison-0010": {},
+    "orison-0011": {},
+    "orison-0012": {},
+    "orison-0013": {},
+    "orison-0014": {
+      "relatedSkills": ["skill.pickman.truth-in-delusion"],
+      "relatedAwakeners": ["awakener-0040"]
+    },
+    "orison-0015": {},
+    "orison-0016": {
+      "relatedSkills": ["skill.pickman.truth-in-delusion"],
+      "relatedAwakeners": ["awakener-0040"]
+    },
+    "orison-0017": {
+      "relatedSkills": ["skill.pickman.truth-in-delusion"],
+      "relatedAwakeners": ["awakener-0040"]
+    },
+    "orison-0018": {
+      "relatedSkills": ["skill.pickman.truth-in-delusion"],
+      "relatedAwakeners": ["awakener-0040"]
+    },
+    "orison-0019": {},
+    "orison-0020": {},
+    "orison-0021": {},
+    "orison-0022": {},
+    "orison-0023": {},
+    "orison-0024": {},
     "overlay.24.realm-and-persona": {
       "ownerAwakenerId": "awakener-0001"
     },

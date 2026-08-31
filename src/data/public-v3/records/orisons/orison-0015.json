@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 3,
+  "kind": "orison",
+  "id": "orison-0015",
+  "name": "Burst",
+  "route": {
+    "slug": "burst",
+    "canonicalPath": "/database/orisons/burst"
+  },
+  "assets": {
+    "icon": "asset-orison-0015-icon"
+  },
+  "orisonType": "STANDARD",
+  "variantCount": 2,
+  "defaultVariantId": "orison-variant-0029",
+  "aliases": [],
+  "descriptionTemplate": "When played, first gain [Arg1] Temp. {STR}, then resolve the card's effects. (Its DMG will benefit from this {STR}.)",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.06,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "variants": [
+    {
+      "id": "orison-variant-0029",
+      "name": "Burst",
+      "tier": "Common",
+      "descriptionTemplate": "When played, first gain [Arg1] Temp. {STR}, then resolve the card's effects. (Its DMG will benefit from this {STR}.)",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.06,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "orisonType": "STANDARD",
+      "assets": {
+        "icon": "asset-orison-variant-0029-icon"
+      }
+    },
+    {
+      "id": "orison-variant-0030",
+      "name": "Adv. Burst",
+      "tier": "Advanced",
+      "descriptionTemplate": "When played, first gain [Arg1] Temp. {STR}, then resolve the card's effects. (Its DMG will benefit from this {STR}.)",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.12,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "orisonType": "STANDARD",
+      "assets": {
+        "icon": "asset-orison-variant-0030-icon"
+      }
+    }
+  ]
+}

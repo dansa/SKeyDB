@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 3,
+  "kind": "orison",
+  "id": "orison-0024",
+  "name": "Abyss Echo",
+  "route": {
+    "slug": "abyss-echo",
+    "canonicalPath": "/database/orisons/abyss-echo"
+  },
+  "assets": {
+    "icon": "asset-orison-0024-icon"
+  },
+  "orisonType": "SPECIAL",
+  "variantCount": 1,
+  "defaultVariantId": "orison-variant-0046",
+  "aliases": [],
+  "descriptionTemplate": "When played, will take effect [Arg1] additional {plural:[Arg1]|time|times}, then {Exhaust}. {Aftershock}: Draw 2 cards.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "variants": [
+    {
+      "id": "orison-variant-0046",
+      "name": "Abyss Echo",
+      "tier": "Unique",
+      "descriptionTemplate": "When played, will take effect [Arg1] additional {plural:[Arg1]|time|times}, then {Exhaust}. {Aftershock}: Draw 2 cards.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "orisonType": "SPECIAL",
+      "assets": {
+        "icon": "asset-orison-variant-0046-icon"
+      }
+    }
+  ]
+}

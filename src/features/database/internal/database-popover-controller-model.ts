@@ -1,4 +1,5 @@
 import type {AwakenerEnlightenRecord, AwakenerOverlayRecord} from '@/domain/awakener-source-schema'
+import {buildDatabaseOrisonPath, buildDatabaseRelicPath} from '@/domain/database-paths'
 import {
   resolveDatabaseReferenceInfo,
   resolveDatabaseReferenceInfoById,
@@ -22,8 +23,10 @@ const LAZY_GLOBAL_REFERENCE_KINDS = new Set([
   'covenant',
   'derived-skill',
   'enlighten',
+  'orison',
   'overlay',
   'posse',
+  'relic',
   'skill',
   'talent',
   'wheel',
@@ -44,8 +47,20 @@ export function buildTrailEntry(
   selectedEnlightenSlot: AwakenerEnlightenRecord['slot'] | null,
   referenceLayerOverride: ResolvedDatabaseReferenceLayer | null = null,
 ): TrailEntry {
+  const artifactNavigation =
+    reference.kind === 'orison' && reference.variantId
+      ? {
+          navigationHref: `${buildDatabaseOrisonPath(reference)}?variant=${encodeURIComponent(reference.variantId)}`,
+          navigationLabel: 'Open in Orisons DB',
+        }
+      : reference.kind === 'relic' && reference.variantId
+        ? {
+            navigationHref: `${buildDatabaseRelicPath(reference)}?variant=${encodeURIComponent(reference.variantId)}`,
+            navigationLabel: 'Open in Relics DB',
+          }
+        : {}
   return {
-    key: `${reference.kind}:${reference.id}`,
+    key: `${reference.kind}:${reference.id}${reference.variantId ? `:${reference.variantId}` : ''}`,
     referenceId: reference.id,
     name: reference.name,
     label: reference.label,
@@ -62,6 +77,7 @@ export function buildTrailEntry(
         : reference.kind === 'wheel'
           ? {kind: 'wheel-page', wheelId: reference.id, wheelName: reference.name}
           : undefined,
+    ...artifactNavigation,
     referenceLayerOverride,
     selectedEnlightenSlot,
   }
@@ -90,15 +106,22 @@ export function resolveReferenceByName(
   layer: DatabaseReferenceLayer | null,
   name: string,
   preferredKind?: DatabaseReferenceInfo['kind'],
+  preferredId?: string,
+  preferredVariantId?: string,
 ): DatabaseReferenceInfo | null {
   if (!layer) {
     return null
   }
 
-  return preferredKind
-    ? (resolveDatabaseReferenceInfoByKindAndName(layer, preferredKind, name) ??
-        resolveDatabaseReferenceInfo(layer, name))
-    : resolveDatabaseReferenceInfo(layer, name)
+  const idReference = preferredId ? resolveDatabaseReferenceInfoById(layer, preferredId) : null
+  const reference =
+    idReference && (!preferredKind || idReference.kind === preferredKind)
+      ? idReference
+      : preferredKind
+        ? (resolveDatabaseReferenceInfoByKindAndName(layer, preferredKind, name) ??
+          resolveDatabaseReferenceInfo(layer, name))
+        : resolveDatabaseReferenceInfo(layer, name)
+  return reference && preferredVariantId ? {...reference, variantId: preferredVariantId} : reference
 }
 
 export function resolveOverlayReference(

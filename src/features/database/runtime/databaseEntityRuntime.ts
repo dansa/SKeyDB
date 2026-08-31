@@ -11,12 +11,14 @@ import {
   buildDatabaseCovenantPath,
   buildDatabasePossePath,
   buildDatabaseRelicPath,
+  buildDatabaseOrisonPath,
   buildDatabaseWheelPath,
   DEFAULT_DATABASE_AWAKENER_TAB,
   findAwakenerByDatabaseSlug,
   findCovenantByDatabaseSlug,
   findPosseByDatabaseSlug,
   findRelicByDatabaseSlug,
+  findOrisonByDatabaseSlug,
   findWheelByDatabaseSlug,
   resolveDatabaseAwakenerTab,
   resolveDatabaseAwakenerVisibleTab,
@@ -208,6 +210,40 @@ const DATABASE_ENTITY_RUNTIME_BY_ID = {
     loadBrowse: () =>
       import('@/features/database/browse/RelicsBrowse').then(({RelicsBrowse}) => ({
         default: RelicsBrowse,
+      })),
+  },
+  orisons: {
+    maxDetailSuffixSegments: 0,
+    resolveDetailReference: async ({id, search, state}) => {
+      const {getOrisons} = await import('@/domain/orisons')
+      const item = getOrisons().find((candidate) => candidate.id === id)
+      if (!item) return null
+      const nextSearchParams = new URLSearchParams(sanitizeRuntimeSearch('orisons', search, true))
+      if ('variant' in state) {
+        if (state.variant) nextSearchParams.set('variant', state.variant)
+        else nextSearchParams.delete('variant')
+      }
+      const nextSearch = nextSearchParams.size ? `?${nextSearchParams.toString()}` : ''
+      return createResolvedReferenceTarget(
+        'orisons',
+        buildDatabaseOrisonPath(item),
+        {kind: 'orison', item, variantId: nextSearchParams.get('variant') ?? undefined},
+        nextSearch,
+        true,
+      )
+    },
+    resolveDetailRoute: async ({search, slug}) => {
+      const {getOrisons} = await import('@/domain/orisons')
+      const item = findOrisonByDatabaseSlug(getOrisons(), slug)
+      const variantId = new URLSearchParams(search).get('variant') ?? undefined
+      return {
+        canonicalPath: item ? buildDatabaseOrisonPath(item) : buildDatabaseOrisonPath({name: slug}),
+        routeItem: item ? {kind: 'orison', item, variantId} : null,
+      }
+    },
+    loadBrowse: () =>
+      import('@/features/database/browse/OrisonsBrowse').then(({OrisonsBrowse}) => ({
+        default: OrisonsBrowse,
       })),
   },
 } satisfies Record<DatabaseEntityId, DatabaseEntityRuntimeDefinition>

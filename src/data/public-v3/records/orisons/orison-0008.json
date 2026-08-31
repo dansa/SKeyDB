@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 3,
+  "kind": "orison",
+  "id": "orison-0008",
+  "name": "Mirror",
+  "route": {
+    "slug": "mirror",
+    "canonicalPath": "/database/orisons/mirror"
+  },
+  "assets": {
+    "icon": "asset-orison-0008-icon"
+  },
+  "orisonType": "STANDARD",
+  "variantCount": 2,
+  "defaultVariantId": "orison-variant-0015",
+  "aliases": [],
+  "descriptionTemplate": "At the start of each battle, shuffle [Arg1] basic copy of the engraved card into the Draw Pile. Both the engraved card and the copy it creates have {Retain}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "variants": [
+    {
+      "id": "orison-variant-0015",
+      "name": "Mirror",
+      "tier": "Common",
+      "descriptionTemplate": "At the start of each battle, shuffle [Arg1] basic copy of the engraved card into the Draw Pile. Both the engraved card and the copy it creates have {Retain}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "orisonType": "STANDARD",
+      "assets": {
+        "icon": "asset-orison-variant-0015-icon"
+      }
+    },
+    {
+      "id": "orison-variant-0016",
+      "name": "Adv. Mirror",
+      "tier": "Advanced",
+      "descriptionTemplate": "At the start of each battle, shuffle [Arg1] basic copies of the engraved card into the Draw Pile. Both the engraved card and the copies it creates have {Retain}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "2"
+        }
+      },
+      "orisonType": "STANDARD",
+      "assets": {
+        "icon": "asset-orison-variant-0016-icon"
+      }
+    }
+  ]
+}

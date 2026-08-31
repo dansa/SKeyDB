@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0008",
   "ownerAwakenerName": "Castor",
   "lineupToken": "yq",
-  "descriptionTemplate": "Team Unique: The wielder's Shield Generation +[StateArg1]%. Gain Shield equal to [StateArg2]% of the wielder's DEF at turn end, which +2% of the wielder's DEF per turn.",
+  "descriptionTemplate": "Team Unique: The wielder's Shield Generation +[StateArg1]%. At turn end, gain Shield equal to [StateArg2]% of the wielder's DEF, which +2% of the wielder's DEF per turn.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

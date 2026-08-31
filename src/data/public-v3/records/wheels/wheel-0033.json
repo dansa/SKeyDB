@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0052",
   "ownerAwakenerName": "Wanda",
   "lineupToken": "D",
-  "descriptionTemplate": "Team Unique: The wielder's {Counter} Generation +[StateArg4]%. After playing a card, gain {Counter} equal to [StateArg1]% of the wielder's DEF, up to 2 times per turn. If the card played enters {Ultra Space}, the wielder also gains [StateArg2] Aliemus. After releasing Exalt, all enemies lose [StateArg3]% Temporary {STR} equal to the wielder's DEF.",
+  "descriptionTemplate": "Team Unique: The wielder's {Counter} Generation +[StateArg4]%. After the wielder plays a card, gain {Counter} equal to [StateArg1]% of the wielder's DEF, up to 2 times per turn. If the card played enters {Ultra Space}, the wielder also gains [StateArg2] Aliemus. After releasing Exalt, all enemies lose Temporary {STR} equal to [StateArg3]% of the wielder's DEF.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

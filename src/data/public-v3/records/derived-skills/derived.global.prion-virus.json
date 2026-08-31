@@ -7,8 +7,8 @@
     "slug": "prion-virus",
     "canonicalPath": "/database/derived-skills/prion-virus"
   },
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "childDerivedSkillIds": ["derived.global.adsorption", "derived.global.solidify"],
   "descriptionTemplate": "Choice: {Adsorption} or {Solidify}",
   "descriptionArgs": {},

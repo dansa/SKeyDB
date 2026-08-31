@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0212",
   "rarity": "SR",
   "aliases": [],
-  "descriptionTemplate": "{Dawn}: All Awakeners' Base Aliemus reduced by 30. The first Exalt Unleashed each turn gains 200% Final DMG bonus, 100% Shield and Healing bonus. After Unleashing Exalt 5 times, choose 1 Awakener to {Rouse}, and Refresh the Exalt amplification Effect.\n{Depletion}: Base Keyflare +200%",
+  "descriptionTemplate": "{Dawn}: All Awakeners' Base Aliemus -30. The first Exalt Unleashed each turn gains 200% Final DMG bonus, 100% Shield and HP Recovery bonus. After Unleashing Exalt 5 times, choose 1 Awakener to {Rouse}, and Refresh the Exalt amplification Effect.\n{Depletion}: Base Keyflare +200%",
   "descriptionArgs": {},
   "variants": [
     {
@@ -27,7 +27,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "{Dawn}: All Awakeners' Base Aliemus reduced by 30. The first Exalt Unleashed each turn gains 200% Final DMG bonus, 100% Shield and Healing bonus. After Unleashing Exalt 5 times, choose 1 Awakener to {Rouse}, and Refresh the Exalt amplification Effect.\n{Depletion}: Base Keyflare +200%",
+      "descriptionTemplate": "{Dawn}: All Awakeners' Base Aliemus -30. The first Exalt Unleashed each turn gains 200% Final DMG bonus, 100% Shield and HP Recovery bonus. After Unleashing Exalt 5 times, choose 1 Awakener to {Rouse}, and Refresh the Exalt amplification Effect.\n{Depletion}: Base Keyflare +200%",
       "descriptionArgs": {}
     }
   ]

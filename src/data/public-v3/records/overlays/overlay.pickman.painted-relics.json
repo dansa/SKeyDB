@@ -11,7 +11,21 @@
   "ownerAwakenerId": "awakener-0040",
   "aliases": ["Golden Relics", "Silver Relics", "Painted Silver Relics"],
   "textColor": "misc",
-  "descriptionTemplate": "Includes the following \"{Astral Reign} Relics\": {Malignant Child}, {Rite of Spring}, {Iron Lock}, {Filigree Agate}, {Blessed Blood}, {Rusted Saw}, {Gilded Reverie}, {Bloody Pebble}.",
+  "descriptionTemplate": "Includes the following \"{Astral Reign} Relics\": {relic:0207@v-0340|Malignant Child}, {relic:0255@v-0437|Rite of Spring}, {relic:0188@v-0301|Iron Lock}, {relic:0164@v-0238|Filigree Agate}, {relic:0078@v-0092|Blessed Blood}, {relic:0258@v-0446|Rusted Saw}, {relic:0174@v-0270|Gilded Reverie}, {relic:0079@v-0097|Bloody Pebble}.",
   "descriptionArgs": {},
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.pickman.centered-composition.overlay.pickman.painted-relics",
+      "operation": "replace_description",
+      "upgraderId": "enlighten.pickman.centered-composition",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "E2",
+      "ownerAwakenerId": "awakener-0040",
+      "ownerAwakenerName": "Pickman",
+      "patch": {
+        "descriptionTemplate": "Includes the following \"{Astral Reign} Relics\": {relic:0207@v-0341|Malignant Child}, {relic:0255@v-0438|Rite of Spring}, {relic:0188@v-0302|Iron Lock}, {relic:0164@v-0239|Filigree Agate}, {relic:0078@v-0093|Blessed Blood}, {relic:0258@v-0447|Rusted Saw}, {relic:0174@v-0271|Gilded Reverie}, {relic:0079@v-0098|Bloody Pebble}."
+      }
+    }
+  ],
   "ownerAwakenerName": "Pickman"
 }

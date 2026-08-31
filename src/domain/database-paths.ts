@@ -13,6 +13,7 @@ import {
   toDatabaseEntitySlug,
   type DatabaseEntityId,
 } from './database-entity-paths'
+import type {Orison} from './orisons'
 import type {Posse} from './posses'
 import type {Relic} from './relics'
 import type {Wheel} from './wheels'
@@ -51,6 +52,10 @@ export function toDatabaseCovenantSlug(name: string): string {
 }
 
 export function toDatabaseRelicSlug(name: string): string {
+  return toDatabaseEntitySlug(name)
+}
+
+export function toDatabaseOrisonSlug(name: string): string {
   return toDatabaseEntitySlug(name)
 }
 
@@ -165,6 +170,10 @@ export function buildDatabaseRelicBrowsePath(): string {
   return buildDatabaseEntityBrowsePath('relics')
 }
 
+export function buildDatabaseOrisonBrowsePath(): string {
+  return buildDatabaseEntityBrowsePath('orisons')
+}
+
 export function buildDatabaseWheelPath(
   wheel: Pick<Wheel, 'name'> & Partial<Pick<Wheel, 'id'>>,
 ): string {
@@ -187,6 +196,12 @@ export function buildDatabaseRelicPath(
   relic: Pick<Relic, 'name'> & Partial<Pick<Relic, 'id'>>,
 ): string {
   return buildDatabaseEntityPath('relics', relic)
+}
+
+export function buildDatabaseOrisonPath(
+  orison: Pick<Orison, 'name'> & Partial<Pick<Orison, 'id'>>,
+): string {
+  return buildDatabaseEntityPath('orisons', orison)
 }
 
 export function findAwakenerByDatabaseSlug(
@@ -213,4 +228,11 @@ export function findCovenantByDatabaseSlug(
 
 export function findRelicByDatabaseSlug(relics: Relic[], slug: string | undefined): Relic | null {
   return findEntityByDatabaseSlug('relics', relics, slug)
+}
+
+export function findOrisonByDatabaseSlug(
+  orisons: Orison[],
+  slug: string | undefined,
+): Orison | null {
+  return findEntityByDatabaseSlug('orisons', orisons, slug)
 }

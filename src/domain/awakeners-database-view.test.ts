@@ -66,6 +66,7 @@ function buildSkill(
   displayName: string,
   kind: AwakenerSkillRecord['kind'],
 ): AwakenerSkillRecord {
+  const cardFamily = kind === 'rouse' ? 'rouse' : kind === 'exalt' ? 'exalt' : 'command'
   return {
     id,
     ownerAwakenerId: 999,
@@ -79,6 +80,9 @@ function buildSkill(
       },
     },
     cardKeywords: [{id: 'mechanic.retain'}],
+    cardFamily,
+    cardTypes: [kind],
+    countsAs: [],
     variants: [],
   }
 }
@@ -98,6 +102,9 @@ function buildDerived(id: string, displayName: string): DerivedSkillRecord {
     },
     childDerivedSkillIds: [],
     cardKeywords: [],
+    cardFamily: 'command',
+    cardTypes: ['derived'],
+    countsAs: [],
     variants: [],
   }
 }
@@ -449,6 +456,14 @@ describe('awakeners-database-view', () => {
     )
     expect(view.cardNames.has('Rouse')).toBe(false)
     expect(view.cardNames.has('Embryo')).toBe(true)
+    expect(resolveAwakenerDatabaseReferenceInfo(view, 'Finesse')).toMatchObject({
+      id: 'orison-0001',
+      kind: 'orison',
+    })
+    expect(resolveAwakenerDatabaseReferenceInfo(view, 'Malignant Child')).toMatchObject({
+      id: 'relic-0207',
+      kind: 'relic',
+    })
   })
 
   it('uses the selected soulforge level when resolving soulforge aptitude descriptions', () => {
@@ -619,8 +634,8 @@ describe('awakeners-database-view', () => {
 
     expect(view.commandCards.map((entry) => entry.key)).toEqual(['C1', 'C2', 'C3', 'C4', 'C5'])
     expect(view.exalts.map((entry) => ({key: entry.key, label: entry.label}))).toEqual([
-      {key: 'Exalt', label: 'Card · Exalt · Cost —'},
-      {key: 'OverExalt', label: 'Card · Over Exalt · Cost —'},
+      {key: 'Exalt', label: 'Cost — · Exalt'},
+      {key: 'OverExalt', label: 'Cost — · Exalt'},
     ])
     expect(view.overExalt?.key).toBe('OverExalt')
     expect(view.enlightens.map((entry) => ({key: entry.key, label: entry.label}))).toEqual([
@@ -712,6 +727,52 @@ describe('awakeners-database-view', () => {
       expect.objectContaining({
         id: 'overlay.global.over-exalt',
         displayName: 'Over-Exalt',
+      }),
+    )
+  })
+
+  it('appends temporary Orison references and resolves their skill-scaled popovers', () => {
+    const record = buildRecord()
+    record.cards.C1.orisonApplications = [
+      {
+        id: 'orison-application.test',
+        displayName: 'Temporary Orison effects',
+        applicationMode: 'TEMPORARY_ANALOG',
+        members: [
+          {
+            orisonId: 'orison-0006',
+            temporaryEffect: {
+              descriptionTemplate: 'Gain [Block:Arg1] Shield',
+              descriptionArgs: {
+                Arg1: {
+                  kind: 'scaling',
+                  values: ['10', '12', '14', '16', '18', '20'],
+                  stat: 'DEF',
+                  suffix: '%',
+                },
+              },
+            },
+          },
+        ],
+      },
+    ]
+
+    const view = resolveAwakenerDatabaseView(
+      record,
+      {skillLevel: 4, stats: TEST_STATS},
+      buildOverlayRecords(),
+      buildGlobalDerivedSkills(),
+    )
+
+    expect(view.commandCards[0]?.keywordFooterText).toContain('{orison:Bastion}')
+    expect(resolveAwakenerDatabaseReferenceInfoById(view, 'orison-0006')).toEqual(
+      expect.objectContaining({
+        kind: 'orison',
+        name: 'Bastion',
+        label: 'Temporary Orison effect',
+        description: 'Gain 16% {DEF} Shield',
+        descriptionRank: 4,
+        descriptionMaxRank: 6,
       }),
     )
   })

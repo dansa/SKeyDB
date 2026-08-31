@@ -11,7 +11,7 @@
   "slot": "Exalt",
   "cardFamily": "exalt",
   "cardTypes": ["exalt"],
-  "descriptionTemplate": "Deal [Damage:Arg1] damage to all enemies; this damage enjoys a [Arg4]-times Strength bonus. Create one custom {derived:Thousand Mirage} and place it into your hand. If it is not an {Ultra}-dimensional turn and {overlay:Ultra Space} does not have a {derived:Thousand Mirage}, copy it into {overlay:Ultra Space} (considered as triggering {overlay:Dimension Shuttle} once); otherwise, place one {derived:Insight} into your hand.",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies; which enjoys a [Arg4]× {STR} bonus. Create one custom {derived:Thousand Mirage} and place it into hand. If it is not an {Ultra Round} and there is no {derived:Thousand Mirage} in the {overlay:Ultra Space}, copy it into the {overlay:Ultra Space} (considered as triggering {overlay:Dimension Shuttle} once); otherwise, place one {derived:Insight} into hand.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 3,
+  "kind": "orison",
+  "id": "orison-0014",
+  "name": "Might",
+  "route": {
+    "slug": "might",
+    "canonicalPath": "/database/orisons/might"
+  },
+  "assets": {
+    "icon": "asset-orison-0014-icon"
+  },
+  "orisonType": "STANDARD",
+  "variantCount": 2,
+  "defaultVariantId": "orison-variant-0027",
+  "aliases": [],
+  "descriptionTemplate": "After being played, gain [Arg1] {STR}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.015,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "variants": [
+    {
+      "id": "orison-variant-0027",
+      "name": "Might",
+      "tier": "Common",
+      "descriptionTemplate": "After being played, gain [Arg1] {STR}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.015,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "orisonType": "STANDARD",
+      "assets": {
+        "icon": "asset-orison-variant-0027-icon"
+      }
+    },
+    {
+      "id": "orison-variant-0028",
+      "name": "Adv. Might",
+      "tier": "Advanced",
+      "descriptionTemplate": "After being played, gain [Arg1] {STR}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.03,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "orisonType": "STANDARD",
+      "assets": {
+        "icon": "asset-orison-variant-0028-icon"
+      }
+    }
+  ]
+}

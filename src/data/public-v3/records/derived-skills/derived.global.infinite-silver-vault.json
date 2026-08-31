@@ -7,8 +7,8 @@
     "slug": "infinite-silver-vault",
     "canonicalPath": "/database/derived-skills/infinite-silver-vault"
   },
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "Feel the Power of Silver! Call upon the three Awakeners in the current Realm and choose one to obtain their support card.",
   "descriptionArgs": {},
   "cardKeywords": [

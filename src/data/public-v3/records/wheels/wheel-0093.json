@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0029",
   "ownerAwakenerName": "Lily",
   "lineupToken": "xM",
-  "descriptionTemplate": "Team Unique: The Shields and {Poison} caused by the wielder increase by [StateArg1]%. Each time {Death Resistance} is triggered, all Awakeners gain [StateArg2]% Temporary Crit. Rate and Crit. DMG.",
+  "descriptionTemplate": "Team Unique: The wielder's Shield Generation and {Poison} Infliction +[StateArg1]%. Upon triggering {Death Resistance}, all Awakeners gain [StateArg2]% Temporary Crit. Rate and Crit. DMG.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

@@ -14,12 +14,15 @@ import {
   statScalingSchema,
   substatScalingSchema,
   type AwakenerEnlightenRecord,
-  type AwakenerOverlayRecord,
   type AwakenerSkillRecord,
   type AwakenerTalentRecord,
   type DerivedSkillRecord,
 } from './awakener-source-schema'
-import type {AwakenerFullRecord, AwakenerProfile} from './awakeners-full'
+import type {
+  AwakenerFullRecord,
+  AwakenerProfile,
+  PublicUpgradeableOverlayRecord,
+} from './awakeners-full'
 import type {CovenantFullRecord} from './covenants-full'
 import {isLegacyPromotedDerivedExtra} from './legacy-public-v3-adapter/compatibilityOverrides'
 import type {PosseFullRecord} from './posses-full'
@@ -715,7 +718,7 @@ export async function loadPublicDerivedSkillDetailById(
 
 export async function loadPublicOverlayDetailById(
   overlayId: string,
-): Promise<AwakenerOverlayRecord | undefined> {
+): Promise<PublicUpgradeableOverlayRecord | undefined> {
   return loadPublicChildDetailById(overlayId, {
     scope: 'overlays',
     parse: parsePublicV3OverlayRecord,

@@ -135,6 +135,44 @@ describe('public V3 awakener record adapters', () => {
     ).toThrow()
   })
 
+  it('requires mode-specific Orison application member fields', () => {
+    const record = {
+      schemaVersion: 3,
+      kind: 'skill',
+      id: 'skill.cached.rouse',
+      name: 'Cached Rouse',
+      ownerAwakenerId: 'awakener-0001',
+    }
+
+    expect(() =>
+      parsePublicV3SkillRecord({
+        ...record,
+        orisonApplications: [
+          {
+            id: 'orison-application.cached.exact',
+            displayName: 'Exact pool',
+            applicationMode: 'EXACT_VARIANT_POOL',
+            members: [{orisonId: 'orison-0001'}],
+          },
+        ],
+      }),
+    ).toThrow()
+
+    expect(() =>
+      parsePublicV3SkillRecord({
+        ...record,
+        orisonApplications: [
+          {
+            id: 'orison-application.cached.temporary',
+            displayName: 'Temporary effects',
+            applicationMode: 'TEMPORARY_ANALOG',
+            members: [{orisonId: 'orison-0001'}],
+          },
+        ],
+      }),
+    ).toThrow()
+  })
+
   it('keeps missing description fields defaulted during adaptation and preserves loose metadata', () => {
     const parsed = parsePublicV3SkillRecord({
       schemaVersion: 3,
@@ -143,6 +181,9 @@ describe('public V3 awakener record adapters', () => {
       name: 'Cached Rouse',
       ownerAwakenerId: 'awakener-0001',
       slot: 'Rouse',
+      cardFamily: 'rouse',
+      cardTypes: ['rouse'],
+      countsAs: [],
       publicOnly: 'kept',
     })
 
@@ -150,6 +191,9 @@ describe('public V3 awakener record adapters', () => {
     expect(adaptPublicV3SkillRecord(parsed)).toEqual(
       expect.objectContaining({
         cardKeywords: [],
+        cardFamily: 'rouse',
+        cardTypes: ['rouse'],
+        countsAs: [],
         descriptionArgs: {},
         descriptionTemplate: '',
       }),

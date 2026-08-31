@@ -7,8 +7,8 @@
     "slug": "palette",
     "canonicalPath": "/database/derived-skills/palette"
   },
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "If two different {Colors} are recorded, it grants a continuous buff.",
   "descriptionArgs": {},
   "cardKeywords": [

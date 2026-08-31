@@ -331,6 +331,48 @@ export const skillKindSchema = z.enum([
   'other',
 ])
 
+const cardClassificationShape = {
+  cardFamily: nonEmptyStringSchema.optional(),
+  cardTypes: z.array(nonEmptyStringSchema).optional(),
+  countsAs: z.array(nonEmptyStringSchema).optional(),
+}
+
+const exactVariantOrisonApplicationMemberSchema = z.looseObject({
+  orisonId: nonEmptyStringSchema,
+  defaultVariantId: nonEmptyStringSchema,
+  upgradedVariantId: nonEmptyStringSchema,
+  temporaryEffect: z.never().optional(),
+})
+
+const temporaryOrisonApplicationMemberSchema = z.looseObject({
+  orisonId: nonEmptyStringSchema,
+  defaultVariantId: z.never().optional(),
+  upgradedVariantId: z.never().optional(),
+  temporaryEffect: describedRecordSchema,
+})
+
+const orisonApplicationShape = {
+  id: nonEmptyStringSchema,
+  displayName: nonEmptyStringSchema,
+  selection: nonEmptyStringSchema.optional(),
+  expires: nonEmptyStringSchema.optional(),
+  upgradedById: nonEmptyStringSchema.optional(),
+  upgradeEffect: nonEmptyStringSchema.optional(),
+}
+
+export const orisonApplicationSchema = z.discriminatedUnion('applicationMode', [
+  z.looseObject({
+    ...orisonApplicationShape,
+    applicationMode: z.literal('EXACT_VARIANT_POOL'),
+    members: z.array(exactVariantOrisonApplicationMemberSchema).default([]),
+  }),
+  z.looseObject({
+    ...orisonApplicationShape,
+    applicationMode: z.literal('TEMPORARY_ANALOG'),
+    members: z.array(temporaryOrisonApplicationMemberSchema).default([]),
+  }),
+])
+
 export const cardVariantSchema = describedRecordSchema.extend({
   id: nonEmptyStringSchema,
   unlockEnlightenSlot: z.enum(ENLIGHTEN_SLOT_KEYS).optional(),
@@ -349,6 +391,9 @@ export const awakenerSkillSchema = describedRecordSchema.extend({
   continuationRefs: z.array(descriptionContinuationRefSchema).optional(),
   cardKeywords: cardKeywordsSchema,
   variants: z.array(awakenersSkillVariantSchema).default([]),
+  orisonIds: z.array(nonEmptyStringSchema).optional(),
+  orisonApplications: z.array(orisonApplicationSchema).optional(),
+  ...cardClassificationShape,
 })
 
 export const awakenerTalentSchema = describedRecordSchema.extend({
@@ -381,6 +426,7 @@ export const derivedSkillSchema = describedRecordSchema.extend({
   childPosseIds: z.array(nonEmptyStringSchema).optional(),
   cardKeywords: cardKeywordsSchema,
   variants: z.array(cardVariantSchema).default([]),
+  ...cardClassificationShape,
 })
 
 export const overlayTypeSchema = z.enum(['realm', 'mechanic', 'tag', 'help'])
@@ -503,6 +549,7 @@ export type SubstatScalingKey = (typeof SUBSTAT_SCALING_KEYS)[number]
 export type SubstatScaling = z.infer<typeof substatScalingSchema>
 export type AwakenerRosterRecord = z.infer<typeof awakenerRosterSchema>
 export type AwakenerSkillRecord = z.infer<typeof awakenerSkillSchema>
+export type OrisonApplicationRecord = z.infer<typeof orisonApplicationSchema>
 export type AwakenerSkillVariantRecord = z.infer<typeof awakenersSkillVariantSchema>
 export type AwakenerTalentRecord = z.infer<typeof awakenerTalentSchema>
 export type AwakenerEnlightenRecord = z.infer<typeof awakenersEnlightenSchema>

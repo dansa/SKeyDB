@@ -11,14 +11,16 @@ import {
   cardKeywordsSchema,
   derivedSkillSchema,
   descriptionArgsSchema,
+  orisonApplicationSchema,
   type AwakenerEnlightenRecord,
-  type AwakenerOverlayRecord,
   type AwakenerSkillRecord,
   type AwakenerTalentRecord,
   type CardKeyword,
   type DerivedSkillRecord,
   type DescriptionArg,
+  type OrisonApplicationRecord,
 } from './awakener-source-schema'
+import type {PublicUpgradeableOverlayRecord} from './awakeners-full'
 
 const publicV3AwakenerSkillSchema = awakenerSkillSchema.loose()
 const publicV3AwakenerTalentSchema = awakenerTalentSchema.loose()
@@ -72,11 +74,16 @@ export interface PublicV3OwnedRecord {
 }
 
 export type PublicV3SkillRecord = PublicV3OwnedRecord & {
+  cardFamily?: string
   cardKeywords?: CardKeyword[]
+  cardTypes?: string[]
+  countsAs?: string[]
   descriptionArgs?: Record<string, DescriptionArg>
   descriptionTemplate?: string
   slot?: string
   upgrades?: PublicV3UpgradeEntry[]
+  orisonIds?: string[]
+  orisonApplications?: OrisonApplicationRecord[]
 }
 
 export type PublicV3TalentRecord = PublicV3OwnedRecord & {
@@ -94,11 +101,14 @@ export type PublicV3EnlightenRecord = PublicV3OwnedRecord & {
 }
 
 export type PublicV3DerivedSkillRecord = PublicV3OwnedRecord & {
+  cardFamily?: string
   cardKeywords?: CardKeyword[]
+  cardTypes?: string[]
   childDerivedSkillIds?: string[]
   childPosseIds?: string[]
   descriptionArgs?: Record<string, DescriptionArg>
   descriptionTemplate?: string
+  countsAs?: string[]
   upgrades?: PublicV3UpgradeEntry[]
 }
 
@@ -113,11 +123,16 @@ export type PublicV3OverlayRecord = PublicV3OwnedRecord & {
 
 const publicV3SkillRecordShape = {
   kind: z.literal('skill'),
+  cardFamily: z.string().trim().min(1).optional(),
   cardKeywords: cardKeywordsSchema.optional(),
+  cardTypes: z.array(z.string().trim().min(1)).optional(),
+  countsAs: z.array(z.string().trim().min(1)).optional(),
   descriptionArgs: descriptionArgsSchema.optional(),
   descriptionTemplate: z.string().optional(),
   slot: z.string().optional(),
   upgrades: z.array(publicV3UpgradeEntrySchema).optional(),
+  orisonIds: z.array(z.string()).optional(),
+  orisonApplications: z.array(orisonApplicationSchema).optional(),
 }
 const publicV3TalentRecordShape = {
   kind: z.literal('talent'),
@@ -135,11 +150,14 @@ const publicV3EnlightenRecordShape = {
 }
 const publicV3DerivedSkillRecordShape = {
   kind: z.literal('derivedSkill'),
+  cardFamily: z.string().trim().min(1).optional(),
   cardKeywords: cardKeywordsSchema.optional(),
+  cardTypes: z.array(z.string().trim().min(1)).optional(),
   childDerivedSkillIds: z.array(z.string()).optional(),
   childPosseIds: z.array(z.string()).optional(),
   descriptionArgs: descriptionArgsSchema.optional(),
   descriptionTemplate: z.string().optional(),
+  countsAs: z.array(z.string().trim().min(1)).optional(),
   upgrades: z.array(publicV3UpgradeEntrySchema).optional(),
 }
 const publicV3OverlayRecordShape = {
@@ -271,6 +289,8 @@ export function adaptPublicV3SkillRecord(record: PublicV3SkillRecord): AwakenerS
     kind: skillKindFromPublicSlot(record.slot),
     displayName: record.name,
     cardKeywords: record.cardKeywords ?? [],
+    cardTypes: record.cardTypes ?? [],
+    countsAs: record.countsAs ?? [],
     descriptionTemplate: record.descriptionTemplate ?? '',
     descriptionArgs: record.descriptionArgs ?? {},
     variants: [],
@@ -310,18 +330,22 @@ export function adaptPublicV3DerivedSkillRecord(
     childDerivedSkillIds: record.childDerivedSkillIds ?? [],
     childPosseIds: record.childPosseIds ?? [],
     cardKeywords: record.cardKeywords ?? [],
+    cardTypes: record.cardTypes ?? [],
+    countsAs: record.countsAs ?? [],
     descriptionTemplate: record.descriptionTemplate ?? '',
     descriptionArgs: record.descriptionArgs ?? {},
     variants: [],
   })
 }
 
-export function adaptPublicV3OverlayRecord(record: PublicV3OverlayRecord): AwakenerOverlayRecord {
+export function adaptPublicV3OverlayRecord(
+  record: PublicV3OverlayRecord,
+): PublicUpgradeableOverlayRecord {
   const iconId =
     record.iconId ??
     (record.assets?.icon ? resolvePublicAsset(record.assets.icon)?.assetId : undefined)
 
-  return publicV3AwakenerOverlaySchema.parse({
+  const overlay = publicV3AwakenerOverlaySchema.parse({
     ...record,
     ownerAwakenerId: optionalNumericAwakenerId(record.ownerAwakenerId),
     displayName: record.name,
@@ -330,4 +354,9 @@ export function adaptPublicV3OverlayRecord(record: PublicV3OverlayRecord): Awake
     descriptionTemplate: record.descriptionTemplate ?? '',
     descriptionArgs: record.descriptionArgs ?? {},
   })
+
+  return {
+    ...overlay,
+    upgrades: record.upgrades,
+  }
 }

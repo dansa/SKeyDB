@@ -15,7 +15,7 @@
   "aliases": ["Gynoecium stacks"],
   "iconId": "IconS_Buff_087",
   "textColor": "light",
-  "descriptionTemplate": "Life, radiant and unbound, rises in a triumphant hymn to freedom. Can be consumed by Saya's Exalt to {Enhance} its effect. Stacks up to 4, persists between battles.",
+  "descriptionTemplate": "Life, radiant and unbound, rises in a triumphant hymn to freedom. Can be consumed by Saya's Exalt to enhance its effect. Stacks up to 4, persists between battles.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Saya"
 }

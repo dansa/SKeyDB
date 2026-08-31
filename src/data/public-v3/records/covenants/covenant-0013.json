@@ -15,7 +15,7 @@
   "setEffects": [
     {
       "set": 3,
-      "descriptionTemplate": "Keyflare Regen Level +[Arg1]",
+      "descriptionTemplate": "Keyflare Regen Lv. +[Arg1]",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

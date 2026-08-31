@@ -7,8 +7,8 @@
     "slug": "twilight-seed-of-abundance",
     "canonicalPath": "/database/derived-skills/twilight-seed-of-abundance"
   },
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "childDerivedSkillIds": ["derived.global.memories-seed-of-abundance"],
   "descriptionTemplate": "Choose 1 card from the Draw Pile or Discard Pile and add it to hand, setting its Arithmetica Cost to 0. Place 1 {Remembrance - Core of Abundance} into both the Draw Pile and Discard Pile.",
   "descriptionArgs": {},

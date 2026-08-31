@@ -4,6 +4,10 @@ import type {
   DerivedSkillRecord,
   FullStats,
 } from './awakener-source-schema'
+import {
+  formatCanonicalCardMetadata,
+  getCanonicalCardClassificationLabels,
+} from './card-classification'
 import {buildCardKeywordFooterText} from './card-keywords'
 import {resolveDescribedRecord, type DescribedRecord} from './description-records'
 import type {PublicFormulaContext} from './public-formula-context'
@@ -27,7 +31,9 @@ export interface DatabaseReferenceInfo<TRecord extends DescribedRecord = Describ
     | 'posse'
     | 'covenant'
     | 'relic'
+    | 'orison'
   id: string
+  variantId?: string
   name: string
   label: string
   record: TRecord
@@ -235,8 +241,8 @@ export function buildDatabaseDerivedSkillReferenceInfo(
   formulaContext?: PublicFormulaContext,
   {
     label = record.nodeKind === 'group'
-      ? 'Card · Derived Group'
-      : `Card · Derived · Cost ${record.cost ?? '—'}`,
+      ? ['Group', ...getCanonicalCardClassificationLabels(record)].join(' · ')
+      : formatCanonicalCardMetadata(record, record.cost ?? '—'),
     rank,
     maxRank = 6,
     stats = null,

@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 3,
+  "kind": "orison",
+  "id": "orison-0012",
+  "name": "Bloodlust",
+  "route": {
+    "slug": "bloodlust",
+    "canonicalPath": "/database/orisons/bloodlust"
+  },
+  "assets": {
+    "icon": "asset-orison-0012-icon"
+  },
+  "orisonType": "STANDARD",
+  "variantCount": 2,
+  "defaultVariantId": "orison-variant-0023",
+  "realm": "CARO",
+  "aliases": [],
+  "descriptionTemplate": "When played, {Embryo Fusion} +[Arg1].",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "25"
+    }
+  },
+  "variants": [
+    {
+      "id": "orison-variant-0023",
+      "name": "Bloodlust",
+      "tier": "Common",
+      "descriptionTemplate": "When played, {Embryo Fusion} +[Arg1].",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "25"
+        }
+      },
+      "orisonType": "STANDARD",
+      "realm": "CARO",
+      "assets": {
+        "icon": "asset-orison-variant-0023-icon"
+      }
+    },
+    {
+      "id": "orison-variant-0024",
+      "name": "Adv. Bloodlust",
+      "tier": "Advanced",
+      "descriptionTemplate": "When played, {Embryo Fusion} +[Arg1].",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "50"
+        }
+      },
+      "orisonType": "STANDARD",
+      "realm": "CARO",
+      "assets": {
+        "icon": "asset-orison-variant-0024-icon"
+      }
+    }
+  ]
+}

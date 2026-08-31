@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 3,
+  "kind": "orison",
+  "id": "orison-0017",
+  "name": "Insight",
+  "route": {
+    "slug": "insight",
+    "canonicalPath": "/database/orisons/insight"
+  },
+  "assets": {
+    "icon": "asset-orison-0017-icon"
+  },
+  "orisonType": "STANDARD",
+  "variantCount": 2,
+  "defaultVariantId": "orison-variant-0033",
+  "aliases": [],
+  "descriptionTemplate": "When played, shuffle [Arg1] {derived:Insight} into the Draw Pile.\n{derived:Insight}: Gain 1 Arithmetica. Draw 1 card. {Retain}. {Exhaust}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "variants": [
+    {
+      "id": "orison-variant-0033",
+      "name": "Insight",
+      "tier": "Common",
+      "descriptionTemplate": "When played, shuffle [Arg1] {derived:Insight} into the Draw Pile.\n{derived:Insight}: Gain 1 Arithmetica. Draw 1 card. {Retain}. {Exhaust}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "orisonType": "STANDARD",
+      "assets": {
+        "icon": "asset-orison-variant-0033-icon"
+      }
+    },
+    {
+      "id": "orison-variant-0034",
+      "name": "Adv. Insight",
+      "tier": "Advanced",
+      "descriptionTemplate": "When played, shuffle [Arg1] {derived:Insight} into the Draw Pile.\n{derived:Insight}: Gain 1 Arithmetica. Draw 1 card. {Retain}. {Exhaust}.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "2"
+        }
+      },
+      "orisonType": "STANDARD",
+      "assets": {
+        "icon": "asset-orison-variant-0034-icon"
+      }
+    }
+  ]
+}

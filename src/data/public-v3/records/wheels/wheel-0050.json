@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0050",
   "ownerAwakenerName": "Tulu",
   "lineupToken": "B",
-  "descriptionTemplate": "At the start of each battle, the wielder gains [StateArg1] Aliemus.\nWhenever another Awakener Exalts, the wielder gains [StateArg2] Aliemus.\nAfter the wielder Exalts, gain {Tentacle DMG} equal to [StateArg3]% of their ATK.",
+  "descriptionTemplate": "Team Unique: At the start of each battle, the wielder gains [StateArg1] Aliemus.\nWhenever another Awakener Exalts, the wielder gains [StateArg2] Aliemus.\nAfter the wielder Exalts, gain {Tentacle DMG} equal to [StateArg3]% of their ATK.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

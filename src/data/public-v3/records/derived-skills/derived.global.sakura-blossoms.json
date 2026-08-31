@@ -7,8 +7,8 @@
     "slug": "sakura-blossoms",
     "canonicalPath": "/database/derived-skills/sakura-blossoms"
   },
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "Gain [Arg1] Keyflare and put {Hanafubuki} into the Discard Pile.",
   "descriptionArgs": {
     "Arg1": {

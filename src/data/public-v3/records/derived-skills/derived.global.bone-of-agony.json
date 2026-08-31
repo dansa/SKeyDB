@@ -7,8 +7,8 @@
     "slug": "bone-of-agony",
     "canonicalPath": "/database/derived-skills/bone-of-agony"
   },
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "Gain [Arg1] {STR}. After being played, accumulate [Arg2] stacks of {Warlust} for each instance of DMG received this turn.",
   "descriptionArgs": {
     "Arg1": {

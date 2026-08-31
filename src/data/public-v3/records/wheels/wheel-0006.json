@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0019",
   "ownerAwakenerName": "Helot: Catena",
   "lineupToken": "xY",
-  "descriptionTemplate": "Team Unique: The wielder's Base DMG +[StateArg1]%. Before Exalt, Temporary hand size +1, draw 1 Command Card. In {Caro} realm, triggering {Devour} temporarily increases Crit. DMG by [StateArg1]%, once per turn",
+  "descriptionTemplate": "Team Unique: The wielder's Base DMG +[StateArg1]%. Before the wielder releases Exalt, temporary hand size +1, and draw 1 of the wielder's Command Cards. If the current realm is {Caro}, when the wielder triggers {Devour}, Temporary Crit. DMG +[StateArg1]%, up to 1 time per turn.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

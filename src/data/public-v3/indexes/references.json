@@ -115,6 +115,12 @@
         "id": "overlay.global.final-rule"
       }
     ],
+    "abyss echo": [
+      {
+        "kind": "orison",
+        "id": "orison-0024"
+      }
+    ],
     "abyss hymns": [
       {
         "kind": "skill",
@@ -601,6 +607,12 @@
         "id": "enlighten.leigh.basement-journal"
       }
     ],
+    "bastion": [
+      {
+        "kind": "orison",
+        "id": "orison-0006"
+      }
+    ],
     "battle thirst": [
       {
         "kind": "skill",
@@ -679,6 +691,12 @@
         "id": "overlay.global.divine-realm-tranquil-sea"
       }
     ],
+    "berserk": [
+      {
+        "kind": "orison",
+        "id": "orison-0003"
+      }
+    ],
     "bespoke lucky windcoat": [
       {
         "kind": "relic",
@@ -713,6 +731,12 @@
       {
         "kind": "skill",
         "id": "skill.saya.biomimicry"
+      }
+    ],
+    "birth": [
+      {
+        "kind": "orison",
+        "id": "orison-0020"
       }
     ],
     "birth of a soul": [
@@ -913,6 +937,12 @@
         "id": "skill.caecus.bloodline-of-heresy"
       }
     ],
+    "bloodlust": [
+      {
+        "kind": "orison",
+        "id": "orison-0012"
+      }
+    ],
     "bloodthirsty flail": [
       {
         "kind": "derivedSkill",
@@ -1081,6 +1111,12 @@
         "id": "enlighten.liz.burning-tribute"
       }
     ],
+    "burst": [
+      {
+        "kind": "orison",
+        "id": "orison-0015"
+      }
+    ],
     "by rose alone": [
       {
         "kind": "wheel",
@@ -1183,10 +1219,10 @@
         "id": "awakener-build-0008"
       }
     ],
-    "catalyst": [
+    "catalysis": [
       {
-        "kind": "derivedSkill",
-        "id": "derived.daffodil.thousand-mirage-effect-catalyst"
+        "kind": "orison",
+        "id": "orison-0016"
       }
     ],
     "cats treasure": [
@@ -1685,12 +1721,6 @@
       {
         "kind": "wheel",
         "id": "wheel-0169"
-      }
-    ],
-    "computation": [
-      {
-        "kind": "derivedSkill",
-        "id": "derived.daffodil.thousand-mirage-effect-computation"
       }
     ],
     "concubines conceit": [
@@ -2749,6 +2779,12 @@
         "id": "awakener-build-0018"
       }
     ],
+    "dominion": [
+      {
+        "kind": "orison",
+        "id": "orison-0011"
+      }
+    ],
     "doomsday rampage": [
       {
         "kind": "wheel",
@@ -2783,6 +2819,12 @@
       {
         "kind": "relic",
         "id": "relic-0154"
+      }
+    ],
+    "drain": [
+      {
+        "kind": "orison",
+        "id": "orison-0018"
       }
     ],
     "dread of the darkness": [
@@ -2861,12 +2903,6 @@
       {
         "kind": "enlighten",
         "id": "enlighten.sorel.carlate-profond"
-      }
-    ],
-    "echo": [
-      {
-        "kind": "overlay",
-        "id": "overlay.global.echo"
       }
     ],
     "echoes from beyond": [
@@ -3059,6 +3095,12 @@
       {
         "kind": "enlighten",
         "id": "enlighten.xu.enmity-of-the-heart"
+      }
+    ],
+    "ensemble": [
+      {
+        "kind": "orison",
+        "id": "orison-0019"
       }
     ],
     "enthralling chime": [
@@ -3431,12 +3473,6 @@
       {
         "kind": "relic",
         "id": "relic-0165"
-      }
-    ],
-    "finesse": [
-      {
-        "kind": "derivedSkill",
-        "id": "derived.daffodil.thousand-mirage-effect-finesse"
       }
     ],
     "first doctrine": [
@@ -4855,6 +4891,24 @@
         "id": "enlighten.aurita.lets-all-have-fun-together"
       }
     ],
+    "lex genis": [
+      {
+        "kind": "orison",
+        "id": "orison-0021"
+      }
+    ],
+    "lex nous": [
+      {
+        "kind": "orison",
+        "id": "orison-0023"
+      }
+    ],
+    "lex volis": [
+      {
+        "kind": "orison",
+        "id": "orison-0022"
+      }
+    ],
     "liberation": [
       {
         "kind": "derivedSkill",
@@ -5359,6 +5413,12 @@
         "id": "posse-0018"
       }
     ],
+    "might": [
+      {
+        "kind": "orison",
+        "id": "orison-0014"
+      }
+    ],
     "million loving gaze": [
       {
         "kind": "wheel",
@@ -5399,6 +5459,12 @@
       {
         "kind": "posse",
         "id": "posse-0020"
+      }
+    ],
+    "mirror": [
+      {
+        "kind": "orison",
+        "id": "orison-0008"
       }
     ],
     "miryam": [
@@ -8035,6 +8101,12 @@
         "id": "enlighten.agrippa.spider-queens-kiss"
       }
     ],
+    "spike": [
+      {
+        "kind": "orison",
+        "id": "orison-0009"
+      }
+    ],
     "spike amalgamation": [
       {
         "kind": "enlighten",
@@ -8735,6 +8807,12 @@
       {
         "kind": "derivedSkill",
         "id": "derived.global.toxic-outbreak"
+      }
+    ],
+    "toxin": [
+      {
+        "kind": "orison",
+        "id": "orison-0010"
       }
     ],
     "tranquil sea": [
@@ -9439,6 +9517,12 @@
         "id": "posse-0003"
       }
     ],
+    "warp": [
+      {
+        "kind": "orison",
+        "id": "orison-0013"
+      }
+    ],
     "warp device": [
       {
         "kind": "relic",
@@ -9767,6 +9851,16 @@
         "id": "skill.karen.bounteous-feast"
       }
     ],
+    "catalyst": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.daffodil.thousand-mirage-effect-catalyst"
+      },
+      {
+        "kind": "orison",
+        "id": "orison-0016"
+      }
+    ],
     "certain gain": [
       {
         "kind": "enlighten",
@@ -9775,6 +9869,16 @@
       {
         "kind": "overlay",
         "id": "overlay.ryker.certain-gain"
+      }
+    ],
+    "computation": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.daffodil.thousand-mirage-effect-computation"
+      },
+      {
+        "kind": "orison",
+        "id": "orison-0002"
       }
     ],
     "cosmic symphony": [
@@ -10097,6 +10201,16 @@
         "id": "wheel-0170"
       }
     ],
+    "echo": [
+      {
+        "kind": "orison",
+        "id": "orison-0007"
+      },
+      {
+        "kind": "overlay",
+        "id": "overlay.global.echo"
+      }
+    ],
     "echoes of the past": [
       {
         "kind": "derivedSkill",
@@ -10185,6 +10299,16 @@
       {
         "kind": "skill",
         "id": "skill.helot-catena.fettered-malice"
+      }
+    ],
+    "finesse": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.daffodil.thousand-mirage-effect-finesse"
+      },
+      {
+        "kind": "orison",
+        "id": "orison-0001"
       }
     ],
     "flawless fairy tale": [
@@ -11981,6 +12105,10 @@
         "id": "derived.daffodil.thousand-mirage-effect-vulnerable"
       },
       {
+        "kind": "orison",
+        "id": "orison-0004"
+      },
+      {
         "kind": "overlay",
         "id": "overlay.global.vulnerable"
       }
@@ -11989,6 +12117,10 @@
       {
         "kind": "derivedSkill",
         "id": "derived.daffodil.thousand-mirage-effect-weakness"
+      },
+      {
+        "kind": "orison",
+        "id": "orison-0005"
       },
       {
         "kind": "overlay",

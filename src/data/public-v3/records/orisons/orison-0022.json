@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 3,
+  "kind": "orison",
+  "id": "orison-0022",
+  "name": "Lex Volis",
+  "route": {
+    "slug": "lex-volis",
+    "canonicalPath": "/database/orisons/lex-volis"
+  },
+  "assets": {
+    "icon": "asset-orison-0022-icon"
+  },
+  "orisonType": "SPECIAL",
+  "variantCount": 2,
+  "defaultVariantId": "orison-variant-0042",
+  "aliases": [],
+  "descriptionTemplate": "Play to discard all cards other than the Awakener, and draw 5 random non-Awakener cards. This effect can only be triggered once per battle.",
+  "descriptionArgs": {},
+  "variants": [
+    {
+      "id": "orison-variant-0042",
+      "name": "Lex Volis",
+      "tier": "Advanced",
+      "descriptionTemplate": "Play to discard all cards other than the Awakener, and draw 5 random non-Awakener cards. This effect can only be triggered once per battle.",
+      "descriptionArgs": {},
+      "orisonType": "SPECIAL",
+      "assets": {
+        "icon": "asset-orison-variant-0042-icon"
+      }
+    },
+    {
+      "id": "orison-variant-0043",
+      "name": "Adv. Lex Volis",
+      "tier": "Cursed",
+      "descriptionTemplate": "Play to discard all cards other than the Awakener, and draw 5 random non-Awakener cards. This effect can only be triggered once per battle.",
+      "descriptionArgs": {},
+      "orisonType": "SPECIAL",
+      "assets": {
+        "icon": "asset-orison-variant-0043-icon"
+      }
+    }
+  ]
+}

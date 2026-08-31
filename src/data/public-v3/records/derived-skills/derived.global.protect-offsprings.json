@@ -7,8 +7,8 @@
     "slug": "protect-offsprings",
     "canonicalPath": "/database/derived-skills/protect-offsprings"
   },
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "Dispel own {Bleed}, gain Shield equal to 50% of missing HP, draw 2 cards.",
   "descriptionArgs": {},
   "cardKeywords": [

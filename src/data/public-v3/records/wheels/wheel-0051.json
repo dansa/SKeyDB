@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0034",
   "ownerAwakenerName": "Murphy",
   "lineupToken": "m",
-  "descriptionTemplate": "Shield gained from the wielder +[StateArg1]%.\nWhenever the wielder or their equipment provide Shield, all Awakeners gain +[StateArg3]% Temp. Crit. Rate, and you gain Keyflare equal to [StateArg4]% of the wielder's Keyflare Regen, up to 2 times per turn.\nWhenever a Tentacle attacks, the wielder gains 1 Aliemus (up to [StateArg2] per turn).",
+  "descriptionTemplate": "Team Unique: The wielder's Shield Generation +[StateArg1]%. Whenever the wielder generates Shield, all Awakeners gain +[StateArg3]% Temporary Crit. Rate, and the team gains Keyflare equal to [StateArg4]% of the wielder's Keyflare Regen, up to 2 times per turn. If the current Realm is {Aequor}, whenever a Tentacle attacks, the wielder gains 1 Aliemus (up to [StateArg2] per turn).",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

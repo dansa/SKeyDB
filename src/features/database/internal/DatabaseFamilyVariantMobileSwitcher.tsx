@@ -1,20 +1,20 @@
 import {FaChevronDown} from 'react-icons/fa6'
 
-import type {PublicRelicVariant} from '@/domain/relics'
-
 import {buildRelicVariantLabels} from './relic-database-presentation'
 
-interface RelicVariantMobileSwitcherProps {
+interface DatabaseFamilyVariantMobileSwitcherProps {
+  entityLabel?: string
   onSelect: (variantId: string) => void
   selectedId: string
-  variants: readonly PublicRelicVariant[]
+  variants: readonly {id: string; label: string; name: string}[]
 }
 
-export function RelicVariantMobileSwitcher({
+export function DatabaseFamilyVariantMobileSwitcher({
+  entityLabel = 'Relic',
   onSelect,
   selectedId,
   variants,
-}: RelicVariantMobileSwitcherProps) {
+}: DatabaseFamilyVariantMobileSwitcherProps) {
   if (variants.length < 2) {
     return null
   }
@@ -33,7 +33,7 @@ export function RelicVariantMobileSwitcher({
       </div>
       <div className='relative'>
         <select
-          aria-label='Relic variant switcher'
+          aria-label={`${entityLabel} variant switcher`}
           className='ui-compact-control ui-compact-control--field h-11 w-full min-w-0 appearance-none border-slate-700/70 bg-slate-950/86 pr-11 text-xs text-slate-200 [color-scheme:dark]'
           onChange={(event) => {
             onSelect(event.target.value)

@@ -4,6 +4,7 @@ import type {DzoneAlertOption} from '@/domain/dzone'
 
 import {
   buildDefaultOpenWaveIds,
+  getPersistedAlertPreferenceId,
   getResolvedOpenWaveIds,
   getSelectedAlertId,
   toggleResolvedOpenWaveId,
@@ -69,6 +70,34 @@ describe('d-zone season inspector state', () => {
         alertSelectionState,
       }),
     ).toBe('alert-2')
+  })
+
+  it('persists the highest named difficulty as the legacy highest-tier preference', () => {
+    expect(
+      getPersistedAlertPreferenceId({
+        alertOptions: [
+          {id: 'alert-1', name: 'Normal'},
+          {id: 'alert-2', name: 'Hard'},
+          {id: 'alert-3', name: 'Nightmare'},
+          {id: 'alert-4', name: 'Madness'},
+        ],
+        selectedAlertId: 'alert-4',
+      }),
+    ).toBe('alert-5')
+  })
+
+  it('does not promote the highest option in a legacy four-alert season', () => {
+    expect(
+      getPersistedAlertPreferenceId({
+        alertOptions: [
+          {id: 'alert-1', name: 'Alert I'},
+          {id: 'alert-2', name: 'Alert II'},
+          {id: 'alert-3', name: 'Alert III'},
+          {id: 'alert-4', name: 'Alert IV'},
+        ],
+        selectedAlertId: 'alert-4',
+      }),
+    ).toBe('alert-4')
   })
 
   it('falls back to the highest available alert below the persisted level', () => {

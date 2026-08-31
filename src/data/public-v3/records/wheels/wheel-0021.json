@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0036",
   "ownerAwakenerName": "Nautila",
   "lineupToken": "7",
-  "descriptionTemplate": "Shield gained from the wielder +[StateArg1]%.\nAt turn start, {Retain} [StateArg2]% of unbroken Shield, up to [StateArg3]% of Max HP.",
+  "descriptionTemplate": "Team Unique: The wielder's Shield Generation +[StateArg1]%. At turn start, {Retain} [StateArg2]% of unbroken Shield, up to [StateArg3]% of Max HP.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

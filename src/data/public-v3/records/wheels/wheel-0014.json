@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0042",
   "ownerAwakenerName": "Ramona",
   "lineupToken": "Z",
-  "descriptionTemplate": "Whenever one of the wielder's cards is played, there is a [StateArg1]% chance to return it to your hand from the Discard Pile. This effect triggers only once each turn.",
+  "descriptionTemplate": "Team Unique: Whenever one of the wielder's cards is played, there is a [StateArg1]% chance to return it to hand from the Discard Pile. This effect triggers only once each turn.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

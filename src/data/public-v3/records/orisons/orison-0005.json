@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 3,
+  "kind": "orison",
+  "id": "orison-0005",
+  "name": "Weakness",
+  "route": {
+    "slug": "weakness",
+    "canonicalPath": "/database/orisons/weakness"
+  },
+  "assets": {
+    "icon": "asset-orison-0005-icon"
+  },
+  "orisonType": "STANDARD",
+  "variantCount": 2,
+  "defaultVariantId": "orison-variant-0009",
+  "aliases": [],
+  "descriptionTemplate": "When played, inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Weakness} on all enemies.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "variants": [
+    {
+      "id": "orison-variant-0009",
+      "name": "Weakness",
+      "tier": "Common",
+      "descriptionTemplate": "When played, inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Weakness} on all enemies.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "1"
+        }
+      },
+      "orisonType": "STANDARD",
+      "assets": {
+        "icon": "asset-orison-variant-0009-icon"
+      }
+    },
+    {
+      "id": "orison-variant-0010",
+      "name": "Adv. Weakness",
+      "tier": "Advanced",
+      "descriptionTemplate": "When played, inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Weakness} on all enemies.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "2"
+        }
+      },
+      "orisonType": "STANDARD",
+      "assets": {
+        "icon": "asset-orison-variant-0010-icon"
+      }
+    }
+  ]
+}

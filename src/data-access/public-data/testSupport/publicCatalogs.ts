@@ -3,6 +3,7 @@ import {getPublicAwakenerCatalog} from '../catalogScopes/awakenersCatalog'
 import {getPublicCovenantCatalog} from '../catalogScopes/covenantsCatalog'
 import {getPublicDerivedSkillCatalog} from '../catalogScopes/derivedSkillsCatalog'
 import {getPublicEnlightenCatalog} from '../catalogScopes/enlightensCatalog'
+import {getPublicOrisonCatalog} from '../catalogScopes/orisonsCatalog'
 import {getPublicOverlayCatalog} from '../catalogScopes/overlaysCatalog'
 import {getPublicPosseCatalog} from '../catalogScopes/possesCatalog'
 import {getPublicRelicCatalog} from '../catalogScopes/relicsCatalog'
@@ -22,6 +23,7 @@ const TEST_PUBLIC_CATALOG_READERS = {
   'derived-skills': getPublicDerivedSkillCatalog,
   enlightens: getPublicEnlightenCatalog,
   overlays: getPublicOverlayCatalog,
+  orisons: getPublicOrisonCatalog,
   posses: getPublicPosseCatalog,
   relics: getPublicRelicCatalog,
   skills: getPublicSkillCatalog,

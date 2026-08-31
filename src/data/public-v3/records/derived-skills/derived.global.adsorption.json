@@ -8,8 +8,8 @@
     "canonicalPath": "/database/derived-skills/adsorption"
   },
   "derivedFromId": "derived.global.prion-virus",
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "Gain [Arg1] {plural:[Arg1]|stack|stacks} of Temporary {STR}.",
   "descriptionArgs": {
     "Arg1": {

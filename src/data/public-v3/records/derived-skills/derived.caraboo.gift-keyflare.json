@@ -10,8 +10,8 @@
   "ownerAwakenerId": "awakener-0060",
   "derivedFromId": "derived.caraboo.blessing-gifts",
   "rootSkillId": "skill.caraboo.miracle-blessing",
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "Gain [Arg1] Keyflare.",
   "descriptionArgs": {
     "Arg1": {

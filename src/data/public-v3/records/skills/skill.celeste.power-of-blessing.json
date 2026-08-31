@@ -41,7 +41,7 @@
       "ownerAwakenerId": "awakener-0009",
       "ownerAwakenerName": "Celeste",
       "patch": {
-        "descriptionTemplate": "Celeste gains [Energy:Arg1] Aliemus. {Rouse}: Gain 1 Tentacle. Celeste's Healing +15%. When healing, Temporary {Tentacle DMG} +[TentaclePower:Arg2]. When triggers resurrect of {Undying Bird of Paradise}, Temporary {Tentacle DMG} +[TentaclePower:Arg3], with the effect doubled in Boss Battles.",
+        "descriptionTemplate": "Celeste gains [Energy:Arg1] Aliemus. {Rouse}: Gain 1 Tentacle. Celeste's HP Recovery +15%. When HP Recovery, Temporary {Tentacle DMG} +[TentaclePower:Arg2]. When triggers resurrect of {Undying Bird of Paradise}, Temporary {Tentacle DMG} +[TentaclePower:Arg3], with the effect doubled in Boss Battles.",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

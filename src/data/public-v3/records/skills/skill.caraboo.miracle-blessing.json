@@ -11,7 +11,7 @@
   "slot": "Skill1",
   "cardFamily": "command",
   "cardTypes": ["skill"],
-  "descriptionTemplate": "Gain [Block:Arg1] Shield. {Discover} {derived:Caraboo's Blessing} cards with [Arg2] different {Prices}, choose [Arg3] to place into your Draw Pile.",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield. {Discover} {derived:Caraboo's Blessing} cards with [Arg2] different {Prices}, choose [Arg3] to place into your Draw Pile.\n{overlay:Offering}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

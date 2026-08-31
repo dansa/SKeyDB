@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0044",
   "family": "passive",
-  "descriptionTemplate": "Salvador's Furnace Healing benefits from the HP Recovery bonus.",
+  "descriptionTemplate": "Salvador's Furnace HP Recovery benefits from the HP Recovery bonus.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Salvador"
 }

@@ -26,7 +26,7 @@
     },
     {
       "set": 6,
-      "descriptionTemplate": "Wielder's Base DMG dealt +20%, and the {Poison} and {Counter} they deal +10%.",
+      "descriptionTemplate": "The wielder's Base DMG +20%, and {Poison} Infliction and {Counter} Generation +10%.",
       "descriptionArgs": {}
     }
   ],

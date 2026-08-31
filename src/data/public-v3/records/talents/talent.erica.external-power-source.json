@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0015",
   "family": "passive",
-  "descriptionTemplate": "For every 1 Keyflare Regen Level provided by Erica and her equipped Wheel of Destiny & Covenant, {Electromagnetic Blast} grants Erica 0.5% Temporary Crit. Rate and Crit. DMG.",
+  "descriptionTemplate": "For every 1 Keyflare Regen Lv. provided by Erica and her equipped Wheel of Destiny & Covenant, {Electromagnetic Blast} grants Erica 0.5% Temporary Crit. Rate and Crit. DMG.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Erica"
 }

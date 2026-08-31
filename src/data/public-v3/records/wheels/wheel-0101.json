@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0046",
   "ownerAwakenerName": "Sorel",
   "lineupToken": "xU",
-  "descriptionTemplate": "Team Unique: Increases the DMG dealt by the wielder by [StateArg1]% of their Attack. If the current Realm is {Caro}, each time the {Devouring} Effect is triggered, it further increases the DMG dealt by the wielder by 3% of their Attack.",
+  "descriptionTemplate": "Team Unique: The wielder's DMG Dealt +[StateArg1]% of the wielder's ATK. If the current Realm is {Caro}, each time {Devour} is triggered, the wielder's DMG Dealt is further increased by 3% of the wielder's ATK.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

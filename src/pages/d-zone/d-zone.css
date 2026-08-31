@@ -807,7 +807,14 @@
     padding: 0.55rem 0.5rem;
   }
 
+  .d-zone-alert-switcher-options {
+    flex: 1 0 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .d-zone-alert-switcher-button {
+    width: 100%;
     min-width: 1.9rem;
     min-height: 1.62rem;
     padding: 0.24rem 0.4rem;

@@ -23,6 +23,7 @@ export const PUBLIC_DATA_SCOPE_BY_ENTITY_KIND = {
   derivedSkill: 'derived-skills',
   enlighten: 'enlightens',
   overlay: 'overlays',
+  orison: 'orisons',
   posse: 'posses',
   relic: 'relics',
   skill: 'skills',

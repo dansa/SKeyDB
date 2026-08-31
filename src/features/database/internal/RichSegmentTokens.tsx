@@ -3,6 +3,7 @@ import {useEffect, useState, type CSSProperties, type MouseEvent, type ReactNode
 import type {AwakenerOverlayRecord} from '@/domain/awakener-source-schema'
 import {normalizeDatabaseReferenceName} from '@/domain/database-reference-layer'
 import {loadOverlayIconAsset, peekOverlayIconAsset} from '@/domain/overlay-icon-assets'
+import type {RichTextReferenceKind} from '@/domain/rich-text'
 
 import {
   DATABASE_ACCENT_TEXT_CLASS,
@@ -71,11 +72,21 @@ export function InteractiveToken({
 export function SkillToken({
   name,
   onSkillClick,
+  referenceId,
   referenceKind,
+  referenceVariantId,
 }: {
   name: string
-  onSkillClick?: (name: string, event: ActivationEvent, referenceKind?: 'derived-skill') => void
-  referenceKind?: 'derived-skill'
+  onSkillClick?: (
+    name: string,
+    event: ActivationEvent,
+    referenceKind?: RichTextReferenceKind,
+    referenceId?: string,
+    referenceVariantId?: string,
+  ) => void
+  referenceId?: string
+  referenceKind?: RichTextReferenceKind
+  referenceVariantId?: string
 }) {
   if (!onSkillClick) {
     return <span>{name}</span>
@@ -87,6 +98,10 @@ export function SkillToken({
       className={`${DATABASE_INTERACTIVE_TOKEN_CLASS} ${DATABASE_INHERIT_FONT_SIZE_CLASS}`}
       onActivate={(event) => {
         if (referenceKind) {
+          if (referenceId || referenceVariantId) {
+            onSkillClick(name, event, referenceKind, referenceId, referenceVariantId)
+            return
+          }
           onSkillClick(name, event, referenceKind)
           return
         }

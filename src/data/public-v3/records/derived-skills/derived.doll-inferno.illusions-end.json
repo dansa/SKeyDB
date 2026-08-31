@@ -9,8 +9,8 @@
   },
   "ownerAwakenerId": "awakener-0018",
   "derivedFromId": "talent.doll-inferno.path-of-annihilation",
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "childDerivedSkillIds": ["derived.doll-inferno.self-destruct-finale", "derived.doll-inferno.fates-descent-finale"],
   "descriptionTemplate": "Deal {Pure DMG} equal to 25% of each enemy's Max HP to all enemies, with a minimum DMG equal to [Arg1]% of your Max HP. After use, \"Doll: Inferno\"'s specific skills switch to {Finale Form}. The effect of {Illusion's End} activates only once.",
   "descriptionArgs": {

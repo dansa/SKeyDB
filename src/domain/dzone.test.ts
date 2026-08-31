@@ -53,15 +53,23 @@ describe('D-zone domain boundary', () => {
     expect(await loadLatestDzoneWaveViewModels()).toHaveLength(5)
   })
 
-  it('preserves per-alert monster stats from season archives', async () => {
+  it('preserves legacy alert labels and the current named difficulties', async () => {
+    const legacySeason = await loadDzoneSeasonById('dzone-0067')
     const [waveOne] = (await loadLatestDzoneSeason()).waves
 
-    expect(waveOne.alerts.map((alert) => alert.name)).toEqual([
+    expect(legacySeason?.waves[0]?.alerts.map((alert) => alert.name)).toEqual([
       'Alert I',
       'Alert II',
       'Alert III',
       'Alert IV',
       'Alert V',
+    ])
+
+    expect(waveOne.alerts.map((alert) => alert.name)).toEqual([
+      'Normal',
+      'Hard',
+      'Nightmare',
+      'Madness',
     ])
     expect(waveOne.alerts[0]?.monsters[0]).toMatchObject(
       expect.objectContaining({
@@ -87,7 +95,7 @@ describe('D-zone domain boundary', () => {
       id: sourceAlertFourBoss?.monsterId,
       alertStats: {
         alertId: 'alert-4',
-        alertName: 'Alert IV',
+        alertName: 'Madness',
         level: sourceAlertFourBoss?.level,
         hp: sourceAlertFourBoss?.hp,
         hpBars: sourceAlertFourBoss?.hpBars,

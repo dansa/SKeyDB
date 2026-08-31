@@ -7,8 +7,8 @@
     "slug": "soul-synchronization",
     "canonicalPath": "/database/derived-skills/soul-synchronization"
   },
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "Gain 1 Arithmetica when played.\n{Retain}: While in hand, this card accumulates Fixed HP Recovery (equal to [Arg1]% of the wielder's CON) and [Arg2] Fixed Aliemus per turn. If the wielder takes fatal damage, this card prevents their death, releases all stored HP and Aliemus to them, and is then {Destroyed}.",
   "descriptionArgs": {
     "Arg1": {

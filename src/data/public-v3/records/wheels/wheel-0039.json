@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0008",
   "ownerAwakenerName": "Castor",
   "lineupToken": "yb",
-  "descriptionTemplate": "Team Unique: Hand Limit +2. Effects of the same type cannot stack. The wielder's Base DMG and Shield Generation +[StateArg1]%.\nObtain [StateArg2] Aliemus upon entering the {Ultra Round}.\nRelease {Annihilation} to grant all Awakeners Temporary Crit. DMG +[StateArg3]%. This effect has a Cooldown of 3 turns.",
+  "descriptionTemplate": "Team Unique: Hand Limit +2. <Italic:(Does not stack with other Wheels.)> The wielder's Base DMG and Shield Generation +[StateArg1]%.\nObtain [StateArg2] Aliemus upon entering the {Ultra Round}.\nRelease {Annihilation} to grant all Awakeners Temporary Crit. DMG +[StateArg3]%. This effect has a 3-turn cooldown.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

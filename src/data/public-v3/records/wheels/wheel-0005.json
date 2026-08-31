@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0023",
   "ownerAwakenerName": "Helot",
   "lineupToken": "3",
-  "descriptionTemplate": "The Base DMG of the wielder's cards +[StateArg1]%.\nAt the start of each turn, there is a [StateArg2]% chance to create a Basic Copy of a random one of the wielder's non-Derived Command Cards; the copy has {Exhaust}.\nWhenever an {Embryo} is played targeting the wielder, the Crit. Rate of their next Strike Command +[StateArg3]%.",
+  "descriptionTemplate": "Team Unique: The Base DMG of the wielder's cards +[StateArg1]%.\nAt the start of each turn, there is a [StateArg2]% chance to create a Basic Copy of a random one of the wielder's non-Derived Command Cards; the copy has {Exhaust}.\nWhenever an {Embryo} is played targeting the wielder, the Crit. Rate of their next Strike Command +[StateArg3]%.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

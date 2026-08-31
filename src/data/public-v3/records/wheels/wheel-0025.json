@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0004",
   "ownerAwakenerName": "Alva",
   "lineupToken": "G",
-  "descriptionTemplate": "The wielder's Base DMG and Shield gained from them each +[StateArg1]%.\nAt the start of investigation, add 1 of the wielder's Basic Strike and 1 of their Basic Defense to the deck.\nWhenever one of their Strike Commands is played, Shield gained from their next Defense Command +15%;\nWhenever one of their Defense Commands is played, the Crit. Rate & Crit. DMG of their next Strike Command +15%.\nThese effects can stack up to 3 times, and persist between battles.",
+  "descriptionTemplate": "Team Unique: The wielder's Base DMG and Shield Generation +[StateArg1]%. At the start of investigation, add 1 of the wielder's Basic Strike and 1 of their Basic Defense to the deck. Whenever one of their Strike Commands is played, Shield gained from their next Defense Command +15%; whenever one of their Defense Commands is played, the Crit. Rate & Crit. DMG of their next Strike Command +15%. These effects can stack up to 3 times and persist between battles.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

@@ -16,9 +16,18 @@ import {
   type DatabaseReferenceInfo,
 } from './database-reference-layer'
 import {getDerivedSkills} from './derived-skills'
-import {type DescribedRecord} from './description-records'
-import {buildPosseReferenceEntries} from './global-database-reference-layer'
+import {
+  resolveDescribedRecord,
+  type DescribedRecord,
+  type OrisonDatabaseDescriptionRecord,
+} from './description-records'
+import {
+  buildOrisonReferenceEntries,
+  buildPosseReferenceEntries,
+  buildRelicReferenceEntries,
+} from './global-database-reference-layer'
 import {getPosses} from './posses'
+import {getTemporaryOrisonApplicationMembers} from './temporary-orison-applications'
 import {buildWheelReferenceInfoEntries} from './wheels-database-reference-layer'
 
 type DatabaseReferenceKind = DatabaseReferenceInfo['kind']
@@ -192,7 +201,45 @@ function buildReferenceLookups(
   for (const wheelInfo of wheelReferenceInfos) {
     accumulator.add(wheelInfo)
   }
+  for (const entry of [...shellView.commandCards, ...shellView.exalts]) {
+    for (const {orison, temporaryEffect} of getTemporaryOrisonApplicationMembers(entry.record)) {
+      const record: OrisonDatabaseDescriptionRecord = {
+        id: orison.id,
+        kind: 'orison',
+        displayName: orison.name,
+        ...temporaryEffect,
+      }
+      const resolved = resolveDescribedRecord(
+        record,
+        {
+          rank: shellView.skillLevel,
+          stats: shellView.stats,
+          formulaContext: shellView.formulaContext,
+        },
+        {
+          maxRank: 6,
+          stats: shellView.stats,
+          formulaContext: shellView.formulaContext,
+        },
+      )
+      accumulator.add({
+        kind: 'orison',
+        id: orison.id,
+        name: orison.name,
+        label: 'Temporary Orison effect',
+        record,
+        description: resolved.description,
+        descriptionRank: shellView.skillLevel,
+        descriptionMaxRank: 6,
+        influencingEnlightenSlots: [],
+        influencingTalentIds: [],
+        influenceBadges: [],
+      })
+    }
+  }
   accumulator.addMany(buildPosseReferenceEntries(getPosses(), shellView.formulaContext))
+  accumulator.addMany(buildOrisonReferenceEntries())
+  accumulator.addMany(buildRelicReferenceEntries())
 
   return accumulator.toLookups()
 }

@@ -7,8 +7,8 @@
     "slug": "toxic-infusion",
     "canonicalPath": "/database/derived-skills/toxic-infusion"
   },
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Poison} on all enemies.",
   "descriptionArgs": {
     "Arg1": {

@@ -321,6 +321,21 @@ describe('DZoneHistoryPage', () => {
     expect(window.localStorage.getItem('d-zone-selected-alert-id')).toBe('alert-5')
   })
 
+  it('keeps Madness as the highest-tier preference when returning to a legacy season', async () => {
+    renderHistoryPage(['/d-zone/history?season=dzone-0067', '/d-zone/history?season=dzone-0068'], 1)
+
+    await findSeasonHeading(68)
+    fireEvent.click(screen.getByRole('button', {name: 'Select Madness'}))
+    expect(window.localStorage.getItem('d-zone-selected-alert-id')).toBe('alert-5')
+    fireEvent.click(screen.getByRole('button', {name: 'Back one entry'}))
+
+    expect(await findSeasonHeading(67)).toBeInTheDocument()
+    expect(screen.getByRole('button', {name: 'Select Alert V'})).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    )
+  })
+
   it('falls back for invalid season params without rewriting the URL', async () => {
     renderHistoryPage(['/d-zone/history?season=dzone-not-real&foo=bar'])
 

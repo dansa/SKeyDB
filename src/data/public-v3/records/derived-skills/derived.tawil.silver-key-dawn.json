@@ -10,8 +10,8 @@
   "ownerAwakenerId": "awakener-0047",
   "derivedFromId": "skill.tawil.the-silver-key-gate",
   "rootSkillId": "skill.tawil.the-silver-key-gate",
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "Choose 1 unlocked Posse from 3 randomly unlocked Posses to activate immediately, and it will take effect twice.",
   "descriptionArgs": {},
   "cardKeywords": [

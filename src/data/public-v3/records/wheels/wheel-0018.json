@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0031",
   "ownerAwakenerName": "Lotan",
   "lineupToken": "c",
-  "descriptionTemplate": "The Base DMG of the wielder's Exalt and Strike Commands each +[StateArg1]%.\nWhenever one of their Strike Commands is played, the wielder's Crit. Rate +5% this turn. This effect stacks up to 3 times, and when stacks reach 3, the wielder's Crit. DMG +15% this turn.",
+  "descriptionTemplate": "Team Unique: The Base DMG of the wielder's Exalt and Strike Commands each +[StateArg1]%.\nWhenever one of their Strike Commands is played, the wielder's Crit. Rate +5% this turn. This effect stacks up to 3 times, and when stacks reach 3, the wielder's Crit. DMG +15% this turn.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

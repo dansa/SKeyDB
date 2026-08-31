@@ -7,8 +7,8 @@
     "slug": "light-cone-boundary",
     "canonicalPath": "/database/derived-skills/light-cone-boundary"
   },
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "descriptionTemplate": "Max out Keyflare and all Awakeners' Aliemus.",
   "descriptionArgs": {},
   "cardKeywords": [

@@ -1,0 +1,370 @@
+{
+  "schemaVersion": 3,
+  "scope": "orisons",
+  "records": [
+    {
+      "kind": "orison",
+      "id": "orison-0001",
+      "name": "Finesse",
+      "aliases": [],
+      "tokens": ["advanced", "common", "finesse", "standard"],
+      "fields": {
+        "name": ["Finesse"],
+        "facet": ["STANDARD", "Common", "Advanced"]
+      },
+      "facets": {
+        "orisonType": "STANDARD",
+        "variantTiers": ["Common", "Advanced"]
+      }
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0002",
+      "name": "Computation",
+      "aliases": [],
+      "tokens": ["advanced", "common", "computation", "standard"],
+      "fields": {
+        "name": ["Computation"],
+        "facet": ["STANDARD", "Common", "Advanced"]
+      },
+      "facets": {
+        "orisonType": "STANDARD",
+        "variantTiers": ["Common", "Advanced"]
+      }
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0003",
+      "name": "Berserk",
+      "aliases": [],
+      "tokens": ["advanced", "berserk", "common", "standard"],
+      "fields": {
+        "name": ["Berserk"],
+        "facet": ["STANDARD", "Common", "Advanced"]
+      },
+      "facets": {
+        "orisonType": "STANDARD",
+        "variantTiers": ["Common", "Advanced"]
+      }
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0004",
+      "name": "Vulnerable",
+      "aliases": [],
+      "tokens": ["advanced", "common", "standard", "vulnerable"],
+      "fields": {
+        "name": ["Vulnerable"],
+        "facet": ["STANDARD", "Common", "Advanced"]
+      },
+      "facets": {
+        "orisonType": "STANDARD",
+        "variantTiers": ["Common", "Advanced"]
+      }
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0005",
+      "name": "Weakness",
+      "aliases": [],
+      "tokens": ["advanced", "common", "standard", "weakness"],
+      "fields": {
+        "name": ["Weakness"],
+        "facet": ["STANDARD", "Common", "Advanced"]
+      },
+      "facets": {
+        "orisonType": "STANDARD",
+        "variantTiers": ["Common", "Advanced"]
+      }
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0006",
+      "name": "Bastion",
+      "aliases": [],
+      "tokens": ["advanced", "bastion", "common", "standard"],
+      "fields": {
+        "name": ["Bastion"],
+        "facet": ["STANDARD", "Common", "Advanced"]
+      },
+      "facets": {
+        "orisonType": "STANDARD",
+        "variantTiers": ["Common", "Advanced"]
+      }
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0007",
+      "name": "Echo",
+      "aliases": [],
+      "tokens": ["advanced", "common", "echo", "standard"],
+      "fields": {
+        "name": ["Echo"],
+        "facet": ["STANDARD", "Common", "Advanced"]
+      },
+      "facets": {
+        "orisonType": "STANDARD",
+        "variantTiers": ["Common", "Advanced"]
+      }
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0008",
+      "name": "Mirror",
+      "aliases": [],
+      "tokens": ["advanced", "common", "mirror", "standard"],
+      "fields": {
+        "name": ["Mirror"],
+        "facet": ["STANDARD", "Common", "Advanced"]
+      },
+      "facets": {
+        "orisonType": "STANDARD",
+        "variantTiers": ["Common", "Advanced"]
+      }
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0009",
+      "name": "Spike",
+      "aliases": [],
+      "tokens": ["advanced", "common", "spike", "standard"],
+      "fields": {
+        "name": ["Spike"],
+        "facet": ["STANDARD", "Common", "Advanced"]
+      },
+      "facets": {
+        "orisonType": "STANDARD",
+        "variantTiers": ["Common", "Advanced"]
+      }
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0010",
+      "name": "Toxin",
+      "aliases": [],
+      "tokens": ["advanced", "common", "standard", "toxin"],
+      "fields": {
+        "name": ["Toxin"],
+        "facet": ["STANDARD", "Common", "Advanced"]
+      },
+      "facets": {
+        "orisonType": "STANDARD",
+        "variantTiers": ["Common", "Advanced"]
+      }
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0011",
+      "name": "Dominion",
+      "aliases": [],
+      "tokens": ["advanced", "aequor", "common", "dominion", "standard"],
+      "fields": {
+        "name": ["Dominion"],
+        "facet": ["AEQUOR", "STANDARD", "Common", "Advanced"]
+      },
+      "facets": {
+        "realm": "AEQUOR",
+        "orisonType": "STANDARD",
+        "variantTiers": ["Common", "Advanced"]
+      }
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0012",
+      "name": "Bloodlust",
+      "aliases": [],
+      "tokens": ["advanced", "bloodlust", "caro", "common", "standard"],
+      "fields": {
+        "name": ["Bloodlust"],
+        "facet": ["CARO", "STANDARD", "Common", "Advanced"]
+      },
+      "facets": {
+        "realm": "CARO",
+        "orisonType": "STANDARD",
+        "variantTiers": ["Common", "Advanced"]
+      }
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0013",
+      "name": "Warp",
+      "aliases": [],
+      "tokens": ["advanced", "common", "standard", "ultra", "warp"],
+      "fields": {
+        "name": ["Warp"],
+        "facet": ["ULTRA", "STANDARD", "Common", "Advanced"]
+      },
+      "facets": {
+        "realm": "ULTRA",
+        "orisonType": "STANDARD",
+        "variantTiers": ["Common", "Advanced"]
+      }
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0014",
+      "name": "Might",
+      "aliases": [],
+      "tokens": ["advanced", "common", "might", "standard"],
+      "fields": {
+        "name": ["Might"],
+        "facet": ["STANDARD", "Common", "Advanced"]
+      },
+      "facets": {
+        "orisonType": "STANDARD",
+        "variantTiers": ["Common", "Advanced"]
+      }
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0015",
+      "name": "Burst",
+      "aliases": [],
+      "tokens": ["advanced", "burst", "common", "standard"],
+      "fields": {
+        "name": ["Burst"],
+        "facet": ["STANDARD", "Common", "Advanced"]
+      },
+      "facets": {
+        "orisonType": "STANDARD",
+        "variantTiers": ["Common", "Advanced"]
+      }
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0016",
+      "name": "Catalyst",
+      "aliases": ["Catalysis"],
+      "tokens": ["advanced", "catalysis", "catalyst", "common", "standard"],
+      "fields": {
+        "name": ["Catalyst"],
+        "alias": ["Catalysis"],
+        "facet": ["STANDARD", "Common", "Advanced"]
+      },
+      "facets": {
+        "orisonType": "STANDARD",
+        "variantTiers": ["Common", "Advanced"]
+      }
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0017",
+      "name": "Insight",
+      "aliases": [],
+      "tokens": ["advanced", "common", "insight", "standard"],
+      "fields": {
+        "name": ["Insight"],
+        "facet": ["STANDARD", "Common", "Advanced"]
+      },
+      "facets": {
+        "orisonType": "STANDARD",
+        "variantTiers": ["Common", "Advanced"]
+      }
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0018",
+      "name": "Drain",
+      "aliases": [],
+      "tokens": ["advanced", "common", "drain", "standard"],
+      "fields": {
+        "name": ["Drain"],
+        "facet": ["STANDARD", "Common", "Advanced"]
+      },
+      "facets": {
+        "orisonType": "STANDARD",
+        "variantTiers": ["Common", "Advanced"]
+      }
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0019",
+      "name": "Ensemble",
+      "aliases": [],
+      "tokens": ["advanced", "common", "ensemble", "special"],
+      "fields": {
+        "name": ["Ensemble"],
+        "facet": ["SPECIAL", "Common", "Advanced"]
+      },
+      "facets": {
+        "orisonType": "SPECIAL",
+        "variantTiers": ["Common", "Advanced"]
+      }
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0020",
+      "name": "Birth",
+      "aliases": [],
+      "tokens": ["birth", "common", "special"],
+      "fields": {
+        "name": ["Birth"],
+        "facet": ["SPECIAL", "Common"]
+      },
+      "facets": {
+        "orisonType": "SPECIAL",
+        "variantTiers": ["Common"]
+      }
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0021",
+      "name": "Lex Genis",
+      "aliases": [],
+      "tokens": ["advanced", "cursed", "genis", "lex", "lex genis", "special"],
+      "fields": {
+        "name": ["Lex Genis", "lex-genis"],
+        "facet": ["SPECIAL", "Advanced", "Cursed"]
+      },
+      "facets": {
+        "orisonType": "SPECIAL",
+        "variantTiers": ["Advanced", "Cursed"]
+      }
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0022",
+      "name": "Lex Volis",
+      "aliases": [],
+      "tokens": ["advanced", "cursed", "lex", "lex volis", "special", "volis"],
+      "fields": {
+        "name": ["Lex Volis", "lex-volis"],
+        "facet": ["SPECIAL", "Advanced", "Cursed"]
+      },
+      "facets": {
+        "orisonType": "SPECIAL",
+        "variantTiers": ["Advanced", "Cursed"]
+      }
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0023",
+      "name": "Lex Nous",
+      "aliases": [],
+      "tokens": ["advanced", "cursed", "lex", "lex nous", "nous", "special"],
+      "fields": {
+        "name": ["Lex Nous", "lex-nous"],
+        "facet": ["SPECIAL", "Advanced", "Cursed"]
+      },
+      "facets": {
+        "orisonType": "SPECIAL",
+        "variantTiers": ["Advanced", "Cursed"]
+      }
+    },
+    {
+      "kind": "orison",
+      "id": "orison-0024",
+      "name": "Abyss Echo",
+      "aliases": [],
+      "tokens": ["abyss", "abyss echo", "echo", "special", "unique"],
+      "fields": {
+        "name": ["Abyss Echo", "abyss-echo"],
+        "facet": ["SPECIAL", "Unique"]
+      },
+      "facets": {
+        "orisonType": "SPECIAL",
+        "variantTiers": ["Unique"]
+      }
+    }
+  ]
+}

@@ -7,8 +7,8 @@
     "slug": "twilight-mutated-heart",
     "canonicalPath": "/database/derived-skills/twilight-mutated-heart"
   },
-  "cardFamily": "effect",
-  "cardTypes": ["effect"],
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
   "childDerivedSkillIds": ["derived.global.memories-mutated-heart"],
   "descriptionTemplate": "Choose 1 card from the Draw Pile or Discard Pile and add it to hand, setting its Arithmetica Cost to 0. Place 1 {Memories - Mutated Heart} into both the Draw Pile and the Discard Pile.",
   "descriptionArgs": {},
