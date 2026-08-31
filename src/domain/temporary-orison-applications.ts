@@ -19,11 +19,14 @@ export function getTemporaryOrisonApplicationMembers(
       return []
     }
 
-    return application.members.flatMap((member) => {
+    return application.members.map((member) => {
       const orison = getOrisonById(member.orisonId)
-      return orison && member.temporaryEffect
-        ? [{applicationId: application.id, orison, temporaryEffect: member.temporaryEffect}]
-        : []
+      if (!orison) {
+        throw new Error(
+          `Temporary Orison application "${application.id}" references unknown Orison "${member.orisonId}".`,
+        )
+      }
+      return {applicationId: application.id, orison, temporaryEffect: member.temporaryEffect}
     })
   })
 }

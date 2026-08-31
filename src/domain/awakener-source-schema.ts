@@ -337,24 +337,41 @@ const cardClassificationShape = {
   countsAs: z.array(nonEmptyStringSchema).optional(),
 }
 
-const orisonApplicationMemberSchema = z.looseObject({
+const exactVariantOrisonApplicationMemberSchema = z.looseObject({
   orisonId: nonEmptyStringSchema,
-  defaultVariantId: nonEmptyStringSchema.optional(),
-  upgradedVariantId: nonEmptyStringSchema.optional(),
-  upgradedById: nonEmptyStringSchema.optional(),
-  upgradeEffect: nonEmptyStringSchema.optional(),
-  temporaryEffect: describedRecordSchema.optional(),
+  defaultVariantId: nonEmptyStringSchema,
+  upgradedVariantId: nonEmptyStringSchema,
+  temporaryEffect: z.never().optional(),
 })
 
-export const orisonApplicationSchema = z.looseObject({
+const temporaryOrisonApplicationMemberSchema = z.looseObject({
+  orisonId: nonEmptyStringSchema,
+  defaultVariantId: z.never().optional(),
+  upgradedVariantId: z.never().optional(),
+  temporaryEffect: describedRecordSchema,
+})
+
+const orisonApplicationShape = {
   id: nonEmptyStringSchema,
   displayName: nonEmptyStringSchema,
-  applicationMode: z.enum(['EXACT_VARIANT_POOL', 'TEMPORARY_ANALOG']),
   selection: nonEmptyStringSchema.optional(),
   expires: nonEmptyStringSchema.optional(),
   upgradedById: nonEmptyStringSchema.optional(),
-  members: z.array(orisonApplicationMemberSchema).default([]),
-})
+  upgradeEffect: nonEmptyStringSchema.optional(),
+}
+
+export const orisonApplicationSchema = z.discriminatedUnion('applicationMode', [
+  z.looseObject({
+    ...orisonApplicationShape,
+    applicationMode: z.literal('EXACT_VARIANT_POOL'),
+    members: z.array(exactVariantOrisonApplicationMemberSchema).default([]),
+  }),
+  z.looseObject({
+    ...orisonApplicationShape,
+    applicationMode: z.literal('TEMPORARY_ANALOG'),
+    members: z.array(temporaryOrisonApplicationMemberSchema).default([]),
+  }),
+])
 
 export const cardVariantSchema = describedRecordSchema.extend({
   id: nonEmptyStringSchema,

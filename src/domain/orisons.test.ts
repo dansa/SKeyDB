@@ -1,5 +1,7 @@
 import {describe, expect, it} from 'vitest'
 
+import {getPublicSkillCatalogRecords} from '@/data-access/public-data/catalogScopes/skillsCatalog'
+import {loadPublicRecord} from '@/data-access/public-data/recordRepository'
 import pickmanSkillJson from '@/data/public-v3/records/skills/skill.pickman.truth-in-delusion.json'
 import tinctSkillJson from '@/data/public-v3/records/skills/skill.tinct.voices-from-beyond.json'
 
@@ -38,6 +40,49 @@ describe('public Orison families', () => {
       searchOrisons(orisons, 'special').every((orison) => orison.orisonType === 'SPECIAL'),
     ).toBe(true)
     expect(searchOrisons(orisons, 'finesse').map((orison) => orison.name)).toContain('Finesse')
+  })
+
+  it('keeps every generated skill Orison application inside its referenced family', async () => {
+    const orisonRecords = await Promise.all(
+      getOrisons().map((orison) => loadOrisonRecordById(orison.id)),
+    )
+    const orisonsById = new Map(
+      orisonRecords.flatMap((record) => (record ? [[record.id, record] as const] : [])),
+    )
+    const skillRecords = await Promise.all(
+      getPublicSkillCatalogRecords().map(async ({id}) => {
+        const record = await loadPublicRecord('skills', id)
+        return record ? parsePublicV3SkillRecord(record) : undefined
+      }),
+    )
+
+    for (const skill of skillRecords) {
+      for (const application of skill?.orisonApplications ?? []) {
+        if (application.applicationMode === 'EXACT_VARIANT_POOL') {
+          for (const member of application.members) {
+            const orison = orisonsById.get(member.orisonId)
+            expect(orison, `${String(skill?.id)}: unknown Orison ${member.orisonId}`).toBeDefined()
+            if (!orison) continue
+
+            const familyVariantIds = new Set(orison.variants.map(({id}) => id))
+            expect(
+              familyVariantIds.has(member.defaultVariantId),
+              `${String(skill?.id)}: ${member.defaultVariantId} is outside ${member.orisonId}`,
+            ).toBe(true)
+            expect(
+              familyVariantIds.has(member.upgradedVariantId),
+              `${String(skill?.id)}: ${member.upgradedVariantId} is outside ${member.orisonId}`,
+            ).toBe(true)
+          }
+          continue
+        }
+
+        for (const member of application.members) {
+          const orison = orisonsById.get(member.orisonId)
+          expect(orison, `${String(skill?.id)}: unknown Orison ${member.orisonId}`).toBeDefined()
+        }
+      }
+    }
   })
 
   it('preserves collectible and temporary application semantics on skills', () => {
