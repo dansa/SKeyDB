@@ -80,6 +80,52 @@ describe('RichSegmentRenderer', () => {
     expect(onSkillClick).toHaveBeenCalledWith('Insight', expect.any(Object), 'derived-skill')
   })
 
+  it('forwards explicit Orison family references', () => {
+    const onSkillClick = vi.fn()
+
+    render(
+      <RichSegmentRenderer
+        onSkillClick={onSkillClick}
+        segment={{type: 'skill', name: 'Insight', referenceKind: 'orison'}}
+        skillLevel={1}
+        stats={null}
+        variant='inline'
+      />,
+    )
+
+    fireEvent.click(screen.getByRole('button', {name: 'Insight'}))
+    expect(onSkillClick).toHaveBeenCalledWith('Insight', expect.any(Object), 'orison')
+  })
+
+  it('forwards exact family and variant identifiers from compact references', () => {
+    const onSkillClick = vi.fn()
+
+    render(
+      <RichSegmentRenderer
+        onSkillClick={onSkillClick}
+        segment={{
+          type: 'skill',
+          name: 'Computation',
+          referenceKind: 'orison',
+          referenceId: 'orison-0002',
+          referenceVariantId: 'orison-variant-0003',
+        }}
+        skillLevel={1}
+        stats={null}
+        variant='inline'
+      />,
+    )
+
+    fireEvent.click(screen.getByRole('button', {name: 'Computation'}))
+    expect(onSkillClick).toHaveBeenCalledWith(
+      'Computation',
+      expect.any(Object),
+      'orison',
+      'orison-0002',
+      'orison-variant-0003',
+    )
+  })
+
   it('activates interactive skill tokens from the keyboard', async () => {
     const onSkillClick = vi.fn()
     const user = userEvent.setup()

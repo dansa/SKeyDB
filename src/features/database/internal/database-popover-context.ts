@@ -22,13 +22,20 @@ export interface DatabasePopoverContextValue {
     name: string,
     event: DatabasePopoverAnchorEvent,
     referenceKind?: DatabaseReferenceInfo['kind'],
+    referenceId?: string,
+    referenceVariantId?: string,
   ) => void
   openRootOverlay: (
     overlay: AwakenerOverlayRecord,
     event: DatabasePopoverAnchorEvent,
     rankContext?: DatabasePopoverDescriptionRankContext,
   ) => void
-  openNestedReferenceByName: (name: string, referenceKind?: DatabaseReferenceInfo['kind']) => void
+  openNestedReferenceByName: (
+    name: string,
+    referenceKind?: DatabaseReferenceInfo['kind'],
+    referenceId?: string,
+    referenceVariantId?: string,
+  ) => void
   openNestedOverlay: (
     overlay: AwakenerOverlayRecord,
     rankContext?: DatabasePopoverDescriptionRankContext,

@@ -33,6 +33,7 @@ export interface DatabaseReferenceInfo<TRecord extends DescribedRecord = Describ
     | 'relic'
     | 'orison'
   id: string
+  variantId?: string
   name: string
   label: string
   record: TRecord

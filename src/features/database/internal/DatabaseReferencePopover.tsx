@@ -41,7 +41,12 @@ interface DatabaseReferencePopoverProps {
   stats: FullStats | null
   onClose: () => void
   onInfoEntryClick?: (entry: KeyedDatabaseReferenceEntry) => void
-  onSkillTokenClick: (name: string, referenceKind?: DatabaseReferenceInfo['kind']) => void
+  onSkillTokenClick: (
+    name: string,
+    referenceKind?: DatabaseReferenceInfo['kind'],
+    referenceId?: string,
+    referenceVariantId?: string,
+  ) => void
   onMechanicTokenClick: (
     overlay: AwakenerOverlayRecord,
     rankContext?: DatabasePopoverDescriptionRankContext,
@@ -155,7 +160,12 @@ interface DatabaseReferencePopoverHeaderProps {
   entry: DatabaseReferencePopoverEntry
   onClose: () => void
   onNavigate?: () => void
-  onSkillTokenClick: (name: string, referenceKind?: DatabaseReferenceInfo['kind']) => void
+  onSkillTokenClick: (
+    name: string,
+    referenceKind?: DatabaseReferenceInfo['kind'],
+    referenceId?: string,
+    referenceVariantId?: string,
+  ) => void
   onToggleEnlightenSlot?: (slot: AwakenerEnlightenRecord['slot']) => void
   selectedEnlightenSlot: AwakenerEnlightenRecord['slot'] | null
 }
@@ -419,7 +429,12 @@ function DatabaseRelatedReferences({
 }: {
   entry: DatabaseReferencePopoverEntry
   onInfoEntryClick?: (entry: KeyedDatabaseReferenceEntry) => void
-  onSkillTokenClick: (name: string, referenceKind?: DatabaseReferenceInfo['kind']) => void
+  onSkillTokenClick: (
+    name: string,
+    referenceKind?: DatabaseReferenceInfo['kind'],
+    referenceId?: string,
+    referenceVariantId?: string,
+  ) => void
   referenceLayer: ResolvedDatabaseReferenceLayer | null
 }) {
   const relatedReferences = getRelatedReferences(referenceLayer, entry.record)
@@ -470,7 +485,12 @@ interface DatabaseReferencePopoverBodyProps {
   entry: DatabaseReferencePopoverEntry
   formulaContext?: PublicFormulaContext
   onInfoEntryClick?: (entry: KeyedDatabaseReferenceEntry) => void
-  onSkillTokenClick: (name: string, referenceKind?: DatabaseReferenceInfo['kind']) => void
+  onSkillTokenClick: (
+    name: string,
+    referenceKind?: DatabaseReferenceInfo['kind'],
+    referenceId?: string,
+    referenceVariantId?: string,
+  ) => void
   referenceLayer: ResolvedDatabaseReferenceLayer | null
   stats: FullStats | null
 }
@@ -545,8 +565,8 @@ export function DatabaseReferencePopover({
         descriptionRankMode: entry.descriptionRankMode,
       })
     },
-    onSkillClick: (skillName, _event, referenceKind) => {
-      onSkillTokenClick(skillName, referenceKind)
+    onSkillClick: (skillName, _event, referenceKind, referenceId, referenceVariantId) => {
+      onSkillTokenClick(skillName, referenceKind, referenceId, referenceVariantId)
     },
   }
 

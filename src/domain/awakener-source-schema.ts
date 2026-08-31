@@ -343,6 +343,7 @@ const orisonApplicationMemberSchema = z.looseObject({
   upgradedVariantId: nonEmptyStringSchema.optional(),
   upgradedById: nonEmptyStringSchema.optional(),
   upgradeEffect: nonEmptyStringSchema.optional(),
+  temporaryEffect: describedRecordSchema.optional(),
 })
 
 export const orisonApplicationSchema = z.looseObject({
@@ -531,6 +532,7 @@ export type SubstatScalingKey = (typeof SUBSTAT_SCALING_KEYS)[number]
 export type SubstatScaling = z.infer<typeof substatScalingSchema>
 export type AwakenerRosterRecord = z.infer<typeof awakenerRosterSchema>
 export type AwakenerSkillRecord = z.infer<typeof awakenerSkillSchema>
+export type OrisonApplicationRecord = z.infer<typeof orisonApplicationSchema>
 export type AwakenerSkillVariantRecord = z.infer<typeof awakenersSkillVariantSchema>
 export type AwakenerTalentRecord = z.infer<typeof awakenerTalentSchema>
 export type AwakenerEnlightenRecord = z.infer<typeof awakenersEnlightenSchema>

@@ -2,7 +2,7 @@ import type {AwakenerOverlayRecord, FullStats} from '@/domain/awakener-source-sc
 import {resolveDescriptionArg} from '@/domain/description-args'
 import type {PublicDescriptionArg} from '@/domain/public-description-args'
 import type {PublicFormulaContext} from '@/domain/public-formula-context'
-import type {RichSegment} from '@/domain/rich-text'
+import type {RichSegment, RichTextReferenceKind} from '@/domain/rich-text'
 import {GameLoreMarkupText} from '@/ui/game-content/GameLoreMarkupText'
 
 import {RichDescriptionArgSegment} from './RichDescriptionArgSegment'
@@ -29,7 +29,13 @@ interface RichSegmentRendererProps {
   descriptionRank?: number
   descriptionMaxRank?: number
   overlayByName?: ReadonlyMap<string, AwakenerOverlayRecord>
-  onSkillClick?: (name: string, event: ActivationEvent, referenceKind?: 'derived-skill') => void
+  onSkillClick?: (
+    name: string,
+    event: ActivationEvent,
+    referenceKind?: RichTextReferenceKind,
+    referenceId?: string,
+    referenceVariantId?: string,
+  ) => void
   onMechanicClick?: (overlay: AwakenerOverlayRecord, event: ActivationEvent) => void
 }
 
@@ -57,7 +63,9 @@ export function RichSegmentRenderer({
         <SkillToken
           name={segment.name}
           onSkillClick={onSkillClick}
+          referenceId={segment.referenceId}
           referenceKind={segment.referenceKind}
+          referenceVariantId={segment.referenceVariantId}
         />
       )
 

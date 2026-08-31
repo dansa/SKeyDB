@@ -456,6 +456,14 @@ describe('awakeners-database-view', () => {
     )
     expect(view.cardNames.has('Rouse')).toBe(false)
     expect(view.cardNames.has('Embryo')).toBe(true)
+    expect(resolveAwakenerDatabaseReferenceInfo(view, 'Finesse')).toMatchObject({
+      id: 'orison-0001',
+      kind: 'orison',
+    })
+    expect(resolveAwakenerDatabaseReferenceInfo(view, 'Malignant Child')).toMatchObject({
+      id: 'relic-0207',
+      kind: 'relic',
+    })
   })
 
   it('uses the selected soulforge level when resolving soulforge aptitude descriptions', () => {
@@ -719,6 +727,52 @@ describe('awakeners-database-view', () => {
       expect.objectContaining({
         id: 'overlay.global.over-exalt',
         displayName: 'Over-Exalt',
+      }),
+    )
+  })
+
+  it('appends temporary Orison references and resolves their skill-scaled popovers', () => {
+    const record = buildRecord()
+    record.cards.C1.orisonApplications = [
+      {
+        id: 'orison-application.test',
+        displayName: 'Temporary Orison effects',
+        applicationMode: 'TEMPORARY_ANALOG',
+        members: [
+          {
+            orisonId: 'orison-0006',
+            temporaryEffect: {
+              descriptionTemplate: 'Gain [Block:Arg1] Shield',
+              descriptionArgs: {
+                Arg1: {
+                  kind: 'scaling',
+                  values: ['10', '12', '14', '16', '18', '20'],
+                  stat: 'DEF',
+                  suffix: '%',
+                },
+              },
+            },
+          },
+        ],
+      },
+    ]
+
+    const view = resolveAwakenerDatabaseView(
+      record,
+      {skillLevel: 4, stats: TEST_STATS},
+      buildOverlayRecords(),
+      buildGlobalDerivedSkills(),
+    )
+
+    expect(view.commandCards[0]?.keywordFooterText).toContain('{orison:Bastion}')
+    expect(resolveAwakenerDatabaseReferenceInfoById(view, 'orison-0006')).toEqual(
+      expect.objectContaining({
+        kind: 'orison',
+        name: 'Bastion',
+        label: 'Temporary Orison effect',
+        description: 'Gain 16% {DEF} Shield',
+        descriptionRank: 4,
+        descriptionMaxRank: 6,
       }),
     )
   })

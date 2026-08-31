@@ -53,22 +53,78 @@
       "expires": "BATTLE_END",
       "members": [
         {
-          "orisonId": "orison-0001"
+          "orisonId": "orison-0001",
+          "temporaryEffect": {
+            "descriptionTemplate": "Draw [Arg1] {plural:[Arg1]|card|cards}",
+            "descriptionArgs": {
+              "Arg1": {
+                "kind": "fixed",
+                "value": "1"
+              }
+            }
+          }
         },
         {
-          "orisonId": "orison-0002"
+          "orisonId": "orison-0002",
+          "temporaryEffect": {
+            "descriptionTemplate": "Gain [Arg1] Arithmetica",
+            "descriptionArgs": {
+              "Arg1": {
+                "kind": "fixed",
+                "value": "1"
+              }
+            }
+          }
         },
         {
-          "orisonId": "orison-0003"
+          "orisonId": "orison-0003",
+          "temporaryEffect": {
+            "descriptionTemplate": "Gain [Energy:Arg1] Aliemus",
+            "descriptionArgs": {
+              "Arg1": {
+                "kind": "fixed",
+                "value": "5"
+              }
+            }
+          }
         },
         {
-          "orisonId": "orison-0004"
+          "orisonId": "orison-0004",
+          "temporaryEffect": {
+            "descriptionTemplate": "Inflict [Arg1] {plural:[Arg1]|turn|turns} of {Vulnerable} on all enemies",
+            "descriptionArgs": {
+              "Arg1": {
+                "kind": "fixed",
+                "value": "1"
+              }
+            }
+          }
         },
         {
-          "orisonId": "orison-0005"
+          "orisonId": "orison-0005",
+          "temporaryEffect": {
+            "descriptionTemplate": "Inflict [Arg1] {plural:[Arg1]|turn|turns} of {Weakness} on all enemies",
+            "descriptionArgs": {
+              "Arg1": {
+                "kind": "fixed",
+                "value": "1"
+              }
+            }
+          }
         },
         {
-          "orisonId": "orison-0006"
+          "orisonId": "orison-0006",
+          "temporaryEffect": {
+            "descriptionTemplate": "Gain [Block:Arg1] Shield",
+            "descriptionArgs": {
+              "Arg1": {
+                "kind": "scaling",
+                "values": ["10", "12", "14", "16", "18", "20"],
+                "stat": "DEF",
+                "suffix": "%"
+              }
+            }
+          }
         }
       ],
       "upgradedById": "enlighten.tinct.when-crimson-meets-thorns",

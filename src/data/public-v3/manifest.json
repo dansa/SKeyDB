@@ -1,10 +1,10 @@
 {
   "schemaVersion": 3,
-  "gameDataVersion": "compiled-sha256-62b676ff2902dbf3",
-  "generatedAt": "2026-08-30T21:49:27Z",
-  "buildId": "public-v3-sha256-c2392ffb88ff4ae7",
+  "gameDataVersion": "compiled-sha256-9018a2fddd1d4e73",
+  "generatedAt": "2026-08-31T00:08:37Z",
+  "buildId": "public-v3-sha256-ba15542b89b8c478",
   "build": {
-    "gameDataVersion": "compiled-sha256-62b676ff2902dbf3",
+    "gameDataVersion": "compiled-sha256-9018a2fddd1d4e73",
     "recordCount": 1965,
     "scopes": [
       "awakeners",
@@ -3426,12 +3426,12 @@
       "sha256": "bee8a0325995f37c6a23eb74f7b02e3f953c192c9b9a3075fa49dc5132d03d5f"
     },
     "records/overlays/overlay.pickman.painted-orisons.json": {
-      "bytes": 589,
-      "sha256": "4ed2ce222d9aec008787ac69986bdad6333a25325308aca3b04b5360e2e10795"
+      "bytes": 1448,
+      "sha256": "7d33c1e7ddb8c7f97cfe3f8a1026dfe613e489f15c92df82d2eb551fd5185b2e"
     },
     "records/overlays/overlay.pickman.painted-relics.json": {
-      "bytes": 674,
-      "sha256": "816c1a638c3fa0a2c9450090ee10ec4bdade2f33444315e98818e5d19077fb0a"
+      "bytes": 1577,
+      "sha256": "227ef6fd49bc309aee5186df608e6321fd06c40c46b78f53f5118e04fb1603ab"
     },
     "records/overlays/overlay.pollux.ablaze.json": {
       "bytes": 655,
@@ -6446,8 +6446,8 @@
       "sha256": "63631848b8833450c33544d3582d7af1cbcffc69b32844e2f9b9fe05aed2da16"
     },
     "records/skills/skill.tinct.voices-from-beyond.json": {
-      "bytes": 2839,
-      "sha256": "ab569bd78583f3889a4058c36ade06cf10f8e38b37b219075132085091695bff"
+      "bytes": 4582,
+      "sha256": "b564ea2843ab37edeb3958213058e3eda1903653ae44eb2da8128a53371cdac7"
     },
     "records/skills/skill.tulu.abyss-order.json": {
       "bytes": 2346,

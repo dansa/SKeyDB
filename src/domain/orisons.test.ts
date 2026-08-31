@@ -56,5 +56,16 @@ describe('public Orison families', () => {
     expect(
       temporary?.members.every((member) => !member.defaultVariantId && !member.upgradedVariantId),
     ).toBe(true)
+    expect(temporary?.members.at(-1)?.temporaryEffect).toEqual({
+      descriptionTemplate: 'Gain [Block:Arg1] Shield',
+      descriptionArgs: {
+        Arg1: {
+          kind: 'scaling',
+          values: ['10', '12', '14', '16', '18', '20'],
+          stat: 'DEF',
+          suffix: '%',
+        },
+      },
+    })
   })
 })

@@ -1,4 +1,5 @@
 import {act, fireEvent, render, screen, waitFor} from '@testing-library/react'
+import {MemoryRouter} from 'react-router'
 import {afterEach, describe, expect, it, vi} from 'vitest'
 
 import type {
@@ -157,6 +158,26 @@ function buildReferenceLayer(
     influencingTalentIds: [],
     influenceBadges: [],
   }
+  const orisonReference: DatabaseReferenceInfo = {
+    kind: 'orison',
+    id: 'orison-0001',
+    name: 'Finesse',
+    label: 'Orison · Standard',
+    record: {
+      id: 'orison-0001',
+      kind: 'orison',
+      displayName: 'Finesse',
+      descriptionTemplate: '',
+      descriptionArgs: {},
+    },
+    description: '',
+    keywordFooterText: undefined,
+    descriptionRank: undefined,
+    descriptionMaxRank: undefined,
+    influencingEnlightenSlots: [],
+    influencingTalentIds: [],
+    influenceBadges: [],
+  }
 
   return {
     cardNames: new Set<string>(),
@@ -167,6 +188,7 @@ function buildReferenceLayer(
       ['computed', computedReference],
       ['merciful nurturing', wheelReference],
       ['counter', overlayReference],
+      ['finesse', orisonReference],
     ]),
     referenceInfoById: new Map([
       ['skill.test.strike', strikeReference],
@@ -174,6 +196,7 @@ function buildReferenceLayer(
       ['skill.test.computed', computedReference],
       ['B01', wheelReference],
       ['overlay.global.counter', overlayReference],
+      ['orison-0001', orisonReference],
     ]),
     overlayByName: new Map([['counter', overlayReference.record as AwakenerOverlayRecord]]),
   }
@@ -670,6 +693,7 @@ describe('useDatabasePopoverController', () => {
         }),
         undefined,
         null,
+        null,
       )
     })
     expect(
@@ -698,12 +722,47 @@ describe('useDatabasePopoverController', () => {
         }),
         undefined,
         null,
+        null,
       )
     })
     expect(
       await screen.findByText(/When taking Active DMG/, undefined, COLD_POPOVER_FIND_OPTIONS),
     ).toBeInTheDocument()
     expect(screen.queryByText('Details coming soon')).not.toBeInTheDocument()
+  })
+
+  it('hydrates and routes exact Orison variants from nested popover descriptions', async () => {
+    const hydrateGlobalDatabaseReferenceInfo = vi
+      .spyOn(globalDatabaseReferenceLayer, 'hydrateGlobalDatabaseReferenceInfo')
+      .mockImplementation((reference) =>
+        Promise.resolve(withTestDescription(reference, 'When played, draw 1 card.')),
+      )
+    const referenceLayer = buildReferenceLayer('Choose {orison:0001@v-0002|Finesse}.')
+
+    render(
+      <MemoryRouter>
+        <ControllerHarness referenceLayer={referenceLayer} />
+      </MemoryRouter>,
+    )
+
+    fireEvent.click(screen.getByRole('button', {name: 'Open Strike'}))
+    fireEvent.click(await screen.findByRole('button', {name: 'Finesse'}))
+
+    expect(await screen.findByText('When played, draw 1 card.')).toBeInTheDocument()
+    expect(hydrateGlobalDatabaseReferenceInfo).toHaveBeenCalledWith(
+      expect.objectContaining({
+        id: 'orison-0001',
+        kind: 'orison',
+        variantId: 'orison-variant-0002',
+      }),
+      undefined,
+      null,
+      null,
+    )
+    expect(screen.getByRole('link', {name: /Open in Orisons DB/})).toHaveAttribute(
+      'href',
+      '/database/orisons/finesse?variant=orison-variant-0002',
+    )
   })
 
   it('applies root overlay rank context without changing generic overlay opens', async () => {

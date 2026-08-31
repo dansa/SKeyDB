@@ -15,8 +15,11 @@ export interface TextSegment {
 export interface SkillSegment {
   type: 'skill'
   name: string
-  referenceKind?: 'derived-skill'
+  referenceKind?: RichTextReferenceKind
+  referenceId?: string
+  referenceVariantId?: string
 }
+export type RichTextReferenceKind = 'derived-skill' | 'orison' | 'relic'
 export interface StatSegment {
   type: 'stat'
   name: string
@@ -308,8 +311,14 @@ function toTokenSegment(
   if (typedToken?.type === 'overlay') {
     return {type: 'mechanic', name: typedToken.name}
   }
-  if (typedToken?.type === 'derived-skill') {
-    return {type: 'skill', name: typedToken.name, referenceKind: 'derived-skill'}
+  if (typedToken?.type === 'reference') {
+    return {
+      type: 'skill',
+      name: typedToken.name,
+      referenceKind: typedToken.referenceKind,
+      referenceId: typedToken.referenceId,
+      referenceVariantId: typedToken.referenceVariantId,
+    }
   }
 
   const normalizedToken = token.toLowerCase()
@@ -340,25 +349,64 @@ function toTokenSegment(
   return {type: 'mechanic', name: token}
 }
 
-function parseTypedReferenceToken(
-  token: string,
-): {type: 'overlay' | 'derived-skill'; name: string} | null {
+function parseTypedReferenceToken(token: string):
+  | {type: 'overlay'; name: string}
+  | {
+      type: 'reference'
+      name: string
+      referenceKind: RichTextReferenceKind
+      referenceId?: string
+      referenceVariantId?: string
+    }
+  | null {
   const separatorIndex = token.indexOf(':')
   if (separatorIndex <= 0 || separatorIndex >= token.length - 1) {
     return null
   }
 
   const type = token.slice(0, separatorIndex).trim().toLowerCase()
-  if (type !== 'overlay' && type !== 'derived' && type !== 'derived-skill') {
+  if (
+    type !== 'overlay' &&
+    type !== 'derived' &&
+    type !== 'derived-skill' &&
+    type !== 'orison' &&
+    type !== 'relic'
+  ) {
     return null
   }
 
-  const name = token.slice(separatorIndex + 1).trim()
-  if (!name) {
+  const payload = token.slice(separatorIndex + 1).trim()
+  if (!payload) {
     return null
   }
 
-  return {type: type === 'overlay' ? 'overlay' : 'derived-skill', name}
+  if (type === 'overlay') {
+    return {type: 'overlay', name: payload}
+  }
+
+  if (type === 'orison' || type === 'relic') {
+    const separator = payload.indexOf('|')
+    if (separator > 0 && separator < payload.length - 1) {
+      const selector = payload.slice(0, separator).trim()
+      const name = payload.slice(separator + 1).trim()
+      const match = /^(\d{4})@v-(\d{4})$/.exec(selector)
+      if (match && name) {
+        return {
+          type: 'reference',
+          name,
+          referenceKind: type,
+          referenceId: `${type}-${match[1]}`,
+          referenceVariantId: `${type}-variant-${match[2]}`,
+        }
+      }
+    }
+  }
+
+  return {
+    type: 'reference',
+    name: payload,
+    referenceKind: type === 'derived' ? 'derived-skill' : type,
+  }
 }
 
 function consumeBracketToken(

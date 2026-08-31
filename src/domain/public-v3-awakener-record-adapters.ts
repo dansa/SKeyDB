@@ -11,14 +11,16 @@ import {
   cardKeywordsSchema,
   derivedSkillSchema,
   descriptionArgsSchema,
+  orisonApplicationSchema,
   type AwakenerEnlightenRecord,
-  type AwakenerOverlayRecord,
   type AwakenerSkillRecord,
   type AwakenerTalentRecord,
   type CardKeyword,
   type DerivedSkillRecord,
   type DescriptionArg,
+  type OrisonApplicationRecord,
 } from './awakener-source-schema'
+import type {PublicUpgradeableOverlayRecord} from './awakeners-full'
 
 const publicV3AwakenerSkillSchema = awakenerSkillSchema.loose()
 const publicV3AwakenerTalentSchema = awakenerTalentSchema.loose()
@@ -81,7 +83,7 @@ export type PublicV3SkillRecord = PublicV3OwnedRecord & {
   slot?: string
   upgrades?: PublicV3UpgradeEntry[]
   orisonIds?: string[]
-  orisonApplications?: unknown[]
+  orisonApplications?: OrisonApplicationRecord[]
 }
 
 export type PublicV3TalentRecord = PublicV3OwnedRecord & {
@@ -130,7 +132,7 @@ const publicV3SkillRecordShape = {
   slot: z.string().optional(),
   upgrades: z.array(publicV3UpgradeEntrySchema).optional(),
   orisonIds: z.array(z.string()).optional(),
-  orisonApplications: z.array(z.unknown()).optional(),
+  orisonApplications: z.array(orisonApplicationSchema).optional(),
 }
 const publicV3TalentRecordShape = {
   kind: z.literal('talent'),
@@ -336,12 +338,14 @@ export function adaptPublicV3DerivedSkillRecord(
   })
 }
 
-export function adaptPublicV3OverlayRecord(record: PublicV3OverlayRecord): AwakenerOverlayRecord {
+export function adaptPublicV3OverlayRecord(
+  record: PublicV3OverlayRecord,
+): PublicUpgradeableOverlayRecord {
   const iconId =
     record.iconId ??
     (record.assets?.icon ? resolvePublicAsset(record.assets.icon)?.assetId : undefined)
 
-  return publicV3AwakenerOverlaySchema.parse({
+  const overlay = publicV3AwakenerOverlaySchema.parse({
     ...record,
     ownerAwakenerId: optionalNumericAwakenerId(record.ownerAwakenerId),
     displayName: record.name,
@@ -350,4 +354,9 @@ export function adaptPublicV3OverlayRecord(record: PublicV3OverlayRecord): Awake
     descriptionTemplate: record.descriptionTemplate ?? '',
     descriptionArgs: record.descriptionArgs ?? {},
   })
+
+  return {
+    ...overlay,
+    upgrades: record.upgrades,
+  }
 }

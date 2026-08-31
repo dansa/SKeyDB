@@ -16,15 +16,17 @@ vi.mock('./RichDescription', () => ({
     text,
     record,
     keywordFooterText,
+    skillLevel,
   }: {
     text?: string
     record?: {descriptionTemplate?: string}
     keywordFooterText?: string
+    skillLevel?: number
   }) => (
-    <>
+    <span data-skill-level={skillLevel}>
       {record?.descriptionTemplate ?? text}
       {keywordFooterText ? `|${keywordFooterText}` : ''}
-    </>
+    </span>
   ),
 }))
 
@@ -203,6 +205,10 @@ describe('AwakenerDetailCards', () => {
     expect(
       screen.getByRole('button', {name: 'Over Exalt'}).closest('[data-card-header]'),
     ).toHaveTextContent(/Face Death in Fiery Resolve.*Cost 200.*Exalt.*Over Exalt/)
+    expect(screen.getByRole('button', {name: 'Over Exalt'})).toHaveClass(
+      'database-inherit-font-size',
+    )
+    expect(screen.getByRole('button', {name: 'Rouse'})).toHaveClass('database-inherit-font-size')
 
     fireEvent.click(screen.getByRole('button', {name: 'Over Exalt'}))
     expect(openRootReferenceByName).toHaveBeenCalledWith('Over Exalt', expect.anything())
@@ -211,5 +217,64 @@ describe('AwakenerDetailCards', () => {
     expect(openRootReferenceByName).toHaveBeenCalledWith('Rouse', expect.anything())
 
     expect(onToggleEnlightenSlot).not.toHaveBeenCalled()
+  })
+
+  it('renders temporary Orison analogues as end-of-description references', () => {
+    const shellView = makeDatabaseShellView({
+      skillLevel: 4,
+      commandCards: [
+        makeDatabaseDescribedEntry({
+          key: 'C1',
+          label: 'Card · Rouse · Cost 1',
+          record: makeSkillRecord({
+            id: 'skill.tinct.voices-from-beyond',
+            kind: 'rouse',
+            displayName: 'Voices from Beyond',
+            cost: '1',
+            descriptionTemplate: 'Localized skill description.',
+            orisonApplications: [
+              {
+                id: 'orison-application.tinct.voices-from-beyond',
+                displayName: 'Voices from Beyond Orison Effects',
+                applicationMode: 'TEMPORARY_ANALOG',
+                selection: 'ONE_RANDOM_PER_CARD',
+                expires: 'BATTLE_END',
+                members: [
+                  {
+                    orisonId: 'orison-0006',
+                    temporaryEffect: {
+                      descriptionTemplate: 'Gain [Block:Arg1] Shield',
+                      descriptionArgs: {
+                        Arg1: {
+                          kind: 'scaling',
+                          values: ['10', '12', '14', '16', '18', '20'],
+                          stat: 'DEF',
+                          suffix: '%',
+                        },
+                      },
+                    },
+                  },
+                ],
+              },
+            ],
+          }),
+          resolved: {description: 'Localized skill description.'} as never,
+          descriptionMaxRank: 6,
+          descriptionRank: 4,
+          keywordFooterText: '{orison:Bastion}',
+        }),
+      ],
+    })
+
+    render(
+      <DatabasePopoverContext.Provider value={popoverContext}>
+        <AwakenerDetailCards referenceLayer={null} shellView={shellView} />
+      </DatabasePopoverContext.Provider>,
+    )
+
+    expect(screen.queryByRole('region', {name: 'Voices from Beyond Orison Effects'})).toBeNull()
+    expect(screen.getByText(/Localized skill description/)).toHaveTextContent(
+      /Localized skill description.*\{orison:Bastion\}/,
+    )
   })
 })

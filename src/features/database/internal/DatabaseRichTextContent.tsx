@@ -8,7 +8,7 @@ import {
 } from '@/domain/database-rich-text'
 import type {DescribedRecord} from '@/domain/description-records'
 import type {PublicFormulaContext} from '@/domain/public-formula-context'
-import type {RichSegment} from '@/domain/rich-text'
+import type {RichSegment, RichTextReferenceKind} from '@/domain/rich-text'
 
 import {
   RichSegmentRenderer,
@@ -23,7 +23,7 @@ function getRichSegmentKeyParts(segment: RichSegment): string {
     case 'text':
       return `${segment.type}:${segment.value}`
     case 'skill':
-      return `${segment.type}:${segment.referenceKind ?? ''}:${segment.name}`
+      return `${segment.type}:${segment.referenceKind ?? ''}:${segment.referenceId ?? ''}:${segment.referenceVariantId ?? ''}:${segment.name}`
     case 'stat':
     case 'mechanic':
     case 'reference':
@@ -64,7 +64,13 @@ export interface DatabaseRichTextContentProps {
   skillLevel: number
   stats: FullStats | null
   variant: RichSegmentRendererVariant
-  onSkillClick?: (name: string, event: ActivationEvent, referenceKind?: 'derived-skill') => void
+  onSkillClick?: (
+    name: string,
+    event: ActivationEvent,
+    referenceKind?: RichTextReferenceKind,
+    referenceId?: string,
+    referenceVariantId?: string,
+  ) => void
   onMechanicClick?: (overlay: AwakenerOverlayRecord, event: ActivationEvent) => void
 }
 

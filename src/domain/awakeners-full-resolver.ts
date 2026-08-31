@@ -237,6 +237,24 @@ function applyPatchToOverlayRecord(
   return next
 }
 
+export function applyOverlayEnlightenUpgradesThroughSlot(
+  record: PublicUpgradeableOverlayRecord,
+  selectedSlot: AwakenerEnlightenRecord['slot'] | null,
+): AwakenerOverlayRecord {
+  if (!selectedSlot) return record
+
+  const selectedIndex = ENLIGHTEN_SLOT_KEYS.indexOf(selectedSlot)
+  if (selectedIndex < 0) return record
+
+  return (record.upgrades ?? []).reduce((current, upgrade) => {
+    if (upgrade.upgraderType !== 'enlighten' || !upgrade.upgraderSlot) return current
+    const upgradeIndex = ENLIGHTEN_SLOT_KEYS.findIndex((slot) => slot === upgrade.upgraderSlot)
+    if (upgradeIndex < 0 || upgradeIndex > selectedIndex) return current
+    const patch = toResolverUpgradePatch(record, 'overlay', upgrade)
+    return patch ? applyPatchToOverlayRecord(current, patch) : current
+  }, record)
+}
+
 function buildCardsById(record: AwakenerFullRecord): Map<string, PatchableCardRecord> {
   const byId = new Map<string, PatchableCardRecord>()
 

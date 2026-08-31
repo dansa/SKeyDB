@@ -53,6 +53,7 @@ interface RootHydrationRequestRef {
 
 interface HydrationInputs {
   formulaContext?: PublicFormulaContext
+  selectedEnlightenSlot: AwakenerEnlightenRecord['slot'] | null
   stats: FullStats | null
 }
 
@@ -65,6 +66,7 @@ async function hydrateReferenceWithLatestInputs(
     reference,
     hydrationInputs.formulaContext,
     hydrationInputs.stats,
+    hydrationInputs.selectedEnlightenSlot,
   )
   if (hydrationInputs === inputsRef.current) {
     return hydratedReference
@@ -105,11 +107,11 @@ export function useDatabasePopoverTrailActions({
   const [trailAnchorRect, setTrailAnchorRect] = useState<DOMRect | null>(null)
   const [trailAnchorElement, setTrailAnchorElement] = useState<HTMLElement | null>(null)
   const rootHydrationRequestRef = useRef(0)
-  const hydrationInputsRef = useRef<HydrationInputs>({formulaContext, stats})
+  const hydrationInputsRef = useRef<HydrationInputs>({formulaContext, selectedEnlightenSlot, stats})
 
   useLayoutEffect(() => {
-    hydrationInputsRef.current = {formulaContext, stats}
-  }, [formulaContext, stats])
+    hydrationInputsRef.current = {formulaContext, selectedEnlightenSlot, stats}
+  }, [formulaContext, selectedEnlightenSlot, stats])
 
   const invalidateRootHydration = useCallback(() => {
     rootHydrationRequestRef.current += 1
@@ -329,9 +331,17 @@ function useDatabasePopoverRootActions({
       name: string,
       event: DatabasePopoverAnchorEvent,
       preferredKind?: DatabaseReferenceInfo['kind'],
+      preferredId?: string,
+      preferredVariantId?: string,
     ) => {
       event.stopPropagation()
-      const reference = resolveReferenceByName(referenceLayer, name, preferredKind)
+      const reference = resolveReferenceByName(
+        referenceLayer,
+        name,
+        preferredKind,
+        preferredId,
+        preferredVariantId,
+      )
       if (!reference) {
         return
       }
@@ -428,11 +438,23 @@ function useDatabasePopoverNestedActions({
   )
 
   const openNestedReferenceByNameFrom = useCallback(
-    (sourceIndex: number, name: string, preferredKind?: DatabaseReferenceInfo['kind']) => {
+    (
+      sourceIndex: number,
+      name: string,
+      preferredKind?: DatabaseReferenceInfo['kind'],
+      preferredId?: string,
+      preferredVariantId?: string,
+    ) => {
       setTrail((prev) => {
         const sourceEntry = prev.at(sourceIndex)
         const sourceLayer = sourceEntry?.referenceLayerOverride ?? referenceLayer
-        const reference = resolveReferenceByName(sourceLayer, name, preferredKind)
+        const reference = resolveReferenceByName(
+          sourceLayer,
+          name,
+          preferredKind,
+          preferredId,
+          preferredVariantId,
+        )
         if (!reference) {
           return prev
         }
@@ -444,12 +466,23 @@ function useDatabasePopoverNestedActions({
   )
 
   const openNestedReferenceByName = useCallback(
-    (name: string, preferredKind?: DatabaseReferenceInfo['kind']) => {
+    (
+      name: string,
+      preferredKind?: DatabaseReferenceInfo['kind'],
+      preferredId?: string,
+      preferredVariantId?: string,
+    ) => {
       setTrail((prev) => {
         const sourceIndex = prev.length - 1
         const sourceEntry = prev.at(sourceIndex)
         const sourceLayer = sourceEntry?.referenceLayerOverride ?? referenceLayer
-        const reference = resolveReferenceByName(sourceLayer, name, preferredKind)
+        const reference = resolveReferenceByName(
+          sourceLayer,
+          name,
+          preferredKind,
+          preferredId,
+          preferredVariantId,
+        )
         if (!reference) {
           return prev
         }
@@ -722,8 +755,19 @@ function buildPopoverPortalEntry({
       nestedActions.openNestedOverlayFrom(index, overlay, rankContext)
     },
     onNavigate,
-    onSkillTokenClick: (name: string, referenceKind?: DatabaseReferenceInfo['kind']) => {
-      nestedActions.openNestedReferenceByNameFrom(index, name, referenceKind)
+    onSkillTokenClick: (
+      name: string,
+      referenceKind?: DatabaseReferenceInfo['kind'],
+      referenceId?: string,
+      referenceVariantId?: string,
+    ) => {
+      nestedActions.openNestedReferenceByNameFrom(
+        index,
+        name,
+        referenceKind,
+        referenceId,
+        referenceVariantId,
+      )
     },
     referenceLayer: activeEntry.referenceLayerOverride ?? referenceLayer,
   }

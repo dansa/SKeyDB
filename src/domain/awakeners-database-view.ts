@@ -32,6 +32,7 @@ import {
   type ResolvedDescribedRecord,
 } from './description-records'
 import type {PublicFormulaContext} from './public-formula-context'
+import {buildTemporaryOrisonApplicationFooterText} from './temporary-orison-applications'
 
 export {collectAwakenerDatabaseCardNames} from './awakeners-database-reference-layer'
 export type {
@@ -128,6 +129,9 @@ function resolveRankedEntry<TRecord extends AwakenerSkillRecord | DerivedSkillRe
   influencingTalentIds: string[] = [],
   influenceBadges: DatabaseInfluenceBadge[] = [],
 ): DatabaseDescribedEntry<TRecord> {
+  const keywordFooterText = buildCardKeywordFooterText(record.cardKeywords)
+  const temporaryOrisonFooterText =
+    'orisonApplications' in record ? buildTemporaryOrisonApplicationFooterText(record) : undefined
   return {
     key,
     label,
@@ -137,7 +141,8 @@ function resolveRankedEntry<TRecord extends AwakenerSkillRecord | DerivedSkillRe
       {rank: skillLevel, stats, formulaContext},
       {maxRank: 6, stats, formulaContext},
     ),
-    keywordFooterText: buildCardKeywordFooterText(record.cardKeywords),
+    keywordFooterText:
+      [keywordFooterText, temporaryOrisonFooterText].filter(Boolean).join('\n') || undefined,
     descriptionRank: skillLevel,
     descriptionMaxRank: 6,
     influencingEnlightenSlots,

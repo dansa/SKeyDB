@@ -40,6 +40,93 @@ function getSegmentText(segment: RichSegment): string {
 }
 
 describe('hydrateGlobalDatabaseReferenceInfo', () => {
+  it('hydrates catalog-backed Orison and Relic family stubs', async () => {
+    const referenceLayer = buildGlobalDatabaseReferenceLayer()
+    const orison = resolveDatabaseReferenceInfoByKindAndName(referenceLayer, 'orison', 'Finesse')
+    const relic = resolveDatabaseReferenceInfoByKindAndName(
+      referenceLayer,
+      'relic',
+      'Malignant Child',
+    )
+
+    expect(orison).not.toBeNull()
+    expect(relic).not.toBeNull()
+    if (!orison || !relic) {
+      throw new Error('Expected catalog-backed Orison and Relic references.')
+    }
+
+    const [hydratedOrison, hydratedRelic] = await Promise.all([
+      hydrateGlobalDatabaseReferenceInfo(orison),
+      hydrateGlobalDatabaseReferenceInfo(relic),
+    ])
+
+    expect(hydratedOrison.description).not.toBe('')
+    expect(hydratedRelic.description).not.toBe('')
+  })
+
+  it('hydrates the exact Orison and Relic variants selected by compact references', async () => {
+    const referenceLayer = buildGlobalDatabaseReferenceLayer()
+    const orison = resolveDatabaseReferenceInfoByKindAndName(
+      referenceLayer,
+      'orison',
+      'Computation',
+    )
+    const relic = resolveDatabaseReferenceInfoByKindAndName(
+      referenceLayer,
+      'relic',
+      'Malignant Child',
+    )
+    if (!orison || !relic) {
+      throw new Error('Expected exact-variant family references.')
+    }
+
+    const [hydratedOrison, hydratedRelic] = await Promise.all([
+      hydrateGlobalDatabaseReferenceInfo({...orison, variantId: 'orison-variant-0004'}),
+      hydrateGlobalDatabaseReferenceInfo({...relic, variantId: 'relic-variant-0341'}),
+    ])
+
+    expect(hydratedOrison).toMatchObject({
+      id: 'orison-0002',
+      variantId: 'orison-variant-0004',
+      description: 'When played, gain 2 Arithmetica.',
+    })
+    expect(hydratedRelic).toMatchObject({
+      id: 'relic-0207',
+      variantId: 'relic-variant-0341',
+    })
+    expect(hydratedRelic.description).toContain('inflict 2 stacks of')
+    expect(hydratedRelic.description).toContain('+30%')
+  })
+
+  it('hydrates Pickman overlay descriptions with the E2 exact-variant replacements', async () => {
+    const referenceLayer = buildGlobalDatabaseReferenceLayer()
+    const orisons = resolveDatabaseReferenceInfoByKindAndName(
+      referenceLayer,
+      'overlay',
+      'Painted Orisons',
+    )
+    const relics = resolveDatabaseReferenceInfoByKindAndName(
+      referenceLayer,
+      'overlay',
+      'Painted Relics',
+    )
+    if (!orisons || !relics) {
+      throw new Error('Expected Pickman overlay references.')
+    }
+
+    const [baseOrisons, e2Orisons, baseRelics, e2Relics] = await Promise.all([
+      hydrateGlobalDatabaseReferenceInfo(orisons),
+      hydrateGlobalDatabaseReferenceInfo(orisons, undefined, null, 'E2'),
+      hydrateGlobalDatabaseReferenceInfo(relics),
+      hydrateGlobalDatabaseReferenceInfo(relics, undefined, null, 'E2'),
+    ])
+
+    expect(baseOrisons.description).toContain('{orison:0002@v-0003|Computation}')
+    expect(e2Orisons.description).toContain('{orison:0002@v-0004|Computation}')
+    expect(baseRelics.description).toContain('{relic:0207@v-0340|Malignant Child}')
+    expect(e2Relics.description).toContain('{relic:0207@v-0341|Malignant Child}')
+  })
+
   it('hydrates wheel descriptions through per-record detail loading', async () => {
     const loadPublicWheelDetailById = vi.spyOn(
       publicDetailRecordAdapters,
@@ -479,5 +566,51 @@ describe('buildGlobalDatabaseReferenceLayer', () => {
         referenceLayer,
       }),
     ).toContainEqual({type: 'skill', name: 'Insight', referenceKind: 'derived-skill'})
+  })
+
+  it('indexes Relic families for typed rich-text references', () => {
+    const referenceLayer = buildGlobalDatabaseReferenceLayer({
+      awakenerSkills: [],
+      covenants: [],
+      derivedSkills: [],
+      orisons: [],
+      overlays: [],
+      posses: [],
+      relics: [
+        {
+          id: 'relic-0207',
+          kind: 'GENERIC',
+          relicType: 'Relic',
+          categories: ['ASTRAL_REIGN'],
+          rarity: 'N',
+          aliases: ['Painted Malignant Child'],
+          variantCount: 5,
+          variantCategoryTiers: [{category: 'ASTRAL_REIGN', tier: 'Silver'}],
+          variantTiers: ['Silver', 'Gold'],
+          defaultVariantCategory: 'ASTRAL_REIGN',
+          defaultVariantId: 'relic-variant-0338',
+          route: {slug: 'malignant-child', canonicalPath: '/database/relics/malignant-child'},
+          assetId: 'Icon_Creation_066',
+          name: 'Malignant Child',
+          description: 'Inflict Weakness.',
+        },
+      ],
+      wheels: [],
+    })
+
+    expect(
+      resolveDatabaseReferenceInfoByKindAndName(referenceLayer, 'relic', 'Malignant Child'),
+    ).toEqual(
+      expect.objectContaining({
+        kind: 'relic',
+        id: 'relic-0207',
+      }),
+    )
+    expect(
+      parseDatabaseRichDescription({
+        text: 'Choose {relic:Malignant Child}.',
+        referenceLayer,
+      }),
+    ).toContainEqual({type: 'skill', name: 'Malignant Child', referenceKind: 'relic'})
   })
 })

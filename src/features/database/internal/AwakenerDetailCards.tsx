@@ -11,7 +11,6 @@ import {
 } from '@/domain/awakeners-database-view'
 import {getCanonicalCardClassificationLabels} from '@/domain/card-classification'
 import type {ResolvedDatabaseReferenceLayer} from '@/domain/database-reference-layer'
-import {getOrisonById} from '@/domain/orisons'
 
 import {AwakenerEnlightenInfluenceBadges} from './AwakenerEnlightenInfluenceBadges'
 import {
@@ -86,40 +85,6 @@ function AwakenerCardDescription({
       stats={stats}
       text={item.description ?? item.resolved.description}
     />
-  )
-}
-
-function CardOrisonApplications({record}: {record: AwakenerSkillRecord | DerivedSkillRecord}) {
-  if (!('orisonApplications' in record) || !record.orisonApplications?.length) return null
-
-  return (
-    <div className='mt-2 space-y-2 border-l border-amber-200/20 pl-3 text-xs text-slate-400'>
-      {record.orisonApplications.map((application) => {
-        const temporary = application.applicationMode === 'TEMPORARY_ANALOG'
-        return (
-          <div key={application.id}>
-            <p className='font-medium text-slate-300'>
-              {temporary ? 'Temporary Orison analogs' : 'Collectible Orison pool'}
-            </p>
-            <p className='mt-0.5'>
-              {temporary
-                ? 'Temporary effects only; these do not grant collectible Orisons.'
-                : 'Uses the listed real variants, including their upgraded members.'}
-            </p>
-            <div className='mt-1 flex flex-wrap gap-x-2 gap-y-1'>
-              {application.members.map((member) => {
-                const orison = getOrisonById(member.orisonId)
-                return orison ? (
-                  <DatabaseRootReferenceLabel key={member.orisonId} referenceName={orison.name}>
-                    {orison.name}
-                  </DatabaseRootReferenceLabel>
-                ) : null
-              })}
-            </div>
-          </div>
-        )
-      })}
-    </div>
   )
 }
 
@@ -229,7 +194,6 @@ function AwakenerCardSection<TRecord extends AwakenerSkillRecord | DerivedSkillR
                     stats={stats}
                   />
                 </p>
-                <CardOrisonApplications record={entry.record} />
               </div>
             </div>
           )
