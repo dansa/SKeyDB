@@ -207,7 +207,7 @@
       "section": "archetype",
       "aliases": ["shield generation"],
       "order": 945,
-      "count": 38
+      "count": 39
     },
     {
       "id": "hand-limit",

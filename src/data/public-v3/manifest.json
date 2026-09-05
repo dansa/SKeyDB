@@ -1,8 +1,8 @@
 {
   "schemaVersion": 3,
   "gameDataVersion": "compiled-sha256-100980755b8cff40",
-  "generatedAt": "2026-09-05T15:34:48Z",
-  "buildId": "public-v3-sha256-c0396a68a868acfa",
+  "generatedAt": "2026-09-05T18:06:29Z",
+  "buildId": "public-v3-sha256-493ca642ce5261e6",
   "build": {
     "gameDataVersion": "compiled-sha256-100980755b8cff40",
     "recordCount": 1976,
@@ -162,8 +162,8 @@
       "sha256": "072a32dbca455ca140e926fc909e1204eda42b6c6f09c002fe90f72743669f30"
     },
     "catalogs/wheels.json": {
-      "bytes": 70059,
-      "sha256": "13c72eb76b3c160626de2b0041b3182e8e2711c0ee92674f974d63195c316286"
+      "bytes": 70069,
+      "sha256": "be54d1886d5fbdef4e67c10fe0cabeff5f433227996d6482f817a0e9a080d9e1"
     },
     "indexes/assets.json": {
       "bytes": 479186,
@@ -223,11 +223,11 @@
     },
     "indexes/search-tags.json": {
       "bytes": 7284,
-      "sha256": "bfd09d22926a132c942edbf462810bd179fd396c638f96c1ed8ab3ad0e59dec8"
+      "sha256": "9eb1d706e4d6225a39cf1216727f4150e3b540407df7dc923d78ef3f67977829"
     },
     "indexes/search-wheels.json": {
-      "bytes": 112359,
-      "sha256": "30bcfc9f12f558c20306319f5869c769be15dded71ab177a6f08d276d0cc56f9"
+      "bytes": 112565,
+      "sha256": "b7904a62bc9924546b24ff3a33da155f6f9967f882507417e26aea0a838e4644"
     },
     "metadata/gameplay-math.json": {
       "bytes": 9315,
@@ -8126,8 +8126,8 @@
       "sha256": "b623d567950a2cb52541a0063a025916b32551e0f0dab04f039e96d61bb7c371"
     },
     "records/wheels/wheel-0175.json": {
-      "bytes": 4317,
-      "sha256": "a39c1f30650485d83b80712884204c894e6ef9048c4a2eace867c3d11a47f65e"
+      "bytes": 4327,
+      "sha256": "fcbb2934e4ece6a2bef0ff6b88c0615c0c8098041c06f88dcdc2f271de726316"
     },
     "records/wheels/wheel-0176.json": {
       "bytes": 3266,

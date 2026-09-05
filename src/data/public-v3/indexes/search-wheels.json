@@ -4290,11 +4290,26 @@
       "id": "wheel-0175",
       "name": "Honeyed Deceit",
       "aliases": [],
-      "tokens": ["caraboo", "caro", "deceit", "embryo", "embryo fusion", "fusion", "honeyed", "honeyed deceit", "ssr", "weak", "weakness"],
+      "tokens": [
+        "caraboo",
+        "caro",
+        "deceit",
+        "embryo",
+        "embryo fusion",
+        "fusion",
+        "generation",
+        "honeyed",
+        "honeyed deceit",
+        "shield",
+        "shield generation",
+        "ssr",
+        "weak",
+        "weakness"
+      ],
       "fields": {
         "name": ["Honeyed Deceit", "honeyed-deceit"],
         "owner": ["Caraboo"],
-        "tag": ["weakness", "embryo-fusion", "weak", "Embryo Fusion"],
+        "tag": ["weakness", "shield", "embryo-fusion", "weak", "shield generation", "Embryo Fusion"],
         "facet": ["CARO", "SSR"]
       },
       "facets": {
@@ -4302,7 +4317,7 @@
         "rarity": "SSR",
         "mainstatKey": "REALM_MASTERY",
         "owner": "awakener-0060",
-        "tags": ["embryo-fusion", "weakness"]
+        "tags": ["embryo-fusion", "shield", "weakness"]
       }
     },
     {
