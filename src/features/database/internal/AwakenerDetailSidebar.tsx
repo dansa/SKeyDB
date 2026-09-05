@@ -82,7 +82,9 @@ export function AwakenerDetailSidebar({
       substatScaling={substatScaling}
     />
   )
-  const profileSection = <AwakenerDetailProfileFacts profile={profile} />
+  const profileSection = (
+    <AwakenerDetailProfileFacts profile={profile} releaseDate={awakener.releaseDate} />
+  )
 
   return (
     <div className='flex shrink-0 flex-col gap-2.5'>

@@ -230,6 +230,14 @@ function buildGameLoreInlineNodes(text: string, keyPrefix: string, wrapText = tr
             {content}
           </strong>,
         )
+      } else if (tagName === 'del') {
+        nodes.push(<del key={buildLoreKey(keyPrefix, 'del', partIndex)}>{content}</del>)
+      } else if (tagName === 'red') {
+        nodes.push(
+          <span className='text-red-400' key={buildLoreKey(keyPrefix, 'red', partIndex)}>
+            {content}
+          </span>,
+        )
       } else {
         nodes.push(<span key={buildLoreKey(keyPrefix, 'tag', partIndex)}>{content}</span>)
       }
@@ -257,5 +265,10 @@ export function GameLoreMarkupText({
   text,
   keyPrefix = 'game-lore-markup',
 }: GameLoreMarkupTextProps) {
-  return <>{buildGameLoreInlineNodes(text, keyPrefix)}</>
+  const displayText = text.replace(
+    /\{(Male|Female)=([^{}]*?),\s*(Male|Female)=([^{}]*)\}/g,
+    (token: string, firstLabel: string, first: string, secondLabel: string, second: string) =>
+      firstLabel === secondLabel ? token : `${first}/${second}`,
+  )
+  return <>{buildGameLoreInlineNodes(displayText, keyPrefix)}</>
 }

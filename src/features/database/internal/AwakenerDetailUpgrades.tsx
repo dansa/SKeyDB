@@ -1,4 +1,4 @@
-import {useCallback, useEffect, useMemo, useState, type CSSProperties} from 'react'
+import {useCallback, useEffect, useMemo, useState, type CSSProperties, type ReactNode} from 'react'
 
 import enlightensStars from '@/assets/icons/Battle_Card_Buff_045.webp'
 import type {Awakener} from '@/domain/awakeners'
@@ -7,6 +7,10 @@ import {isSoulforgeTalent} from '@/domain/awakeners-full-contract'
 import type {ResolvedDatabaseReferenceLayer} from '@/domain/database-reference-layer'
 import {getRelicPortraitAssetByAssetId} from '@/domain/relic-assets'
 import {getPortraitRelicByAwakenerId, loadRelicDescriptionById} from '@/domain/relics'
+import {
+  DetailIndexedReader,
+  type DetailIndexEntry,
+} from '@/features/database/detail/DetailIndexedReader'
 
 import {DatabaseRootReferenceLabel} from './DatabaseRootReferenceLabel'
 import {DatabaseScopedRichDescription} from './DatabaseScopedRichDescription'
@@ -15,6 +19,7 @@ import {getStarSize, scaledFontStyle, type FontScale} from './font-scale'
 import {DATABASE_SECTION_TITLE_CLASS} from './text-styles'
 
 interface AwakenerDetailUpgradesProps {
+  leadingContent?: ReactNode
   awakener: Awakener
   shellView: ResolvedAwakenerDatabaseShellView | null
   referenceLayer: ResolvedDatabaseReferenceLayer | null
@@ -55,6 +60,7 @@ function formatTalentLevelLabel(
 }
 
 export function AwakenerDetailUpgrades({
+  leadingContent,
   awakener,
   shellView,
   referenceLayer,
@@ -119,12 +125,15 @@ export function AwakenerDetailUpgrades({
     const items = []
     const starStyle = getStarSize(fontScale)
 
-    for (const [index, key] of ENLIGHTEN_ORDER.entries()) {
-      const entry = shellView.enlightens[index]
+    const enlightensByKey = new Map(shellView.enlightens.map((entry) => [entry.key, entry]))
+    for (const key of ENLIGHTEN_ORDER) {
+      const entry = enlightensByKey.get(key)
+      if (!entry) continue
       const starCount = parseInt(key.replace('E', ''))
 
       items.push({
         key,
+        anchorId: `upgrades-enlightens-${key}`,
         label: (
           <span className={`relative inline-flex items-center ${starStyle.space}`}>
             {Array.from({length: starCount}).map((_, i) => (
@@ -149,6 +158,7 @@ export function AwakenerDetailUpgrades({
     if (shellView.overExalt) {
       items.push({
         key: 'OverExalt',
+        anchorId: 'upgrades-enlightens-OverExalt',
         label: (
           <DatabaseRootReferenceLabel referenceName='Over Exalt' style={scaledFontStyle(12)}>
             Over-Exaltation
@@ -167,6 +177,7 @@ export function AwakenerDetailUpgrades({
     if (absoluteAxiom) {
       items.push({
         key: 'AbsoluteAxiom',
+        anchorId: 'upgrades-enlightens-AbsoluteAxiom',
         label: (
           <DatabaseRootReferenceLabel referenceName='Absolute Axiom' style={scaledFontStyle(12)}>
             Absolute Axiom
@@ -190,6 +201,7 @@ export function AwakenerDetailUpgrades({
   for (const entry of shellView.talents) {
     talentItems.push({
       key: entry.key,
+      anchorId: `upgrades-talents-${entry.key}`,
       label: formatTalentLevelLabel(entry, shellView.selection),
       name: entry.record.displayName,
       description: entry.resolved.description,
@@ -203,60 +215,84 @@ export function AwakenerDetailUpgrades({
     ? getRelicPortraitAssetByAssetId(portraitRelic.assetId)
     : undefined
 
+  const indexItems: DetailIndexEntry[] = [
+    {id: 'upgrades-dimensional-image', label: 'Dimensional Image'},
+    ...[
+      {id: 'upgrades-enlightens', label: 'Enlightens', items: enlightenItems},
+      {id: 'upgrades-talents', label: 'Talents', items: talentItems},
+    ]
+      .filter((group) => group.items.length > 0)
+      .map((group) => ({
+        id: group.id,
+        label: group.label,
+        children: group.items.map((item) => ({id: `${group.id}-${item.key}`, label: item.name})),
+      })),
+  ]
+
   return (
-    <div className='space-y-4'>
-      <div className='border border-slate-600/30 bg-slate-900/30'>
-        <h4 className={DATABASE_SECTION_TITLE_CLASS} style={scaledFontStyle(14)}>
-          Dimensional Image
-        </h4>
-        {portraitRelic ? (
-          <div className='px-4 py-3'>
-            <div className='flex items-start gap-3'>
-              <div className='size-16 shrink-0 overflow-hidden'>
-                {portraitRelicAsset ? (
-                  <img
-                    alt={`${portraitRelic.name} icon`}
-                    className='h-full w-full object-cover object-center'
-                    draggable={false}
-                    src={portraitRelicAsset}
-                  />
-                ) : (
-                  <div className='h-full w-full bg-[radial-gradient(circle_at_50%_35%,rgba(125,165,215,0.2),rgba(8,13,25,0.95)_70%)]' />
-                )}
-              </div>
-              <div className='min-w-0 flex-1'>
-                <p className='leading-relaxed text-slate-400' style={scaledFontStyle(12)}>
-                  <DatabaseScopedRichDescription
-                    referenceLayer={referenceLayer}
-                    formulaContext={shellView.formulaContext}
-                    showTagIcons={showTagIcons}
-                    showVisibleScaling={showVisibleScaling}
-                    skillLevel={shellView.skillLevel}
-                    stats={shellView.stats}
-                    text={portraitRelicDescription}
-                  />
-                </p>
+    <DetailIndexedReader items={indexItems} scrollKey='upgrades' defaultExpandedGroups='all'>
+      {leadingContent}
+      <div className='space-y-4'>
+        <div
+          id='upgrades-dimensional-image'
+          data-detail-anchor=''
+          tabIndex={-1}
+          className='border border-slate-600/30 bg-slate-900/30'
+        >
+          <h4 className={DATABASE_SECTION_TITLE_CLASS} style={scaledFontStyle(14)}>
+            Dimensional Image
+          </h4>
+          {portraitRelic ? (
+            <div className='px-4 py-3'>
+              <div className='flex items-start gap-3'>
+                <div className='size-16 shrink-0 overflow-hidden'>
+                  {portraitRelicAsset ? (
+                    <img
+                      alt={`${portraitRelic.name} icon`}
+                      className='h-full w-full object-cover object-center'
+                      draggable={false}
+                      src={portraitRelicAsset}
+                    />
+                  ) : (
+                    <div className='h-full w-full bg-[radial-gradient(circle_at_50%_35%,rgba(125,165,215,0.2),rgba(8,13,25,0.95)_70%)]' />
+                  )}
+                </div>
+                <div className='min-w-0 flex-1'>
+                  <p className='leading-relaxed text-slate-400' style={scaledFontStyle(12)}>
+                    <DatabaseScopedRichDescription
+                      referenceLayer={referenceLayer}
+                      formulaContext={shellView.formulaContext}
+                      showTagIcons={showTagIcons}
+                      showVisibleScaling={showVisibleScaling}
+                      skillLevel={shellView.skillLevel}
+                      stats={shellView.stats}
+                      text={portraitRelicDescription}
+                    />
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        ) : (
-          <p className='px-4 pb-3 text-xs text-slate-400'>
-            No dimensional image linked yet for this awakener.
-          </p>
-        )}
+          ) : (
+            <p className='px-4 pb-3 text-xs text-slate-400'>
+              No dimensional image linked yet for this awakener.
+            </p>
+          )}
+        </div>
+        <DetailSection
+          anchorId='upgrades-enlightens'
+          emptyMessage='No enlighten data available.'
+          items={enlightenItems}
+          renderDescription={renderDescription}
+          title='Enlightens'
+        />
+        <DetailSection
+          anchorId='upgrades-talents'
+          emptyMessage='No talent data available.'
+          items={talentItems}
+          renderDescription={renderDescription}
+          title='Talents'
+        />
       </div>
-      <DetailSection
-        emptyMessage='No enlighten data available.'
-        items={enlightenItems}
-        renderDescription={renderDescription}
-        title='Enlightens'
-      />
-      <DetailSection
-        emptyMessage='No talent data available.'
-        items={talentItems}
-        renderDescription={renderDescription}
-        title='Talents'
-      />
-    </div>
+    </DetailIndexedReader>
   )
 }

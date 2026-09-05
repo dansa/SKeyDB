@@ -8,6 +8,7 @@ import {getPublicAwakenerCatalogRecords} from '@/data-access/public-data/catalog
 import type {PublicDataScope, PublicRecord} from '@/data-access/public-data/contract'
 import {loadPublicRecord} from '@/data-access/public-data/recordRepository'
 
+import {awakenerProfileSchema} from './awakener-lore-schema'
 import {
   fullStatsSchema,
   primaryScalingBaseSchema,
@@ -18,11 +19,7 @@ import {
   type AwakenerTalentRecord,
   type DerivedSkillRecord,
 } from './awakener-source-schema'
-import type {
-  AwakenerFullRecord,
-  AwakenerProfile,
-  PublicUpgradeableOverlayRecord,
-} from './awakeners-full'
+import type {AwakenerFullRecord, PublicUpgradeableOverlayRecord} from './awakeners-full'
 import type {CovenantFullRecord} from './covenants-full'
 import {isLegacyPromotedDerivedExtra} from './legacy-public-v3-adapter/compatibilityOverrides'
 import type {PosseFullRecord} from './posses-full'
@@ -120,22 +117,6 @@ const publicRecordBaseShape = {
   route: publicRouteInfoSchema.optional(),
   assets: publicAssetsSchema.optional(),
 }
-const publicAwakenerProfileStorySectionSchema = z.looseObject({
-  kind: z.enum(['introduction', 'story']),
-  title: z.string(),
-  unlockCondition: z.string().optional(),
-  content: z.string(),
-})
-const publicAwakenerProfileSchema: z.ZodType<AwakenerProfile> = z.looseObject({
-  title: z.string().optional(),
-  birthday: z.string().optional(),
-  gender: z.string().optional(),
-  height: z.string().optional(),
-  weight: z.string().optional(),
-  gnosticIndex: z.string().optional(),
-  faction: z.string().optional(),
-  storySections: z.array(publicAwakenerProfileStorySectionSchema).optional(),
-})
 const numericRecordSchema = z.record(z.string(), z.number())
 const publicAwakenerDetailSchema: z.ZodType<PublicV3AwakenerRecord> = z.looseObject({
   ...publicRecordBaseShape,
@@ -148,7 +129,7 @@ const publicAwakenerDetailSchema: z.ZodType<PublicV3AwakenerRecord> = z.looseObj
   name: z.string(),
   numericId: z.number(),
   primaryScalingBase: primaryScalingBaseSchema,
-  profile: publicAwakenerProfileSchema.optional(),
+  profile: awakenerProfileSchema.optional(),
   rarity: z.string().optional(),
   realm: z.string(),
   searchTags: z.array(z.string()).optional(),

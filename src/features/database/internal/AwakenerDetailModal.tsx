@@ -6,6 +6,7 @@ import {
   useState,
   type KeyboardEvent as ReactKeyboardEvent,
   type RefObject,
+  type ReactNode,
 } from 'react'
 
 import {FaGear, FaXmark} from 'react-icons/fa6'
@@ -30,7 +31,8 @@ import {DbDetailModalFrame} from '@/features/database/detail/DbDetailModalFrame'
 import {PreReleaseDataNotice} from '@/features/database/detail/PreReleaseDataNotice'
 import {ArtViewerOverlay} from '@/ui/modal/ArtViewerOverlay'
 
-import {AwakenerDetailLore, AwakenerDetailOverview} from './AwakenerDetailOverview'
+import {AwakenerDetailLore} from './AwakenerDetailLore'
+import {AwakenerDetailOverview} from './AwakenerDetailOverview'
 import {AwakenerDetailSearchBar} from './AwakenerDetailSearchBar'
 import {AwakenerDetailSettingsPanel} from './AwakenerDetailSettingsPanel'
 import {AwakenerDetailSidebar} from './AwakenerDetailSidebar'
@@ -203,7 +205,7 @@ function AwakenerDetailTabs({
         <button
           aria-controls={tabPanelId}
           aria-selected={activeTab === tab}
-          className={`shrink-0 px-2 py-2 text-[10px] tracking-wide uppercase transition-colors sm:px-3.5 sm:text-[11px] ${
+          className={`min-h-11 shrink-0 px-2 py-2 text-xs font-semibold tracking-wide uppercase transition-colors sm:px-3.5 ${
             activeTab === tab
               ? 'border-b-2 border-amber-200/70 text-amber-100'
               : 'border-b-2 border-transparent text-slate-400 hover:text-slate-200'
@@ -352,6 +354,7 @@ function AwakenerDetailHeader({
 }
 
 interface AwakenerDetailTabPanelContentProps {
+  leadingContent?: ReactNode
   activeTab: DatabaseAwakenerTab
   areStatsExpanded: boolean
   awakener: Awakener
@@ -364,6 +367,7 @@ interface AwakenerDetailTabPanelContentProps {
 }
 
 function AwakenerDetailTabPanelContent({
+  leadingContent,
   activeTab,
   areStatsExpanded,
   awakener,
@@ -396,6 +400,7 @@ function AwakenerDetailTabPanelContent({
     case 'upgrades':
       return (
         <AwakenerDetailUpgrades
+          leadingContent={leadingContent}
           awakener={awakener}
           fontScale={fontScale}
           referenceLayer={referenceLayer}
@@ -409,6 +414,7 @@ function AwakenerDetailTabPanelContent({
       return (
         <Suspense fallback={TAB_CONTENT_LOADING_FALLBACK}>
           <AwakenerDetailCards
+            leadingContent={leadingContent}
             onToggleEnlightenSlot={sessionActions.toggleEnlightenSlot}
             referenceLayer={referenceLayer}
             shellView={shellView}
@@ -480,6 +486,25 @@ function AwakenerDetailBody({
 }: AwakenerDetailBodyProps) {
   const {resolvedControls, resolvedSelection, resolvedStats} = sessionRuntime
   const usesProfileSidebar = activeTab === 'overview' || activeTab === 'lore'
+  const usesIndexedReader =
+    activeTab === 'lore' || activeTab === 'skills' || activeTab === 'upgrades'
+  const mobileControls =
+    isMobileHeader && !usesProfileSidebar ? (
+      <div className='mb-4'>
+        <AwakenerDetailSidebar
+          awakener={awakener}
+          areStatsExpanded={areStatsExpanded}
+          compact
+          controls={resolvedControls}
+          onPatchSelection={sessionActions.patchSelection}
+          onStatsExpandedChange={onStatsExpandedChange}
+          scalingRecord={fullData}
+          selection={resolvedSelection}
+          stats={resolvedStats}
+          substatScaling={fullData.substatScaling}
+        />
+      </div>
+    ) : null
 
   return (
     <div className='flex min-h-0 flex-1'>
@@ -519,37 +544,30 @@ function AwakenerDetailBody({
         />
 
         <div
-          className={`database-scrollbar flex-1 ${
-            activeTab === 'overview'
-              ? 'overflow-y-auto px-5 pt-0 pb-5 md:overflow-hidden md:p-5 md:pr-5 lg:pr-5'
-              : 'overflow-y-auto p-5 pr-8 lg:pr-16'
+          className={`database-scrollbar min-h-0 flex-1 ${
+            usesIndexedReader
+              ? 'overflow-hidden'
+              : activeTab === 'overview'
+                ? 'overflow-y-auto px-5 pt-0 pb-5 md:overflow-hidden md:p-5 md:pr-5 lg:pr-5'
+                : 'overflow-y-auto p-5 pr-8 lg:pr-16'
           }`}
         >
-          {isMobileHeader && !usesProfileSidebar ? (
-            <div className='mb-4'>
-              <AwakenerDetailSidebar
-                awakener={awakener}
-                areStatsExpanded={areStatsExpanded}
-                compact
-                controls={resolvedControls}
-                onPatchSelection={sessionActions.patchSelection}
-                onStatsExpandedChange={onStatsExpandedChange}
-                scalingRecord={fullData}
-                selection={resolvedSelection}
-                stats={resolvedStats}
-                substatScaling={fullData.substatScaling}
-              />
-            </div>
-          ) : null}
+          {!usesIndexedReader ? mobileControls : null}
 
           <div
             aria-labelledby={`${tabsetId}-tab-${activeTab}`}
-            className={activeTab === 'overview' ? 'h-full max-w-none' : 'max-w-2xl'}
+            className={
+              usesIndexedReader || activeTab === 'overview'
+                ? 'h-full min-h-0 max-w-none'
+                : 'max-w-2xl'
+            }
             id={tabPanelId}
             role='tabpanel'
             tabIndex={0}
           >
             <AwakenerDetailTabPanelContent
+              key={awakener.id}
+              leadingContent={usesIndexedReader ? mobileControls : undefined}
               activeTab={activeTab}
               areStatsExpanded={areStatsExpanded}
               awakener={awakener}
@@ -674,8 +692,9 @@ export function AwakenerDetailModal({
       onCancel={handleModalCancel}
       panelRef={panelRef}
       shellStyle={getDescriptionFontScaleStyle(fontScale)}
+      shellClassName='h-[calc(100dvh-1.5rem)] sm:h-[calc(100dvh-2rem)] md:h-[calc(100dvh-2.5rem)] lg:h-[calc(100dvh-3rem)]'
     >
-      <div className='relative flex min-h-0 flex-auto overflow-hidden border border-amber-200/55 bg-slate-950/[.97] shadow-[0_18px_50px_rgba(2,6,23,0.72)]'>
+      <div className='relative flex min-h-0 flex-1 overflow-hidden border border-amber-200/55 bg-slate-950/[.97] shadow-[0_18px_50px_rgba(2,6,23,0.72)]'>
         <AwakenerDetailActionChrome
           controls={resolvedControls}
           isSettingsOpen={isSettingsOpen}

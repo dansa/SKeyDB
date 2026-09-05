@@ -10,6 +10,28 @@ function getGlyphKeys(node: HTMLElement): string[] {
 }
 
 describe('WheelLoreText', () => {
+  it('preserves source deletion and red emphasis while leaving unknown redactions intact', () => {
+    const {container} = render(
+      <WheelLoreText lore='Memory <Del:this damned prison>. <Red:Keep them apart!> A.F. 3@7.' />,
+    )
+    expect(container.querySelector('del')).toHaveTextContent('this damned prison')
+    expect(screen.getByText('Keep them apart!')).toHaveClass('text-red-400')
+    expect(container).toHaveTextContent('A.F. 3@7.')
+  })
+
+  it('renders gender alternatives in source order while preserving surrounding markup', () => {
+    const {container} = render(
+      <WheelLoreText lore='Be a good {Male=boy,Female=girl}. <Italic:{Female=Madam,Male=Sir}> knows {Male=him,Female=her}.' />,
+    )
+    expect(container).toHaveTextContent('Be a good boy/girl. Madam/Sir knows him/her.')
+    expect(container.querySelector('em')).toHaveTextContent('Madam/Sir')
+  })
+
+  it('leaves unrelated or incomplete brace tokens intact', () => {
+    const {container} = render(<WheelLoreText lore='{Keeper} {Male=boy} {Male=boy,Male=man}' />)
+    expect(container).toHaveTextContent('{Keeper} {Male=boy} {Male=boy,Male=man}')
+  })
+
   it('maps censor tokens to the intended glyph sequences', () => {
     render(<WheelLoreText lore={'One @1.\n\nTwo @2.\n\nThree @3.\n\nFour @4.'} />)
 

@@ -74,6 +74,7 @@ export interface PublicV3OwnedRecord {
 }
 
 export type PublicV3SkillRecord = PublicV3OwnedRecord & {
+  lore?: string
   cardFamily?: string
   cardKeywords?: CardKeyword[]
   cardTypes?: string[]
@@ -101,6 +102,7 @@ export type PublicV3EnlightenRecord = PublicV3OwnedRecord & {
 }
 
 export type PublicV3DerivedSkillRecord = PublicV3OwnedRecord & {
+  lore?: string
   cardFamily?: string
   cardKeywords?: CardKeyword[]
   cardTypes?: string[]
@@ -122,6 +124,7 @@ export type PublicV3OverlayRecord = PublicV3OwnedRecord & {
 }
 
 const publicV3SkillRecordShape = {
+  lore: z.string().optional(),
   kind: z.literal('skill'),
   cardFamily: z.string().trim().min(1).optional(),
   cardKeywords: cardKeywordsSchema.optional(),
@@ -149,6 +152,7 @@ const publicV3EnlightenRecordShape = {
   slot: z.string().optional(),
 }
 const publicV3DerivedSkillRecordShape = {
+  lore: z.string().optional(),
   kind: z.literal('derivedSkill'),
   cardFamily: z.string().trim().min(1).optional(),
   cardKeywords: cardKeywordsSchema.optional(),

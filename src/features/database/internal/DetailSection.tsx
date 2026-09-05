@@ -12,6 +12,7 @@ import {DATABASE_ITEM_NAME_CLASS, DATABASE_SECTION_TITLE_CLASS} from './text-sty
 
 export interface DetailSectionItem {
   key: string
+  anchorId?: string
   label?: ReactNode
   name: string
   description: string
@@ -23,6 +24,7 @@ export interface DetailSectionItem {
 }
 
 interface DetailSectionProps {
+  anchorId?: string
   title: string
   items: DetailSectionItem[]
   emptyMessage?: string
@@ -31,6 +33,7 @@ interface DetailSectionProps {
 }
 
 export function DetailSection({
+  anchorId,
   title,
   items,
   emptyMessage,
@@ -38,7 +41,12 @@ export function DetailSection({
   renderDescription,
 }: DetailSectionProps) {
   return (
-    <div className='border border-slate-600/30 bg-slate-900/30'>
+    <div
+      id={anchorId}
+      data-detail-anchor={anchorId ? '' : undefined}
+      tabIndex={anchorId ? -1 : undefined}
+      className='border border-slate-600/30 bg-slate-900/30'
+    >
       <h4 className={DATABASE_SECTION_TITLE_CLASS} style={getDatabaseDetailSectionHeadingStyle()}>
         {title}
       </h4>
@@ -50,7 +58,12 @@ export function DetailSection({
       ) : (
         <div>
           {items.map((item, index) => (
-            <div key={item.key}>
+            <div
+              key={item.key}
+              id={item.anchorId}
+              data-detail-anchor={item.anchorId ? '' : undefined}
+              tabIndex={item.anchorId ? -1 : undefined}
+            >
               {index > 0 ? (
                 <div className='mx-4 h-px bg-linear-to-r from-slate-600/50 via-slate-600/20 to-transparent' />
               ) : null}
