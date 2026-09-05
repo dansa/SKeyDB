@@ -5,7 +5,7 @@ import {Suspense, useState} from 'react'
 
 import {act, fireEvent, render, screen, waitFor, within} from '@testing-library/react'
 import {MemoryRouter, Routes, useLocation, useNavigate} from 'react-router'
-import {afterEach, beforeAll, describe, expect, it, vi} from 'vitest'
+import {afterEach, describe, expect, it, vi} from 'vitest'
 
 import {createMockPublicCatalog, createMockPublicDetailLoaders} from '@/test/publicCatalogFixtures'
 
@@ -303,17 +303,16 @@ vi.mock('@/features/database/internal/RelicDetailModal', () => ({
   },
 }))
 
-beforeAll(async () => {
-  // Preload the real route modules so Vite's cold transforms are setup work,
-  // rather than consuming the first navigation test's timeout. React.lazy and
-  // the route resolution itself still run normally in each test.
-  await Promise.all([
-    import('./DatabasePage'),
-    ...(['awakeners', 'wheels', 'relics', 'posses', 'covenants'] as const).map((entity) =>
-      getDatabaseEntityRuntime(entity).loadBrowse(),
-    ),
-  ])
-})
+// Route behavior is under test, not Vite's cold compilation throughput. Load the
+// real browse and detail-host module graphs before test/hook deadlines start.
+// React.lazy, record loading and the actual route transitions still run in tests.
+await Promise.all([
+  import('./DatabasePage'),
+  import('./detail/DbDetailModalHost'),
+  ...(['awakeners', 'wheels', 'relics', 'posses', 'covenants'] as const).map((entity) =>
+    getDatabaseEntityRuntime(entity).loadBrowse(),
+  ),
+])
 
 afterEach(() => {
   vi.restoreAllMocks()
@@ -1020,8 +1019,10 @@ describe('DatabasePage', () => {
 
     fireEvent.click(screen.getByRole('link', {name: 'Posses'}))
 
-    expect(screen.getByTestId('location-path')).toHaveTextContent('/database/posses')
-    expect(screen.getByTestId('location-search')).toBeEmptyDOMElement()
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path')).toHaveTextContent('/database/posses')
+      expect(screen.getByTestId('location-search')).toBeEmptyDOMElement()
+    })
   })
 
   it('strips invalid entity params from deep-linked posse routes', async () => {

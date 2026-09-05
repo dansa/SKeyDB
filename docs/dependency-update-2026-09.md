@@ -89,3 +89,15 @@ Verification uses the official Windows executable, checked against the release S
 Cold browser verification exposed an unrestricted Vite entry scan stalling before compilation. A separate smoke-test commit scopes dependency scanning to `index.html`; desktop, adaptive and mobile smoke checks then passed under 24.20.0 without increasing the startup timeout further.
 
 Final validation under 24.20.0: all 2,038 tests across 275 files passed with two workers (168.72 seconds); production build, 20 script tests, all 143 mini assets and browser smoke passed. Formatting, lint and Doctor passed earlier in the same runtime verification. Four-worker local runs had the timing failures described above; CI worker settings and timeout thresholds are unchanged.
+
+## PR 87 review follow-up
+
+The earlier decision to leave seven Doctor advisories was revisited at the user's request. The reader now separates section rendering from navigation; profile facts and modal layout are derived before rendering; exchange expansion lives in the ready state, with source/occurrence keys assigned once on load; and index membership uses a Set. The branch scan reports no issues without new suppressions. Zod compilation and the experimental React compiler remain deferred for the reasons above.
+
+CI run 33979820782 failed while the first detail-route assertion still saw its loading shell. The browse preload omitted the real detail-host module graph, leaving cold Vite transforms inside Testing Library's one-second wait. Route tests now prepare both real graphs during module initialization, outside test and hook deadlines; React.lazy, record loading and navigation behavior still run normally.
+
+Four-worker verification also reproduced the broad description-argument test's five-second timeout. It loaded every public detail record and validated all scopes inside one test. Record loading is now fixture preparation, with the same assertions reported separately for each scope. Neither change increases timeouts, adds retries, lowers CI concurrency, nor disables isolation.
+
+Shuffling the route tests exposed one order dependency: switching from Wheels to Posses asserted synchronously, succeeding only after an earlier test had resolved the lazy component. It now waits for the resulting route and cleared search parameters, matching the other navigation tests.
+
+Validation: Node 24.20.0 full verification passed 2,050 tests across 275 files with the normal four workers, 20 script tests, asset checks, type-aware lint, formatting and production build. Doctor reported no issues. After correcting the shuffled navigation assertion, the same seeded run passed all 81 route, description and Lore tests. Quote metadata was checked in desktop and 390px mobile layouts at small and large content sizes.
