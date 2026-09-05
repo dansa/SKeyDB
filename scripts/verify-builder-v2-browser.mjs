@@ -36,6 +36,7 @@ async function main() {
       import {createServer} from 'vite'
       const server = await createServer({
         cacheDir: process.env.SKEYDB_SMOKE_CACHE,
+        optimizeDeps: {entries: ['index.html']},
         server: {host: '127.0.0.1', port: Number(process.env.SKEYDB_SMOKE_PORT), strictPort: true, open: false},
       })
       await server.listen()
