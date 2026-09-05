@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 3,
+  "kind": "overlay",
+  "id": "overlay.global.blackened-flame",
+  "name": "Blackened Flame",
+  "route": {
+    "slug": "blackened-flame",
+    "canonicalPath": "/database/overlays/blackened-flame"
+  },
+  "assets": {
+    "icon": "asset-overlay.global.blackened-flame-icon"
+  },
+  "overlayType": "mechanic",
+  "aliases": [],
+  "iconId": "IconS_Buff_008",
+  "textColor": "misc",
+  "descriptionTemplate": "Each stack increases all Awakener's Crit. Rate by [DescArg1]%.",
+  "descriptionArgs": {
+    "DescArg1": {
+      "kind": "fixed",
+      "value": "10",
+      "suffix": "%"
+    }
+  }
+}

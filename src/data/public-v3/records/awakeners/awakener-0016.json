@@ -55,6 +55,7 @@
   "profile": {
     "title": "Faint",
     "birthday": "7-Mar",
+    "voiceActor": "Itou Satsuki",
     "gender": "Female",
     "height": "4'6''",
     "weight": "73lbs",
@@ -90,6 +91,334 @@
         "unlockCondition": "Affinity Level 9",
         "content": "Do I deserve to have wishes?\n\nIf I do, can I become a part of my sister?\n\nTo make her whole, to make us whole.\n\nOnly then could I express \"love\" without reservation, and she could embrace \"love\" with an undivided heart.\n\nDear Tinct... perhaps this is what I, as the firstborn child, should do for you..."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-5072",
+          "title": "Awaken",
+          "content": "Please, please don't come any closer. It's dangerous... for you."
+        },
+        {
+          "id": "voice-5460",
+          "title": "Upgrade: I",
+          "content": "Th-thank you for the meal..."
+        },
+        {
+          "id": "voice-5458",
+          "title": "Upgrade: II",
+          "content": "Have you grown a little?"
+        },
+        {
+          "id": "voice-5459",
+          "title": "Upgrade: III",
+          "content": "Sorry, it's hard for me to grow my body..."
+        },
+        {
+          "id": "voice-4978",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "Can I really eat all of this?"
+        },
+        {
+          "id": "voice-5858",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "I'll do my best to grow up."
+        },
+        {
+          "id": "voice-5854",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "Maybe when I grow up, I'll be able to control myself and not drain others' Life... Just a tiny bit is enough for me to survive."
+        },
+        {
+          "id": "voice-5855",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "Seems like I've gotten heavier. Can the cradle still bear my weight?"
+        },
+        {
+          "id": "voice-5856",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "I've eaten up so much power, it's about to overflow. My back is itching, too. Am I... growing up?"
+        },
+        {
+          "id": "voice-5857",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "Although I still look like a child... Now I have the power to protect you."
+        },
+        {
+          "id": "voice-5574",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "Sorry, I'm not like the others... I'm a flawed product."
+        },
+        {
+          "id": "voice-5577",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "The cradle is cramped, with no room to stretch my body... But Tinct said that, for everyone's safety, I should remain in the cradle... Since this is her wish, I will comply."
+        },
+        {
+          "id": "voice-5576",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "Tinct is my twin sister. Unlike me, she always shines brightly... Without my drag, she would have a brighter future, her singing echoing throughout the galaxy..."
+        },
+        {
+          "id": "voice-5573",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "If I stay here, don't I need to pay anything? I can help you gain status here. Just threaten to drain their lives—it's simple, like what I did for Tinct... Ah! Don't tell anyone about this!"
+        },
+        {
+          "id": "voice-5572",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "I never thought anyone other than Tinct would accept me. I'm glad to have met you, Keeper. I will do my best to learn how to control my power, so that when I hug you, I won't drain your life force... A hug, right? The human way of expressing gratitude?"
+        },
+        {
+          "id": "voice-5270",
+          "title": "Chat: Touch",
+          "content": "Umm... I can't control my ability to absorb life force, so please don't put your hand in the cradle, or you'll get sick."
+        },
+        {
+          "id": "voice-5976",
+          "title": "Chat: About Winkle",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Winkle\"",
+          "content": "Miss Winkle, like me, isn't from this planet... There's nothing tying me to my home except Tinct. I wonder how Miss Winkle feels about her homeland?"
+        },
+        {
+          "id": "voice-6710",
+          "title": "Chat: About Tinct",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Tinct\"",
+          "content": "During my days of drifting among the stars, I dreamed of this moment countless times... Thank you for reuniting me with Tinct."
+        },
+        {
+          "id": "voice-5782",
+          "title": "Chat: About Aurita",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Aurita\"",
+          "content": "I've been too shy to tell Aurita that I'm not as young as she thinks. I'm not her \"little sister.\" Could you perhaps help me mention that to her?"
+        },
+        {
+          "id": "voice-5030",
+          "title": "Chat: About Dissolution",
+          "content": "If our home hadn't experienced Dissolution, Tinct and I wouldn't be apart... I hate Dissolution more than I hate vegetables."
+        },
+        {
+          "id": "voice-5192",
+          "title": "Chat: About Mythag",
+          "content": "Sorry, I can't leave the cradle... It might block everyone's view, so I'll stay at the back of the classroom."
+        },
+        {
+          "id": "voice-6374",
+          "title": "Chat: What I Like",
+          "content": "Things I like? I like Tinct's lullabies... Of course, your singing is wonderful too!"
+        },
+        {
+          "id": "voice-4972",
+          "title": "Chat: What I Hate",
+          "content": "Can I skip the vegetables? Though Tinct said not to be picky, I don't like their colors..."
+        },
+        {
+          "id": "voice-6207",
+          "title": "Chat: About the Keeper",
+          "content": "Tinct said, \"Repay kindness.\" So, as long as it is within my ability to help, I will lend a hand..."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-4945",
+          "title": "Investigation Begins",
+          "content": "Like how I protected Tinct, I'll protect you, too."
+        },
+        {
+          "id": "voice-6349",
+          "title": "Investigation Success",
+          "content": "...Hic. Ah, sorry, I ate up too much energy again."
+        },
+        {
+          "id": "voice-5740",
+          "title": "Investigation Halted",
+          "content": "If the situation calls for it, I can leave the cradle, too..."
+        },
+        {
+          "id": "voice-5059",
+          "title": "Strike: I",
+          "content": "Here we go...!"
+        },
+        {
+          "id": "voice-5027",
+          "title": "Defense: I",
+          "content": "You'll get hurt!"
+        },
+        {
+          "id": "voice-5028",
+          "title": "Defense: II",
+          "content": "Don't come any closer!"
+        },
+        {
+          "id": "voice-5898",
+          "title": "Hit: I",
+          "content": "(Exclamation)"
+        },
+        {
+          "id": "voice-5299",
+          "title": "Hit: II",
+          "content": "Don't..."
+        },
+        {
+          "id": "voice-5897",
+          "title": "Hit: III",
+          "content": "Ouch!"
+        },
+        {
+          "id": "voice-5769",
+          "title": "Skill: I",
+          "content": "Stay back!"
+        },
+        {
+          "id": "voice-5376",
+          "title": "Skill: II",
+          "content": "Maybe, just a little bit..."
+        },
+        {
+          "id": "voice-6237",
+          "title": "Rouse",
+          "content": "Shine for me!"
+        },
+        {
+          "id": "voice-5373",
+          "title": "Exalt",
+          "content": "A world... where no one will be harmed... will come."
+        },
+        {
+          "id": "voice-57837",
+          "title": "Over-Exalt",
+          "content": "I am still... the Color out of Space!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-100161",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I can't get too close to you..."
+        },
+        {
+          "id": "traphase-99970",
+          "title": "Chat: About Tinct",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Ahhh, Tinct! Lower your voice! It's embarrassing...",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0049",
+              "lineId": "traphase-100082"
+            },
+            {
+              "awakenerId": "awakener-0016",
+              "lineId": "traphase-99970"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99797",
+          "title": "Chat: About Winkle",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "But if you get too close, your energy will be drained away...",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0053",
+              "lineId": "traphase-100126"
+            },
+            {
+              "awakenerId": "awakener-0016",
+              "lineId": "traphase-99797"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99851",
+          "title": "Chat: About Doresain",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Although I don't understand what you're saying, it gives me an uncomfortable vibe...",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0014",
+              "lineId": "traphase-100177"
+            },
+            {
+              "awakenerId": "awakener-0016",
+              "lineId": "traphase-99851"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99897",
+          "title": "Chat: About Liz",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Such slender limbs and elegant posture you have...",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0016",
+              "lineId": "traphase-99897"
+            },
+            {
+              "awakenerId": "awakener-0030",
+              "lineId": "traphase-99850"
+            }
+          ]
+        },
+        {
+          "id": "traphase-120254",
+          "title": "Chat: About Castor",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "P-Please don't come any closer. I might hurt you...",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0016",
+              "lineId": "traphase-120254"
+            },
+            {
+              "awakenerId": "awakener-0008",
+              "lineId": "traphase-120249"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100186",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I will protect you, even from within my shell."
+        },
+        {
+          "id": "traphase-99814",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I want to absorb more energy... I'm losing control..."
+        },
+        {
+          "id": "traphase-99820",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Behold the unique colors of me!"
+        },
+        {
+          "id": "traphase-100104",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I-I ccidentally absorbed your energy again... Sorry, I'll stay further away!"
+        },
+        {
+          "id": "traphase-100024",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Next time, let me step out of the cradle..."
+        }
+      ]
+    }
   }
 }

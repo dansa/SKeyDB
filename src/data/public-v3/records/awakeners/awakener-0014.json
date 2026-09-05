@@ -55,6 +55,7 @@
   "profile": {
     "title": "Doresain",
     "birthday": "20-Nov",
+    "voiceActor": "Koyasu Takehito",
     "gender": "Male",
     "height": "6'1.7''",
     "weight": "137lbs",
@@ -69,7 +70,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "The abandoned cemetery in the northwest of London County has been listed as an absolute forbidden zone by local residents since AF 3@2.\n\nAccording to archived reports from The Times and Scotland Yard's missing persons files, 37 people have gone missing in the thick night fog of the cemetery in recent years, including: Cyril, a habitual grave robber with a taste for noble tombs; Cook, a shivering vagrant seeking shelter; Officer Grayson, who stumbled in during patrol; and White, the Oxford scholar who studied how medieval bones were laid to rest.\n\nAll vanished when the fog grew thick, leaving not even a scrap of fabric for search teams to find.\n\nPrior to AF 3@2, the MTC had always treated the area as barely worth noting in their ledgers.\n\nThat changed when the Duke of Derbyshire—Samuel Curzon, that notorious patron of unnatural studies—failed to return from his midnight visit.\n\nRoyal inquiries have a way of focusing attention, and soon a special operation was mounted.\n\nIn July of AF 3@2, Elias ThOrnn led twelve armed agents and three silver-equipped mediums into the cemetery's hungry mists.\n\nTheir anti-hypothermia medication hissed in its cases; their directional locators spun like dowsing rods in a haunted well.\n\nAfter advancing precisely 1.2 kilometers in tight formation, they found it—a hexagonal entrance hidden beneath the shattered statue of the Ghoul King, its stone face worn smooth by centuries of bad weather and worse company.\n\nFive thousand steps down (each counted twice by nervous lips) brought them to the temple.\n\nWhere they expected charnel houses and stacked bones, they found instead 800 square meters of impossible precision: floors flatter than mathematics, air cleaner than a surgical theater.\n\nOnly the altar broke the perfection—2.3 meters of granite carved with endless thorns, wreathed in black mist that clung like cobwebs to something moving inside.\n\nThere knelt the Duke, dressed for dinner but quite dead, showing no marks save those left by perfect preservation.\n\nWhen the mist was disturbed, he came apart like sugar in tea—dissolving until even the mass spectrometers wept empty data.\n\nThen the mist turned its attention to the living.\n\nEvery investigator heard the same voice—cultured, gentle, the sort that might recite poetry before the cutting begins:\n\"Please do not seek out Necrovia. Please do not disturb the King of the Ghouls during his meal.\"\n\n\"Consider this your final warning.\"\n\nThey awoke outside the rusted gates, equipment intact but all recordings curiously blank.\n\nLater, the MTC chairman and Miskatonic's occult dean would visit, then quietly declare the matter closed.\n\nThe cemetery now only punishes those who come seeking secrets; mere wanderers get off with nothing worse than lost hours and strange dreams.\n\nBut sometimes, when the fog rolls in particularly thick, the locals swear they can hear something chewing below their feet.\n\n——Investigation Report on the Abandoned Cemetery of Etherington"
       },
       {
@@ -90,6 +91,333 @@
         "unlockCondition": "Affinity Level 9",
         "content": "He had once believed that his entire life existed for the pursuit of ultimate deliciousness.\n\nThe duties of a crown prince, the estrangement from loved ones, the weight of moral teachings... He had cast all this pain aside in his relentless quest for culinary perfection.\n\nFrom prince to monarch, from mortal to divine, his hunger never waned. He mastered every cooking technique, could detect the most fleeting nuance in every corpse's flavor profile.\n\nHe attained everything he desired, yet after each ephemeral moment of satisfaction, that hollow feeling remained - like a flavor just beyond his palate's reach.\n\nIt wasn't until he consumed Celina's corpse and glimpsed her lingering soul that understanding came.\n\nThe stories etched in flesh before death's arrival, the unfinished yearnings that clung to bones - these were the missing ingredients he'd been chasing, the true essence he'd been tasting without realizing.\n\n\"Eating is remembrance; every feast a reunion between departed and living\" —these are the words carved into Necrovia's throne. He will grant those who seek his protection remembrance and eternal rest."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-96400",
+          "title": "Awaken",
+          "content": "Ah, what an unforgettable scent... I simply cannot wait to welcome you into my sanctuary."
+        },
+        {
+          "id": "voice-96404",
+          "title": "Upgrade: I",
+          "content": "Your fragrant aroma is positively intoxicating."
+        },
+        {
+          "id": "voice-96395",
+          "title": "Upgrade: II",
+          "content": "Thank you so much for your enthusiasm. The honour is all mine."
+        },
+        {
+          "id": "voice-96390",
+          "title": "Upgrade: III",
+          "content": "I see more impending deaths. The other side is becoming ever clearer..."
+        },
+        {
+          "id": "voice-96371",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "I preside over death, but please, do not misunderstand. I never create it; I merely follow in its wake, harvesting the choicest morsels left behind.."
+        },
+        {
+          "id": "voice-96397",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "I am no barbaric beast who gorges on raw flesh. The consumption of death is a solemn and elegant affair. You must commune with and truly understand each ingredient's unique flavour."
+        },
+        {
+          "id": "voice-96399",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "No perfume compares to the human body's own natural fragrance. To know a person by their scent is a simply divine pleasure."
+        },
+        {
+          "id": "voice-96392",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "Different ingredients demand different preparations. The organs, they need to be marinated. The tendons in the legs are best stewed. Fatty parts are perfect for fermentation and ageing, while the more delicate pieces can be fried, roasted, or even transformed into beautifully sculpted jellies. These choices are all about discretion. For without preserving and accentuating the ingredient's natural flavour, there is no respect."
+        },
+        {
+          "id": "voice-96394",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "The pairing of dishes also holds great importance.\nThe juxtaposition of sour with sweet, crisp with tender, light with rich, and delicate with coarse, creates a layered flavour and a textural contrast that leads to different sensations upon entry, mastication, and when savouring the aftertaste.\nThis is the endless and wondrous pleasure a proper meal provides."
+        },
+        {
+          "id": "voice-96364",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "Have I finally piqued your interest? Do come, my dear guest, join me at my table and partake in this grand banquet. Allow me to guide you as we savour the delicate afterglow of every spirit together."
+        },
+        {
+          "id": "voice-96365",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "Shhh, please, do be quiet. Let's listen to the voices of the departed."
+        },
+        {
+          "id": "voice-96387",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "Do you know?\nEvery life has a long-lasting echo as it fades.\nThey vary in pitch and tone, stretching little by little from the moment death arrives until they dissipate into the heavens and earth, much like a sighing cry."
+        },
+        {
+          "id": "voice-96377",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "Before every meal, I converse with the departed. For them, being eaten and savoured with true sincerity is a continuation of life and their final, most glorious moment.\nLike how I long for them, they, too, long for me."
+        },
+        {
+          "id": "voice-96389",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "You can't smell yourself? Ah, what a shame. You're missing out on the sweetest, the most sublime... Oh, my, what is it? Why are you pulling away?"
+        },
+        {
+          "id": "voice-96388",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "Rest assured, {Male=Mr.,Female=Miss} Keeper, I'll remain by your side until the day your life meets its destined end. On that day, I will, with all due solemnity, consume your body piece by piece. And your soul shall reside within me, forever."
+        },
+        {
+          "id": "voice-96372",
+          "title": "Chat: Touch",
+          "content": "Do you, too, crave the taste of my flesh, dear Keeper?"
+        },
+        {
+          "id": "voice-96366",
+          "title": "Chat: About the Crisis",
+          "content": "My people and I revere the beauty of permanence. Dissolution slowly weathers a living person, wiping away all traces of their existence... Such cruel torture should not be allowed."
+        },
+        {
+          "id": "voice-96361",
+          "title": "Chat: About Mythag",
+          "content": "I adore the classic beauty of this institution's Gothic clock tower. And the Awakeners here, ah... They exude an aromatic flavor I've never tasted: a perfect blend of departed fragrance and a trace of living scent. It truly makes me crave a little bite."
+        },
+        {
+          "id": "voice-96398",
+          "title": "Chat: What I Like",
+          "content": "The deceased who have found peace are beautiful and fragrant. Their beauty isn't in the flesh, before or after death, but in their souls. Those souls' enlightenment regarding death, their longing for life, and their desire to be remembered are the delicacies I have always dreamt of."
+        },
+        {
+          "id": "voice-96370",
+          "title": "Chat: What I Hate",
+          "content": "There was a man who slowly carved away a young girl's flesh, fingernails, hands, and feet, all while continuously healing her. He didn't want her to die, nor did he want her to live. I could not, of course, grant him a peaceful death. So, I gave him a taste of his own medicine. I wonder how many years he's been trapped there... For someone who desecrates death, this is quite fair, isn't it?"
+        },
+        {
+          "id": "voice-96369",
+          "title": "Chat: About the Keeper",
+          "content": "No adjective can describe the intoxicating fragrance of your body. It is like the tart aftertaste of a rich Bordeaux wine, and the thick aroma of a mellow, buttery sponge cake. The day of your death will perhaps be the most important event of my remaining time."
+        },
+        {
+          "id": "voice-96386",
+          "title": "Chat: About Leigh",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Leigh\"",
+          "content": "While that lady's enthusiasm is very touching, her body has a sort of over-fermented, damp smell. Even though she keeps begging me to have a taste, it simply does not suit my palate. How vexing."
+        },
+        {
+          "id": "voice-96367",
+          "title": "Chat: About Pickman",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Pickman\"",
+          "content": "Like me, Mr. Pickman is in pursuit of immortalized beauty. We could have become closer friends. But he sees eating as a violation of preserved eternity. Such a narrow artistic philosophy."
+        },
+        {
+          "id": "voice-96382",
+          "title": "Chat: About Food",
+          "content": "Why are you so wary of me? You needn't and shouldn't be alarmed; to feed on a living human goes against my aesthetic."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-96373",
+          "title": "Investigation Begins",
+          "content": "Who shall grace my dinner table today, I wonder?"
+        },
+        {
+          "id": "voice-96374",
+          "title": "Investigation Success",
+          "content": "I shall bestow upon you the honour of becoming tonight's feast."
+        },
+        {
+          "id": "voice-96396",
+          "title": "Investigation Halted",
+          "content": "Truly delicious food is always worth the wait."
+        },
+        {
+          "id": "voice-96368",
+          "title": "Strike: I",
+          "content": "Hah!"
+        },
+        {
+          "id": "voice-96393",
+          "title": "Strike: II",
+          "content": "This might be a bit chilly."
+        },
+        {
+          "id": "voice-96380",
+          "title": "Defense: I",
+          "content": "Let's keep our distance."
+        },
+        {
+          "id": "voice-96385",
+          "title": "Defense: II",
+          "content": "Watch your steps."
+        },
+        {
+          "id": "voice-96384",
+          "title": "Hit: I",
+          "content": "How terribly inelegant."
+        },
+        {
+          "id": "voice-96403",
+          "title": "Hit: II",
+          "content": "Quiet, will you?"
+        },
+        {
+          "id": "voice-96376",
+          "title": "Skill: I",
+          "content": "I shall bring a clean rest."
+        },
+        {
+          "id": "voice-96379",
+          "title": "Skill: II",
+          "content": "Scatter and fade into the shadows!"
+        },
+        {
+          "id": "voice-96363",
+          "title": "Rouse",
+          "content": "I am rather eager to begin."
+        },
+        {
+          "id": "voice-96383",
+          "title": "Exalt",
+          "content": "If death is what you seek, then I shall grant your wish."
+        },
+        {
+          "id": "voice-96391",
+          "title": "Over-Exalt",
+          "content": "Please, entrust your body to me. I will savour you meticulously: every drop of blood, every piece of flesh, every single bone."
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-99764",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "As God of Death and Friend to the Departed, I extend a formal salute."
+        },
+        {
+          "id": "traphase-99773",
+          "title": "Chat: About Karen",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "What a good servant. Just one final step to true perfection... I'll make you an undead. Miss, would you be interested in joining our feast?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0014",
+              "lineId": "traphase-99773"
+            },
+            {
+              "awakenerId": "awakener-0026",
+              "lineId": "traphase-99842"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100065",
+          "title": "Chat: About Murphy",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "This scent clinging to you... the peculiar yet fragrant aroma of the Deep Sea... I must say, it's quite captivating, Miss Murphy.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0014",
+              "lineId": "traphase-100065"
+            },
+            {
+              "awakenerId": "awakener-0034",
+              "lineId": "traphase-99943"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100009",
+          "title": "Chat: About Salvador",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Hmmm... A faith that praises life. It is, as always, rather boring.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0014",
+              "lineId": "traphase-100009"
+            },
+            {
+              "awakenerId": "awakener-0044",
+              "lineId": "traphase-99757"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100177",
+          "title": "Chat: About Faint",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Having absorbed so much life force, your body remains so tiny and frail... I wonder what it would taste like? Please allow me to savor it after your demise.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0014",
+              "lineId": "traphase-100177"
+            },
+            {
+              "awakenerId": "awakener-0016",
+              "lineId": "traphase-99851"
+            }
+          ]
+        },
+        {
+          "id": "traphase-120262",
+          "title": "Chat: About Pickman",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I appreciate your talent, but desecrating corpses is contrary to my aesthetics. I offer you a chance to amend this mistake.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0014",
+              "lineId": "traphase-120262"
+            },
+            {
+              "awakenerId": "awakener-0040",
+              "lineId": "traphase-120253"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100146",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Patience is essential. Only complex preparation can unlock the true, layered flavors of the ingredient."
+        },
+        {
+          "id": "traphase-99787",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Wait any longer, and the delicious food will get cold."
+        },
+        {
+          "id": "traphase-99784",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I shall present you with a fragrant banquet—"
+        },
+        {
+          "id": "traphase-99843",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Oops, I fear this course will be undercooked."
+        },
+        {
+          "id": "traphase-100034",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Commune with oblivion..."
+        }
+      ]
+    }
   }
 }

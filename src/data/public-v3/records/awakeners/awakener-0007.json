@@ -55,6 +55,7 @@
   "profile": {
     "title": "Casiah",
     "birthday": "1-Apr",
+    "voiceActor": "Nanao Rin",
     "gender": "Female",
     "height": "4'12''",
     "weight": "99lbs",
@@ -90,6 +91,318 @@
         "unlockCondition": "Affinity Level 9",
         "content": "Casiah reached into the hat, and it was empty.\n\nCasiah reached into the Gate, and it was empty.\n\nCasiah reached into her chest, and it was empty.\n\nThe collected joy and sorrow, fear and fury, the warmth and chill of human connection, the buzz before the show began, the cheers at each dramatic twist, the whistles at the highlights, the applause at the final bow, and the hollow silence as the crowd dispersed—all slipped away from this hollow chest, leaving no trace of ever having existed.\n\nStaring into the mirror, Casiah began to mimic the audience's expressions. The wrinkles at the corners of her eyes, the flexing of her cheeks, the exact curve of her lips—everything was identical to theirs, yet utterly devoid of any true sentiment.\n\n<Italic:If only I could feel it... If only I could transcend mere mimicry... If only I could become one of them... Or, if only someone... could stay...>\nThen surely this \"void\" in her chest would finally be filled."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-6301",
+          "title": "Awaken",
+          "content": "Ready? Casiah's magic show is about to begin! Don't look away, you don't want to miss the highlights. It's showtime!"
+        },
+        {
+          "id": "voice-6427",
+          "title": "Upgrade: I",
+          "content": "I've learned a new technique!"
+        },
+        {
+          "id": "voice-6430",
+          "title": "Upgrade: II",
+          "content": "Ah, this familiar sense of emptiness!"
+        },
+        {
+          "id": "voice-6429",
+          "title": "Upgrade: III",
+          "content": "My wand wants to dance!"
+        },
+        {
+          "id": "voice-6564",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "If you want to watch my performance, sit properly in the audience!"
+        },
+        {
+          "id": "voice-4992",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "Oh no, my hat is crooked... Hmm, is this better? It is! Perfect!"
+        },
+        {
+          "id": "voice-4998",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "Mirror, mirror, who is the greatest magician in the world? Me? That is correct!"
+        },
+        {
+          "id": "voice-6617",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "More memories, more emotions, more dreams—"
+        },
+        {
+          "id": "voice-6613",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "The order of the universe shifts here; the future of destruction is the magician's core belief!"
+        },
+        {
+          "id": "voice-5583",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "Hehe, do you want to see a universe being destroyed? Oh, it's too late to back out now!"
+        },
+        {
+          "id": "voice-5506",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "You, you will be Casiah's magic assistant! Don't be scared~ Just climb into my magic box for a moment!\nAre you hiding well? I'm about to insert the sword~ Oh, I assure you there are no traps inside~"
+        },
+        {
+          "id": "voice-5507",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "Here, put on this top hat! Then, tell me the gift you desire most. Ah, I see! Now, reach into the hat—"
+        },
+        {
+          "id": "voice-5508",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "How troubling. Those kids come to every show, and my stock is running low... Hmm, a magician mustn't perform the same tricks for the same audience. Create new magic? Sorry, I lack that particular talent; I'm only good at imitations!"
+        },
+        {
+          "id": "voice-5504",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "Oh no~ You caught me~ \nIt's fine, Awakeners have such abundant spirit power. I need to steal at least 365 times before they become mindless puppets~ Can't do it? Alright, I'll be more careful next time! Just a tiny bit of \"fear\" during the sawing, will you?"
+        },
+        {
+          "id": "voice-5505",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "Hey, you already know the secrets of Casiah's magic, don't you? Hmm, to ensure you don't spill the secrets, you'll have to follow me wherever I go on tour~ Haha, you think I'm collecting your emotions? Indeed, nothing escapes your notice!"
+        },
+        {
+          "id": "voice-6493",
+          "title": "Chat: Touch",
+          "content": "Be careful! If you reach into another dimensional space, you might not get your hand back!"
+        },
+        {
+          "id": "voice-6206",
+          "title": "Chat: About Faint",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Faint\"",
+          "content": "I know that child. She sometimes stands far away, watching my performance. It's good that she doesn't come closer, otherwise my little audience will be mentally and physically exhausted!"
+        },
+        {
+          "id": "voice-6555",
+          "title": "Chat: About Children",
+          "unlockCondition": "Unlocks after acquiring any one of Awakeners \"Aigis,\" \"Jenkin,\" \"Lily,\" \"Murphy,\" \"Karen,\" or \"Aurita\"",
+          "content": "You guys, don't you ever get tired of watching the magic show? Sit still, alright? If you run onto the stage again, I'll toss you into another dimension!"
+        },
+        {
+          "id": "voice-5159",
+          "title": "Chat: About Daffodil",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Daffodil\"",
+          "content": "Don't let that woman in the wide-brimmed purple hat near the stage! No questions asked—just keep her away if you don't want gooey gray matter spilling out of my hat!"
+        },
+        {
+          "id": "voice-5947",
+          "title": "Chat: About Dissolution",
+          "content": "A hollow? I often create similar stuff during telekinesis. The ones I make link to another dimension; would the Dissolution ones do the same?"
+        },
+        {
+          "id": "voice-6612",
+          "title": "Chat: About Mythag",
+          "content": "Ah, this is the best stage! The people at Mythag University all understand that my performance is true magic! This must be what they call a magician's best audience, yes?"
+        },
+        {
+          "id": "voice-5063",
+          "title": "Chat: What I Like",
+          "content": "Tea party, tea party! Let's have a tea party! I got plenty of tea leaves and snacks from Sylvia! Yep, I performed Futterwacken Dance in exchange!"
+        },
+        {
+          "id": "voice-5763",
+          "title": "Chat: What I Hate",
+          "content": "I detest people with fake smiles! You can't steal any emotions from them!"
+        },
+        {
+          "id": "voice-5957",
+          "title": "Chat: About the Keeper",
+          "content": "I know, you're a special audience. I can't just zap you into another dimension; that would cause big trouble. Hey, have you ever done that to someone else? You mustn't ask, it is my secret!"
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-5151",
+          "title": "Investigation Begins",
+          "content": "My hat can't wait any longer!"
+        },
+        {
+          "id": "voice-6373",
+          "title": "Investigation Success",
+          "content": "We won. Are you happy? What does \"happy\" feel like?"
+        },
+        {
+          "id": "voice-5414",
+          "title": "Investigation Halted",
+          "content": "The pigeons haven't returned..."
+        },
+        {
+          "id": "voice-6381",
+          "title": "Strike: I",
+          "content": "Here you go! Fly!"
+        },
+        {
+          "id": "voice-6388",
+          "title": "Strike: II",
+          "content": "Boom—"
+        },
+        {
+          "id": "voice-6676",
+          "title": "Defense: I",
+          "content": "You can't see me!"
+        },
+        {
+          "id": "voice-6749",
+          "title": "Hit: I",
+          "content": "(Exclamation)"
+        },
+        {
+          "id": "voice-6752",
+          "title": "Hit: II",
+          "content": "(Exclamation)"
+        },
+        {
+          "id": "voice-6751",
+          "title": "Hit: III",
+          "content": "(Exclamation)"
+        },
+        {
+          "id": "voice-6619",
+          "title": "Skill: I",
+          "content": "Don't blink!"
+        },
+        {
+          "id": "voice-5884",
+          "title": "Skill: II",
+          "content": "Magic time!"
+        },
+        {
+          "id": "voice-6017",
+          "title": "Rouse",
+          "content": "My magic's ready!"
+        },
+        {
+          "id": "voice-5092",
+          "title": "Exalt",
+          "content": "Welcome to the wonderland!"
+        },
+        {
+          "id": "voice-56388",
+          "title": "Over-Exalt",
+          "content": "Here comes the opening tribute!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-100134",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Boom—Master of Magic makes his grand entrance!"
+        },
+        {
+          "id": "traphase-99937",
+          "title": "Chat: About Daffodil",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Got it, Manager! Casiah will do as you say!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0012",
+              "lineId": "traphase-99869"
+            },
+            {
+              "awakenerId": "awakener-0007",
+              "lineId": "traphase-99937"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100185",
+          "title": "Chat: About Winkle",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Huh? Magic is just something to make everyone laugh. Casiah can't do anything that impressive.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0053",
+              "lineId": "traphase-100011"
+            },
+            {
+              "awakenerId": "awakener-0007",
+              "lineId": "traphase-100185"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100176",
+          "title": "Chat: About Clementine",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Oh? Am I supposed to be angry here? Even if you say that, I don't feel anything at all.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0010",
+              "lineId": "traphase-99866"
+            },
+            {
+              "awakenerId": "awakener-0007",
+              "lineId": "traphase-100176"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99881",
+          "title": "Chat: About Wanda",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Wow, you're going to teach Casiah fear? I want to try, I want to try!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0052",
+              "lineId": "traphase-100016"
+            },
+            {
+              "awakenerId": "awakener-0007",
+              "lineId": "traphase-99881"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99992",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Can you guess which hat has the ball hidden underneath?"
+        },
+        {
+          "id": "traphase-99803",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Come on, take a guess! Magic loses its meaning without audience interaction!"
+        },
+        {
+          "id": "traphase-99983",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Let me draw back the curtain on this performance!"
+        },
+        {
+          "id": "traphase-99767",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Oops, that was close! Almost got caught!"
+        },
+        {
+          "id": "traphase-100199",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Oh no, my performance..."
+        }
+      ]
+    }
   }
 }

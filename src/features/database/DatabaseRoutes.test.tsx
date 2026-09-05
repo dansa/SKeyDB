@@ -3,14 +3,15 @@
 import '@testing-library/jest-dom/vitest'
 import {Suspense, useState} from 'react'
 
-import {act, fireEvent, render, screen, waitFor} from '@testing-library/react'
+import {act, fireEvent, render, screen, waitFor, within} from '@testing-library/react'
 import {MemoryRouter, Routes, useLocation, useNavigate} from 'react-router'
-import {afterEach, beforeAll, describe, expect, it, vi} from 'vitest'
+import {afterEach, describe, expect, it, vi} from 'vitest'
 
 import {createMockPublicCatalog, createMockPublicDetailLoaders} from '@/test/publicCatalogFixtures'
 
 import {clearDatabaseDetailRecordCacheForTests} from './internal/useDatabaseDetailRouteRecord'
 import {DatabaseRouteElements} from './routes'
+import {getDatabaseEntityRuntime} from './runtime/databaseEntityRuntime'
 
 const mockPublicCatalog = createMockPublicCatalog()
 const mockPublicDetailLoaders = createMockPublicDetailLoaders()
@@ -302,9 +303,16 @@ vi.mock('@/features/database/internal/RelicDetailModal', () => ({
   },
 }))
 
-beforeAll(async () => {
-  await import('./DatabasePage')
-})
+// Route behavior is under test, not Vite's cold compilation throughput. Load the
+// real browse and detail-host module graphs before test/hook deadlines start.
+// React.lazy, record loading and the actual route transitions still run in tests.
+await Promise.all([
+  import('./DatabasePage'),
+  import('./detail/DbDetailModalHost'),
+  ...(['awakeners', 'wheels', 'relics', 'posses', 'covenants'] as const).map((entity) =>
+    getDatabaseEntityRuntime(entity).loadBrowse(),
+  ),
+])
 
 afterEach(() => {
   vi.restoreAllMocks()
@@ -315,6 +323,16 @@ afterEach(() => {
 
 function getResultsSummary(expectedText: string) {
   return screen.getByText((_, element) => element?.textContent === expectedText)
+}
+
+async function findAwakenerDetailDialog(name: RegExp) {
+  // The loading shell has the same accessible name. Require a control from the
+  // loaded modal so interaction tests also work when they run first.
+  return waitFor(() => {
+    const dialog = screen.getByRole('dialog', {name})
+    expect(within(dialog).getByRole('button', {name: 'Close detail'})).toBeInTheDocument()
+    return dialog
+  })
 }
 
 async function expectAwakenerDetailRouteEndState({
@@ -382,7 +400,9 @@ async function renderDatabasePage(
   })
 
   const databaseRegion = await screen.findByRole('region', {name: 'Database'})
-  await waitFor(() => expect(databaseRegion).not.toBeEmptyDOMElement(), {timeout: 5000})
+  // The outer shell mounts before its lazy browse content. Wait for the actual
+  // browse controls, including when a deep-linked dialog hides the background.
+  await within(databaseRegion).findByRole('searchbox', {hidden: true})
 
   return renderResult
 }
@@ -457,7 +477,7 @@ describe('DatabasePage', () => {
       fireEvent.click(screen.getByLabelText('View details for Alpha'))
     })
 
-    expect(await screen.findByRole('dialog', {name: /alpha details/})).toBeInTheDocument()
+    expect(await findAwakenerDetailDialog(/alpha details/)).toBeInTheDocument()
     expect(screen.getByTestId('location-path')).toHaveTextContent('/database/awakeners/alpha')
 
     await act(async () => {
@@ -475,7 +495,7 @@ describe('DatabasePage', () => {
       fireEvent.click(screen.getByLabelText('View details for Alpha'))
     })
 
-    expect(await screen.findByRole('dialog', {name: /alpha details/})).toBeInTheDocument()
+    expect(await findAwakenerDetailDialog(/alpha details/)).toBeInTheDocument()
     expect(screen.getByTestId('location-path')).toHaveTextContent('/database/awakeners/alpha')
     expect(screen.getByTestId('location-search')).toHaveTextContent('?q=alpha&realm=CHAOS')
 
@@ -492,9 +512,7 @@ describe('DatabasePage', () => {
     await renderDatabasePage(['/before-database', '/database?q=alpha&realm=CHAOS'], 1)
 
     fireEvent.click(screen.getByLabelText('View details for Alpha'))
-    await waitFor(() =>
-      expect(screen.getByRole('dialog', {name: /alpha details/})).toBeInTheDocument(),
-    )
+    expect(await findAwakenerDetailDialog(/alpha details/)).toBeInTheDocument()
 
     fireEvent.click(screen.getByLabelText('Switch to lore tab'))
     await waitFor(() =>
@@ -519,7 +537,7 @@ describe('DatabasePage', () => {
   it('replaces a direct detail deep link with its derived browse route on close', async () => {
     await renderDatabasePage(['/before-database', '/database/awakeners/alpha'], 1)
 
-    expect(await screen.findByRole('dialog', {name: /alpha details/})).toBeInTheDocument()
+    expect(await findAwakenerDetailDialog(/alpha details/)).toBeInTheDocument()
     fireEvent.click(screen.getByLabelText('Close detail'))
 
     await waitFor(() => {
@@ -536,13 +554,13 @@ describe('DatabasePage', () => {
   it('opens detail modal from deep-linked awakener route', async () => {
     await renderDatabasePage('/database/awk/beta')
 
-    expect(await screen.findByRole('dialog', {name: /beta details/})).toBeInTheDocument()
+    expect(await findAwakenerDetailDialog(/beta details/)).toBeInTheDocument()
   })
 
   it('falls back from disabled teams tab routes to upgrades', async () => {
     await renderDatabasePage('/database/awk/beta/teams')
 
-    expect(await screen.findByRole('dialog', {name: /beta details/})).toBeInTheDocument()
+    expect(await findAwakenerDetailDialog(/beta details/)).toBeInTheDocument()
     expect(screen.getByText('Active tab upgrades')).toBeInTheDocument()
     expect(screen.getByTestId('location-path')).toHaveTextContent('/database/awakeners/beta')
   })
@@ -550,21 +568,21 @@ describe('DatabasePage', () => {
   it('opens detail modal from deep-linked lore tab route', async () => {
     await renderDatabasePage('/database/awk/beta/lore')
 
-    expect(await screen.findByRole('dialog', {name: /beta details/})).toBeInTheDocument()
+    expect(await findAwakenerDetailDialog(/beta details/)).toBeInTheDocument()
     expect(screen.getByText('Active tab lore')).toBeInTheDocument()
   })
 
   it('opens the skills tab from the renamed awakener detail route slug', async () => {
     await renderDatabasePage('/database/awk/beta/skills')
 
-    expect(await screen.findByRole('dialog', {name: /beta details/})).toBeInTheDocument()
+    expect(await findAwakenerDetailDialog(/beta details/)).toBeInTheDocument()
     expect(screen.getByText('Active tab skills')).toBeInTheDocument()
   })
 
   it('updates url when switching detail tabs', async () => {
     await renderDatabasePage('/database/awk/alpha')
 
-    expect(await screen.findByRole('dialog', {name: /alpha details/})).toBeInTheDocument()
+    expect(await findAwakenerDetailDialog(/alpha details/)).toBeInTheDocument()
     await act(async () => {
       fireEvent.click(screen.getByLabelText('Switch to lore tab'))
     })
@@ -575,7 +593,7 @@ describe('DatabasePage', () => {
   it('preserves modal-local progression state when switching detail tabs', async () => {
     await renderDatabasePage('/database/awk/alpha/skills')
 
-    expect(await screen.findByRole('dialog', {name: /alpha details/})).toBeInTheDocument()
+    expect(await findAwakenerDetailDialog(/alpha details/)).toBeInTheDocument()
     expect(screen.getByText('Mock slider level 60')).toBeInTheDocument()
 
     await act(async () => {
@@ -600,7 +618,7 @@ describe('DatabasePage', () => {
   it('replaces the active detail history entry when changing tabs', async () => {
     await renderDatabasePage(['/database', '/database/awakeners/alpha'], 1)
 
-    expect(await screen.findByRole('dialog', {name: /alpha details/})).toBeInTheDocument()
+    expect(await findAwakenerDetailDialog(/alpha details/)).toBeInTheDocument()
 
     await act(async () => {
       fireEvent.click(screen.getByLabelText('Switch to lore tab'))
@@ -619,7 +637,7 @@ describe('DatabasePage', () => {
   it('replaces the active detail history entry when switching modal results', async () => {
     await renderDatabasePage(['/database', '/database/awakeners/alpha'], 1)
 
-    expect(await screen.findByRole('dialog', {name: /alpha details/})).toBeInTheDocument()
+    expect(await findAwakenerDetailDialog(/alpha details/)).toBeInTheDocument()
 
     await act(async () => {
       fireEvent.click(screen.getByLabelText('Switch to beta detail'))
@@ -628,7 +646,7 @@ describe('DatabasePage', () => {
     await waitFor(() =>
       expect(screen.getByTestId('location-path')).toHaveTextContent('/database/awakeners/beta'),
     )
-    expect(await screen.findByRole('dialog', {name: /beta details/})).toBeInTheDocument()
+    expect(await findAwakenerDetailDialog(/beta details/)).toBeInTheDocument()
 
     await act(async () => {
       fireEvent.click(screen.getByRole('button', {name: 'Go back in history'}))
@@ -685,7 +703,7 @@ describe('DatabasePage', () => {
   it('preserves generated canonical awakener slugs and only entity-valid query params', async () => {
     await renderDatabasePage('/database/awk/24?q=24&mainstat=KEYFLARE_REGEN&realm=CHAOS&sort=ATK')
 
-    expect(await screen.findByRole('dialog', {name: /alpha details/})).toBeInTheDocument()
+    expect(await findAwakenerDetailDialog(/alpha details/)).toBeInTheDocument()
     await waitFor(() =>
       expect(screen.getByTestId('location-path')).toHaveTextContent('/database/awakeners/24'),
     )
@@ -1001,8 +1019,10 @@ describe('DatabasePage', () => {
 
     fireEvent.click(screen.getByRole('link', {name: 'Posses'}))
 
-    expect(screen.getByTestId('location-path')).toHaveTextContent('/database/posses')
-    expect(screen.getByTestId('location-search')).toBeEmptyDOMElement()
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path')).toHaveTextContent('/database/posses')
+      expect(screen.getByTestId('location-search')).toBeEmptyDOMElement()
+    })
   })
 
   it('strips invalid entity params from deep-linked posse routes', async () => {

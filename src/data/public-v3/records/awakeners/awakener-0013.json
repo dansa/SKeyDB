@@ -55,6 +55,7 @@
   "profile": {
     "title": "Doll",
     "birthday": "11-Jan",
+    "voiceActor": "Uotani Kayo",
     "gender": "Female",
     "height": "5'2''",
     "weight": "90lbs",
@@ -69,7 +70,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "Doll is an indispensable figure at Mythag University and in the entire academic community. \n\nAmong the Awakeners managed by the school, Doll is neither the most stable in gnostic index nor the strongest in combat abilities, but she is certainly the calmest and most rational one. \n\nFor some Awakeners who were once human, the initial phase of \"being reborn\" is often accompanied by confusion, panic, and agitation. However, Doll seems unaffected by such \"growing pains.\" \n\nOn the second day after being awakened, she returned to the laboratory and compiled a technical manual that integrates outer domain knowledge and human wisdom within a year. \n\nCurrently, Doll spends half her time innovating \"silver chip technology\" and the other half \"cleaning up the mess for stupid students.\" \n\n— By the way, based on the influence of h-dim existence, Doll employed an unknown language in writing that \"Technical Manual,\" and the translation work is being orderly conducted during her leisure time"
       },
       {
@@ -90,6 +91,307 @@
         "unlockCondition": "Affinity Level 9",
         "content": "A new star of science and knowledge rises in an ordinary worker's family.\n\nMost of Doll's childhood was filled with the sounds of cylinder throbs and gear operations.\n\nBut a love for machinery was not enough to support the girl in climbing the rugged and steep mountain of science.\n\nWhat led her onto the path of knowledge was a plague.\n\nAn unknown madness raged through the city; hospitals were overcrowded, the morgue was overwhelmed, and everyone was on edge.\n\n\"The city's graveyards aren't enough—dig up grandma or burn mom, you have to choose one.\"\n\nThus, Doll watched her mother disappear into the flames.\n\nUnlike others who were cremated, among the fragments and ashes she once called \"mother,\" there flowed a shimmering silver mass.\n\n\"I want to know if I can see her again.\"\n\n\"I want to know if her kind soul is inside that.\"\n\n\"I want to know if that silver substance is the genesis of life, if it is the essence of the soul.\"\n\n\"I want to know if everything in this world has a common starting point.\"\n\nBefore getting the answers, Doll will not bow to the D-phenomenon."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-5019",
+          "title": "Awaken",
+          "content": "You'd better prove yourself worthy of making me leave the lab, new Keeper."
+        },
+        {
+          "id": "voice-5183",
+          "title": "Upgrade: I",
+          "content": "The conversion rate is far too low. Report to my office tomorrow for retraining."
+        },
+        {
+          "id": "voice-6434",
+          "title": "Upgrade: II",
+          "content": "Not bad, I guess."
+        },
+        {
+          "id": "voice-6431",
+          "title": "Upgrade: III",
+          "content": "My joint movement has notably improved."
+        },
+        {
+          "id": "voice-5836",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "Has my body or my consciousness improved? An intriguing subject for analysis."
+        },
+        {
+          "id": "voice-5351",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "My mind feels sharper; not bad at all."
+        },
+        {
+          "id": "voice-5672",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "Balancing attendance, maintaining research progress, and completing teaching tasks. It seems the reverse time compression experiment requires immediate prioritization."
+        },
+        {
+          "id": "voice-5352",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "I much prefer lab work to field duty—did you truly believe those assist tools simply materialized from the sea?"
+        },
+        {
+          "id": "voice-6567",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "The will I've merged with is quite boisterous; the higher I ascend, the clearer His voice becomes... like the geese in Hyde Park, perpetually clamoring."
+        },
+        {
+          "id": "voice-5354",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "This body can barely contain this Power, but it's not yet time to switch puppets. Why are you merely standing there? Assist me with this leg; adjustments are required."
+        },
+        {
+          "id": "voice-6050",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "Thirteen reports require urgent approval, six damaged communicators await repair, and I must also monitor the results of five distinct Silver extraction experiments... So, instead of squandering my limited time by disturbing me, why not attempt to exercise your feeble brain matter?"
+        },
+        {
+          "id": "voice-6047",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "Do I always appear busy? Yes. Assistants can occasionally be useful, but in some research, I am simply irreplaceable. Do you wish to help? Then periodically check if I am still, in fact, alive."
+        },
+        {
+          "id": "voice-6048",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "I look angry? Do you comprehend how many muscles are required for a smile? I once elucidated this in class, a lesson that evidently slipped from your smooth brain. The answer is a minimum of seventeen, and I possess no logical reason to be angry with you."
+        },
+        {
+          "id": "voice-6045",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "\"It was the secrets of heaven and earth that I desired to learn. I wanted to figure out what force is controlling me?\" ...Though I find this novel's plot unsatisfying and its fictional science laughably naive, after reading it, you should grasp my motivations... Wait, you haven't read this book?"
+        },
+        {
+          "id": "voice-6094",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "I have no time for rest. The Dissolution has already claimed two of my bodies. Before the inevitable end catches up, there is much I must comprehend... Assist me, starting with the preparation of experimental materials. I trust you won't miscalculate the balance."
+        },
+        {
+          "id": "voice-6043",
+          "title": "Chat: Touch",
+          "content": "Your feeble brain appears incapable of retaining lessons."
+        },
+        {
+          "id": "voice-6629",
+          "title": "Chat: About Afternoon Tea",
+          "content": "Awakeners might consume out of curiosity, but food is not essential for our existence. Therefore, there is no need to summon me for every afternoon tea. Sugar intake only accelerates the wear and tear on this body's ball joints."
+        },
+        {
+          "id": "voice-4929",
+          "title": "Chat: About Winkle",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Winkle\"",
+          "content": "Winkle's native species can infiltrate the biological brain, causing the Outer Will fused with me to fear her. But now, she's merely a poor soul confined within a shell."
+        },
+        {
+          "id": "voice-5271",
+          "title": "Chat: About Erica",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Erica\"",
+          "content": "I sincerely hope she doesn't malfunction during our conversation. My lovely yet infuriating assistant, there are no more spare labs for her to inadvertently detonate."
+        },
+        {
+          "id": "voice-5938",
+          "title": "Chat: About Dissolution",
+          "content": "Since its first clear documentation, the Dissolution has impacted over a million lives. Our actions are critical to the survival of the entire human population."
+        },
+        {
+          "id": "voice-6042",
+          "title": "Chat: About Mythag",
+          "content": "I joined Mythag at the age of fourteen. Had I graduated smoothly, you would be addressing me as Principal now."
+        },
+        {
+          "id": "voice-5841",
+          "title": "Chat: What I Like",
+          "content": "My hobbies include trying to solve the Riemann Hypothesis—that, however, is our Mr. Peacock's catchphrase, not mine. Personally, I find atomic mass standards far more engaging."
+        },
+        {
+          "id": "voice-5736",
+          "title": "Chat: What I Hate",
+          "content": "Things I despise... a disorganized desk, a messy wardrobe, dusty window sills—yes, I am describing your room. By 7 AM tomorrow, I expect it restored to its pre-occupancy state."
+        },
+        {
+          "id": "voice-5401",
+          "title": "Chat: About the Keeper",
+          "content": "I hope you won't squander your potential and humanity's expectations, new Keeper."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-5835",
+          "title": "Investigation Begins",
+          "content": "I hope your command won't disappoint."
+        },
+        {
+          "id": "voice-6273",
+          "title": "Investigation Success",
+          "content": "Keep it up! Your final grades are promising."
+        },
+        {
+          "id": "voice-5617",
+          "title": "Investigation Halted",
+          "content": "Should this occur again, I'll be applying for your disciplinary probation."
+        },
+        {
+          "id": "voice-6031",
+          "title": "Strike: I",
+          "content": "It's my turn to act."
+        },
+        {
+          "id": "voice-5974",
+          "title": "Defense: I",
+          "content": "Think it through."
+        },
+        {
+          "id": "voice-5975",
+          "title": "Defense: II",
+          "content": "Stay calm and think."
+        },
+        {
+          "id": "voice-6098",
+          "title": "Hit: I",
+          "content": "An astute observation!"
+        },
+        {
+          "id": "voice-5097",
+          "title": "Hit: II",
+          "content": "A keen insight!"
+        },
+        {
+          "id": "voice-4988",
+          "title": "Skill: I",
+          "content": "The supplies have arrived."
+        },
+        {
+          "id": "voice-5966",
+          "title": "Rouse",
+          "content": "The truth... it's revealed right here."
+        },
+        {
+          "id": "voice-6615",
+          "title": "Exalt",
+          "content": "Unveil the world's mysteries with human intellect!"
+        },
+        {
+          "id": "voice-54608",
+          "title": "Over-Exalt",
+          "content": "Next, we dissect the world's essence!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-99782",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "This engagement had better be worth my time."
+        },
+        {
+          "id": "traphase-100223",
+          "title": "Chat: About Ramona",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Then allow me to assess your progress, my top student.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0042",
+              "lineId": "traphase-99852"
+            },
+            {
+              "awakenerId": "awakener-0013",
+              "lineId": "traphase-100223"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100114",
+          "title": "Chat: About Tawil",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "A battle against the Aeon of Sagacity. I wonder if it will reveal unknown mysteries. I eagerly anticipate it.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0013",
+              "lineId": "traphase-100114"
+            },
+            {
+              "awakenerId": "awakener-0047",
+              "lineId": "traphase-100154"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100081",
+          "title": "Chat: About Doll: Inferno",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Seeing you has made me realize my own arrogance and my excessive greed for knowledge— it's no different from playing with fire.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0018",
+              "lineId": "traphase-99825"
+            },
+            {
+              "awakenerId": "awakener-0013",
+              "lineId": "traphase-100081"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99840",
+          "title": "Chat: About Erica",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Battle feedback of this intensity seems suitable for upgrading Erica's combat system.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0013",
+              "lineId": "traphase-99840"
+            },
+            {
+              "awakenerId": "awakener-0015",
+              "lineId": "traphase-99838"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100093",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "An interesting situation..."
+        },
+        {
+          "id": "traphase-100077",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Wasting a genius's time is a crime."
+        },
+        {
+          "id": "traphase-99834",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "It's time to put an end to this."
+        },
+        {
+          "id": "traphase-100220",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "A mistake in my judgement...?"
+        },
+        {
+          "id": "traphase-100062",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "An unexpected development. It's worth studying..."
+        }
+      ]
+    }
   }
 }

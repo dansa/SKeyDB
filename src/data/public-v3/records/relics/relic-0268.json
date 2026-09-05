@@ -12,10 +12,10 @@
   },
   "relicType": "Relic",
   "categories": ["FADED_LEGACY", "EVENT"],
-  "variantCount": 2,
+  "variantCount": 3,
   "defaultVariantId": "relic-variant-0468",
   "rarity": "N",
-  "aliases": ["Signal Relay+"],
+  "aliases": ["Signal Relay +β", "Signal Relay+"],
   "descriptionTemplate": "At the start of the battle, place 1 {Echoes of Lost Shadows} into hand. If it is a Boss Battle, gain an additional 1 {Echoes of Lost Shadows}.",
   "descriptionArgs": {},
   "lore": "Anticipate or dread the moment it chimes.",
@@ -41,6 +41,18 @@
       "category": "EVENT",
       "rarity": "SSR",
       "descriptionTemplate": "At the start of battle, all Awakeners gain 50 Aliemus. Draw 2 {Echoes of Lost Shadows} into hand.",
+      "descriptionArgs": {},
+      "lore": "Anticipate or dread the moment it chimes."
+    },
+    {
+      "id": "relic-variant-0577",
+      "name": "Signal Relay +β",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "When picked up, all Awakeners gain 50 Aliemus, and place 2 {Echoes of Lost Shadows} into hand.",
       "descriptionArgs": {},
       "lore": "Anticipate or dread the moment it chimes."
     }

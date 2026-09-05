@@ -55,6 +55,7 @@
   "profile": {
     "title": "Lotan",
     "birthday": "21-Mar",
+    "voiceActor": "Miyazono Miumi",
     "gender": "Female",
     "height": "5'6''",
     "weight": "25ton",
@@ -90,6 +91,344 @@
         "unlockCondition": "Affinity Level 9",
         "content": "Born from Chaos, she embodies pure chaotic power, an untamed free spirit, and an undefined order.\n\nShe craves challenges and battles; only by unleashing her irrepressible destructive urge can she fulfill her creator's sole wish.\n\n—To safeguard this planet until the end. She has yearned for a truly exhilarating battle for far too long."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-6296",
+          "title": "Awaken",
+          "content": "New Keeper? Come on, give it your all. Let's see if you're worthy to face me!"
+        },
+        {
+          "id": "voice-5671",
+          "title": "Upgrade: I",
+          "content": "Now, my blade sings with power!"
+        },
+        {
+          "id": "voice-5670",
+          "title": "Upgrade: II",
+          "content": "Not bad."
+        },
+        {
+          "id": "voice-5669",
+          "title": "Upgrade: III",
+          "content": "This feels like a rebirth."
+        },
+        {
+          "id": "voice-6263",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "Good. Less strain, more power."
+        },
+        {
+          "id": "voice-5194",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "Still a pale shadow of my true might."
+        },
+        {
+          "id": "voice-5197",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "Ah, back in the chaotic ocean. I like it."
+        },
+        {
+          "id": "voice-5196",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "This beast is merely a fragment of my will. Its form may not change, but my power knows no bounds."
+        },
+        {
+          "id": "voice-5199",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "Shatter these barriers of power, just as I'd smash through a maze wall!"
+        },
+        {
+          "id": "voice-5198",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "Fine. You've put in enough effort. I suppose I'll tolerate you as a companion."
+        },
+        {
+          "id": "voice-6280",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "Hah! I've no time for childish games. Find a corner and stay out of my way."
+        },
+        {
+          "id": "voice-6278",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "Hmph... I still can't fathom why Ramona picked you as her partner. You reek of strength, yes, but you're nowhere near my league."
+        },
+        {
+          "id": "voice-6279",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "Yes, gaze upon me. I am this planet's most ancient being, demanding reverence from the insignificant. I've guarded this planet for eons. Is a thrilling battle truly too much to ask for in return?"
+        },
+        {
+          "id": "voice-6276",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "Interesting. Your growth in battle far surpasses my expectations. Given time, you might become... Strange. Even after all this time, I still find hope in a creature as seemingly weak as you."
+        },
+        {
+          "id": "voice-6277",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "Perhaps now is the time. Listen closely. Lotan, the Beast of the Stars, formally challenges you. Do not fret; I shall ensure your survival until you reach your zenith. I will not allow my chosen opponent to suffer the same fate again."
+        },
+        {
+          "id": "voice-5153",
+          "title": "Chat: Touch",
+          "content": "What. Care for a fight?"
+        },
+        {
+          "id": "voice-5618",
+          "title": "Chat: About Working",
+          "content": "My duties extend beyond fighting. Even in the Archean Eon, I had more to do than sit idly by... Hey, don't tell me you think I'm just some brute who only knows how to swing a sword?!"
+        },
+        {
+          "id": "voice-6361",
+          "title": "Chat: About Tulu",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Tulu\"",
+          "content": "How dare you summon him! That useless, lazy oaf! He was once someone I held in high regard! Away with him! I refuse to look at that fool!"
+        },
+        {
+          "id": "voice-5929",
+          "title": "Chat: About Extraterrestrial Beings",
+          "unlockCondition": "Unlocks after acquiring any one of Awakeners \"Winkle,\" \"Tinct,\" \"Faint,\" or \"Wanda\".",
+          "content": "They feel alien. Not native to this planet, I bet."
+        },
+        {
+          "id": "voice-5116",
+          "title": "Chat: About Dissolution",
+          "content": "The Dissolution... I cannot speak freely of it. But know this: it appeared far earlier than you imagine."
+        },
+        {
+          "id": "voice-5550",
+          "title": "Chat: About Mythag",
+          "content": "Ramona is the only one here worth my time. She's quite gifted with a blade. The rest are so rigid and boring... Are you like them? Do you actually enjoy writing those tedious mission reports?"
+        },
+        {
+          "id": "voice-5798",
+          "title": "Chat: What I Like",
+          "content": "I respect conviction, no matter if it's in a beast, an Awakener, or a human. If they can fight, even better."
+        },
+        {
+          "id": "voice-6497",
+          "title": "Chat: What I Hate",
+          "content": "Hate? I despise those who give up halfway. The mere thought of them makes me want to regurgitate last night's meal."
+        },
+        {
+          "id": "voice-6156",
+          "title": "Chat: About the Keeper",
+          "content": "Why did I answer your call? To finish what I started, of course. And if you grow strong enough to challenge me, that's just a bonus."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-5641",
+          "title": "Investigation Begins",
+          "content": "Fight! Leave nothing standing!"
+        },
+        {
+          "id": "voice-6149",
+          "title": "Investigation Success",
+          "content": "These weaklings aren't even worth my blade."
+        },
+        {
+          "id": "voice-5865",
+          "title": "Investigation Halted",
+          "content": "Hmph, not bad at all. Our next duel will be legendary."
+        },
+        {
+          "id": "voice-5723",
+          "title": "Strike: I",
+          "content": "Die!"
+        },
+        {
+          "id": "voice-6012",
+          "title": "Defense: I",
+          "content": "Don't drop your guard."
+        },
+        {
+          "id": "voice-6746",
+          "title": "Hit: I",
+          "content": "(A dismissive grunt)"
+        },
+        {
+          "id": "voice-6745",
+          "title": "Hit: II",
+          "content": "(A dismissive grunt)"
+        },
+        {
+          "id": "voice-6744",
+          "title": "Hit: III",
+          "content": "(A dismissive grunt)"
+        },
+        {
+          "id": "voice-5713",
+          "title": "Skill: I",
+          "content": "EAT THIS!"
+        },
+        {
+          "id": "voice-5323",
+          "title": "Skill: II",
+          "content": "There's no escape!"
+        },
+        {
+          "id": "voice-5118",
+          "title": "Rouse",
+          "content": "Huhhh—"
+        },
+        {
+          "id": "voice-6644",
+          "title": "Exalt",
+          "content": "Yield! Victory is already mine!"
+        },
+        {
+          "id": "voice-54621",
+          "title": "Over-Exalt",
+          "content": "Beast of the Abyss, consume them all!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-99781",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Here we go again, my favorite moment. Want to play a couple more rounds?"
+        },
+        {
+          "id": "traphase-100132",
+          "title": "Chat: About Ramona: Timeworn",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Hmm? Ramona, your swordsmanship has changed quite a bit. Interesting. Let's trade a few blows!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0031",
+              "lineId": "traphase-100132"
+            },
+            {
+              "awakenerId": "awakener-0020",
+              "lineId": "traphase-99994"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100158",
+          "title": "Chat: About Helot",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "We meet again, warrior. Let me test your progress!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0031",
+              "lineId": "traphase-100158"
+            },
+            {
+              "awakenerId": "awakener-0023",
+              "lineId": "traphase-100180"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100031",
+          "title": "Chat: About Goliath",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Not enough! More! Where's that \"might of the giant\" you've got? Give me your all!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0031",
+              "lineId": "traphase-100031"
+            },
+            {
+              "awakenerId": "awakener-0021",
+              "lineId": "traphase-99991"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99924",
+          "title": "Chat: About Uvhash",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "What a rare, thrilling rival! Another round!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0031",
+              "lineId": "traphase-99924"
+            },
+            {
+              "awakenerId": "awakener-0051",
+              "lineId": "traphase-100123"
+            }
+          ]
+        },
+        {
+          "id": "traphase-131816",
+          "title": "Chat: About Vortice",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Wanna fight? Then let's go all out!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0031",
+              "lineId": "traphase-131816"
+            },
+            {
+              "awakenerId": "awakener-0055",
+              "lineId": "traphase-131818"
+            }
+          ]
+        },
+        {
+          "id": "traphase-147590",
+          "title": "Chat: About Lotan: Cetarchon",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "A fight is just a fight. I've been waiting far too long for a duel between pure warriors.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0031",
+              "lineId": "traphase-147590"
+            },
+            {
+              "awakenerId": "awakener-0059",
+              "lineId": "traphase-147591"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100150",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I'm just thinking about what stance I should take to send you flying!"
+        },
+        {
+          "id": "traphase-100023",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Already scared?"
+        },
+        {
+          "id": "traphase-100155",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Get ready to throw in the towel!"
+        },
+        {
+          "id": "traphase-99891",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Tsk, did I miss?"
+        },
+        {
+          "id": "traphase-100067",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Not bad..."
+        }
+      ]
+    }
   }
 }

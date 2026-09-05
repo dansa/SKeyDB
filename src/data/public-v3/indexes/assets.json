@@ -7784,6 +7784,159 @@
         ]
       }
     },
+    "asset-relic-0317-icon": {
+      "id": "asset-relic-0317-icon",
+      "slot": "icon",
+      "kind": "relic",
+      "ownerId": "relic-0317",
+      "assetId": "Icon_Creation_010",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/relics/Icon_Creation_010.webp",
+        "candidates": [
+          "src/assets/relics/Icon_Creation_010.webp",
+          "src/assets/relics/Icon_Creation_010.png",
+          "src/assets/relics/portraits/Icon_Creation_010.webp",
+          "src/assets/relics/portraits/Icon_Creation_010.png"
+        ]
+      }
+    },
+    "asset-relic-0318-icon": {
+      "id": "asset-relic-0318-icon",
+      "slot": "icon",
+      "kind": "relic",
+      "ownerId": "relic-0318",
+      "assetId": "Icon_Creation_133",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/relics/Icon_Creation_133.webp",
+        "candidates": [
+          "src/assets/relics/Icon_Creation_133.webp",
+          "src/assets/relics/Icon_Creation_133.png",
+          "src/assets/relics/portraits/Icon_Creation_133.webp",
+          "src/assets/relics/portraits/Icon_Creation_133.png"
+        ]
+      }
+    },
+    "asset-relic-0319-icon": {
+      "id": "asset-relic-0319-icon",
+      "slot": "icon",
+      "kind": "relic",
+      "ownerId": "relic-0319",
+      "assetId": "Icon_Creation_156",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/relics/Icon_Creation_156.webp",
+        "candidates": [
+          "src/assets/relics/Icon_Creation_156.webp",
+          "src/assets/relics/Icon_Creation_156.png",
+          "src/assets/relics/portraits/Icon_Creation_156.webp",
+          "src/assets/relics/portraits/Icon_Creation_156.png"
+        ]
+      }
+    },
+    "asset-relic-0320-icon": {
+      "id": "asset-relic-0320-icon",
+      "slot": "icon",
+      "kind": "relic",
+      "ownerId": "relic-0320",
+      "assetId": "Icon_Creation_141",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/relics/Icon_Creation_141.webp",
+        "candidates": [
+          "src/assets/relics/Icon_Creation_141.webp",
+          "src/assets/relics/Icon_Creation_141.png",
+          "src/assets/relics/portraits/Icon_Creation_141.webp",
+          "src/assets/relics/portraits/Icon_Creation_141.png"
+        ]
+      }
+    },
+    "asset-relic-0321-icon": {
+      "id": "asset-relic-0321-icon",
+      "slot": "icon",
+      "kind": "relic",
+      "ownerId": "relic-0321",
+      "assetId": "Icon_Creation_010",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/relics/Icon_Creation_010.webp",
+        "candidates": [
+          "src/assets/relics/Icon_Creation_010.webp",
+          "src/assets/relics/Icon_Creation_010.png",
+          "src/assets/relics/portraits/Icon_Creation_010.webp",
+          "src/assets/relics/portraits/Icon_Creation_010.png"
+        ]
+      }
+    },
+    "asset-relic-0322-icon": {
+      "id": "asset-relic-0322-icon",
+      "slot": "icon",
+      "kind": "relic",
+      "ownerId": "relic-0322",
+      "assetId": "Icon_Creation_155",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/relics/Icon_Creation_155.webp",
+        "candidates": [
+          "src/assets/relics/Icon_Creation_155.webp",
+          "src/assets/relics/Icon_Creation_155.png",
+          "src/assets/relics/portraits/Icon_Creation_155.webp",
+          "src/assets/relics/portraits/Icon_Creation_155.png"
+        ]
+      }
+    },
+    "asset-relic-0323-icon": {
+      "id": "asset-relic-0323-icon",
+      "slot": "icon",
+      "kind": "relic",
+      "ownerId": "relic-0323",
+      "assetId": "Icon_Creation_150",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/relics/Icon_Creation_150.webp",
+        "candidates": [
+          "src/assets/relics/Icon_Creation_150.webp",
+          "src/assets/relics/Icon_Creation_150.png",
+          "src/assets/relics/portraits/Icon_Creation_150.webp",
+          "src/assets/relics/portraits/Icon_Creation_150.png"
+        ]
+      }
+    },
+    "asset-relic-0324-icon": {
+      "id": "asset-relic-0324-icon",
+      "slot": "icon",
+      "kind": "relic",
+      "ownerId": "relic-0324",
+      "assetId": "Icon_Creation_169",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/relics/Icon_Creation_169.webp",
+        "candidates": [
+          "src/assets/relics/Icon_Creation_169.webp",
+          "src/assets/relics/Icon_Creation_169.png",
+          "src/assets/relics/portraits/Icon_Creation_169.webp",
+          "src/assets/relics/portraits/Icon_Creation_169.png"
+        ]
+      }
+    },
+    "asset-relic-0325-icon": {
+      "id": "asset-relic-0325-icon",
+      "slot": "icon",
+      "kind": "relic",
+      "ownerId": "relic-0325",
+      "assetId": "Icon_Creation_166",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/relics/Icon_Creation_166.webp",
+        "candidates": [
+          "src/assets/relics/Icon_Creation_166.webp",
+          "src/assets/relics/Icon_Creation_166.png",
+          "src/assets/relics/portraits/Icon_Creation_166.webp",
+          "src/assets/relics/portraits/Icon_Creation_166.png"
+        ]
+      }
+    },
     "asset-orison-0001-icon": {
       "id": "asset-orison-0001-icon",
       "slot": "icon",
@@ -11370,6 +11523,18 @@
         "candidates": ["src/assets/icons/IconS_Buff_013.webp", "src/assets/icons/IconS_Buff_013.png"]
       }
     },
+    "asset-overlay.global.blackened-flame-icon": {
+      "id": "asset-overlay.global.blackened-flame-icon",
+      "slot": "icon",
+      "kind": "overlay",
+      "ownerId": "overlay.global.blackened-flame",
+      "assetId": "IconS_Buff_008",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/IconS_Buff_008.webp",
+        "candidates": ["src/assets/icons/IconS_Buff_008.webp", "src/assets/icons/IconS_Buff_008.png"]
+      }
+    },
     "asset-overlay.global.bleed-icon": {
       "id": "asset-overlay.global.bleed-icon",
       "slot": "icon",
@@ -13460,6 +13625,33 @@
     "relic-0316": {
       "icon": "asset-relic-0316-icon"
     },
+    "relic-0317": {
+      "icon": "asset-relic-0317-icon"
+    },
+    "relic-0318": {
+      "icon": "asset-relic-0318-icon"
+    },
+    "relic-0319": {
+      "icon": "asset-relic-0319-icon"
+    },
+    "relic-0320": {
+      "icon": "asset-relic-0320-icon"
+    },
+    "relic-0321": {
+      "icon": "asset-relic-0321-icon"
+    },
+    "relic-0322": {
+      "icon": "asset-relic-0322-icon"
+    },
+    "relic-0323": {
+      "icon": "asset-relic-0323-icon"
+    },
+    "relic-0324": {
+      "icon": "asset-relic-0324-icon"
+    },
+    "relic-0325": {
+      "icon": "asset-relic-0325-icon"
+    },
     "orison-0001": {
       "icon": "asset-orison-0001-icon"
     },
@@ -13958,6 +14150,9 @@
     },
     "overlay.global.barrier": {
       "icon": "asset-overlay.global.barrier-icon"
+    },
+    "overlay.global.blackened-flame": {
+      "icon": "asset-overlay.global.blackened-flame-icon"
     },
     "overlay.global.bleed": {
       "icon": "asset-overlay.global.bleed-icon"

@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "derived-skills",
   "kind": "derivedSkill",
-  "recordCount": 206,
+  "recordCount": 207,
   "records": [
     {
       "kind": "derivedSkill",
@@ -1228,6 +1228,17 @@
       "route": {
         "slug": "embryo",
         "canonicalPath": "/database/derived-skills/embryo"
+      },
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.global.endless-combustion",
+      "name": "Endless Combustion",
+      "route": {
+        "slug": "endless-combustion",
+        "canonicalPath": "/database/derived-skills/endless-combustion"
       },
       "cardFamily": "buff",
       "cardTypes": ["buff"]

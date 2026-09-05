@@ -55,6 +55,7 @@
   "profile": {
     "title": "Doll: Inferno",
     "birthday": "11-Jan",
+    "voiceActor": "Uotani Kayo",
     "gender": "Female",
     "height": "5'2''",
     "weight": "89.9lbs",
@@ -69,7 +70,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "Before the full truth came to light, no one had ever suspected that Doll could be the true culprit behind that string of sensational incidents.\n\nAfter all, her presence on the Mythag and Dissolution front lines had always stood like a pillar of strength, a beacon atop a tower—a rock-solid source of reassurance in everyone's hearts.\n\nWhen countless shining stars of humanity's night sky were shattered and scattered by Dissolution, this once-unwavering beacon of humanity was finally, cruelly, extinguished—transformed into a shadowy agent born of the same Darkness she once opposed.\n\nTornadoes, floods, earthquakes… inefficient murder clearly didn't suit a genius's plans. With intellect undiminished by even a fraction, she retrofitted the very Silver Technology she had once taken such pride in into lethal weapons for \"moving the world,\" delivering gift after gift of Destruction to places beyond Mythag's sight.\n\nWhen she was finally captured, her puppet body could no longer be precisely controlled by her corroded mind. That face, once calm as still water, was now rife with twisted, eerie Emotes—as though merely meeting her gaze would plunge one into the abyss of Madness.\n\nEveryone unanimously chose to ignore her occasionally muddled murmurings, even though they may have truly revealed the truth of the world.\n\nFor her fate had proven once again that humanity is, in the end, a species that needs meaning to survive."
       },
       {
@@ -90,6 +91,312 @@
         "unlockCondition": "Affinity Level 9",
         "content": "All meaning dissipates like sand, the world's false curtain fades in her eyes, and everything returns to the most primordial darkness.  \n\nIn this final performance on the pitch-black stage, the dancer of science still dances with all her might.  \n\nShe no longer cares about being slowly devoured by dissolution, as the ending of the play was written from the very beginning.  \n\nAs in the past, she will unreservedly dedicate the power of genius to the world in a manner closest to the truth.  \n\nIf you ask her gently, she will insist that she still holds love for humanity and the world; she wants to end all suffering in the world and bring people back to their true, original home."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-6570",
+          "title": "Awaken",
+          "content": "You, the oh-so-great world-saving Keeper? Ridiculous. Wake up. This dream's gone stale."
+        },
+        {
+          "id": "voice-5828",
+          "title": "Upgrade: I",
+          "content": "Meaningless. All of it. Why bother?"
+        },
+        {
+          "id": "voice-5830",
+          "title": "Upgrade: II",
+          "content": "Still counting on me to be your backup, \"Savior\"?"
+        },
+        {
+          "id": "voice-5829",
+          "title": "Upgrade: III",
+          "content": "You know absolutely nothing."
+        },
+        {
+          "id": "voice-6478",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "You should know this is all pointless."
+        },
+        {
+          "id": "voice-5754",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "This will only bring me closer to the Abyss."
+        },
+        {
+          "id": "voice-5758",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "The scent of death and annihilation... It's so vivid."
+        },
+        {
+          "id": "voice-5757",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "Is that fear on your face? Or sorrow? Truly captivating."
+        },
+        {
+          "id": "voice-5756",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "I got my answer. Not the one I wanted... but an answer nonetheless."
+        },
+        {
+          "id": "voice-6163",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "Curious what I saw at the universe's beginning? Sure, I can tell you. I saw nothing."
+        },
+        {
+          "id": "voice-5564",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "That heroic, martyr look on your face... as if you're always ready to die for a \"greater cause\"... it makes my joints itch."
+        },
+        {
+          "id": "voice-5565",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "I had annihilation right there, ready to swallow this so-called sanctuary... Then came the research ban. What a pity."
+        },
+        {
+          "id": "voice-5566",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "Yes, I had countless spare bodies and various plans to escape Dissolution. But I chose to pursue truth, and it was worth it."
+        },
+        {
+          "id": "voice-5567",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "The truth of the world, its beginning and its end—all meaningless. But if you insist on chasing it... I'll guide you. Like I used to."
+        },
+        {
+          "id": "voice-5568",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "You might stop me, but the end's coming anyway... I will save this school—and you—for last. We'll watch humanity's collapse from the campanile, drenched in the twilight of time.... Poetic, no? At least we won't have let our precious bond go to waste."
+        },
+        {
+          "id": "voice-6723",
+          "title": "Chat: Touch",
+          "content": "Hmph. What is it this time? Ready to embrace your fate of anniliation now?"
+        },
+        {
+          "id": "voice-5874",
+          "title": "Chat: About Her Inventions",
+          "content": "I'd offer repairs for those \"little trinkets\" I made, but the question is... Do you dare accept my after-sales service?"
+        },
+        {
+          "id": "voice-5950",
+          "title": "Chat: About Thais",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Thais\"",
+          "content": "That woman's wish is hilarious. Nothing can survive the Annihilation, not even her \"god\"."
+        },
+        {
+          "id": "voice-5920",
+          "title": "Chat: About Salvador",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Salvador\"",
+          "content": "That bishop cannot save everyone. He might pluck one unfortunate soul from the mire, but the rest? ...I can't wait to watch his faith shatter."
+        },
+        {
+          "id": "voice-4979",
+          "title": "Chat: About Dissolution",
+          "content": "Heh. That you are looking at is not death. Just your future. Mine. And everyone else's."
+        },
+        {
+          "id": "voice-6712",
+          "title": "Chat: About Mythag",
+          "content": "\"Resist the Dissolution crisis\"... Ha. Human arrogance never fails to amuse."
+        },
+        {
+          "id": "voice-6706",
+          "title": "Chat: What I Like",
+          "content": "Don't you think it's fascinating to push all things toward their end, to still the universe's turning gears?"
+        },
+        {
+          "id": "voice-5927",
+          "title": "Chat: What I Hate",
+          "content": "I loathe your pretentious act. Think I'm mad? Pathetic? You're the Icarus here, \"Savior\". You and your little flock, eyes scorched white from staring at that glorious sun you chase."
+        },
+        {
+          "id": "voice-6551",
+          "title": "Chat: About the Keeper",
+          "content": "Now we are simply water and oil. Never mixing."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-5644",
+          "title": "Investigation Begins",
+          "content": "Fine. I won't disappoint you... Promise."
+        },
+        {
+          "id": "voice-5425",
+          "title": "Investigation Success",
+          "content": "What a beautiful \"Happy Ending.\" Isn't it?"
+        },
+        {
+          "id": "voice-6325",
+          "title": "Investigation Halted",
+          "content": "Good. Now we'll simply fade into oblivion."
+        },
+        {
+          "id": "voice-5569",
+          "title": "Strike: I",
+          "content": "If you say so."
+        },
+        {
+          "id": "voice-5570",
+          "title": "Strike: II",
+          "content": "Disappear."
+        },
+        {
+          "id": "voice-6759",
+          "title": "Defense: I",
+          "content": "Heh."
+        },
+        {
+          "id": "voice-6758",
+          "title": "Defense: II",
+          "content": "Foolish!"
+        },
+        {
+          "id": "voice-5340",
+          "title": "Hit: I",
+          "content": "Hmph."
+        },
+        {
+          "id": "voice-5343",
+          "title": "Hit: II",
+          "content": "Whatever."
+        },
+        {
+          "id": "voice-4968",
+          "title": "Skill: I",
+          "content": "How was that?"
+        },
+        {
+          "id": "voice-5103",
+          "title": "Skill: II",
+          "content": "Dying rats."
+        },
+        {
+          "id": "voice-6265",
+          "title": "Rouse",
+          "content": "Revel!"
+        },
+        {
+          "id": "voice-5300",
+          "title": "Exalt",
+          "content": "Gaze into the Abyss!"
+        },
+        {
+          "id": "voice-67756",
+          "title": "Over-Exalt",
+          "content": "Do not resist. Do not weep. Become nothing!"
+        },
+        {
+          "id": "voice-5932",
+          "title": "Special Skill: I",
+          "content": "Vanish!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-100086",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Rest assured, I will deliver the most efficient death."
+        },
+        {
+          "id": "traphase-99934",
+          "title": "Chat: About Ramona: Timeworn",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "And you remain as dull as always, my top student.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0020",
+              "lineId": "traphase-100196"
+            },
+            {
+              "awakenerId": "awakener-0018",
+              "lineId": "traphase-99934"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99825",
+          "title": "Chat: About Doll",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I suppose I'm beginning to understand how the other Helot feels. Seeing such a naive version of myself is almost laughable.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0018",
+              "lineId": "traphase-99825"
+            },
+            {
+              "awakenerId": "awakener-0013",
+              "lineId": "traphase-100081"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100172",
+          "title": "Chat: About Helot: Catena",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I appreciate your drive to destroy, but your methods lack efficiency. How about joining my plan?"
+        },
+        {
+          "id": "traphase-99948",
+          "title": "Chat: About Winkle",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "So you actually have it in you to fight to the death, timid as you are.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0018",
+              "lineId": "traphase-99948"
+            },
+            {
+              "awakenerId": "awakener-0053",
+              "lineId": "traphase-99749"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100010",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "How should we catalyze destruction this time?"
+        },
+        {
+          "id": "traphase-99896",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "The resistance of the ignorant is annoying."
+        },
+        {
+          "id": "traphase-100053",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Time for you to stop the futile struggle!"
+        },
+        {
+          "id": "traphase-100071",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Contrary to experimental expectations?"
+        },
+        {
+          "id": "traphase-100075",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Hmph, just a stroke of luck..."
+        }
+      ]
+    }
   }
 }

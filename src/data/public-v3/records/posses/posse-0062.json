@@ -17,7 +17,7 @@
   "acquisitionSource": "Clear Operation: Astral Reign - Ch. 6 - When the Mountain Feasts",
   "realm": "CARO",
   "lineupToken": "8",
-  "descriptionTemplate": "Gain [Block:Arg1] Shield, increase Realm Mastery by [Arg2]. If Caraboo is in the party, the next Caraboo's {derived:Caraboo's Blessing} will not trigger {Price}.\nScaling guide: {Primordia Mastery Scaling}",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield, increase Realm Mastery by [Arg2]. If Caraboo is in the team, the next Caraboo's {derived:Caraboo's Blessing} will not trigger {Price}.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",

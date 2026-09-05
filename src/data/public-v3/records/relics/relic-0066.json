@@ -11,7 +11,7 @@
     "icon": "asset-relic-0066-icon"
   },
   "relicType": "Relic",
-  "categories": ["ASTRAL_REIGN", "OTHER"],
+  "categories": ["ASTRAL_REIGN", "EVENT"],
   "variantCount": 3,
   "defaultVariantId": "relic-variant-0072",
   "rarity": "N",
@@ -85,10 +85,10 @@
     {
       "id": "relic-variant-0559",
       "name": "☆Arcane Gloves☆",
-      "label": "Other - Silver",
-      "variantType": "OTHER",
+      "label": "Event - Silver",
+      "variantType": "EVENT",
       "tier": "Silver",
-      "category": "OTHER",
+      "category": "EVENT",
       "rarity": "N",
       "descriptionTemplate": "When you play the last card in your hand, draw 2 cards. This effect can trigger up to 2 times per turn.",
       "descriptionArgs": {},

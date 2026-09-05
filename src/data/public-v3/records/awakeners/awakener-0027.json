@@ -55,6 +55,7 @@
   "profile": {
     "title": "Kathigu-Ra",
     "birthday": "30-Aug",
+    "voiceActor": "Toba Yuko",
     "gender": "Female",
     "height": "6'0''",
     "weight": "135lbs",
@@ -69,7 +70,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "■File Number: DIOL-A3-1\n■Awakener Code Name: ■■■■\nA.F.3@2, this Awakener initiated contact with Mythag.\n\n\"Sun! Sun! I saw the Sun! No! No!! Destroy it! Or we will all die!\"\n\nAccording to eyewitness accounts, the involved personnel shouted the above statement upon discovering this Awakener, and then ordered relevant units to attack it.\n\nDue to the incorrect judgment of the involved personnel, this Awakener displayed extreme aggression, directly resulting in the destruction of 31 anti-Awakener units, 76 standard equipment sets, and 2 academic buildings, with total property damage estimated at @2@4. The case has now been transferred to the relevant department for accountability procedures.\n\nPost-incident investigation revealed that this individual had been brainwashed by the Church of the Lightbearers. For subsequent details, please refer to related documents, as it will not be elaborated in this file.\n\nAfter a period of communication, negotiation personnel successfully convinced the Awakener to abandon its aggressive stance. Subsequently, the Awakener handed a letter signed by Lord Dexter to the school administration, claiming it was the last possession of a missing Investigator. Later confirmation by Lord Dexter verified the authenticity of the letter.\n\nIt is currently known that, through the mediation of Professor Doll, this Awakener has reached a certain agreement with the school administration. In exchange for some unspecified compensation, the Awakener has agreed to undertake certain commissions that the school finds difficult or inconvenient to handle directly.\n\nGiven the destructive capability demonstrated by this Awakener, despite displaying the highest level of stability and communicability in subsequent conversations, the Committee has decided to include it in the DIOL and will continue updating its file under the highest protocol.\n\nMay the Silver Key guide us.\n\nRecorder: L. Nadia"
       },
       {
@@ -90,6 +91,348 @@
         "unlockCondition": "Affinity Level 9",
         "content": "(Small text at the beginning of the file)\n\nDamn it, how did you find this file? I clearly forbade anyone from accessing it... Well, since you're able to see this file, it means your clearance is far above mine, which indicates you're one of Them, so naturally I have no authority to stop you from knowing these things.\n\nHowever, please keep in mind, this file should not exist anywhere. The following content is not any formal investigation, but rather an unofficial product composed by myself through secondary inferences based on certain real situations.\n\nI must seriously remind you that the process of compiling this file contains a large amount of investigative methods that cannot be described in detail, subjective assumptions from personal thinking, and even acts of accepting bribes from investigated subjects. If you are not bothered by my aforementioned actions, please continue reading. I guarantee with my reputation that the following content is undeniably authentic.\n\n■Subject Number: ■■■■-A■■-SSS\n■Awakener Codename: Lord of Combustion\n\"Honestly, I don't really like fighting.\"\n\nI was quite surprised to hear such an answer, considering in all the reports, investigators would use words like \"madness,\" \"joy,\" and \"elation\" when describing her in combat.\n\nI originally thought her attitude toward fighting was \"not initiating, not hating, not refusing,\" never expecting her to actually feel disgusted by the act itself.\n\nAs the conversation continued deeper, I gradually began to understand certain things. When I asked if I could record these words, Kathigu-Ra generously gave me permission to do so.\n\n\"You must understand, for most people in this world, simply being alive is already a luxury.\"\n\nI expressed agreement with this statement. Although most people I've encountered live comfortable lives—I could even go to the biggest opera house in Lentienni anytime I wanted—I clearly know the hidden truth of this world, and how many people are carrying burdens behind my comfortable life.\n\n\"Therefore, in many cases, intense fighting spirit is the price you pay to stay alive.\"\n\n\"We don't get to choose how we live. Once you step into the mud, it's nearly impossible to pull yourself out again.\"\n\nI originally wanted to argue against this viewpoint, but upon carefully recalling several cases, I found they were all people who could hardly be considered ordinary. As for those nameless nobodies, they mostly only exist within the memoirs of others.\n\n\"Perhaps some naive person might say, if that's the case, then why not just not do it from the beginning? That idea sounds good. I once carved it onto a certain tombstone to commemorate someone who strictly followed that principle.\"\n\n\"To protect everyone in this cruel world, I must appear strong and mad enough to make the ever-present malice hesitate.\"\n\n\"Of course, those emotions I display during battle are not fake. I truly enjoy the sensations battle brings me.\"\n\n\"It might be a bit hard to understand, but it's like how you might enjoy the content of your job, but not the act of working itself.\"\n\nUpon hearing this explanation, I immediately understood her meaning. Indeed, I really enjoy prying into others' privacy to satisfy my own guilty curiosity, but that doesn't mean I enjoy having to drag myself out of bed at eight o'clock every morning and follow orders to stay somewhere the entire day.\n\n\"When I was first abandoned, I was just like many other girls—lost, hesitant, and clueless.\"\n\n\"I hoped to receive help from others, but the world gave me nothing but countless betrayals and pains.\"\n\n\"Gradually, I began using cruelty and madness to forge armor against malice, adapting to everything in this world like drinking poison to quench thirst.\"\n\n\"Until finally, they melted within the ceaseless flames, merging with my flesh and blood.\"\n\nAs if to prove her words just now, Kathigu-Ra suddenly gave me an extremely cruel, evil, and mad smile, so much that I spilled the pale yellow liquid in my cup all over myself.\n\nOh, maybe it's a good thing, because this way, if I ever lose muscle control and accidentally spill something, I can naturally explain it as just the drink I spilled earlier.\n\nIn the end, Kathigu-Ra never directly answered my question, but I think my previous judgment was correct—she simply shouldn't exist within DIOL.\n\n—Recorder Karapolis Trak\n\n\"My original wish was simply to have a home.\"\n\n\"A home without betrayal, without pain, filled with laughter and joy.\"\n\n\"Unfortunately, I didn't understand until that day.\"\n\n\"This was the most luxurious delusion in this cruel world.\"\n\n—Kathigu-Ra"
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-95430",
+          "title": "Awaken",
+          "content": "You in trouble, kid? Kathigu-Ra's coming, and she's bringing Destruction. Say goodbye to your problems. Poof! Gone."
+        },
+        {
+          "id": "voice-95434",
+          "title": "Upgrade: I",
+          "content": "Fine work keeping your iron clean. A polished gun's a happy gun."
+        },
+        {
+          "id": "voice-95411",
+          "title": "Upgrade: II",
+          "content": "Fire's burning brighter. Wanna see a real fireworks show, little one?"
+        },
+        {
+          "id": "voice-95409",
+          "title": "Upgrade: III",
+          "content": "C'mon. Let's burn this whole world to the ground!"
+        },
+        {
+          "id": "voice-95424",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "Wanna make the flames burn even brighter?"
+        },
+        {
+          "id": "voice-95415",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "Listen. That's the dying cries of melting stars."
+        },
+        {
+          "id": "voice-95431",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "Ah, the taste of power... Shall we find some poor bastards to try it out on?"
+        },
+        {
+          "id": "voice-95418",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "Those unnamable things slither in the dark, gnawing at the edges of the world. Sooner or later, you'll have to face them. But don't worry, I've got your back. Always."
+        },
+        {
+          "id": "voice-95398",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "I see clearer now. I see what writhes beneath the abyss... I, We, require more power. For you. For my family. I must..."
+        },
+        {
+          "id": "voice-95435",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "We are the Fire. The Eternal Flame. The Undying Chaos. And We will bring you all... home..."
+        },
+        {
+          "id": "voice-95391",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "Looking for salvation in this ugly world? Keep at it, hopeful little one."
+        },
+        {
+          "id": "voice-95403",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "After a good hunt comes a good feast. Here, try my roasted camel and fresh tequila. What? You're not good with liquor? Fine, well, have some juice instead."
+        },
+        {
+          "id": "voice-95392",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "Here, you can have these. Forbidden relics from some ruins. Was gonna burn them, but figured you might get some use. How'd I get my hands on these? Let's just say some folks <Italic:voluntarily> handed 'em over. And don't worry, source is clean."
+        },
+        {
+          "id": "voice-95395",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "Don't push yourself too hard, Keeper. I know it's rough out there, and one wrong step means disaster. But if you keep this up, you'll break. Come find me when you need someone to talk to. We're family."
+        },
+        {
+          "id": "voice-95399",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "Come here. Sit closer. No need to be so stiff. \nFunny, isn't it? When we first met, I never thought I could let my guard down like this. Ha, the mighty Living Flame, yearning for a family she could fully trust.\nNow, promise me something. When the day comes... when you can't hold on any longer— speak My name. And I, We, shall come. We shall take you into Our Kingdom. It may only delay the inevitable... but in your final moments, you will rest, cradled in Our embrace."
+        },
+        {
+          "id": "voice-95404",
+          "title": "Chat: Touch",
+          "content": "What's wrong, little one? Need a hug? Come here. Big sis has got you... Haha, don't be shy."
+        },
+        {
+          "id": "voice-95423",
+          "title": "Chat: About the Crisis",
+          "content": "What do I think of Dissolution? Ask a sewer rat what it thinks of the king. My answer is simple: a deep, instinctual disgust. Give me the chance, and I'll pour a glass of camel milk wine and listen to their scream as my guns burns them to ashes."
+        },
+        {
+          "id": "voice-95425",
+          "title": "Chat: About Mythag",
+          "content": "I only come when there's work. Need me? Say the words. Come on, repeat after me: ...@4...@2Ia! Kathigu-Ra!"
+        },
+        {
+          "id": "voice-95429",
+          "title": "Chat: What I Like",
+          "content": "Burn and Destruction are my everything, I'm obsessed with the death that comes from hunting... Do you really think I'd say something like that? Haha. I only ever cared about my family... Even more than myself."
+        },
+        {
+          "id": "voice-95412",
+          "title": "Chat: What I Hate",
+          "content": "Those sick bastards playing with human lives in the dark? Yeah. I'll kill 'em all. Every last one."
+        },
+        {
+          "id": "voice-95417",
+          "title": "Chat: About the Keeper",
+          "content": "You're my family. And I'm damn proud of you. So stand tall, my %player%! No matter what, I've got your back."
+        },
+        {
+          "id": "voice-95414",
+          "title": "Chat: About N",
+          "content": "I'll find Him. Doesn't matter where in this rotten universe He's hiding. That filthy rat's gonna pay. Every last bit of His \"rapture and delight\" will burn in hellfire. Rest assured, I'll save you a premium seat at His funeral... so we can savor His final screams together."
+        },
+        {
+          "id": "voice-95433",
+          "title": "Chat: About Thais",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Thais\"",
+          "content": "The legendary Queen of Aram, the Great Aeon of Desire, Tifere Yesod... I saw her once, when I was hunting N down. Don't agree with her methods, but... if it was the only way to protect my family from \"Its\" gaze... I'd have done the same. We are not so different, her and me."
+        },
+        {
+          "id": "voice-95394",
+          "title": "Chat: About Guns",
+          "content": "You know, these guns don't fire bullets. They shoot desire and malice. Seven shots, and everything burns. These chaotic flames, resembling flesh, will drag everything into the inferno."
+        },
+        {
+          "id": "voice-95426",
+          "title": "Chat: About Family",
+          "content": "Back in that shithole town, we survived by being meaner than the rest. Even after clawing our way up, we had to watch our backs—lords, guards, those damn \"noble knights\" clinging to the past. Now's different. They are my family. My Kynde. No more bowing. Just one little stray left out there... but that one? That one's gonna be just fine. Always took care of the rest for me while I'm away."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-95427",
+          "title": "Investigation Begins",
+          "content": "That's your enemy? Then the hunt is on."
+        },
+        {
+          "id": "voice-95393",
+          "title": "Investigation Success",
+          "content": "Hunt's over. Payment? Give me a smile. That'll do."
+        },
+        {
+          "id": "voice-95408",
+          "title": "Investigation Halted",
+          "content": "Fall back, I'll cover you... Don't you fret, I always make it back alive."
+        },
+        {
+          "id": "voice-95413",
+          "title": "Strike: I",
+          "content": "Bang!"
+        },
+        {
+          "id": "voice-95397",
+          "title": "Strike: II",
+          "content": "Disappear."
+        },
+        {
+          "id": "voice-95421",
+          "title": "Defense: I",
+          "content": "Stay calm."
+        },
+        {
+          "id": "voice-95422",
+          "title": "Defense: II",
+          "content": "Back off."
+        },
+        {
+          "id": "voice-95401",
+          "title": "Hit: I",
+          "content": "Ugh!"
+        },
+        {
+          "id": "voice-95406",
+          "title": "Hit: II",
+          "content": "Damn it."
+        },
+        {
+          "id": "voice-95416",
+          "title": "Skill: I",
+          "content": "Welcome your end."
+        },
+        {
+          "id": "voice-95407",
+          "title": "Skill: II",
+          "content": "The Amber-Tinted Death is here."
+        },
+        {
+          "id": "voice-98324",
+          "title": "Special Skill: I",
+          "content": "In the forge of infinite wrath and desires... Burn!"
+        },
+        {
+          "id": "voice-95410",
+          "title": "Rouse",
+          "content": "Blazing fire, rise from ash and oblivion!"
+        },
+        {
+          "id": "voice-95420",
+          "title": "Exalt",
+          "content": "Burn. Shatter. Howl!"
+        },
+        {
+          "id": "voice-95432",
+          "title": "Over-Exalt",
+          "content": "I am the Living Flame—unforgettable, unstoppable! Witness now, THE ANNIHILATION OF ALL!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-100059",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "The hunt is on. We'll burn to our heart's content."
+        },
+        {
+          "id": "traphase-99893",
+          "title": "Chat: About Thais",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "How many of your offspring will be reduced to ashes this time? Don't worry, I'll try to hold back and leave you a few lonely sprouts.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0027",
+              "lineId": "traphase-99893"
+            },
+            {
+              "awakenerId": "awakener-0048",
+              "lineId": "traphase-100133"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99856",
+          "title": "Chat: About Ramona",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "So you're the little one's partner? Come on, let me see if you've got what it takes.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0027",
+              "lineId": "traphase-99856"
+            },
+            {
+              "awakenerId": "awakener-0042",
+              "lineId": "traphase-100088"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99960",
+          "title": "Chat: About Nephren-Ka",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Found you, you filthy insect. Time for you to die!"
+        },
+        {
+          "id": "traphase-100106",
+          "title": "Chat: About Tulu",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I originally thought we wouldn't get along, but our \"Water\" and \"Fire\" actually turned out to be surprisingly compatible.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0027",
+              "lineId": "traphase-100106"
+            },
+            {
+              "awakenerId": "awakener-0050",
+              "lineId": "traphase-99996"
+            }
+          ]
+        },
+        {
+          "id": "traphase-124000",
+          "title": "Chat: About Mouchette",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Are you a hunter, or merely prey from another world? Let's see.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0027",
+              "lineId": "traphase-124000"
+            },
+            {
+              "awakenerId": "awakener-0033",
+              "lineId": "traphase-123997"
+            }
+          ]
+        },
+        {
+          "id": "traphase-143466",
+          "title": "Chat: About Pontos",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Yo, heard we've got the same target.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0027",
+              "lineId": "traphase-143466"
+            },
+            {
+              "awakenerId": "awakener-0058",
+              "lineId": "traphase-143456"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99931",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "A successful operation requires a meticulous plan."
+        },
+        {
+          "id": "traphase-99912",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Discard that caution; it is dead weight. The moment for action is a spark, not a slow burn."
+        },
+        {
+          "id": "traphase-99768",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Heed the world's wailing as it melts under my flames!"
+        },
+        {
+          "id": "traphase-99985",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "The plan has deviated. Let's come up with a remedy."
+        },
+        {
+          "id": "traphase-100068",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "My flames... extinguished...?"
+        }
+      ]
+    }
   }
 }

@@ -55,6 +55,7 @@
   "profile": {
     "title": "Thais",
     "birthday": "19-Apr",
+    "voiceActor": "Yamamoto Ai",
     "gender": "Female",
     "height": "5'9''",
     "weight": "149lbs",
@@ -90,6 +91,460 @@
         "unlockCondition": "Affinity Level 9",
         "content": "It truly exists.\n\nIt is the gaze cast by God, the branch God extends towards the universe.\n\nIt delights in the grandeur of history and hungers for the flourishing of civilization.\n\nIt seeks to transcend withering, to surpass death itself.\n\nShe longs for low, resonant chants, for dust and salt-laden winds, for silver leaves and the moonlight over Morsul.\n\nFiend, witch, sorceress... the judgments of mortals are mere trifles.\n\nIf even a single drop of blood escapes the black encroachment, They shall once more draw eternity into Their arms."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-5839",
+          "title": "Awaken",
+          "content": "My veins surge with the will to survive, screaming and driving me to spill my blood on every inch of this planet... Ah, I've rambled on for too long; do forgive me. I am Thais. Have you summoned me? Are you ready to merge with me?"
+        },
+        {
+          "id": "voice-6657",
+          "title": "Upgrade: I",
+          "content": "Thank you for your efforts. Allow me to reward you in kind."
+        },
+        {
+          "id": "voice-6654",
+          "title": "Upgrade: II",
+          "content": "My body is getting warmer."
+        },
+        {
+          "id": "voice-6597",
+          "title": "Upgrade: III",
+          "content": "Your generosity is greatly cherished..."
+        },
+        {
+          "id": "voice-5680",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "Would you like to touch it? My heart beats because of your presence."
+        },
+        {
+          "id": "voice-6054",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "I'm so happy... You're so biased and favor me so much."
+        },
+        {
+          "id": "voice-6055",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "Others may get upset if they think you're showing favoritism."
+        },
+        {
+          "id": "voice-6056",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "Do you long for me as well?"
+        },
+        {
+          "id": "voice-6264",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "Is this the manifestation of your desire, to deepen my affection?"
+        },
+        {
+          "id": "voice-6058",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "For all that you have given me, your love has already become one with mine..."
+        },
+        {
+          "id": "voice-5701",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "Why not lose yourself in my love? Didn't you awaken me for the warmth of my embrace?"
+        },
+        {
+          "id": "voice-5703",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "Why do you always avoid me? Are you shy? How cute, this reluctance to face your desires."
+        },
+        {
+          "id": "voice-5702",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "Hmm? You're wary of me, a woman of unknown origins? Very well... I was the deposed queen of Nineveh, the Shinarite who clawed at heaven's gate, and the girl who had her consciousness stolen beneath Euphrates' sacred bough... Where shall I begin, my wary one?"
+        },
+        {
+          "id": "voice-5700",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "Since I am Awakened as your apostle, I seek nothing but your peace and joy, that is my wish... Ugh... Ahh... Yes, yes, I wish for survival, perseverance, reproduction, we must live on, LIVE ON..."
+        },
+        {
+          "id": "voice-5699",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "I have always awaited the arrival of destruction, never considering \"resistance\"... Will you help my shallow soul cross the abyss? Even in a world where I narrowly survived, you still grant me salvation..."
+        },
+        {
+          "id": "voice-6495",
+          "title": "Chat: Touch",
+          "content": "Oh dear, are you being affectionate with me? This is troublesome. If this continues, I won't be able to wait until you fully mature, my dear {Male=Mr.,Female=Miss} Keeper..."
+        },
+        {
+          "id": "voice-5287",
+          "title": "Chat: About Past",
+          "content": "To survive annihilation, I've shared my spirit and blood with too many. My power now is a ghost of what it was when I first embraced this Supreme Will..."
+        },
+        {
+          "id": "voice-5802",
+          "title": "Chat: About Salvador",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Salvador\"",
+          "content": "I'm not good at dealing with clerics. They're dull and rigid, and they've given their belts to their beloved \"God\". Such a pity, Mr. Salvador smells so sweet..."
+        },
+        {
+          "id": "voice-6639",
+          "title": "Chat: About Lotan",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Lotan\"",
+          "content": "I can sense that girl's hostility; my love for you has lit the fire of her jealousy... Look, even that humpback whale gapes with envy."
+        },
+        {
+          "id": "voice-6224",
+          "title": "Chat: About Dissolution",
+          "content": "What filth, what abomination! Ah—stop it! Please! Don't make me see it, don't speak of it near me..."
+        },
+        {
+          "id": "voice-5474",
+          "title": "Chat: About Mythag",
+          "content": "Oh dear, most here are still children. That white-haired gentleman, the stern one-armed youth—none of them are ideal for children... Sigh, this is quite a dilemma."
+        },
+        {
+          "id": "voice-5413",
+          "title": "Chat: What I Like",
+          "content": "Have you seen those ancient stone carvings? Merged with mountains, enduring through time, such wonderful relics... but they still don't last long enough..."
+        },
+        {
+          "id": "voice-6323",
+          "title": "Chat: What I Hate",
+          "content": "Human faces twisted by desire never cease to amuse. So fragile, so small... This alone makes me feel as if a cat were scratching at my heart.."
+        },
+        {
+          "id": "voice-5424",
+          "title": "Chat: About the Keeper",
+          "content": "You truly are a dishonest child. Lucky for you, I have eternity to wait..."
+        },
+        {
+          "id": "voice-50903",
+          "title": "Chat: About Alva",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Alva\"",
+          "content": "She's an overcautious child. Not that I blame her—without her, my free-spirited people would've perished long ago, no?"
+        },
+        {
+          "id": "voice-50910",
+          "title": "Chat: About Tawil",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Ramona\"",
+          "content": "Oh dear, I've lost to her this time... But since she chose you, you'll drink the Holy Tree's sap and carry my blood and seeds to a new world, yes?"
+        },
+        {
+          "id": "voice-50901",
+          "title": "Chat: About Ryker",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Ryker\"",
+          "content": "That wolf-boy... Did you know? He and that N have something... indescribable, going on between them."
+        },
+        {
+          "id": "voice-50906",
+          "title": "Chat: About Jenkin",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Jenkin\"",
+          "content": "Oh dear, a little mouse scurried past... They love nibbling forbidden things, don't they? But this one's still much too young."
+        },
+        {
+          "id": "voice-50912",
+          "title": "Chat: About Erica",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Erica\"",
+          "content": "All conscious beings have desires. Even machines, yes?"
+        },
+        {
+          "id": "voice-50908",
+          "title": "Chat: About Agrippa",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Agrippa\"",
+          "content": "Spiders... Mmm~ I adore them. They are born walking and fertile beyond envy..."
+        },
+        {
+          "id": "voice-50898",
+          "title": "Chat: About the Keeper - 2",
+          "content": "I'll teach you pleasure, the thrill of riding that high... In return, you will bare your desires to me."
+        },
+        {
+          "id": "voice-50902",
+          "title": "Chat: About the Keeper - 3",
+          "unlockCondition": "Unlocks after completing Main Story Chapter 7",
+          "content": "Come closer. Embrace me. Taste me... Never forget me."
+        },
+        {
+          "id": "voice-50907",
+          "title": "Chat: About Aram",
+          "unlockCondition": "Unlocks after completing Main Story Chapter 7",
+          "content": "They carried my blood, my lineage, becoming the flourishing waters of Remouahe... Now, my dear, you must see my legacy endure."
+        },
+        {
+          "id": "voice-50899",
+          "title": "Chat: About The Mother Tree",
+          "unlockCondition": "Unlocks after completing Main Story Chapter 7",
+          "content": "I am the Mother Tree. The Mother Tree is me. Her sap flows in my veins, her will whispers in my mind..."
+        },
+        {
+          "id": "voice-50911",
+          "title": "Chat: About \"N\"",
+          "content": "That one, of the three Aeons, is a monster wrapped in riddles. Please don't let his honeyed words sway you, or I'll be heartbroken..."
+        },
+        {
+          "id": "voice-50905",
+          "title": "Chat: About Desire",
+          "content": "All desires sprout from love; love is the seed before the towering tree of fertility."
+        },
+        {
+          "id": "voice-50900",
+          "title": "Chat: About Keygrave",
+          "unlockCondition": "Unlocks after completing Main Story Chapter 7",
+          "content": "I glimpsed your tombstone in Keygrave's shadows... Will my mummified flesh rest here too, one day? No? What a pity."
+        },
+        {
+          "id": "voice-50909",
+          "title": "Chat: About Offsprings",
+          "unlockCondition": "Unlocks after completing Main Story Chapter 7",
+          "content": "Those with the flowing tree's blood are my children—you, who've swallowed its seeds are of course included."
+        },
+        {
+          "id": "voice-50904",
+          "title": "Chat: About the Desert",
+          "content": "Born from the yellow sands, and to the yellow sands you shall return. On this brief journey, shouldn't you leave some souvenirs along the way? Sow some seeds?"
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-6198",
+          "title": "Investigation Begins",
+          "content": "After the victory, please allow me to take the materials needed for reproduction."
+        },
+        {
+          "id": "voice-5530",
+          "title": "Investigation Success",
+          "content": "Is it over already? ... My excitement was just beginning to stir."
+        },
+        {
+          "id": "voice-6269",
+          "title": "Investigation Halted",
+          "content": "Ah, unpardonable..."
+        },
+        {
+          "id": "voice-5292",
+          "title": "Strike: I",
+          "content": "Come on!"
+        },
+        {
+          "id": "voice-5289",
+          "title": "Strike: II",
+          "content": "Don't run."
+        },
+        {
+          "id": "voice-5695",
+          "title": "Defense: I",
+          "content": "That's enough."
+        },
+        {
+          "id": "voice-5696",
+          "title": "Defense: II",
+          "content": "Be gentle."
+        },
+        {
+          "id": "voice-5933",
+          "title": "Hit: I",
+          "content": "Please don't..."
+        },
+        {
+          "id": "voice-5587",
+          "title": "Hit: II",
+          "content": "No..."
+        },
+        {
+          "id": "voice-5931",
+          "title": "Hit: III",
+          "content": "(Groan)"
+        },
+        {
+          "id": "voice-5936",
+          "title": "Hit: IV",
+          "content": "(Groan)"
+        },
+        {
+          "id": "voice-5054",
+          "title": "Skill: I",
+          "content": "Accept my affection."
+        },
+        {
+          "id": "voice-5475",
+          "title": "Skill: II",
+          "content": "Aw, am I causing you pain?"
+        },
+        {
+          "id": "voice-5005",
+          "title": "Special Skill: I",
+          "content": "Look this way!"
+        },
+        {
+          "id": "voice-141963",
+          "title": "Special Skill: II",
+          "content": "Good child."
+        },
+        {
+          "id": "voice-141964",
+          "title": "Special Skill: III",
+          "content": "Hey!"
+        },
+        {
+          "id": "voice-5851",
+          "title": "Rouse",
+          "content": "Grow stronger~"
+        },
+        {
+          "id": "voice-5431",
+          "title": "Exalt",
+          "content": "Grow and thrive, my little sapling."
+        },
+        {
+          "id": "voice-57826",
+          "title": "Over-Exalt",
+          "content": "Join my ritual and become my seed!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-99887",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Another invitation from you, hmm?"
+        },
+        {
+          "id": "traphase-100120",
+          "title": "Chat: About Ramona",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Hehe, a child this obstinate has a certain kind of charm.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0042",
+              "lineId": "traphase-99906"
+            },
+            {
+              "awakenerId": "awakener-0048",
+              "lineId": "traphase-100120"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100025",
+          "title": "Chat: About Tawil",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Seeing that emotionless face of yours is just as boring every single time.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0047",
+              "lineId": "traphase-100213"
+            },
+            {
+              "awakenerId": "awakener-0048",
+              "lineId": "traphase-100025"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100017",
+          "title": "Chat: About Salvador",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "A god asking believers to abandon all desires? What a dull belief.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0048",
+              "lineId": "traphase-100017"
+            },
+            {
+              "awakenerId": "awakener-0044",
+              "lineId": "traphase-100152"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99901",
+          "title": "Chat: About Aurita",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I suppose what you do can also be considered a form of proliferation; it's really cute...",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0048",
+              "lineId": "traphase-99901"
+            },
+            {
+              "awakenerId": "awakener-0005",
+              "lineId": "traphase-99875"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100133",
+          "title": "Chat: About Kathigu-Ra",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Hehe, it depends on how many of your \"family\" you're planning to let me extinguish.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0027",
+              "lineId": "traphase-99893"
+            },
+            {
+              "awakenerId": "awakener-0048",
+              "lineId": "traphase-100133"
+            }
+          ]
+        },
+        {
+          "id": "traphase-140519",
+          "title": "Chat: About Saya",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Oh my, a power of the same origin as mine—aren't you adorable, little one.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0048",
+              "lineId": "traphase-140519"
+            },
+            {
+              "awakenerId": "awakener-0057",
+              "lineId": "traphase-140525"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99979",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Such a tough choice. I really wish I could have it all..."
+        },
+        {
+          "id": "traphase-99806",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Come closer to me, I can't wait any longer~"
+        },
+        {
+          "id": "traphase-100069",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Taste the sweet nectar of the Mother Tree!"
+        },
+        {
+          "id": "traphase-99967",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Oops, looks like I went a bit too far..."
+        },
+        {
+          "id": "traphase-99777",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Haven't... planted my seeds..."
+        }
+      ]
+    }
   }
 }

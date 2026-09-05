@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0325",
+  "name": "Cursed Feather",
+  "route": {
+    "slug": "cursed-feather",
+    "canonicalPath": "/database/relics/cursed-feather"
+  },
+  "assets": {
+    "icon": "asset-relic-0325-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0579",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "Arithmetica Limit increased by 1, draw 1 extra card per turn, and at the start of the battle, gain [Arg1] {plural:[Arg1]|stack|stacks} of \"Fateful Cage\" count.\nEach stack of \"Fateful Cage\" reduces all Awakeners' Aliemus by [Arg2]%, and with each Exalt release, decrease 1 stack of \"Fateful Cage.\" After all \"Fateful Cages\" are removed, all Awakeners gain [Arg3] Aliemus, gaining \"Unyielding Heart\": all Awakeners' Aliemus +[Arg4]%, and Exalt can be released twice per turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "5"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "5",
+      "suffix": "%"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "50"
+    },
+    "Arg4": {
+      "kind": "fixed",
+      "value": "100",
+      "suffix": "%"
+    }
+  },
+  "lore": "Now, this feather can no longer soar in the sky.",
+  "variants": [
+    {
+      "id": "relic-variant-0579",
+      "name": "Cursed Feather",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "Arithmetica Limit increased by 1, draw 1 extra card per turn, and at the start of the battle, gain [Arg1] {plural:[Arg1]|stack|stacks} of \"Fateful Cage\" count.\nEach stack of \"Fateful Cage\" reduces all Awakeners' Aliemus by [Arg2]%, and with each Exalt release, decrease 1 stack of \"Fateful Cage.\" After all \"Fateful Cages\" are removed, all Awakeners gain [Arg3] Aliemus, gaining \"Unyielding Heart\": all Awakeners' Aliemus +[Arg4]%, and Exalt can be released twice per turn.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "5"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "5",
+          "suffix": "%"
+        },
+        "Arg3": {
+          "kind": "fixed",
+          "value": "50"
+        },
+        "Arg4": {
+          "kind": "fixed",
+          "value": "100",
+          "suffix": "%"
+        }
+      },
+      "lore": "Now, this feather can no longer soar in the sky."
+    }
+  ]
+}

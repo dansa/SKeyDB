@@ -16,11 +16,15 @@
   "defaultVariantId": "relic-variant-0380",
   "rarity": "SSR",
   "aliases": [],
-  "descriptionTemplate": "At the start of battle, Shuffle a {Forbidden Truth} into the deck. Draw +[Arg1] each turn. After playing a Command Card, randomly grant {Perception Warp} to 2 Command Cards in the opponent's hand.",
+  "descriptionTemplate": "At the start of battle, Shuffle a {Forbidden Truth} into the deck. Draw +[Arg1] each turn. After playing a Command Card, randomly grant {Perception Warp} to [Arg2] Command Cards each in your hand, draw pile, and discard pile.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
       "value": "2"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "1"
     }
   },
   "lore": "The record contains 70 Mason prime numbers.",
@@ -33,11 +37,15 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SSR",
-      "descriptionTemplate": "At the start of battle, Shuffle a {Forbidden Truth} into the deck. Draw +[Arg1] each turn. After playing a Command Card, randomly grant {Perception Warp} to 2 Command Cards in the opponent's hand.",
+      "descriptionTemplate": "At the start of battle, Shuffle a {Forbidden Truth} into the deck. Draw +[Arg1] each turn. After playing a Command Card, randomly grant {Perception Warp} to [Arg2] Command Cards each in your hand, draw pile, and discard pile.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
           "value": "2"
+        },
+        "Arg2": {
+          "kind": "fixed",
+          "value": "1"
         }
       },
       "lore": "The record contains 70 Mason prime numbers."

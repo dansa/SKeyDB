@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0047",
   "ownerAwakenerName": "Tawil",
   "lineupToken": "x5",
-  "descriptionTemplate": "Team Unique: After the start of the battle, gain Keyflare equal to [StateArg1]% of the wielder's Keyflare Regen. The first Posse issuance in each battle repeats this effect.",
+  "descriptionTemplate": "Team Unique: After the battle begins, gain Keyflare equal to [StateArg1]% of the wielder's Keyflare Regen. After the first time you release a Posse in each battle, this effect triggers again.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

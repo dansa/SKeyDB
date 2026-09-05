@@ -1,4 +1,4 @@
-import {StrictMode, useMemo, useState} from 'react'
+import {StrictMode, useMemo, useState, type ReactNode} from 'react'
 
 import {fireEvent, render, screen, waitFor, within} from '@testing-library/react'
 import {beforeEach, describe, expect, it, vi} from 'vitest'
@@ -304,21 +304,26 @@ vi.mock('./AwakenerDetailSidebar', () => ({
   ),
 }))
 
+vi.mock('./AwakenerDetailLore', () => ({AwakenerDetailLore: () => <div>Lore Tab</div>}))
+
 vi.mock('./AwakenerDetailOverview', () => ({
   AwakenerDetailOverview: ({stats}: {stats: {CON: string; CritRate: string} | null}) => (
     <div>
       <div>Overview CON {stats?.CON ?? 'none'}</div>
     </div>
   ),
-  AwakenerDetailLore: () => <div>Lore Tab</div>,
 }))
 
 vi.mock('./AwakenerDetailUpgrades', () => ({
-  AwakenerDetailUpgrades: () => <div>Upgrades Tab</div>,
+  AwakenerDetailUpgrades: ({leadingContent}: {leadingContent?: ReactNode}) => (
+    <div>{leadingContent}Upgrades Tab</div>
+  ),
 }))
 
 vi.mock('./AwakenerDetailCards', () => ({
-  AwakenerDetailCards: () => <div>Skills Tab</div>,
+  AwakenerDetailCards: ({leadingContent}: {leadingContent?: ReactNode}) => (
+    <div>{leadingContent}Skills Tab</div>
+  ),
 }))
 
 vi.mock('./AwakenerBuildsTab', () => ({

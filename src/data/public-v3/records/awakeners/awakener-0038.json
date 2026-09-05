@@ -55,6 +55,7 @@
   "profile": {
     "title": "Ogier",
     "birthday": "5-May",
+    "voiceActor": "Otowa Rina",
     "gender": "Male",
     "height": "5 feet (self-proclaimed)",
     "weight": "66lbs",
@@ -90,6 +91,339 @@
         "unlockCondition": "Affinity Level 9",
         "content": "— How can this not be his fault? What he has done is far from enough.\n\nWith such extreme self-blame, Ogier executes his tasks at twice the frequency of other Awakeners, burying \"Death\" under universally praised \"Virtue\".\n\nThe excessive work and the words of gratitude from young Investigators seem to wash away the pain etched into the Soul.\n\nChronic ailments are pushed into the Shadows of the heart, emitting a rotting smell, secretly leading the knight towards the deep black mire.\n\n\"Sorry? Hello?\"\n\nSomeone came to Ogier with a ray of sunshine, or a gust of wind.\n\n\"Senior said Ogier will join me and Ramona to carry out my initial Investigation task, right?\"\n\nHe couldn't protect the princess for a second time, but Heaven gave him another chance to protect the \"Keeper\".\n\n\"My name is Ogier, and it is an honor to form a Contract with you. I will guard your Life with my Soul. Today's vow will be remembered forever.\""
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-5891",
+          "title": "Awaken",
+          "content": "My name is Ogier. As our contract stands, I pledge my knightly loyalty to you, to keep you safe, and to vanquish your foes. This solemn oath I take, and I'll never forget it."
+        },
+        {
+          "id": "voice-5772",
+          "title": "Upgrade: I",
+          "content": "Thank you for this honor, my lord. It means a great deal."
+        },
+        {
+          "id": "voice-5771",
+          "title": "Upgrade: II",
+          "content": "I'm drawing closer to becoming a true knight!"
+        },
+        {
+          "id": "voice-5770",
+          "title": "Upgrade: III",
+          "content": "Bit by bit, I'm finding my rhythm with your commands!"
+        },
+        {
+          "id": "voice-5325",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "I'll do my very best to live up to your hopes, my lord!"
+        },
+        {
+          "id": "voice-6741",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "I... I've just grown a bit stronger. I'm truly grateful!"
+        },
+        {
+          "id": "voice-6610",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "I shall use this strength to keep you safe."
+        },
+        {
+          "id": "voice-6737",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "The Formless Spawns shall be at your command."
+        },
+        {
+          "id": "voice-6740",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "My shield shall always shine for you, my lord."
+        },
+        {
+          "id": "voice-5356",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "Your trust is why I exist as a knight."
+        },
+        {
+          "id": "voice-5493",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "Good day, my lord. If you are going out to investigate, please let me come along as your guard."
+        },
+        {
+          "id": "voice-6541",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "Miss Ramona's swordsmanship is quite different from what I've learned. If my lord allows, I would dearly like to practice with her... Just for my own improvement, of course!"
+        },
+        {
+          "id": "voice-6542",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "You ask why I don't play with the other children? It's hard to say... In my past life, I rarely had a chance to play. My only companion was the princess I served... Oh! To speak of another ruler before you, my lord, please forgive my slip."
+        },
+        {
+          "id": "voice-6544",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "Are you interested in the Seven Knightly Arts I've learned? That's wonderful! Ah... um... please forgive my rudeness earlier, my lord. What I meant was, if you'd like to practice mounted archery, I would be honored to be your sparring partner!"
+        },
+        {
+          "id": "voice-6545",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "I am not a worthy knight. Whether it was the vile plague or the invading enemies, I failed to protect my former lord. Now, the trust you place in someone like me is a huge honor... I swear on my knightly honor and this small life that I will forever guard your path forward."
+        },
+        {
+          "id": "voice-5222",
+          "title": "Chat: Touch",
+          "content": "My lord? Is there something wrong with my stance?"
+        },
+        {
+          "id": "voice-5129",
+          "title": "Chat: About Knight",
+          "content": "The idea of a knight is formless, shaped by loyalty, bravery, and virtue. My weapon is the same, given form by the will to protect: a lance and shield."
+        },
+        {
+          "id": "voice-5688",
+          "title": "Chat: About Karen",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Karen\"",
+          "content": "I've said no to the maid's banquet invitations a few times. She seemed a bit sad... But compared to just having fun, your safety, my master, is far more important!"
+        },
+        {
+          "id": "voice-5101",
+          "title": "Chat: About Sorel",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Sorel\"",
+          "content": "The Madam in Red is unlike any lord I've ever served... No, it's not that I dislike her; I just... I just find it a bit hard to face her, sometimes..."
+        },
+        {
+          "id": "voice-6432",
+          "title": "Chat: About Dissolution",
+          "content": "That dark presence reminds me of my Formless sword-shield... Oh! Please rest assured, my lord, my guardian sword will never harm you!"
+        },
+        {
+          "id": "voice-5378",
+          "title": "Chat: About Mythag",
+          "content": "Chemistry, Physics, Silver Core Applications... In this time, is it no longer needed to learn the Seven Knightly Arts? I understand. In that case, please arrange the right lessons for me, my lord!"
+        },
+        {
+          "id": "voice-5256",
+          "title": "Chat: What I Like",
+          "content": "The fairy tale books from this age are much more fun than the ones I read long ago! Oh, oh! My lord, please don't misunderstand! I'm too old for bedtime stories now!"
+        },
+        {
+          "id": "voice-6305",
+          "title": "Chat: What I Hate",
+          "content": "I truly dislike my own failures... Oh! There's no need to comfort me! Those past hurts have become what drives me to grow. Haven't I already become your steadfast support?"
+        },
+        {
+          "id": "voice-5689",
+          "title": "Chat: About the Keeper",
+          "content": "A lord is the very reason a knight exists, so please, feel free to give me your commands!"
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-5928",
+          "title": "Investigation Begins",
+          "content": "Let me lead the way!"
+        },
+        {
+          "id": "voice-6202",
+          "title": "Investigation Success",
+          "content": "The glory of victory is yours, my lord."
+        },
+        {
+          "id": "voice-5553",
+          "title": "Investigation Halted",
+          "content": "I am so sorry, my lord, I failed to protect you..."
+        },
+        {
+          "id": "voice-5112",
+          "title": "Strike: I",
+          "content": "Ready—"
+        },
+        {
+          "id": "voice-5910",
+          "title": "Hit: I",
+          "content": "It's not over yet!"
+        },
+        {
+          "id": "voice-5056",
+          "title": "Hit: II",
+          "content": "(A pained groan)"
+        },
+        {
+          "id": "voice-5904",
+          "title": "Hit: III",
+          "content": "(A muffled, pained groan)"
+        },
+        {
+          "id": "voice-5060",
+          "title": "Hit: IV",
+          "content": "(A sharp yelp)"
+        },
+        {
+          "id": "voice-5327",
+          "title": "Skill: I",
+          "content": "Insolent!"
+        },
+        {
+          "id": "voice-4984",
+          "title": "Rouse",
+          "content": "Ah, uh!"
+        },
+        {
+          "id": "voice-5988",
+          "title": "Exalt",
+          "content": "This body shall be my lord's shield!"
+        },
+        {
+          "id": "voice-54618",
+          "title": "Over-Exalt",
+          "content": "Oh, Formless Spawns, become a shield for my lord!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-100221",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "As a knight, I humbly ask for your guidance!"
+        },
+        {
+          "id": "traphase-99928",
+          "title": "Chat: About Alva",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Understood, Instructor Alva!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0004",
+              "lineId": "traphase-99763"
+            },
+            {
+              "awakenerId": "awakener-0038",
+              "lineId": "traphase-99928"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99916",
+          "title": "Chat: About Pandia",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I... My lord instructed me to disregard your words. My apologies, but I'll stay quiet!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0039",
+              "lineId": "traphase-100040"
+            },
+            {
+              "awakenerId": "awakener-0038",
+              "lineId": "traphase-99916"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99910",
+          "title": "Chat: About Aigis",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "It's alright, Aigis. This is just routine training. Come at me!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0003",
+              "lineId": "traphase-99854"
+            },
+            {
+              "awakenerId": "awakener-0038",
+              "lineId": "traphase-99910"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99955",
+          "title": "Chat: About \"24\"",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Th-thank you, Miss 24!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0001",
+              "lineId": "traphase-100145"
+            },
+            {
+              "awakenerId": "awakener-0038",
+              "lineId": "traphase-99955"
+            }
+          ]
+        },
+        {
+          "id": "traphase-120244",
+          "title": "Chat: About Pickman",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "You want to dig bodies from the Keygrave as your model? I must stop you!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0038",
+              "lineId": "traphase-120244"
+            },
+            {
+              "awakenerId": "awakener-0040",
+              "lineId": "traphase-120270"
+            }
+          ]
+        },
+        {
+          "id": "traphase-150091",
+          "title": "Chat: About Caraboo",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "My apologies... but betraying my friends is the one thing I shall never do.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0038",
+              "lineId": "traphase-150091"
+            },
+            {
+              "awakenerId": "awakener-0060",
+              "lineId": "traphase-150095"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100105",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Uhhh... Think! Think quickly, Ogier, what would a mature knight do..."
+        },
+        {
+          "id": "traphase-99989",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "It's okay, please take your time. I'll wait for your move!"
+        },
+        {
+          "id": "traphase-99801",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Attention! I'll be going all out with this!"
+        },
+        {
+          "id": "traphase-99908",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "So that move didn't work..."
+        },
+        {
+          "id": "traphase-99810",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "What an admirable rival..."
+        }
+      ]
+    }
   }
 }

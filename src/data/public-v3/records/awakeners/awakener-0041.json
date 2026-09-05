@@ -55,6 +55,7 @@
   "profile": {
     "title": "Pollux",
     "birthday": "20-Jun",
+    "voiceActor": "Aizawa Mitsuaki",
     "gender": "Male",
     "height": "5'8''",
     "weight": "141lbs",
@@ -69,7 +70,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "Considering the potential relationship between Pollux's \"Sacred Heart\" and the Church of the Lightbearers' divine ritual, Mythag formed a research team to conduct a series of inspections and experiments on the heart.\n\n To Pollux's regret, the \"Sacred Heart\" had entirely replaced his original heart's function, becoming integrated into his body, making direct removal or replacement impossible.\n\nDuring observational experiments, researchers discovered that the \"Sacred Heart,\" which resembles an eye pupil, often exhibited subtle tremors and rotations independent of Pollux's will, much like a real eye.\n\nHowever, light source testing proved the \"Sacred Heart\" did not possess visual functions. Instead, this activity appeared to be sensitivity to other living beings or objects. In comparative trials with varied items, proximity to items related to dissolution and the silver core triggered the heart's activity more easily.\n\nIts activity was particularly pronounced in front of Dissolutes and Awakeners. After Pollux actively used the \"Sacred Heart's\" power, the physical and chemical properties of ordinary items remained unchanged. However, when directed at dissoluted items and creatures, a remarkable expansion of dissolution occurred. Living organisms visibly in the early stages of dissolution rapidly accelerated towards the late stages. The more severe the dissolution originally suffered by the organisms, the faster this spread occurred.\n\nIn experiments with strict protective measures on Awakeners, the subjects reported a sense of approaching dark danger when faced with the \"Sacred Heart's\" power, prompting the experiment to be quickly halted.\n\nAfter a stern explanation from the school, Pollux promised not to use his power against Awakeners. Due to Pollux's cooperation and excellent self-control, Mythag did not impose mandatory controlling items on him, but instead arranged regular health checks and power training.\n\nIt is said that after hearing the experimental results, Awakener Winkle almost fainted screaming and posted notices prohibiting Pollux from approaching on the doors of her laboratory and dormitory. The school repeatedly tried to persuade her to no avail, and Pollux graciously stated that he would respect Winkle's wishes."
       },
       {
@@ -90,6 +91,330 @@
         "unlockCondition": "Affinity Level 9",
         "content": "His entire life was lived under manipulated strings, and the script written long ago was a laughable lie that made him constantly lose, forget, and miss out. \n\n When he was young, what he desired most was to freely flap his wings and see the world beyond that lake. \n\n It wasn't until he lost everything for this wish that he could no longer regard such a light and carefree life as his ultimate dream. \n\n Endless rage ignited that pitch-black heart, and the pain and hatred he repressed like blood needed to be washed away with the deaths of those false believers."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-95060",
+          "title": "Awaken",
+          "content": "The Apostle of the Lightbearer, scion of the White Night, One who Dispels Darkness, Divus of the Divine Heart—I, Pollux, have answered your call. I offer unto you my power over Darkness, and my soul forged of Light."
+        },
+        {
+          "id": "voice-95082",
+          "title": "Upgrade: I",
+          "content": "Your bestowed gift I shall wield, with deepest gratitude."
+        },
+        {
+          "id": "voice-95059",
+          "title": "Upgrade: II",
+          "content": "Your generosity and compassion are without end; I shall meditate upon the warmth of your light."
+        },
+        {
+          "id": "voice-95090",
+          "title": "Upgrade: III",
+          "content": "This heart, which once heeded the divine will, now beats closer to yours."
+        },
+        {
+          "id": "voice-95081",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "In my time following Juliette, I committed grave errors and was undeserving of your trust. Yet you chose me anyway... Be assured, I shall seek my conviction once more. As the Divus, I will not disappoint my subjects again, nor will I disappoint you."
+        },
+        {
+          "id": "voice-95067",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "The Darkness... the Darkness spread by Juliette's incantation, it has lingered in my mind... And now, a single ray of light has pierced it! Could that faint glimmer be trying to tell me something?"
+        },
+        {
+          "id": "voice-95087",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "I see it! That light, shining deep within my consciousness—it brightens! It calls to me..."
+        },
+        {
+          "id": "voice-95071",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "Chained in shackles, bathed in dark sludge, I shall chase that ray of light, no matter what... Is this what you wanted to teach me?"
+        },
+        {
+          "id": "voice-95065",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "The sins of the past are committed; I shall flee them no longer. I must also correct the Lantern's mistakes and guide the strayed back to the true path. Let me bear my sins. Then, I shall answer the light of your call and tread the right path as the Divus."
+        },
+        {
+          "id": "voice-95092",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "Please illuminate me, my guiding light! By your light, I have now seen all that must be seen... I shall use this cursed form to purify all that has passed, and let all that is to come bask in your radiance!"
+        },
+        {
+          "id": "voice-95066",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "Yours is a compassionate soul, to forgive one so burdened by sin. I feel the pure, radiant light within your spirit—it outshines the brightest flame. Perhaps you can guide my heart, which has lost its way..."
+        },
+        {
+          "id": "voice-95088",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "In our childhood, Castor and I served together as the Twin Divi. I always thought him too dull, too clumsy, that I alone must guide our future. Now, having witnessed the path you walk, I see the world's foundation is built and paved by those like you and him: the steadfast and the upright."
+        },
+        {
+          "id": "voice-95072",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "I have lost my light, and this blind suffering torments me. I beg you, save my lost soul. Please, take my hand as I guide yours over this Holy Heart in my chest. Please, guide toward the light..."
+        },
+        {
+          "id": "voice-95076",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "Ah... now I see! I see such mighty power, I see the world's truth... I have erred in the past. You are the real Lightbearer! Please allow me to become your loyal Apostle. This heart, born for the Lightbearer, shall henceforth beat and tremble in your service only..."
+        },
+        {
+          "id": "voice-95070",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "You have lead me and granted me Light. For so long I was blinded by false purpose. Now, I have found my true calling: to correct the ignorant and distorted heretics and bring everlasting Light to this world. I know of your selflessness; You have no need for my devotion or offerings. Then I beg this: allow me to walk at your side, to record every sacred word and deed, that they may guide my path through the darkness."
+        },
+        {
+          "id": "voice-95091",
+          "title": "Chat: Touch",
+          "content": "D-Do you have an order for me, my Light? Your Apostle stands ever-ready to hear your teaching."
+        },
+        {
+          "id": "voice-95063",
+          "title": "Chat: About Dissolution",
+          "content": "I was told this abyssal darkness was worthy of faith. That it was a blessing I would deliver unto the faithful. Now, this darkness has long since corroded me, merging with my very being... Yet the heart that beats within this sinful vessel remains a sanctum that can never be tainted. Rest assured, I shall use the power it has bestowed upon me to bring true benediction to this world!"
+        },
+        {
+          "id": "voice-95069",
+          "title": "Chat: About Mythag",
+          "content": "The one who can lead all from the mist is the true Lightbearer, forged of purest silver. The sinless paradise preached by Juliette is, in truth, built upon the bones of the faithful. As the Divus, I shall sow the new gospel among all who are worthy of salvation."
+        },
+        {
+          "id": "voice-95080",
+          "title": "Chat: What I Like",
+          "content": "In my youth, I was determined to break free from that place. It brought me only pain, and I deemed it unworthy of longing. But now, granted a second life, I see that freedom is not my sole desire. The true meaning of being Divus is to witness the devoted, hopeful, and grateful countenances of the followers when they learn redemption is at hand."
+        },
+        {
+          "id": "voice-95056",
+          "title": "Chat: What I Hate",
+          "content": "I once hated many things—the impolite servants, the disrespectful attendants, the heretics who defiled the Light... But now? I hate the Lantern. Only the Lantern! Juliette and her Church brought upon my brother and I irreparable pain. I swear upon my title as the former Divus, I shall never permit such pain to befall another!"
+        },
+        {
+          "id": "voice-95089",
+          "title": "Chat: About the Keeper",
+          "content": "My Light, ever since I received your guidance, I believe I have embarked upon the one true path. Yet your rather dim-witted believer remains perplexed by one question: does the legendary sinless paradise also fall under your dominion? \"It doesn't exist,\" you say...? Could it be... you mean to say that paradise exists here, in the mortal world, within the pure hearts of the righteous?"
+        },
+        {
+          "id": "voice-95073",
+          "title": "Chat: About Aigis and Jenkin",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Aigis\" and \"Jenkin\"",
+          "content": "What an unfortunate child. Since she has devoted herself to your cause, she shall surely attain ultimate redemption. But why has her monkey-like companion also received your mercy? That evil child even stole my sacramentals! A torrent of sins must rage within her soul. Ahh, the disrespect! THE UTTER DISRESPECT!"
+        },
+        {
+          "id": "voice-95068",
+          "title": "Chat: About Murphy",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Murphy\"",
+          "content": "I heard she was once a Divine Maiden. But with such uncouth manners and brutish behavior... What? She cannot recite a single prayer? Such profound impiety... I feel a vicarious shame for her deity."
+        },
+        {
+          "id": "voice-95053",
+          "title": "Chat: About Miryam",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Miryam\"",
+          "content": "Ah, that overzealous believer. The world might see her as a raving madwoman. Though she once committed evil, such fervent devotion—the will to offer everything to her god—is a resoluteness most ordinary souls could never muster. What do I think of her, you ask? ...I only feel... a certain commiseration. A kinship, with one cast adrift in the same turbulent sea."
+        },
+        {
+          "id": "voice-95077",
+          "title": "Chat: About Salvador",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Salvador\"",
+          "content": "That priest's blind pursuit of redemption is the height of folly. Divine grace should be bestowed solely upon the devout and the righteous. If even he, an apostle, lacks the discernment to separate the wheat from the chaff, rewarding unrepentant sinners and allowing them to defile his deity's kingdom... is that not the most profound betrayal of his faith and of the righteous souls he claims to serve?"
+        },
+        {
+          "id": "voice-95055",
+          "title": "Chat: About Castor",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Castor\"",
+          "content": "Ha... After all this time, he hasn't changed one bit. I never imagined as a child that I would be the one to hurt my brother—that I'd come to owe him so much it aches with shame, for a fate we did not choose. We have suffered enough separation. Now that I am back, I swear: nothing will ever separate us again. Not even death itself."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-95054",
+          "title": "Investigation Begins",
+          "content": "I shall bring Guidance and Judgment; may the White Night purge your sins!"
+        },
+        {
+          "id": "voice-95064",
+          "title": "Investigation Success",
+          "content": "I will herald your glorious name, and all that is unclean and impure shall be purified by its radiance."
+        },
+        {
+          "id": "voice-95050",
+          "title": "Investigation Halted",
+          "content": "You blasphemers... will be punished..."
+        },
+        {
+          "id": "voice-95086",
+          "title": "Strike: I",
+          "content": "In my name!"
+        },
+        {
+          "id": "voice-95052",
+          "title": "Defense: I",
+          "content": "Filth."
+        },
+        {
+          "id": "voice-95074",
+          "title": "Defense: II",
+          "content": "Begone."
+        },
+        {
+          "id": "voice-95084",
+          "title": "Hit: I",
+          "content": "Tsk."
+        },
+        {
+          "id": "voice-95083",
+          "title": "Hit: II",
+          "content": "Impudence!"
+        },
+        {
+          "id": "voice-95093",
+          "title": "Skill: I",
+          "content": "Chanting Light!"
+        },
+        {
+          "id": "voice-95062",
+          "title": "Skill: II",
+          "content": "Purge your sins!"
+        },
+        {
+          "id": "voice-116964",
+          "title": "Special Skill: I",
+          "content": "Punishment！"
+        },
+        {
+          "id": "voice-95057",
+          "title": "Rouse",
+          "content": "I shall walk the path of light until my final breath."
+        },
+        {
+          "id": "voice-95078",
+          "title": "Exalt",
+          "content": "My heart is alight!"
+        },
+        {
+          "id": "voice-95075",
+          "title": "Over-Exalt",
+          "content": "May the Lightbearer's radiance pierce this endless night!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-120280",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I will purify the corruption festering in your soul."
+        },
+        {
+          "id": "traphase-120287",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "This pure Sacred Heart will guide your path to purification."
+        },
+        {
+          "id": "traphase-120286",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "What are you hesitating about? Has your faith begun to tremble?"
+        },
+        {
+          "id": "traphase-120259",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I sense the unclean stench, disrespectful sinners!"
+        },
+        {
+          "id": "traphase-120279",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I grant you a chance to repent... Prove your absolute devotion to me."
+        },
+        {
+          "id": "traphase-120275",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I must face my evil... This is the punishment I am due..."
+        },
+        {
+          "id": "traphase-120248",
+          "title": "Chat: About Castor",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Stop being so wishy-washy, Castor. Come at me! Do you think I'd lose to you?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0008",
+              "lineId": "traphase-120268"
+            },
+            {
+              "awakenerId": "awakener-0041",
+              "lineId": "traphase-120248"
+            }
+          ]
+        },
+        {
+          "id": "traphase-120284",
+          "title": "Chat: About Caecus",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Unable to become stronger? Perhaps your soul is too unacceptably filthy.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0041",
+              "lineId": "traphase-120284"
+            },
+            {
+              "awakenerId": "awakener-0006",
+              "lineId": "traphase-120258"
+            }
+          ]
+        },
+        {
+          "id": "traphase-120283",
+          "title": "Chat: About Tulu",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Since you are a god, why do you turn a blind eye to the world's festering evil?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0041",
+              "lineId": "traphase-120283"
+            },
+            {
+              "awakenerId": "awakener-0050",
+              "lineId": "traphase-120256"
+            }
+          ]
+        },
+        {
+          "id": "traphase-135220",
+          "title": "Chat: About Arachne",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "A so-called divinity who meddles with the fates of others. Your sins do not escape my sight!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0056",
+              "lineId": "traphase-135224"
+            },
+            {
+              "awakenerId": "awakener-0041",
+              "lineId": "traphase-135220"
+            }
+          ]
+        }
+      ]
+    }
   }
 }

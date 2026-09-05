@@ -55,6 +55,7 @@
   "profile": {
     "title": "Wanda",
     "birthday": "2-Nov",
+    "voiceActor": "Honda Mariko",
     "gender": "Female",
     "height": "5'7''",
     "weight": "121lbs",
@@ -69,7 +70,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "Travel info: Curious History Exploration - Luxurious 7-Day Tour to Cambrian Castle\nDate: A.F.3@2 June 18th-25th\nGuide: Thomas @2@1\nBrief itinerary:\nCome on, uncover the mystery of the most infamous haunted castle from 300 years ago—Cambrian Castle!\n\nWe're tired of reading about the seductive lady and her twenty-five attendants in old books and silent films; it's all the same—so boring!\n\nAccording to a Mythag expert who wishes to remain anonymous, there's been a new discovery in the area! @2@1 covered in thorns...\n\nCall quickly @2@1@1. This trip will be unforgettable, chills guaranteed!\n\n—Excerpt from \"Worster Tour Group Disappearance CaseFile Summary: Evidence S-145\""
       },
       {
@@ -90,6 +91,322 @@
         "unlockCondition": "Affinity Level 9",
         "content": "\"Indulgence and lust lead to eternal fire as a warning...\"\n\nFor 23 days, the monk stood outside her gate, reciting monotonous scriptures.\n\nWanda had him tied up and brought in.\n\nThe monk said, 'Why worry about suffering? Where the Lord's spirit is, there is freedom.'\nShe stripped him.\n\nThe monk said, 'Why worry about clothes? The lilies of the field neither spin nor bow.'\nShe severed his limbs.\n\nThe monk said, 'Why worry about blood? All flesh dies.'\nWanda laughed, 'I will not only make you bleed, but also turn you into my slave, forever.'\n'Why?' the monk lifted his head, 'Shouldn't you show mercy to your companion as I showed mercy to you?'\nWanda studied the monk. His eyes were as blue as the clear sky.\n\nShe gouged out his eyes.\n\nUnable to bear the torture, the monk eventually died. The local parish feared her wealth and power, and no one dared to accuse her.\n\nBefore dying, the monk said, '@2 is near, you should...'\nYears passed, and Wanda had long forgotten the monk's face and name, only remembering his eyes. On the night she was about to be devoured by @2, she recalled the monk's unfinished words.\n\n'@2 is near, you should...'\nIn her blurred consciousness, she speculated on the monk's last words, but found nothing.\""
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-5441",
+          "title": "Awaken",
+          "content": "Ugh! The squalor and disarray everywhere... I can barely find a suitable place to rest my foot. Very well, offer me your soft back, mortal."
+        },
+        {
+          "id": "voice-5438",
+          "title": "Upgrade: I",
+          "content": "Quite good, indeed."
+        },
+        {
+          "id": "voice-5439",
+          "title": "Upgrade: II",
+          "content": "This level is hardly sufficient."
+        },
+        {
+          "id": "voice-5440",
+          "title": "Upgrade: III",
+          "content": "So, what reward do you want?"
+        },
+        {
+          "id": "voice-6422",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "Offering tributes obediently again? Such a good {Male=boy,Female=girl}."
+        },
+        {
+          "id": "voice-6334",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "Your dark circles are worsening... Why exert yourself so? You should be more like me and learn to indulge in your leisure."
+        },
+        {
+          "id": "voice-6338",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "Shh... The morning glow of the valley—this must be your first time seeing it, no? Consider it your reward for loyalty."
+        },
+        {
+          "id": "voice-6339",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "This tome, \"The @1@2 Revelation,\" is yours now. It helps to enlighten the mind, or perhaps, to swiftly invite slumber."
+        },
+        {
+          "id": "voice-6336",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "Good... I'm getting closer to my original form."
+        },
+        {
+          "id": "voice-6337",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "This is the power to counter \"Green Corruption\"... You've touched something forbidden. As for me, I will never relinquish you again."
+        },
+        {
+          "id": "voice-6476",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "Hmm... Although you're dull, you're not entirely unpleasant. Starting tomorrow, you shall serve me.\nYou don't want to...? Ha. This isn't a request; it is a command."
+        },
+        {
+          "id": "voice-6475",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "Keeper, is there anyone you don't like? As a favor, I can teach them a lesson. Within a week, they'll be a changed person, obediently prostrating themselves before you."
+        },
+        {
+          "id": "voice-6474",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "I adore my servants. These handsome little creatures, trembling from Dissolution and hiding behind me, are so endearing. The tears of a beauty are always captivating. How about you? Do you fear Dissolution?"
+        },
+        {
+          "id": "voice-6473",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "Do you know what makes you the most charming? It's when you say \"no\" to me. Your nose wrinkles, your eyebrows lift ever so slightly... Yes, precisely like that."
+        },
+        {
+          "id": "voice-6472",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "What a surprise, I've gained an equivalent companionship.\nHowever... I request to retain the right to command you, merely for our mutual amusement. Come to my chambers tonight; I still have much to learn about human sensibilities..."
+        },
+        {
+          "id": "voice-6124",
+          "title": "Chat: Touch",
+          "content": "Hmm... You're getting better at massaging. Nice application of pressure~"
+        },
+        {
+          "id": "voice-5560",
+          "title": "Chat: About Past",
+          "content": "I hail from a distant alien planet, a place of relentless snowstorms and extreme cold. But it matters not; in my manor, over a thousand servants offer comforting warmth simply by their presence."
+        },
+        {
+          "id": "voice-5991",
+          "title": "Chat: About Pandia",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Pandia\"",
+          "content": "Pandia... She calls THAT being a dominatrix? Haha... Allow me a moment of amusement. Humans are still too soft-hearted; everything they do seems like mere child's play."
+        },
+        {
+          "id": "voice-6681",
+          "title": "Chat: About Caecus",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Caecus\"",
+          "content": "Was that a half-blood Deep One we just passed? Hmm... Look how uptight he stands. Tonight, I shall see him arch that beautiful little back, groveling before me."
+        },
+        {
+          "id": "voice-6730",
+          "title": "Chat: About Dissolution",
+          "content": "Dissolution is a divine gift. The pain it brings is just enough to paralyze our nerves, allowing us to wholeheartedly indulge in food, wine, and revelry, as we glide towards extinction."
+        },
+        {
+          "id": "voice-6686",
+          "title": "Chat: About Mythag",
+          "content": "If you ask me, beautiful fools are the best. Unfortunately, there are far too many clever but useless minds around here."
+        },
+        {
+          "id": "voice-6326",
+          "title": "Chat: What I Like",
+          "content": "A qualified servant must be pliable and vacuous—I prefer obedient lambs."
+        },
+        {
+          "id": "voice-5457",
+          "title": "Chat: What I Hate",
+          "content": "I despise losing control. However, your presence has shown me that a touch of subtle chaos can bring a singular enjoyment."
+        },
+        {
+          "id": "voice-5755",
+          "title": "Chat: About the Keeper",
+          "content": "You are my beloved servant. I know you call it a friend, partner, comrade... Call it what you will."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-5495",
+          "title": "Investigation Begins",
+          "content": "Is it finally beginning? My little darlings have been famished for such a very, very long time..."
+        },
+        {
+          "id": "voice-5527",
+          "title": "Investigation Success",
+          "content": "The feeling of being crushed under my feet must be utterly divine~"
+        },
+        {
+          "id": "voice-6494",
+          "title": "Investigation Halted",
+          "content": "A bunch of incompetents. If you'd rather not end up as minced meat, you'd do well to pay closer attention next time."
+        },
+        {
+          "id": "voice-5783",
+          "title": "Strike: I",
+          "content": "Stand aside!"
+        },
+        {
+          "id": "voice-6433",
+          "title": "Defense: I",
+          "content": "Do come now."
+        },
+        {
+          "id": "voice-6487",
+          "title": "Defense: II",
+          "content": "Tedious."
+        },
+        {
+          "id": "voice-4916",
+          "title": "Hit: I",
+          "content": "How dare you!"
+        },
+        {
+          "id": "voice-4917",
+          "title": "Hit: II",
+          "content": "(Questioning with great interest)"
+        },
+        {
+          "id": "voice-4960",
+          "title": "Hit: III",
+          "content": "(Intrigued whisper)"
+        },
+        {
+          "id": "voice-4919",
+          "title": "Hit: IV",
+          "content": "What do you intend?"
+        },
+        {
+          "id": "voice-5604",
+          "title": "Skill: I",
+          "content": "A minor chastisement."
+        },
+        {
+          "id": "voice-5922",
+          "title": "Skill: II",
+          "content": "Kneel before me!"
+        },
+        {
+          "id": "voice-6572",
+          "title": "Rouse",
+          "content": "Move, you cur."
+        },
+        {
+          "id": "voice-5267",
+          "title": "Exalt",
+          "content": "Surrender... Welcome to a realm of exquisite pleasure and dreams."
+        },
+        {
+          "id": "voice-56391",
+          "title": "Over-Exalt",
+          "content": "This is the city where countless lost souls wander, forever unable to find their way home."
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-99961",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Keep your head low. Kneel before me."
+        },
+        {
+          "id": "traphase-99796",
+          "title": "Chat: About Pandia",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "What's up with that inferior whipping? Are you just tickling them?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0052",
+              "lineId": "traphase-99796"
+            },
+            {
+              "awakenerId": "awakener-0039",
+              "lineId": "traphase-100193"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100222",
+          "title": "Chat: About Sorel",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "So what? The rules among lambs mean nothing to me, and I have no obligation to abide by them.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0046",
+              "lineId": "traphase-99813"
+            },
+            {
+              "awakenerId": "awakener-0052",
+              "lineId": "traphase-100222"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100036",
+          "title": "Chat: About Agrippa",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "It's simple. You just need to stomp on them, whip them every day, and when necessary, turn them into meat paste. Everyone will submit to you.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0002",
+              "lineId": "traphase-99933"
+            },
+            {
+              "awakenerId": "awakener-0052",
+              "lineId": "traphase-100036"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100016",
+          "title": "Chat: About Casiah",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "A slave who isn't afraid of the unknown? Perfect. Very entertaining to train.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0052",
+              "lineId": "traphase-100016"
+            },
+            {
+              "awakenerId": "awakener-0007",
+              "lineId": "traphase-99881"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99746",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Your hands are rather presentable. It would be a real shame to cut them off."
+        },
+        {
+          "id": "traphase-100002",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "If you keep me waiting any longer, I'll sever all your limbs and grind them into meat paste."
+        },
+        {
+          "id": "traphase-100149",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Cry and beg for mercy!"
+        },
+        {
+          "id": "traphase-100141",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "One mistake deserves punishment, two mistakes is proof of foolishness. I hate foolish servants."
+        },
+        {
+          "id": "traphase-100206",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Those who offend me shall face the punishment of a thousand cuts..."
+        }
+      ]
+    }
   }
 }

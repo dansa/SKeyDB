@@ -55,6 +55,7 @@
   "profile": {
     "title": "Nymphaea",
     "birthday": "7-Dec",
+    "voiceActor": "Shoji Ayu",
     "gender": "Female",
     "height": "5'1''",
     "weight": "90lbs",
@@ -69,7 +70,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "This is a souvenir Professor Dexter brought back from the Febvre Coast.\n\nThe mild ocean climate of Febvre is very pleasant. The century-old Sevada Sanatorium is located by the seashore, attracting countless vacationers each year.\n\nIn this glass bottle, wrapped in seaweed, are some translucent powders. It is neither a message left by shipwreck survivors nor a local sand art piece. Professor Dexter has noticed that the bottle contains silver essence powder, meaning it houses a spirit.\n\nHe said he bought it from a local fisherman who hesitantly narrated recent strange encounters. A few days ago, early in the morning, the fisherman encountered an unusual fish swarm while fishing. It was neither the breeding season nor the wintering season, yet the swarm lingered. When the heavy nets were pulled up, they found a strange bottle. The fisherman, curious but uneasy, feared the bottle might bring bad luck or a curse. After this, no fish were caught in this area for several days."
       },
       {
@@ -90,6 +91,322 @@
         "unlockCondition": "Affinity Level 9",
         "content": "I love the sea. Febvre's sea. The Prussian blue sea. The sea with warm, moist breezes. The sea that looks like a painting from the sanatorium's window. The sea with returning sails. The sea nurturing countless lives like a mother.\n\nNow, I've finally returned to the tranquil sea, back to before birth, back to being enveloped in my mother's amniotic fluid. The currents gather the unfortunate Fragments, piecing me together among bones and coral. The deep-sea fish swim past, listening to the laments of fate's suffering.\n\nMother, if I could be born again, would I be happier?"
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-4970",
+          "title": "Awaken",
+          "content": "Greetings. I am Nymphaea of Febvre. You have granted me a new body, allowing me to finally breathe freely... How may I repay this grace?"
+        },
+        {
+          "id": "voice-5055",
+          "title": "Upgrade: I",
+          "content": "I feel much better now, thank you for your kindness."
+        },
+        {
+          "id": "voice-5058",
+          "title": "Upgrade: II",
+          "content": "Do you think I might become stronger, too?"
+        },
+        {
+          "id": "voice-5057",
+          "title": "Upgrade: III",
+          "content": "If it pleases you, I would like to present a pale purple water-lily as a token of my sincere gratitude."
+        },
+        {
+          "id": "voice-5461",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "I would be grateful for your effort."
+        },
+        {
+          "id": "voice-6368",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "My body feels warm, as if gently enveloped by the sea. It is truly incredible."
+        },
+        {
+          "id": "voice-6367",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "Can this feeling truly be called \"happiness\"? I... never dared to hope for it before."
+        },
+        {
+          "id": "voice-6366",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "To be saved by you, I often feel a happiness that terrifies me... Please tell me this is not a dream, and that you will not vanish into the sea without a trace, will you?"
+        },
+        {
+          "id": "voice-6365",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "The sea has its own language. Just like this... I can sometimes chat with the little fish in the pond about our hometown. If you are curious, I can help translate for you."
+        },
+        {
+          "id": "voice-6364",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "Next time, let us go see the sea together. Febvre is fine; I can be your guide. Or anywhere else, even to the ends of the earth—I want to go with you."
+        },
+        {
+          "id": "voice-6178",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "During my time at the sanatorium, I tried making friends, but people were reluctant to approach me... Is it because of this bone-eroding \"poison\"? Please, be careful when you come near me."
+        },
+        {
+          "id": "voice-6179",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "The sound of the bell carried by the night wind brings such peace. Would you like to sit on the stone chair and listen for a while? I will properly prepare your seat with a scarf."
+        },
+        {
+          "id": "voice-6180",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "Have you heard of \"sea burial\"? In my old town, there was a custom of submerging the deceased into the sea; the ocean became everyone's final resting place. As for me, I returned to its embrace early..."
+        },
+        {
+          "id": "voice-6176",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "Withering before blooming, like a water-lily... Seeking peace in the cold, raging tides, too timid to pursue my own happiness... That is the kind of person I am, Keeper."
+        },
+        {
+          "id": "voice-6177",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "I once grappled with this dilemma: Is pain longer than life itself? If so, is a peaceful slumber happier than tormented wakefulness? After waking, I too was ensnared, until you brought me this safe haven..."
+        },
+        {
+          "id": "voice-4915",
+          "title": "Chat: Touch",
+          "content": "Let's slow down a bit... Is there anything at all I can do for you?"
+        },
+        {
+          "id": "voice-5520",
+          "title": "Chat: About Reading",
+          "content": "<Italic:\"The ruffled water-lilies are sighing around her;\nAt times she rouses, in a slumbering alder,\nSome nest from which escapes a small rustle of wings;\nA mysterious anthem falls from the golden stars.\">\nAh, sorry—have I been reciting too loudly? It is one of my favorite poems... Would you like to read it with me?"
+        },
+        {
+          "id": "voice-5100",
+          "title": "Chat: About Murphy",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Murphy\"",
+          "content": "Though our temperaments differ, I truly admire that child. She possesses a courage that transcends all hardships and limitations. If I had been as brave and resilient as her, perhaps I would not have chosen to end my life in the sea..."
+        },
+        {
+          "id": "voice-5816",
+          "title": "Chat: About Celeste",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Celeste\"",
+          "content": "I deeply admire her—the maritime goddess, as pure and elegant as a lily... You say even she could not control her fate and ultimately sank into the sea? It is truly hard to imagine..."
+        },
+        {
+          "id": "voice-5643",
+          "title": "Chat: About Dissolution",
+          "content": "After coming to school, I finally understood the disease called Dissolution that infected me. My parents always kept me away from the ocean when I was alive, and now it seems this infection might indeed be connected to my proximity to the sea..."
+        },
+        {
+          "id": "voice-5613",
+          "title": "Chat: About Mythag",
+          "content": "Compared to others, Nymphaea is simply an ordinary person with no achievements or value. Why have I become an Awakener... it must be some small, humble wish."
+        },
+        {
+          "id": "voice-6071",
+          "title": "Chat: What I Like",
+          "content": "Do you like the sea? I love the sea no matter what. I still remember that day many years ago when the sea gently delivered long-awaited death to the unfortunate me."
+        },
+        {
+          "id": "voice-5902",
+          "title": "Chat: What I Hate",
+          "content": "Hate? I hate an inescapable fate and an inevitable tragedy."
+        },
+        {
+          "id": "voice-5559",
+          "title": "Chat: About the Keeper",
+          "content": "Thank you for your kindness in providing me shelter. I hope I won't bring a tragic fate upon you..."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-4963",
+          "title": "Investigation Begins",
+          "content": "I will properly complete the task you have assigned to me."
+        },
+        {
+          "id": "voice-5002",
+          "title": "Investigation Success",
+          "content": "Did it... truly work? Have I been of any genuine help?"
+        },
+        {
+          "id": "voice-5469",
+          "title": "Investigation Halted",
+          "content": "Do not lose heart. The sea embraces us all."
+        },
+        {
+          "id": "voice-4931",
+          "title": "Strike: I",
+          "content": "Sink."
+        },
+        {
+          "id": "voice-4932",
+          "title": "Strike: II",
+          "content": "Bloom."
+        },
+        {
+          "id": "voice-5208",
+          "title": "Defense: I",
+          "content": "Please be quiet."
+        },
+        {
+          "id": "voice-5730",
+          "title": "Hit: I",
+          "content": "It hurts..."
+        },
+        {
+          "id": "voice-5732",
+          "title": "Hit: II",
+          "content": "(Suppressed groan of pain)"
+        },
+        {
+          "id": "voice-5731",
+          "title": "Hit: III",
+          "content": "(Suppressed groan of pain)"
+        },
+        {
+          "id": "voice-5733",
+          "title": "Hit: IV",
+          "content": "Ouch..."
+        },
+        {
+          "id": "voice-6241",
+          "title": "Skill: I",
+          "content": "We shall decay... together."
+        },
+        {
+          "id": "voice-6411",
+          "title": "Skill: II",
+          "content": "Do you hear me? Do you truly hear my voice?"
+        },
+        {
+          "id": "voice-5123",
+          "title": "Rouse",
+          "content": "Now, it is my turn to repay you."
+        },
+        {
+          "id": "voice-5014",
+          "title": "Exalt",
+          "content": "May the deep sea grant you eternal rest."
+        },
+        {
+          "id": "voice-54616",
+          "title": "Over-Exalt",
+          "content": "<Italic:\"...Oui tu mourus, enfant, par un fleuve emportée!\">"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-100179",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "With this frail body, I await your command."
+        },
+        {
+          "id": "traphase-100064",
+          "title": "Chat: About \"24\"",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Compared to those patients, you are in remarkably good health, Miss Mason.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0001",
+              "lineId": "traphase-100217"
+            },
+            {
+              "awakenerId": "awakener-0037",
+              "lineId": "traphase-100064"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99755",
+          "title": "Chat: About Horla",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I've read your poems, Miss Horla, and I truly enjoy each one. Would you be open to an invitation to read poetry together sometime?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0037",
+              "lineId": "traphase-99755"
+            },
+            {
+              "awakenerId": "awakener-0024",
+              "lineId": "traphase-100203"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99938",
+          "title": "Chat: About Lily",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I diligently manage the sanatorium every day. When she returns, everything will be in its finest state... You can rest assured, Lily.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0037",
+              "lineId": "traphase-99938"
+            },
+            {
+              "awakenerId": "awakener-0029",
+              "lineId": "traphase-100212"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99817",
+          "title": "Chat: About Sanga",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "The thought that there are others who long for the deep sea as well brings me genuine joy.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0037",
+              "lineId": "traphase-99817"
+            },
+            {
+              "awakenerId": "awakener-0045",
+              "lineId": "traphase-99949"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99998",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "If this is your wish, I will give it my all."
+        },
+        {
+          "id": "traphase-100097",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "The Eternal Vigil, always so agonizing."
+        },
+        {
+          "id": "traphase-100089",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Come on, sink into the embrace of the sea!"
+        },
+        {
+          "id": "traphase-99947",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "In the end, was this misfortune truly unavoidable?"
+        },
+        {
+          "id": "traphase-99944",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "To slumber... again..."
+        }
+      ]
+    }
   }
 }

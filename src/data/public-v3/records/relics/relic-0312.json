@@ -10,8 +10,8 @@
   "assets": {
     "icon": "asset-relic-0312-icon"
   },
-  "relicType": "Relic",
-  "categories": ["OTHER"],
+  "relicType": "Event",
+  "categories": ["EVENT"],
   "variantCount": 1,
   "defaultVariantId": "relic-variant-0564",
   "rarity": "N",
@@ -23,10 +23,10 @@
     {
       "id": "relic-variant-0564",
       "name": "☆Lady's Purse☆",
-      "label": "Other - Silver",
-      "variantType": "OTHER",
+      "label": "Event - Silver",
+      "variantType": "EVENT",
       "tier": "Silver",
-      "category": "OTHER",
+      "category": "EVENT",
       "rarity": "N",
       "descriptionTemplate": "Each time you reset the deck, add 2 {derived:Barbed Trident} and 1 {Parasol} to your hand.",
       "descriptionArgs": {},

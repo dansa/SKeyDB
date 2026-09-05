@@ -55,6 +55,7 @@
   "profile": {
     "title": "Tulu",
     "birthday": "20-Aug",
+    "voiceActor": "Miyazono Miumi",
     "gender": "Male",
     "height": "8'3''",
     "weight": "70.5lbs",
@@ -91,6 +92,349 @@
         "unlockCondition": "Affinity Level 9",
         "content": "His transcendent wisdom exacts a heavy toll on his body; he must sleep for more than fifteen hours a day, and even in his waking hours, he is haunted by a persistent lethargy.\n\nWithin his dreams, he sometimes feels the fury of the gods; at other times, he glimpses the intersection of fractured timelines. Occasionally, he even wanders into the furthest depths, coming face-to-face with the Divine itself.\n\nHe has never sought their revelations or prophecies, yet no matter how he tries to evade them, the visions always come to pass.\n\nHe never asked for offerings. To be worshiped, to be feared—these were burdens thrust upon him by others, and they hold no interest for him.\n\nTo be reborn was nothing more than an unwelcome interruption of an eternal dream.\n\nNo need for invocation. No need for prayer."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-6195",
+          "title": "Awaken",
+          "content": "Who dares disturb This One's slumber?"
+        },
+        {
+          "id": "voice-6080",
+          "title": "Upgrade: I",
+          "content": "Fine. I shall consider it a subject's humble offering."
+        },
+        {
+          "id": "voice-6467",
+          "title": "Upgrade: II",
+          "content": "Do you seek This One's sigil branded upon your soul?"
+        },
+        {
+          "id": "voice-6468",
+          "title": "Upgrade: III",
+          "content": "Do you covet my power so desperately?"
+        },
+        {
+          "id": "voice-6335",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "Wait, without my permission..."
+        },
+        {
+          "id": "voice-5209",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "Those who remain stubborn in their folly perform futile deeds."
+        },
+        {
+          "id": "voice-5212",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "Isn't it good to follow the will of heaven? Why resist the will of fate?"
+        },
+        {
+          "id": "voice-5213",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "To fulfill your wish, you are willing to sacrifice so much..."
+        },
+        {
+          "id": "voice-5210",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "Very well. At this point, I can somewhat grasp your aim. Proceed."
+        },
+        {
+          "id": "voice-5211",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "I see your resolve. Before returning to the void, This One shall bear witness to mankind's heir defying fate. But now... rest is required."
+        },
+        {
+          "id": "voice-5955",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "I see none of my vassals' traits in you... Perhaps that is for the best. Merely recalling that woman wearies me."
+        },
+        {
+          "id": "voice-5954",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "I never demanded worship. Mortals' fervor only exhausts me further... Withdraw. I will sleep now."
+        },
+        {
+          "id": "voice-5953",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "It has been a while since you awakened me. Have you no questions? Divine secrets? The absolute prophecy? Even the drowned continent's treasures... Nothing stirs your curiosity? Hmph... You are peculiar, indeed."
+        },
+        {
+          "id": "voice-5952",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "To shoulder calamity's weight... it must be a heavy burden for your age. Tell me—had you known from the start that destiny is immutable... would you still have fought so fiercely? Keep your answer. Reflect as I rest. Your reply... interests me."
+        },
+        {
+          "id": "voice-5951",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "I am not omnipotent. Even I err. That woman's ruinous action was my miscalculation... Hence, I require your aid. That you may heed my summons, you may place a bed here, in my chamber."
+        },
+        {
+          "id": "voice-5901",
+          "title": "Chat: Touch",
+          "content": "Your insolence... This One shall interpret as a plea for eternal rest."
+        },
+        {
+          "id": "voice-6693",
+          "title": "Chat: About Slumber",
+          "content": "My slumber spills dreams like poison. Approach not while I sleep—and wake me never without cause."
+        },
+        {
+          "id": "voice-6145",
+          "title": "Chat: About the Divine Bloodline",
+          "unlockCondition": "Unlocks after acquiring either Awakener \"Aigis\" or \"Murphy\"",
+          "content": "This girl... her veins undoubtedly carry my blood. No—I have not walked this earth long enough to sire progeny. And yet... her power mirrors my own."
+        },
+        {
+          "id": "voice-4949",
+          "title": "Chat: About Seafarers",
+          "unlockCondition": "Unlocks after acquiring any one of Awakeners \"Miryam,\" \"Goliath,\" \"Caecus,\" \"Sanga,\" or \"Faros\".",
+          "content": "...It matters not, so long as their zeal doesn't rouse me. Sharing quarters is tolerable."
+        },
+        {
+          "id": "voice-5215",
+          "title": "Chat: About Dissolution",
+          "content": "Dissolution... Those vile black tides invade my dreams. Unbearable."
+        },
+        {
+          "id": "voice-5603",
+          "title": "Chat: About Mythag",
+          "content": "No matter how many cushions you stack, a lapis lazuli throne can't compare to a feather bed. In this regard, there is something commendable about your place."
+        },
+        {
+          "id": "voice-5900",
+          "title": "Chat: What I Like",
+          "content": "Preferences? A king should not indulge... yet if I could avoid tedious rites, a soft divan might suffice."
+        },
+        {
+          "id": "voice-6029",
+          "title": "Chat: What I Hate",
+          "content": "They found my bones beneath waves and presume I enjoy water? Now they wish to build a pool outside my chambers? ...Ha. They may do as they will. As long as they cease troubling me with trifles."
+        },
+        {
+          "id": "voice-6136",
+          "title": "Chat: About the Keeper",
+          "content": "For a subject, you observe keenly. Before my next long sleep, I shall... grace this era with my presence."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-6719",
+          "title": "Investigation Begins",
+          "content": "Let's make it quick, Keeper."
+        },
+        {
+          "id": "voice-5551",
+          "title": "Investigation Success",
+          "content": "Not worth mentioning."
+        },
+        {
+          "id": "voice-5697",
+          "title": "Investigation Halted",
+          "content": "Ugh, it's still rather hard to focus..."
+        },
+        {
+          "id": "voice-5037",
+          "title": "Strike: I",
+          "content": "Impudent rogue!"
+        },
+        {
+          "id": "voice-5866",
+          "title": "Strike: II",
+          "content": "Insolent!"
+        },
+        {
+          "id": "voice-4914",
+          "title": "Defense: I",
+          "content": "Quite bold of you."
+        },
+        {
+          "id": "voice-5040",
+          "title": "Hit: I",
+          "content": "(Groan)"
+        },
+        {
+          "id": "voice-5041",
+          "title": "Hit: II",
+          "content": "(Groan)"
+        },
+        {
+          "id": "voice-5042",
+          "title": "Hit: III",
+          "content": "(Groan)"
+        },
+        {
+          "id": "voice-6485",
+          "title": "Skill: I",
+          "content": "Divine Punishment!"
+        },
+        {
+          "id": "voice-6321",
+          "title": "Skill: II",
+          "content": "Kneel before the throne."
+        },
+        {
+          "id": "voice-5588",
+          "title": "Rouse",
+          "content": "Witness the radiance of This One's might."
+        },
+        {
+          "id": "voice-6705",
+          "title": "Exalt",
+          "content": "Slumbering stars of mine dream now stir—let them converge unto their ordained fate. Point thy path to the Divine Realm!"
+        },
+        {
+          "id": "voice-57832",
+          "title": "Over-Exalt",
+          "content": "The hour has come. My promise shall be fulfilled."
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-99942",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "A boring battle. Did you really have to bring me here?"
+        },
+        {
+          "id": "traphase-100168",
+          "title": "Chat: About Miryam",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I've told you many times already, pointless prayers like this only disturb my dream...",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0032",
+              "lineId": "traphase-99793"
+            },
+            {
+              "awakenerId": "awakener-0050",
+              "lineId": "traphase-100168"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99895",
+          "title": "Chat: About Salvador",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Faith... Perhaps it is indeed a kind of happiness to always firmly believe in the divine.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0050",
+              "lineId": "traphase-99895"
+            },
+            {
+              "awakenerId": "awakener-0044",
+              "lineId": "traphase-99932"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99965",
+          "title": "Chat: About Clementine",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Do you wish to peep into my dream? You should know that those who are overly greedy for the unknown always invite retribution for their arrogance.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0010",
+              "lineId": "traphase-99890"
+            },
+            {
+              "awakenerId": "awakener-0050",
+              "lineId": "traphase-99965"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99823",
+          "title": "Chat: About Faros",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I can't believe there are still descendants of Lemuria out there...",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0050",
+              "lineId": "traphase-99823"
+            },
+            {
+              "awakenerId": "awakener-0017",
+              "lineId": "traphase-99868"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99996",
+          "title": "Chat: About Kathigu-Ra",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Boring... If you don't enjoy my precense, don't come disturb my rest...",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0027",
+              "lineId": "traphase-100106"
+            },
+            {
+              "awakenerId": "awakener-0050",
+              "lineId": "traphase-99996"
+            }
+          ]
+        },
+        {
+          "id": "traphase-120256",
+          "title": "Chat: About Pollux",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "So you wish to eliminate all evil... what a stubbornly futile endeavor. I shall not engage in such folly.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0041",
+              "lineId": "traphase-120283"
+            },
+            {
+              "awakenerId": "awakener-0050",
+              "lineId": "traphase-120256"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99748",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I'm getting tired..."
+        },
+        {
+          "id": "traphase-99826",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Don't interrupt my rest."
+        },
+        {
+          "id": "traphase-99978",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Stars, I invoke your protection!"
+        },
+        {
+          "id": "traphase-99846",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Tsk, I got distracted..."
+        },
+        {
+          "id": "traphase-99975",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Stop disturbing my sleep..."
+        }
+      ]
+    }
   }
 }

@@ -55,6 +55,7 @@
   "profile": {
     "title": "Clementine",
     "birthday": "16-Aug",
+    "voiceActor": "Kunimi Kuruko",
     "gender": "Female",
     "height": "5'5.7''",
     "weight": "102lbs",
@@ -69,7 +70,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "I do not believe Robert would commit suicide by gunshot. No, I do not believe it.\n\nHe received a medal for bravery and solved many difficult murder cases; he is a determined veteran agent. Most importantly, he was about to get married, and the girl loved him back, so there must be a conspiracy here! Someone murdered him and staged it as a suicide scene!\n\nWhoever the murderer is, I will find him and make him pay. This is something I must do as a brother and an agent.\n\n...\n\nThe scene had no clues, so I had to return to my hometown, which was the last place Robert visited before his suicide. After many inquiries, I learned that he had entered deep into the mountains.\n\nAs for why he went there, I suspect it has something to do with local traditions: the first child in every family is taken to the mountains during their coming-of-age ceremony.\n\nSince my parents moved away from here when we were young, Robert never practiced this tradition. I think it was the sense of responsibility before starting a family that awakened his adherence to tradition.\n\nRegardless, I need to take a trip to the deep mountains. After finishing this entry, I’ll set off immediately.\n\n...\n\nA grand structure was carved out in the mountains, I do not know which era it belongs to, I can't tell. I only know that cruel rituals have been continuously conducted here, with dismembered limbs and larvae... I can't write anymore.\n\n...\n\nThese larvae... no, those are not my grandparents, not my ancestors... I cannot have the bloodline of a monster. Ah—\n\n...\n\n...I was discovered by the monsters conducting the rituals; they want to turn me into a monster too!\n\n...\n\nIf someone reads this diary, kill me, immediately...@2\n\n...\n\nPraise the great @2, hiss @2... Praise blind folly @4... hssss... @1 hiss...\n\n—Excerpt from the diary of the late involved agent @3, with omissions"
       },
       {
@@ -90,6 +91,317 @@
         "unlockCondition": "Affinity Level 9",
         "content": "At first, some trivial pain could satisfy her. \n\nThen, her craving for sweetness led her to embrace more and more malice during psychological guidance. \n\nThis malice surged like a river, flooding one after another island of the soul. \n\nBut it was not enough. Far from it. \n\nOnly with the awakening of that ancient long dream, will the entire world turn into a sea of pain, bringing ultimate joy. \n\nSo, she was excited, she prayed, she waited. \n\nWhen everything merged into chaos, she would bow her head, joyfully savoring the most extreme lament of the world. \n\nEven if this sea of pain would drown her."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-81141",
+          "title": "Awaken",
+          "content": "Forgive my intrusion, I simply sensed a low psychological energy and came to check on you. Now, Keeper, shall we embark on a journey through your mind?"
+        },
+        {
+          "id": "voice-81145",
+          "title": "Upgrade: I",
+          "content": "If you seek my thoughts, you may be disappointed. I'm better at listening than I am at offering commentary."
+        },
+        {
+          "id": "voice-81146",
+          "title": "Upgrade: II",
+          "content": "Ah, I heard His voice... those murmurs, every syllable filled with the utmost agony."
+        },
+        {
+          "id": "voice-81147",
+          "title": "Upgrade: III",
+          "content": "I will remember the pain of this moment... recalling and savoring it again and again."
+        },
+        {
+          "id": "voice-81143",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "Psychiatrists once cured patients by drilling open their skulls with a trepanation technique... Please, relax. That was long ago. We have since developed far more methods to delve into the mind."
+        },
+        {
+          "id": "voice-81154",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "First, let's listen to some music. How do you like this melody? Soothing and gentle. Now, let your body and mind resonate with the music, entering a state of spiritual relaxation."
+        },
+        {
+          "id": "voice-81151",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "Your vision is probably filled with bizarre hallucinations now, which is quite normal. Draw them out, and your subconscious and instincts will reveal everything."
+        },
+        {
+          "id": "voice-81152",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "Next is Philip Pinel's moral therapy. You must express your innermost desires and fears. It's a necessary procedure to unshackle the mind and restore dormant humanity."
+        },
+        {
+          "id": "voice-81149",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "Remember those fears, detail your feelings of pain. The essence of emotional impact therapy is to face pain directly and conquer it. Here, I'll wipe away your tears. Take your time. Tell me those memories in detail..."
+        },
+        {
+          "id": "voice-81150",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "Congratulations, you have been healed. Yes, those hallucinations and illusions are normal; they are proof of your recovery."
+        },
+        {
+          "id": "voice-80094",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "Weavers, lawyers, barons... I'll never turn a patient away for a fee. To me, they are all merely patients in need of healing."
+        },
+        {
+          "id": "voice-80093",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "Poor Mr. White. His family kept him in a pigpen because asylums in the neighborhood were full. I treated him for free, and after that, he finally realized he was a person, not livestock. He then reclaimed his dignity, with his own hands."
+        },
+        {
+          "id": "voice-80092",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "Hydrotherapy, electroconvulsive therapy, restraining therapy... those are not treatments, but torture. So, I've been treating the patients in those hospitals my way, pro bono. Eventually, they all achieved recovery and found true freedom."
+        },
+        {
+          "id": "voice-80096",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "These patients have given me beautiful memories. Next, it's your turn, Keeper. I've already chosen a perfect ending for you. It will be the most exquisite consultation of my career."
+        },
+        {
+          "id": "voice-80095",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "I admit I underestimated you. Your existence is pain itself. This time, there's no need for follow-up visits. I want to stay by your side and see the outcome firsthand."
+        },
+        {
+          "id": "voice-81144",
+          "title": "Chat: Touch",
+          "content": "To understand each other, one must open their heart. Touch here, and my silver heart will open for you."
+        },
+        {
+          "id": "voice-81170",
+          "title": "Chat: About the Crisis",
+          "content": "Mental illness is not exclusive to this era; it transcends time and space. Dissolution is the same. Both transcend the boundaries of human cognition, don't they?"
+        },
+        {
+          "id": "voice-81172",
+          "title": "Chat: About Mythag",
+          "content": "This place is filled with traces of history, and to some extent, history represents memories... painful memories of the departed."
+        },
+        {
+          "id": "voice-81139",
+          "title": "Chat: What I Like",
+          "content": "A dark room, all alone, along with the countless painful whispers constantly echoing in my mind... this is the best way to enjoy time."
+        },
+        {
+          "id": "voice-81157",
+          "title": "Chat: What I Hate",
+          "content": "A numb soul holds no interest for me. Their souls are already dead. No matter how much one stirs them, there will not be a ripple."
+        },
+        {
+          "id": "voice-81148",
+          "title": "Chat: About the Keeper",
+          "content": "As a fragment of that existence, you carry Their scent... A beautiful scent, filled with pain. It makes any memory of yours taste incredibly delicious."
+        },
+        {
+          "id": "voice-81140",
+          "title": "Chat: About Aurita",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Aurita\"",
+          "content": "Though it may be impolite to say, talking to that child only bores me. You can only ever see one expression... a smile."
+        },
+        {
+          "id": "voice-81165",
+          "title": "Chat: About Aigis",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Aigis\"",
+          "content": "Aigis looks much brighter now. Of course, if my little guest needs help, I'm happy to offer it. I mean, genuine help."
+        },
+        {
+          "id": "voice-81153",
+          "title": "Chat: About Psychological Analysis",
+          "content": "Keeper, can you help me with a small test? The Rorschach inkblot test. It will help me see the depths of your inner self... I will become the only Awakener to unveil the secrets of your heart."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-81175",
+          "title": "Investigation Begins",
+          "content": "No need for such nervousness. This is merely a regular consultation."
+        },
+        {
+          "id": "voice-81174",
+          "title": "Investigation Success",
+          "content": "Pain, despair, death... these memories taste like dessert after a fine meal."
+        },
+        {
+          "id": "voice-81138",
+          "title": "Investigation Halted",
+          "content": "Refusing a doctor's help will not benefit you. Perhaps next time, we'll try deep hypnosis."
+        },
+        {
+          "id": "voice-81162",
+          "title": "Strike: I",
+          "content": "Trust me a little more."
+        },
+        {
+          "id": "voice-81163",
+          "title": "Strike: II",
+          "content": "Expose your pain."
+        },
+        {
+          "id": "voice-81176",
+          "title": "Defense: I",
+          "content": "Listen to my guidance."
+        },
+        {
+          "id": "voice-81173",
+          "title": "Defense: II",
+          "content": "Take a deep breath."
+        },
+        {
+          "id": "voice-81159",
+          "title": "Hit: I",
+          "content": "I am listening. Please, continue."
+        },
+        {
+          "id": "voice-81160",
+          "title": "Hit: II",
+          "content": "Please remain quiet."
+        },
+        {
+          "id": "voice-81166",
+          "title": "Skill: I",
+          "content": "Show me your truest self."
+        },
+        {
+          "id": "voice-81168",
+          "title": "Skill: II",
+          "content": "I will savor this sweet pain."
+        },
+        {
+          "id": "voice-81155",
+          "title": "Rouse",
+          "content": "Watch the pendulum... follow its movement with your eyes."
+        },
+        {
+          "id": "voice-81171",
+          "title": "Exalt",
+          "content": "Shh... quiet. Now, walk toward the ending I'll guide you to."
+        },
+        {
+          "id": "voice-81164",
+          "title": "Over-Exalt",
+          "content": "Don't be shy, there's no need to hide. I am your sole confidante. Come, pour out your deepest pain to me."
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-99911",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Shhh, don't speak. Keep your eyes on my pendulum..."
+        },
+        {
+          "id": "traphase-99963",
+          "title": "Chat: About Hameln",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I didn't know you were also interested in analyzing people, Mr. Hameln?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0022",
+              "lineId": "traphase-99886"
+            },
+            {
+              "awakenerId": "awakener-0010",
+              "lineId": "traphase-99963"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99890",
+          "title": "Chat: About Tulu",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Oh, such a weary child we have here. You seem to be in desperate need of psychological healing.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0010",
+              "lineId": "traphase-99890"
+            },
+            {
+              "awakenerId": "awakener-0050",
+              "lineId": "traphase-99965"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100045",
+          "title": "Chat: About Helot: Catena",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "It seems you've experienced severe trauma. Perhaps opening up about it all would make you feel better?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0019",
+              "lineId": "traphase-100151"
+            },
+            {
+              "awakenerId": "awakener-0010",
+              "lineId": "traphase-100045"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99866",
+          "title": "Chat: About Casiah",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "A person completely devoid of emotion... Hmm, you're truly like a monster.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0010",
+              "lineId": "traphase-99866"
+            },
+            {
+              "awakenerId": "awakener-0007",
+              "lineId": "traphase-100176"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100167",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Hmm... this symptom is quite rare. Please, do tell me more about it."
+        },
+        {
+          "id": "traphase-99899",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "You can't heal emotional trauma without opening up a little."
+        },
+        {
+          "id": "traphase-100170",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Follow me, listen to me, and obediently step into your fated finale!"
+        },
+        {
+          "id": "traphase-99857",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Did you just break out of my hypnosis? No problem, we have many other options..."
+        },
+        {
+          "id": "traphase-100208",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I got rejected, huh? It's no big deal. I have next time..."
+        }
+      ]
+    }
   }
 }

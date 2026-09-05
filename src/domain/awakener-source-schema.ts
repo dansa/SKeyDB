@@ -383,6 +383,7 @@ export const cardVariantSchema = describedRecordSchema.extend({
 export const awakenersSkillVariantSchema = cardVariantSchema
 
 export const awakenerSkillSchema = describedRecordSchema.extend({
+  lore: z.string().optional(),
   id: nonEmptyStringSchema,
   ownerAwakenerId: z.number().int().positive(),
   kind: skillKindSchema,
@@ -414,6 +415,7 @@ export const awakenersEnlightenSchema = describedRecordSchema.extend({
 })
 
 export const derivedSkillSchema = describedRecordSchema.extend({
+  lore: z.string().optional(),
   id: nonEmptyStringSchema,
   ownerAwakenerId: z.number().int().positive().optional(),
   nodeKind: z.enum(['card', 'group']).optional(),

@@ -55,6 +55,7 @@
   "profile": {
     "title": "Hameln",
     "birthday": "21-Sep",
+    "voiceActor": "Nomiya Kazunori",
     "gender": "Male",
     "height": "5'10''",
     "weight": "121lbs",
@@ -90,6 +91,331 @@
         "unlockCondition": "Affinity Level 9",
         "content": "His life was monotonous and dull, with loneliness as a contant companion, alongside feelings of resentment, confusion and hatred that had long been digested since before he could even remember.\n\nNow, he has become one with music, transcending mere passion—unavoidable, inescapable.\n\nAll that remains to him is music.\n\nKeep moving upward; do not look back at those nine hundred and ninety-nine steps behind.\n\nAfter all, he has already touched the ultimate melody, the destined flute.\n\nAccept this endless flow of music, and let it saturate your soul and dreams.\n\nFor he has long since used his own soul as an instrument to resonate with yours."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-60985",
+          "title": "Awaken",
+          "content": "Hameln, at your service."
+        },
+        {
+          "id": "voice-60997",
+          "title": "Upgrade: I",
+          "content": "Tuning complete."
+        },
+        {
+          "id": "voice-60998",
+          "title": "Upgrade: II",
+          "content": "Glad you understand the importance of training."
+        },
+        {
+          "id": "voice-60999",
+          "title": "Upgrade: III",
+          "content": "I will deliver a perfect performance."
+        },
+        {
+          "id": "voice-61007",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "I think I heard a melody. Is someone rehearsing nearby?"
+        },
+        {
+          "id": "voice-60989",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "Here it is again. What is this melody? Ever since I last heard it, it has lingered in my mind, refusing to leave or rest."
+        },
+        {
+          "id": "voice-61014",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "It became clear, that winding melody, like the wailing of a soul... I'm sure I've heard it somewhere before."
+        },
+        {
+          "id": "voice-61001",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "Woodwinds and strings... interweaving upwards and downwards, the motif reappears... Now I remember, it's the requiem I composed for the prematurely deceased genius, the fallen star."
+        },
+        {
+          "id": "voice-60991",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "Almost there, just a little more. I must finish it; I must hear it!"
+        },
+        {
+          "id": "voice-61010",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "Yes, yes, that's it—the final mass, a requiem for the music itself!"
+        },
+        {
+          "id": "voice-60995",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "Music transcends language, writing, and everything. If this isn't perfection, I don't know what is."
+        },
+        {
+          "id": "voice-61023",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "Do you like this piece? It fully presents the motif in just four measures, with the wind instruments pushing the melody upward until the theme is reached. Such a design has influenced countless successors... Sorry, am I talking too much?"
+        },
+        {
+          "id": "voice-61022",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "In a symphony, the coordination between instruments is crucial; how each section joins and exits brings a different experience to the music.\nWhat I mean is, if commanding Awakeners is a performance, you're doing well."
+        },
+        {
+          "id": "voice-61021",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "I prefer expressing myself through music rather than words. But communicating with you feels like conducting an orchestra that has been rehearsed countless times—smooth, and often pleasantly surprising.\nYou hold a special place for both music and me."
+        },
+        {
+          "id": "voice-61020",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "I usually don't extend such invitations, but... would you like to give it a try? Hold the baton and breathe new life into the music?"
+        },
+        {
+          "id": "voice-61002",
+          "title": "Chat: Touch",
+          "content": "Hmm? Do you have a new piece to show me?"
+        },
+        {
+          "id": "voice-60987",
+          "title": "Chat: About His Strategies",
+          "content": "I don't enjoy spending time on strategy. Compared to music, the art of strategy holds little value. However, as a tool to clear obstacles, it is necessary. For the sake of reaching the pinnacle of music, I don't mind using it."
+        },
+        {
+          "id": "voice-60990",
+          "title": "Chat: About Your Commonalities",
+          "content": "In terms of technique, strategic planning and music conducting are no different. Humanity, emotion, desire... they are as clear and docile as notes on a staff, displayed before my eyes, dancing along the path of the baton. To understand music is to understand everything."
+        },
+        {
+          "id": "voice-61015",
+          "title": "Chat: About Reason and Order",
+          "content": "Rationality and order paved the way. I walked upward and opened the gates of the hall. Beyond them, neither remained— truly eternal music transcends reason."
+        },
+        {
+          "id": "voice-61027",
+          "title": "Chat: About Dissolution",
+          "content": "Each of us hides a melody in our hearts, trapped by reason and the body, only to be fully expressed in madness."
+        },
+        {
+          "id": "voice-61017",
+          "title": "Chat: About Mythag",
+          "content": "I heard the performance of your so-called orchestra, full of mistakes. But no worries, I have a detailed plan to stage a perfect show before the Silver Frost Festival."
+        },
+        {
+          "id": "voice-61018",
+          "title": "Chat: What I Like",
+          "content": "I can never forget the first time I heard the music deep within my consciousness. In those notes and chords, the real world vanished; only pure and sublime music remained."
+        },
+        {
+          "id": "voice-61006",
+          "title": "Chat: What I Hate",
+          "content": "There is a concertmaster in the orchestra, but a concertmaster alone cannot make a complete orchestra. My orchestra has no place for those who only seek to show off."
+        },
+        {
+          "id": "voice-61011",
+          "title": "Chat: About the Keeper",
+          "content": "Ah, Keeper, you've arrived just in time. Tell me, what do you think of this movement?"
+        },
+        {
+          "id": "voice-60986",
+          "title": "Chat: About His Friend",
+          "content": "I once met someone with an almost instinctual understanding of music. The concertos and symphonies created by this person were unforgettable.\nA true genius."
+        },
+        {
+          "id": "voice-61004",
+          "title": "Chat: About Liz",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Liz\"",
+          "content": "The green dancer possessed an elegance worthy of being the lead of a court troupe.\nIf given the chance, I truly hope we could collaborate."
+        },
+        {
+          "id": "voice-61000",
+          "title": "Chat: About His Works",
+          "content": "I was once praised, but... that wasn't true talent.\nMy works were merely imitations of my predecessors."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-61016",
+          "title": "Investigation Begins",
+          "content": "Watch my hands, one, two, three."
+        },
+        {
+          "id": "voice-61024",
+          "title": "Investigation Success",
+          "content": "Perfect performance."
+        },
+        {
+          "id": "voice-61019",
+          "title": "Investigation Halted",
+          "content": "It's a pity. It seems more rehearsals are needed."
+        },
+        {
+          "id": "voice-61025",
+          "title": "Strike: I",
+          "content": "Forte!"
+        },
+        {
+          "id": "voice-61026",
+          "title": "Strike: II",
+          "content": "Accent!"
+        },
+        {
+          "id": "voice-61009",
+          "title": "Defense: I",
+          "content": "Da Capo!"
+        },
+        {
+          "id": "voice-61008",
+          "title": "Defense: II",
+          "content": "Dal Segno!"
+        },
+        {
+          "id": "voice-60992",
+          "title": "Hit: I",
+          "content": "Ugh."
+        },
+        {
+          "id": "voice-60993",
+          "title": "Hit: II",
+          "content": "Rude."
+        },
+        {
+          "id": "voice-60996",
+          "title": "Skill: I",
+          "content": "Pay attention to the beat."
+        },
+        {
+          "id": "voice-61012",
+          "title": "Skill: II",
+          "content": "Strings, begin."
+        },
+        {
+          "id": "voice-61003",
+          "title": "Rouse",
+          "content": "This melody is dedicated to the souls of the departed."
+        },
+        {
+          "id": "voice-61028",
+          "title": "Exalt",
+          "content": "Only music deserves praise."
+        },
+        {
+          "id": "voice-61030",
+          "title": "Over-Exalt",
+          "content": "Listen, this is the final requiem!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-99929",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Hameln, at your disposal. I dedicate my performance to you."
+        },
+        {
+          "id": "traphase-99848",
+          "title": "Chat: About Tinct",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Your voice has a timbre that no instrument can rival— it's absolutely perfect.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0022",
+              "lineId": "traphase-99848"
+            },
+            {
+              "awakenerId": "awakener-0049",
+              "lineId": "traphase-99859"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100107",
+          "title": "Chat: About Liz",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I am delighted to serve. Your dancing is more than worthy of my performance.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0030",
+              "lineId": "traphase-100037"
+            },
+            {
+              "awakenerId": "awakener-0022",
+              "lineId": "traphase-100107"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99886",
+          "title": "Chat: About Clementine",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Miss Clementine may seem harmless on the surface, but she is, in fact, the same kind of person as that Juliette.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0022",
+              "lineId": "traphase-99886"
+            },
+            {
+              "awakenerId": "awakener-0010",
+              "lineId": "traphase-99963"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99765",
+          "title": "Chat: About Horla",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Art is interconnected; Miss Horla, your poetry also reminds me of beautiful musical movements.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0024",
+              "lineId": "traphase-100004"
+            },
+            {
+              "awakenerId": "awakener-0022",
+              "lineId": "traphase-99765"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99847",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Precision is the only path to perfection."
+        },
+        {
+          "id": "traphase-99962",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Quick, settle into the score now. Let's ease back into the correct tempo."
+        },
+        {
+          "id": "traphase-100169",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Listen to the climax!"
+        },
+        {
+          "id": "traphase-99811",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Too slow! That trumpet was an eternity late!"
+        },
+        {
+          "id": "traphase-99786",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "The notes... are jumbled..."
+        }
+      ]
+    }
   }
 }

@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "relics",
   "kind": "relic",
-  "recordCount": 297,
+  "recordCount": 306,
   "records": [
     {
       "kind": "relic",
@@ -1782,7 +1782,7 @@
       },
       "rarity": "N",
       "relicType": "Relic",
-      "categories": ["ASTRAL_REIGN", "OTHER"],
+      "categories": ["ASTRAL_REIGN", "EVENT"],
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0072",
       "aliases": ["Arcane Gloves+", "☆Arcane Gloves☆"],
@@ -1797,7 +1797,7 @@
           "tier": "Gold"
         },
         {
-          "category": "OTHER",
+          "category": "EVENT",
           "tier": "Silver"
         }
       ]
@@ -3691,7 +3691,7 @@
       },
       "rarity": "N",
       "relicType": "Relic",
-      "categories": ["ASTRAL_REIGN", "OTHER"],
+      "categories": ["ASTRAL_REIGN", "EVENT"],
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0204",
       "aliases": ["Differential Engine+", "☆Differential Engine☆"],
@@ -3706,7 +3706,7 @@
           "tier": "Gold"
         },
         {
-          "category": "OTHER",
+          "category": "EVENT",
           "tier": "Special"
         }
       ]
@@ -6527,7 +6527,7 @@
       },
       "rarity": "N",
       "relicType": "Relic",
-      "categories": ["ASTRAL_REIGN", "OTHER"],
+      "categories": ["ASTRAL_REIGN", "EVENT"],
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0426",
       "aliases": ["Radium Jawbone+", "☆Radium Jawbone☆"],
@@ -6542,7 +6542,7 @@
           "tier": "Gold"
         },
         {
-          "category": "OTHER",
+          "category": "EVENT",
           "tier": "Silver"
         }
       ]
@@ -7030,9 +7030,9 @@
       "rarity": "N",
       "relicType": "Relic",
       "categories": ["FADED_LEGACY", "EVENT"],
-      "variantCount": 2,
+      "variantCount": 3,
       "defaultVariantId": "relic-variant-0468",
-      "aliases": ["Signal Relay+"],
+      "aliases": ["Signal Relay +β", "Signal Relay+"],
       "variantTiers": ["Silver", "Special"],
       "variantCategoryTiers": [
         {
@@ -8260,15 +8260,15 @@
         "icon": "asset-relic-0310-icon"
       },
       "rarity": "SSR",
-      "relicType": "Relic",
-      "categories": ["OTHER"],
+      "relicType": "Event",
+      "categories": ["EVENT"],
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0562",
       "aliases": [],
       "variantTiers": ["Special"],
       "variantCategoryTiers": [
         {
-          "category": "OTHER",
+          "category": "EVENT",
           "tier": "Special"
         }
       ]
@@ -8310,15 +8310,15 @@
         "icon": "asset-relic-0312-icon"
       },
       "rarity": "N",
-      "relicType": "Relic",
-      "categories": ["OTHER"],
+      "relicType": "Event",
+      "categories": ["EVENT"],
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0564",
       "aliases": [],
       "variantTiers": ["Silver"],
       "variantCategoryTiers": [
         {
-          "category": "OTHER",
+          "category": "EVENT",
           "tier": "Silver"
         }
       ]
@@ -8416,6 +8416,230 @@
       "categories": ["EVENT"],
       "variantCount": 1,
       "defaultVariantId": "relic-variant-0568",
+      "aliases": [],
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0317",
+      "name": "☆Withered Pupil☆",
+      "route": {
+        "slug": "withered-pupil",
+        "canonicalPath": "/database/relics/withered-pupil"
+      },
+      "assets": {
+        "icon": "asset-relic-0317-icon"
+      },
+      "rarity": "N",
+      "relicType": "Event",
+      "categories": ["EVENT"],
+      "variantCount": 1,
+      "defaultVariantId": "relic-variant-0570",
+      "aliases": [],
+      "variantTiers": ["Silver"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Silver"
+        }
+      ]
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0318",
+      "name": "☆Painkillers☆",
+      "route": {
+        "slug": "painkillers",
+        "canonicalPath": "/database/relics/painkillers"
+      },
+      "assets": {
+        "icon": "asset-relic-0318-icon"
+      },
+      "rarity": "N",
+      "relicType": "Event",
+      "categories": ["EVENT"],
+      "variantCount": 1,
+      "defaultVariantId": "relic-variant-0571",
+      "aliases": [],
+      "variantTiers": ["Silver"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Silver"
+        }
+      ]
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0319",
+      "name": "☆Immortal Flesh☆",
+      "route": {
+        "slug": "immortal-flesh",
+        "canonicalPath": "/database/relics/immortal-flesh"
+      },
+      "assets": {
+        "icon": "asset-relic-0319-icon"
+      },
+      "relicType": "Event",
+      "categories": ["EVENT"],
+      "variantCount": 1,
+      "defaultVariantId": "relic-variant-0572",
+      "aliases": [],
+      "variantTiers": ["Cursed"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Cursed"
+        }
+      ]
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0320",
+      "name": "☆Ancient Anchor☆",
+      "route": {
+        "slug": "ancient-anchor",
+        "canonicalPath": "/database/relics/ancient-anchor"
+      },
+      "assets": {
+        "icon": "asset-relic-0320-icon"
+      },
+      "rarity": "N",
+      "relicType": "Event",
+      "categories": ["EVENT"],
+      "variantCount": 1,
+      "defaultVariantId": "relic-variant-0573",
+      "aliases": [],
+      "variantTiers": ["Silver"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Silver"
+        }
+      ]
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0321",
+      "name": "☆Refined Prosthesis☆",
+      "route": {
+        "slug": "refined-prosthesis",
+        "canonicalPath": "/database/relics/refined-prosthesis"
+      },
+      "assets": {
+        "icon": "asset-relic-0321-icon"
+      },
+      "rarity": "N",
+      "relicType": "Event",
+      "categories": ["EVENT"],
+      "variantCount": 1,
+      "defaultVariantId": "relic-variant-0574",
+      "aliases": [],
+      "variantTiers": ["Silver"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Silver"
+        }
+      ]
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0322",
+      "name": "☆Nightmare Lantern☆",
+      "route": {
+        "slug": "nightmare-lantern",
+        "canonicalPath": "/database/relics/nightmare-lantern"
+      },
+      "assets": {
+        "icon": "asset-relic-0322-icon"
+      },
+      "rarity": "SSR",
+      "relicType": "Event",
+      "categories": ["EVENT"],
+      "variantCount": 1,
+      "defaultVariantId": "relic-variant-0575",
+      "aliases": [],
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0323",
+      "name": "☆Guild Medal☆",
+      "route": {
+        "slug": "guild-medal",
+        "canonicalPath": "/database/relics/guild-medal"
+      },
+      "assets": {
+        "icon": "asset-relic-0323-icon"
+      },
+      "rarity": "SSR",
+      "relicType": "Event",
+      "categories": ["EVENT"],
+      "variantCount": 1,
+      "defaultVariantId": "relic-variant-0576",
+      "aliases": [],
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0324",
+      "name": "Blackened Flame",
+      "route": {
+        "slug": "blackened-flame",
+        "canonicalPath": "/database/relics/blackened-flame"
+      },
+      "assets": {
+        "icon": "asset-relic-0324-icon"
+      },
+      "rarity": "SSR",
+      "relicType": "Event",
+      "categories": ["EVENT"],
+      "variantCount": 1,
+      "defaultVariantId": "relic-variant-0578",
+      "aliases": [],
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0325",
+      "name": "Cursed Feather",
+      "route": {
+        "slug": "cursed-feather",
+        "canonicalPath": "/database/relics/cursed-feather"
+      },
+      "assets": {
+        "icon": "asset-relic-0325-icon"
+      },
+      "rarity": "SSR",
+      "relicType": "Event",
+      "categories": ["EVENT"],
+      "variantCount": 1,
+      "defaultVariantId": "relic-variant-0579",
       "aliases": [],
       "variantTiers": ["Special"],
       "variantCategoryTiers": [

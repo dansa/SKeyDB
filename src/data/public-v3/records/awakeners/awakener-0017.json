@@ -55,6 +55,7 @@
   "profile": {
     "title": "Faros",
     "birthday": "8-Apr",
+    "voiceActor": "Fujisaki Momoko",
     "gender": "Female",
     "height": "5'5.7''",
     "weight": "?",
@@ -91,6 +92,327 @@
         "unlockCondition": "Affinity Level 9",
         "content": "Return to her home, trace back to her origin, reunion with her lost dreamshe doesn't care how does her wish reflect in people's words. Even her body has altered to an Awakener, tides of her homeland still clamor in her soul.\n\nThe breath of sea-bottom volcanoes dissipated from her ears. The ocean's dreams writhing with ecstasies obscured from her eyes. Only her obsession with the Divine Realm still gleaming, more glorious than ever.\n\nMind her docility, a mere temporarily disguise. Her king's throne calls to her, like a lighthouse reaches through the aeons; her sacrifice will always be everything, like a wick's devotion to the light."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-6701",
+          "title": "Awaken",
+          "content": "Faros greets you. Summoning me here must mean that you are ready to set sail."
+        },
+        {
+          "id": "voice-6166",
+          "title": "Upgrade: I",
+          "content": "My connection to the homeland has grown stronger."
+        },
+        {
+          "id": "voice-6165",
+          "title": "Upgrade: II",
+          "content": "The everlasting lamp..."
+        },
+        {
+          "id": "voice-6164",
+          "title": "Upgrade: III",
+          "content": "It's getting brighter."
+        },
+        {
+          "id": "voice-6502",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "Do you trust me that much?"
+        },
+        {
+          "id": "voice-5084",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "I felt the breeze, carrying fine sand across my feet."
+        },
+        {
+          "id": "voice-5081",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "Can my departed kins find their way back home, following this light?"
+        },
+        {
+          "id": "voice-5080",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "The salty sea breeze tells me that my homeland is not far away."
+        },
+        {
+          "id": "voice-5083",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "I will only shine for my homeland. As for you..."
+        },
+        {
+          "id": "voice-5082",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "I have been searching for tens of thousands of years; a fleeting century is nothing in comparison. Until you reach the end of your life, I will continue to assist you."
+        },
+        {
+          "id": "voice-5334",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "Would you like heading out to sea with me? Let me check the current map... 47°9' S, 126°43' W, we'll be going right there."
+        },
+        {
+          "id": "voice-5332",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "Are you planning to sail soon? Could you grant my humble request and let me join you? Just let me reach the sea..."
+        },
+        {
+          "id": "voice-5333",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "If you still trust me, please allow me to be the guiding light on this journey. However, even in such a simple task, I have failed before..."
+        },
+        {
+          "id": "voice-5335",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "I caused many disasters in the past, even nearly bringing destruction to certain civilizations... If I say it wasn't intentional, is it already too late?"
+        },
+        {
+          "id": "voice-5336",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "I am the guardian of the entrance to the Eternal Kingdom, guiding those who return home. How ironic that I, with such a duty, have forgotten the way back...\nWill you... be my beacon?"
+        },
+        {
+          "id": "voice-6729",
+          "title": "Chat: Touch",
+          "content": "You seem curious about the appearance of my current vessel? Don't overthink it. I was born with a human face."
+        },
+        {
+          "id": "voice-5290",
+          "title": "Chat: About Eternal Kingdom",
+          "content": "My homeland worships our God. Correspondingly, the King I follow is naturally a \"divine communicator.\""
+        },
+        {
+          "id": "voice-6703",
+          "title": "Chat: About Tulu",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Tulu\"",
+          "content": "Ah... His brilliance is so intense and dazzling, impossible to ignore! It was a foolish zeal that clouded my senses... No, I will not make any excuses for my stupidity..."
+        },
+        {
+          "id": "voice-5698",
+          "title": "Chat: About Winkle",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Winkle\"",
+          "content": "She often stays close to me at night. Is it simply because my head is too conspicuous?"
+        },
+        {
+          "id": "voice-6252",
+          "title": "Chat: About Dissolution",
+          "content": "Dissolution brings chaos and disasters. Perhaps my homeland sank into the deep sea because of it..."
+        },
+        {
+          "id": "voice-6096",
+          "title": "Chat: About Mythag",
+          "content": "Here, I often sense the presence of my Lord, but perhaps I am not yet ready to face Him... In any case, thank you for offering me shelter."
+        },
+        {
+          "id": "voice-5685",
+          "title": "Chat: What I Like",
+          "content": "I love the sea. Is it ironic? Everything I owned is now sunken in the deep sea..."
+        },
+        {
+          "id": "voice-5069",
+          "title": "Chat: What I Hate",
+          "content": "I hate the sea, and for good reason. The ocean devoured everything I loved..."
+        },
+        {
+          "id": "voice-6641",
+          "title": "Chat: About the Keeper",
+          "content": "I will serve as your guiding light in the darkness, but not forever."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-6526",
+          "title": "Investigation Begins",
+          "content": "Feel honored, for the gates to the Eternal Kingdom are here!"
+        },
+        {
+          "id": "voice-6051",
+          "title": "Investigation Success",
+          "content": "I hope that next time, my homeland will answer my call."
+        },
+        {
+          "id": "voice-6112",
+          "title": "Investigation Halted",
+          "content": "The gates of my homeland are drifting away... No... Not again..."
+        },
+        {
+          "id": "voice-5895",
+          "title": "Strike: I",
+          "content": "How about this?"
+        },
+        {
+          "id": "voice-6319",
+          "title": "Strike: II",
+          "content": "Please go ahead!"
+        },
+        {
+          "id": "voice-6503",
+          "title": "Defense: I",
+          "content": "Come back."
+        },
+        {
+          "id": "voice-6504",
+          "title": "Defense: II",
+          "content": "Good!"
+        },
+        {
+          "id": "voice-5304",
+          "title": "Hit: I",
+          "content": "(Groan)"
+        },
+        {
+          "id": "voice-5303",
+          "title": "Hit: II",
+          "content": "(Groan)"
+        },
+        {
+          "id": "voice-5302",
+          "title": "Hit: III",
+          "content": "(Groan)"
+        },
+        {
+          "id": "voice-5305",
+          "title": "Hit: IV",
+          "content": "(Groan)"
+        },
+        {
+          "id": "voice-5940",
+          "title": "Skill: I",
+          "content": "Beware of the ocean's fury."
+        },
+        {
+          "id": "voice-6074",
+          "title": "Skill: II",
+          "content": "This undercurrent will tear our enemies apart."
+        },
+        {
+          "id": "voice-6731",
+          "title": "Rouse",
+          "content": "Must... I must return..."
+        },
+        {
+          "id": "voice-6421",
+          "title": "Exalt",
+          "content": "Behold the magnificence of the Eternal Kingdom!"
+        },
+        {
+          "id": "voice-57820",
+          "title": "Over-Exalt",
+          "content": "No one can stop my steps toward seeking the homeland!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-99946",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "My light will illuminate the path to my homeland."
+        },
+        {
+          "id": "traphase-99818",
+          "title": "Chat: About Aurita",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Hehe, yes, I'm sure you can make many friends there. You're welcome to join us...",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0005",
+              "lineId": "traphase-100000"
+            },
+            {
+              "awakenerId": "awakener-0017",
+              "lineId": "traphase-99818"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99868",
+          "title": "Chat: About Tulu",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Great is our lord! By your side, I once again behold the splendor of our homeland...",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0050",
+              "lineId": "traphase-99823"
+            },
+            {
+              "awakenerId": "awakener-0017",
+              "lineId": "traphase-99868"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100087",
+          "title": "Chat: About Miryam",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I will heed your teachings, High Priestess.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0032",
+              "lineId": "traphase-99800"
+            },
+            {
+              "awakenerId": "awakener-0017",
+              "lineId": "traphase-100087"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99751",
+          "title": "Chat: About Sanga",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Oh, of course. Perhaps you'd like to join me on a voyage for inspiration, Miss Artist?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0045",
+              "lineId": "traphase-100181"
+            },
+            {
+              "awakenerId": "awakener-0017",
+              "lineId": "traphase-99751"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100121",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Where is the gateway to my homeland..."
+        },
+        {
+          "id": "traphase-99925",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Hurry, hurry and respond to the call of our homeland!"
+        },
+        {
+          "id": "traphase-99885",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Feel the grandeur of Lemuria!"
+        },
+        {
+          "id": "traphase-100013",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "No response... Has Lemuria abandoned me..."
+        },
+        {
+          "id": "traphase-100119",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Homecoming..."
+        }
+      ]
+    }
   }
 }

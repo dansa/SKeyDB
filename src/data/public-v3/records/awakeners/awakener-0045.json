@@ -55,6 +55,7 @@
   "profile": {
     "title": "Sanga",
     "birthday": "31-Oct",
+    "voiceActor": "Otowa Rina",
     "gender": "Female",
     "height": "5'5''",
     "weight": "176lbs",
@@ -90,6 +91,342 @@
         "unlockCondition": "Affinity Level 9",
         "content": "Watched by countless nights, the sculptor suffered from Dissolution slips beneath the murmuring waves, falling into writhing dreams:\nAs Lemuria's spirals inflamed by her kindreds, its majestic walls arise in her hands.\n\nAs the Father and His servants slumbering into epics, their statues find immortality under her carving.\n\nHer senses dull. Her body stiffens. Her chisel nearly escapes.\n\nCoral-like white mists have crept to her forearms. Hands tremble under her gaze. A smile flickers. Her life will fade like an extinguishing candle, while her body will step beyond eternal's door.\n\nHer wish fullfilled as she sinking onto the seabed. Coral shattering to foam, black slime of Dissolution threads into the ocean—she finally embraces the City long-lost in currents, and mingles with its splendor—together, ever after."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-5232",
+          "title": "Awaken",
+          "content": "Sanga, the sculptor from Cité, offers you her chisel. You may be flawed, but you are still worth carving."
+        },
+        {
+          "id": "voice-5456",
+          "title": "Upgrade: I",
+          "content": "You chose the perfect carving knife for me."
+        },
+        {
+          "id": "voice-5455",
+          "title": "Upgrade: II",
+          "content": "Good taste."
+        },
+        {
+          "id": "voice-5454",
+          "title": "Upgrade: III",
+          "content": "Inspirations are endlessly flowing..."
+        },
+        {
+          "id": "voice-6033",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "Absolutely amazing... Your offhand remark has resolved a creative problem that has been troubling me for months."
+        },
+        {
+          "id": "voice-5094",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "I am well acquainted with the pain of carving and the burning of transformation. Yet all of this fades when compared to eternal beauty."
+        },
+        {
+          "id": "voice-5998",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "I need only a bit of stone, two chisels, and three sun-facing irises... and I can create anything for you."
+        },
+        {
+          "id": "voice-5096",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "I shall convey these unspoken words to you through my work."
+        },
+        {
+          "id": "voice-5099",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "Thank you for preparing this studio for me. Everything here is bathed in sunlight; it seems that every piece of work, every carving knife, glows with a golden light. Oh, spring is golden."
+        },
+        {
+          "id": "voice-5098",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "The sleeping sovereign murmurs in my ear, the ruins of the deep sea constantly reconstruct before my eyes... Have the countless dream scenes finally come true?"
+        },
+        {
+          "id": "voice-6246",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "A wonderful life lies in indulgence. Sometimes, you shouldn't be too hard on yourself."
+        },
+        {
+          "id": "voice-6244",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "Inspiration is like bubbles rising in the sea: a gentle touch, and they vanish. Are you the same?"
+        },
+        {
+          "id": "voice-6245",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "War, plunder, and fame are all human desires. The humble sculptor has no interest in what humans pursue; she only wishes to be a slave to beauty."
+        },
+        {
+          "id": "voice-6242",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "Smiles and etiquette serve as a layer of armor, helping me maintain distance from others and avoid tedious disturbances. As for my true self... I don't mind showing it to you."
+        },
+        {
+          "id": "voice-6243",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "My thoughts accumulate like white limestone and are washed into beautiful coral. They merge with me, pulsing with my heartbeat... Will you listen?"
+        },
+        {
+          "id": "voice-6174",
+          "title": "Chat: Touch",
+          "content": "Ugh! Your temperature is a bit high for coral. But... it's warm and intense. I like it."
+        },
+        {
+          "id": "voice-5412",
+          "title": "Chat: About Past",
+          "content": "I'm from Cité. There, everyone wants to be an actor; no one is content with just watching. In reality, we are merely the city's pitiful footnotes."
+        },
+        {
+          "id": "voice-6470",
+          "title": "Chat: About Aurita",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Aurita\"",
+          "content": "Pickman and I are working on some fascinating installation art, exploring the reconstruction of abstract representationism by deconstructing visual primitivism... Huh, why did Aurita faint?"
+        },
+        {
+          "id": "voice-5589",
+          "title": "Chat: About Morning",
+          "content": "The air on campus at 4 AM is refreshing. I'm glad you're willing to work out with me. I must say, sculpting is quite the workout."
+        },
+        {
+          "id": "voice-5537",
+          "title": "Chat: About Dissolution",
+          "content": "From Dissolution wounds flows not only black slime but also endless inspiration. Honestly, I wouldn't mind some more."
+        },
+        {
+          "id": "voice-5847",
+          "title": "Chat: About Mythag",
+          "content": "Did you know about the legend of that certain \"Painter\" here? From those expressionist graffiti, I sense a familiar touch..."
+        },
+        {
+          "id": "voice-6525",
+          "title": "Chat: What I Like",
+          "content": "I enjoy wandering aimlessly. Swamps, graveyards, infirmaries, abandoned castles... In these places, I always find unexpected delights."
+        },
+        {
+          "id": "voice-5687",
+          "title": "Chat: What I Hate",
+          "content": "Things I hate...? None. Would you hate a speck of dust or a leaf?"
+        },
+        {
+          "id": "voice-6150",
+          "title": "Chat: About the Keeper",
+          "content": "Explaining art is as ridiculous as explaining railroad stocks—please don't make life harder for us artists."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-5207",
+          "title": "Investigation Begins",
+          "content": "I need to gather some carving materials, preferably fresh ones."
+        },
+        {
+          "id": "voice-4923",
+          "title": "Investigation Success",
+          "content": "What a glorious victory... I shall engrave this moment into eternity."
+        },
+        {
+          "id": "voice-5867",
+          "title": "Investigation Halted",
+          "content": "Sometimes, the beauty of art lies in its annihilation. But your failure... clearly doesn't fall into that category."
+        },
+        {
+          "id": "voice-6424",
+          "title": "Strike: I",
+          "content": "Stay focused."
+        },
+        {
+          "id": "voice-6423",
+          "title": "Strike: II",
+          "content": "Does it hurt?"
+        },
+        {
+          "id": "voice-6627",
+          "title": "Defense: I",
+          "content": "Come on."
+        },
+        {
+          "id": "voice-6628",
+          "title": "Defense: II",
+          "content": "Be careful."
+        },
+        {
+          "id": "voice-5748",
+          "title": "Hit: I",
+          "content": "(Groan)"
+        },
+        {
+          "id": "voice-5747",
+          "title": "Hit: II",
+          "content": "(Groan)"
+        },
+        {
+          "id": "voice-6104",
+          "title": "Hit: III",
+          "content": "(Groan)"
+        },
+        {
+          "id": "voice-5749",
+          "title": "Hit: IV",
+          "content": "(Groan)"
+        },
+        {
+          "id": "voice-5534",
+          "title": "Skill: I",
+          "content": "Perfect!"
+        },
+        {
+          "id": "voice-5394",
+          "title": "Skill: II",
+          "content": "Bow to beauty."
+        },
+        {
+          "id": "voice-5833",
+          "title": "Rouse",
+          "content": "Listen to the Sculpted Cantabile!"
+        },
+        {
+          "id": "voice-5240",
+          "title": "Exalt",
+          "content": "True art needs no explanation."
+        },
+        {
+          "id": "voice-57830",
+          "title": "Over-Exalt",
+          "content": "The long-lost city of Lemuria, now finally unveiled."
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-100030",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Oh my, these are all great materials for carving..."
+        },
+        {
+          "id": "traphase-99949",
+          "title": "Chat: About Nymphaea",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Of course, you're a lady of refined taste.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0037",
+              "lineId": "traphase-99817"
+            },
+            {
+              "awakenerId": "awakener-0045",
+              "lineId": "traphase-99949"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99952",
+          "title": "Chat: About Liz",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Such a beautiful, delicate, and fragile figure, how perfectly it matches the hue of Carrara marble...",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0045",
+              "lineId": "traphase-99952"
+            },
+            {
+              "awakenerId": "awakener-0030",
+              "lineId": "traphase-99802"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100181",
+          "title": "Chat: About Faros",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Your face is so exquisite and extraordinary; may I preserve such beauty in an eternal sculpture?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0045",
+              "lineId": "traphase-100181"
+            },
+            {
+              "awakenerId": "awakener-0017",
+              "lineId": "traphase-99751"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100153",
+          "title": "Chat: About Corposant",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "A pilot bravely facing the lightning—what a touching sculpture theme.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0045",
+              "lineId": "traphase-100153"
+            },
+            {
+              "awakenerId": "awakener-0011",
+              "lineId": "traphase-99876"
+            }
+          ]
+        },
+        {
+          "id": "traphase-120276",
+          "title": "Chat: About Pickman",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Just what I desired, Mr. Pickman. I trust your work will not prove mediocre.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0040",
+              "lineId": "traphase-120247"
+            },
+            {
+              "awakenerId": "awakener-0045",
+              "lineId": "traphase-120276"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99774",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Insights emerge, but they also need to be refined..."
+        },
+        {
+          "id": "traphase-99863",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Every second letting an inspiration sit is a disrespect to art."
+        },
+        {
+          "id": "traphase-100020",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Behold, this object of ultimate beauty!"
+        },
+        {
+          "id": "traphase-100144",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "A mediocre failure, unworthy of existence."
+        },
+        {
+          "id": "traphase-99762",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Devoted to beauty..."
+        }
+      ]
+    }
   }
 }

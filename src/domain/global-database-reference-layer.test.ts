@@ -40,6 +40,37 @@ function getSegmentText(segment: RichSegment): string {
 }
 
 describe('hydrateGlobalDatabaseReferenceInfo', () => {
+  it('resolves event relic braces to the stack mechanic and generated card', async () => {
+    const layer = buildGlobalDatabaseReferenceLayer()
+    const flame = resolveDatabaseReferenceInfoByKindAndName(layer, 'overlay', 'Blackened Flame')
+    const combustion = resolveDatabaseReferenceInfo(layer, 'Endless Combustion')
+    const segments = parseDatabaseRichDescription({
+      record: {
+        id: 'relic-0324',
+        kind: 'relic',
+        displayName: 'Blackened Flame',
+        descriptionTemplate:
+          'Gain {Blackened Flame}, then put {Endless Combustion} into hand. Play a {Burned} card.',
+        descriptionArgs: {},
+      },
+      referenceLayer: layer,
+    })
+    expect(segments).toContainEqual({type: 'mechanic', name: 'Blackened Flame'})
+    expect(segments).toContainEqual({type: 'mechanic', name: 'Burned'})
+    expect(segments).toContainEqual({type: 'skill', name: 'Endless Combustion'})
+    expect(flame).toMatchObject({kind: 'overlay', id: 'overlay.global.blackened-flame'})
+    expect(combustion).toMatchObject({
+      kind: 'derived-skill',
+      id: 'derived.global.endless-combustion',
+    })
+    if (!flame || !combustion) throw new Error('Missing event relic references')
+    const hydratedFlame = await hydrateGlobalDatabaseReferenceInfo(flame)
+    const hydratedCard = await hydrateGlobalDatabaseReferenceInfo(combustion)
+    expect(hydratedFlame.description).toContain('10%')
+    expect(hydratedCard.description).toContain('3 Arithmetica')
+    expect(hydratedCard.description).toContain('take effect twice')
+  })
+
   it('hydrates catalog-backed Orison and Relic family stubs', async () => {
     const referenceLayer = buildGlobalDatabaseReferenceLayer()
     const orison = resolveDatabaseReferenceInfoByKindAndName(referenceLayer, 'orison', 'Finesse')

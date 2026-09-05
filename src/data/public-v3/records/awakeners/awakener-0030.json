@@ -55,6 +55,7 @@
   "profile": {
     "title": "Liz",
     "birthday": "31-Jan",
+    "voiceActor": "Aoike Yuka",
     "gender": "Female",
     "height": "5'5''",
     "weight": "?",
@@ -69,7 +70,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "A.F. 31@1, December, the police received a report from the manager of the second theater in @2 Garden. The reporter claimed that there had been four small-scale fires in the theater within a week, and rumors of the \"Ballet Ghost\" were rampant among the members of the dance troupe renting the theater.\n\nTo ensure the smooth premiere of the ballet \"Swan's Lament,\" the police launched a joint investigation with the West District Fire Department.\n\nThe day before the performance, Mythag University finally took over the investigation. The investigators noted traces of Gnosis residue behind several fire points. Eventually, Investigator @3 discovered an Awakener in the underground ruins of the second theater.\n\nThis Awakener was not a mindless individual; she identified herself as \"Liz.\" After communication, the Awakener Liz eventually admitted to her arson crime. After the premiere of \"Swan's Lament,\" Investigator @3 took Liz back to Mythag University for formal incorporation.\n\nAccording to historical records, when the fire broke out at the second theater in @2 Garden on A.F. 29@1, a ballet was being performed. Among those who perished in the flames were a number of nobles in the audience, as well as a young prima ballerina named \"Elizabeth Sur.\""
       },
       {
@@ -90,6 +91,326 @@
         "unlockCondition": "Affinity Level 9",
         "content": "This is the Promised Land, an artistic utopia, the ultimate paradise—dance should be the dancer's home, kept in eternal purity.\n\nSo long as I burn, filth cannot taint our Church... This is my mission, my hope... Let me burn brightly, and I shall cleanse away all impurity, for everyone."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-5167",
+          "title": "Awaken",
+          "content": "You provided me with a place to stay, and I am grateful. But forgive me, I no longer deserve to stand upon the stage again."
+        },
+        {
+          "id": "voice-6316",
+          "title": "Upgrade: I",
+          "content": "Keep improving your composure."
+        },
+        {
+          "id": "voice-6318",
+          "title": "Upgrade: II",
+          "content": "Are my movements accurate enough?"
+        },
+        {
+          "id": "voice-6317",
+          "title": "Upgrade: III",
+          "content": "Fouette. Twenty more times."
+        },
+        {
+          "id": "voice-5744",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "This reminds me of the first pair of red dancing shoes I received when I was eight. I really love them. Thank you, Keeper."
+        },
+        {
+          "id": "voice-5051",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "Close your eyes and tell me, what do you see? Immaculate moonlight, a tranquil lake..."
+        },
+        {
+          "id": "voice-5050",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "Even if my heart holds no more longing, I will still play the role of the swan."
+        },
+        {
+          "id": "voice-5883",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "It is the yearning for life that drives the swan to struggle for its return to the distant sky."
+        },
+        {
+          "id": "voice-5048",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "No matter how you struggle, you cannot defy fate. But that fleeting moment of brilliance will be frozen into eternity."
+        },
+        {
+          "id": "voice-5047",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "I will include your name in my acknowledgments. It is you who allowed these feet, tainted by dark blood, to step into the wonderful world of ballet once more. From now on, please watch me dance, Keeper."
+        },
+        {
+          "id": "voice-6593",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "Do you want me to take the stage and shine? That's impossible now. These eyes have been consumed by hatred. All I can do is burn everything to ashes."
+        },
+        {
+          "id": "voice-6594",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "Do you understand that feeling? Spinning, spinning, spinning, never stopping. Knees stretched to the limit, toes bleeding black, soaking the ballet shoes, yet never pausing. All because I refuse to accept the fate of being a mere toy..."
+        },
+        {
+          "id": "voice-6595",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "I didn't burn skilled court dancers, graceful ballet masters, or nobles who appreciate beauty. I burned useless fools selling their bodies, sycophants disregarding others, and filthy beings lost in lust... You understand me, right?"
+        },
+        {
+          "id": "voice-6590",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "The devout dancer is dead, and the blasphemer of art is also dead, both perished in flames filled with the scent of tar. Death is not the end but the beginning, for only humans die; dance and art are eternal."
+        },
+        {
+          "id": "voice-6591",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "Thank you for your understanding. Perhaps now is the time to reconcile with my past self... I believe I am doing the right thing and have not disgraced my family's legacy in dance. I will step onto the stage you have prepared and shine as you wish."
+        },
+        {
+          "id": "voice-6105",
+          "title": "Chat: Touch",
+          "content": "Do you also wish to be consumed by the green flames?"
+        },
+        {
+          "id": "voice-5068",
+          "title": "Chat: About Dancing",
+          "content": "Dance is pure. Words may lead to misunderstandings, but dance steps never do."
+        },
+        {
+          "id": "voice-4980",
+          "title": "Chat: About Tinct",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Tinct\"",
+          "content": "Tinct... Hearing her mournful song makes me want to dance..."
+        },
+        {
+          "id": "voice-5878",
+          "title": "Chat: About the Flames",
+          "content": "Rumor has it that bodies twitching in the flames appear as if they are dancing..."
+        },
+        {
+          "id": "voice-5497",
+          "title": "Chat: About Dissolution",
+          "content": "Wait a minute... I've seen this before. They fed me water with this black goo in it. Could it be related to my gaining the power of the Green Flame? I suppose it is a blessing in disguise."
+        },
+        {
+          "id": "voice-5810",
+          "title": "Chat: About Mythag",
+          "content": "My life revolves around dance. Learning other knowledge is difficult for me to grow. But everyone here is kind; they won't sell me out for vanity or money—I can feel it."
+        },
+        {
+          "id": "voice-6528",
+          "title": "Chat: What I Like",
+          "content": "\"The Dying Swan,\" a performance in which the dancer uses body language to convey the longing and struggle of life. Isn't that twisted figure in the flames the same?"
+        },
+        {
+          "id": "voice-5989",
+          "title": "Chat: What I Hate",
+          "content": "\"The Nutcracker\" is supposed to be a romantic fairy tale for girls, but those repulsive individuals only saw the graceful limbs in motion and vulgar desires... Disgusting."
+        },
+        {
+          "id": "voice-5036",
+          "title": "Chat: About the Keeper",
+          "content": "Are you here to save me? From the decaying world, from the hatred that stains my eyes, from the eternal green flames..."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-6020",
+          "title": "Investigation Begins",
+          "content": "Dance amidst the emerald flames."
+        },
+        {
+          "id": "voice-6492",
+          "title": "Investigation Success",
+          "content": "May the irreverent be dissolved in this searing tranquility."
+        },
+        {
+          "id": "voice-6739",
+          "title": "Investigation Halted",
+          "content": "We will all become... part of the Green Flame..."
+        },
+        {
+          "id": "voice-5646",
+          "title": "Strike: I",
+          "content": "Go."
+        },
+        {
+          "id": "voice-5647",
+          "title": "Strike: II",
+          "content": "Spin."
+        },
+        {
+          "id": "voice-6409",
+          "title": "Defense: I",
+          "content": "Move with elegance."
+        },
+        {
+          "id": "voice-6408",
+          "title": "Defense: II",
+          "content": "Grant serenity...!"
+        },
+        {
+          "id": "voice-6401",
+          "title": "Hit: I",
+          "content": "(Hums)"
+        },
+        {
+          "id": "voice-6403",
+          "title": "Hit: II",
+          "content": "(Hums)"
+        },
+        {
+          "id": "voice-6402",
+          "title": "Hit: III",
+          "content": "(Hums)"
+        },
+        {
+          "id": "voice-6404",
+          "title": "Hit: IV",
+          "content": "(Hums)"
+        },
+        {
+          "id": "voice-5155",
+          "title": "Skill: I",
+          "content": "Unforgivable."
+        },
+        {
+          "id": "voice-6636",
+          "title": "Skill: II",
+          "content": "Turn to ashes."
+        },
+        {
+          "id": "voice-5163",
+          "title": "Rouse",
+          "content": "Now I grant you eternal life!"
+        },
+        {
+          "id": "voice-5017",
+          "title": "Exalt",
+          "content": "Here I present, the Dance to Destruction of the Eternal Green Flame!"
+        },
+        {
+          "id": "voice-56390",
+          "title": "Over-Exalt",
+          "content": "Sink and burn! Dance to destruction!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-100112",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Is my eternal green flame what you desire?"
+        },
+        {
+          "id": "traphase-100037",
+          "title": "Chat: About Hameln",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Such elegant music. If only there were such accompaniment while I danced...",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0030",
+              "lineId": "traphase-100037"
+            },
+            {
+              "awakenerId": "awakener-0022",
+              "lineId": "traphase-100107"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99802",
+          "title": "Chat: About Sanga",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I'm flattered. Are you inviting me... to be your sculpture model?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0045",
+              "lineId": "traphase-99952"
+            },
+            {
+              "awakenerId": "awakener-0030",
+              "lineId": "traphase-99802"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99987",
+          "title": "Chat: About Tinct",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "You shouldn't think that way. On stage, music and dance are equal. You could even say that you are singing along with my dance.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0049",
+              "lineId": "traphase-99939"
+            },
+            {
+              "awakenerId": "awakener-0030",
+              "lineId": "traphase-99987"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99850",
+          "title": "Chat: About Faint",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Your posture is beautiful, too. If you'd like to learn to dance, I can teach you. You can do it as well.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0016",
+              "lineId": "traphase-99897"
+            },
+            {
+              "awakenerId": "awakener-0030",
+              "lineId": "traphase-99850"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100194",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "What kind of choreography should I do for the next eight-count..."
+        },
+        {
+          "id": "traphase-99883",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Keep up with the rhythm, raise your arms!"
+        },
+        {
+          "id": "traphase-99953",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Burn together in the embrace of Green Flames!"
+        },
+        {
+          "id": "traphase-100205",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "No, not right. Should've made one more spin..."
+        },
+        {
+          "id": "traphase-100139",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Burned... to ashes..."
+        }
+      ]
+    }
   }
 }

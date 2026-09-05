@@ -1,4 +1,4 @@
-import {fireEvent, render, screen} from '@testing-library/react'
+import {fireEvent, render, screen, within} from '@testing-library/react'
 import {describe, expect, it, vi} from 'vitest'
 
 import {AwakenerDetailCards} from './AwakenerDetailCards'
@@ -179,29 +179,54 @@ describe('AwakenerDetailCards', () => {
     )
 
     expect(screen.getAllByText('E1')).toHaveLength(2)
-    expect(screen.getByText('E3')).toBeInTheDocument()
-    expect(screen.getAllByText('T1')).toHaveLength(3)
-    expect(screen.getByText('Cost 2')).toBeInTheDocument()
-    expect(screen.getByText('Rouse text|{Retain}, {Prepare 2}')).toBeInTheDocument()
-    expect(screen.getByText('Base Cards')).toBeInTheDocument()
-    expect(screen.getByText('Extra Cards')).toBeInTheDocument()
-    expect(screen.getByText('Important Extra')).toBeInTheDocument()
-    expect(screen.getByText('Important Extra').closest('[data-card-header]')).toHaveTextContent(
-      /Important Extra.*Cost 0.*Command.*Derived/,
-    )
-    expect(screen.getByText('Extra text|{Exhaust}')).toBeInTheDocument()
     expect(
-      screen.getByText('Twisted Carrion Revel').closest('[data-card-header]'),
+      within(screen.getByRole('region', {name: 'Reading area'})).getByText('E3'),
+    ).toBeInTheDocument()
+    expect(screen.getAllByText('T1')).toHaveLength(3)
+    expect(
+      within(screen.getByRole('region', {name: 'Reading area'})).getByText('Cost 2'),
+    ).toBeInTheDocument()
+    expect(
+      within(screen.getByRole('region', {name: 'Reading area'})).getByText(
+        'Rouse text|{Retain}, {Prepare 2}',
+      ),
+    ).toBeInTheDocument()
+    expect(
+      within(screen.getByRole('region', {name: 'Reading area'})).getByText('Base Cards'),
+    ).toBeInTheDocument()
+    expect(
+      within(screen.getByRole('region', {name: 'Reading area'})).getByText('Extra Cards'),
+    ).toBeInTheDocument()
+    expect(
+      within(screen.getByRole('region', {name: 'Reading area'})).getByText('Important Extra'),
+    ).toBeInTheDocument()
+    expect(
+      within(screen.getByRole('region', {name: 'Reading area'}))
+        .getByText('Important Extra')
+        .closest('[data-card-header]'),
+    ).toHaveTextContent(/Important Extra.*Cost 0.*Command.*Derived/)
+    expect(
+      within(screen.getByRole('region', {name: 'Reading area'})).getByText('Extra text|{Exhaust}'),
+    ).toBeInTheDocument()
+    expect(
+      within(screen.getByRole('region', {name: 'Reading area'}))
+        .getByText('Twisted Carrion Revel')
+        .closest('[data-card-header]'),
     ).toHaveTextContent(/Twisted Carrion Revel.*Cost 100.*Exalt/)
     expect(
-      screen.getByText('Mediating Personalities').closest('[data-card-header]'),
+      within(screen.getByRole('region', {name: 'Reading area'}))
+        .getByText('Mediating Personalities')
+        .closest('[data-card-header]'),
     ).toHaveTextContent(/Mediating Personalities.*Cost 2.*Rouse/)
-    expect(screen.getByText('Mortal Blast').closest('[data-card-header]')).toHaveTextContent(
-      /Mortal Blast.*Cost 1.*Command.*Skill.*Counts as Strike/,
-    )
-    expect(screen.getByText('Counts as Strike').parentElement).toHaveTextContent(
-      '·Counts as Strike',
-    )
+    expect(
+      within(screen.getByRole('region', {name: 'Reading area'}))
+        .getByText('Mortal Blast')
+        .closest('[data-card-header]'),
+    ).toHaveTextContent(/Mortal Blast.*Cost 1.*Command.*Skill.*Counts as Strike/)
+    expect(
+      within(screen.getByRole('region', {name: 'Reading area'})).getByText('Counts as Strike')
+        .parentElement,
+    ).toHaveTextContent('·Counts as Strike')
     expect(
       screen.getByRole('button', {name: 'Over Exalt'}).closest('[data-card-header]'),
     ).toHaveTextContent(/Face Death in Fiery Resolve.*Cost 200.*Exalt.*Over Exalt/)
@@ -273,8 +298,50 @@ describe('AwakenerDetailCards', () => {
     )
 
     expect(screen.queryByRole('region', {name: 'Voices from Beyond Orison Effects'})).toBeNull()
-    expect(screen.getByText(/Localized skill description/)).toHaveTextContent(
-      /Localized skill description.*\{orison:Bastion\}/,
+    expect(
+      within(screen.getByRole('region', {name: 'Reading area'})).getByText(
+        /Localized skill description/,
+      ),
+    ).toHaveTextContent(/Localized skill description.*\{orison:Bastion\}/)
+  })
+  it('offers only present skill groups and every index entry focuses its rendered target', () => {
+    const shellView = makeDatabaseShellView({
+      exalts: [],
+      promotedExtras: [],
+      commandCards: [
+        makeDatabaseDescribedEntry({
+          key: 'C1',
+          label: 'Rouse',
+          resolved: {description: 'Navigation description'} as never,
+          record: makeSkillRecord({
+            id: 'skill.navigation.rouse',
+            kind: 'rouse',
+            displayName: 'Navigation Rouse',
+          }),
+        }),
+      ],
+    })
+    const {container} = render(
+      <AwakenerDetailCards
+        referenceLayer={null}
+        shellView={shellView}
+        leadingContent={<p>Mobile progression controls</p>}
+      />,
     )
+    expect(screen.queryByRole('button', {name: 'Exalts'})).toBeNull()
+    expect(screen.queryByRole('button', {name: 'Extra Cards'})).toBeNull()
+    const controls = within(screen.getByRole('region', {name: 'Reading area'})).getByText(
+      'Mobile progression controls',
+    )
+    expect(controls.closest('.detail-reader-scroll')).not.toBeNull()
+    for (const option of container.querySelectorAll<HTMLOptionElement>('option[value]')) {
+      if (!option.value) continue
+      const target = document.getElementById(option.value)
+      expect(target).not.toBeNull()
+      fireEvent.change(screen.getByRole('combobox', {name: 'Index'}), {
+        target: {value: option.value},
+      })
+      expect(target).toHaveFocus()
+    }
   })
 })

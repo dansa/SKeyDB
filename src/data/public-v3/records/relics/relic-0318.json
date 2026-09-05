@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0318",
+  "name": "☆Painkillers☆",
+  "route": {
+    "slug": "painkillers",
+    "canonicalPath": "/database/relics/painkillers"
+  },
+  "assets": {
+    "icon": "asset-relic-0318-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0571",
+  "rarity": "N",
+  "aliases": [],
+  "descriptionTemplate": "At turn end, if there is no shield, gain 1 stack of {Barrier} that immunes one instance of DMG. This effect only triggers once per battle.",
+  "descriptionArgs": {},
+  "lore": "The effect isn't a one-time solution.",
+  "variants": [
+    {
+      "id": "relic-variant-0571",
+      "name": "☆Painkillers☆",
+      "label": "Event - Silver",
+      "variantType": "EVENT",
+      "tier": "Silver",
+      "category": "EVENT",
+      "rarity": "N",
+      "descriptionTemplate": "At turn end, if there is no shield, gain 1 stack of {Barrier} that immunes one instance of DMG. This effect only triggers once per battle.",
+      "descriptionArgs": {},
+      "lore": "The effect isn't a one-time solution."
+    }
+  ]
+}

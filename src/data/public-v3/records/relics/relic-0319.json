@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0319",
+  "name": "☆Immortal Flesh☆",
+  "route": {
+    "slug": "immortal-flesh",
+    "canonicalPath": "/database/relics/immortal-flesh"
+  },
+  "assets": {
+    "icon": "asset-relic-0319-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0572",
+  "aliases": [],
+  "descriptionTemplate": "Increases Max HP by 100% when picked up. Lose [Arg1] HP at turn start.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.05,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "\"Marine life often sheds limbs to survive.\"",
+  "variants": [
+    {
+      "id": "relic-variant-0572",
+      "name": "☆Immortal Flesh☆",
+      "label": "Event - Cursed",
+      "variantType": "EVENT",
+      "tier": "Cursed",
+      "category": "EVENT",
+      "descriptionTemplate": "Increases Max HP by 100% when picked up. Lose [Arg1] HP at turn start.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.05,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "\"Marine life often sheds limbs to survive.\""
+    }
+  ]
+}

@@ -55,6 +55,7 @@
   "profile": {
     "title": "Daffodil",
     "birthday": "10-Oct",
+    "voiceActor": "Koshimizu Ami",
     "gender": "Female",
     "height": "5'7.7''",
     "weight": "132lbs",
@@ -90,6 +91,334 @@
         "unlockCondition": "Affinity Level 9",
         "content": "In the gray, viscous Sea of Primordial Essence, emptiness prevails; the notions shared by travelers crossing dimensions remain confined to abstract descriptions and imagination.\n\nIt wants to confirm with its own eyes the \"places of human yearning,\" to witness the magnificent wonders of the mortal world, and to experience the bittersweet nuances of human love and loss.\n\nYet above all, it desires a specific person, someone to cherish, someone to trust.\n\nA fair trade means equality, detachment, and accounts settled—not a fraction more is paid, nor a fraction less taken. But it yearns for something different—an unconditional trust to bridge the divide, to break through cautious probe, to thaw the lingering ice.\n\nIt had found that, then lost it. But it would find it again."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-6506",
+          "title": "Awaken",
+          "content": "Hello, my name is Daffodil. I made an exchange with a guest who requested I assist you. So, let me hear what you require. \nOh dear... what you wish for comes at quite a price, doesn't it?"
+        },
+        {
+          "id": "voice-5632",
+          "title": "Upgrade: I",
+          "content": "So I will feed on this instead of Sepirot from now on?"
+        },
+        {
+          "id": "voice-5633",
+          "title": "Upgrade: II",
+          "content": "Delicious. Absolutely delicious."
+        },
+        {
+          "id": "voice-5634",
+          "title": "Upgrade: III",
+          "content": "What do you want in return, dear guest?"
+        },
+        {
+          "id": "voice-5796",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "Daffodil's shop is now open. Children who aren't prepared, please don't wander in casually."
+        },
+        {
+          "id": "voice-5090",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "My wares? You could say I have everything to satisfy all your desires... for a price."
+        },
+        {
+          "id": "voice-5087",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "Skull of Love, Skull of Resentment, Skull of Hatred, Skull of Desire... Oh, here you are again, dear guest?"
+        },
+        {
+          "id": "voice-5088",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "Since this is a transaction, I can't simply accept your gift. Would you like to choose something from my shop?"
+        },
+        {
+          "id": "voice-5085",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "The extent of my contribution to your power ends here. Being too greedy is not a good thing, you know."
+        },
+        {
+          "id": "voice-5086",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "What do you expect in return from me? Anything beside lending you power in battles?"
+        },
+        {
+          "id": "voice-5908",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "Curious about my true identity? It's still too early for that. Just believe this: Every lost child can find their way in my shop. Perhaps that includes you as well?"
+        },
+        {
+          "id": "voice-5907",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "You are a delightful guest; even I am captivated by your unique skull... If you ever consider parting with it, be sure to visit my little shop. Haha... just a jest."
+        },
+        {
+          "id": "voice-5906",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "Oh, curious about my secret? This name, this body, this face, this voice—they all came from a woman from San Pedro, to whom one of my skulls once belonged. She struck a deal with me... After her death, I became her. As for her whereabouts... well, that is my most exquisite collection, you know."
+        },
+        {
+          "id": "voice-5912",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "I wasn't always like this; she gave me a new life. In that sense, you have also given me a second life, so I will treasure your head as well."
+        },
+        {
+          "id": "voice-5911",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "Seeing how hard you're working, I almost feel guilty about collecting my reward too soon. So, I'll allow your head to stay where it is for now. But don't forget, it's already reserved as my personal property, okay?"
+        },
+        {
+          "id": "voice-6622",
+          "title": "Chat: Touch",
+          "content": "Hmm? Are you interested in me? Then I suppose... you're also ready to pay the price?"
+        },
+        {
+          "id": "voice-6611",
+          "title": "Chat: About Caecus",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Caecus\"",
+          "content": "Oh dear, no returns on items sold here! You do need a submarine to dive into the deep seas, don't you?"
+        },
+        {
+          "id": "voice-6344",
+          "title": "Chat: About Winkle",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Winkle\"",
+          "content": "That lady with heavy dark circles once consulted me about \"living forever in the sun\"... She only needed to migrate between two dimensions. Yet, she refuses to step into the Dimension Tunnel. It was truly a headache."
+        },
+        {
+          "id": "voice-5563",
+          "title": "Chat: About Goliath",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Goliath\"",
+          "content": "Oh, how can there be such an arrogant guest, wanting \"the most powerful weapon in the world\"? I told him it would take a head soaked in hatred to exchange for it, and he walked away sullenly..."
+        },
+        {
+          "id": "voice-6356",
+          "title": "Chat: About Dissolution",
+          "content": "A method to heal Dissolution? Such a thing doesn't exist anywhere. You ask how I remain uninfected? Hehe... It only takes \"not getting seen\"."
+        },
+        {
+          "id": "voice-6587",
+          "title": "Chat: About Mythag",
+          "content": "My shop exists in any dimension, any location in the universe, and of course, it can be here. Besides, I like those careless children in Mythag."
+        },
+        {
+          "id": "voice-6191",
+          "title": "Chat: What I Like",
+          "content": "I love new things. Over my millennia of travels, I have witnessed many fascinating innovations and inventions, such as poetic forms and cinematic scenes. Humans are truly intriguing creatures."
+        },
+        {
+          "id": "voice-5591",
+          "title": "Chat: What I Hate",
+          "content": "I detest people who don't pay for what they buy. If you run a store long enough, you'll encounter this trouble. I have no choice but to handle it personally and get the due payment back."
+        },
+        {
+          "id": "voice-5896",
+          "title": "Chat: About the Keeper",
+          "content": "You are my esteemed guest. Remember, you're the only one allowed to run a tab. After all, it's been years since I last saw such a perfect skull..."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-5523",
+          "title": "Investigation Begins",
+          "content": "Oh, do I need to display the items for you?"
+        },
+        {
+          "id": "voice-5426",
+          "title": "Investigation Success",
+          "content": "That was a decent skull for a trophy... Though it can't compare to my best collection, the thrill of the hunt is always exciting. Do invite me next time, too."
+        },
+        {
+          "id": "voice-6425",
+          "title": "Investigation Halted",
+          "content": "The passage of millennia has made me somewhat careless."
+        },
+        {
+          "id": "voice-5799",
+          "title": "Strike: I",
+          "content": "Go."
+        },
+        {
+          "id": "voice-6515",
+          "title": "Strike: II",
+          "content": "Give it to me."
+        },
+        {
+          "id": "voice-6428",
+          "title": "Defense: I",
+          "content": "Be careful."
+        },
+        {
+          "id": "voice-5793",
+          "title": "Defense: II",
+          "content": "Don't break it."
+        },
+        {
+          "id": "voice-5792",
+          "title": "Hit: I",
+          "content": "(Exclamation)"
+        },
+        {
+          "id": "voice-5023",
+          "title": "Hit: II",
+          "content": "(Exclamation)"
+        },
+        {
+          "id": "voice-5024",
+          "title": "Hit: III",
+          "content": "(Exclamation)"
+        },
+        {
+          "id": "voice-5021",
+          "title": "Hit: IV",
+          "content": "(Exclamation)"
+        },
+        {
+          "id": "voice-5881",
+          "title": "Skill: I",
+          "content": "Cry."
+        },
+        {
+          "id": "voice-5780",
+          "title": "Skill: II",
+          "content": "I'll keep this for you."
+        },
+        {
+          "id": "voice-5862",
+          "title": "Rouse",
+          "content": "Beyond the Gate!"
+        },
+        {
+          "id": "voice-6498",
+          "title": "Exalt",
+          "content": "Behold your visage, O endless skulls!"
+        },
+        {
+          "id": "voice-56389",
+          "title": "Over-Exalt",
+          "content": "The Thousand-Faced Mirage is here!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-99874",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "As for the reward for the new commission, I presume you've already prepared?"
+        },
+        {
+          "id": "traphase-99869",
+          "title": "Chat: About Casiah",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I hope you'll be a bit more obedient. I don't have the same patience for taming monsters as she does.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0012",
+              "lineId": "traphase-99869"
+            },
+            {
+              "awakenerId": "awakener-0007",
+              "lineId": "traphase-99937"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100015",
+          "title": "Chat: About Sorel",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I'm flattered, but no need. My little shop practices fair trade. If too many customers come in just to look without buying, I'd have a headache too.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0046",
+              "lineId": "traphase-99829"
+            },
+            {
+              "awakenerId": "awakener-0012",
+              "lineId": "traphase-100015"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99808",
+          "title": "Chat: About Ryker",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "If good luck could be a commodity, I'm sure it would be very popular... Don't worry, I'm not the kind of devil who trades in human souls.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0012",
+              "lineId": "traphase-99808"
+            },
+            {
+              "awakenerId": "awakener-0043",
+              "lineId": "traphase-99835"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99815",
+          "title": "Chat: About Jenkin",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Naughty little mouse, you'll be tied up and tickled until you beg for mercy."
+        },
+        {
+          "id": "traphase-146418",
+          "title": "Chat: About Lotan: Cetarchon",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "A hunter who stalks the wrong prey pays dearly for their mistake.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0059",
+              "lineId": "traphase-146415"
+            },
+            {
+              "awakenerId": "awakener-0012",
+              "lineId": "traphase-146418"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99941",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Hmm... This is a bit challenging, but of course I can resolve it for you."
+        },
+        {
+          "id": "traphase-99778",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Excessive waiting time will also be factored into the commission fee."
+        },
+        {
+          "id": "traphase-99892",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Behold the endless ocean of skulls!"
+        },
+        {
+          "id": "traphase-100060",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Sorry, dear customer; I won't charge you for the part where I made a mistake."
+        },
+        {
+          "id": "traphase-100219",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "There are moments when even I feel powerless..."
+        }
+      ]
+    }
   }
 }

@@ -17,7 +17,7 @@
   "acquisitionSource": "Clear Psyche Deepdive: Till the Cetus Falls",
   "realm": "CHAOS",
   "lineupToken": "7",
-  "descriptionTemplate": "Gain [Arg2] {STR}. Choose 1 Awakener to Steal up to [Arg1] Aliemus from other Awakeners. If Lotan: Cetarchon is in the party, the next \"Strike\" of Lotan: Cetarchon takes effect 1 additional time.\nScaling guide: {Primordia Mastery Scaling}",
+  "descriptionTemplate": "Gain [Arg2] {STR}. Choose 1 Awakener to Steal up to [Arg1] Aliemus from other Awakeners. If Lotan: Cetarchon is in the team, the next \"Strike\" of Lotan: Cetarchon takes effect 1 additional time.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",

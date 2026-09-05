@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0322",
+  "name": "☆Nightmare Lantern☆",
+  "route": {
+    "slug": "nightmare-lantern",
+    "canonicalPath": "/database/relics/nightmare-lantern"
+  },
+  "assets": {
+    "icon": "asset-relic-0322-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0575",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "If the number of cards played last turn is less than or equal to 4, the first card played this turn takes effect twice.",
+  "descriptionArgs": {},
+  "lore": "Introduce Phantasm.",
+  "variants": [
+    {
+      "id": "relic-variant-0575",
+      "name": "☆Nightmare Lantern☆",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "If the number of cards played last turn is less than or equal to 4, the first card played this turn takes effect twice.",
+      "descriptionArgs": {},
+      "lore": "Introduce Phantasm."
+    }
+  ]
+}

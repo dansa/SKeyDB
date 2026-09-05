@@ -55,6 +55,7 @@
   "profile": {
     "title": "Xu",
     "birthday": "1-Jun",
+    "voiceActor": "Tanaka Rie",
     "gender": "Female",
     "height": "?+5'5.2''",
     "weight": "?+105lbs",
@@ -90,6 +91,313 @@
         "unlockCondition": "Affinity Level 9",
         "content": "Have you ever felt the world grow so deathly quiet that you felt the urge to shatter something, just to hear the sound?\n\nLust is the silver vase she hurls; the prey startled by its chime... they will slaughter for love and be slaughtered by love, until their spirit is bled dry and only a hollow shell remains.\n\nThen, those drained husks will offer her ever greater dominion, staining everything in sight with a bloody, delicious chaos.\n\nA chaos that never ends."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-126988",
+          "title": "Awaken",
+          "content": "I am Xu, the Mistress of the Dreamless Land. If, in your heart, there is one you ache to see, yet cannot attain, I shall lower my fan and grant you a glimpse."
+        },
+        {
+          "id": "voice-126952",
+          "title": "Upgrade: I",
+          "content": "Do you anticipate a greater beauty from me, or a greater dread?"
+        },
+        {
+          "id": "voice-126950",
+          "title": "Upgrade: II",
+          "content": "Such attentiveness makes me want to tease you all the more."
+        },
+        {
+          "id": "voice-126963",
+          "title": "Upgrade: III",
+          "content": "These slight diversions are more to my liking than the offerings of my devotees."
+        },
+        {
+          "id": "voice-126953",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "There was once a Princess born of Pleasure. Her robes were threaded with gold, her skin like ivory, the scent of agarwood drifted around her, and the mere sweep of her gaze could steal a soul."
+        },
+        {
+          "id": "voice-126968",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "I have almost forgotten her tale entirely, but it was one of Rapture, one of Cruelty, one that began with Abandonment and Retribution, and concluded with Sacrifice and Blind Obedience."
+        },
+        {
+          "id": "voice-126954",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "She soon tired of the sport. Her devotees merely repeated the same theatre, consumed by the Love born of Lust, or the Lust born of Love. Their foolishness—their heartbreak over betrayal and loss—it bored her. Their tears, too, bored her."
+        },
+        {
+          "id": "voice-126964",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "First Their bearing, then Their shape, until They also possessed a pair of... or rather, until all that remained memorable was a pair of beautiful, Soul-Capturing Eyes—eyes just like mine."
+        },
+        {
+          "id": "voice-126958",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "Do you not love me? Then why cower when you are encompassed? Do you not loath me? Then why weep when there is no return?\nOh, now you fear my shadow? Has the fragrance of white magnolia become a cloying, inexplicable musk to you?"
+        },
+        {
+          "id": "voice-126972",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "Do not trouble yourself; you are not like those common multitude. \nHush. Do not look behind me. Pay no mind to the unseen caress. Look into my eyes, and my eyes alone."
+        },
+        {
+          "id": "voice-126976",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "Ah, you stare, enraptured by my fan again? Hehe. No matter whose face you desire, I shall let you have it. Come, draw closer—\nOh? You refuse? Such cold words, yet such an adorable expression..."
+        },
+        {
+          "id": "voice-126965",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "I am utterly bored this day. Is there no wish you require me to make manifest?\n\nA pity you don't. So many are willing to wield the scythe and offer me sweetmeat for far more trifling ends.\nBut if it's you asking..."
+        },
+        {
+          "id": "voice-126966",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "Why does the Order of the Swelling Grace follow me, and what was its genesis? An amusing query. Have you, too, known the person unattainable, or the regret of failed struggle?\nHmm, it seems not. What a waste. That look of desperate struggle—it would be so very amusing to behold on your face."
+        },
+        {
+          "id": "voice-126985",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "You are truly a marvel, so preoccupied with the trivialities of the corporeal, in a world already marked for ruin.\n\nIt compels me to take an interest myself."
+        },
+        {
+          "id": "voice-126971",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "Beneath my fan, every soul sees the face of their most cherished. I lend this power to the weak, that they may wield it as a blade for my own amusement.\n\nBut perhaps—I only say, perhaps. If you were to be enthralled by it, I would know a true, unsullied Ecstasy."
+        },
+        {
+          "id": "voice-126967",
+          "title": "Chat: Touch",
+          "content": "...If you continue to trespass thus, the guise I adopt for you may not remain so agreeable."
+        },
+        {
+          "id": "voice-126983",
+          "title": "Chat: About the Crisis",
+          "content": "All things end in the Void. Why not seek some further pleasure with me before then?\n\nRest assured, should the day come that you cannot resist the Dissolution further, I shall not allow It to claim you first."
+        },
+        {
+          "id": "voice-126982",
+          "title": "Chat: About Mythag",
+          "content": "The University so firmly rejected my application for the psychological therapy office. How strange; what objection could they possibly hold?"
+        },
+        {
+          "id": "voice-127090",
+          "title": "Chat: What I Like",
+          "content": "In the legends of the Panlong Empire, the peacock is a handsome, flamboyant, and malicious beast. Beautiful and viscious—it makes the heart race. Ugly and kind, however, is rather boring."
+        },
+        {
+          "id": "voice-127088",
+          "title": "Chat: What I Hate",
+          "content": "All nascent beings are a bother. Small, soft, loud, they unconsciously command all things around them.\n\nI enjoy a spectacle, but decidedly not that sort. Pray, ensure they remain far, far away."
+        },
+        {
+          "id": "voice-127089",
+          "title": "Chat: About the Keeper",
+          "content": "You? You are my little Jasmine, my obedient darling, the delightful game of playhouse I so willingly participate in...\nAh, mere happy ravings. Please pay them no mind."
+        },
+        {
+          "id": "voice-126956",
+          "title": "Chat: About Sorel",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Sorel\"",
+          "content": "That Madam in Red once sent me several invitations to her salons.\nThe foreign confections were passable, but... \nShe ought to have informed me sooner that at her residence, \"desserts\" and \"servants\" were not synonymous."
+        },
+        {
+          "id": "voice-126981",
+          "title": "Chat: About Lily",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Lily\"",
+          "content": "I, too, once had such a pretty, compliant girl. A tempting flower-bud, of course she needed a few thorns—she could not simply be placed in a vase."
+        },
+        {
+          "id": "voice-126960",
+          "title": "Chat: The Order of Swelling Grace",
+          "content": "Oh? You ask why they bore those marks under their arms? Do you not find it utterly diverting?"
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-126955",
+          "title": "Investigation Begins",
+          "content": "The gaze of such petty, common minds is an utter vexation to me."
+        },
+        {
+          "id": "voice-126948",
+          "title": "Investigation Success",
+          "content": "You ask why Their crania are so vacant? Hmm, perhaps it is merely Their nature."
+        },
+        {
+          "id": "voice-126970",
+          "title": "Investigation Halted",
+          "content": "...This, at least, grants me a slight spark of interest."
+        },
+        {
+          "id": "voice-126984",
+          "title": "Strike: I",
+          "content": "Boring."
+        },
+        {
+          "id": "voice-126975",
+          "title": "Strike: II",
+          "content": "Noisy."
+        },
+        {
+          "id": "voice-126979",
+          "title": "Defense: I",
+          "content": "Hold your impudence."
+        },
+        {
+          "id": "voice-126986",
+          "title": "Defense: II",
+          "content": "Advance not!"
+        },
+        {
+          "id": "voice-126961",
+          "title": "Hit: I",
+          "content": "<Italic:Aiyah!>"
+        },
+        {
+          "id": "voice-126959",
+          "title": "Hit: II",
+          "content": "Sure."
+        },
+        {
+          "id": "voice-126969",
+          "title": "Skill: I",
+          "content": "Amuse me. Slay one another in pain and dread!"
+        },
+        {
+          "id": "voice-126977",
+          "title": "Skill: II",
+          "content": "What is it you are looking for in my Dreamless Land?"
+        },
+        {
+          "id": "voice-126973",
+          "title": "Rouse",
+          "content": "Hehe... Do any of you dare to behold my true form?"
+        },
+        {
+          "id": "voice-126949",
+          "title": "Exalt",
+          "content": "Suffer no Fury, know no Resentment, for All is Nullity."
+        },
+        {
+          "id": "voice-126946",
+          "title": "Over-Exalt",
+          "content": "Think not, Trouble not; Listen Blindly, Obey Mutely, for the Mortal Coil is only Burden!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-127010",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Hehe... let me see, what manner of amusement have we here?"
+        },
+        {
+          "id": "traphase-127011",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Hmmm. Let me see what \"trump card\" you have up your sleeves."
+        },
+        {
+          "id": "traphase-127007",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Watching you rack your brains so desperately... it truly makes my heart ache for you, dear."
+        },
+        {
+          "id": "traphase-127008",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Know your place!"
+        },
+        {
+          "id": "traphase-127012",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "How dull. I think it is time for me to find a new cricket cage."
+        },
+        {
+          "id": "traphase-127015",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Oh? Now <Italic:that> is a spark of interest I hadn't anticipated..."
+        },
+        {
+          "id": "traphase-125384",
+          "title": "Chat: About Mouchette",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "...That child's energy is giving me a migraine. Sigh. Let us end this farce quickly."
+        },
+        {
+          "id": "traphase-127009",
+          "title": "Chat: About Jenkin",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Oh my. If you made your expression a bit more pitiful, and talked a bit sweeter... I might consider gifting you one.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0025",
+              "lineId": "traphase-127013"
+            },
+            {
+              "awakenerId": "awakener-0054",
+              "lineId": "traphase-127009"
+            }
+          ]
+        },
+        {
+          "id": "traphase-127006",
+          "title": "Chat: About Lily",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Ah, I'm afraid I have little interest in playing mother again so soon. However... would you like to hear a bedtime story?"
+        },
+        {
+          "id": "traphase-127016",
+          "title": "Chat: About Aigis",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "A submissive little thing like this... it does feel somewhat familiar.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0054",
+              "lineId": "traphase-127016"
+            },
+            {
+              "awakenerId": "awakener-0003",
+              "lineId": "traphase-127014"
+            }
+          ]
+        },
+        {
+          "id": "traphase-143458",
+          "title": "Chat: About Pontos",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Hmm~ Should I give you a sporting chance to catch me? Heheh.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0054",
+              "lineId": "traphase-143458"
+            },
+            {
+              "awakenerId": "awakener-0058",
+              "lineId": "traphase-143457"
+            }
+          ]
+        }
+      ]
+    }
   }
 }

@@ -55,6 +55,7 @@
   "profile": {
     "title": "Winkle",
     "birthday": "7-Sep",
+    "voiceActor": "Nanao Rin",
     "gender": "Female",
     "height": "5'6''",
     "weight": "123lbs",
@@ -90,6 +91,322 @@
         "unlockCondition": "Affinity Level 9",
         "content": "Survival is both an instinct and an unshakeable burden. In the face of a death that erases even memory, she alone is the proof that they ever existed—her parents, her friends, everything from her homeland.\n\nSo, she fled. She fled to an untainted world, to this ocean-covered planet, finding new life in the body of a deceased human girl.\n\nBut the black death has infinite patience.\n\nHuman eyes cannot see Dissolution, but she knew precisely what the chill at the edge of consciousness meant, what the darkness creeping through her mind signified—what humans call Dissolution has caught up, and without her knowing, had pinned her spirit and body together.\n\nAgain and again she tried to flee, and again and again she failed. Ultimately, utterly spent and with her mind pushed to its absolute limit, she could only drag her body toward the one place that might offer her salvation.\n\nNo matter the cost, she only wishes to live."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-5986",
+          "title": "Awaken",
+          "content": "I'm... just call me Winkle. That's what everyone calls me. Yes, call me that, just like they do..."
+        },
+        {
+          "id": "voice-6370",
+          "title": "Upgrade: I",
+          "content": "No, don't! Don't continue! It will find me! It will find me!"
+        },
+        {
+          "id": "voice-6371",
+          "title": "Upgrade: II",
+          "content": "This should keep me awake."
+        },
+        {
+          "id": "voice-6372",
+          "title": "Upgrade: III",
+          "content": "It's over! It's over! It's over! They'll definitely find out..."
+        },
+        {
+          "id": "voice-6699",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "When I partnered with Mythag University, it was clearly stipulated that I wouldn't be sent into battle..."
+        },
+        {
+          "id": "voice-5819",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "Damn it! Damn it! This power only keeps me trapped in this body!"
+        },
+        {
+          "id": "voice-5822",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "If I could shift Dimensions again, I'd want to become a star..."
+        },
+        {
+          "id": "voice-5823",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "No matter how I calculate, the formula for consciousness transfer remains unsolvable..."
+        },
+        {
+          "id": "voice-5820",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "I wish to stay in a place that's always bright... Yes, the poles. On this planet, only the poles."
+        },
+        {
+          "id": "voice-5821",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "I... I can't bear heavy responsibilities. I can only chase the light. So, please, don't stop shining..."
+        },
+        {
+          "id": "voice-6354",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "Whoa! Stay away from me! F-First, you have to prove that you're not a servant of darkness! Yeah, just take off your clothes and show me that you don't have that disgusting black slime on your body, then I'll know you're not evil..."
+        },
+        {
+          "id": "voice-6353",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "Could you use your supply share to get me two bags of caffeine supplements?... I can't sleep. Why would I sleep? I must never sleep! Once I close my eyes, everything turns into darkness... endless darkness..."
+        },
+        {
+          "id": "voice-6352",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "Please, Keeper... As long as you let me stay on the locator and not move, I'll do anything except enter the darkness and face that... that black thing! I can't leave this spot! Just a little more, and I'll locate the remains of my home planet! Only 1.2 billion calculations to go!"
+        },
+        {
+          "id": "voice-6351",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "When my planet was destroyed, I abandoned my body and transferred my consciousness to a human vessel... But the black demon pursued me relentlessly, binding my spirit and preventing my escape! It seeks to pull this world into an abyss of darkness!"
+        },
+        {
+          "id": "voice-6350",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "Once inside a human vessel, I lost all contact with my kin. I'm terrified that the others didn't escape the demon and that I might be the last of my kind... Please, Keeper, save me! Let me stay by your side, don't leave me to the darkness..."
+        },
+        {
+          "id": "voice-6398",
+          "title": "Chat: Touch",
+          "content": "Aaah! Don't sneak up on me from behind!"
+        },
+        {
+          "id": "voice-5880",
+          "title": "Chat: About Night",
+          "content": "Don't go out at night! Even with a 2000-lumen light, it's not completely safe... Once you step into the darkness, the evil lurking beyond your sight will chase you, devour you, chase you, devour you... until nothing is left!"
+        },
+        {
+          "id": "voice-6722",
+          "title": "Chat: About Doll",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Doll\"",
+          "content": "Miss Doll says that I can temporarily avoid Dissolution by abandoning my body like her... No, I can't do it! I can't do it! I will lose consciousness during the procedure, and the darkness will take over!"
+        },
+        {
+          "id": "voice-6579",
+          "title": "Chat: About Daffodil",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Daffodil\"",
+          "content": "I want a lamp that never goes out. She actually said I could purchase it with... with a specimen of a \"wingless flying hydra.\" Where can I find such a bizarre species?!"
+        },
+        {
+          "id": "voice-4951",
+          "title": "Chat: About Dissolution",
+          "content": "No, no, no, don't! Don't mention it..."
+        },
+        {
+          "id": "voice-5759",
+          "title": "Chat: About Mythag",
+          "content": "How do I like it here? P-pretty good. As long as I share some mechanical science and spirit research knowledge with Ms. Doll, she lets me keep the lights on."
+        },
+        {
+          "id": "voice-6687",
+          "title": "Chat: What I Like",
+          "content": "Powered by the nuclear fusion of a red giant, supplemented by the energy from a collapsing star, you could start a perpetual motion machine and light an eternal lamp... Eh? You say there's no way to build a perpetual motion machine here, and no red giant? Hmm..."
+        },
+        {
+          "id": "voice-6355",
+          "title": "Chat: What I Hate",
+          "content": "Don't ask! Don't ask! You know exactly what I fear and hate the most! Darkness! Endless darkness!"
+        },
+        {
+          "id": "voice-6671",
+          "title": "Chat: About the Keeper",
+          "content": "Why do you appear so dark, yet so radiant...? No, never mind, just ignore my rambling."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-5122",
+          "title": "Investigation Begins",
+          "content": "Boohoo... I don't want to face those things..."
+        },
+        {
+          "id": "voice-6057",
+          "title": "Investigation Success",
+          "content": "Finally, it's over. No more seeing those black, slimy..."
+        },
+        {
+          "id": "voice-6521",
+          "title": "Investigation Halted",
+          "content": "It's catching up to me, the eternal darkness... No one can escape..."
+        },
+        {
+          "id": "voice-6512",
+          "title": "Strike: I",
+          "content": "Watch this!"
+        },
+        {
+          "id": "voice-4922",
+          "title": "Defense: I",
+          "content": "Careful!"
+        },
+        {
+          "id": "voice-4921",
+          "title": "Defense: II",
+          "content": "Go away!"
+        },
+        {
+          "id": "voice-6538",
+          "title": "Hit: I",
+          "content": "No!"
+        },
+        {
+          "id": "voice-6539",
+          "title": "Hit: II",
+          "content": "Spare me!"
+        },
+        {
+          "id": "voice-6540",
+          "title": "Hit: III",
+          "content": "(Cry of fear)"
+        },
+        {
+          "id": "voice-6537",
+          "title": "Hit: IV",
+          "content": "(Cry of fear)"
+        },
+        {
+          "id": "voice-5990",
+          "title": "Skill: I",
+          "content": "I must... eliminate it!"
+        },
+        {
+          "id": "voice-6130",
+          "title": "Skill: II",
+          "content": "Calm down, calm down..."
+        },
+        {
+          "id": "voice-5913",
+          "title": "Rouse",
+          "content": "I must escape the darkness!"
+        },
+        {
+          "id": "voice-6655",
+          "title": "Exalt",
+          "content": "Run... I must run! Get away from here!"
+        },
+        {
+          "id": "voice-56392",
+          "title": "Over-Exalt",
+          "content": "Here's my last bit of shifting power... You can have it!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-99855",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Are you sure it has to be me? Can't someone else do it...?"
+        },
+        {
+          "id": "traphase-99749",
+          "title": "Chat: About Doll: Inferno",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Y-y-you're not going to punish me by making me clean beakers, are you?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0018",
+              "lineId": "traphase-99948"
+            },
+            {
+              "awakenerId": "awakener-0053",
+              "lineId": "traphase-99749"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100055",
+          "title": "Chat: About Alva",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "If I were to develop an automated prosthetic limb for you, would you please help me guard my light source device tonight...?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0053",
+              "lineId": "traphase-100055"
+            },
+            {
+              "awakenerId": "awakener-0004",
+              "lineId": "traphase-99959"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100126",
+          "title": "Chat: About Faint",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "May I borrow your shell for a moment? I'd like to study a bionic structure, so my positioning device can be as comfortable as a cradle.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0053",
+              "lineId": "traphase-100126"
+            },
+            {
+              "awakenerId": "awakener-0016",
+              "lineId": "traphase-99797"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100011",
+          "title": "Chat: About Casiah",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "The power of dimensional translocation... can it transfer one's spirit? Can it let me escape from those black horrors...?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0053",
+              "lineId": "traphase-100011"
+            },
+            {
+              "awakenerId": "awakener-0007",
+              "lineId": "traphase-100185"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100079",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Don't think, don't look, don't think, don't look..."
+        },
+        {
+          "id": "traphase-99750",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Ugh, I really want to run away... I can't hold on much longer..."
+        },
+        {
+          "id": "traphase-99740",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "My shifting power... Don't use so much of it at once!"
+        },
+        {
+          "id": "traphase-99914",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Ahhhhh! The black thing, I see it— It's catching up to me!"
+        },
+        {
+          "id": "traphase-99783",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "No escape... Why can't I escape...?"
+        }
+      ]
+    }
   }
 }

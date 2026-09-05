@@ -55,6 +55,7 @@
   "profile": {
     "title": "Horla",
     "birthday": "14-Feb",
+    "voiceActor": "Tachibana Yuki",
     "gender": "Female",
     "height": "5'4.2''",
     "weight": "89lbs",
@@ -69,7 +70,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "At the beginning of A.F. 3@2, during the renovation of the city named Cité, an anomaly was discovered in a fire-damaged garden: ashes climbed the burnt walls of the greenhouse like vines, and the ash roses blooming on the vines shimmered with a metallic hue.\n\nFollowing the trail of the vines, an investigator from Mythag University retrieved this Silver. The moment she touched the silver powder, her fingertips were scorched black without any pain, but tears inexplicably rolled down her cheeks.\n\nThe weeping came without reason and dissipated into the ashes in an instant."
       },
       {
@@ -90,6 +91,380 @@
         "unlockCondition": "Affinity Level 9",
         "content": "\"Horla, from today onward, I will treasure all your poems. In the future, I'll trade my flowers for your poems!\"\n\n\"Colette, you will definitely come back to save me...right?\""
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-6669",
+          "title": "Awaken",
+          "content": "I am Horla from Cité, and my pen name is... Ah, forgive me, I made a promise not to reveal it to anyone. My deepest apologies, but please, simply call me Horla."
+        },
+        {
+          "id": "voice-5124",
+          "title": "Upgrade: I",
+          "content": "The surge of power feels like searing flames burning into my very bones."
+        },
+        {
+          "id": "voice-5127",
+          "title": "Upgrade: II",
+          "content": "The roses in the courtyard are in full bloom."
+        },
+        {
+          "id": "voice-5126",
+          "title": "Upgrade: III",
+          "content": "The warmth, so near..."
+        },
+        {
+          "id": "voice-5619",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "When people approach me, they always recall their saddest memories and cannot help but shed tears. Can someone like me still hope to grow?"
+        },
+        {
+          "id": "voice-5582",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "If you truly insist, I will step back into the sunlight... the very same sunlight as the day I left Cité..."
+        },
+        {
+          "id": "voice-5581",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "With invisible ink, I sketch the deformed buds... This ghostly and ethereal rose branch truly inspires poetic verse..."
+        },
+        {
+          "id": "voice-5580",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "What do you yearn for? Is it the beauty of elegant words, widespread fame, or the heartfelt sincerity woven within those words?"
+        },
+        {
+          "id": "voice-5579",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "<Italic:\"Press closer, little Nightingale, or the Day will come before the rose is finished...\">"
+        },
+        {
+          "id": "voice-5578",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "I often feel as though I exist in the space between life and death. Wherever I am, melancholy spreads like a tide, and tragedies unfold, one after another. Even so, would you still wish for me to write a poem for you? Hmm... perhaps you deserve the sweetest one..."
+        },
+        {
+          "id": "voice-6085",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "Someone once told me that poetry is written to be appreciated... May I hear your thoughts on this?"
+        },
+        {
+          "id": "voice-6086",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "Have you ever felt this? Offering forgiveness for another's offense, only for the desired outcome to slip away. You extend a rose, yet your hands are left not with its lingering fragrance, but only the bloody marks of sharp thorns."
+        },
+        {
+          "id": "voice-6426",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "That day, the flames of jealousy spread like a sea of blood-red roses in full bloom... All poems turned to shattered ashes amidst the crimson tongues of fire."
+        },
+        {
+          "id": "voice-6083",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "Forgive me, I lost myself in memories again. Please, do not look sad. It is your turn to narrate your story. Do you feel like writing a poem? Will your adventures, your experiences, your joys, your sorrows, flow like a gentle stream from your mind to your fingertips?"
+        },
+        {
+          "id": "voice-6084",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "I was but a fleeting watermark on parchment, yet our encounter has caused me to linger. Perhaps this is a miracle. I will treasure this miracle and compose timeless poems for you."
+        },
+        {
+          "id": "voice-5797",
+          "title": "Chat: Touch",
+          "content": "Please, do not touch my neck... Just because you cannot see it does not mean it is not there."
+        },
+        {
+          "id": "voice-56329",
+          "title": "Chat: About Liz",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Liz\"",
+          "content": "That beautiful ballerina lady... Her emerald-green flames are irresistible, even if they burn one to ashes..."
+        },
+        {
+          "id": "voice-56328",
+          "title": "Chat: About Tinct",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Tinct\"",
+          "content": "If poetry exists to praise beauty, then her very existence is like poetry itself. When she begins to sing, I suddenly understand what the elders described as a nightingale's voice..."
+        },
+        {
+          "id": "voice-56324",
+          "title": "Chat: About Nymphaea",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Nymphaea\"",
+          "content": "Every time I see Miss Nymphaea, I am reminded of that painting of water lilies. She carries the tranquil bitterness and fragrance of water lilies... I wonder what her world truly looks like?"
+        },
+        {
+          "id": "voice-56320",
+          "title": "Chat: About Sorel",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Sorel\"",
+          "content": "Madam Sorel is truly beautiful. Her strength and confidence, her graceful smile in the face of fate, and her vibrant yet resolute life force—all make me envious."
+        },
+        {
+          "id": "voice-56313",
+          "title": "Chat: About Casiah",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Casiah\"",
+          "content": "I secretly watched Miss Casiah's magic show. Her performance brought such joy to the audience, but I always bring sadness... Do you think tears and smiles are equally precious? Perhaps..."
+        },
+        {
+          "id": "voice-5894",
+          "title": "Chat: About Hanna",
+          "content": "P-Please, do not tell Miss Hannah that I am hiding here. I am not ready yet..."
+        },
+        {
+          "id": "voice-6763",
+          "title": "Chat: About Colette",
+          "content": "Human emotions are as fragile and precious as flowers..."
+        },
+        {
+          "id": "voice-56314",
+          "title": "Chat: What I Like",
+          "content": "Poetry, flames, and sorrow are alike; they engulf you without notice... By the time you come to your senses, you are already immersed in the world of poetry..."
+        },
+        {
+          "id": "voice-56323",
+          "title": "Chat: What I Hate",
+          "content": "There is nothing in this world to hate. The golden years deserve praise, while the decline of old age deserves pity; the finery of youth is enviable, while tattered remnants evoke thoughtful reflection."
+        },
+        {
+          "id": "voice-56326",
+          "title": "Chat: About Dissolution",
+          "content": "My body was not affected by Dissolution; those black liquids are simply ink. But honestly, even without Dissolution, everything eventually turns into Illusion, does it not?"
+        },
+        {
+          "id": "voice-56322",
+          "title": "Chat: About Mythag",
+          "content": "Mythag's Student Poetry Club wants me to be their advisor... I cannot agree. I do not wish to dampen their spirits, but I fear I would only bring them disappointment and discouragement."
+        },
+        {
+          "id": "voice-56325",
+          "title": "Chat: About Ghosts",
+          "content": "I've always sensed the presence of \"ghosts\" around me, like some inexplicable possession or bewitchment, draining my hope for the world. But if it's a ghost, how do you explain the milk and water vanishing into thin air...?"
+        },
+        {
+          "id": "voice-56317",
+          "title": "Chat: About Cité",
+          "content": "I almost forgot... What kind of flowers bloom in Cité this season?"
+        },
+        {
+          "id": "voice-56319",
+          "title": "Chat: About Her Pain",
+          "content": "The beauty of blooming flowers is matched by the sadness of their withering. No matter how many times I feel sorrow, I cannot help but stop and mourn for them. If I were to ignore them out of fear of pain, how sad these flowers would be..."
+        },
+        {
+          "id": "voice-56316",
+          "title": "Chat: About Her Poems",
+          "content": "Poetry and flowers are probably the same thing, are they not? Both are fleeting yet eternal. In this boundless world, they capture the most unforgettable moments in a small space... I think everyone has fallen silent for a poem, just as they pause to admire a flower's bloom."
+        },
+        {
+          "id": "voice-56327",
+          "title": "Chat: About Past Memories",
+          "content": "In the Keygrave, I saw your name on one of the tombstones... The memories of life were painful, but I never intended to forget them. For the Keeper, those lost memories must be equally precious, yes?"
+        },
+        {
+          "id": "voice-56318",
+          "title": "Chat: About the Keeper - 1",
+          "content": "Your presence has rekindled the ink in my pen, allowing it to flow once more like a gentle stream. I will continue to compose poetry for your story."
+        },
+        {
+          "id": "voice-56321",
+          "title": "Chat: About the Keeper - 2",
+          "content": "I wrote a new poem yesterday, but haven't shown it to anyone. It's not very good, but... {Male=Mr.,Female=Miss} Keeper, would you be willing to take a look at it?"
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-6333",
+          "title": "Investigation Begins",
+          "content": "This is not my preferred genre of verse, but if you insist, I shall try."
+        },
+        {
+          "id": "voice-5850",
+          "title": "Investigation Success",
+          "content": "Let this victory be etched in poetry."
+        },
+        {
+          "id": "voice-5650",
+          "title": "Investigation Halted",
+          "content": "The day has finally come..."
+        },
+        {
+          "id": "voice-6311",
+          "title": "Strike: I",
+          "content": "Sing for me."
+        },
+        {
+          "id": "voice-6314",
+          "title": "Strike: II",
+          "content": "Savor it."
+        },
+        {
+          "id": "voice-4913",
+          "title": "Defense: I",
+          "content": "Rhythm."
+        },
+        {
+          "id": "voice-4912",
+          "title": "Defense: II",
+          "content": "Afterglow."
+        },
+        {
+          "id": "voice-6088",
+          "title": "Hit: I",
+          "content": "My pen and ink..."
+        },
+        {
+          "id": "voice-6090",
+          "title": "Hit: II",
+          "content": "This is the wrong rhyme..."
+        },
+        {
+          "id": "voice-6089",
+          "title": "Hit: III",
+          "content": "(Exclamation)"
+        },
+        {
+          "id": "voice-6091",
+          "title": "Hit: IV",
+          "content": "(Exclamation)"
+        },
+        {
+          "id": "voice-5009",
+          "title": "Skill: I",
+          "content": "Flames won't consume me."
+        },
+        {
+          "id": "voice-6518",
+          "title": "Skill: II",
+          "content": "Emerge for me..."
+        },
+        {
+          "id": "voice-6400",
+          "title": "Rouse",
+          "content": "Burn, O soul of poetry."
+        },
+        {
+          "id": "voice-6510",
+          "title": "Exalt",
+          "content": "Rose thorns prick my fingers, their crimson flowing into poetry."
+        },
+        {
+          "id": "voice-56315",
+          "title": "Over-Exalt",
+          "content": "Let the poems of the past awaken the hidden garden within your heart."
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-100116",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Would you like to hear my new poem?"
+        },
+        {
+          "id": "traphase-100004",
+          "title": "Chat: About Hameln",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Every time I listen to Mr. Hameln's performance, I feel a surge of inspiration. Perhaps music is indeed the resonance within the dimension of souls.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0024",
+              "lineId": "traphase-100004"
+            },
+            {
+              "awakenerId": "awakener-0022",
+              "lineId": "traphase-99765"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99936",
+          "title": "Chat: About Tinct",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Sure. Please sing to your heart's content. I... I am honored.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0049",
+              "lineId": "traphase-99957"
+            },
+            {
+              "awakenerId": "awakener-0024",
+              "lineId": "traphase-99936"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100008",
+          "title": "Chat: About Corposant",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "The brave navigator who dares to face lightning head-on. I was so moved when I first heard your story that I even shed tears.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0024",
+              "lineId": "traphase-100008"
+            },
+            {
+              "awakenerId": "awakener-0011",
+              "lineId": "traphase-100183"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100203",
+          "title": "Chat: About Nymphaea",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Of course! I didn't know you enjoy poetry too, Miss Nymphaea. If you don't mind, I have many treasured old poetry collections we could share together.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0037",
+              "lineId": "traphase-99755"
+            },
+            {
+              "awakenerId": "awakener-0024",
+              "lineId": "traphase-100203"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100049",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Flowers and spring... they're topics I could never write enough about."
+        },
+        {
+          "id": "traphase-100096",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "A good verse indeed requires careful consideration."
+        },
+        {
+          "id": "traphase-99927",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Please listen to this nightingale's love poem to the rose!"
+        },
+        {
+          "id": "traphase-100125",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "The wording here needs to be revised..."
+        },
+        {
+          "id": "traphase-100061",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "The rose... has withered..."
+        }
+      ]
+    }
   }
 }

@@ -141,7 +141,9 @@ describe('relic family variants', () => {
       }
     }
 
-    expect(variantIds.size).toBe(569)
+    expect(variantIds.size).toBe(
+      getRelics().reduce((count, family) => count + family.variantCount, 0),
+    )
   })
 
   it('loads grouped family variants with a valid default', async () => {

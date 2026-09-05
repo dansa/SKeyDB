@@ -55,6 +55,7 @@
   "profile": {
     "title": "Caecus",
     "birthday": "11-Nov",
+    "voiceActor": "Hoshino Keigo",
     "gender": "Male",
     "height": "5'5''",
     "weight": "114.6lbs",
@@ -69,7 +70,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "A.F. 3@1, January.\n\nOn the Devil's Reef off the eastern coast of the Agló Republic, local fishermen reported they had salvaged \"a strangely shaped corpse\"—short and hunched, with protruding eyeballs, partially hardened skin, webbed fingers, and the most bizarre feature being symmetrical red marks on either side of the neck. If it weren't for the student uniform it wore, it would be hard to consider it a \"human corpse.\" \n\nWhen the investigators arrived, the strange corpse had already been burned by frightened fishermen as an omen, leaving only a suitcase that was quite popular among students at the time. The suitcase contained no change of clothes, only some illegible manuscripts, a compass, and a photograph of a middle-aged woman."
       },
       {
@@ -90,6 +91,332 @@
         "unlockCondition": "Affinity Level 9",
         "content": "Haven't you had such dreams? Suddenly inheriting a massive fortune, suddenly gaining immense power... enough to trample those who once disdained and hurt us.\n\nThen, at the moment you wake up, faced with relentless reality, you fall deeper into despair.\n\nBut my dream is true, my fate has arrived.\n\nKnow this: you are the weak ones.\n\nCan physical frailty and a wilting soul not uphold a noble bloodline? No, that's impossible, because the name Oren is our family's pride and symbol. Endowed with the bloodline and name, I am no longer that bullied freak; I am someone with noble blood.\n\nSo... please... stop looking at me with those suffocating eyes..."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-5171",
+          "title": "Awaken",
+          "content": "Ah... I remember everything! I was... I was trapped by that filthy human blood and failed to transform! How could this be? Where are my gills? Why aren't they moving?! Why!"
+        },
+        {
+          "id": "voice-4981",
+          "title": "Upgrade: I",
+          "content": "Can worldly trials truly awaken the potential of my bloodline? That, I did not anticipate."
+        },
+        {
+          "id": "voice-4983",
+          "title": "Upgrade: II",
+          "content": "Don't think this will earn my gratitude. My noble lineage simply wouldn't allow it."
+        },
+        {
+          "id": "voice-4982",
+          "title": "Upgrade: III",
+          "content": "The weapon feels handier now."
+        },
+        {
+          "id": "voice-5462",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "Only a seaborne body can bear such supreme power. You must envy me, huh? It's not your fault for being a frail human; just come to terms with it."
+        },
+        {
+          "id": "voice-5226",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "I remember this feeling—that glorious moment is coming..."
+        },
+        {
+          "id": "voice-5230",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "That voice is calling me again... that ethereal sound from the deep abyss!"
+        },
+        {
+          "id": "voice-5229",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "Why? Why haven't I grown gills after the ritual? Did the transformation fail again?! Damn it! Damn it! Damn it!"
+        },
+        {
+          "id": "voice-5228",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "You've invested so much in me... you are indeed more patient than other humans. Do you truly... not despise me?"
+        },
+        {
+          "id": "voice-5227",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "I still haven't grown my gills, but I no longer feel anxious about it. Keeper, I'll be your shield, and protect you with my fins."
+        },
+        {
+          "id": "voice-6651",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "This half-human shell really... disgusts me. I finally got rid of the past, and now I have to recall it again..."
+        },
+        {
+          "id": "voice-6652",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "To think the heir of the great bloodline would stoop to serving a human... Hmph. Don't think you can command me at will."
+        },
+        {
+          "id": "voice-6653",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "Hmph, you frail human do have some talent in command... and I would show you my true power if not for this inferior shell."
+        },
+        {
+          "id": "voice-6648",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "One day, Uncle Ornn will bring me back to my underwater home. Until then, I can reluctantly be your friend."
+        },
+        {
+          "id": "voice-6649",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "\"Our family carries a great bloodline; the chosen one will enjoy eternal peace in the deep sea.\" I never expected to feel this peace after leaving the sea and coming to the academy. You are different from those who bully me, so I won't allow others to bully you either."
+        },
+        {
+          "id": "voice-6099",
+          "title": "Chat: Touch",
+          "content": "Envious? These tough scales are proof of a noble lineage."
+        },
+        {
+          "id": "voice-6616",
+          "title": "Chat: About Aequor",
+          "content": "In my dreams, I often hear the sound of the tide, growing fainter and fainter. I know I might stay here forever, Human."
+        },
+        {
+          "id": "voice-5718",
+          "title": "Chat: About Bloodline",
+          "unlockCondition": "Unlocks after acquiring any one of Awakeners: \"Tulu,\" \"Murphy,\" \"Miryam,\" or \"Goliath\".",
+          "content": "Is that what they call a Genesis Form...? No, it's a bit different from what I imagined. But if I could become like that, it would be great."
+        },
+        {
+          "id": "voice-6604",
+          "title": "Chat: About Dusk",
+          "content": "The sunset on the small hill often reminds me of my days in Cleveland... Cleveland. I can't believe I still remember that name, the place that gave me these scars."
+        },
+        {
+          "id": "voice-5762",
+          "title": "Chat: About Dissolution",
+          "content": "Having transcended inferior races, I do not fear such influence. Even if the host body is shattered, the noble bloodline will not perish."
+        },
+        {
+          "id": "voice-6664",
+          "title": "Chat: About Mythag",
+          "content": "A school where all is treated equal... I wonder what foolish dreams you harbor. Even if you haven't committed any wrongs, they will still trample you underfoot. I know that feeling."
+        },
+        {
+          "id": "voice-5869",
+          "title": "Chat: What I Like",
+          "content": "Favorite things? Seaweed, fish schools, colonnades, mazes... Of course I've seen them! They're all in Uncle Ornn's book!"
+        },
+        {
+          "id": "voice-6606",
+          "title": "Chat: What I Hate",
+          "content": "Without a doubt, humans. Are there any creatures filthier than humans?"
+        },
+        {
+          "id": "voice-5345",
+          "title": "Chat: About the Keeper",
+          "content": "Before I return to our palace at the bottom of the sea, I will lend you, a mere human, some of the power of Aequor, but only this once."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-5496",
+          "title": "Investigation Begins",
+          "content": "The power of my bloodline is surging."
+        },
+        {
+          "id": "voice-4991",
+          "title": "Investigation Success",
+          "content": "Victory came effortlessly, even before my bloodline's full awakening."
+        },
+        {
+          "id": "voice-6007",
+          "title": "Investigation Halted",
+          "content": "Darn it! You—you still look down on me, don't you?!"
+        },
+        {
+          "id": "voice-6256",
+          "title": "Strike: I",
+          "content": "Try this!"
+        },
+        {
+          "id": "voice-5656",
+          "title": "Defense: I",
+          "content": "Watch this!"
+        },
+        {
+          "id": "voice-6247",
+          "title": "Hit: I",
+          "content": "Just a mere scratch..."
+        },
+        {
+          "id": "voice-6250",
+          "title": "Hit: II",
+          "content": "Blast it!"
+        },
+        {
+          "id": "voice-6249",
+          "title": "Hit: III",
+          "content": "(Groan)"
+        },
+        {
+          "id": "voice-6251",
+          "title": "Hit: IV",
+          "content": "(Groan)"
+        },
+        {
+          "id": "voice-6037",
+          "title": "Skill: I",
+          "content": "Never look down on me!"
+        },
+        {
+          "id": "voice-6694",
+          "title": "Skill: II",
+          "content": "It's time!"
+        },
+        {
+          "id": "voice-5346",
+          "title": "Rouse",
+          "content": "Come!"
+        },
+        {
+          "id": "voice-5389",
+          "title": "Exalt",
+          "content": "Yes... I know you're within me!"
+        },
+        {
+          "id": "voice-57818",
+          "title": "Over-Exalt",
+          "content": "All who have insulted me shall pay the price!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-100078",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I will protect you, I swear it by my blood."
+        },
+        {
+          "id": "traphase-100188",
+          "title": "Chat: About Ryker",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Good luck, huh... That truly is an enviable gift.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0006",
+              "lineId": "traphase-100188"
+            },
+            {
+              "awakenerId": "awakener-0043",
+              "lineId": "traphase-99761"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100029",
+          "title": "Chat: About Celeste",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Can you really fulfill any wish? ...Forget it, contemplating such shortcuts doesn't align with the path of becoming a strong warrior.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0006",
+              "lineId": "traphase-100029"
+            },
+            {
+              "awakenerId": "awakener-0009",
+              "lineId": "traphase-100117"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99990",
+          "title": "Chat: About Goliath",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "If I train diligently, will I grow as strong as you one day, Lord Goliath?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0006",
+              "lineId": "traphase-99990"
+            },
+            {
+              "awakenerId": "awakener-0021",
+              "lineId": "traphase-100072"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99790",
+          "title": "Chat: About Helot",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Wholly devoted... it seems I still have too many distracting thoughts.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0023",
+              "lineId": "traphase-100138"
+            },
+            {
+              "awakenerId": "awakener-0006",
+              "lineId": "traphase-99790"
+            }
+          ]
+        },
+        {
+          "id": "traphase-120258",
+          "title": "Chat: About Pollux",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Filthy... Is the fault truly in my bloodline's impurity...?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0041",
+              "lineId": "traphase-120284"
+            },
+            {
+              "awakenerId": "awakener-0006",
+              "lineId": "traphase-120258"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99831",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "A tough situation. This is also a form of training..."
+        },
+        {
+          "id": "traphase-100147",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Go ahead and make your move. I'll be the one to win anyway!"
+        },
+        {
+          "id": "traphase-99819",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Those who underestimate me will pay!"
+        },
+        {
+          "id": "traphase-100129",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Damn it... Why wouldn't I evolve yet..."
+        },
+        {
+          "id": "traphase-99832",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I hear... the tides..."
+        }
+      ]
+    }
   }
 }

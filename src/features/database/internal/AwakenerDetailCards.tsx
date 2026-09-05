@@ -1,4 +1,4 @@
-import {useMemo} from 'react'
+import {useMemo, type ReactNode} from 'react'
 
 import type {
   AwakenerEnlightenRecord,
@@ -11,6 +11,7 @@ import {
 } from '@/domain/awakeners-database-view'
 import {getCanonicalCardClassificationLabels} from '@/domain/card-classification'
 import type {ResolvedDatabaseReferenceLayer} from '@/domain/database-reference-layer'
+import {DetailIndexedReader} from '@/features/database/detail/DetailIndexedReader'
 
 import {AwakenerEnlightenInfluenceBadges} from './AwakenerEnlightenInfluenceBadges'
 import {
@@ -28,6 +29,7 @@ import {
 } from './text-styles'
 
 interface AwakenerDetailCardsProps {
+  leadingContent?: ReactNode
   shellView: ResolvedAwakenerDatabaseShellView | null
   referenceLayer: ResolvedDatabaseReferenceLayer | null
   onToggleEnlightenSlot?: (slot: AwakenerEnlightenRecord['slot']) => void
@@ -89,6 +91,7 @@ function AwakenerCardDescription({
 }
 
 function AwakenerCardSection<TRecord extends AwakenerSkillRecord | DerivedSkillRecord>({
+  anchorId,
   entries,
   exaltBaseCost,
   formulaContext,
@@ -102,6 +105,7 @@ function AwakenerCardSection<TRecord extends AwakenerSkillRecord | DerivedSkillR
   stats,
   title,
 }: {
+  anchorId: string
   entries: DatabaseDescribedEntry<TRecord>[]
   exaltBaseCost: string | undefined
   formulaContext: ResolvedAwakenerDatabaseShellView['formulaContext']
@@ -116,7 +120,12 @@ function AwakenerCardSection<TRecord extends AwakenerSkillRecord | DerivedSkillR
   title: string
 }) {
   return (
-    <div className='border border-slate-600/30 bg-slate-900/30'>
+    <div
+      id={anchorId}
+      data-detail-anchor=''
+      tabIndex={-1}
+      className='border border-slate-600/30 bg-slate-900/30'
+    >
       <h4 className={DATABASE_SECTION_TITLE_CLASS} style={getDatabaseDetailSectionHeadingStyle()}>
         {title}
       </h4>
@@ -129,7 +138,12 @@ function AwakenerCardSection<TRecord extends AwakenerSkillRecord | DerivedSkillR
           ]
 
           return (
-            <div key={meta.key}>
+            <div
+              key={meta.key}
+              id={`${anchorId}-${entry.record.id}`}
+              data-detail-anchor=''
+              tabIndex={-1}
+            >
               {index > 0 ? (
                 <div className='mx-4 h-px bg-linear-to-r from-slate-600/50 via-slate-600/20 to-transparent' />
               ) : null}
@@ -204,6 +218,7 @@ function AwakenerCardSection<TRecord extends AwakenerSkillRecord | DerivedSkillR
 }
 
 export function AwakenerDetailCards({
+  leadingContent,
   shellView,
   referenceLayer,
   onToggleEnlightenSlot,
@@ -219,70 +234,75 @@ export function AwakenerDetailCards({
     return <p className='py-4 text-xs text-slate-400'>Loading card data…</p>
   }
 
-  const view = shellView
+  const groups: {
+    id: string
+    title: string
+    entries: DatabaseDescribedEntry<AwakenerSkillRecord | DerivedSkillRecord>[]
+    getEntryMeta: (
+      entry: DatabaseDescribedEntry<AwakenerSkillRecord | DerivedSkillRecord>,
+    ) => CardSectionMeta
+  }[] = [
+    {
+      id: 'skills-exalts',
+      title: 'Exalts',
+      entries: shellView.exalts,
+      getEntryMeta: (entry) => ({
+        key: entry.key,
+        costKind: 'kind' in entry.record ? entry.record.kind : 'other',
+        classificationReferenceName: entry.key === 'OverExalt' ? 'Over Exalt' : undefined,
+      }),
+    },
+    {
+      id: 'skills-base-cards',
+      title: 'Base Cards',
+      entries: shellView.commandCards,
+      getEntryMeta: (entry) => ({
+        key: entry.key,
+        costKind: 'kind' in entry.record ? entry.record.kind : 'other',
+        classificationReferenceName: entry.key === 'C1' ? 'Rouse' : undefined,
+      }),
+    },
+    {
+      id: 'skills-extra-cards',
+      title: 'Extra Cards',
+      entries: shellView.promotedExtras,
+      getEntryMeta: (entry) => ({key: entry.record.id, costKind: 'other'}),
+    },
+  ]
+  const visibleGroups = groups.filter((group) => group.entries.length > 0)
+  const indexItems = visibleGroups.map((group) => ({
+    id: group.id,
+    label: group.title,
+    children: group.entries.map((entry) => ({
+      id: `${group.id}-${entry.record.id}`,
+      label: entry.record.displayName,
+    })),
+  }))
 
   return (
-    <>
+    <DetailIndexedReader items={indexItems} scrollKey='skills' defaultExpandedGroups='all'>
+      {leadingContent}
       <div className='space-y-4'>
-        <AwakenerCardSection
-          entries={shellView.exalts}
-          exaltBaseCost={exaltBaseCost}
-          formulaContext={shellView.formulaContext}
-          getEntryMeta={(entry) => ({
-            key: entry.key.toLowerCase(),
-            costKind: entry.record.kind,
-            classificationReferenceName: entry.key === 'OverExalt' ? 'Over Exalt' : undefined,
-          })}
-          onToggleEnlightenSlot={onToggleEnlightenSlot}
-          referenceLayer={referenceLayer}
-          selectedEnlightenSlot={view.selection.selectedEnlightenSlot}
-          showTagIcons={showTagIcons}
-          showVisibleScaling={showVisibleScaling}
-          skillLevel={shellView.skillLevel}
-          stats={shellView.stats}
-          title='Exalts'
-        />
-
-        <AwakenerCardSection
-          entries={shellView.commandCards}
-          exaltBaseCost={exaltBaseCost}
-          formulaContext={shellView.formulaContext}
-          getEntryMeta={(entry) => ({
-            key: entry.key,
-            costKind: entry.record.kind,
-            classificationReferenceName: entry.key === 'C1' ? 'Rouse' : undefined,
-          })}
-          onToggleEnlightenSlot={onToggleEnlightenSlot}
-          referenceLayer={referenceLayer}
-          selectedEnlightenSlot={view.selection.selectedEnlightenSlot}
-          showTagIcons={showTagIcons}
-          showVisibleScaling={showVisibleScaling}
-          skillLevel={shellView.skillLevel}
-          stats={shellView.stats}
-          title='Base Cards'
-        />
-
-        {shellView.promotedExtras.length > 0 ? (
+        {visibleGroups.map((group) => (
           <AwakenerCardSection
-            entries={shellView.promotedExtras}
+            key={group.id}
+            anchorId={group.id}
+            entries={group.entries}
             exaltBaseCost={exaltBaseCost}
             formulaContext={shellView.formulaContext}
-            getEntryMeta={(entry) => ({
-              key: entry.record.id,
-              costKind: 'other',
-            })}
+            getEntryMeta={group.getEntryMeta}
             onToggleEnlightenSlot={onToggleEnlightenSlot}
             referenceLayer={referenceLayer}
-            selectedEnlightenSlot={view.selection.selectedEnlightenSlot}
+            selectedEnlightenSlot={shellView.selection.selectedEnlightenSlot}
             showTagIcons={showTagIcons}
             showVisibleScaling={showVisibleScaling}
             skillLevel={shellView.skillLevel}
             stats={shellView.stats}
-            title='Extra Cards'
+            title={group.title}
           />
-        ) : null}
+        ))}
       </div>
-    </>
+    </DetailIndexedReader>
   )
 }
 

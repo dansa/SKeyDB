@@ -1294,16 +1294,16 @@
       "id": "relic-0066",
       "name": "Arcane Gloves",
       "aliases": ["Arcane Gloves+", "☆Arcane Gloves☆"],
-      "tokens": ["arcane", "arcane gloves", "astral", "astral reign", "gloves", "gold", "n", "other", "reign", "relic", "silver"],
+      "tokens": ["arcane", "arcane gloves", "astral", "astral reign", "event", "gloves", "gold", "n", "reign", "relic", "silver"],
       "fields": {
         "name": ["Arcane Gloves", "arcane-gloves"],
         "alias": ["Arcane Gloves+", "☆Arcane Gloves☆"],
-        "facet": ["N", "Relic", "ASTRAL_REIGN", "Astral Reign", "OTHER", "Silver", "Gold"]
+        "facet": ["N", "Relic", "ASTRAL_REIGN", "Astral Reign", "EVENT", "Silver", "Gold"]
       },
       "facets": {
         "rarity": "N",
         "relicType": "Relic",
-        "categories": ["ASTRAL_REIGN", "OTHER"],
+        "categories": ["ASTRAL_REIGN", "EVENT"],
         "variantTiers": ["Silver", "Gold"]
       }
     },
@@ -2699,16 +2699,16 @@
       "id": "relic-0143",
       "name": "Differential Engine",
       "aliases": ["Differential Engine+", "☆Differential Engine☆"],
-      "tokens": ["astral", "astral reign", "differential", "differential engine", "engine", "gold", "n", "other", "reign", "relic", "silver", "special"],
+      "tokens": ["astral", "astral reign", "differential", "differential engine", "engine", "event", "gold", "n", "reign", "relic", "silver", "special"],
       "fields": {
         "name": ["Differential Engine", "differential-engine"],
         "alias": ["Differential Engine+", "☆Differential Engine☆"],
-        "facet": ["N", "Relic", "ASTRAL_REIGN", "Astral Reign", "OTHER", "Silver", "Gold", "Special"]
+        "facet": ["N", "Relic", "ASTRAL_REIGN", "Astral Reign", "EVENT", "Silver", "Gold", "Special"]
       },
       "facets": {
         "rarity": "N",
         "relicType": "Relic",
-        "categories": ["ASTRAL_REIGN", "OTHER"],
+        "categories": ["ASTRAL_REIGN", "EVENT"],
         "variantTiers": ["Silver", "Gold", "Special"]
       }
     },
@@ -4796,16 +4796,16 @@
       "id": "relic-0252",
       "name": "Radium Jawbone",
       "aliases": ["Radium Jawbone+", "☆Radium Jawbone☆"],
-      "tokens": ["astral", "astral reign", "gold", "jawbone", "n", "other", "radium", "radium jawbone", "reign", "relic", "silver"],
+      "tokens": ["astral", "astral reign", "event", "gold", "jawbone", "n", "radium", "radium jawbone", "reign", "relic", "silver"],
       "fields": {
         "name": ["Radium Jawbone", "radium-jawbone"],
         "alias": ["Radium Jawbone+", "☆Radium Jawbone☆"],
-        "facet": ["N", "Relic", "ASTRAL_REIGN", "Astral Reign", "OTHER", "Silver", "Gold"]
+        "facet": ["N", "Relic", "ASTRAL_REIGN", "Astral Reign", "EVENT", "Silver", "Gold"]
       },
       "facets": {
         "rarity": "N",
         "relicType": "Relic",
-        "categories": ["ASTRAL_REIGN", "OTHER"],
+        "categories": ["ASTRAL_REIGN", "EVENT"],
         "variantTiers": ["Silver", "Gold"]
       }
     },
@@ -5138,11 +5138,11 @@
       "kind": "relic",
       "id": "relic-0268",
       "name": "Signal Relay",
-      "aliases": ["Signal Relay+"],
+      "aliases": ["Signal Relay +β", "Signal Relay+"],
       "tokens": ["event", "faded", "faded legacy", "legacy", "n", "relay", "relic", "signal", "signal relay", "silver", "special"],
       "fields": {
         "name": ["Signal Relay", "signal-relay"],
-        "alias": ["Signal Relay+"],
+        "alias": ["Signal Relay +β", "Signal Relay+"],
         "facet": ["N", "Relic", "FADED_LEGACY", "Faded Legacy", "EVENT", "Silver", "Special"]
       },
       "facets": {
@@ -6049,15 +6049,15 @@
       "id": "relic-0310",
       "name": "☆Fond Reminiscence☆",
       "aliases": [],
-      "tokens": ["fond", "fond reminiscence", "other", "relic", "reminiscence", "special", "ssr"],
+      "tokens": ["event", "fond", "fond reminiscence", "reminiscence", "special", "ssr"],
       "fields": {
         "name": ["☆Fond Reminiscence☆", "fond-reminiscence"],
-        "facet": ["SSR", "Relic", "OTHER", "Special"]
+        "facet": ["SSR", "Event", "Special"]
       },
       "facets": {
         "rarity": "SSR",
-        "relicType": "Relic",
-        "categories": ["OTHER"],
+        "relicType": "Event",
+        "categories": ["EVENT"],
         "variantTiers": ["Special"]
       }
     },
@@ -6083,15 +6083,15 @@
       "id": "relic-0312",
       "name": "☆Lady's Purse☆",
       "aliases": [],
-      "tokens": ["ladys", "ladys purse", "n", "other", "purse", "relic", "silver"],
+      "tokens": ["event", "ladys", "ladys purse", "n", "purse", "silver"],
       "fields": {
         "name": ["☆Lady's Purse☆", "ladys-purse"],
-        "facet": ["N", "Relic", "OTHER", "Silver"]
+        "facet": ["N", "Event", "Silver"]
       },
       "facets": {
         "rarity": "N",
-        "relicType": "Relic",
-        "categories": ["OTHER"],
+        "relicType": "Event",
+        "categories": ["EVENT"],
         "variantTiers": ["Silver"]
       }
     },
@@ -6156,6 +6156,158 @@
       "tokens": ["de", "event", "marie", "pistoles", "pistoles de marie", "special", "ssr"],
       "fields": {
         "name": ["Pistoles de Marie", "pistoles-de-marie"],
+        "facet": ["SSR", "Event", "Special"]
+      },
+      "facets": {
+        "rarity": "SSR",
+        "relicType": "Event",
+        "categories": ["EVENT"],
+        "variantTiers": ["Special"]
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0317",
+      "name": "☆Withered Pupil☆",
+      "aliases": [],
+      "tokens": ["event", "n", "pupil", "silver", "withered", "withered pupil"],
+      "fields": {
+        "name": ["☆Withered Pupil☆", "withered-pupil"],
+        "facet": ["N", "Event", "Silver"]
+      },
+      "facets": {
+        "rarity": "N",
+        "relicType": "Event",
+        "categories": ["EVENT"],
+        "variantTiers": ["Silver"]
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0318",
+      "name": "☆Painkillers☆",
+      "aliases": [],
+      "tokens": ["event", "n", "painkillers", "silver"],
+      "fields": {
+        "name": ["☆Painkillers☆", "painkillers"],
+        "facet": ["N", "Event", "Silver"]
+      },
+      "facets": {
+        "rarity": "N",
+        "relicType": "Event",
+        "categories": ["EVENT"],
+        "variantTiers": ["Silver"]
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0319",
+      "name": "☆Immortal Flesh☆",
+      "aliases": [],
+      "tokens": ["cursed", "event", "flesh", "immortal", "immortal flesh"],
+      "fields": {
+        "name": ["☆Immortal Flesh☆", "immortal-flesh"],
+        "facet": ["Event", "Cursed"]
+      },
+      "facets": {
+        "relicType": "Event",
+        "categories": ["EVENT"],
+        "variantTiers": ["Cursed"]
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0320",
+      "name": "☆Ancient Anchor☆",
+      "aliases": [],
+      "tokens": ["anchor", "ancient", "ancient anchor", "event", "n", "silver"],
+      "fields": {
+        "name": ["☆Ancient Anchor☆", "ancient-anchor"],
+        "facet": ["N", "Event", "Silver"]
+      },
+      "facets": {
+        "rarity": "N",
+        "relicType": "Event",
+        "categories": ["EVENT"],
+        "variantTiers": ["Silver"]
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0321",
+      "name": "☆Refined Prosthesis☆",
+      "aliases": [],
+      "tokens": ["event", "n", "prosthesis", "refined", "refined prosthesis", "silver"],
+      "fields": {
+        "name": ["☆Refined Prosthesis☆", "refined-prosthesis"],
+        "facet": ["N", "Event", "Silver"]
+      },
+      "facets": {
+        "rarity": "N",
+        "relicType": "Event",
+        "categories": ["EVENT"],
+        "variantTiers": ["Silver"]
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0322",
+      "name": "☆Nightmare Lantern☆",
+      "aliases": [],
+      "tokens": ["event", "lantern", "nightmare", "nightmare lantern", "special", "ssr"],
+      "fields": {
+        "name": ["☆Nightmare Lantern☆", "nightmare-lantern"],
+        "facet": ["SSR", "Event", "Special"]
+      },
+      "facets": {
+        "rarity": "SSR",
+        "relicType": "Event",
+        "categories": ["EVENT"],
+        "variantTiers": ["Special"]
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0323",
+      "name": "☆Guild Medal☆",
+      "aliases": [],
+      "tokens": ["event", "guild", "guild medal", "medal", "special", "ssr"],
+      "fields": {
+        "name": ["☆Guild Medal☆", "guild-medal"],
+        "facet": ["SSR", "Event", "Special"]
+      },
+      "facets": {
+        "rarity": "SSR",
+        "relicType": "Event",
+        "categories": ["EVENT"],
+        "variantTiers": ["Special"]
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0324",
+      "name": "Blackened Flame",
+      "aliases": [],
+      "tokens": ["blackened", "blackened flame", "event", "flame", "special", "ssr"],
+      "fields": {
+        "name": ["Blackened Flame", "blackened-flame"],
+        "facet": ["SSR", "Event", "Special"]
+      },
+      "facets": {
+        "rarity": "SSR",
+        "relicType": "Event",
+        "categories": ["EVENT"],
+        "variantTiers": ["Special"]
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0325",
+      "name": "Cursed Feather",
+      "aliases": [],
+      "tokens": ["cursed", "cursed feather", "event", "feather", "special", "ssr"],
+      "fields": {
+        "name": ["Cursed Feather", "cursed-feather"],
         "facet": ["SSR", "Event", "Special"]
       },
       "facets": {

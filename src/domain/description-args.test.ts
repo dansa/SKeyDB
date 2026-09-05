@@ -55,14 +55,22 @@ async function loadResolvedSkill(
   return skill
 }
 
-describe('description-args', () => {
-  it('keeps public description arg tokens aligned with detail record args', async () => {
-    const issues: string[] = []
+// Loading/transforming the shipped JSON is fixture preparation, not a parser
+// assertion. Keep it outside the per-test deadline and report each scope separately.
+const detailRecordFixtures = await Promise.all(
+  DETAIL_DESCRIPTION_SCOPES.map(async (scope) => ({
+    scope,
+    records: await Promise.all(
+      getTestPublicCatalogRecords(scope).map((entry) => loadPublicRecord(scope, entry.id)),
+    ),
+  })),
+)
 
-    for (const scope of DETAIL_DESCRIPTION_SCOPES) {
-      const records = await Promise.all(
-        getTestPublicCatalogRecords(scope).map((entry) => loadPublicRecord(scope, entry.id)),
-      )
+describe('description-args', () => {
+  it.each(detailRecordFixtures)(
+    'keeps $scope description arg tokens aligned with detail record args',
+    ({records}) => {
+      const issues: string[] = []
 
       for (const record of records) {
         if (!record || typeof record.descriptionTemplate !== 'string') {
@@ -92,10 +100,10 @@ describe('description-args', () => {
           pluralIndex = record.descriptionTemplate.indexOf('{plural:', pluralIndex + 1)
         }
       }
-    }
 
-    expect(issues).toEqual([])
-  })
+      expect(issues).toEqual([])
+    },
+  )
 
   it('resolves named public arg keys inside plural macros', async () => {
     const delayedSacrifice = await loadPublicRecord('overlays', 'overlay.global.delayed-sacrifice')

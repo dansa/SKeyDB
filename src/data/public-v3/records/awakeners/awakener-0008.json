@@ -55,6 +55,7 @@
   "profile": {
     "title": "Castor",
     "birthday": "20-Jun",
+    "voiceActor": "Kato Shinya",
     "gender": "Male",
     "height": "6'0.3''\n(wingspan 9'9.8'')",
     "weight": "205 lbs",
@@ -90,6 +91,319 @@
         "unlockCondition": "Affinity Level 9",
         "content": "Twins are born with nothing but each other, yet Castor continues to savor the taste of loss. Hurt, forgotten, and betrayed—his silent heart is not made of iron, yet he keeps getting back up.\n\n\"But it's okay. I'll hold on to your share too,\" Castor said, looking at his disfigured brother with blind faith. In his heart, he clutches tightly to that faint flame, tirelessly resisting the knife-like wind and snow.\n\nOne day, he will climb to the peak of freedom and use his wings to touch the sky's low-hanging curtain. He believes that at the end of that thorny path must lie the bright daylight his younger brother promised him in childhood."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-90351",
+          "title": "Awaken",
+          "content": "Greetings. I am Castor... Was there more I should say? Forgive me—words don't come easily. If you need anything, just ask."
+        },
+        {
+          "id": "voice-90356",
+          "title": "Upgrade: I",
+          "content": "These dark feathers grow heavier each day."
+        },
+        {
+          "id": "voice-90340",
+          "title": "Upgrade: II",
+          "content": "Will these cursed wings ever find the strength to take flight again..."
+        },
+        {
+          "id": "voice-90368",
+          "title": "Upgrade: III",
+          "content": "Thank you... for the key to my freedom. For letting me grasp my own fate."
+        },
+        {
+          "id": "voice-90360",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "When we were children, the rules weren't this strict. Sometimes, Pollux would go off and say something, and magically get a handful of candies. That sweetness... it feels like this moment now."
+        },
+        {
+          "id": "voice-90367",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "Theology lessons under Albino and the Light Watch filled our days. I dreamed of shorter scriptures—fewer verses to stumble over, fewer reprimands."
+        },
+        {
+          "id": "voice-90372",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "The High Priestess... Juliette. She was gentle with us then. Her warm smiles made disobedience unthinkable. A pat on the head silenced all protests. We didn't want to let her down. Yeah, don't worry, I don't feel that way anymore... You may pat my head instead."
+        },
+        {
+          "id": "voice-90336",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "Even before that book, we wondered about the world beyond the lake's island, the scarlet walls. Yet when Pollux suffered, I didn't resist. I lack his courage. Unlike Pollux, I am much more cowardly and clumsy."
+        },
+        {
+          "id": "voice-90354",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "So much unseen... so much undone. Those desolate deep green lakes and the thick fog that lingers on will no longer hold us back. Oceans, cities, farms from the book's pages... I'll see them. With Pollux. With you."
+        },
+        {
+          "id": "voice-90369",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "These wings are fully grown now. So sturdy, so powerful. Now I can carry both Pollux and you. Call for me when you wish to fly."
+        },
+        {
+          "id": "voice-90343",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "Your generosity unsettles me. The expensive books, the meteorite crystals you gave me... is there a price? Sorry, please forgive my suspicion. I shouldn't doubt you like this."
+        },
+        {
+          "id": "voice-90374",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "We weren't allowed to talk to other people since childhood. \"Friend\" was a foreign concept to me... until recently. Pollux and I were everything to each other: brothers, friends, fellow prisoners, each other's only solace. Now... perhaps I should make some new friends."
+        },
+        {
+          "id": "voice-90334",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "How should friends get along? Pollux likes ordering me around when he could do those things himself. And I'm willing to help him with those tasks, it's our way of hanging out together. If you want, I'll do something for you too."
+        },
+        {
+          "id": "voice-90337",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "Do I... sound stupid? Sorry, please forgive my ignorance. My knowledge begins and ends with the Lantern's doctrines. Teach me your likes and dislikes—I'll commit them to memory."
+        },
+        {
+          "id": "voice-90355",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "When you hear the leaves rustling in the trees, you'll know I'm by your side."
+        },
+        {
+          "id": "voice-90342",
+          "title": "Chat: Touch",
+          "content": "Would you like to touch my feathers? Sure, go ahead. Should I extend them further?"
+        },
+        {
+          "id": "voice-90373",
+          "title": "Chat: About the Crisis",
+          "content": "I was immersed in that black, sticky ooze for a long, long time—so long that I forgot about time itself, so long that even Pollux forgot about me. It didn't bring physical pain... just dread, watching my soul dissolve away."
+        },
+        {
+          "id": "voice-90376",
+          "title": "Chat: About Mythag",
+          "content": "A school without Theology? Where you choose lessons... skip them? It sounds like a dream."
+        },
+        {
+          "id": "voice-90366",
+          "title": "Chat: What I Like",
+          "content": "Sorry, I didn't mean to zone out... You asked me what this feather is? This is... His most prized thing... and now mine. Do you like it? It's pretty, right?"
+        },
+        {
+          "id": "voice-90357",
+          "title": "Chat: What I Hate",
+          "content": "What I covet most is how you effortlessly trust your companions. Being forgotten... betrayed... the wounds never fade."
+        },
+        {
+          "id": "voice-90362",
+          "title": "Chat: About the Keeper",
+          "content": "Could you teach me how to trade? How to exchange items and how to manage the currency obtained—it's truly a profound subject. Gaining freedom is just the start; Pollux and I still have a lot to learn to live independently. May I rely on you?"
+        },
+        {
+          "id": "voice-90358",
+          "title": "Chat: About Jenkin",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Jenkin\"",
+          "content": "That master thief offered to teach me the best survival skills for just five hundred Leonian Florins... Have I been deceived? No, I believe this is knowledge worth learning, and it's precisely what Pollux and I are lacking... Is it a money issue? I understand. Then, how about I go negotiate with her and pay her four hundred and fifty Leonian Florins instead?"
+        },
+        {
+          "id": "voice-90345",
+          "title": "Chat: About Doresain",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Doresain\"",
+          "content": "Ah, I heard he's a master chef... The knowledge of making food is indeed very necessary. Although I'm not that particular about food, Pollux is extremely picky. I should find some time to learn from him... I shouldn't go? Why? The food that mister makes looks delicious though."
+        },
+        {
+          "id": "voice-90339",
+          "title": "Chat: About Daffodil",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Daffodil\"",
+          "content": "A store that can fulfill any wish, overflowing with countless treasures... It makes one hesitate to approach. Not that I doubt the lady's power, but \"to obtain something, one must pay the corresponding price\"—this is a lesson Pollux and I have learned through bitter experience, time and again."
+        },
+        {
+          "id": "voice-90346",
+          "title": "Chat: About Karen",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Karen\"",
+          "content": "Now that I reflect on it, the maids carrying lanterns weren't so different from Pollux and me. We all lived shackled by invisible chains, quietly submitting to our fate. Yet that green maid... she was different. There was a lightness to her, as if she genuinely took pleasure in her duties. Maybe... maybe she had already discovered true freedom."
+        },
+        {
+          "id": "voice-90365",
+          "title": "Chat: About Pollux",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Pollux\"",
+          "content": "Pollux... The Lantern filled his mind with poisonous ideas, but he's actually kind. It's not that he's selfish... He's just terrified. Terrified of losing the Lantern's approval, of vanishing without that fragile sense of identity. His desperation to please them... it's the panic of someone clinging to the only \"self\" he's ever known."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-90338",
+          "title": "Investigation Begins",
+          "content": "Witness this will of mine—this hunger for freedom."
+        },
+        {
+          "id": "voice-90371",
+          "title": "Investigation Success",
+          "content": "At last... I've seen the stars from those pages."
+        },
+        {
+          "id": "voice-90348",
+          "title": "Investigation Halted",
+          "content": "Guess I never... made it out, huh..."
+        },
+        {
+          "id": "voice-90378",
+          "title": "Strike: I",
+          "content": "Out of the way!"
+        },
+        {
+          "id": "voice-90353",
+          "title": "Strike: II",
+          "content": "Fall!"
+        },
+        {
+          "id": "voice-90375",
+          "title": "Defense: I",
+          "content": "Back off!"
+        },
+        {
+          "id": "voice-90333",
+          "title": "Defense: II",
+          "content": "You will not get past me."
+        },
+        {
+          "id": "voice-90352",
+          "title": "Hit: I",
+          "content": "Just a scratch..."
+        },
+        {
+          "id": "voice-90359",
+          "title": "Hit: II",
+          "content": "I can take more..."
+        },
+        {
+          "id": "voice-90370",
+          "title": "Skill: I",
+          "content": "Get behind my wings!"
+        },
+        {
+          "id": "voice-90364",
+          "title": "Skill: II",
+          "content": "Wind, carry them to death's maw!"
+        },
+        {
+          "id": "voice-90363",
+          "title": "Special Skill: I",
+          "content": "Vanish with the wind!"
+        },
+        {
+          "id": "voice-90344",
+          "title": "Rouse",
+          "content": "All birds find their sky eventually."
+        },
+        {
+          "id": "voice-90341",
+          "title": "Exalt",
+          "content": "You can't destroy me!"
+        },
+        {
+          "id": "voice-90361",
+          "title": "Over-Exalt",
+          "content": "Let the Cataclysm come. This immortal flesh will stand unbroken!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-116789",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Me and my wind are ready."
+        },
+        {
+          "id": "traphase-116786",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Should we take the initiative to attack, or go all out in defense..."
+        },
+        {
+          "id": "traphase-116788",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Time to make a move. Hesitation can lead to failure."
+        },
+        {
+          "id": "traphase-116791",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Face the hurricane!"
+        },
+        {
+          "id": "traphase-116790",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I failed to block it..."
+        },
+        {
+          "id": "traphase-116787",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "My feathers... have withered..."
+        },
+        {
+          "id": "traphase-120268",
+          "title": "Chat: About Pollux",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "If possible, I don't want to fight you, even if it's just sparring.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0008",
+              "lineId": "traphase-120268"
+            },
+            {
+              "awakenerId": "awakener-0041",
+              "lineId": "traphase-120248"
+            }
+          ]
+        },
+        {
+          "id": "traphase-120252",
+          "title": "Chat: About Murphy: Fauxborn",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I don't understand your concept of \"greatness.\" I only know that my right to freedom cannot be seized by anyone.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0035",
+              "lineId": "traphase-120274"
+            },
+            {
+              "awakenerId": "awakener-0008",
+              "lineId": "traphase-120252"
+            }
+          ]
+        },
+        {
+          "id": "traphase-120249",
+          "title": "Chat: About Faint",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "We've both been shackled... I can take you up there to see the sky, if you'd like. Just call my name.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0016",
+              "lineId": "traphase-120254"
+            },
+            {
+              "awakenerId": "awakener-0008",
+              "lineId": "traphase-120249"
+            }
+          ]
+        }
+      ]
+    }
   }
 }

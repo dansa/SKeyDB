@@ -59,7 +59,7 @@ describe('RelicsBrowse display-scope recovery', () => {
     fireEvent.click(screen.getByRole('button', {name: 'Show hidden matches'}))
 
     await waitFor(() => {
-      expect(getResultsSummary('50 of 297')).toBeInTheDocument()
+      expect(getResultsSummary(`50 of ${String(databaseRelics.length)}`)).toBeInTheDocument()
     })
     expect(screen.queryByText(/hidden by Display/)).not.toBeInTheDocument()
   })
@@ -83,9 +83,16 @@ describe('RelicsBrowse display-scope recovery', () => {
       `${String(defaultEventMatches.hiddenByDisplayCount)} matching relics are hidden by Display.`,
     )
     expect(
-      getResultsSummary(`${String(defaultEventMatches.relics.length)} of 297`),
+      getResultsSummary(
+        `${String(defaultEventMatches.relics.length)} of ${String(databaseRelics.length)}`,
+      ),
     ).toBeInTheDocument()
-    expect(allEventMatches.relics).toHaveLength(44)
+    expect(allEventMatches.relics.map((relic) => relic.id).sort()).toEqual(
+      databaseRelics
+        .filter((relic) => relic.categories.includes('EVENT'))
+        .map((relic) => relic.id)
+        .sort(),
+    )
   })
 
   it('recovers category and tier intersection matches without changing URL filters', async () => {
@@ -102,7 +109,11 @@ describe('RelicsBrowse display-scope recovery', () => {
     fireEvent.click(screen.getByRole('button', {name: 'Show hidden matches'}))
 
     await waitFor(() => {
-      expect(getResultsSummary(`${String(allMatches.relics.length)} of 297`)).toBeInTheDocument()
+      expect(
+        getResultsSummary(
+          `${String(allMatches.relics.length)} of ${String(databaseRelics.length)}`,
+        ),
+      ).toBeInTheDocument()
     })
     expect(screen.getByRole('button', {name: /^Events$/})).toHaveAttribute('aria-pressed', 'true')
     expect(screen.getByRole('button', {name: 'Gold'})).toHaveAttribute('aria-pressed', 'true')

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0321",
+  "name": "☆Refined Prosthesis☆",
+  "route": {
+    "slug": "refined-prosthesis",
+    "canonicalPath": "/database/relics/refined-prosthesis"
+  },
+  "assets": {
+    "icon": "asset-relic-0321-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0574",
+  "rarity": "N",
+  "aliases": [],
+  "descriptionTemplate": "Upon pickup, choose a card to permanently reduce its Arithmetica Cost to 1.",
+  "descriptionArgs": {},
+  "lore": "An eye that is no longer pure.",
+  "variants": [
+    {
+      "id": "relic-variant-0574",
+      "name": "☆Refined Prosthesis☆",
+      "label": "Event - Silver",
+      "variantType": "EVENT",
+      "tier": "Silver",
+      "category": "EVENT",
+      "rarity": "N",
+      "descriptionTemplate": "Upon pickup, choose a card to permanently reduce its Arithmetica Cost to 1.",
+      "descriptionArgs": {},
+      "lore": "An eye that is no longer pure."
+    }
+  ]
+}

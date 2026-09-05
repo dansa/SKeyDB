@@ -55,6 +55,7 @@
   "profile": {
     "title": "Caraboo",
     "birthday": "27-Apr",
+    "voiceActor": "Kugimiya Rie",
     "gender": "Female",
     "height": "4' 7.6''",
     "weight": "73.16 lbs",
@@ -69,7 +70,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "This Silver Core was recovered by Mythag's Keeper %player% in the aftermath of the Mount Ever@2t collapse incident. As the dimension in which it originally resided is no longer observable, the consequences of Silver Core extraction—as well as the proper awakening method—remain undetermined.\n\nThe following observations are transcribed from the paper handbook carried by Keeper %player%:\n\nUpon visual inspection, the Silver Core presents as exceptionally pure, showing no discernible impurities. In the absence of external interference, its overall structure trends toward regularity—as though some underlying will were straining to keep it appearing whole and composed, radiating a bright luster not unlike firelight.\n\nIts Gnosis Index, however, sits near the absolute lower bound. The actual internal structure is extraordinarily fragile and loosely bound. When the observation distance falls below 1/@1 inch, the Silver Core's self-protection response is triggered: the observer is abruptly confronted with a dense flow of particles resembling drifting ice crystals. It is presumed these particles were previously refracting incident light in a highly unusual manner, shielding the interior from direct observation.\nTo put it less professionally... I'd call this a Silver Core steeped in \"deception.\"\n\nOnce the self-protection mechanism is triggered, the observer's body enters a brief paralytic state, the pupils gradually fading until fully blanched. Throughout this window, the Silver Core continues to adjust itself, returning to the stable configuration it maintained prior to observation.\nRepeated trials indicate that the mechanism inflicts no lasting harm; however, the accompanying hypothermic symptoms pose a non-negligible risk. Note: prompt consumption of sweets—apple-based desserts in particular—provides a distinctly soothing effect. The reason for this... remains unclear... <Italic:Right?\n>\n\n\nLuckily, after everything, it's plain enough that this selfish, tightly-guarded little trickster bears no genuine ill will toward us.\n\n—Excerpt from <Italic:Mythag University Silver Core Storage Records>"
       },
       {
@@ -90,6 +91,317 @@
         "unlockCondition": "Affinity Level 9",
         "content": "Have you ever tried telling a lie? The first lie to leave your lips always comes with a stumbling tongue, a heart that nearly leaps out of your throat, and sweat gathering in your palms; even the gentle sunlight becomes a dizzying, blinding glare.\n\nBut once a lie has been repeated ten thousand times, the fear fades away. The words spoken grow smooth, the mind grows ever clearer, and the smile settles into something quite natural.\n\nPlaying the fairy, playing the godmother, playing the kin of some figure in power—she had long since mastered the myriad layered identities she had fabricated, grown accustomed to hiding herself behind her lies, until she herself became but a part of the lies.\n\nAnd that first little hare still hides within a small farm bathed in the sunset light of her memories.\n\nOn nights when the ice thaws and the snow melts away, it quietly peeks its head out once more."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-149688",
+          "title": "Awaken",
+          "content": "So nice to meet you! I'm a Pale Fairy from faraway lands. Care to hear more? A fairy's blessing comes in different strengths, depending on your membership tier, hehe~"
+        },
+        {
+          "id": "voice-149672",
+          "title": "Upgrade: I",
+          "content": "Well now, aren't you a devout little lamb."
+        },
+        {
+          "id": "voice-149673",
+          "title": "Upgrade: II",
+          "content": "A little more, and then the Fairy will bless you, hmm?"
+        },
+        {
+          "id": "voice-149696",
+          "title": "Upgrade: III",
+          "content": "Mmm, delicious~♪"
+        },
+        {
+          "id": "voice-149689",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "At past worship ceremonies, besides the sevenfold rite and the threefold vow, the faithful would build me a brand-new temple and present lavish tribute. Here's the list!"
+        },
+        {
+          "id": "voice-149686",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "Everything on the list... gathered already? Mythag's fortune runs deeper than I can fathom... If I'd known, I would've... Hmm? What am I muttering about, you ask? Just thanking Lord Dexter for his generosity, hehe~"
+        },
+        {
+          "id": "voice-149676",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "This worship ceremony will be grander than any before—and the offerings will need to be greater in number too... Oh my, we're not chopping their limbs off, of course! I'm a kind-hearted fairy; I'd never do anything to hurt anyone~"
+        },
+        {
+          "id": "voice-149683",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "Wowww, this much tribute...! Ahem. Hehe, well done, you've earned a reward! Come here, I'll grants you a fairy's kiss! ...What are you thinking? On the forehead, obviously!"
+        },
+        {
+          "id": "voice-149684",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "Thank you all for your offerings, faithful ones! Your ever-understanding Godmother will have a solid-gold statue of you raised in the temple, too. Oh my—to capture that cold, elegant figure of yours, I'll simply have to go gathering a good deal more~"
+        },
+        {
+          "id": "voice-149671",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "Come, stand here beside your Fairy. What? Everyone shares the offerings and eats together? ...Well. If that's Mythag's custom... then I... I certainly have no objection at all. Come now, everyone, let's make it a party!"
+        },
+        {
+          "id": "voice-149691",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "I hear you've been asking about where I come from. Hehe, now that's a Godmother's little secret. Buuut, if you simply must go digging, the Holy Order does keep a biography I penned myself. Yours to read for a mere hundred thousand Silvers. Care to give it a try?"
+        },
+        {
+          "id": "voice-149699",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "Still haven't given up? Fine, fine—Caraboo will tell you herself. You see, Caraboo is the daughter of Umapati, goddess of a certain cloud-piercing snow-peak in the East... Hmm? That goddess had two sons and no daughter? Well, records of the divine are always a little... incomplete, you see."
+        },
+        {
+          "id": "voice-149668",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "You don't believe me? Boo-hoo... I suppose you really can't pull the wool over everyone's eyes... The truth is, I'm the bastard daughter of Bohemond VI of @1, living in hiding among mortals, and I only ever claimed to be a fairy to escape the enemy's hunt... I've told you my most precious secret now. You wouldn't not believe me... would you?"
+        },
+        {
+          "id": "voice-149701",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "All right, all right, stop digging, would you? Be a good {Male=boy,Female=girl} and drop this rude little investigation, and I'll secretly share half my most precious candy with you. You know, out on the Crusade battlefields, sweet candy was a rare treasure indeed."
+        },
+        {
+          "id": "voice-149677",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "Keeper, are you ready for Caraboo's truest confession, from the bottom of her heart?\nWhere I come from doesn't matter at all. What really matters is this: You are a gift to me from heaven, and I've decided to stay by my precious benefactor's side, forever and ever. \nIs this another lie to stop you from further digging up my dirt, you ask? Hehe, what do you think?\nAnyway... I think I deserve a little treat for sharing my true feelings with you. An apple flavored gummy would do, please?"
+        },
+        {
+          "id": "voice-149667",
+          "title": "Chat: Touch",
+          "content": "Hmm? Curious, are we? A Godmother's treasure vault isn't for outsiders' eyes, you know. If you're just dying to know what's stuffed so full inside... why not join the Holy Order right now... Hehe."
+        },
+        {
+          "id": "voice-149702",
+          "title": "Chat: About the Crisis",
+          "content": "Caraboo's blessing can cure every illness in the world—including this black plague, of course... Of course it's true! You just have to be devout enough, trust Caraboo enough, hehe."
+        },
+        {
+          "id": "voice-149692",
+          "title": "Chat: About Mythag",
+          "content": "Oh, it's lovely here—so many adorable children, and welfare subsidies generous to the point of obscene. With all this, I'll have saved up my travel fare to the East soon enough..."
+        },
+        {
+          "id": "voice-149670",
+          "title": "Chat: What I Like",
+          "content": "Too much candy? No no no, this is a Godmother's secret to keeping her smile, you know. As if I'd stop over a little thing like a cavity?"
+        },
+        {
+          "id": "voice-149687",
+          "title": "Chat: What I Hate",
+          "content": "What do I hate most? Wizards with no respect for a contract, obviously. Here's a little secret, just between us: every last wizard is a big fat fraud. All their so-called prophecies and curses? Just tricks to swindle you into the poorhouse! And how do you protect yourself...? Simple! Just let all your money receive the Fairy's blessing!"
+        },
+        {
+          "id": "voice-149685",
+          "title": "Chat: About the Keeper",
+          "content": "You? ...You're one of our flock, not yet enlightened. Caraboo will wait, patiently, for the day you see the world's true nature. And when that day comes—remember to offer up your body, your loyalty, and your worldly goods to everyone's Godmother. Hehe."
+        },
+        {
+          "id": "voice-150104",
+          "title": "Chat: About Ogier",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Ogier\"",
+          "content": "Huh, how did Ogier let you in? He promised he'd keep everyone out. You're his liege...? Ugh, unreliable little children are such a headache. I put a lot of work into preparing this gathering, you know. Say... fifty-fifty on the offerings we take in, and you look the other way for me?"
+        },
+        {
+          "id": "voice-149694",
+          "title": "Chat: About Ryker",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Ryker\"",
+          "content": "So sorry, but the Fairy's domain is sacred ground—we don't receive strange werewolves here... Something about the air smelling of lies? His nose must just be on the fritz."
+        },
+        {
+          "id": "voice-149695",
+          "title": "Chat: About the Rumors",
+          "content": "Huh? Someone's saying I'm a fake fairy... Well, I'm caught. hehe. But I know you won't mind... right?"
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-149700",
+          "title": "Investigation Begins",
+          "content": "Ta-daa~ the Fairy's radiance shines upon you now. Go get 'em!"
+        },
+        {
+          "id": "voice-149698",
+          "title": "Investigation Success",
+          "content": "Little lambs gone astray, your Fairy's here to wash your sins away, hehe~"
+        },
+        {
+          "id": "voice-149680",
+          "title": "Investigation Halted",
+          "content": "It's fine! Next time, just focus on protecting your Fairy, and you won't fail~"
+        },
+        {
+          "id": "voice-149678",
+          "title": "Strike: I",
+          "content": "Hehe~"
+        },
+        {
+          "id": "voice-150079",
+          "title": "Strike: II",
+          "content": "Feel it!"
+        },
+        {
+          "id": "voice-149682",
+          "title": "Defense: I",
+          "content": "Don't even try to fool me!"
+        },
+        {
+          "id": "voice-149697",
+          "title": "Defense: II",
+          "content": "There, there~"
+        },
+        {
+          "id": "voice-149669",
+          "title": "Hit: I",
+          "content": "Owie~"
+        },
+        {
+          "id": "voice-149703",
+          "title": "Hit: II",
+          "content": "Owie~"
+        },
+        {
+          "id": "voice-149704",
+          "title": "Skill: I",
+          "content": "Behold the Fairy's radiance!"
+        },
+        {
+          "id": "voice-149674",
+          "title": "Skill: II",
+          "content": "You're all still a little green~"
+        },
+        {
+          "id": "voice-149693",
+          "title": "Rouse",
+          "content": "Don't forget to worship your Godmother, hehe."
+        },
+        {
+          "id": "voice-149690",
+          "title": "Exalt",
+          "content": "Come now... bury everything you wish to cast off deep in the snow..."
+        },
+        {
+          "id": "voice-149705",
+          "title": "Over-Exaltation",
+          "content": "The sevenfold rite, the threefold vow—offer them up, and buy yourself the Fairy's absolution!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-150089",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "The Fairy has arrived☆! Down on your knees, chop-chop~"
+        },
+        {
+          "id": "traphase-150102",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Now, which one of you looks like an easy little snack...?"
+        },
+        {
+          "id": "traphase-150100",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Don't think too hard! You've got the Fairy's magic to shield you—now charge~!"
+        },
+        {
+          "id": "traphase-150093",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Be buried beneath this spotless snow!"
+        },
+        {
+          "id": "traphase-150092",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Ta-daa~☆ Found myself a fool!"
+        },
+        {
+          "id": "traphase-150101",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Oh, shut up! All you had to do was keep this fairy safe and we'd have won..."
+        },
+        {
+          "id": "traphase-150096",
+          "title": "Chat: About Aurita",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Now, aren't you the Fairy Godmother's very best little girl?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0060",
+              "lineId": "traphase-150096"
+            },
+            {
+              "awakenerId": "awakener-0005",
+              "lineId": "traphase-150094"
+            }
+          ]
+        },
+        {
+          "id": "traphase-150095",
+          "title": "Chat: About Ogier",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Tch. What a hopeless blockhead.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0038",
+              "lineId": "traphase-150091"
+            },
+            {
+              "awakenerId": "awakener-0060",
+              "lineId": "traphase-150095"
+            }
+          ]
+        },
+        {
+          "id": "traphase-150099",
+          "title": "Chat: About Agrippa",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "A rich family's airheaded daughter—shame they've gone bust. Hmm, what's worth swindling out of her...?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0060",
+              "lineId": "traphase-150099"
+            },
+            {
+              "awakenerId": "awakener-0002",
+              "lineId": "traphase-150097"
+            }
+          ]
+        },
+        {
+          "id": "traphase-150098",
+          "title": "Chat: About Pontos",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "...Ugh, slippery scheming old men are the worst!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0058",
+              "lineId": "traphase-150090"
+            },
+            {
+              "awakenerId": "awakener-0060",
+              "lineId": "traphase-150098"
+            }
+          ]
+        }
+      ]
+    }
   }
 }

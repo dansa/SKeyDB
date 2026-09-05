@@ -55,6 +55,7 @@
   "profile": {
     "title": "Aigis",
     "birthday": "27-Jun",
+    "voiceActor": "Yamamoto Ayano",
     "gender": "Female",
     "height": "4'6''",
     "weight": "70lbs",
@@ -69,7 +70,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "According to the \"Cataclysm Event Record III,\" the Keeper brought back this piece of Silver Core from the Londinium Orphanage. Accompanying the Silver Core was a tiny, patch-covered teddy bear.\n\nThis Silver weighs about 2.1 grams, is slender and smooth, resembling a teardrop. Those who come into direct contact with the Silver will fall into a Stasis State, maintaining the posture of touching the Silver until Awakened by someone else. To prevent accidental contact, Researcher Doll kept this Silver in a closed glass orb and replaced the teddy bear's eyes.\n\n\"It looks as if it has been crying every day.\""
       },
       {
@@ -90,6 +91,333 @@
         "unlockCondition": "Affinity Level 9",
         "content": "Fearful of light, fearful of gaze, fearful of love, fearful of embrace.\n\nDesiring light, desiring gaze, desiring love, desiring embrace.\n\nIf only I could avoid harming others, if only I wouldn't trouble others, if only I were as smart as Tiuog, if only I were as brave as Jenkin...\n\nThen I wouldn't be scorched by the blazing sun, nor despised by others, right?\n\nWith unfounded worries, the doll cautiously reached out its pale, almost translucent hand from the shadow into the sunlight."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-6342",
+          "title": "Awaken",
+          "content": "H-Hello... Nice to meet you. My name is Aigis... P-Please don't mind me! Just pretend I don't exist..."
+        },
+        {
+          "id": "voice-6536",
+          "title": "Upgrade: I",
+          "content": "T-Thank you... for everything you've done. I will do my absolute best... to not let you down!"
+        },
+        {
+          "id": "voice-6585",
+          "title": "Upgrade: II",
+          "content": "A treasure that glitters like candy wrappers... I will cherish it dearly."
+        },
+        {
+          "id": "voice-5532",
+          "title": "Upgrade: III",
+          "content": "I have grown stronger... I'll use these eyes to paralyze the enemy!"
+        },
+        {
+          "id": "voice-5368",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "What can I help you with...?"
+        },
+        {
+          "id": "voice-6066",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "P-please don't look into my eyes... I don't want to hurt you... I'm a monster, after all..."
+        },
+        {
+          "id": "voice-6065",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "I-I feel so uneasy... being looked at like this... Are you not afraid of my curse?"
+        },
+        {
+          "id": "voice-6064",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "I am very anxious... unsure if I can ever meet your expectations..."
+        },
+        {
+          "id": "voice-6063",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "Your gaze is burning me... Have I caused you any trouble?"
+        },
+        {
+          "id": "voice-6062",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "I... I understand your intention. Though I'm still clumsy, I will fight for you with all I have!"
+        },
+        {
+          "id": "voice-5166",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "Sorry, if I'm causing you any trouble, I'll leave immediately!"
+        },
+        {
+          "id": "voice-6614",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "Can I stay here a little longer? I will remain quiet, make no sound, and try my best not to disturb you..."
+        },
+        {
+          "id": "voice-5168",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "Thank you for allowing me to stay here. If there's any way I can repay you, please let Aigis know. Would you like some tea?"
+        },
+        {
+          "id": "voice-5169",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "It's so warm that I don't want to leave. When I'm alone, it's truly dark, cold, and frightening..."
+        },
+        {
+          "id": "voice-5170",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "Aigis... Can I really return to the crowd? I'm not ready yet, but you've already accepted me... In that case, please continue to look after me... Keeper."
+        },
+        {
+          "id": "voice-6151",
+          "title": "Chat: Touch",
+          "content": "Aigis... Did I do something wrong?"
+        },
+        {
+          "id": "voice-5130",
+          "title": "Chat: About Friends",
+          "content": "Jenkin, Diana, Mac, T'yog, Brown... Woahh! Sorry, I was just talking to myself! You ask why I'm reciting these names? Because I don't want to forget them..."
+        },
+        {
+          "id": "voice-5889",
+          "title": "Chat: About Jenkin",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Jenkin\"",
+          "content": "Ah, it's Brown! I... I should probably back away a bit... I wanted to be her friend, but instead, I ended up becoming her nightmare... She probably doesn't want to see me anyway..."
+        },
+        {
+          "id": "voice-6201",
+          "title": "Chat: About Murphy",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Murphy\"",
+          "content": "Is... Is it really okay for her to treat others like that? Ms. Sarah said kids shouldn't throw tantrums..."
+        },
+        {
+          "id": "voice-5840",
+          "title": "Chat: About Dissolution",
+          "content": "If only Aigis could bear this black liquid for everyone... After all, Aigis never existed, which might be a good thing for this world, right?"
+        },
+        {
+          "id": "voice-5255",
+          "title": "Chat: About Mythag",
+          "content": "I'm really scared. No, I'm not scared of you, but... I'm worried I might bring fear and sorrow to you again."
+        },
+        {
+          "id": "voice-4930",
+          "title": "Chat: What I Like",
+          "content": "Everything. I love everything. Whether it's everyone gathered around the table for a meal and prayer, or the anticipation when the Keeper is out on a mission, waiting for your triumphant return... The air is always filled with happiness... Do I truly deserve such joy?"
+        },
+        {
+          "id": "voice-6634",
+          "title": "Chat: What I Hate",
+          "content": "What I... hate? Can I say it? I hate myself for being so useless... But if I say that, Jenkin will get really angry..."
+        },
+        {
+          "id": "voice-5280",
+          "title": "Chat: About the Keeper",
+          "content": "You are the kind person providing me with a place to stay. I will do as you say. If only I could be a bit more useful..."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-5269",
+          "title": "Investigation Begins",
+          "content": "I... I can do it!"
+        },
+        {
+          "id": "voice-5258",
+          "title": "Investigation Success",
+          "content": "Whew... Did I cause you any trouble?"
+        },
+        {
+          "id": "voice-5710",
+          "title": "Investigation Halted",
+          "content": "It's all my fault... Everything is my fault..."
+        },
+        {
+          "id": "voice-5451",
+          "title": "Defense: I",
+          "content": "Be careful!"
+        },
+        {
+          "id": "voice-5450",
+          "title": "Defense: II",
+          "content": "Don't come any closer!"
+        },
+        {
+          "id": "voice-5677",
+          "title": "Hit: I",
+          "content": "Ouch!"
+        },
+        {
+          "id": "voice-5679",
+          "title": "Hit: II",
+          "content": "Please stop!"
+        },
+        {
+          "id": "voice-5678",
+          "title": "Hit: III",
+          "content": "Ouch..."
+        },
+        {
+          "id": "voice-5637",
+          "title": "Hit: IV",
+          "content": "(A stifled groan of endurance)"
+        },
+        {
+          "id": "voice-6015",
+          "title": "Skill: I",
+          "content": "Stop!"
+        },
+        {
+          "id": "voice-6447",
+          "title": "Skill: II",
+          "content": "...I... I see it now!"
+        },
+        {
+          "id": "voice-5176",
+          "title": "Rouse",
+          "content": "I will endure it."
+        },
+        {
+          "id": "voice-5125",
+          "title": "Exalt",
+          "content": "Ah... Sorry, p-please don't move!"
+        },
+        {
+          "id": "voice-57849",
+          "title": "Over-Exalt",
+          "content": "Don't move! Don't move! No!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-100084",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I... I will do my best!"
+        },
+        {
+          "id": "traphase-99915",
+          "title": "Chat: About Jenkin",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "N-No, Jenkin! Keep your voice down!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0025",
+              "lineId": "traphase-100157"
+            },
+            {
+              "awakenerId": "awakener-0003",
+              "lineId": "traphase-99915"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100135",
+          "title": "Chat: About Lily",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Huh? Thank you. I... I like them too...",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0029",
+              "lineId": "traphase-100091"
+            },
+            {
+              "awakenerId": "awakener-0003",
+              "lineId": "traphase-100135"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99854",
+          "title": "Chat: About Ogier",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Umm... Could we... not fight Ogier?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0003",
+              "lineId": "traphase-99854"
+            },
+            {
+              "awakenerId": "awakener-0038",
+              "lineId": "traphase-99910"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100007",
+          "title": "Chat: About \"24\"",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Hello, sis... Miss Mason.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0003",
+              "lineId": "traphase-100007"
+            },
+            {
+              "awakenerId": "awakener-0001",
+              "lineId": "traphase-100111"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99920",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "M-Miss Sarah never taught us about this..."
+        },
+        {
+          "id": "traphase-99997",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Keep going! I can hold on!"
+        },
+        {
+          "id": "traphase-99795",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Stop right there!"
+        },
+        {
+          "id": "traphase-100026",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Ah, did I cause trouble for everyone again...?"
+        },
+        {
+          "id": "traphase-100148",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I'm sorry..."
+        },
+        {
+          "id": "traphase-127014",
+          "title": "Chat: About Xu",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I-I'll be good, I promise... Please... Please don't hate me...",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0054",
+              "lineId": "traphase-127016"
+            },
+            {
+              "awakenerId": "awakener-0003",
+              "lineId": "traphase-127014"
+            }
+          ]
+        }
+      ]
+    }
   }
 }

@@ -17,15 +17,29 @@ export interface AwakenerProfileStorySection {
   content: string
 }
 
+export type AwakenerQuoteCategory = 'daily' | 'battle' | 'traphase'
+
+export interface AwakenerQuote {
+  id: string
+  title: string
+  content: string
+  unlockCondition?: string
+  exchange?: {awakenerId: string; lineId: string}[]
+}
+
+export type AwakenerVoiceLines = Partial<Record<AwakenerQuoteCategory, AwakenerQuote[]>>
+
 export interface AwakenerProfile {
   title?: string
   birthday?: string
+  voiceActor?: string
   gender?: string
   height?: string
   weight?: string
   gnosticIndex?: string
   faction?: string
   storySections?: AwakenerProfileStorySection[]
+  voiceLines?: AwakenerVoiceLines
 }
 
 export type PublicUpgradeableSkillRecord = AwakenerSkillRecord & {

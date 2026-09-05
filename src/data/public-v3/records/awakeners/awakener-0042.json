@@ -55,6 +55,7 @@
   "profile": {
     "title": "Ramona",
     "birthday": "12-Dec",
+    "voiceActor": "Yamamoto Ai",
     "gender": "Female",
     "height": "5'5''",
     "weight": "102lbs",
@@ -69,7 +70,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "When Ramona first appeared on campus, it stirred up a huge commotion.\n\nAt Mythag University, where Awakeners walked everywhere and peculiar people were common, having silver hair and heterochromia was not noteworthy. What made Ramona the topic of conversation was her identity as the \"professor's daughter.\" \n\nEveryone crowded outside the mathematics department's office, hoping to catch a glimpse of Miss Dexter. There were so many people that the professor had to seek help from Miss Lotan to disperse the crowd. \n\nOnce Ramona grew a bit older, and the professor finally felt comfortable letting her run around campus, those students who were sent away by Lotan found opportunities to speak to her. \n\n\"What kind of person is the Noble Lady? Sorry, that character doesn't exist yet. I'm an orphan; my father kindly adopted me.\" \n\nTo escape the entanglement, the little girl calmly revealed the truth, leaving everyone in guilt as she gracefully walked away."
       },
       {
@@ -90,6 +91,333 @@
         "unlockCondition": "Affinity Level 9",
         "content": "She knows everything.\n\nShe knows the bell tower rings in emergencies, that the Eridanus meteor shower will return in ten years, and that she possesses a unique power.\n\nShe knows nothing.\n\nShe doesn't know the secret spice in the cafeteria's curry recipe, how to calculate the radius of a planet after its annihilation, or the direction her future will take.\n\nShe finds it hard to let go of everything around her, yet cannot resist the path her intuition reveals.\n\nOn the journey toward truth and normalcy, Ramona needs steadfast companions to help her secure the road back to everyday life."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-5498",
+          "title": "Awaken",
+          "content": "Ramona Dexter, just call me Ramona. I'm looking forward to working with you, Keeper."
+        },
+        {
+          "id": "voice-5486",
+          "title": "Upgrade: I",
+          "content": "Shortcut methods may give a boost, but don't neglect skill training."
+        },
+        {
+          "id": "voice-5487",
+          "title": "Upgrade: II",
+          "content": "So this method applies to me as well..."
+        },
+        {
+          "id": "voice-5488",
+          "title": "Upgrade: III",
+          "content": "A wonderful feeling."
+        },
+        {
+          "id": "voice-5078",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "It feels like something is boiling inside me. Is this what it feels like to undergo Enlightening?"
+        },
+        {
+          "id": "voice-6394",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "Besides combat ability, my memory and logical thinking haven't improved much. Indeed, I shouldn't rely on something else to think for me."
+        },
+        {
+          "id": "voice-6392",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "It feels as refreshing as reading \"On the Origin of Species\" in one go."
+        },
+        {
+          "id": "voice-6393",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "I've gotten stronger. Let me try handling the next mission alone, alright?"
+        },
+        {
+          "id": "voice-6390",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "Now, the line between me and the Awakener is even blurrier. Take good care of me, will you?"
+        },
+        {
+          "id": "voice-6391",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "Let's go. We have a world to save."
+        },
+        {
+          "id": "voice-4997",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "Whether it's the Awakener Affairs Office procedures or the date for Indian food in the canteen, I can answer any question about Mythag for you. Don't worry, you're not bothering me. Do I look that unapproachable?"
+        },
+        {
+          "id": "voice-4996",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "Are you curious about my relationship with Professor Dexter? It's no secret. He is my foster father. As for my mother... I grew up here at the school and was cared for by all the teachers. However, among them, I am closest to Professor Doll."
+        },
+        {
+          "id": "voice-4995",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "You've met that woman, right? The Awakener in a white veil—she's one of the university's founders... But honestly, I don't like her. That aloof attitude, as if she doesn't care about the world at all, really gets on my nerves... Oh, you think she looks like me? Let's go get your eyes checked at the campus clinic."
+        },
+        {
+          "id": "voice-4994",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "Ah... It's natural for you to have concerns. I didn't think it through. As your partner, I should have explained this from the start. As you can see, I do possess some unusual traits, likely tied to my background. It's impossible not to be curious, right? But having a place like the academy is a blessing for me, so I choose not to lift the veil of fate."
+        },
+        {
+          "id": "voice-4993",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "\"With such abilities, am I truly still human?\" I have asked myself this every day since I started training for battle. I love this world, despite its darkness, filth, and monotony, but your presence makes it shine like diamonds amidst the dust. I once feared that as my power grew, my stance as a human would shift... Now, I am grateful to have you by my side. Our bond anchors me firmly to the human world. Please continue to watch over me, Keeper."
+        },
+        {
+          "id": "voice-5494",
+          "title": "Chat: Touch",
+          "content": "You don't know what to do? If you're bored, just go write up some mission reports."
+        },
+        {
+          "id": "voice-5790",
+          "title": "Chat: About Studying",
+          "content": "Your assignment is done, right? Can you come with me to the downtown... Eh? Your math homework isn't done yet?! Ah... sorry, I didn't expect anyone not to understand calculus... Let me help."
+        },
+        {
+          "id": "voice-5760",
+          "title": "Chat: About Jenkin",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Jenkin\"",
+          "content": "I hope Jenkin and Brown are enjoying their time at the academy. Father's cufflinks are insignificant. If Jenkin wants them, she can have them. I'm sure he has a whole box of spares."
+        },
+        {
+          "id": "voice-6530",
+          "title": "Chat: About Thais",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Thais\"",
+          "content": "You'd better not get too close to Lady Thais... No, I'm not jealous. I'm just afraid someone might fall for her tricks."
+        },
+        {
+          "id": "voice-6638",
+          "title": "Chat: About Dissolution",
+          "content": "Dissolution is the reason this academy was founded and why we met. To save humanity's spark from Dissolution, let's do our best, partner."
+        },
+        {
+          "id": "voice-5012",
+          "title": "Chat: About Mythag",
+          "content": "If you want to know about the academy's past, I suggest you look through the archives. Come on, including its predecessor, that's a history spanning 300 years! You don't really expect me to recount it year by year, do you?"
+        },
+        {
+          "id": "voice-6552",
+          "title": "Chat: What I Like",
+          "content": "I don't have any particular favorites. If I had to say, the feeling of going out on missions is quite nice."
+        },
+        {
+          "id": "voice-5139",
+          "title": "Chat: What I Hate",
+          "content": "Theory classes are pretty boring. I secretly read investigation records at the back of the classroom. Don't tell Doll this. It's our secret, okay?"
+        },
+        {
+          "id": "voice-5249",
+          "title": "Chat: About the Keeper",
+          "content": "I've been looking forward to your arrival even before you were officially admitted. It seems we're working together quite well, huh? Partner."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-6760",
+          "title": "Investigation Begins",
+          "content": "Go! Issue the battle command!"
+        },
+        {
+          "id": "voice-5128",
+          "title": "Investigation Success",
+          "content": "Good job! Do you still have the energy to keep going?"
+        },
+        {
+          "id": "voice-6262",
+          "title": "Investigation Halted",
+          "content": "I guess... human strength has its limits..."
+        },
+        {
+          "id": "voice-6607",
+          "title": "Strike: I",
+          "content": "It's now!"
+        },
+        {
+          "id": "voice-5961",
+          "title": "Defense: I",
+          "content": "How naive!"
+        },
+        {
+          "id": "voice-5960",
+          "title": "Defense: II",
+          "content": "Leave it to me."
+        },
+        {
+          "id": "voice-6489",
+          "title": "Hit: I",
+          "content": "I can still hold up."
+        },
+        {
+          "id": "voice-6490",
+          "title": "Hit: II",
+          "content": "(Exclamation)"
+        },
+        {
+          "id": "voice-6491",
+          "title": "Hit: III",
+          "content": "(Exclamation)"
+        },
+        {
+          "id": "voice-6488",
+          "title": "Hit: IV",
+          "content": "(Exclamation)"
+        },
+        {
+          "id": "voice-6142",
+          "title": "Skill: I",
+          "content": "Leave it to me!"
+        },
+        {
+          "id": "voice-6496",
+          "title": "Rouse",
+          "content": "Dive into the depths of free will!"
+        },
+        {
+          "id": "voice-6235",
+          "title": "Exalt",
+          "content": "With this deductive reasoning device... I shall interpret the world!"
+        },
+        {
+          "id": "voice-54602",
+          "title": "Over-Exalt",
+          "content": "This is how we will comprehend the world's mysteries."
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-100050",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I'll chart our course ahead with careful inference."
+        },
+        {
+          "id": "traphase-99852",
+          "title": "Chat: About Doll",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Professor Doll, fighting you reminds me of what we did on the training classes.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0042",
+              "lineId": "traphase-99852"
+            },
+            {
+              "awakenerId": "awakener-0013",
+              "lineId": "traphase-100223"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100080",
+          "title": "Chat: About Ramona: Timeworn",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "My resolve to protect %player% is every bit as strong as yours. I'll prove it now.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0042",
+              "lineId": "traphase-100080"
+            },
+            {
+              "awakenerId": "awakener-0020",
+              "lineId": "traphase-100039"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99906",
+          "title": "Chat: About Thais",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Your tricks to lure and deceive others won't work on me.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0042",
+              "lineId": "traphase-99906"
+            },
+            {
+              "awakenerId": "awakener-0048",
+              "lineId": "traphase-100120"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100056",
+          "title": "Chat: About Jenkin",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Jenkin, judging by the look of things, you haven't done your homework for the Awakener combat techniques class?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0042",
+              "lineId": "traphase-100056"
+            },
+            {
+              "awakenerId": "awakener-0025",
+              "lineId": "traphase-99744"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100088",
+          "title": "Chat: About Kathigu-Ra",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "There's no need for you to worry. I will protect the Keeper until my last breath.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0027",
+              "lineId": "traphase-99856"
+            },
+            {
+              "awakenerId": "awakener-0042",
+              "lineId": "traphase-100088"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100210",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Every detail must be taken into account..."
+        },
+        {
+          "id": "traphase-100090",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Do you need help coming up with a strategy?"
+        },
+        {
+          "id": "traphase-99805",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "This is the final step of the plan!"
+        },
+        {
+          "id": "traphase-100192",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "My plan requires further revision..."
+        },
+        {
+          "id": "traphase-100028",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Strategy failed. My plan will need adjustment next time..."
+        }
+      ]
+    }
   }
 }

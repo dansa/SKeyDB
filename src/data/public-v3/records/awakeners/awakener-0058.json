@@ -55,6 +55,7 @@
   "profile": {
     "title": "Pontos",
     "birthday": "27-Aug",
+    "voiceActor": "Suwabe Junichi",
     "gender": "Male",
     "height": "6'1''",
     "weight": "Unmeasurable",
@@ -69,7 +70,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "In August of A.F. 2@17, a series of anomalous spiritual events manifested within a three-mile radius of Nara@1Bay.\n@1 recorded emergency calls reported sightings of several individuals, previously registered as deceased, lingering near the ruins of @3. These individuals were later verified to have all perished in the explosion that struck @2 Port Town in 1@19. The cause of that explosion remains unconfirmed to this day, and all individuals involved exhibited varying degrees of amnesia.\n<Italic:\"I saw her, I swear... she was as young as the day we parted. But that's impossible.\">\n<Italic:\"It's been @2 years since she bade me farewell, yet she remained as beautiful as ever. She just stood there on the cliffside with the others, smiling at me from afar.\">\n<Italic:\"...When we are cherished, we will always be granted a second chance. EBWYN@2OS... Ebwy@1noss...\">\nThe recording concluded with an unidentified static resembling the churning of seawater. Twenty hours later, the witness died at home of organ failure at the age of 76.\nThe day after this material reached Mythag University, Irene Caldwell—a retired researcher from the Awakening Studies Department and distant relative of the witness, Chambers Caldwell—received an O-@1 Silver Core that Chambers had delivered to her.\nAccording to Irene, Chambers looked no different from his younger self.\nHe left only one sentence before vanishing:\n\"Please take Him to Mythag. He shall wait there for the last wanderer of Ebwynnos to return.\"\n—Excerpt from <Italic:Mythag University Silver Core Storage Records>"
       },
       {
@@ -90,6 +91,343 @@
         "unlockCondition": "Affinity Level 9",
         "content": "<Italic:\"Is it that you won't allow aging—or that you won't allow anything beyond your control?\">\nHe did not answer, nor did he need to.\nThe abyss had chosen him long before the disaster struck, for his unspoken obsessions aligned perfectly with the abyss itself.\nObedience, companionship, and stasis... he was as inescapable as the abyss: suffocating all things, yet preserving them for eternity."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-143505",
+          "title": "Awaken",
+          "content": "Seek you a feast, a hunt, or sanctuary?\nPray to me—the primeval ocean will speak my name.\nI am Pontos, Lord of the Great Abyss."
+        },
+        {
+          "id": "voice-143535",
+          "title": "Upgrade: I",
+          "content": "Smart move, kid. The followers of that foreign monster are thick enough to always toss corpses into the sea. That's not an offering. That's littering."
+        },
+        {
+          "id": "voice-143529",
+          "title": "Upgrade: II",
+          "content": "Let's hope these little things don't eat you out of house and home. You know, feeding a large family is no easy feat."
+        },
+        {
+          "id": "voice-143507",
+          "title": "Upgrade: III",
+          "content": "Uh, not that I did that, but if you ever hear the sound of seawater and the rustle of wings inside your head—don't worry about it. It's perfectly normal."
+        },
+        {
+          "id": "voice-143521",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "In Ebwynnos, the revelry never ends. And Ebwynnos's enemies will never know rest."
+        },
+        {
+          "id": "voice-143503",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "Skin, muscle, nerve, bone—my whole body is being reconstructed. I feel whole and vital again."
+        },
+        {
+          "id": "voice-143527",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "Spirituality gives rise to a new body, which is then filled with a trivial mind. Then those particularlt bright and lively ones will be gathered in one place, forever.\nRemember what I told you? The deepest part of the ocean holds everything... and keeps everything there."
+        },
+        {
+          "id": "voice-143522",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "Ah, I understand that shudder. But it's entirely unnecessary, my young friend. Accept your fear of mediocrity, of being slowly worn down. Look at me. You know you always have another choice."
+        },
+        {
+          "id": "voice-143531",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "Aging is the only adventure you must face alone. It's your best friend, and your most troublesome foe. But the lights of Ebwynnos will drive it all away... you don't need to be shackled by such worthless memories."
+        },
+        {
+          "id": "voice-143501",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "Such a pity. When you change your mind, you know where to find me."
+        },
+        {
+          "id": "voice-143524",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "Those slimy fish-people are no friends of mine. They're my enemies. Surprised? The ocean never belonged to them anyway."
+        },
+        {
+          "id": "voice-143530",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "Long, long before the land rose from the sea, certain presences stirred within this planet. They're mighty, sovereign, unfathomable.\nNeither malice nor mercy could define Them. Humans, like countless creatures that came before, meant nothing to Them. You could be swept away like dust, or protected as part of their territory."
+        },
+        {
+          "id": "voice-143539",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "Prayer works. Think of it this way: If ants arranged themselves into Leonian characters at your feet, you'd at least pause to consider what they wanted."
+        },
+        {
+          "id": "voice-143515",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "As for the one who chose me... let's just say He's generous and rotten in equal measure.\nWhere you land is entirely a matter of whim. You will be pulled from danger, that much is certain. Whether you land in another danger entirely—well, that's hardly the concern of that particular \"journey.\"\nHow delightful. How unpredictable. I'm considering keeping up the tradition."
+        },
+        {
+          "id": "voice-143540",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "Hahahaha—alright, alright, don't look at me like that, kid.\nJust some traditions what you call the Elder Gods tend to follow. As for you—no price, no conditions. I'm always on your side."
+        },
+        {
+          "id": "voice-143506",
+          "title": "Chat: Touch",
+          "content": "Heh... Missing your time in Ebwynnos?\nIt's right here, in my body. You're welcome to come back anytime."
+        },
+        {
+          "id": "voice-143518",
+          "title": "Chat: About the Crisis",
+          "content": "Erasing memory. Erasing existence. Familiar, isn't it? You know what I mean. Different origins—and yet They always breed in the dark."
+        },
+        {
+          "id": "voice-143509",
+          "title": "Chat: About Mythag",
+          "content": "I like spirited young people. Shame Mythag keeps such a stranglehold on entertainment—not even a decent hunting ground to speak of.\nAnd worse still, that filthy thing is strutting around in broad daylight, even daring to wear the title—<Italic:professor>."
+        },
+        {
+          "id": "voice-143537",
+          "title": "Chat: What I Like",
+          "content": "I hate to admit it, but once in a rare while, I find myself thinking that aging isn't just something time does to you. It's merely a symbol. So I allow it to leave a mark on me. Only in appearance, of course."
+        },
+        {
+          "id": "voice-143523",
+          "title": "Chat: What I Hate",
+          "content": "Yes, I know that disaster wasn't his direct order; it was merely an accident while he was out having fun. But that only makes me want to kill him more.\nThat black mist... He'd better not wander off alone—and he'd better never fall into my hands."
+        },
+        {
+          "id": "voice-143511",
+          "title": "Chat: About the Keeper",
+          "content": "Everything I've done for you, and you won't even call me Uncle again. Aww, you're giving me a headache, little one."
+        },
+        {
+          "id": "voice-143554",
+          "title": "Chat: About Tulu",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Tulu\"",
+          "content": "Hmph. A little monster cozying up to that foreign monster.\nAnd some fools actually put us on the same altar? What an insult!"
+        },
+        {
+          "id": "voice-143555",
+          "title": "Chat: About Ryker",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Ryker\"",
+          "content": "The enemy of my enemy is my friend. Given the chance, I wouldn't mind stealing my oldest enemy's favourite plaything right from under his nose."
+        },
+        {
+          "id": "voice-143516",
+          "title": "Chat: About Ebwynnos",
+          "content": "There's a particular bond between Ebwynnos and me. Put it this way—I am Ebwynnos. It persists through me, sustained by this body."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-143526",
+          "title": "Investigation Begins",
+          "content": "Ready, little preys?"
+        },
+        {
+          "id": "voice-143519",
+          "title": "Investigation Success",
+          "content": "Fools. To even dare encroach upon me..."
+        },
+        {
+          "id": "voice-143513",
+          "title": "Investigation Halted",
+          "content": "No rush. The darkness of the abyss will swallow you whole."
+        },
+        {
+          "id": "voice-143534",
+          "title": "Strike",
+          "content": "Hah!"
+        },
+        {
+          "id": "voice-143528",
+          "title": "Defense: I",
+          "content": "Night-Gaunt, stop them!"
+        },
+        {
+          "id": "voice-143520",
+          "title": "Defense: II",
+          "content": "Pathetic."
+        },
+        {
+          "id": "voice-143510",
+          "title": "Hit: I",
+          "content": "Guh!"
+        },
+        {
+          "id": "voice-143502",
+          "title": "Hit: II",
+          "content": "Dammit..."
+        },
+        {
+          "id": "voice-143532",
+          "title": "Special Skill: I",
+          "content": "Let go of that fantasy of escape."
+        },
+        {
+          "id": "voice-143536",
+          "title": "Special Skill: II",
+          "content": "You've already been marked."
+        },
+        {
+          "id": "voice-143514",
+          "title": "Special Skill: III",
+          "content": "Kneel. Become nourishment for Ebwynnos."
+        },
+        {
+          "id": "voice-143508",
+          "title": "Skill: I",
+          "content": "Surrender your senses. Reflect in the abyss forever!"
+        },
+        {
+          "id": "voice-143517",
+          "title": "Skill: II",
+          "content": "Chin up. Show me your throat."
+        },
+        {
+          "id": "voice-143525",
+          "title": "Rouse",
+          "content": "Forever you shall stay!"
+        },
+        {
+          "id": "voice-143533",
+          "title": "Exalt",
+          "content": "I will grind you into pale dust."
+        },
+        {
+          "id": "voice-143504",
+          "title": "Over-Exalt",
+          "content": "Before the ocean, no foe is unconquerable!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-143464",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Only dangerous prey is worth the chase."
+        },
+        {
+          "id": "traphase-143465",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Yeah, that's it. Watch them struggle..."
+        },
+        {
+          "id": "traphase-143459",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Move it. I've got a grand victory feast waiting."
+        },
+        {
+          "id": "traphase-143460",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Submit to the abyss!"
+        },
+        {
+          "id": "traphase-143454",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "This shouldn't have happened."
+        },
+        {
+          "id": "traphase-143467",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "The abyss... can't be destroyed."
+        },
+        {
+          "id": "traphase-143456",
+          "title": "Chat: About Kathigu-Ra",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Yes. And for the cultists, I'm happy to get creative with the interrogation.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0027",
+              "lineId": "traphase-143466"
+            },
+            {
+              "awakenerId": "awakener-0058",
+              "lineId": "traphase-143456"
+            }
+          ]
+        },
+        {
+          "id": "traphase-143457",
+          "title": "Chat: About Xu",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Don't worry. I'll make sure you all beg for death.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0054",
+              "lineId": "traphase-143458"
+            },
+            {
+              "awakenerId": "awakener-0058",
+              "lineId": "traphase-143457"
+            }
+          ]
+        },
+        {
+          "id": "traphase-143455",
+          "title": "Chat: About Pandia",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "...I think we have very different ideas about what torture is for.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0039",
+              "lineId": "traphase-143463"
+            },
+            {
+              "awakenerId": "awakener-0058",
+              "lineId": "traphase-143455"
+            }
+          ]
+        },
+        {
+          "id": "traphase-143461",
+          "title": "Chat: About Vortice",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Well... Guess the deep blue still breeds a pure soul from time to time.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0055",
+              "lineId": "traphase-143462"
+            },
+            {
+              "awakenerId": "awakener-0058",
+              "lineId": "traphase-143461"
+            }
+          ]
+        },
+        {
+          "id": "traphase-150090",
+          "title": "Chat: About Caraboo",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "A pity, but I believe Ebwynnos is neither in need of, nor lacking in, faith at present.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0058",
+              "lineId": "traphase-150090"
+            },
+            {
+              "awakenerId": "awakener-0060",
+              "lineId": "traphase-150098"
+            }
+          ]
+        }
+      ]
+    }
   }
 }

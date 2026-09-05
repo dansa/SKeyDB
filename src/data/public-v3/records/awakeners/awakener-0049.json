@@ -55,6 +55,7 @@
   "profile": {
     "title": "Tinct",
     "birthday": "7-Mar",
+    "voiceActor": "Okamoto Mika",
     "gender": "Female",
     "height": "5'4''",
     "weight": "110lbs",
@@ -69,7 +70,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "In the \"P-063 Opera House @2 Event,\" a metal box was discovered in a corner of the burnt backstage, and the Silver inside was recovered.\n\nThe current instruments at Mythag University are unable to identify the material of the box. After consulting @2 documents and analyzing its decorative engravings, Professor Doll concluded that the box might originate from an extinct civilization that perished in an explosion centuries ago.\n\nThe Silver remains quiet and unremarkable while inside the box but emits a continuous humming sound when removed. Professor Doll suspects that the metal box functions as a signal blocker, preventing special frequency signals from resonating with the Silver.\n\nThe model of the resonating Silver has also been identified."
       },
       {
@@ -90,6 +91,312 @@
         "unlockCondition": "Affinity Level 9",
         "content": "At this point, discussing \"my own life\" with me may be asking too much.\n\nI have grown accustomed to dissipating into the high skies and concealing myself among the stars.\n\nThe person the onlookers are gazing at is not me; I am not the one being played with like a music box, nor the one drifting through the desolate starry sky. That is merely a tool selling its voice for survival, a walking corpse wandering in search of Faint. Only by believing that others' value far surpasses my own can I find meaning in all this effort.\n\nSo, at this point, please don't make me notice myself anymore.\n\n\"But, dear sister, don't dwell on those memories that have already passed.\n\nOpen your eyes and take a look—your one-of-a-kind song has already resounded throughout the universe.\""
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-5135",
+          "title": "Awaken",
+          "content": "Thank you for your summon. If there is an occasion where my voice is needed, please notify me in advance."
+        },
+        {
+          "id": "voice-6292",
+          "title": "Upgrade: I",
+          "content": "Thank you. You're too kind."
+        },
+        {
+          "id": "voice-6295",
+          "title": "Upgrade: II",
+          "content": "I shall sing for you."
+        },
+        {
+          "id": "voice-6294",
+          "title": "Upgrade: III",
+          "content": "Please look forward to my performance."
+        },
+        {
+          "id": "voice-5367",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "Yesterday, I dreamed of the day I started drifting through the stars again."
+        },
+        {
+          "id": "voice-5485",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "The vast cosmos, the boundless deep space, and the seemingly endless journey... I felt so lost during that time."
+        },
+        {
+          "id": "voice-6481",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "The spaceship was cramped and claustrophobic, like a metal coffin floating in space. I had been waiting for my Morning Star since forever, until you showed up for me."
+        },
+        {
+          "id": "voice-5483",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "Yes... I lost my voice back then. Your grace brought it back."
+        },
+        {
+          "id": "voice-5482",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "Will your side be the place where Faint and I finally find belonging?"
+        },
+        {
+          "id": "voice-6477",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "It has been a long time since I felt this way. I will take the stage in perfect form and deliver a song that embraces the whole cosmos just for you."
+        },
+        {
+          "id": "voice-5277",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "Why am I always dressed in this gown? So I can sing for you at any time."
+        },
+        {
+          "id": "voice-5278",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "What do I want to do for myself? Sorry, I don't understand what you mean. Actually, Faint has asked me this question many times, but all I want is for her to recover soon."
+        },
+        {
+          "id": "voice-5279",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "During our time on that now desolate planet, the compassion of those influential figures provided my sister and me with the resources to survive. In the end, they also gave me the chance to escape the dying planet, though it was limited to one person. They are all my benefactors, just like you, Keeper, who gave me a place to stay."
+        },
+        {
+          "id": "voice-5274",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "Thank you for your guidance. I finally understand Faint's choice. I took everything for granted, not realizing the mental burden it placed on her. From now on, I'll try to live for myself."
+        },
+        {
+          "id": "voice-5275",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "Through the long, endless times, Faint and I only had each other. But now, I have a new significant person in my life. Keeper, please allow me to retract what I had said before. You are different. You see more than my songs and my appearance; you truly see me. This is why I will protect you, too. I will never turn my eyes away from you."
+        },
+        {
+          "id": "voice-6175",
+          "title": "Chat: Touch",
+          "content": "Lah... Oh, do you need something? If possible, let's talk backstage."
+        },
+        {
+          "id": "voice-6519",
+          "title": "Chat: About Singing",
+          "content": "I don't deserve the title \"Heavenly Voice.\" As long as you enjoy my singing, that's all that matters."
+        },
+        {
+          "id": "voice-6127",
+          "title": "Chat: About Faint",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Faint\"",
+          "content": "I never expected to see Faint again... I wonder how she has been doing since then. No matter how I ask, she only reassures me she's fine... Sigh. Ah, excuse me, I got carried away. I should thank you for reuniting us first."
+        },
+        {
+          "id": "voice-5018",
+          "title": "Chat: About Faros",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Faros\"",
+          "content": "That lady looks like a lighthouse... If I could have seen her dazzling light during the eternal night voyage, perhaps I wouldn't have become lost."
+        },
+        {
+          "id": "voice-5052",
+          "title": "Chat: About Dissolution",
+          "content": "Ah, the calamity of destruction and misfortune... Why did it have to torment my sister and me?"
+        },
+        {
+          "id": "voice-6126",
+          "title": "Chat: About Mythag",
+          "content": "Here are lush plants, tranquil air, and a remedy for my sister's illness. For the two of us, it is the most wonderful new home."
+        },
+        {
+          "id": "voice-6675",
+          "title": "Chat: What I Like",
+          "content": "I love all lives. I love light. I want Faint to emerge from her secluded shell and experience the world with her own eyes and ears."
+        },
+        {
+          "id": "voice-5605",
+          "title": "Chat: What I Hate",
+          "content": "I fear loneliness, and the worry of being lost in endless darkness... So please, promise you will not leave my side."
+        },
+        {
+          "id": "voice-5868",
+          "title": "Chat: About the Keeper",
+          "content": "You are my most important listener. Whenever you need it, I am ready to sing and give you everything."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-6019",
+          "title": "Investigation Begins",
+          "content": "Ahh—"
+        },
+        {
+          "id": "voice-4908",
+          "title": "Investigation Success",
+          "content": "Has my singing been of any help to you?"
+        },
+        {
+          "id": "voice-6605",
+          "title": "Investigation Halted",
+          "content": "Ah... the stars... have fallen..."
+        },
+        {
+          "id": "voice-5120",
+          "title": "Strike: I",
+          "content": "Let's set off."
+        },
+        {
+          "id": "voice-5339",
+          "title": "Defense: I",
+          "content": "The dense mist descends."
+        },
+        {
+          "id": "voice-5337",
+          "title": "Defense: II",
+          "content": "Gaze upon the star cluster."
+        },
+        {
+          "id": "voice-4938",
+          "title": "Hit: I",
+          "content": "(Exclamation)"
+        },
+        {
+          "id": "voice-4940",
+          "title": "Hit: II",
+          "content": "(Exclamation)"
+        },
+        {
+          "id": "voice-6227",
+          "title": "Skill: I",
+          "content": "O Stardust..."
+        },
+        {
+          "id": "voice-6378",
+          "title": "Skill: II",
+          "content": "O Meteor..."
+        },
+        {
+          "id": "voice-5627",
+          "title": "Rouse",
+          "content": "Flow for me, river of stars..."
+        },
+        {
+          "id": "voice-6624",
+          "title": "Exalt",
+          "content": "I still sing of the Color out of Space..."
+        },
+        {
+          "id": "voice-6625",
+          "title": "Over-Exalt",
+          "content": "Sing, chant for me!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-100014",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I hope my song can bring you a pleasant time."
+        },
+        {
+          "id": "traphase-99859",
+          "title": "Chat: About Hameln",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I'm honored to receive your praise. I look forward to the opportunity to work together in the future.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0022",
+              "lineId": "traphase-99848"
+            },
+            {
+              "awakenerId": "awakener-0049",
+              "lineId": "traphase-99859"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99957",
+          "title": "Chat: About Horla",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "After reading your verses, I've always wanted to set them to song. Would you let me, Miss Horla?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0049",
+              "lineId": "traphase-99957"
+            },
+            {
+              "awakenerId": "awakener-0024",
+              "lineId": "traphase-99936"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99939",
+          "title": "Chat: About Liz",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Although I really want to invite you to dance for my performance, wouldn't that be undervaluing your dancing skills?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0049",
+              "lineId": "traphase-99939"
+            },
+            {
+              "awakenerId": "awakener-0030",
+              "lineId": "traphase-99987"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100082",
+          "title": "Chat: About Faint",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Unleash your power, sister! Let them see your beautiful colors!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0049",
+              "lineId": "traphase-100082"
+            },
+            {
+              "awakenerId": "awakener-0016",
+              "lineId": "traphase-99970"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100098",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Would you prefer an uplifting melody, or something more tranquil?"
+        },
+        {
+          "id": "traphase-99900",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Please devote your whole heart and soul to my song."
+        },
+        {
+          "id": "traphase-99809",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I shall sing for you!"
+        },
+        {
+          "id": "traphase-99776",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I accidentally sang the wrong lyrics. That was completely unacceptable..."
+        },
+        {
+          "id": "traphase-99903",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "The stars... fall..."
+        }
+      ]
+    }
   }
 }

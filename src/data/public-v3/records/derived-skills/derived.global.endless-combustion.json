@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.endless-combustion",
+  "name": "Endless Combustion",
+  "route": {
+    "slug": "endless-combustion",
+    "canonicalPath": "/database/derived-skills/endless-combustion"
+  },
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
+  "descriptionTemplate": "Gain 3 Arithmetica and apply {Burn} to all Command Cards in hand. After playing a {Burned} card this turn, consume 1 stack of {Blackened Flame} to make it take effect twice. Clear all {Blackened Flame} at turn end.",
+  "descriptionArgs": {},
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    },
+    {
+      "id": "mechanic.exhaust"
+    }
+  ],
+  "cost": "0"
+}

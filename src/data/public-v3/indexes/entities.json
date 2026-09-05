@@ -2837,6 +2837,15 @@
         "canonicalPath": "/database/derived-skills/embryo"
       }
     },
+    "derived.global.endless-combustion": {
+      "kind": "derivedSkill",
+      "id": "derived.global.endless-combustion",
+      "name": "Endless Combustion",
+      "route": {
+        "slug": "endless-combustion",
+        "canonicalPath": "/database/derived-skills/endless-combustion"
+      }
+    },
     "derived.global.falling-upward": {
       "kind": "derivedSkill",
       "id": "derived.global.falling-upward",
@@ -8323,6 +8332,19 @@
       },
       "assets": {
         "icon": "asset-overlay.global.barrier-icon"
+      },
+      "overlayType": "mechanic"
+    },
+    "overlay.global.blackened-flame": {
+      "kind": "overlay",
+      "id": "overlay.global.blackened-flame",
+      "name": "Blackened Flame",
+      "route": {
+        "slug": "blackened-flame",
+        "canonicalPath": "/database/overlays/blackened-flame"
+      },
+      "assets": {
+        "icon": "asset-overlay.global.blackened-flame-icon"
       },
       "overlayType": "mechanic"
     },
@@ -14760,6 +14782,122 @@
       },
       "assets": {
         "icon": "asset-relic-0316-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0317": {
+      "kind": "relic",
+      "id": "relic-0317",
+      "name": "☆Withered Pupil☆",
+      "route": {
+        "slug": "withered-pupil",
+        "canonicalPath": "/database/relics/withered-pupil"
+      },
+      "assets": {
+        "icon": "asset-relic-0317-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0318": {
+      "kind": "relic",
+      "id": "relic-0318",
+      "name": "☆Painkillers☆",
+      "route": {
+        "slug": "painkillers",
+        "canonicalPath": "/database/relics/painkillers"
+      },
+      "assets": {
+        "icon": "asset-relic-0318-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0319": {
+      "kind": "relic",
+      "id": "relic-0319",
+      "name": "☆Immortal Flesh☆",
+      "route": {
+        "slug": "immortal-flesh",
+        "canonicalPath": "/database/relics/immortal-flesh"
+      },
+      "assets": {
+        "icon": "asset-relic-0319-icon"
+      }
+    },
+    "relic-0320": {
+      "kind": "relic",
+      "id": "relic-0320",
+      "name": "☆Ancient Anchor☆",
+      "route": {
+        "slug": "ancient-anchor",
+        "canonicalPath": "/database/relics/ancient-anchor"
+      },
+      "assets": {
+        "icon": "asset-relic-0320-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0321": {
+      "kind": "relic",
+      "id": "relic-0321",
+      "name": "☆Refined Prosthesis☆",
+      "route": {
+        "slug": "refined-prosthesis",
+        "canonicalPath": "/database/relics/refined-prosthesis"
+      },
+      "assets": {
+        "icon": "asset-relic-0321-icon"
+      },
+      "rarity": "N"
+    },
+    "relic-0322": {
+      "kind": "relic",
+      "id": "relic-0322",
+      "name": "☆Nightmare Lantern☆",
+      "route": {
+        "slug": "nightmare-lantern",
+        "canonicalPath": "/database/relics/nightmare-lantern"
+      },
+      "assets": {
+        "icon": "asset-relic-0322-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0323": {
+      "kind": "relic",
+      "id": "relic-0323",
+      "name": "☆Guild Medal☆",
+      "route": {
+        "slug": "guild-medal",
+        "canonicalPath": "/database/relics/guild-medal"
+      },
+      "assets": {
+        "icon": "asset-relic-0323-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0324": {
+      "kind": "relic",
+      "id": "relic-0324",
+      "name": "Blackened Flame",
+      "route": {
+        "slug": "blackened-flame",
+        "canonicalPath": "/database/relics/blackened-flame"
+      },
+      "assets": {
+        "icon": "asset-relic-0324-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0325": {
+      "kind": "relic",
+      "id": "relic-0325",
+      "name": "Cursed Feather",
+      "route": {
+        "slug": "cursed-feather",
+        "canonicalPath": "/database/relics/cursed-feather"
+      },
+      "assets": {
+        "icon": "asset-relic-0325-icon"
       },
       "rarity": "SSR"
     },
@@ -25287,6 +25425,7 @@
       "derived.global.echoes-of-lost-shadows",
       "derived.global.echoes-of-the-past",
       "derived.global.embryo",
+      "derived.global.endless-combustion",
       "derived.global.falling-upward",
       "derived.global.fleeting-beauty",
       "derived.global.flicker-of-humanity",
@@ -25764,6 +25903,7 @@
       "overlay.global.ashen-ruins",
       "overlay.global.astral-reign",
       "overlay.global.barrier",
+      "overlay.global.blackened-flame",
       "overlay.global.bleed",
       "overlay.global.blighten",
       "overlay.global.burn",
@@ -26250,7 +26390,16 @@
       "relic-0313",
       "relic-0314",
       "relic-0315",
-      "relic-0316"
+      "relic-0316",
+      "relic-0317",
+      "relic-0318",
+      "relic-0319",
+      "relic-0320",
+      "relic-0321",
+      "relic-0322",
+      "relic-0323",
+      "relic-0324",
+      "relic-0325"
     ],
     "skills": [
       "skill.24.aberrant-vivisection",

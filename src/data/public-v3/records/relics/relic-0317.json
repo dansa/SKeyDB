@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0317",
+  "name": "☆Withered Pupil☆",
+  "route": {
+    "slug": "withered-pupil",
+    "canonicalPath": "/database/relics/withered-pupil"
+  },
+  "assets": {
+    "icon": "asset-relic-0317-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0570",
+  "rarity": "N",
+  "aliases": [],
+  "descriptionTemplate": "Upon pickup, choose a card to permanently reduce its Arithmetica Cost to 1.",
+  "descriptionArgs": {},
+  "lore": "Having lost the desert's most precious water, her eyes have withered.",
+  "variants": [
+    {
+      "id": "relic-variant-0570",
+      "name": "☆Withered Pupil☆",
+      "label": "Event - Silver",
+      "variantType": "EVENT",
+      "tier": "Silver",
+      "category": "EVENT",
+      "rarity": "N",
+      "descriptionTemplate": "Upon pickup, choose a card to permanently reduce its Arithmetica Cost to 1.",
+      "descriptionArgs": {},
+      "lore": "Having lost the desert's most precious water, her eyes have withered."
+    }
+  ]
+}

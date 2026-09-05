@@ -1,4 +1,4 @@
-import {fireEvent, render, screen} from '@testing-library/react'
+import {fireEvent, render, screen, within} from '@testing-library/react'
 import {describe, expect, it, vi} from 'vitest'
 
 import {AwakenerDetailUpgrades} from './AwakenerDetailUpgrades'
@@ -145,24 +145,44 @@ describe('AwakenerDetailUpgrades', () => {
       </DatabasePopoverContext.Provider>,
     )
 
-    expect(screen.getByText('First Talent')).toBeInTheDocument()
-    expect(screen.getByText('Second Talent')).toBeInTheDocument()
-    expect(screen.getByText('Third Talent')).toBeInTheDocument()
-    expect(screen.getByText('Fourth Talent')).toBeInTheDocument()
-    expect(screen.getByText('First Talent').closest('p')).toHaveTextContent(/^First Talent$/)
+    expect(
+      within(screen.getByRole('region', {name: 'Reading area'})).getByText('First Talent'),
+    ).toBeInTheDocument()
+    expect(
+      within(screen.getByRole('region', {name: 'Reading area'})).getByText('Second Talent'),
+    ).toBeInTheDocument()
+    expect(
+      within(screen.getByRole('region', {name: 'Reading area'})).getByText('Third Talent'),
+    ).toBeInTheDocument()
+    expect(
+      within(screen.getByRole('region', {name: 'Reading area'})).getByText('Fourth Talent'),
+    ).toBeInTheDocument()
+    expect(
+      within(screen.getByRole('region', {name: 'Reading area'}))
+        .getByText('First Talent')
+        .closest('p'),
+    ).toHaveTextContent(/^First Talent$/)
     expect(screen.queryByText('T1')).not.toBeInTheDocument()
-    expect(screen.getByText('Off')).toBeInTheDocument()
+    expect(
+      within(screen.getByRole('region', {name: 'Reading area'})).getByText('Off'),
+    ).toBeInTheDocument()
     expect(screen.queryByText('Lv. 1/10')).not.toBeInTheDocument()
-    expect(screen.getByText('Lv. 5/5')).toBeInTheDocument()
+    expect(
+      within(screen.getByRole('region', {name: 'Reading area'})).getByText('Lv. 5/5'),
+    ).toBeInTheDocument()
     expect(screen.queryByText('T4')).not.toBeInTheDocument()
     expect(screen.getByRole('button', {name: 'Over-Exaltation'})).toBeInTheDocument()
-    expect(screen.getByText('Face Death in Fiery Resolve').closest('p')).toHaveTextContent(
-      /Face Death in Fiery Resolve.*Over-Exaltation/,
-    )
+    expect(
+      within(screen.getByRole('region', {name: 'Reading area'}))
+        .getByText('Face Death in Fiery Resolve')
+        .closest('p'),
+    ).toHaveTextContent(/Face Death in Fiery Resolve.*Over-Exaltation/)
     expect(screen.getByRole('button', {name: 'Absolute Axiom'})).toBeInTheDocument()
-    expect(screen.getByText('Infinite Singularity').closest('p')).toHaveTextContent(
-      /Infinite Singularity.*Absolute Axiom/,
-    )
+    expect(
+      within(screen.getByRole('region', {name: 'Reading area'}))
+        .getByText('Infinite Singularity')
+        .closest('p'),
+    ).toHaveTextContent(/Infinite Singularity.*Absolute Axiom/)
 
     fireEvent.click(screen.getByRole('button', {name: 'Over-Exaltation'}))
     expect(openRootReferenceByName).toHaveBeenCalledWith('Over Exalt', expect.anything())
@@ -194,8 +214,51 @@ describe('AwakenerDetailUpgrades', () => {
       />,
     )
 
-    expect(screen.getByText('Fourth Talent')).toBeInTheDocument()
-    expect(screen.getByText('Festering Grace')).toBeInTheDocument()
-    expect(screen.getByText('Festering Grace').closest('p')).toHaveTextContent(/^Festering Grace$/)
+    expect(
+      within(screen.getByRole('region', {name: 'Reading area'})).getByText('Fourth Talent'),
+    ).toBeInTheDocument()
+    expect(
+      within(screen.getByRole('region', {name: 'Reading area'})).getByText('Festering Grace'),
+    ).toBeInTheDocument()
+    expect(
+      within(screen.getByRole('region', {name: 'Reading area'}))
+        .getByText('Festering Grace')
+        .closest('p'),
+    ).toHaveTextContent(/^Festering Grace$/)
+  })
+  it('targets actual upgrade rows and omits absent optional entries', () => {
+    const shellView = {
+      ...TEST_SHELL_VIEW,
+      overExalt: null,
+      enlightens: TEST_SHELL_VIEW.enlightens.filter((entry) => entry.key === 'E2'),
+      talents: [],
+    }
+    const {container} = render(
+      <AwakenerDetailUpgrades
+        awakener={TEST_AWAKENER}
+        fontScale='medium'
+        referenceLayer={null}
+        shellView={shellView}
+        leadingContent={<p>Mobile progression controls</p>}
+      />,
+    )
+    expect(screen.queryByRole('button', {name: 'Talents'})).toBeNull()
+    expect(screen.queryByRole('option', {name: 'Face Death in Fiery Resolve'})).toBeNull()
+    expect(screen.queryByRole('option', {name: 'Infinite Singularity'})).toBeNull()
+    expect(
+      within(screen.getByRole('region', {name: 'Reading area'}))
+        .getByText('Mobile progression controls')
+        .closest('.detail-reader-scroll'),
+    ).not.toBeNull()
+    for (const option of container.querySelectorAll<HTMLOptionElement>('option[value]')) {
+      if (!option.value) continue
+      const target = document.getElementById(option.value)
+      expect(target).not.toBeNull()
+      fireEvent.change(screen.getByRole('combobox', {name: 'Index'}), {
+        target: {value: option.value},
+      })
+      expect(target).toHaveFocus()
+    }
+    expect(screen.getByRole('option', {name: 'E2'})).toBeInTheDocument()
   })
 })

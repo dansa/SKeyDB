@@ -11,7 +11,7 @@
     "icon": "asset-relic-0252-icon"
   },
   "relicType": "Relic",
-  "categories": ["ASTRAL_REIGN", "OTHER"],
+  "categories": ["ASTRAL_REIGN", "EVENT"],
   "variantCount": 3,
   "defaultVariantId": "relic-variant-0426",
   "rarity": "N",
@@ -64,10 +64,10 @@
     {
       "id": "relic-variant-0556",
       "name": "☆Radium Jawbone☆",
-      "label": "Other - Silver",
-      "variantType": "OTHER",
+      "label": "Event - Silver",
+      "variantType": "EVENT",
       "tier": "Silver",
-      "category": "OTHER",
+      "category": "EVENT",
       "rarity": "N",
       "descriptionTemplate": "When releasing Exalt, for each instance of incoming DMG from enemies, Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Poison}",
       "descriptionArgs": {

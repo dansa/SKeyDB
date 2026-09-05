@@ -55,6 +55,7 @@
   "profile": {
     "title": "Karen",
     "birthday": "9-Sep",
+    "voiceActor": "Ninomiya Yukino",
     "gender": "Female",
     "height": "5'1''",
     "weight": "99lbs",
@@ -90,6 +91,317 @@
         "unlockCondition": "Affinity Level 9",
         "content": "Ruby earrings, sapphire necklaces, beautiful hair accessories woven from garnet and malachite... How dazzling, how beautiful, how full of charm they are! Wherever they appear, people flock to them.\n\nThese jewelry pendants are not mere \"decorative items,\" no, they are the true stars of the world. Noble ladies wearing turquoise necklaces are immortalized in songs by poets; elderly ladies adorned with emeralds are seen as symbols of nobility. Even those lowborn girls, with a cheap bracelet on their wrist, can earn the endearing title of \"Pearl Girl,\" attracting countless gazes.\n\nEven dry branches and putrid bones can become objects of everyone's desire when adorned with a string of beautiful jewels.\n\nIf she could wear those necklaces and earrings, those bracelets and headpieces, surely she would become the center of attention as well."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-5717",
+          "title": "Awaken",
+          "content": "Hello, my dear new Master! Today's menu includes slug pudding, toad stew, and green flame wine. Which would you like?"
+        },
+        {
+          "id": "voice-6146",
+          "title": "Upgrade: I",
+          "content": "Master's kindness, Karen dares not forget even for a moment!"
+        },
+        {
+          "id": "voice-6147",
+          "title": "Upgrade: II",
+          "content": "—Ah, it's so sweet and delicious!"
+        },
+        {
+          "id": "voice-6148",
+          "title": "Upgrade: III",
+          "content": "Well... I'm on a diet and can't eat too much today~"
+        },
+        {
+          "id": "voice-5205",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "Ah! Thank you for your kindness, Karen is but a humble maid..."
+        },
+        {
+          "id": "voice-5282",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "Awesome! I'm now even more motivated! I can clean twenty rooms a day!"
+        },
+        {
+          "id": "voice-5285",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "My eyesight has improved... Master, did you forget to comb your hair again?!"
+        },
+        {
+          "id": "voice-5286",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "Maybe I've gotten stronger, but I don't want revenge at all. I just wanna sing! Dance! Party!"
+        },
+        {
+          "id": "voice-5283",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "This is the music that is as ancient as the lake water, belonging to \"us.\" Master, let's dance together! We'll dance and sing, before my voice is taken by \"Him\"..."
+        },
+        {
+          "id": "voice-5284",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "Master! My voice... it's fading... Help..."
+        },
+        {
+          "id": "voice-6727",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "Sweep left, wipe right, let's wipe away the dust and worries~!"
+        },
+        {
+          "id": "voice-6726",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "My dream? Hmm... To buy a beautiful pearl necklace and wear it to a ball. Then I'll be the center of everyone's attention!"
+        },
+        {
+          "id": "voice-6725",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "We were drinking and singing when we suddenly turned into monsters! But it's okay, this greenish skintone is quite fun!"
+        },
+        {
+          "id": "voice-6724",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "Still troubled by insomnia, Master? I've prepared Dobie's tranquilizer for you~! Although the dose might be a bit high, good sleep is the top priority!"
+        },
+        {
+          "id": "voice-6533",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "My hometown is beautiful! It's a stone city in a lake. Every full moon, we dance silently in the flames, worshiping... Honestly, when I first arrived in this school, I missed home every night and cried in bed. But now, I have a new home and family. Everything's getting better!"
+        },
+        {
+          "id": "voice-5517",
+          "title": "Chat: Touch",
+          "content": "Ah! What time is it?! Sorry, Master... I shouldn't be slacking off! But... I'm so tired... Pleaseee?"
+        },
+        {
+          "id": "voice-5660",
+          "title": "Chat: About Working",
+          "content": "Hehehe, lalalla~ Cleaning, cleaning, I love cleaning, I love cleaning so much~"
+        },
+        {
+          "id": "voice-6696",
+          "title": "Chat: About Murphy",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Murphy\"",
+          "content": "That woman Murphy dresses too flashy... No way, Karen can't lose to her! Or maybe, I'll just kill her..."
+        },
+        {
+          "id": "voice-6274",
+          "title": "Chat: About Jenkin",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Jenkin\"",
+          "content": "I heard a thief from the slums showed up, bringing along a fat rat? Hehehe... Watch me eliminate this menace for my Master!"
+        },
+        {
+          "id": "voice-5707",
+          "title": "Chat: About Dissolution",
+          "content": "Dissolution... Yes, there are records of it in the schools of my hometown, but, well, I hate reading. I don't remember anything!"
+        },
+        {
+          "id": "voice-6125",
+          "title": "Chat: About Mythag",
+          "content": "Isn't the decor here too outdated? It's eerie, as if it's haunted."
+        },
+        {
+          "id": "voice-6640",
+          "title": "Chat: What I Like",
+          "content": "Master, Master! Karen saw an incredibly gorgeous cameo brooch at Harold's today! Could you buy it for Karen? It's my lifelong request!"
+        },
+        {
+          "id": "voice-5764",
+          "title": "Chat: What I Hate",
+          "content": "Hmm? Why is everyone silent? Karen hates the quiet. Let me tell you a story. Once upon a time, there was a mountain..."
+        },
+        {
+          "id": "voice-5787",
+          "title": "Chat: About the Keeper",
+          "content": "Hmm... Master seems upset? Let Karen cheer you up with a funny face, hehe! Are you feeling better now?"
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-6621",
+          "title": "Investigation Begins",
+          "content": "Pick me, pick me! Where there's a party, there's Karen!"
+        },
+        {
+          "id": "voice-5428",
+          "title": "Investigation Success",
+          "content": "A professional maid will clear everything for her Master, including the villains~"
+        },
+        {
+          "id": "voice-6632",
+          "title": "Investigation Halted",
+          "content": "Please, spare my Master. D-do whatever you want with Karen!"
+        },
+        {
+          "id": "voice-5705",
+          "title": "Strike: I",
+          "content": "Heyo!"
+        },
+        {
+          "id": "voice-5706",
+          "title": "Strike: II",
+          "content": "Watch this!"
+        },
+        {
+          "id": "voice-5715",
+          "title": "Defense: I",
+          "content": "Waah, scary!"
+        },
+        {
+          "id": "voice-5885",
+          "title": "Hit: I",
+          "content": "Help!"
+        },
+        {
+          "id": "voice-5886",
+          "title": "Hit: II",
+          "content": "(Exclamation)"
+        },
+        {
+          "id": "voice-5887",
+          "title": "Hit: III",
+          "content": "(Groan)"
+        },
+        {
+          "id": "voice-6140",
+          "title": "Skill: I",
+          "content": "So satisfying, ahaha!"
+        },
+        {
+          "id": "voice-5994",
+          "title": "Skill: II",
+          "content": "Let's dance! Let's dance!"
+        },
+        {
+          "id": "voice-6514",
+          "title": "Rouse",
+          "content": "Cataclysm descends!"
+        },
+        {
+          "id": "voice-5824",
+          "title": "Exalt",
+          "content": "Welcome! Let's have a blast together!"
+        },
+        {
+          "id": "voice-54605",
+          "title": "Over-Exalt",
+          "content": "Here's your meal!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-99844",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Dear master, your all-purpose maid Karen is ready to serve!"
+        },
+        {
+          "id": "traphase-100189",
+          "title": "Chat: About Sorel",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Oh, my esteemed Lady, your most loyal and hardworking all-purpose maid offers her highest respects!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0026",
+              "lineId": "traphase-100189"
+            },
+            {
+              "awakenerId": "awakener-0046",
+              "lineId": "traphase-99742"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99877",
+          "title": "Chat: About Murphy",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Aww... but I think it tastes great...",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0034",
+              "lineId": "traphase-100003"
+            },
+            {
+              "awakenerId": "awakener-0026",
+              "lineId": "traphase-99877"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99824",
+          "title": "Chat: About Agrippa",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Karen is not someone you can just order around! You gotta pay, Miss.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0002",
+              "lineId": "traphase-100001"
+            },
+            {
+              "awakenerId": "awakener-0026",
+              "lineId": "traphase-99824"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99842",
+          "title": "Chat: About Doresain",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Haha... I... I don't need to be too perfect!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0014",
+              "lineId": "traphase-99773"
+            },
+            {
+              "awakenerId": "awakener-0026",
+              "lineId": "traphase-99842"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100214",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Such a profound question, let me think about it carefully..."
+        },
+        {
+          "id": "traphase-100191",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Hurry up! I gotta go collect the laundry!"
+        },
+        {
+          "id": "traphase-99973",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Have a taste, please! This is Karen's signature dish!"
+        },
+        {
+          "id": "traphase-100074",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Ah, did I forget to add salt?"
+        },
+        {
+          "id": "traphase-99995",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Oops... I messed up..."
+        }
+      ]
+    }
   }
 }

@@ -55,6 +55,7 @@
   "profile": {
     "title": "Helot: Catena",
     "birthday": "25-Dec",
+    "voiceActor": "Kunimi Kuruko",
     "gender": "Female",
     "height": "1.07bēma",
     "weight": "71mina",
@@ -69,7 +70,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "I seem to be involved in some supernatural event, recording all my findings here...\n\nWe were finishing our archaeology at Evrotas when I woke up and found the rest of the team had vanished, and the town looked like it reverted to a thousand years ago overnight.\n\nAncient ruins had risen, restoring the town to its original state, including countless residents turned to skeletons.\n\nExcitement, shock, and fear gripped my mind. Despite having seen countless skeletons, I tremble at the sight before me. Anyone experiencing this would be even more terrified.\n\nEveryone in this town seemed to have been brutally massacred by one person. Skeletons lay in the streets, in houses. The town gate is inexplicably tightly closed, and bodies trying to escape but brutally killed piled up by the gate, forming a small hill of bones.\n\nI found no exceptions, men, women, old people, children... so many were killed by a massive blunt weapon, their bodies or heads smashed. Staring at the dry bones, I almost saw the blood flowing.\n\nWhat happened here?\n\n...\n\nI searched aimlessly, found no clues until I entered the prison.\n\nThe sight there was particularly gruesome, the perpetrator destroyed the entire prison in great anger. The walls had twisted, brownish words, seeming to be written in blood by someone dying, I carefully distinguished, it seemed to read \"evil spirit\".\n\nEvil spirit? Does this refer to the killer, or did the town truly experience some supernatural event?\n\nIndeed, slaughtering the entire town alone is unimaginable, only a true ghost could ruthlessly take so many lives.\n\nAfter leaving the prison, the town seemed to have subtly changed, I could smell a faint bloody scent.\n\nWhile I sought a way out, the sudden sound of chains echoed through the town, as if someone was dragging something heavy forward.\n\nEvil spirit! It's the evil spirit... it's after me! I ran desperately, but the horrifying chain sound followed me everywhere.\n\nI was exhausted, hid under a table in a home, locked the door, but the chain sound still chased me. I heard it coming closer...\n\nI wish this were just a dream, that everything would disappear when I wake up, wait... the sound seems to be gone, maybe the spirit has left?\n\n...\n\nResearcher Note: The normal handwriting ends here, only three twisted words remain, roughly deciphered as:\nThe door opened\n—Excerpt from a deceased archaeologist's diary in the Evrotas Archaeological Team"
       },
       {
@@ -90,6 +91,307 @@
         "unlockCondition": "Affinity Level 9",
         "content": "Her life's experiences seemed crafted to bring her suffering. Kindness, tolerance, compassion, trust—all the tender aspects of her humanity were torn away, discarded along with gory flesh. \n\nThe word \"forgiveness\" was absent from her vocabulary; only the blood and hatred of others could resolve her own. \n\nBlood for blood, the fairest law revered by both warriors and slaves. \n\nA volcano that had simmered for a thousand years erupted in one night, and a hand crawled out of the underworld onto human soil. \n\nIt was a vengeful spirit, seeking to flood the world with rivers of crimson."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-6289",
+          "title": "Awaken",
+          "content": "Such a clumsy trick... Hmph. You naive fool. Did you truly think you could bind me so easily?"
+        },
+        {
+          "id": "voice-6565",
+          "title": "Upgrade: I",
+          "content": "The flames of hatred burn fiercely, never to be extinguished."
+        },
+        {
+          "id": "voice-5510",
+          "title": "Upgrade: II",
+          "content": "Those arrogant, despicable fools will die by my hand."
+        },
+        {
+          "id": "voice-5511",
+          "title": "Upgrade: III",
+          "content": "My blade of vengeance grows ever sharper."
+        },
+        {
+          "id": "voice-5965",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "What? You want to exploit my anger too?"
+        },
+        {
+          "id": "voice-6399",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "The scorching flames burn in my chest... Yes, I have never forgotten, nor can I ever forget."
+        },
+        {
+          "id": "voice-6397",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "Such sweet hatred, when seasoned with the blood of foes, is surely the most exquisite dish in the world."
+        },
+        {
+          "id": "voice-4971",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "I think I just heard those who claimed to be my masters wailing again. How delightful."
+        },
+        {
+          "id": "voice-6395",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "I want them to experience what it feels like to have their lives turned upside down, lose everything, and be trampled by everyone."
+        },
+        {
+          "id": "voice-6396",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "The humiliation I've endured, everything I've lost... I will make them pay. I will make them all pay."
+        },
+        {
+          "id": "voice-5263",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "All who tried to control or use me ended up in the underworld at my own hands—I don't mind sending you there as well."
+        },
+        {
+          "id": "voice-5262",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "Do you think a few honeyed words and a few days of false kindness will make me willingly don the shackles again and become your plaything?"
+        },
+        {
+          "id": "voice-5261",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "Yes, I did grovel before those people; there's no denying it. They took advantage of my ignorance, and I made them pay for it."
+        },
+        {
+          "id": "voice-5260",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "I only regret not impaling their corpses on stakes and hanging them on the walls! I will spare none who betrayed, trampled, or insulted me!"
+        },
+        {
+          "id": "voice-5259",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "You have always clung to that amusing trust and stayed by my side... Fine, perhaps putting you to use isn't a bad idea. But remember this: I cannot tolerate any betrayal, especially from you."
+        },
+        {
+          "id": "voice-5344",
+          "title": "Chat: Touch",
+          "content": "Hands off me."
+        },
+        {
+          "id": "voice-6748",
+          "title": "Chat: About Myself",
+          "content": "The Bloody Chain of Slaughter, Tisiphone's Messenger, Blade of Hatred... I don't care. That's just what they called me. Well, I certainly don't mind living up to them."
+        },
+        {
+          "id": "voice-5811",
+          "title": "Chat: About Lily",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Lily\"",
+          "content": "Coward! You possess a mighty power akin to mine, yet you restrain yourself. How is that any different from willingly donning a collar?"
+        },
+        {
+          "id": "voice-6197",
+          "title": "Chat: About Agrippa",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Agrippa\"",
+          "content": "That \"slave master,\" \"owner of gladiators\"... Ha. She is just a worthless insect."
+        },
+        {
+          "id": "voice-5877",
+          "title": "Chat: About Dissolution",
+          "content": "Capable of corroding everything, erasing all... It was quite a weapon. If only I had known back then... Heh."
+        },
+        {
+          "id": "voice-6389",
+          "title": "Chat: About Mythag",
+          "content": "Don't deceive yourself. Mental shackles are still shackles and cannot be called fair."
+        },
+        {
+          "id": "voice-6230",
+          "title": "Chat: What I Like",
+          "content": "Whenever I recall those traitors kneeling and crying for mercy, I feel a wave of satisfaction, and the flames in my heart seem to subside."
+        },
+        {
+          "id": "voice-5011",
+          "title": "Chat: What I Hate",
+          "content": "Look at these shackles on me—they're not decorations, but reminders. Reminders of betrayal and humiliation."
+        },
+        {
+          "id": "voice-6522",
+          "title": "Chat: About the Keeper",
+          "content": "Every time I see you, I think of the invisible shackles you've placed on me. Allowing you to live is my greatest act of tolerance."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-6115",
+          "title": "Investigation Begins",
+          "content": "Pay the price for your actions."
+        },
+        {
+          "id": "voice-5161",
+          "title": "Investigation Success",
+          "content": "Hatred may be alleviated, but it can never be erased."
+        },
+        {
+          "id": "voice-6623",
+          "title": "Investigation Halted",
+          "content": "No mercy, no mercy...!"
+        },
+        {
+          "id": "voice-5985",
+          "title": "Strike: I",
+          "content": "Die."
+        },
+        {
+          "id": "voice-5525",
+          "title": "Strike: II",
+          "content": "Disappear."
+        },
+        {
+          "id": "voice-5838",
+          "title": "Defense: I",
+          "content": "Move aside."
+        },
+        {
+          "id": "voice-5837",
+          "title": "Defense: II",
+          "content": "Back off."
+        },
+        {
+          "id": "voice-5464",
+          "title": "Hit: I",
+          "content": "Heh."
+        },
+        {
+          "id": "voice-5465",
+          "title": "Hit: II",
+          "content": "Just as expected."
+        },
+        {
+          "id": "voice-6100",
+          "title": "Skill: I",
+          "content": "Prepare to meet your doom!"
+        },
+        {
+          "id": "voice-5728",
+          "title": "Skill: II",
+          "content": "Be stained with blood!"
+        },
+        {
+          "id": "voice-5849",
+          "title": "Rouse",
+          "content": "Feel my wrath!"
+        },
+        {
+          "id": "voice-6442",
+          "title": "Exalt",
+          "content": "This is the will of the Three Goddesses of Vengeance!"
+        },
+        {
+          "id": "voice-57846",
+          "title": "Over-Exalt",
+          "content": "Tremble under the chains of blood... Perish under the chains of blood!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-100142",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Here I am. Be prepared for the destruction that follows."
+        },
+        {
+          "id": "traphase-99945",
+          "title": "Chat: About Doll: Inferno",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Those who dare to control me meet but one fate. Are you prepared for that?"
+        },
+        {
+          "id": "traphase-99935",
+          "title": "Chat: About Helot",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Naive, weak, incompetent—you can't defeat me!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0019",
+              "lineId": "traphase-99935"
+            },
+            {
+              "awakenerId": "awakener-0023",
+              "lineId": "traphase-100032"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100047",
+          "title": "Chat: About Leigh",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "How can there be something so persistently annoying? And I can't ever truly break her! It's disgusting...",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0019",
+              "lineId": "traphase-100047"
+            },
+            {
+              "awakenerId": "awakener-0028",
+              "lineId": "traphase-100184"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100151",
+          "title": "Chat: About Clementine",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I hate your gentle pretense. Your gentle demeanor is as hypocritical as my foster mother.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0019",
+              "lineId": "traphase-100151"
+            },
+            {
+              "awakenerId": "awakener-0010",
+              "lineId": "traphase-100045"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100207",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Shall I break their neck, or pierce the heart first..."
+        },
+        {
+          "id": "traphase-99822",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I can't wait to coat my chains with your blood..."
+        },
+        {
+          "id": "traphase-99792",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Begging for mercy is useless. From the moment you laid eyes on me, you should have known death would be your end!"
+        },
+        {
+          "id": "traphase-100109",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "This time I didn't crush your skull, but next time won't be so lenient..."
+        },
+        {
+          "id": "traphase-99841",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I'll never forgive..."
+        }
+      ]
+    }
   }
 }

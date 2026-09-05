@@ -55,6 +55,7 @@
   "profile": {
     "title": "Arachne",
     "birthday": "24-May",
+    "voiceActor": "Onishi Saori",
     "gender": "Female",
     "height": "5'8''",
     "weight": "135lbs",
@@ -90,6 +91,330 @@
         "unlockCondition": "Affinity Level 9",
         "content": "As the Weaver of the Web of Fate, Arachne governed the threads of countless lives, with past and future flowing through her hands. Yet, she harbored a hobby that bordered on the frivolous. \n\nShe loved the theater. Not for the twisting plot or the well-turned phrase: those were already etched into her mind. As the creator of the script, she knew every turn of the story and every line of the actors by heart. \n\nYet, time and again, she stepped into the theater. \n\nWhat she truly craved was the immersive sense of \"presence\"—the feeling of truly being there. \n\nWhen the curtain rises and the audience sinks into darkness, the stage becomes the only true world. In that moment, time is no longer a river running in a single direction, but an enactment within a confined space—past, present, and future overlap here. Everything ceases to be a script upon a page and becomes a tremor of life unfolding in the living present. \n\nAnd she, at last, is no longer the exile gazing at the threads she can never touch. \n\nInside the theater, she can briefly seal away her memories. She can step onto the stage as the girl gasping out her final words, or sit among the crowd, granting the actors their freedom. Casting off the prophet’s burden, she allows herself to simply tremble, weep, and hold her breath at every stirring pulse of the performance. Not as a seer, but as a living soul—adopting the posture of the ignorant, breathing in sync with the characters, shattered by a single line. Even knowing the end is written, even knowing the tragedy is foreordained. This illusion allows her a fleeting escape from her sentence as an eternal spectator. \n\nNo longer exiled from fate, but welcomed into it—even for a single instant, even as a phantom. \n\nThis small indulgence was already the most luxurious grace fate could bestow upon Arachne."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-133763",
+          "title": "Awaken",
+          "content": "On the grand stage of fate, all souls await their cue within the web of cause and consequence, their joys and sorrows quietly taking shape as the gears turn... \nThe curtain has risen, Keeper. This is where your story, and mine, begins."
+        },
+        {
+          "id": "voice-133744",
+          "title": "Upgrade: I",
+          "content": "Another thread coming clear."
+        },
+        {
+          "id": "voice-133750",
+          "title": "Upgrade: II",
+          "content": "Fate stirs. Its whisper draws near."
+        },
+        {
+          "id": "voice-133739",
+          "title": "Upgrade: III",
+          "content": "I have seen it whole at last. The endless web of fate."
+        },
+        {
+          "id": "voice-133745",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "The curtain is open for you, and fate's script waits to begin. Tell me: which destined path would you rather walk? A sorrowful ending, or a joyful opening?"
+        },
+        {
+          "id": "voice-133726",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "If comedy is your inclination, <Italic:A Midsummer Night's Dream> would serve you well. I am particularly fond of Puck's mischievous ramblings—hidden inside a sprite's laughter, fate always lets something slip."
+        },
+        {
+          "id": "voice-133754",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "If you would enter the hall of tragedy, allow me to present <Italic:Antigone>. Caught between divine law and mortal decree, every step she takes falls upon threads fate has already spun, until she steps at last into the deep shadow of the stone tomb. It is precisely because those chains cannot be broken that the will burning inside her small frame blazes so vividly against the long night."
+        },
+        {
+          "id": "voice-133757",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "I thought nothing in this world could surprise me anymore... Your taste in theater has left an impression."
+        },
+        {
+          "id": "voice-133732",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "Thank you for accompanying me through so many rising and falling curtains. I will not disappoint you—there are more evenings yet to come that will move you in ways you have not expected."
+        },
+        {
+          "id": "voice-133725",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "Everything is a past epilogue. Everything is a new prologue. The new chapter between us waits for you to write it, Keeper."
+        },
+        {
+          "id": "voice-133758",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "The threads of fate always connect in the shadows... You have disturbed one such thread, and so you have startled me."
+        },
+        {
+          "id": "voice-133760",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "Those threads once flowed in perfect order through my hands... until you appeared, and sent ripples through their course that I had never foreseen."
+        },
+        {
+          "id": "voice-133751",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "The theater has staged a new romantic comedy, and I have reserved a seat for you among fate's audience. Through every long night where destinies entwine, I shall wait quietly for the moment our stars meet."
+        },
+        {
+          "id": "voice-133740",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "If you would allow it... I wish to weave a play that belongs only to you and me. \nNo audience, no rehearsal. I simply wish to see how the thread even I cannot read will begin to stir... when you step into the light."
+        },
+        {
+          "id": "voice-133734",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "The invisible threads belonging to you and I have long wound tightly around each other, weaving at once a cage and a road.\nI cannot see where the cage ends, nor where the road leads.\nThat is precisely what makes this story so captivating."
+        },
+        {
+          "id": "voice-133752",
+          "title": "Chat: Touch",
+          "content": "To pull so insistently at fate's threads...\n\nYou seem rather eager to read your own story, no?"
+        },
+        {
+          "id": "voice-133721",
+          "title": "Chat: About the Crisis",
+          "content": "The tragedy before you is only one glance among countless possibilities.\n\nBeyond fate's curtain lies a stage swallowed in darkness—\nlights extinguished, players gone, everything returning to the deep.\n\nBut that is not where it ends.\nI carry the resolve to endure this thankless labor, until the day the lights return."
+        },
+        {
+          "id": "voice-133756",
+          "title": "Chat: About Mythag",
+          "content": "Upon the threads, I see colors shift through every shade of the rainbow.\nThey reach across an endless web, spinning boundless worlds and infinite possibility, until it weaves a pattern more beautiful than any that has ever been seen.\n\nIn the end—god or mortal, hero or villain—each is guided by those slender threads, rushing headlong toward their destined end beneath fate's unblinking gaze."
+        },
+        {
+          "id": "voice-133746",
+          "title": "Chat: What I Like",
+          "content": "I have grown quite fond of this weaving, day after day... In the quiet, repeated pull of each one, I see through to the beginnings and endings of all stories. Watching each curtain fall, I feel at times as though I have risen above fate itself. And yet one cannot escape fate's web, and to only watch leaves, in the end, a hollow feeling.\nIn those moments, I go to the theater. To perform the sorrows and joys I have spun with my own hands, but never once lived."
+        },
+        {
+          "id": "voice-133759",
+          "title": "Chat: What I Hate",
+          "content": "I have never cared for performances that simply repeat themselves. The very reason one steps into a theater is to witness a living stage—one that cannot be recreated.\nIf it does nothing but turn like clockwork, the stage becomes an ornate cage, and watching becomes nothing more than a tedious pilgrimage toward an ending you already know.\nA souless masquerade, no matter how magnificent the production is. What do you think?"
+        },
+        {
+          "id": "voice-133722",
+          "title": "Chat: About the Keeper",
+          "content": "Every soul's fate is carried along by threads... but yours is a script I cannot decipher. I find myself looking forward to whatever improvisation you will bring to this world."
+        },
+        {
+          "id": "voice-133736",
+          "title": "Chat: About Sorel",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Sorel\"",
+          "content": "She visits my theater often... but I know she does not come for the plays. She seems to use this stage to lend a certain refinement to her own image. Such remarkable skill, though—to spend it only as a spectator seems a waste. That lady is not the kind to bloom in the dark of the audience. She belongs under the light."
+        },
+        {
+          "id": "voice-133741",
+          "title": "Chat: About Liz",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Liz\"",
+          "content": "What an ill-fated dancer. I have watched her steps. Hers is a beauty that moves toward ruin—every turn igniting green flames, as though trying to burn fate's threads away, though in the end those threads will only carve something achingly vivid from her. If the chance arises, I would like to write a ballet just for her."
+        },
+        {
+          "id": "voice-133737",
+          "title": "Chat: About Hameln",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Sanga\"",
+          "content": "I once heard him play. That music made the soul tremble... Perhaps I should invite him to compose a symphony of fate for my next production."
+        },
+        {
+          "id": "voice-133733",
+          "title": "Chat: About Tinct",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Tinct\"",
+          "content": "What a gifted singer. A voice given by grace, clear and burning all at once, as though it rises from fate itself. If she were to perform in my theater, I imagine even the most demanding audience would be caught off guard."
+        },
+        {
+          "id": "voice-133730",
+          "title": "Chat: About Tawil",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Tawil\"",
+          "content": "Even one who watches all things remains a clumsy actor in their own script. To hold fate's web, yet be bound by its threads—we walk different roads in this destined circumstance, but neither of us has ever truly abandoned our thankless pursuits. Foolish, perhaps. Deluded, perhaps. So it is with me, and so it is with her."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-133764",
+          "title": "Investigation Begins",
+          "content": "The conflict is here. Will you play the hero who breaks the web, or the player who moves only as the strings allow?"
+        },
+        {
+          "id": "voice-133738",
+          "title": "Investigation Success",
+          "content": "Another story, beautifully complete, draws to its close."
+        },
+        {
+          "id": "voice-133755",
+          "title": "Investigation Halted",
+          "content": "No ending is ever truly certain, yet none escapes the web of cause and consequence..."
+        },
+        {
+          "id": "voice-133748",
+          "title": "Strike: I",
+          "content": "Hmph..."
+        },
+        {
+          "id": "voice-133727",
+          "title": "Strike: II",
+          "content": "Submit to this."
+        },
+        {
+          "id": "voice-133743",
+          "title": "Defense: I",
+          "content": "Be still..."
+        },
+        {
+          "id": "voice-133765",
+          "title": "Defense: II",
+          "content": "Futile resistance."
+        },
+        {
+          "id": "voice-133731",
+          "title": "Hit: I",
+          "content": "An unexpected turn?"
+        },
+        {
+          "id": "voice-133720",
+          "title": "Hit: II",
+          "content": "The error must be corrected."
+        },
+        {
+          "id": "voice-133735",
+          "title": "Skill: I",
+          "content": "The threads of fate hang still."
+        },
+        {
+          "id": "voice-133753",
+          "title": "Skill: II",
+          "content": "What was written draws near."
+        },
+        {
+          "id": "voice-133762",
+          "title": "Rouse",
+          "content": "From endless threads, I spin the only path."
+        },
+        {
+          "id": "voice-133749",
+          "title": "Exalt",
+          "content": "Here it is woven. Here it is weighed. Here it is severed."
+        },
+        {
+          "id": "voice-133761",
+          "title": "Over-Exalt",
+          "content": "Fate's prisoner, pitiful as ever... what is written cannot be refused."
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-135223",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Another encounter written into the web... I shall guide you all onto the right course."
+        },
+        {
+          "id": "traphase-135218",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Threads, gathering into a web..."
+        },
+        {
+          "id": "traphase-135215",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "The curtain has been drawn. Time for us to take the stage."
+        },
+        {
+          "id": "traphase-135219",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Sever, sever—and be gone, frail little thread!"
+        },
+        {
+          "id": "traphase-135216",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "A fault in the weave. A course that must be excised."
+        },
+        {
+          "id": "traphase-135221",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "...This is where my thread has always led."
+        },
+        {
+          "id": "traphase-123996",
+          "title": "Chat: About Mouchette",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Your eyes are clouded by the mist. You cannot yet see the weight of responsibility.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0033",
+              "lineId": "traphase-124004"
+            },
+            {
+              "awakenerId": "awakener-0056",
+              "lineId": "traphase-123996"
+            }
+          ]
+        },
+        {
+          "id": "traphase-135224",
+          "title": "Chat: About Pollux",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "A little bird, trapped in the web of fate. How will you find your wings from here?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0056",
+              "lineId": "traphase-135224"
+            },
+            {
+              "awakenerId": "awakener-0041",
+              "lineId": "traphase-135220"
+            }
+          ]
+        },
+        {
+          "id": "traphase-135222",
+          "title": "Chat: About Vortice",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "A clumsy actor imprisoned by fate... in essence, what difference is there between you and I?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0055",
+              "lineId": "traphase-131808"
+            },
+            {
+              "awakenerId": "awakener-0056",
+              "lineId": "traphase-135222"
+            }
+          ]
+        },
+        {
+          "id": "traphase-135217",
+          "title": "Chat: About Salvador",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "To embrace the fated suffering willingly... you have chosen a path few would ever walk.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0056",
+              "lineId": "traphase-135217"
+            },
+            {
+              "awakenerId": "awakener-0044",
+              "lineId": "traphase-135225"
+            }
+          ]
+        }
+      ]
+    }
   }
 }

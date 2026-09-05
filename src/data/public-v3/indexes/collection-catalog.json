@@ -439,7 +439,16 @@
       "relic-0313",
       "relic-0314",
       "relic-0315",
-      "relic-0316"
+      "relic-0316",
+      "relic-0317",
+      "relic-0318",
+      "relic-0319",
+      "relic-0320",
+      "relic-0321",
+      "relic-0322",
+      "relic-0323",
+      "relic-0324",
+      "relic-0325"
     ],
     "wheels": [
       "wheel-0001",
@@ -921,7 +930,11 @@
         "relic-0305",
         "relic-0307",
         "relic-0311",
-        "relic-0312"
+        "relic-0312",
+        "relic-0317",
+        "relic-0318",
+        "relic-0320",
+        "relic-0321"
       ],
       "SR": [
         "relic-0067",
@@ -1095,7 +1108,11 @@
         "relic-0313",
         "relic-0314",
         "relic-0315",
-        "relic-0316"
+        "relic-0316",
+        "relic-0322",
+        "relic-0323",
+        "relic-0324",
+        "relic-0325"
       ]
     },
     "wheelsByRealm": {
