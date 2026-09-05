@@ -16,6 +16,14 @@ The Awakener modal retains its desktop portrait, profile, and progression sideba
 - Release dates appear beneath profile facts, separated from in-world information, in day-month-year order.
 - A requested anchor stays selected when the end of the scroll area prevents top alignment. Active tracking resumes on subsequent scrolling without adding an empty spacer.
 
+## Deep links
+
+Lore sections use `/database/awakeners/:unit/lore/intro`, `/stories`, `/quotes`, and `/skills`. Story titles provide chapter slugs such as `/lore/stories/iv`; quote categories use `/lore/quotes/daily`, `/battle`, and `/traphase`. Bare `/lore` remains accepted and canonicalizes to `/lore/intro`. Section/category case is normalized; unknown sections or categories fall back to their containing view, and unavailable story slugs fall back to Stories after loading the profile.
+
+Section tabs, story index/footer controls and quote-category index selections update the URL through the existing navigation port. As with primary modal tabs, updates replace the current detail history entry, so Back returns to the browse page with its filters. Quote/skill entry anchors, scroll tracking and exchange expansion stay local. Selecting another Awakener resets the Lore subsection to Intro. Owner-scoped overlays retain local reader state without changing their host page URL.
+
+`DetailIndexedReader` accepts a route-selected scroll anchor separately from chapter selection and reports explicit anchor navigation only. Applying a route never emits another navigation event; subsequent scrolling is free. Footer scroll resets wait for the selected chapter to arrive, since route navigation is asynchronous.
+
 ## Implementation boundaries
 
 `DetailIndexedReader` owns local scrolling, anchor focus, active-entry tracking, responsive navigation, and scroll positions keyed to Lore section/chapter while that reader is mounted. Its controlled selection mode supports chapters without teaching the common component about story data. Character changes reset reader state. Switching away from a main modal tab remounts that tab on return.

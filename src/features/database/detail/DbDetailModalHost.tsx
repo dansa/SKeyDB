@@ -4,6 +4,7 @@ import {FaMagnifyingGlass, FaXmark} from 'react-icons/fa6'
 import {useLocation, useNavigate} from 'react-router'
 
 import type {AwakenerDatabaseSelection} from '@/domain/awakener-database-state'
+import {validateAwakenerLoreStory, type AwakenerLoreRoute} from '@/domain/awakener-lore-routes'
 import type {Awakener} from '@/domain/awakeners'
 import {getAwakeners} from '@/domain/awakeners'
 import {
@@ -140,13 +141,14 @@ function resolveOverlayAwakenerTab(
 function resolveAwakenerTabCanonicalPath(
   awakener: Awakener,
   tabSlug: string | undefined,
+  lore?: AwakenerLoreRoute,
 ): string | null {
   if (!tabSlug) {
     return null
   }
 
   const resolvedTab = resolveDatabaseAwakenerVisibleTab(resolveDatabaseAwakenerTab(tabSlug))
-  return buildDatabaseAwakenerPath(awakener, resolvedTab)
+  return buildDatabaseAwakenerPath(awakener, resolvedTab, lore)
 }
 
 function preloadDatabaseDetailResult(ref: DatabaseDetailResultSelectRef) {
@@ -664,7 +666,11 @@ function DbDetailAwakenerRouteModal({
     loadRecord: registryEntry.loadRecord,
     missingPathname: registryEntry.missingBrowsePath,
   })
-  const canonicalTabPath = resolveAwakenerTabCanonicalPath(routeItem.item, tabSlug)
+  const lore =
+    routeItem.lore && record
+      ? validateAwakenerLoreStory(routeItem.lore, record.profile?.storySections ?? [])
+      : routeItem.lore
+  const canonicalTabPath = resolveAwakenerTabCanonicalPath(routeItem.item, tabSlug, lore)
   useDeferredDatabaseDetailNeighborPreload(navigation, Boolean(record))
 
   useEffect(() => {
@@ -717,7 +723,7 @@ function DbDetailAwakenerRouteModal({
   }
 
   return registryEntry.render({
-    item: routeItem,
+    item: {...routeItem, ...(lore ? {lore} : {})},
     lookup,
     navigation,
     navigationPort,

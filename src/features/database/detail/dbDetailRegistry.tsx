@@ -2,6 +2,7 @@
 import {lazy, type ReactNode} from 'react'
 
 import {getAwakenerPortraitAsset} from '@/domain/awakener-assets'
+import type {AwakenerLoreRoute} from '@/domain/awakener-lore-routes'
 import type {Awakener} from '@/domain/awakeners'
 import type {AwakenerFullRecord} from '@/domain/awakeners-full'
 import {getCovenantAssetById} from '@/domain/covenant-assets'
@@ -86,9 +87,9 @@ const OrisonDetailModal = lazy(() =>
 export type {DatabaseDetailKind} from '@/domain/database-entity-definitions'
 
 export type DatabaseDetailNavigationState = Readonly<
-  | {tab: DatabaseAwakenerTab; variant?: never}
-  | {tab?: never; variant: string | undefined}
-  | {tab?: never; variant?: never}
+  | {tab: DatabaseAwakenerTab; lore?: AwakenerLoreRoute; variant?: never}
+  | {tab?: never; lore?: never; variant: string | undefined}
+  | {tab?: never; lore?: never; variant?: never}
 >
 
 export interface DatabaseDetailNavigationOptions {
@@ -106,7 +107,7 @@ export interface DatabaseDetailNavigationPort {
 }
 
 export type DatabaseDetailRouteItem =
-  | {kind: 'awakener'; item: Awakener; activeTab: DatabaseAwakenerTab}
+  | {kind: 'awakener'; item: Awakener; activeTab: DatabaseAwakenerTab; lore?: AwakenerLoreRoute}
   | {kind: 'wheel'; item: Wheel}
   | {kind: 'posse'; item: Posse}
   | {kind: 'covenant'; item: Covenant}
@@ -357,6 +358,16 @@ export const dbDetailRegistry: DatabaseDetailRegistry = {
           awakener={item.item}
           awakeners={[...lookup.awakener.items]}
           fullData={record}
+          loreNavigation={
+            item.lore
+              ? {
+                  route: item.lore,
+                  onChange: (lore) => {
+                    navigationPort.updateState({tab: 'lore', lore})
+                  },
+                }
+              : undefined
+          }
           key={item.item.id}
           navigation={navigation}
           onClose={navigationPort.close}

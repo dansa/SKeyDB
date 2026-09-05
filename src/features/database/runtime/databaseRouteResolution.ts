@@ -62,6 +62,9 @@ export function parseDatabaseRoutePath(pathname: string): ParsedDatabaseRoute {
     const [slug, ...suffixSegments] = detailSegments
     if (
       !slug ||
+      (definition.entity === 'awakeners' &&
+        suffixSegments.length > 1 &&
+        suffixSegments[0]?.toLowerCase() !== 'lore') ||
       suffixSegments.length > getDatabaseEntityRuntime(definition.entity).maxDetailSuffixSegments
     ) {
       return {entity: definition.entity, kind: 'invalid'}

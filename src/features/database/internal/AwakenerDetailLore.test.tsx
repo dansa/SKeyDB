@@ -225,4 +225,41 @@ describe('Awakener Lore reading sections', () => {
     expect(screen.getByText('No quotes are available yet.')).toBeInTheDocument()
     expect(screen.queryByText('Local reply.')).not.toBeInTheDocument()
   })
+  it('renders routed chapters and emits section, chapter and category navigation only', () => {
+    const onChange = vi.fn()
+    const {rerender} = render(
+      <AwakenerDetailLore
+        awakener={awakening}
+        fullData={fullData}
+        navigation={{route: {section: 'stories', story: 'ii'}, onChange}}
+      />,
+    )
+    expect(screen.getByRole('heading', {name: 'Story II'})).toBeInTheDocument()
+    expect(screen.queryByText('First complete story.')).not.toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', {name: 'Previous: Story I'}))
+    expect(onChange).toHaveBeenLastCalledWith({section: 'stories', story: 'i'})
+    rerender(
+      <AwakenerDetailLore
+        awakener={awakening}
+        fullData={fullData}
+        navigation={{route: {section: 'stories', story: 'i'}, onChange}}
+      />,
+    )
+    expect(screen.getByText('First complete story.')).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('tab', {name: 'Quotes'}))
+    expect(onChange).toHaveBeenLastCalledWith({section: 'quotes'})
+    rerender(
+      <AwakenerDetailLore
+        awakener={awakening}
+        fullData={fullData}
+        navigation={{route: {section: 'quotes'}, onChange}}
+      />,
+    )
+    fireEvent.click(screen.getByRole('button', {name: 'Traphase'}))
+    expect(onChange).toHaveBeenLastCalledWith({section: 'quotes', category: 'traphase'})
+    onChange.mockClear()
+    fireEvent.click(screen.getByRole('button', {name: 'About Thais'}))
+    fireEvent.scroll(screen.getByRole('region', {name: 'Reading area'}))
+    expect(onChange).not.toHaveBeenCalled()
+  })
 })

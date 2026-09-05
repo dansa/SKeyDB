@@ -1,5 +1,10 @@
 import {useId, useState, type KeyboardEvent} from 'react'
 
+import {
+  getAwakenerStorySlug,
+  type AwakenerLoreRoute,
+  type AwakenerLoreSection,
+} from '@/domain/awakener-lore-routes'
 import type {Awakener} from '@/domain/awakeners'
 import type {
   AwakenerFullRecord,
@@ -27,7 +32,11 @@ const LORE_SECTIONS = [
   {id: 'quotes', label: 'Quotes'},
   {id: 'skills', label: 'Skills'},
 ] as const
-type LoreSection = (typeof LORE_SECTIONS)[number]['id']
+type LoreSection = AwakenerLoreSection
+export interface AwakenerLoreNavigation {
+  route: AwakenerLoreRoute
+  onChange: (route: AwakenerLoreRoute) => void
+}
 
 const QUOTE_CATEGORIES: {id: AwakenerQuoteCategory; label: string}[] = [
   {id: 'daily', label: 'Daily'},
@@ -39,37 +48,69 @@ const LORE_HEADING_CLASS = 'ui-title mb-4 text-amber-200/90'
 const ANCHOR_CLASS = 'scroll-mt-4 outline-offset-4 focus-visible:outline-amber-200'
 
 export function AwakenerDetailLore({
+  navigation,
   awakener,
   fullData,
 }: {
   awakener: Awakener
   fullData: AwakenerFullRecord
+  navigation?: AwakenerLoreNavigation
 }) {
   return (
-    <AwakenerLoreReader releaseDate={awakener.releaseDate} fullData={fullData} key={awakener.id} />
+    <AwakenerLoreReader
+      navigation={navigation}
+      releaseDate={awakener.releaseDate}
+      fullData={fullData}
+      key={awakener.id}
+    />
   )
 }
 
 function AwakenerLoreReader({
+  navigation,
   fullData,
   releaseDate,
 }: {
   fullData: AwakenerFullRecord
   releaseDate?: string
+  navigation?: AwakenerLoreNavigation
 }) {
-  const [section, setSection] = useState<LoreSection>('intro')
+  const [localSection, setLocalSection] = useState<LoreSection>('intro')
+  const section = navigation?.route.section ?? localSection
   const [storyId, setStoryId] = useState('lore-story-0')
-  const [storyNavigation, setStoryNavigation] = useState(0)
+  const [storyNavigation, setStoryNavigation] = useState({id: '', count: 0})
   const tabsetId = useId()
   const content = buildLoreContent(fullData)
   const {stories, indexes} = content
-  const selectedStory = stories.find((story) => story.id === storyId) ?? stories.at(0)
+  const route = navigation?.route
+  const selectedStory =
+    (route?.section === 'stories'
+      ? stories.find((story) => story.slug === route.story)
+      : stories.find((story) => story.id === storyId)) ?? stories.at(0)
+  function setSection(next: LoreSection) {
+    setLocalSection(next)
+    navigation?.onChange({section: next})
+  }
+  function selectStory(id: string) {
+    setStoryId(id)
+    const story = stories.find((story) => story.id === id)
+    if (story) navigation?.onChange({section: 'stories', story: story.slug})
+  }
+  function navigateQuoteCategory(id: string) {
+    const group = content.quoteGroups.find((group) => `lore-quotes-${group.id}` === id)
+    if (group) navigation?.onChange({section: 'quotes', category: group.id})
+  }
 
   return (
     <DetailIndexedReader
-      resetScrollKey={storyNavigation}
+      resetScrollKey={storyNavigation.count}
+      resetScrollTargetId={storyNavigation.id}
       items={indexes[section]}
-      onSelect={section === 'stories' ? setStoryId : undefined}
+      onSelect={section === 'stories' ? selectStory : undefined}
+      onAnchorNavigate={section === 'quotes' ? navigateQuoteCategory : undefined}
+      scrollToId={
+        route?.section === 'quotes' && route.category ? `lore-quotes-${route.category}` : undefined
+      }
       scrollKey={section === 'stories' ? `stories:${selectedStory?.id ?? ''}` : section}
       selectedId={section === 'stories' ? selectedStory?.id : undefined}
       toolbar={<LoreSectionTabs section={section} setSection={setSection} tabsetId={tabsetId} />}
@@ -88,8 +129,8 @@ function AwakenerLoreReader({
           releaseDate={releaseDate}
           selectedStory={selectedStory}
           onSelectStory={(id) => {
-            setStoryId(id)
-            setStoryNavigation((value) => value + 1)
+            selectStory(id)
+            setStoryNavigation((value) => ({id, count: value.count + 1}))
           }}
         />
       </div>
@@ -106,9 +147,14 @@ function LoreEmptyState({children}: {children: string}) {
 }
 
 function buildLoreContent(fullData: AwakenerFullRecord) {
-  const stories: (AwakenerProfileStorySection & {id: string})[] = []
+  const stories: (AwakenerProfileStorySection & {id: string; slug: string})[] = []
   for (const story of fullData.profile?.storySections ?? []) {
-    if (story.kind === 'story') stories.push({...story, id: `lore-story-${String(stories.length)}`})
+    if (story.kind === 'story')
+      stories.push({
+        ...story,
+        id: `lore-story-${String(stories.length)}`,
+        slug: getAwakenerStorySlug(story, stories.length),
+      })
   }
   const introduction = fullData.profile?.storySections?.find(
     (story) => story.kind === 'introduction',

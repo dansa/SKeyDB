@@ -2,6 +2,11 @@ import type {ComponentType} from 'react'
 
 import {resolvePublicRoute} from '@/data-access/public-data/routeResolver'
 import {
+  parseAwakenerLoreRoute,
+  buildAwakenerLoreSuffix,
+  type AwakenerLoreRoute,
+} from '@/domain/awakener-lore-routes'
+import {
   DATABASE_ENTITY_DEFINITIONS,
   type DatabaseEntityId,
 } from '@/domain/database-entity-definitions'
@@ -62,7 +67,7 @@ interface DatabaseEntityRuntimeDefinition {
 
 const DATABASE_ENTITY_RUNTIME_BY_ID = {
   awakeners: {
-    maxDetailSuffixSegments: 1,
+    maxDetailSuffixSegments: 3,
     resolveDetailReference: async ({defaultAwakenerTab, id, search, state}) => {
       const {getAwakeners} = await import('@/domain/awakeners')
       const item = getAwakeners().find((candidate) => candidate.id === id)
@@ -72,8 +77,13 @@ const DATABASE_ENTITY_RUNTIME_BY_ID = {
         : defaultAwakenerTab
       return createResolvedReferenceTarget(
         'awakeners',
-        buildDatabaseAwakenerPath(item, activeTab),
-        {kind: 'awakener', item, activeTab},
+        buildDatabaseAwakenerPath(item, activeTab, state.lore),
+        {
+          kind: 'awakener',
+          item,
+          activeTab,
+          ...(activeTab === 'lore' ? {lore: state.lore ?? {section: 'intro'}} : {}),
+        },
         search,
       )
     },
@@ -83,11 +93,13 @@ const DATABASE_ENTITY_RUNTIME_BY_ID = {
       const activeTab = suffixSegments[0]
         ? resolveDatabaseAwakenerVisibleTab(resolveDatabaseAwakenerTab(suffixSegments[0]))
         : defaultAwakenerTab
+      const lore =
+        activeTab === 'lore' ? parseAwakenerLoreRoute(suffixSegments.slice(1)) : undefined
       return {
         canonicalPath: item
-          ? buildCanonicalAwakenerRoutePath(item, slug, activeTab)
+          ? buildCanonicalAwakenerRoutePath(item, slug, activeTab, lore)
           : buildDatabaseAwakenerPath({name: slug}),
-        routeItem: item ? {kind: 'awakener', item, activeTab} : null,
+        routeItem: item ? {kind: 'awakener', item, activeTab, ...(lore ? {lore} : {})} : null,
       }
     },
     loadBrowse: () =>
@@ -252,6 +264,7 @@ function buildCanonicalAwakenerRoutePath(
   awakener: {id: string; name: string},
   requestedSlug: string,
   tab: DatabaseAwakenerTab,
+  lore?: AwakenerLoreRoute,
 ): string {
   const routeResolution = resolvePublicRoute('awakeners', requestedSlug.trim().toLowerCase())
   const basePath =
@@ -259,7 +272,9 @@ function buildCanonicalAwakenerRoutePath(
       ? routeResolution.canonicalPath
       : buildDatabaseAwakenerPath(awakener)
   const visibleTab = resolveDatabaseAwakenerVisibleTab(tab)
-  return visibleTab === DEFAULT_DATABASE_AWAKENER_TAB ? basePath : `${basePath}/${visibleTab}`
+  return visibleTab === DEFAULT_DATABASE_AWAKENER_TAB
+    ? basePath
+    : `${basePath}/${visibleTab}${visibleTab === 'lore' ? `/${buildAwakenerLoreSuffix(lore)}` : ''}`
 }
 
 function sanitizeRuntimeSearch(

@@ -31,7 +31,7 @@ import {DbDetailModalFrame} from '@/features/database/detail/DbDetailModalFrame'
 import {PreReleaseDataNotice} from '@/features/database/detail/PreReleaseDataNotice'
 import {ArtViewerOverlay} from '@/ui/modal/ArtViewerOverlay'
 
-import {AwakenerDetailLore} from './AwakenerDetailLore'
+import {AwakenerDetailLore, type AwakenerLoreNavigation} from './AwakenerDetailLore'
 import {AwakenerDetailOverview} from './AwakenerDetailOverview'
 import {AwakenerDetailSearchBar} from './AwakenerDetailSearchBar'
 import {AwakenerDetailSettingsPanel} from './AwakenerDetailSettingsPanel'
@@ -45,6 +45,7 @@ import {useAwakenerDetailModalState} from './useAwakenerDetailModalState'
 import {suppressDetailEntitySearchCapture} from './useDetailEntitySearch'
 
 interface AwakenerDetailModalProps {
+  loreNavigation?: AwakenerLoreNavigation
   activeTab: DatabaseAwakenerTab
   awakener: Awakener
   awakeners: Awakener[]
@@ -354,6 +355,7 @@ function AwakenerDetailHeader({
 }
 
 interface AwakenerDetailTabPanelContentProps {
+  loreNavigation?: AwakenerLoreNavigation
   leadingContent?: ReactNode
   activeTab: DatabaseAwakenerTab
   areStatsExpanded: boolean
@@ -367,6 +369,7 @@ interface AwakenerDetailTabPanelContentProps {
 }
 
 function AwakenerDetailTabPanelContent({
+  loreNavigation,
   leadingContent,
   activeTab,
   areStatsExpanded,
@@ -432,7 +435,9 @@ function AwakenerDetailTabPanelContent({
       )
 
     case 'lore':
-      return <AwakenerDetailLore awakener={awakener} fullData={fullData} />
+      return (
+        <AwakenerDetailLore awakener={awakener} fullData={fullData} navigation={loreNavigation} />
+      )
 
     case 'teams':
       return null
@@ -440,6 +445,7 @@ function AwakenerDetailTabPanelContent({
 }
 
 interface AwakenerDetailBodyProps {
+  loreNavigation?: AwakenerLoreNavigation
   activeTab: DatabaseAwakenerTab
   areStatsExpanded: boolean
   awakener: Awakener
@@ -480,6 +486,7 @@ function getDetailBodyLayout(activeTab: DatabaseAwakenerTab) {
 }
 
 function AwakenerDetailBody({
+  loreNavigation,
   activeTab,
   areStatsExpanded,
   awakener,
@@ -570,6 +577,7 @@ function AwakenerDetailBody({
             tabIndex={0}
           >
             <AwakenerDetailTabPanelContent
+              loreNavigation={loreNavigation}
               key={awakener.id}
               leadingContent={usesIndexedReader ? mobileControls : undefined}
               activeTab={activeTab}
@@ -591,6 +599,7 @@ function AwakenerDetailBody({
 }
 
 export function AwakenerDetailModal({
+  loreNavigation,
   activeTab: routeActiveTab,
   awakener,
   awakeners,
@@ -715,6 +724,7 @@ export function AwakenerDetailModal({
         />
         <DatabasePopoverContext.Provider value={popoverContextValue}>
           <AwakenerDetailBody
+            loreNavigation={loreNavigation}
             activeTab={activeTab}
             areStatsExpanded={areStatsExpanded}
             awakener={awakener}

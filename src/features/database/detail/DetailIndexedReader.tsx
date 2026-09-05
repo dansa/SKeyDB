@@ -14,10 +14,13 @@ export interface DetailIndexedReaderProps {
   items: DetailIndexEntry[]
   children: ReactNode
   toolbar?: ReactNode
+  scrollToId?: string
+  onAnchorNavigate?: (id: string) => void
   selectedId?: string
   onSelect?: (id: string) => void
   scrollKey: string
   defaultExpandedGroups?: 'active' | 'all'
+  resetScrollTargetId?: string
   resetScrollKey?: number
 }
 
@@ -30,10 +33,13 @@ export function DetailIndexedReader({
   items,
   children,
   toolbar,
+  scrollToId,
+  onAnchorNavigate,
   selectedId,
   onSelect,
   scrollKey,
   defaultExpandedGroups = 'active',
+  resetScrollTargetId,
   resetScrollKey = 0,
 }: DetailIndexedReaderProps) {
   const readerRef = useRef<HTMLDivElement>(null)
@@ -138,7 +144,11 @@ export function DetailIndexedReader({
   }, [selectedId, scrollKey])
 
   useLayoutEffect(() => {
-    if (lastResetScrollKey.current === resetScrollKey) return
+    if (
+      lastResetScrollKey.current === resetScrollKey ||
+      (resetScrollTargetId && selectedId !== resetScrollTargetId)
+    )
+      return
     lastResetScrollKey.current = resetScrollKey
     if (readerRef.current) readerRef.current.scrollTop = 0
     positions.current.set(scrollKey, 0)
@@ -146,7 +156,35 @@ export function DetailIndexedReader({
       contentRef.current?.querySelectorAll<HTMLElement>('[data-detail-anchor]') ?? [],
     ).find((anchor) => anchor.id === selectedId)
     target?.focus({preventScroll: true})
-  }, [resetScrollKey, selectedId, scrollKey])
+  }, [resetScrollKey, resetScrollTargetId, selectedId, scrollKey])
+
+  useLayoutEffect(() => {
+    const reader = readerRef.current
+    const content = contentRef.current
+    const target = Array.from(
+      content?.querySelectorAll<HTMLElement>('[data-detail-anchor]') ?? [],
+    ).find((anchor) => anchor.id === scrollToId)
+    if (!reader || !content || !target) return
+    // The modal may still be hidden when its children mount. Align once the
+    // reading viewport is measurable, then let normal scrolling take over.
+    let aligned = false
+    const align = () => {
+      if (aligned || reader.clientHeight === 0 || target.getClientRects().length === 0) return
+      aligned = true
+      reader.scrollTop += target.getBoundingClientRect().top - reader.getBoundingClientRect().top
+      positions.current.set(scrollKey, reader.scrollTop)
+      anchorSelection.current = {id: target.id, scrollTop: reader.scrollTop}
+      setVisibleId(target.id)
+      observer?.disconnect()
+    }
+    const observer = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(align)
+    observer?.observe(reader)
+    observer?.observe(content)
+    align()
+    return () => {
+      observer?.disconnect()
+    }
+  }, [scrollToId, scrollKey, entryIds])
 
   function selectEntry(id: string) {
     const target = Array.from(
@@ -165,6 +203,7 @@ export function DetailIndexedReader({
     positions.current.set(scrollKey, reader.scrollTop)
     anchorSelection.current = {id, scrollTop: reader.scrollTop}
     setVisibleId(id)
+    onAnchorNavigate?.(id)
   }
 
   function indexButton(entry: DetailIndexEntry, nested = false, containsActive = false) {
