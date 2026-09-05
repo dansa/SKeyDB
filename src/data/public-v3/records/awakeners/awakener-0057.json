@@ -69,7 +69,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "Like what is yet to come but has not yet come to pass. Like what is held in the heart and will never be forgotten.\n\nNo matter what form they take, no matter what shape the world assumes, the two beings—utterly different, yet utterly alike—will always arrive at the same answer.\n\n<Italic:\"There is someone we want to see again.\"\n\n\"We will stop at nothing to find them... and the world where we can stay by their side.\"\n\n\"If the path there has no end, then we will spend our whole lives walking it. A lifetime measured in searching.\"\n\n>\nPerhaps this is why, amid the screeching, ugly blobs of flesh, a brilliant Silver Core fell into the Keeper's palm."
       },
       {
@@ -90,6 +90,333 @@
         "unlockCondition": "Affinity Level 9",
         "content": "She is of a species furthest from humanity—and yet, in learning how to become human, she has grown to resemble them even in the places where she contradicts her own nature.\n\nWithout love, the world she was meant to create would mean nothing.\n\nWith love, the only world worth creating is one where she could stay with her beloved.\n\nNothing more terrifying. Nothing more cruel. Nothing more innocent. Nothing more radiant."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-139900",
+          "title": "Awaken",
+          "content": "Hello! ...Is that the right way to say it?\nI'm Saya, and... nice to meet you!"
+        },
+        {
+          "id": "voice-139878",
+          "title": "Upgrade: I",
+          "content": "I'm stuffed. Thanks for the treat!"
+        },
+        {
+          "id": "voice-139865",
+          "title": "Upgrade: II",
+          "content": "Thank you for this gift. I'll keep it safe."
+        },
+        {
+          "id": "voice-139885",
+          "title": "Upgrade: III",
+          "content": "Well? Gotcha, didn't I?"
+        },
+        {
+          "id": "voice-139868",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "I can do stuff like that, you know. Like rearranging or tweaking other creatures' bodies..."
+        },
+        {
+          "id": "voice-139869",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "Every living thing is different, so before you start tweaking things, you really have to study them carefully."
+        },
+        {
+          "id": "voice-139895",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "Yeah, I've studied the structure of Silver Cores, and I'm starting to understand how Awakeners work."
+        },
+        {
+          "id": "voice-139888",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "It seems like \"Silver Cores\" are each connected to a will from very far away. How mysterious..."
+        },
+        {
+          "id": "voice-139866",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "I've studied Awakener structure quite a lot, so I'd call myself an expert by now. But the \"spirituality\" inside the Silver Cores... I still don't quite get that part."
+        },
+        {
+          "id": "voice-139884",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "After all my tests, I understand a lot more now. The \"spirituality\" each Awakener carries—they're all completely different. And, it seems like my Silver Core's spirituality is... \"love.\""
+        },
+        {
+          "id": "voice-139893",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "Yesterday, I found a book called <Italic:The Little Prince> on Lily's bookshelf. It was really good! Do you want to read it?"
+        },
+        {
+          "id": "voice-139887",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "\"<Italic:On one of these stars, my flower is blooming...>\"\nI feel like you’ve said something like that before."
+        },
+        {
+          "id": "voice-139892",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "The Little Prince says his rose became special because he took care of it... Do you think so?"
+        },
+        {
+          "id": "voice-139880",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "Hey, Keeper... have you ever loved someone? Have you ever truly missed someone with all your heart?"
+        },
+        {
+          "id": "voice-139901",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "You know dandelions, right? The ones that send their seeds out on the wind. A little seed gets carried far, far away from its homeland... and maybe it lands in a desert where nothing grows at all—not a single blade of grass. I wonder... what might that single, little seed feel...?"
+        },
+        {
+          "id": "voice-139870",
+          "title": "Chat: Touch",
+          "content": "You're not scared of me? Aww... that's no fun..."
+        },
+        {
+          "id": "voice-140539",
+          "title": "Chat: About the Crisis",
+          "content": "Certain threats out there could bring darkness great enough to destroy this world, right? I know. Professor Doll told me all about it."
+        },
+        {
+          "id": "voice-140535",
+          "title": "Chat: About Mythag",
+          "content": "Whenever I'm next to you, strange people would just show up and gather around us. I actually prefer it when it was just the two of us in the Domain."
+        },
+        {
+          "id": "voice-140533",
+          "title": "Chat: What I Like",
+          "content": "I love good food! And I like people who are kind to me! When someone's gentle with me... it just makes me really happy."
+        },
+        {
+          "id": "voice-140540",
+          "title": "Chat: What I Hate",
+          "content": "I don't like people who are rough. They give me a bad feeling..."
+        },
+        {
+          "id": "voice-140537",
+          "title": "Chat: About the Keeper",
+          "content": "Keeper, Link, Awakener. That's how we're connected. You told me about it. I can feel our souls linked together... like a silver thread? Hmm, sounds a bit too complicated..."
+        },
+        {
+          "id": "voice-140538",
+          "title": "Chat: About Thais",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Thais\"",
+          "content": "Spreading seeds through flesh and blood? Hmm... interesting. I'm kind of curious about her sheep, actually."
+        },
+        {
+          "id": "voice-140534",
+          "title": "Chat: About Tinct",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Tinct\"",
+          "content": "She's the one who awakened me? She looks really... dazzling. So, did you help her find her sister?"
+        },
+        {
+          "id": "voice-140541",
+          "title": "Chat: About Winkle",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Winkle\"",
+          "content": "Oh? So her kind breeds on new planets by preying on other species. Huh, I see..."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-139872",
+          "title": "Investigation Begins",
+          "content": "I'm ready, anytime."
+        },
+        {
+          "id": "voice-139883",
+          "title": "Investigation Success",
+          "content": "Nice work! Found anything good?"
+        },
+        {
+          "id": "voice-139873",
+          "title": "Investigation Halted",
+          "content": "Living things really are full of diversity. I wanna learn so much more!"
+        },
+        {
+          "id": "voice-139899",
+          "title": "Strike: I",
+          "content": "Here we go!"
+        },
+        {
+          "id": "voice-139875",
+          "title": "Strike: II",
+          "content": "Want to play with Saya?"
+        },
+        {
+          "id": "voice-139906",
+          "title": "Defense: I",
+          "content": "Look out!"
+        },
+        {
+          "id": "voice-139903",
+          "title": "Defense: II",
+          "content": "Heya!"
+        },
+        {
+          "id": "voice-139876",
+          "title": "Hit: I",
+          "content": "Eeek!"
+        },
+        {
+          "id": "voice-139891",
+          "title": "Hit: II",
+          "content": "Ngh—!"
+        },
+        {
+          "id": "voice-139881",
+          "title": "Hit: III",
+          "content": "Ahh!"
+        },
+        {
+          "id": "voice-139896",
+          "title": "Hit: IV",
+          "content": "Gah!"
+        },
+        {
+          "id": "voice-141965",
+          "title": "Hit: V",
+          "content": "Ugh!"
+        },
+        {
+          "id": "voice-139871",
+          "title": "Skill: I",
+          "content": "I won't let anyone get in our way."
+        },
+        {
+          "id": "voice-139882",
+          "title": "Skill: II",
+          "content": "It's right here?"
+        },
+        {
+          "id": "voice-139902",
+          "title": "Rouse",
+          "content": "This never gets old!"
+        },
+        {
+          "id": "voice-139867",
+          "title": "Exalt",
+          "content": "This is... where a new world begins."
+        },
+        {
+          "id": "voice-139886",
+          "title": "Over-Exalt",
+          "content": "This is my last gift... to you."
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-139844",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Oh... so, you want a fight with Saya?"
+        },
+        {
+          "id": "traphase-139842",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Where is the weakness in your biology... let's see."
+        },
+        {
+          "id": "traphase-139849",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Is being indecisive one of the special human traits?"
+        },
+        {
+          "id": "traphase-139845",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Let the world bloom full of dandelions!"
+        },
+        {
+          "id": "traphase-139846",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Would you like me to fix that for you, with a little modification? It won't hurt."
+        },
+        {
+          "id": "traphase-139848",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "My glass slippers... shattered..."
+        },
+        {
+          "id": "traphase-140525",
+          "title": "Chat: About Thais",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Somehow... You feel familiar.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0048",
+              "lineId": "traphase-140519"
+            },
+            {
+              "awakenerId": "awakener-0057",
+              "lineId": "traphase-140525"
+            }
+          ]
+        },
+        {
+          "id": "traphase-140523",
+          "title": "Chat: About Mouchette",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I really don't like rude people. Well, it can't be helped...",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0057",
+              "lineId": "traphase-140523"
+            },
+            {
+              "awakenerId": "awakener-0033",
+              "lineId": "traphase-140526"
+            }
+          ]
+        },
+        {
+          "id": "traphase-140521",
+          "title": "Chat: About Aurita",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Looks nice. You have a lively crowd there.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0005",
+              "lineId": "traphase-140522"
+            },
+            {
+              "awakenerId": "awakener-0057",
+              "lineId": "traphase-140521"
+            }
+          ]
+        },
+        {
+          "id": "traphase-140520",
+          "title": "Chat: About Tawil",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Is there really an answer... for me?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0057",
+              "lineId": "traphase-140520"
+            },
+            {
+              "awakenerId": "awakener-0047",
+              "lineId": "traphase-140524"
+            }
+          ]
+        }
+      ]
+    }
   }
 }

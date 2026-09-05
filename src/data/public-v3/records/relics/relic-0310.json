@@ -10,8 +10,8 @@
   "assets": {
     "icon": "asset-relic-0310-icon"
   },
-  "relicType": "Relic",
-  "categories": ["OTHER"],
+  "relicType": "Event",
+  "categories": ["EVENT"],
   "variantCount": 1,
   "defaultVariantId": "relic-variant-0562",
   "rarity": "SSR",
@@ -23,10 +23,10 @@
     {
       "id": "relic-variant-0562",
       "name": "☆Fond Reminiscence☆",
-      "label": "Other - Special",
-      "variantType": "OTHER",
+      "label": "Event - Special",
+      "variantType": "EVENT",
       "tier": "Special",
-      "category": "OTHER",
+      "category": "EVENT",
       "rarity": "SSR",
       "descriptionTemplate": "Draw 1 extra card and gain 1 Arithmetica each turn.",
       "descriptionArgs": {},

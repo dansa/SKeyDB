@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0320",
+  "name": "☆Ancient Anchor☆",
+  "route": {
+    "slug": "ancient-anchor",
+    "canonicalPath": "/database/relics/ancient-anchor"
+  },
+  "assets": {
+    "icon": "asset-relic-0320-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0573",
+  "rarity": "N",
+  "aliases": [],
+  "descriptionTemplate": "At the start of the battle, the current HP of Elite and Boss enemies -20%.",
+  "descriptionArgs": {},
+  "lore": "Come home, my old sailor.",
+  "variants": [
+    {
+      "id": "relic-variant-0573",
+      "name": "☆Ancient Anchor☆",
+      "label": "Event - Silver",
+      "variantType": "EVENT",
+      "tier": "Silver",
+      "category": "EVENT",
+      "rarity": "N",
+      "descriptionTemplate": "At the start of the battle, the current HP of Elite and Boss enemies -20%.",
+      "descriptionArgs": {},
+      "lore": "Come home, my old sailor."
+    }
+  ]
+}

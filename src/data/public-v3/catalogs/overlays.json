@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "overlays",
   "kind": "overlay",
-  "recordCount": 150,
+  "recordCount": 151,
   "records": [
     {
       "kind": "overlay",
@@ -395,6 +395,21 @@
     },
     {
       "kind": "overlay",
+      "id": "overlay.global.blackened-flame",
+      "name": "Blackened Flame",
+      "route": {
+        "slug": "blackened-flame",
+        "canonicalPath": "/database/overlays/blackened-flame"
+      },
+      "assets": {
+        "icon": "asset-overlay.global.blackened-flame-icon"
+      },
+      "overlayType": "mechanic",
+      "textColor": "misc",
+      "aliases": []
+    },
+    {
+      "kind": "overlay",
       "id": "overlay.global.bleed",
       "name": "Bleed",
       "route": {
@@ -436,7 +451,7 @@
       },
       "overlayType": "mechanic",
       "textColor": "damage",
-      "aliases": []
+      "aliases": ["Burned"]
     },
     {
       "kind": "overlay",

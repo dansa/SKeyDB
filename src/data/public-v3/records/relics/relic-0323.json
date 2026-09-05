@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0323",
+  "name": "☆Guild Medal☆",
+  "route": {
+    "slug": "guild-medal",
+    "canonicalPath": "/database/relics/guild-medal"
+  },
+  "assets": {
+    "icon": "asset-relic-0323-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0576",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "At the start of battle, for each Orison in your deck, gain [Arg1] {STR}. For each Relic, recover [Arg2] HP.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.01,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.01,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    }
+  },
+  "lore": "\"Wear it, and you're a member of the Londinium Chamber of Commerce.\"",
+  "variants": [
+    {
+      "id": "relic-variant-0576",
+      "name": "☆Guild Medal☆",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "At the start of battle, for each Orison in your deck, gain [Arg1] {STR}. For each Relic, recover [Arg2] HP.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.01,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        },
+        "Arg2": {
+          "kind": "computed",
+          "formulaKey": "scaled",
+          "baseFormula": "esotericResearchDepth",
+          "multiplier": 0.01,
+          "inputs": ["accountLevel", "ownedPosseCount"]
+        }
+      },
+      "lore": "\"Wear it, and you're a member of the Londinium Chamber of Commerce.\""
+    }
+  ]
+}

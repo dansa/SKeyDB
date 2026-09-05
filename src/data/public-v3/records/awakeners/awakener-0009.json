@@ -90,6 +90,338 @@
         "unlockCondition": "Affinity Level 9",
         "content": "Our good friend, the resourceful Hannah Peaslee, somehow dug up the research materials on Celeste. Thanks to this audacious reporter, both the originally confidential materials and her brief interview with Celeste has now spreaded into every corner.\n\nAfter reading the confidential materials, Hannah posed a question to her usually emotionless face.\n\n\"Most Awakeners have unfulfilled wishes, which lie in their basic motivations for cooperating with the university. However, your wish section is blank in this material. Don't you have any desire to accomplish anything? Or what is your meaning as an Awakener?\"\n\n\"I have, I do have.\"\n\nThe girl's expression showed no cracks, as ethereal and noble as usual. If it were not for that brief answer and the anxiety within, the reporter would have almost thought that she miss the question.\n\n\n\"I will find my wish... everyone wishes so. Therefore I will find it.\"\n\nHer soft voice resounded, delicate and fragile like an easily shattered dream."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-5871",
+          "title": "Awaken",
+          "content": "My name is Celeste. I'll always be here, as long as you still need me."
+        },
+        {
+          "id": "voice-6139",
+          "title": "Upgrade: I",
+          "content": "As you wished, my existence has grown more tangible."
+        },
+        {
+          "id": "voice-6138",
+          "title": "Upgrade: II",
+          "content": "It has arrived... the white bird circling in my dream."
+        },
+        {
+          "id": "voice-6137",
+          "title": "Upgrade: III",
+          "content": "Hmm... the sea water is quite warm tonight..."
+        },
+        {
+          "id": "voice-5708",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "Do you wish for me to set sail once more? I am willing to do so... if you do not mind my past failure."
+        },
+        {
+          "id": "voice-5035",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "I seem to hear the rowers' shanties again... and sense the familiar scent of home."
+        },
+        {
+          "id": "voice-5032",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "Please follow the trail of the birds of paradise; the destination awaits ahead in the azure blue."
+        },
+        {
+          "id": "voice-5031",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "The destination, be it treasure or port, makes no difference to me. My purpose is only to ensure your safe return."
+        },
+        {
+          "id": "voice-5034",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "Thanks to your favor, even the raging seas now feel less daunting. I shall brave them to bring you my steadfast blessings."
+        },
+        {
+          "id": "voice-5033",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "I often gaze at the horizon, imagining the scenes on that distant land—the one I draw closer to but can never reach. If that day ever comes, please come with me to see it."
+        },
+        {
+          "id": "voice-6046",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "Duty and destiny are much alike. Neither can be easily cast aside, nor is there any need to cast them aside."
+        },
+        {
+          "id": "voice-6225",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "My past was routine and calm, like the seas near the equator; there is nothing worth mentioning."
+        },
+        {
+          "id": "voice-6044",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "My wish? Ensuring safe and peaceful voyage—does that not suffice? I have never had any other wishes... but I will consider it carefully and tell you later."
+        },
+        {
+          "id": "voice-6049",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "Miss Ramona once said that I don't need to accommodate everyone. I do not understand... Does it mean my protection is no longer needed?"
+        },
+        {
+          "id": "voice-6231",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "I was brought to the ship and entrusted with the mission of the ship's maiden many years ago. Since then, my life—and its meaning—have been beyond my control. I've been told that I should live for my own wishes, at least in this second life as an Awakener... Would you help me? Help me become selfish, help me find my own wish."
+        },
+        {
+          "id": "voice-5734",
+          "title": "Chat: Touch",
+          "content": "Would you like to sink together with me?"
+        },
+        {
+          "id": "voice-5108",
+          "title": "Chat: About Past",
+          "content": "Ah... Are you talking to me? My apologies, I was lost in memories of the view back when I was bound to the mast. Would you mind repeating your question?"
+        },
+        {
+          "id": "voice-5341",
+          "title": "Chat: About Miryam",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Miryam\"",
+          "content": "Blessing the voyage for most people makes no difference to me... except for that woman. If possible, please arrange another route for me."
+        },
+        {
+          "id": "voice-5449",
+          "title": "Chat: About Faros",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Faros\"",
+          "content": "That would be a dangerous person to have on board... No, I mean purely from a navigation safety perspective..."
+        },
+        {
+          "id": "voice-6666",
+          "title": "Chat: About Dissolution",
+          "content": "I was punished for failing to protect the sailors, who were lost to their families forever. They named me the chief culprit of the tragedy... Is this what Dissolution is?"
+        },
+        {
+          "id": "voice-5712",
+          "title": "Chat: About Mythag",
+          "content": "Thanks to Miss Hannah, I was able to observe the choir practice. Hymns and sea shanties are quite different; during my years of blessing voyages, I've never heard such a unique melody..."
+        },
+        {
+          "id": "voice-5029",
+          "title": "Chat: What I Like",
+          "content": "The full moon's golden light always enchants me: beneath it, the sea catches the light and shimmers beautifully as the mysterious, gentle wind blows, weaving a romantic and dreamlike vision."
+        },
+        {
+          "id": "voice-5547",
+          "title": "Chat: What I Hate",
+          "content": "It's getting a bit noisy... are those the students? They are much like albatrosses, you see? They have endless vitality, as if their journey never ends..."
+        },
+        {
+          "id": "voice-6589",
+          "title": "Chat: About the Keeper",
+          "content": "My relationship with you is like that of a sail and a ship. Without the ship, the sail shouldn't exist; without the sail, the ship can hardly voyage far. Is that not true?"
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-6281",
+          "title": "Investigation Begins",
+          "content": "Souls without protection, I shall grant you final peace."
+        },
+        {
+          "id": "voice-5944",
+          "title": "Investigation Success",
+          "content": "Everything went well. You may raise the triumphant sails."
+        },
+        {
+          "id": "voice-5746",
+          "title": "Investigation Halted",
+          "content": "So my protection, too, may fail at times..."
+        },
+        {
+          "id": "voice-5330",
+          "title": "Strike: I",
+          "content": "Shatter."
+        },
+        {
+          "id": "voice-5329",
+          "title": "Strike: II",
+          "content": "Turn into wreckage."
+        },
+        {
+          "id": "voice-5813",
+          "title": "Defense: I",
+          "content": "Turn back."
+        },
+        {
+          "id": "voice-6189",
+          "title": "Hit: I",
+          "content": "I can keep going."
+        },
+        {
+          "id": "voice-6188",
+          "title": "Hit: II",
+          "content": "(Groan)"
+        },
+        {
+          "id": "voice-6187",
+          "title": "Hit: III",
+          "content": "(Groan)"
+        },
+        {
+          "id": "voice-6186",
+          "title": "Hit: IV",
+          "content": "(Groan)"
+        },
+        {
+          "id": "voice-6406",
+          "title": "Skill: I",
+          "content": "May you have a sweet dream."
+        },
+        {
+          "id": "voice-6238",
+          "title": "Skill: II",
+          "content": "To the best of my ability."
+        },
+        {
+          "id": "voice-6435",
+          "title": "Rouse",
+          "content": "I will do my utmost."
+        },
+        {
+          "id": "voice-6153",
+          "title": "Exalt",
+          "content": "Your prayers have been heard."
+        },
+        {
+          "id": "voice-57844",
+          "title": "Over-Exalt",
+          "content": "Bird soaring in the azure sky, please heed my prayer."
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-99741",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Set sail, I have prayed for you."
+        },
+        {
+          "id": "traphase-99873",
+          "title": "Chat: About Nautila",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "When you need to set sail, make a wish to me.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0009",
+              "lineId": "traphase-99873"
+            },
+            {
+              "awakenerId": "awakener-0036",
+              "lineId": "traphase-99816"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99753",
+          "title": "Chat: About Ryker",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "What a vague wish, but I will do my best to pray for you.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0043",
+              "lineId": "traphase-100215"
+            },
+            {
+              "awakenerId": "awakener-0009",
+              "lineId": "traphase-99753"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100190",
+          "title": "Chat: About Corposant",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Are you a voyager as well? Then I shall include you in my prayers.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0011",
+              "lineId": "traphase-100058"
+            },
+            {
+              "awakenerId": "awakener-0009",
+              "lineId": "traphase-100190"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100117",
+          "title": "Chat: About Caecus",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "So... you still haven't told me what your wish is?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0006",
+              "lineId": "traphase-100029"
+            },
+            {
+              "awakenerId": "awakener-0009",
+              "lineId": "traphase-100117"
+            }
+          ]
+        },
+        {
+          "id": "traphase-146427",
+          "title": "Chat: About Lotan: Cetarchon",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "What's the point of this endless slaughter...?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0059",
+              "lineId": "traphase-146417"
+            },
+            {
+              "awakenerId": "awakener-0009",
+              "lineId": "traphase-146427"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100174",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "If this is your wish, I will do my best."
+        },
+        {
+          "id": "traphase-99986",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Please come true sooner, my prayers..."
+        },
+        {
+          "id": "traphase-100201",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Raise the sails!"
+        },
+        {
+          "id": "traphase-99922",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Was that not what you wished for? Did I misunderstand...?"
+        },
+        {
+          "id": "traphase-100173",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "The ship... still sank..."
+        }
+      ]
+    }
   }
 }

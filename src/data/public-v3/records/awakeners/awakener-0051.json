@@ -90,6 +90,338 @@
         "unlockCondition": "Affinity Level 9",
         "content": "Age@2, the ancient city of Akka.\n\nA thousand years of thirst finally broke loose—kill, drink, kill, drink—until nothing remained before him but an endless desert and a vast litter of desiccated corpses, so dreadful a sight that even the vultures dared not draw near.\n\nHe knelt in the yellow sand and laughed, and laughed, and laughed.\n\nGlorious! @1 glorious!\n\nAnd now—he would crown this magnificent feast of slaughter with his own blood.\n\nThe warrior bit open his own wrist, drained himself dry, and collapsed at last into the vast crimson pool he had made."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-5861",
+          "title": "Awaken",
+          "content": "How many times have I been summoned... Human, you'd better have enough 'food' ready, or I can't guarantee anything."
+        },
+        {
+          "id": "voice-6380",
+          "title": "Upgrade: I",
+          "content": "The power surges, nonstop, filling my whole body..."
+        },
+        {
+          "id": "voice-6200",
+          "title": "Upgrade: II",
+          "content": "I'm really, really excited right now... If you still want to live, better stay away from me."
+        },
+        {
+          "id": "voice-6382",
+          "title": "Upgrade: III",
+          "content": "Not bad. You're less worthless than you appear."
+        },
+        {
+          "id": "voice-5531",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "Hey, stop meddling with my body. True warriors never rely on external aids."
+        },
+        {
+          "id": "voice-5177",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "This strange feeling... not bad. Better than that Levantine wizard's nightshade."
+        },
+        {
+          "id": "voice-6637",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "Well done, Keeper. So, who am I killing this time?"
+        },
+        {
+          "id": "voice-5175",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "Hahaha, that's the feeling! Give me more... double, no, ten times the dose!"
+        },
+        {
+          "id": "voice-5174",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "Crimson body, pulsating tentacles, mouthparts constantly opening and closing... Great! I can't wait to tear a throat apart!"
+        },
+        {
+          "id": "voice-5173",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "Worms. Stars. I am... Uvhash! Kill... let me kill!"
+        },
+        {
+          "id": "voice-5538",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "Scared? Hahaha, that's right! To hell with everything. I just want to savor your fear."
+        },
+        {
+          "id": "voice-5539",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "Interesting, your blood tastes... sweet, like mead."
+        },
+        {
+          "id": "voice-5540",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "Back then, tens of thousands cheered my name. The loud roars of \"Uvhash\" drowned everything else, celebrating me breaking a bald weakling's neck. It felt incredible. As my partner, you should understand."
+        },
+        {
+          "id": "voice-5536",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "Shackle me, drag me by the hair, make me kneel as your slave... I don't care, do anything to me as you please. Just let me kill. The Sculptors, that Lady Lantern, some random hag with asthma... anyone! I promise I'll tear their throats out and drink their blood."
+        },
+        {
+          "id": "voice-6660",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "Frail human, your conviction is sufficient. I will be your weapon. Let's carve out some chaos together!"
+        },
+        {
+          "id": "voice-5073",
+          "title": "Chat: Touch",
+          "content": "Touch me all you like... These are the scars I earned at the arena, a man's badges of honor!"
+        },
+        {
+          "id": "voice-5815",
+          "title": "Chat: About Etiquette",
+          "content": "Top hats, bowler hats, deerstalker hats, berets... Gotta say it's funny how those high and mighty \"gentlemen\" would do everything to hide their bald heads."
+        },
+        {
+          "id": "voice-5448",
+          "title": "Chat: About Agrippa",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Agrippa\"",
+          "content": "Agrippa? Who was that? Oops, I've killed too many. Most of them weren't worth remembering."
+        },
+        {
+          "id": "voice-6603",
+          "title": "Chat: About Leigh",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Leigh\"",
+          "content": "Who is Leigh? Oh, the woman who begged me to beat her up. Haha, interesting... This place isn't boring after all."
+        },
+        {
+          "id": "voice-5666",
+          "title": "Chat: About Dissolution",
+          "content": "I've seen many go mad from Dissolution. Truth is, I'm already mad enough. Bet that thing can't affect me."
+        },
+        {
+          "id": "voice-5288",
+          "title": "Chat: About Mythag",
+          "content": "Don't expect to find me in the teaching building. It stinks of musty old scholars; I can't stand that place."
+        },
+        {
+          "id": "voice-6004",
+          "title": "Chat: What I Like",
+          "content": "After Tiberius's death, the Romans finally had their long-time wish granted: they got to dump him into the Tiber to feed the fish. The price was small: Caligula threw those people to me in the arena for my amusement."
+        },
+        {
+          "id": "voice-5827",
+          "title": "Chat: What I Hate",
+          "content": "You call this little toy a handgun? Hiding in shadows to ambush enemies... Hmph. A weapon for cowards only."
+        },
+        {
+          "id": "voice-5365",
+          "title": "Chat: About the Keeper",
+          "content": "Want to please me? Then kneel, offer your neck, and shut up until I finish draining you."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-5149",
+          "title": "Investigation Begins",
+          "content": "I smell... the scent of blood."
+        },
+        {
+          "id": "voice-5652",
+          "title": "Investigation Success",
+          "content": "I'm not done yet... How about you get up so I can kill you again?"
+        },
+        {
+          "id": "voice-5803",
+          "title": "Investigation Halted",
+          "content": "The thrill of battle beats everything—not even winning comes close."
+        },
+        {
+          "id": "voice-6708",
+          "title": "Strike: I",
+          "content": "Awesome！"
+        },
+        {
+          "id": "voice-5147",
+          "title": "Defense: I",
+          "content": "Tsk!"
+        },
+        {
+          "id": "voice-5146",
+          "title": "Defense: II",
+          "content": "No need!"
+        },
+        {
+          "id": "voice-5735",
+          "title": "Hit: I",
+          "content": "Fuck off!"
+        },
+        {
+          "id": "voice-5738",
+          "title": "Hit: II",
+          "content": "Interesting!"
+        },
+        {
+          "id": "voice-5737",
+          "title": "Hit: III",
+          "content": "(Humming with interest)"
+        },
+        {
+          "id": "voice-5739",
+          "title": "Hit: IV",
+          "content": "(Scoffs disdainfully)"
+        },
+        {
+          "id": "voice-5807",
+          "title": "Skill: I",
+          "content": "Burn it all!"
+        },
+        {
+          "id": "voice-5918",
+          "title": "Skill: II",
+          "content": "Hahaha!"
+        },
+        {
+          "id": "voice-6414",
+          "title": "Rouse",
+          "content": "Bathe in my enemies' blood!"
+        },
+        {
+          "id": "voice-6119",
+          "title": "Exalt",
+          "content": "I am the last Roman warrior—Uvhash!"
+        },
+        {
+          "id": "voice-57821",
+          "title": "Over-Exalt",
+          "content": "Enjoy this feast of slaughter! To the fullest!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-100046",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "As long as you keep giving me blood, I can keep fighting for you."
+        },
+        {
+          "id": "traphase-100123",
+          "title": "Chat: About Lotan",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Hahaha! Kill—",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0031",
+              "lineId": "traphase-99924"
+            },
+            {
+              "awakenerId": "awakener-0051",
+              "lineId": "traphase-100123"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99999",
+          "title": "Chat: About Alva",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Whatever. Those who did this to me are long dead.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0004",
+              "lineId": "traphase-100073"
+            },
+            {
+              "awakenerId": "awakener-0051",
+              "lineId": "traphase-99999"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99982",
+          "title": "Chat: About Helot",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I don't care whose blood I'm drinking... Besides... I can snap their necks whenever I please, you see?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0023",
+              "lineId": "traphase-100143"
+            },
+            {
+              "awakenerId": "awakener-0051",
+              "lineId": "traphase-99982"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100211",
+          "title": "Chat: About Leigh",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Ugh, I don't want any of that. Stay away from me!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0028",
+              "lineId": "traphase-100115"
+            },
+            {
+              "awakenerId": "awakener-0051",
+              "lineId": "traphase-100211"
+            }
+          ]
+        },
+        {
+          "id": "traphase-146420",
+          "title": "Chat: About Lotan: Cetarchon",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "The scent of blood! It's so thick...",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0051",
+              "lineId": "traphase-146420"
+            },
+            {
+              "awakenerId": "awakener-0059",
+              "lineId": "traphase-146421"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99968",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "How about just ripping his head off?"
+        },
+        {
+          "id": "traphase-99884",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "The taste of blood... I can't wait any longer!"
+        },
+        {
+          "id": "traphase-100122",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Hahaha! Kill! Kill more of them!"
+        },
+        {
+          "id": "traphase-100063",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "No blood? How could someone have no blood at all..."
+        },
+        {
+          "id": "traphase-100018",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "A warrior should stand on the battlefield until the last moment..."
+        }
+      ]
+    }
   }
 }

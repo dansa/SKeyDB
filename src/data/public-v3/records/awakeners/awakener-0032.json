@@ -83,7 +83,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "The rumors of humans landing in the polar regions have intensified this century. In response, Mythag University and the Mystia Treaty Committee have collaborated to form a joint investigation team.\n\nIn December of A.F. 3@1, the joint investigation team ventured deep into the Elworth ice fields with the aim of recovering potential mystical artifacts before the arrival of secular expedition teams.\n\n......\n\nOn December 10, A.F. 3@1, Investigator Johansson accidentally fell into an ice cave, discovering a hollow space beneath the ice field. The altitude is too low; the melting ice will submerge the hollow within three days. We must complete our exploration before temperatures continue to rise.\n\nOn December 12, A.F. 3@1, there are reasons to believe that a cult has long used the hollow as a sacrificial pit. At the bottom of the cave, we discovered countless humanoid skeletons. Yes, humanoid—with cartilaginous fins connected to their skulls.\n\n......\n\nOn December 13, A.F. 3@1, damn, damn, damn, damn! At the peak of the bone mountain, the investigator discovered the recent remains of a human!!!\n\nThe cult may not have yet withdrawn from the polar region. Due to the Committee's foolish \"persistence,\" no Awakener investigators were permitted to accompany us. We must leave immediately!\n\n——\"Motion on Blockading the Wild Sea Route: Part One\""
       },
       {
@@ -104,6 +104,344 @@
         "unlockCondition": "Affinity Level 9",
         "content": "The unenlightened are pitiful, for they cannot comprehend the true essence of immortality. Worldly conflicts are meaningless, as they are but shallow diversions in the grand scheme of things.\n\nI have gazed upon it, I have tasted it, and I have long understood my purpose.\n\nBut, oh, how cruel is fate! Why did you... not choose your most loyal Priest once more?\n\n—It must be that you are bestowing upon me a trial, testing my faith. In the farthest reaches from my homeland, in moments devoid of your grace, my faith has endured through millennia, unwavering.\n\nI could not be the one to welcome your rebirth, but I have prepared everything for it. I will seek out a new eternal realm for you... The mix of resentment and honor weighs heavily upon me, and I must bear this responsibility alone...\n\nForgive my ugly jealousy. As long as I can once again witness your majesty, as long as I can rebuild your kingdom, I am willing to do anything."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-6030",
+          "title": "Awaken",
+          "content": "A mere drop in the tides, a shallow follower of the immortal, Miryam... greets you."
+        },
+        {
+          "id": "voice-5834",
+          "title": "Upgrade: I",
+          "content": "Have you acknowledged my wish?"
+        },
+        {
+          "id": "voice-6667",
+          "title": "Upgrade: II",
+          "content": "Closer... ever closer to my lord..."
+        },
+        {
+          "id": "voice-5832",
+          "title": "Upgrade: III",
+          "content": "I shall not forget what you've contributed for my reunion with Him..."
+        },
+        {
+          "id": "voice-6123",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "I have been called; the line between god and supplicant now bleeds."
+        },
+        {
+          "id": "voice-5357",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "Bathed in such sacred radiance... Is this the divine power He holds? So boundless... so sublime..."
+        },
+        {
+          "id": "voice-5359",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "Brighter... and clearer..."
+        },
+        {
+          "id": "voice-5358",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "The gate to His realm is almost within reach."
+        },
+        {
+          "id": "voice-5361",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "May He guide me into His sanctuary, where His serenity covers my dreams..."
+        },
+        {
+          "id": "voice-5360",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "I have been wholly restored as an Awakener... Now the Divine Realm's chorus resonates within me..."
+        },
+        {
+          "id": "voice-6718",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "The ecstasy of being illuminated by His glory is beyond your faithless comprehension... May He, in His mercy, forgive your blindness and impudence."
+        },
+        {
+          "id": "voice-6716",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "We are all wretched mortals in the dust, but the Sage walks apart. He is the Emissary, a divine incarnation. His counsel echoes with the voices of gods, steering our frail civilization toward immortality... I do not expect your hollow mind to grasp devotion now, but one day, you too shall kneel before His throne."
+        },
+        {
+          "id": "voice-6717",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "The Chosen are blessed indeed, don't you agree? Their flesh has been remade by His holy will, their lives extended beyond mortal measure. When He strides upon the shore, they will rise as His choir. Isn't this the utmost sweetness and highest happiness for mortals frail as sands?"
+        },
+        {
+          "id": "voice-6714",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "Perhaps I was too hasty to dismiss you as merely mortal. How does one untouched by grace still cling to purpose? This is Miryam's curiosity, not a question from the Holy Mother of the Seas. Will you... indulge me?"
+        },
+        {
+          "id": "voice-6715",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "How could one as extraordinary as you not tire of this transient, tumultuous world? You shall find your rightful home in the eternal realm. There, your feet will kiss the hallowed ground, your breaths will be renewed in sacred waters, and your soul will flourish in blessed earth... You will join me in this holy pilgrimage. Join me in this holy pilgrimage. Together we'll rise far beyond mortal bounds, till we stand united at the Throne, and taste the ripened joy in its light..."
+        },
+        {
+          "id": "voice-5152",
+          "title": "Chat: Touch",
+          "content": "This shell should not stir for anyone but Him... And yet... your warmth..."
+        },
+        {
+          "id": "voice-4946",
+          "title": "Chat: About Past",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Tulu\"",
+          "content": "I am no one of consequence, merely one devoted soul among countless. I have dedicated my life to that magnificent presence, and I shall never cease to offer my all to earn but a glance."
+        },
+        {
+          "id": "voice-6375",
+          "title": "Chat: About Goliath",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Goliath\"",
+          "content": "He was a worthy blade. I once named him \"comrade\"... Do you take issue with my choice of word? Then by all means, enlighten me."
+        },
+        {
+          "id": "voice-5546",
+          "title": "Chat: About Murphy",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Murphy\"",
+          "content": "False idols, brittle as dried clay, scatter at the slightest wind..."
+        },
+        {
+          "id": "voice-5390",
+          "title": "Chat: About Dissolution",
+          "content": "Humans, false gods, Awakeners, even the Dissolution... All will serve as the foundation for my rebuilding of the Divine Realm."
+        },
+        {
+          "id": "voice-6340",
+          "title": "Chat: About Mythag",
+          "content": "The mortal clamor wearies me. A quiet alcove in this academy would suffice... No, I don't need a fireplace. Only austerity can carry my prayers to Him..."
+        },
+        {
+          "id": "voice-5375",
+          "title": "Chat: What I Like",
+          "content": "Please allow me to place an altar to His likeness in this place. It is a statue shaped by pious hands and bears no curses."
+        },
+        {
+          "id": "voice-4955",
+          "title": "Chat: What I Hate",
+          "content": "Historians who declare the Divine Realm's demise are tedious in their presumptions... Yet mere words are meaningless foams; none shall halt the glorious restoration."
+        },
+        {
+          "id": "voice-6346",
+          "title": "Chat: About the Keeper",
+          "content": "Since He has deemed you worthy, I shall no longer consider you an adversary."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-6647",
+          "title": "Investigation Begins",
+          "content": "Clearing the path for His glorious return..."
+        },
+        {
+          "id": "voice-5571",
+          "title": "Investigation Success",
+          "content": "May my prayers toll like morning bell, rousing the slumbering homeland..."
+        },
+        {
+          "id": "voice-6668",
+          "title": "Investigation Halted",
+          "content": "Why? My lord, why do you still... resist awakening?"
+        },
+        {
+          "id": "voice-6299",
+          "title": "Strike: I",
+          "content": "Stand back!"
+        },
+        {
+          "id": "voice-5306",
+          "title": "Defense: I",
+          "content": "Bathe in His divine light!"
+        },
+        {
+          "id": "voice-6229",
+          "title": "Hit: I",
+          "content": "Useless."
+        },
+        {
+          "id": "voice-6674",
+          "title": "Hit: II",
+          "content": "What?!"
+        },
+        {
+          "id": "voice-6673",
+          "title": "Hit: III",
+          "content": "(Grunted groan)"
+        },
+        {
+          "id": "voice-6672",
+          "title": "Hit: IV",
+          "content": "(Groan)"
+        },
+        {
+          "id": "voice-6128",
+          "title": "Skill: I",
+          "content": "An offering to His will."
+        },
+        {
+          "id": "voice-6257",
+          "title": "Skill: II",
+          "content": "Inevitable sacrifice."
+        },
+        {
+          "id": "voice-5610",
+          "title": "Rouse",
+          "content": "Witness His blessing."
+        },
+        {
+          "id": "voice-55825",
+          "title": "Rouse: II",
+          "content": "Listen to His divine words."
+        },
+        {
+          "id": "voice-55826",
+          "title": "Rouse: III",
+          "content": "Sacrifice! Rebuild the Divine Realm—"
+        },
+        {
+          "id": "voice-5562",
+          "title": "Exalt",
+          "content": "I must not falter before your arrival, my lord..."
+        },
+        {
+          "id": "voice-54610",
+          "title": "Over-Exalt",
+          "content": "Sacrifice! Return my flesh to His throne—"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-99849",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Every action is a proclamation, solely to elevate His immortal glory."
+        },
+        {
+          "id": "traphase-99760",
+          "title": "Chat: About Murphy",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I don't seek your forgiveness for what I've done; I only hope to make amends now...",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0032",
+              "lineId": "traphase-99760"
+            },
+            {
+              "awakenerId": "awakener-0034",
+              "lineId": "traphase-99919"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100137",
+          "title": "Chat: About Goliath",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Stop smarting off and do your job, Philistine.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0021",
+              "lineId": "traphase-100164"
+            },
+            {
+              "awakenerId": "awakener-0032",
+              "lineId": "traphase-100137"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99793",
+          "title": "Chat: About Tulu",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "How could I fight against you, my lord? Those who dare disrespect you deserves punishment...",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0032",
+              "lineId": "traphase-99793"
+            },
+            {
+              "awakenerId": "awakener-0050",
+              "lineId": "traphase-100168"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99800",
+          "title": "Chat: About Faros",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "By maintaining our sacred devotion, the King will surely guide us to the promised serenity.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0032",
+              "lineId": "traphase-99800"
+            },
+            {
+              "awakenerId": "awakener-0017",
+              "lineId": "traphase-100087"
+            }
+          ]
+        },
+        {
+          "id": "traphase-120272",
+          "title": "Chat: About Murphy: Fauxborn",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "The glory of Lemuria is calling us, Divine Mother.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0032",
+              "lineId": "traphase-120272"
+            },
+            {
+              "awakenerId": "awakener-0035",
+              "lineId": "traphase-120245"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99839",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Our Lord's true majesty must be echoed in all corners of the world..."
+        },
+        {
+          "id": "traphase-99864",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "No slackening of duty."
+        },
+        {
+          "id": "traphase-99837",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I shall administer the judgment in His divine name!"
+        },
+        {
+          "id": "traphase-100128",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Why? My prayers cannot have erred! It can't be wrong!"
+        },
+        {
+          "id": "traphase-99972",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "This vessel is so frail... Am I still too insignificant...?"
+        }
+      ]
+    }
   }
 }

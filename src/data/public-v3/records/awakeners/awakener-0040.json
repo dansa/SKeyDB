@@ -90,6 +90,333 @@
         "unlockCondition": "Affinity Level 9",
         "content": "A monster. A freak. Demon with the blood of monsters. Madman who desecrates art...\n\nBefore Pickman, a canvas unfurls, and the curses mix with other sounds, smearing brilliant colors across the canvas.\n\nHe leaps into this dazzling world, wandering in the mad colors. He eagerly hopes to lead others into his painting, to let them witness the most authentic visage of the world.\n\nThe sharp spikes of reality pierce his heart countless times; mutual understanding between people is more challenging than opening the boundaries of two worlds.\n\nFrom humans to ghouls, from human cities to Necropolis, the road is long and winding. He has been wounded time and again, yet he rises again and again. He has long understood that there is neither truth nor falsehood. Pain and madness are the truth of the world. And his duty is to depict all of this faithfully.\n\nThe meaning of depiction lies only in the act of depicting itself.\n\nHe dedicates all his life and passion to painting. His expectations rarely receive a response; his pursuit never ceases."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-100371",
+          "title": "Awaken",
+          "content": "Oh! Look at that sharp jawline! Those brilliant eyes! And a figure of ideal proportions... plus the vast, starry sky of your spirit shining through... I am Pickman, a humble painter! Might I have the supreme honor of capturing you as my model?"
+        },
+        {
+          "id": "voice-100352",
+          "title": "Upgrade: I",
+          "content": "Ah! A novel pigment! I must apply it where it will best complement the composition!"
+        },
+        {
+          "id": "voice-100336",
+          "title": "Upgrade: II",
+          "content": "Wait! I've thought of a new technique. It's gonna shake the entire art world!"
+        },
+        {
+          "id": "voice-100351",
+          "title": "Upgrade: III",
+          "content": "This stroke... it will be a masterpiece of impasto! They will be astounded!"
+        },
+        {
+          "id": "voice-100356",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "Ah! Please, sit, Keeper. Modeling for me is hard work, I know. Trust me, I'll make you a masterpiece."
+        },
+        {
+          "id": "voice-100338",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "Hmm? ...There's a color in your psyche, one I've never seen... what is it..."
+        },
+        {
+          "id": "voice-100374",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "Ah! I-I'm sorry, Keeper... I see something in you... more terrible, and lovelier than the Abyss..."
+        },
+        {
+          "id": "voice-100340",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "Let me get closer... let me see more! These lights, these shadows, these shapes... everything I've painted before is trash next to this..."
+        },
+        {
+          "id": "voice-100362",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "Ah! I see it... the Pupilless Eye under the Abyss, the universe's final sight... Just a moment more, Keeper, it's almost done!"
+        },
+        {
+          "id": "voice-100373",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "Look, Keeper! The eternal, mad scene on the canvas! So beautiful, so devastating! What grows from this madness and pain is art..."
+        },
+        {
+          "id": "voice-100353",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "This place gives me ideas! I have new work, Keeper. Do you have time to visit my studio? Come on, come on!"
+        },
+        {
+          "id": "voice-100347",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "You want to buy this painting... really?! Th-thank you, Keeper! H-Humans rarely ever get it..."
+        },
+        {
+          "id": "voice-100357",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "An artist should only see the work, not care what others think... but I can't. Since I first held a brush, I wanted to show everyone true beauty."
+        },
+        {
+          "id": "voice-100346",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "Have you seen this, Keeper? It's your portrait. Look how lovely you are eating corpses! I know not everyone gets my work, but you must feel the beautiful madness in it, right?! For me, that's enough. More than enough..."
+        },
+        {
+          "id": "voice-100363",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "My brush, made from my shin bone. The palette, these colors from graveyards of twenty different cities... and my precious skin canvas! Keeper, take these and paint me! No, no, you don't need skill... I think when our souls meet on the canvas, it will be a masterpiece beyond my dreams...!"
+        },
+        {
+          "id": "voice-100367",
+          "title": "Chat: Touch",
+          "content": "What? Are you suggesting a close-up on this part of the body in my next piece? Hmm... I never thought of that! Good idea!"
+        },
+        {
+          "id": "voice-100339",
+          "title": "Chat: About Dissolution",
+          "content": "Ah, an exquisite black paint! I used to use a lot of Dissolution liquid for paintings, but those works all vanished. Colors from the ancient universe, devouring my painting, forever forgotten by the world... Isn't that even better?!"
+        },
+        {
+          "id": "voice-100358",
+          "title": "Chat: About Mythag",
+          "content": "This place takes me back to art school. Most teachers and students knew nothing about art, but there were always one or two who could see the beauty in my paintings."
+        },
+        {
+          "id": "voice-100375",
+          "title": "Chat: What I Like",
+          "content": "I don't get it. Why would anyone turn down the chance to become a ghoul?! This bloody, mad beauty is much more fun than being some boring human in a big house, right?!"
+        },
+        {
+          "id": "voice-100341",
+          "title": "Chat: What I Hate",
+          "content": "Doresain always says his cooking is art. Come on. Eating has nothing to do with art! It wastes good painting time on preparing corpses, and after making a dish that looks and tastes good, I have to chew it up and swallow it! It's a crime against art!"
+        },
+        {
+          "id": "voice-100348",
+          "title": "Chat: About the Keeper",
+          "content": "Keeper, do you have time to model again? Compared to what I saw on you last time, the other models are just a waste of my time..."
+        },
+        {
+          "id": "voice-100345",
+          "title": "Chat: About Sanga",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Sanga\"",
+          "content": "I usually find sculpture stiff and boring, but that sculptor, Sanga, her chisel has a power beyond the technique... a real genius!"
+        },
+        {
+          "id": "voice-100372",
+          "title": "Chat: About Hameln",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Sanga\"",
+          "content": "My art is about madness and unrest, but that Hameln's music is tight, like tombstones in a graveyard. Yet for some reason, I always see the universe's worst chaos in those orderly notes..."
+        },
+        {
+          "id": "voice-100335",
+          "title": "Chat: About Models",
+          "content": "Keeper, when can I go back to the Mythag graveyard? The great souls buried there must give me great ideas! Don't worry, I promise I won't dig up those corpses for a closer look again..."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-100359",
+          "title": "Investigation Begins",
+          "content": "What kind of mad art will this barbaric performance create?!"
+        },
+        {
+          "id": "voice-100354",
+          "title": "Investigation Success",
+          "content": "That's right, perfect! A victory painted in blood! What a brilliant composition!"
+        },
+        {
+          "id": "voice-100344",
+          "title": "Investigation Halted",
+          "content": "No, no, another terrible painting... Where can I find insight? A graveyard? Or a execution ground..."
+        },
+        {
+          "id": "voice-100376",
+          "title": "Strike: I",
+          "content": "Ha!"
+        },
+        {
+          "id": "voice-100365",
+          "title": "Strike: II",
+          "content": "How'd you like this color?"
+        },
+        {
+          "id": "voice-100368",
+          "title": "Defense: I",
+          "content": "Watch out!"
+        },
+        {
+          "id": "voice-100343",
+          "title": "Defense: II",
+          "content": "Such a mean model..."
+        },
+        {
+          "id": "voice-100355",
+          "title": "Hit: I",
+          "content": "Ugh..."
+        },
+        {
+          "id": "voice-100370",
+          "title": "Hit: II",
+          "content": "My palette!"
+        },
+        {
+          "id": "voice-100350",
+          "title": "Skill: I",
+          "content": "Look at these lively lines!"
+        },
+        {
+          "id": "voice-100361",
+          "title": "Skill: II",
+          "content": "Pain is also art..."
+        },
+        {
+          "id": "voice-100349",
+          "title": "Rouse",
+          "content": "In this painting, witness a new birth!"
+        },
+        {
+          "id": "voice-100369",
+          "title": "Exalt",
+          "content": "The true essence of art lies in madness...!"
+        },
+        {
+          "id": "voice-100337",
+          "title": "Over-Exalt",
+          "content": "I am the bleed of light into shadow. I am the whisper of pigment and varnish. I am... the hunger that paints!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-120261",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Come on! Witness my eternal, beautiful art!"
+        },
+        {
+          "id": "traphase-120253",
+          "title": "Chat: About Doresain",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Ugh, nobody is worthy to insult my art! Not even you, Doresain!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0014",
+              "lineId": "traphase-120262"
+            },
+            {
+              "awakenerId": "awakener-0040",
+              "lineId": "traphase-120253"
+            }
+          ]
+        },
+        {
+          "id": "traphase-120247",
+          "title": "Chat: About Sanga",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Sanga, let's make this an exquisite competition between artists!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0040",
+              "lineId": "traphase-120247"
+            },
+            {
+              "awakenerId": "awakener-0045",
+              "lineId": "traphase-120276"
+            }
+          ]
+        },
+        {
+          "id": "traphase-120270",
+          "title": "Chat: About Ogier",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "AHHH! Why must everyone interfere with my creation?!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0038",
+              "lineId": "traphase-120244"
+            },
+            {
+              "awakenerId": "awakener-0040",
+              "lineId": "traphase-120270"
+            }
+          ]
+        },
+        {
+          "id": "traphase-120260",
+          "title": "Chat: About Sorel",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Lady Sorel, I will show you what true art is!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0046",
+              "lineId": "traphase-120271"
+            },
+            {
+              "awakenerId": "awakener-0040",
+              "lineId": "traphase-120260"
+            }
+          ]
+        },
+        {
+          "id": "traphase-120299",
+          "title": "Chat: About Murphy: Fauxborn",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "No, no... My god of inspiration has named this painting \"The Caged Deipara\"!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0035",
+              "lineId": "traphase-120282"
+            },
+            {
+              "awakenerId": "awakener-0040",
+              "lineId": "traphase-120299"
+            }
+          ]
+        },
+        {
+          "id": "traphase-120246",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "How should the composition be done?"
+        },
+        {
+          "id": "traphase-120255",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I've run out of inspiration... No, I need a new model!"
+        },
+        {
+          "id": "traphase-120277",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Come, become my model!"
+        },
+        {
+          "id": "traphase-120251",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "So close! Just a little more, and I could create the perfect work!"
+        },
+        {
+          "id": "traphase-120257",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "My painting... is not finished yet..."
+        }
+      ]
+    }
   }
 }

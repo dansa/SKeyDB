@@ -90,6 +90,385 @@
         "unlockCondition": "Affinity Level 9",
         "content": "\"The benevolent Father once said: Cherish all things within the sky, on the ground, in the water, and in the soil. For all beings are my offspring.\n\n\"Thus, I say: Render all suffering unto me. Let those tormented by life or plagued by disease be made whole. Let all pain and madness melt as frost before the rising sun. Let you, my brethren, receive joy everlasting. \n\n\"Burn me, grind my bones to dust, and rend my flesh asunder. For as long as you can find solace, I have little complaints.\"\n\n—B.F. 1@1, May 30, Sal @1doMartin @2I @1as, left at @3 the Tribunal"
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-6327",
+          "title": "Awaken",
+          "content": "Our meeting must be a promise from the Father to those who suffer. You are the Pale Flame that dispels calamity, and I shall be your arm, standing faithfully by your side."
+        },
+        {
+          "id": "voice-6170",
+          "title": "Upgrade: I",
+          "content": "The tempering of a person involves not just the body, but the heart as well."
+        },
+        {
+          "id": "voice-6167",
+          "title": "Upgrade: II",
+          "content": "If I can free this world from its suffering, I shall be content."
+        },
+        {
+          "id": "voice-6168",
+          "title": "Upgrade: III",
+          "content": "Give me your commands, Pale Messenger. May your flames ever light my path."
+        },
+        {
+          "id": "voice-6162",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "Those with strength must not use their power to oppress others, for you all share my blood.\" I remember the teachings of our Father God of Compassion. I will use this strength only to protect those around me."
+        },
+        {
+          "id": "voice-4977",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "This warmth deep within my soul... Thank you for this gift, Pale Flame. With this power, perhaps I can finally fulfill my duty as His emissary and save more of His children."
+        },
+        {
+          "id": "voice-4973",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "The All-Father once said: 'Suffering is not my creation. Bear and dissolve it, my emissaries, and build a land without suffering.' For this, I would offer everything. Even my life."
+        },
+        {
+          "id": "voice-4974",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "In the face of the all-consuming curse of Dissolution, other sufferings pale. Even if I cannot bear the curse for others, I will do my utmost to alleviate their pain."
+        },
+        {
+          "id": "voice-4975",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "Am I now able to ease their pain and comfort their souls?"
+        },
+        {
+          "id": "voice-4976",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "Thus, I shall bear all suffering, to pave the way for all beings to a land free from pain."
+        },
+        {
+          "id": "voice-6452",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "There is no need for courtesy, Pale Messenger. There should be no barriers between us, for we are both the All-Father's creations, walking together on this muddy and testing path."
+        },
+        {
+          "id": "voice-6454",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "Will you pray with me, my Pale Flame? Let us pray for those who died in our battle today. Though cursed with dissolution and madness, they are still children of the All-Father, our brothers and sisters. May they now find their deserved peace."
+        },
+        {
+          "id": "voice-6453",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "No, I do not fear them. I feel only sorrow for those poor souls tormented by Dissolution. I know I cannot bear their suffering for them, but I would give them all that I have if it brings a moment's comfort."
+        },
+        {
+          "id": "voice-6456",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "Regret? No, of course not. My death eased their suffering and bought more time, and that is enough. But... as you have been honest with me, I shall not hide this: the pyre that day left its scars upon my heart."
+        },
+        {
+          "id": "voice-6455",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "Even though the red flames make me uneasy, I would step onto the burning platform for you once more. Do not dwell on it, my Pale Flame. My sacrifice is insignificant next to the blessings you bring."
+        },
+        {
+          "id": "voice-5296",
+          "title": "Chat: Touch",
+          "content": "Your hands are warm, like your soul. I... appreciate your touch, Pale Flame."
+        },
+        {
+          "id": "voice-5890",
+          "title": "Chat: About a Chapel",
+          "content": "A chapel? Thank you, but I am not so old-fashioned. As long as I keep the teachings of the God of Kindness in my heart and follow His will, my soul will never stray from His glory."
+        },
+        {
+          "id": "voice-5355",
+          "title": "Chat: About Fatigue",
+          "content": "The burden of guiding light can overwhelm even the purest of saints. If you feel weary, my pale flame, please confide in me. I will do everything in my power to ease your burden and share the weight of these countless blessings."
+        },
+        {
+          "id": "voice-5468",
+          "title": "Chat: About Dissolution",
+          "content": "If I had known sooner that those people were tormented by this all-consuming curse, I... No, it is not too late. I must eradicate it, and eliminate all suffering, even if it costs me my life once more."
+        },
+        {
+          "id": "voice-6035",
+          "title": "Chat: About Mythag",
+          "content": "They call me a master counselor? Those children are too kind. I simply do my best to listen and help them release their inner distress—as I have always tried to do."
+        },
+        {
+          "id": "voice-6419",
+          "title": "Chat: What I Like",
+          "content": "A world untouched by sorrow, untainted by grief, free from pain and unmarred by suffering... perhaps an unattainable illusion, but it is the ideal I have pursued all my life."
+        },
+        {
+          "id": "voice-6010",
+          "title": "Chat: What I Hate",
+          "content": "I believe all things happen for a reason, but... the senseless violence, the prejudices that drive siblings to turn against each other... these things truly sadden me. If there is anything I detest, it is that."
+        },
+        {
+          "id": "voice-5148",
+          "title": "Chat: About the Keeper: I",
+          "content": "Since the day you Awakened me from darkness, I have been certain that you can save all from the despair of Dissolution, and bring them to the sinless land. I await that day with a hopeful heart."
+        },
+        {
+          "id": "voice-45156",
+          "title": "Chat: About the Keeper: II",
+          "unlockCondition": "Unlocks after clearing Special Operation \"Color of Blood\"",
+          "content": "Let me express my gratitude once again, Keeper, for respecting my wishes and keeping my secret from the Committee. I fear their intervention would see me barred from continuing my service to the Chantry of Life."
+        },
+        {
+          "id": "voice-45158",
+          "title": "Chat: About Vision",
+          "content": "Losing my sight does not mean I have become blind. While the All-Father brought darkness upon me, He also allowed me to see the faint light of souls."
+        },
+        {
+          "id": "voice-45160",
+          "title": "Chat: About the \"Pale Flame\"",
+          "content": "Many in the Chantry of Life believe the \"white flame\" in the Scriptures refers to moonlight: a Pale Messenger appearing from it to lead us from suffering.\nBut I know the true flame is the soul burning within you and me."
+        },
+        {
+          "id": "voice-45155",
+          "title": "Chat: About \"Awakeners\"",
+          "content": "For me, the state of being an Awakener is a gift from our All-Father to the souls in His embrace. It is a second life, an opportunity to mend past regrets. I will continue His work, fulfill my duties as His proxy, and alleviate more suffering."
+        },
+        {
+          "id": "voice-45154",
+          "title": "Chat: About His \"Blessing\"",
+          "content": "After years of this invisible plague, the All-Father finally heard my prayers and bestowed upon me the \"Blessing\" that can counter suffering. It indeed grants life, but also requires a price. As His executor, I ought to bear that burden on behalf of those blessed."
+        },
+        {
+          "id": "voice-45153",
+          "title": "Chat: About Home",
+          "content": "I may not have been born in the Kingdom of Leo, but the Church of Redemption is where I received my second life. Why, then, can I not consider this place my home?"
+        },
+        {
+          "id": "voice-45159",
+          "title": "Chat: About His First Life",
+          "content": "Back then, although I had received \"The Blessing,\" I was just an ordinary man. There were too many who suffered, too many who needed it. I wanted to save them all, but I failed. This is my greatest regret and my eternal guilt."
+        },
+        {
+          "id": "voice-45157",
+          "title": "Chat: About Ogier",
+          "unlockCondition": "Unlocks after clearing Special Operation \"Color of Blood\"",
+          "content": "That child is sincere, steadfast, and kind, with a rare bright soul. The last time I met a spirit like this was during the first chapter of my life."
+        },
+        {
+          "id": "voice-45161",
+          "title": "Chat: About Hiding Identity",
+          "unlockCondition": "Unlocks after clearing Special Operation \"Color of Blood\"",
+          "content": "In fact, I was told to hide my true identity by the Archbishop. He did not elaborate, but warned me: even in the purest places, shadows may exist, and one must remain cautious, even when doing good. Of course, I trust you completely."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-6078",
+          "title": "Investigation Begins",
+          "content": "All of this is for the eternal well-being of the future."
+        },
+        {
+          "id": "voice-6524",
+          "title": "Investigation Success",
+          "content": "May His divine love warm your soul."
+        },
+        {
+          "id": "voice-6523",
+          "title": "Investigation Halted",
+          "content": "No matter how many times we must start over, I will walk alongside you."
+        },
+        {
+          "id": "voice-6546",
+          "title": "Defense: I",
+          "content": "Do not harm."
+        },
+        {
+          "id": "voice-6549",
+          "title": "Defense: II",
+          "content": "Do not kill."
+        },
+        {
+          "id": "voice-6005",
+          "title": "Hit: I",
+          "content": "(Groan)"
+        },
+        {
+          "id": "voice-6002",
+          "title": "Hit: II",
+          "content": "This meaningless struggle..."
+        },
+        {
+          "id": "voice-6003",
+          "title": "Hit: III",
+          "content": "(Groan)"
+        },
+        {
+          "id": "voice-5026",
+          "title": "Skill: I",
+          "content": "To give is to receive."
+        },
+        {
+          "id": "voice-5484",
+          "title": "Skill: II",
+          "content": "Follow the divine commandments."
+        },
+        {
+          "id": "voice-5956",
+          "title": "Rouse",
+          "content": "God treats all His children equally."
+        },
+        {
+          "id": "voice-5722",
+          "title": "Exalt",
+          "content": "Lambs, the All-Father's will shall redeem you."
+        },
+        {
+          "id": "voice-57835",
+          "title": "Over-Exalt",
+          "content": "All of this is part of His divine plan."
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-99976",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I will follow your guidance, Pale Herald."
+        },
+        {
+          "id": "traphase-100171",
+          "title": "Chat: About Tawil",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "As a favored servant of the All-Father, if my path is lined with thorns, then at least let me bleed for all beings until the very last moment.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0047",
+              "lineId": "traphase-100033"
+            },
+            {
+              "awakenerId": "awakener-0044",
+              "lineId": "traphase-100171"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100152",
+          "title": "Chat: About Thais",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "It's not that I have no desires, my lady. I long to erase all agony from the mortal world, and I wish for all beings to partake in the blessed nectar of the Holy Grail.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0048",
+              "lineId": "traphase-100017"
+            },
+            {
+              "awakenerId": "awakener-0044",
+              "lineId": "traphase-100152"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99932",
+          "title": "Chat: About Tulu",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "What we call faith is itself a strength—a power generated from within that can bring happiness, young sir.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0050",
+              "lineId": "traphase-99895"
+            },
+            {
+              "awakenerId": "awakener-0044",
+              "lineId": "traphase-99932"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99757",
+          "title": "Chat: About Doresain",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I've heard that you have granted the deceased a place to rest and given them meaning. This is indeed a form of redemption for life itself.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0014",
+              "lineId": "traphase-100009"
+            },
+            {
+              "awakenerId": "awakener-0044",
+              "lineId": "traphase-99757"
+            }
+          ]
+        },
+        {
+          "id": "traphase-124007",
+          "title": "Chat: About Mouchette",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "When the mist rises, desire blinds your soul. Only those who endure it can hope for redemption.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0044",
+              "lineId": "traphase-124007"
+            },
+            {
+              "awakenerId": "awakener-0033",
+              "lineId": "traphase-124006"
+            }
+          ]
+        },
+        {
+          "id": "traphase-135225",
+          "title": "Chat: About Arachne",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "If the pain I carry can bring the world its salvation, then all of it is worth the price.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0056",
+              "lineId": "traphase-135217"
+            },
+            {
+              "awakenerId": "awakener-0044",
+              "lineId": "traphase-135225"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99902",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "All the will of redemption has long been recorded in the All-Father's holy words..."
+        },
+        {
+          "id": "traphase-100102",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "No need to worry, the merciful Father will ultimately cure your suffering."
+        },
+        {
+          "id": "traphase-99921",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Listen to His teachings!"
+        },
+        {
+          "id": "traphase-99923",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "This might be an unnecessary fight..."
+        },
+        {
+          "id": "traphase-100042",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I hear the All-Father's calling..."
+        }
+      ]
+    }
   }
 }

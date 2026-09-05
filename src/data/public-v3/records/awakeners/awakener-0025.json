@@ -90,6 +90,324 @@
         "unlockCondition": "Affinity Level 9",
         "content": "Street life was never difficult for her.\n\nWhen hungry, she looked for work; if there were no jobs, she resorted to her own \"handiwork\" to get by. She and Brown worked in such perfect sync that they could scrape by without anyone else's help.\n\n/n\"We don't need anyone,\" she vowed, the mouse on her shoulder squeaking in agreement. \"We only need each other.\"\n\nBut every snowy night, she could not help but gaze at those windows glowing with warm yellow light, watching the people inside embrace and share warm wishes over a meager dinner.\n\nIt wasn't that she needed a roof over her head or soft pillows on a luxurious bed—she already had a companion she could trust. Yet she remained curious: what did it feel like to have a home for good?\n\nThat question found its answer the day Mason adopted her."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-5993",
+          "title": "Awaken",
+          "content": "What? Introductions again? Fine. I'm Jenkin, and this is Brown. \"Squeak!\"\nDon't you forget it! You mess up our names, and I'll whack your *Beep* with my lantern!\n\"Squeak squeak?!\""
+        },
+        {
+          "id": "voice-5967",
+          "title": "Upgrade: I",
+          "content": "Eat what you get the moment you grab it. That's the law of the streets."
+        },
+        {
+          "id": "voice-5968",
+          "title": "Upgrade: II",
+          "content": "I feel kinda full now."
+        },
+        {
+          "id": "voice-5969",
+          "title": "Upgrade: III",
+          "content": "Hmm.., I've got an itch. Brown, come scratch my back."
+        },
+        {
+          "id": "voice-5203",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "So, this is what it's like to become an Awakener."
+        },
+        {
+          "id": "voice-5443",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "Even Brown's fur's gone silky."
+        },
+        {
+          "id": "voice-5446",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "Think I'll finally grow taller, then?"
+        },
+        {
+          "id": "voice-5447",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "Time to get to work, then? Right, Brown, perk up!"
+        },
+        {
+          "id": "voice-5444",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "Look, I might not be the best security guard, but you can trust me with any errand or delivery."
+        },
+        {
+          "id": "voice-5445",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "Look at the way you watch Brown.\n...Heh heh, the great Brown wants to chew on some coward's toes tonight. Who's the lucky sod?"
+        },
+        {
+          "id": "voice-6161",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "Hey, West-Whelp! Seen Brown? That little glutton's sniffed out grub again."
+        },
+        {
+          "id": "voice-6160",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "Getting lost in space made me sick to my stomach. You pulled me out, so just spit out what you need, but don't expect miracles.\nI'm just a kid, you wouldn't push me too hard, would you?"
+        },
+        {
+          "id": "voice-6159",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "My \"bad habits\" ain't changing overnight, get that? Sleeping under bridges and in drains, surviving on scraps—it was hard enough just to stay alive... You can't expect me to make my bed right after waking up! Give me at least two weeks to adjust!"
+        },
+        {
+          "id": "voice-6158",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "The East Slums are no place for kids. Cunning old foremen would find every way to dock paperboys' pay, and n-nitpick milk boys' speed! To survive out there, you only rely on yourself. No one else is worth trusting."
+        },
+        {
+          "id": "voice-6157",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "I've got Sis, Brown, plus that coward girl from the workhouse... That's my crew. Fine... I'll count you in too. Brown, share a scrap of candy with {Male=him,Female=her}. \n\"Squeak?!\""
+        },
+        {
+          "id": "voice-5364",
+          "title": "Chat: Touch",
+          "content": "Wanna pet Brown? Not my call. You'll have to ask her yourself."
+        },
+        {
+          "id": "voice-6347",
+          "title": "Chat: About Nautila",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Nautila\"",
+          "content": "What do you mean, \"I took it\"? It's not fair! When her stupid screws went missing, I was busy—Brown, stop! ... Heh, just forget what you saw, alright?"
+        },
+        {
+          "id": "voice-5915",
+          "title": "Chat: About Aigis",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Aigis\"",
+          "content": "Why does that silly girl bolt the moment she sees me? Next time, I'll step on her yarn and see where she runs."
+        },
+        {
+          "id": "voice-5410",
+          "title": "Chat: About \"24\"",
+          "unlockCondition": "Unlocks after acquiring Awakener \"24\"",
+          "content": "Mason... No, this is fine. At least we're together again, \"24\"."
+        },
+        {
+          "id": "voice-6118",
+          "title": "Chat: About Dissolution",
+          "content": "Even you can't cure this darn rot? Then why are you chasing Dissolution? You're barking mad."
+        },
+        {
+          "id": "voice-6575",
+          "title": "Chat: About Mythag",
+          "content": "I threw away the mousetraps by the dining hall backdoor. What if that clumsy Brown steps on one?! It's too dangerous!"
+        },
+        {
+          "id": "voice-5804",
+          "title": "Chat: What I Like",
+          "content": "Who doesn't like a soft bed, and a draft-free storm drain... I mean, room."
+        },
+        {
+          "id": "voice-5709",
+          "title": "Chat: What I Hate",
+          "content": "Dislikes? Plenty of 'em. Bosses who work you late, self-righteous nuns, growling stomachs, black bread studded with glass..."
+        },
+        {
+          "id": "voice-5429",
+          "title": "Chat: About the Keeper",
+          "content": "We're accomplices now, right? If you ever end up on the streets, I won't let you starve on scraps."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-5635",
+          "title": "Investigation Begins",
+          "content": "Quick, wrap it up! Don't linger on the streets."
+        },
+        {
+          "id": "voice-5411",
+          "title": "Investigation Success",
+          "content": "Not bad, eh? Now, my payment.—What? You think this was a free lunch?!"
+        },
+        {
+          "id": "voice-6600",
+          "title": "Investigation Halted",
+          "content": "Hurry, grab Brown and scram!"
+        },
+        {
+          "id": "voice-5601",
+          "title": "Strike: I",
+          "content": "Go!"
+        },
+        {
+          "id": "voice-6418",
+          "title": "Defense: I",
+          "content": "Take care!"
+        },
+        {
+          "id": "voice-6417",
+          "title": "Defense: II",
+          "content": "You can't scare me."
+        },
+        {
+          "id": "voice-5623",
+          "title": "Hit: I",
+          "content": "Brown...!"
+        },
+        {
+          "id": "voice-5625",
+          "title": "Hit: II",
+          "content": "Oi! That's cheating!"
+        },
+        {
+          "id": "voice-5925",
+          "title": "Hit: III",
+          "content": "Yikes! Oh no..."
+        },
+        {
+          "id": "voice-5719",
+          "title": "Skill: I",
+          "content": "Wait for the right moment."
+        },
+        {
+          "id": "voice-5844",
+          "title": "Skill: II",
+          "content": "Watch closely!"
+        },
+        {
+          "id": "voice-5331",
+          "title": "Rouse",
+          "content": "Dig through the barrier of reality!"
+        },
+        {
+          "id": "voice-5044",
+          "title": "Exalt",
+          "content": "I'll show you what a rat can do!"
+        },
+        {
+          "id": "voice-56387",
+          "title": "Over-Exalt",
+          "content": "Don't mess with Londinium's best thief!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-100076",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Londinium's Best Thieves—Brown and Jenkin at your service!"
+        },
+        {
+          "id": "traphase-100157",
+          "title": "Chat: About Aigis",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Keep your chin up, Aigis! Show them what you can do!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0025",
+              "lineId": "traphase-100157"
+            },
+            {
+              "awakenerId": "awakener-0003",
+              "lineId": "traphase-99915"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99744",
+          "title": "Chat: About Ramona",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "...Who said that? What proof do you have? I'm not admitting to anything!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0042",
+              "lineId": "traphase-100056"
+            },
+            {
+              "awakenerId": "awakener-0025",
+              "lineId": "traphase-99744"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99878",
+          "title": "Chat: About \"24\"",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "It's fine, sis. What's the big deal? Everyone on the East District streets is dressing like this now!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0001",
+              "lineId": "traphase-100095"
+            },
+            {
+              "awakenerId": "awakener-0025",
+              "lineId": "traphase-99878"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99772",
+          "title": "Chat: About Daffodil",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I heard that witch's warehouse is filled with countless rare treasures. If only we could let Brown sneak in for a quick tour..."
+        },
+        {
+          "id": "traphase-99880",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Even the sturdiest lock can be opened effortlessly from the inside..."
+        },
+        {
+          "id": "traphase-99958",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Hurry up and get to it! If we're caught stealing, we're done for!"
+        },
+        {
+          "id": "traphase-100021",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I'll show you what I've got! I'm the boss in the East District!"
+        },
+        {
+          "id": "traphase-99739",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I may have stepped on a branch while in stealth..."
+        },
+        {
+          "id": "traphase-100041",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Brown, run..."
+        },
+        {
+          "id": "traphase-127013",
+          "title": "Chat: About Xu",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Ha, so you're from that... something something Empire? Wow, pretty fans... now hand them over!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0025",
+              "lineId": "traphase-127013"
+            },
+            {
+              "awakenerId": "awakener-0054",
+              "lineId": "traphase-127009"
+            }
+          ]
+        }
+      ]
+    }
   }
 }

@@ -11,7 +11,7 @@
     "icon": "asset-relic-0143-icon"
   },
   "relicType": "Relic",
-  "categories": ["ASTRAL_REIGN", "OTHER"],
+  "categories": ["ASTRAL_REIGN", "EVENT"],
   "variantCount": 3,
   "defaultVariantId": "relic-variant-0204",
   "rarity": "N",
@@ -61,10 +61,10 @@
     {
       "id": "relic-variant-0560",
       "name": "☆Differential Engine☆",
-      "label": "Other - Special",
-      "variantType": "OTHER",
+      "label": "Event - Special",
+      "variantType": "EVENT",
       "tier": "Special",
-      "category": "OTHER",
+      "category": "EVENT",
       "rarity": "SSR",
       "descriptionTemplate": "When you deplete the last 1 Arithmetica, gain 2 Arithmetica. Maximum 2 triggers per turn.",
       "descriptionArgs": {},

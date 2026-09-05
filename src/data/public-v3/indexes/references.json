@@ -349,6 +349,12 @@
         "id": "enlighten.celeste.ancestral-beacon"
       }
     ],
+    "ancient anchor": [
+      {
+        "kind": "relic",
+        "id": "relic-0320"
+      }
+    ],
     "ancient caress": [
       {
         "kind": "skill",
@@ -1100,6 +1106,12 @@
       }
     ],
     "burn": [
+      {
+        "kind": "overlay",
+        "id": "overlay.global.burn"
+      }
+    ],
+    "burned": [
       {
         "kind": "overlay",
         "id": "overlay.global.burn"
@@ -1931,6 +1943,12 @@
       {
         "kind": "wheel",
         "id": "wheel-0079"
+      }
+    ],
+    "cursed feather": [
+      {
+        "kind": "relic",
+        "id": "relic-0325"
       }
     ],
     "cursed rabbit": [
@@ -3043,6 +3061,12 @@
         "id": "skill.salvador.end-of-suffering"
       }
     ],
+    "endless combustion": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.endless-combustion"
+      }
+    ],
     "endless justice": [
       {
         "kind": "skill",
@@ -4045,6 +4069,12 @@
         "id": "derived.arachne.guiding-strings"
       }
     ],
+    "guild medal": [
+      {
+        "kind": "relic",
+        "id": "relic-0323"
+      }
+    ],
     "gynoecium": [
       {
         "kind": "overlay",
@@ -4457,6 +4487,12 @@
       {
         "kind": "talent",
         "id": "talent.nymphaea.immerse"
+      }
+    ],
+    "immortal flesh": [
+      {
+        "kind": "relic",
+        "id": "relic-0319"
       }
     ],
     "immortal majesty": [
@@ -5785,6 +5821,12 @@
         "id": "enlighten.aigis.nightborne-wings"
       }
     ],
+    "nightmare lantern": [
+      {
+        "kind": "relic",
+        "id": "relic-0322"
+      }
+    ],
     "nightmare manifest": [
       {
         "kind": "relic",
@@ -6083,6 +6125,12 @@
       {
         "kind": "talent",
         "id": "talent.helot.pain-sigil"
+      }
+    ],
+    "painkillers": [
+      {
+        "kind": "relic",
+        "id": "relic-0318"
       }
     ],
     "painted blessed blood": [
@@ -7013,6 +7061,12 @@
       {
         "kind": "derivedSkill",
         "id": "derived.salvador.redemption"
+      }
+    ],
+    "refined prosthesis": [
+      {
+        "kind": "relic",
+        "id": "relic-0321"
       }
     ],
     "regents heir": [
@@ -9643,6 +9697,12 @@
         "id": "wheel-0110"
       }
     ],
+    "withered pupil": [
+      {
+        "kind": "relic",
+        "id": "relic-0317"
+      }
+    ],
     "withering hymn": [
       {
         "kind": "enlighten",
@@ -9805,6 +9865,16 @@
       {
         "kind": "overlay",
         "id": "overlay.xu.betroth"
+      }
+    ],
+    "blackened flame": [
+      {
+        "kind": "overlay",
+        "id": "overlay.global.blackened-flame"
+      },
+      {
+        "kind": "relic",
+        "id": "relic-0324"
       }
     ],
     "blessing": [

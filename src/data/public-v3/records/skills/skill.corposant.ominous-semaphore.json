@@ -24,7 +24,7 @@
   },
   "cardKeywords": [],
   "cost": "2",
-  "lore": "Flag signals are universal, yet they are also private.\nWhen Corposant crossed the Dimension Gateway and beheld Him, it was granted a Special flag signal.\nEvery desecrate wave is a response to the Call of that great existence.",
+  "lore": "Flag signals are universal, yet they are also private.\nWhen Corposant crossed the Dimension Gateway and beheld Him, she was granted a special flag signal.\nEvery desecrate wave is a response to the call of that great existence.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.corposant.sextants-calculation.skill.corposant.ominous-semaphore",
@@ -35,7 +35,7 @@
       "ownerAwakenerId": "awakener-0011",
       "ownerAwakenerName": "Corposant",
       "patch": {
-        "descriptionTemplate": "Gain [Energy:Arg1] Aliemus. Put [Arg2] {derived:Pilot} into hand. Apply {Weakness} to all enemies for 1 turn."
+        "descriptionTemplate": "Gain [Energy:Arg1] Aliemus. Put [Arg2] {derived:Pilot} into hand. Inflict {Weakness} on all enemies for 1 turn."
       }
     }
   ],

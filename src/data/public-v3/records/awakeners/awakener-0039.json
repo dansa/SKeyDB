@@ -69,7 +69,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "Awakening Material: Silver Core #G752a, unearthed from a festering mud heap at the ruins of Londinium's Newgate Prison. Investigator @2 accidentally slipped on a shattered skull while walking through the dim, grimy prison corridor and stumbled upon it by chance.\n\nThe awakening result deviated from expectations—what emerged from the black D-Slime was not some vicious death-row convict or a hulking executioner, but a petite young maiden with a sly smile."
       },
       {
@@ -90,6 +90,344 @@
         "unlockCondition": "Affinity Level 9",
         "content": "\"Master, whip me.\"\n\nThe fire of desire burned in her eyes that should have dried up, melting wax dripping like tears.\n\nThirst, pain, curses, filth—all the humiliation she craved, all the pleasures she offered, finally arrived upon her in this moment."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-6345",
+          "title": "Awaken",
+          "content": "Welcome to my paradise! Now, are you ready for my whip?"
+        },
+        {
+          "id": "voice-6205",
+          "title": "Upgrade: I",
+          "content": "Yes, I'm getting hotter..."
+        },
+        {
+          "id": "voice-6203",
+          "title": "Upgrade: II",
+          "content": "P-Please, I'm all filled up~"
+        },
+        {
+          "id": "voice-6204",
+          "title": "Upgrade: III",
+          "content": "The void within has been filled~"
+        },
+        {
+          "id": "voice-6341",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "Is it wax or honey dripping from my body? Why don't you take a lick and see for yourself?"
+        },
+        {
+          "id": "voice-6038",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "Feeling thirsty? Clean water is a rare luxury in the prison."
+        },
+        {
+          "id": "voice-6039",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "Now, who's the good {Male=boy,Female=girl}? Good {Male=boy,Female=girl}s don't give up halfway~"
+        },
+        {
+          "id": "voice-6040",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "You must have fallen into my sweet trap already at this point, yes?"
+        },
+        {
+          "id": "voice-6041",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "Keep going, just a little more~ We're almost at the peak of ecstasy~"
+        },
+        {
+          "id": "voice-6061",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "You've worked so hard; it's time to enjoy the fruits of your labor, right? Come closer, I won't disappoint you~"
+        },
+        {
+          "id": "voice-6079",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "Want to enjoy me? Then become my slave. I'll make you melt with heat~"
+        },
+        {
+          "id": "voice-6082",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "I want more slaves, I wanna hear their moans and pleas—Bring me more slaves, pretty please?"
+        },
+        {
+          "id": "voice-6081",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "I'm so bored! Compared to those trembling big prisoners, this is just like playing house. Why don't you keep me company~"
+        },
+        {
+          "id": "voice-6077",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "Do you want to know the truth? I hate prison, hate the darkness, and hate it so much that I could die. I want to be noticed. I want to be ignited..."
+        },
+        {
+          "id": "voice-6076",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "I've been waiting for someone to teach me true love, pain, and desire. Can you fulfill my wish? Can you redeem me from this dark prison?"
+        },
+        {
+          "id": "voice-6534",
+          "title": "Chat: Touch",
+          "content": "Oh~ Still not satisfied? Come closer, I'll teach you true pleasure~"
+        },
+        {
+          "id": "voice-6155",
+          "title": "Chat: About \"N\"",
+          "unlockCondition": "Unlocks after completing Main Story Chapter 7",
+          "content": "Ah, was that Mr. N who just walked us by? No, never mind. The last time I greeted him, he didn't recognize me... I waited for him in prison, hoping he would take me away, but he never came, not even during the riot."
+        },
+        {
+          "id": "voice-5294",
+          "title": "Chat: About Wanda",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Wanda\"",
+          "content": "I'm not like her. She only knows how to give you chills and fear. But me? I will give you a sacred, searing love."
+        },
+        {
+          "id": "voice-6109",
+          "title": "Chat: About Ogier",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Ogier\"",
+          "content": "Aww, you've got such a precious boy here! I asked him if he'd like to become my devoted slave, and he blushed, stammering so sweetly about having sworn his loyalty to you... As if true devotion can't be shared!"
+        },
+        {
+          "id": "voice-4950",
+          "title": "Chat: About Dissolution",
+          "content": "I hate that dark feeling, as if my heart has been hollowed out. The unfulfilled sensation makes my whole body itch..."
+        },
+        {
+          "id": "voice-5622",
+          "title": "Chat: About Mythag",
+          "content": "This place is much better than the filthy, stinky New Gate Prison! Whether lounging on the sofa or squeezed into a corner, it's all quite comfortable, isn't it?"
+        },
+        {
+          "id": "voice-5347",
+          "title": "Chat: What I Like",
+          "content": "What do I love? I love the exquisite truth of pain. The beautiful, burning blush of swollen flesh... the way a moan cannot tell pleasure from agony. It's the only honest desire we have, don't you think?"
+        },
+        {
+          "id": "voice-5674",
+          "title": "Chat: What I Hate",
+          "content": "Don't let me near the water, okay? I'd hate for this delicious, burning love I have for you to be... quenched."
+        },
+        {
+          "id": "voice-6332",
+          "title": "Chat: About the Keeper",
+          "content": "Our relationship? Do you even need to ask? It's exactly what you're imagining!"
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-5238",
+          "title": "Investigation Begins",
+          "content": "Gather around, disobedient kids~"
+        },
+        {
+          "id": "voice-5463",
+          "title": "Investigation Success",
+          "content": "Can I turn these defeated individuals into my slaves?"
+        },
+        {
+          "id": "voice-6073",
+          "title": "Investigation Halted",
+          "content": "I just felt a sense of pleasure like never before... for some reason..."
+        },
+        {
+          "id": "voice-5742",
+          "title": "Strike: I",
+          "content": "Take this!"
+        },
+        {
+          "id": "voice-5741",
+          "title": "Strike: II",
+          "content": "Feeling needy, are we?"
+        },
+        {
+          "id": "voice-6444",
+          "title": "Defense: I",
+          "content": "Nuh-uh!"
+        },
+        {
+          "id": "voice-6445",
+          "title": "Defense: II",
+          "content": "Aw, you dirty little thing!"
+        },
+        {
+          "id": "voice-5374",
+          "title": "Hit: I",
+          "content": "(Moans)"
+        },
+        {
+          "id": "voice-5369",
+          "title": "Hit: II",
+          "content": "I can feel it~"
+        },
+        {
+          "id": "voice-6547",
+          "title": "Hit: III",
+          "content": "Come on~"
+        },
+        {
+          "id": "voice-6550",
+          "title": "Hit: IV",
+          "content": "Ah, yes~!"
+        },
+        {
+          "id": "voice-5115",
+          "title": "Skill: I",
+          "content": "This is the heat of my love!"
+        },
+        {
+          "id": "voice-5528",
+          "title": "Skill: II",
+          "content": "Hang in there!"
+        },
+        {
+          "id": "voice-5848",
+          "title": "Rouse",
+          "content": "It hurts! I'm feeling so, so good!"
+        },
+        {
+          "id": "voice-6738",
+          "title": "Exalt",
+          "content": "Feel my scorching breath!"
+        },
+        {
+          "id": "voice-54614",
+          "title": "Over-Exalt",
+          "content": "Indulge in this one-of-a-kind pain!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-99745",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Oops, another chance to have some fun, huh?"
+        },
+        {
+          "id": "traphase-100193",
+          "title": "Chat: About Wanda",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Ugh, your way of whipping is way too cold and too brutal, not sweet at all!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0052",
+              "lineId": "traphase-99796"
+            },
+            {
+              "awakenerId": "awakener-0039",
+              "lineId": "traphase-100193"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100040",
+          "title": "Chat: About Ogier",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Oh dear, that's quite fierce. Shouldn't a knight be a bit more gentle with a lady like me?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0039",
+              "lineId": "traphase-100040"
+            },
+            {
+              "awakenerId": "awakener-0038",
+              "lineId": "traphase-99916"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99830",
+          "title": "Chat: About Leigh",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Go away! Get lost! I hate persistent snobs like you!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0028",
+              "lineId": "traphase-100166"
+            },
+            {
+              "awakenerId": "awakener-0039",
+              "lineId": "traphase-99830"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100094",
+          "title": "Chat: About Erica",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Do robots feel pain? Will you too submit under my whip?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0039",
+              "lineId": "traphase-100094"
+            },
+            {
+              "awakenerId": "awakener-0015",
+              "lineId": "traphase-99853"
+            }
+          ]
+        },
+        {
+          "id": "traphase-143463",
+          "title": "Chat: About Pontos",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Got any new tricks? Do teach me~",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0039",
+              "lineId": "traphase-143463"
+            },
+            {
+              "awakenerId": "awakener-0058",
+              "lineId": "traphase-143455"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100085",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Let me think... What should I try on you next?"
+        },
+        {
+          "id": "traphase-100038",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Don't make me wait for so long! Being ignored like this is truly lonely."
+        },
+        {
+          "id": "traphase-99861",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Welcome the most blissful pain!"
+        },
+        {
+          "id": "traphase-99833",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "My whip is all tangled up."
+        },
+        {
+          "id": "traphase-100092",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Such... a crude person..."
+        }
+      ]
+    }
   }
 }

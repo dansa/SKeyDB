@@ -90,6 +90,337 @@
         "unlockCondition": "Affinity Level 9",
         "content": "The smell of rust spread through the air.\n\n<Italic:That is... the smell of \"food.\">\nThe girl slowly opened her eyes. Her mind was a complete blur after being injected with large doses of sedatives for so long. Lying in front of her was a beagle with its throat torn out—<Italic:Bambi>, she thought. <Italic:Or was it Bobby?>\nJust as the girl was lost in memories, a sharp pain shot through her abdomen—she was attacked by her \"food\". The bound vagrant before her trembled violently, seemingly screaming at the top of his lungs.\n\n\"Vampire! Monster... monster!!\"\n\nYet, the girl heard none of it. She only stared blankly, gently touching the blood on her abdomen.\n\nA large amount of warm blood poured from the wound like slippery satin, joyfully spreading across the floor.\n\nSo, she could still feel pain. She could still bleed.\n\nTears slid silently down her face. She reached out with her thin, blood-stained hands, and gently cupped her prey's face.\n\n\"Next time... could you please try a little harder?\""
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-5808",
+          "title": "Awaken",
+          "content": "I followed the scent of blood to this place. May I ask... do you have fresh blood for me?"
+        },
+        {
+          "id": "voice-5105",
+          "title": "Upgrade: I",
+          "content": "You don't have to do this for me..."
+        },
+        {
+          "id": "voice-5106",
+          "title": "Upgrade: II",
+          "content": "My heart is a bottomless pit, never to be filled."
+        },
+        {
+          "id": "voice-5107",
+          "title": "Upgrade: III",
+          "content": "That didn't make me feel a thing, but... I'm still terribly grateful."
+        },
+        {
+          "id": "voice-6685",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "No need to worry. My pain threshold might be far beyond your imagination."
+        },
+        {
+          "id": "voice-5248",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "Is it just me? Or... Did my craving for blood diminish somewhat?"
+        },
+        {
+          "id": "voice-5246",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "My dear brother's flesh and mine are merging more perfectly..."
+        },
+        {
+          "id": "voice-5247",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "I'm more resilient than you think. Be more forceful when you're using me. Please, don't hold back."
+        },
+        {
+          "id": "voice-5244",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "The feeling of being bathed in sunlight again... I didn't know it felt so nice, so warm. It brings tears to my eyes."
+        },
+        {
+          "id": "voice-5245",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "To express my gratitude... I will construct a hidden altar for you in the depths of my anguish."
+        },
+        {
+          "id": "voice-6439",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "Ah! Your blood... it tastes like mead. I suppose I'm the only one who knows this secret, right?"
+        },
+        {
+          "id": "voice-6438",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "Here's a secret... I actually detest blood. I hate its color, its taste. But I can't live without it... I swallow the blood, then vomit it all up... Ah, how I hate myself."
+        },
+        {
+          "id": "voice-6437",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "That basement was filled with water, soft and cold. Thus, my body was always enveloped in moisture... As if I was the only physical being left between heaven and earth. Sometimes, I truly wished to dissolve into the water. But then I wouldn't exist and would never meet you."
+        },
+        {
+          "id": "voice-6441",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "Blood flows like a river. I am yours. Never have I felt so strongly."
+        },
+        {
+          "id": "voice-6440",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "In my fantasies, a valiant knight drags me out of the darkness, then binds me in chains. {Male=He,Female=She} can hit me, curse me, do anything {Male=he,Female=she} pleases—pain is my proof of life. Would you... be my knight?"
+        },
+        {
+          "id": "voice-4990",
+          "title": "Chat: Touch",
+          "content": "Hmm... Harder, harder. Yes, just like that..."
+        },
+        {
+          "id": "voice-5555",
+          "title": "Chat: About Blood",
+          "content": "The blood of the dying is a slick liquid. With just a light cut to the neck, the blood flows between the teeth, turning into warm streams that slowly fill my belly... Heh. Delicious."
+        },
+        {
+          "id": "voice-5921",
+          "title": "Chat: About Sewer",
+          "content": "You can find everything in Londinium's sewers: salmon, soap, half-drunk whiskey... Why do I know this, you ask? I once dragged my brother's corpse through five miles of it..."
+        },
+        {
+          "id": "voice-5392",
+          "title": "Chat: About Uvhash",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Uvhash\"",
+          "content": "Uvhash... He reminds me of my brother, bringing back memories of dark, cold, and sleepless days."
+        },
+        {
+          "id": "voice-6117",
+          "title": "Chat: About Dissolution",
+          "content": "I think I've been afflicted with Dissolution again... My heart is getting Dissoluted! Just a few aspirins, a whip, and some pain should do the trick to cure me..."
+        },
+        {
+          "id": "voice-5614",
+          "title": "Chat: About Mythag",
+          "content": "Today, I broke the school rules again by arriving five minutes late to class... Therefore, I sincerely request the harshest punishment, preferably carried out by you personally."
+        },
+        {
+          "id": "voice-6469",
+          "title": "Chat: What I Like",
+          "content": "Don't be fooled by my appearance; I was once a noble lady, too... I embroidered, I read Tennyson... Oh, and I once sang songs: \"She flows like an endless river through my veins...\""
+        },
+        {
+          "id": "voice-5363",
+          "title": "Chat: What I Hate",
+          "content": "I detest bright, soft things. Gentleness is like a mirror, revealing all my ugliness, greed, and fragility."
+        },
+        {
+          "id": "voice-5437",
+          "title": "Chat: About the Keeper",
+          "content": "I must accuse you, Keeper. Your kindness makes me uneasy—only physical pain feels real and stable to me."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-5876",
+          "title": "Investigation Begins",
+          "content": "Sorry, the sunlight here is a bit glaring... An underground mouse like me still needs time to adjust."
+        },
+        {
+          "id": "voice-5157",
+          "title": "Investigation Success",
+          "content": "Ah, time to get fed. Hehe..."
+        },
+        {
+          "id": "voice-5655",
+          "title": "Investigation Halted",
+          "content": "If I am taken as a hostage, what cruel fate awaits me?"
+        },
+        {
+          "id": "voice-6698",
+          "title": "Strike: I",
+          "content": "Does this feel good?"
+        },
+        {
+          "id": "voice-6592",
+          "title": "Defense: I",
+          "content": "Be careful what you wish for."
+        },
+        {
+          "id": "voice-5621",
+          "title": "Defense: II",
+          "content": "How do you like this?"
+        },
+        {
+          "id": "voice-5662",
+          "title": "Hit: I",
+          "content": "Hmm... Not bad."
+        },
+        {
+          "id": "voice-5663",
+          "title": "Hit: II",
+          "content": "(Groaning in pain)"
+        },
+        {
+          "id": "voice-5664",
+          "title": "Hit: III",
+          "content": "(Groaning in pain)"
+        },
+        {
+          "id": "voice-5661",
+          "title": "Hit: IV",
+          "content": "(Groaning in pain)"
+        },
+        {
+          "id": "voice-6008",
+          "title": "Skill: I",
+          "content": "This is my proof of existence."
+        },
+        {
+          "id": "voice-5254",
+          "title": "Skill: II",
+          "content": "Hurt me as much as you want!"
+        },
+        {
+          "id": "voice-5667",
+          "title": "Rouse",
+          "content": "Heh... Hahaha!"
+        },
+        {
+          "id": "voice-5584",
+          "title": "Exalt",
+          "content": "Savor it... the sweet taste of death."
+        },
+        {
+          "id": "voice-57839",
+          "title": "Over-Exalt",
+          "content": "The Shambler from the Stars extends her invitation... to you."
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-100156",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Don't hold back—hurt me as much as you want!"
+        },
+        {
+          "id": "traphase-100115",
+          "title": "Chat: About Uvhash",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Ahhh, Lord Uvhash! Do you want my teeth again this time? Or perhaps my fingers, ears... anything is fine!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0028",
+              "lineId": "traphase-100115"
+            },
+            {
+              "awakenerId": "awakener-0051",
+              "lineId": "traphase-100211"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100184",
+          "title": "Chat: About Helot: Catena",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Ah, this level of torment is absolutely exquisite! Thank you for your generous help, kind soul!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0019",
+              "lineId": "traphase-100047"
+            },
+            {
+              "awakenerId": "awakener-0028",
+              "lineId": "traphase-100184"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100136",
+          "title": "Chat: About Agrippa",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Lady of Labyrinths, I willingly offer myself as your slave! So, may I be granted the honor of receiving two hours... no, three hours of whipping from you each day?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0028",
+              "lineId": "traphase-100136"
+            },
+            {
+              "awakenerId": "awakener-0002",
+              "lineId": "traphase-100160"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100052",
+          "title": "Chat: About Erica",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "If I issue a command to this robot, can I experience the pain of a whipping?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0028",
+              "lineId": "traphase-100052"
+            },
+            {
+              "awakenerId": "awakener-0015",
+              "lineId": "traphase-99867"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100166",
+          "title": "Chat: About Pandia",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Ah, it's you, Lady Pandia! Are you here to bestow sweet pain upon me?!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0028",
+              "lineId": "traphase-100166"
+            },
+            {
+              "awakenerId": "awakener-0039",
+              "lineId": "traphase-99830"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99756",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "How can I feel more pain..."
+        },
+        {
+          "id": "traphase-99918",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Blood or pain, you have to give me one of them..."
+        },
+        {
+          "id": "traphase-99889",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I shall share the sweet delight of pain with you, stranger!"
+        },
+        {
+          "id": "traphase-99860",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Harder, please; you went way too gentle on me, I didn't feel a thing."
+        },
+        {
+          "id": "traphase-99954",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Hehe, I'm willing to accept the punishment for failure..."
+        }
+      ]
+    }
   }
 }

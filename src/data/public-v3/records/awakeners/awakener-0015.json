@@ -69,7 +69,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "On A.F. 297, @1, @1 03:47, an unexplained explosion occurred southeast of @3 Republic @1@2@1 town. The shockwave triggered a 3.8 magnitude earthquake in the area, noticeable shaking reached villages 5 kilometers away from @1@2@1 town.\n\nAfter the incident, @1@2@1 town lost contact with other regions, and surrounding residents could not recall the town's location. Based on this, the Committee dispatched members for investigation, and dissolution material was detected at the edge of @1@2@1 town.\n\nAfter sealing off the small town, Mythag University investigators performed dissolution body clearing operations and recovered the E-1929 Silver from a strongly dissolved area suspected to be the explosion's center.\n\nE-1929 is particularly unique; its Gnostic index has been in an irregular fluctuation state for an extended period and emits a ticking sound like gears, only maintaining brief stability when linked with mechanical fragments recovered from the strong dissolution area. Based on this characteristic, the Mythag University Awakening Department wrapped E-1929 in mechanical fragments and quickly awakened it once the Gnostic Index tended to stabilize.\n\n—<Italic:\"E-1929 Silver Acquisition and Awakening Report Summary\">"
       },
       {
@@ -90,6 +90,327 @@
         "unlockCondition": "Affinity Level 9",
         "content": "Hannah: Do you remember what happened before your disassembly?\n\nErica: The automaton's behavior began to spiral out of control, consciousness experienced fractures, and during those fractures, it would destroy everything. Everything would perish beneath the currents and flames.\n\nHannah: Erica?\n\nErica: ...\n\nHannah: I can't be that lucky to encounter the \"Tick-Tock Effect,\" right... Erica?\n\nErica: The head component is operational again; I apologize for the inconvenience earlier.\n\nAs I just mentioned, the automaton recognized its increasing threat to humans, and because it still regarded itself as human at that time, it was in great pain.\n\nHannah: You mentioned protection before; does that mean protecting humans?\n\nErica: Yes, the automaton hoped to protect.\n\nHannah: Then why didn't you tell me that just now?\n\nErica: ...\n\nHannah: Do I need to change the question?\n\nErica: No. I am no longer burdened by emotions and can answer.\n\nUpon realizing its own danger, the automaton attempted to short-circuit its body before the consciousness fragmentation to minimize self-inflicted damage.\n\nIn the end, the protection failed, and the human friend died.\n\nThe automaton felt sadness, regret, and despair.\n\nThe automaton self-destructed to ensure it would cause no more destruction, and then the Silver was recovered by Mythag University, creating me, Erica, body number EA307881.\n\n—Excerpt from a recording by Hannah Piszley titled \"0711, Tick-Tock Person Exclusive Interview\""
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-5640",
+          "title": "Awaken",
+          "content": "Erica the Automaton, Torso No. EA307881, Motor No. MF311028. Delighted to be at your service."
+        },
+        {
+          "id": "voice-6678",
+          "title": "Upgrade: I",
+          "content": "Parts maintenance has been completed."
+        },
+        {
+          "id": "voice-6677",
+          "title": "Upgrade: II",
+          "content": "Does the maintenance work need to continue?"
+        },
+        {
+          "id": "voice-5186",
+          "title": "Upgrade: III",
+          "content": "The mech's performance has been enhanced."
+        },
+        {
+          "id": "voice-5870",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "Is this preparation for an investigation mission? I understand."
+        },
+        {
+          "id": "voice-6559",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "Detected high current, initiating maintenance... Correction: why is there no overheating?"
+        },
+        {
+          "id": "voice-6561",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "After each ritual, a high level of heat is detected in the chest area, but there are no energy-related components present. Do you know why?"
+        },
+        {
+          "id": "voice-6560",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "Since the last Enlighten ritual, I've been seeing fragmented visions while in the state of dormancy. In them, I possess a human body like yours, and tears fall from my eyes. Is this a dream?"
+        },
+        {
+          "id": "voice-6563",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "After careful analysis, I deduced that what I saw in my dormant state was not a dream in the traditional sense, but rather my <Del:your pathetic meat bag of a body should be destroyed> memory. As for the burning heat akin to overload, it may be the emotion known as \"Unwillingness.\""
+        },
+        {
+          "id": "voice-6562",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "I saw it. Everything should <Del:perish in the eternal current>. S-s-sorry, the module seems—Warning, warning. Non-Erica consciousness activity increasing. Destroy, destroydestroyDESTROY... Hello, how may I assist you?"
+        },
+        {
+          "id": "voice-4937",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "If you need to look up information, please provide the full name of the file. The fuzzy search function is currently unavailable."
+        },
+        {
+          "id": "voice-4935",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "The average risk index of investigation tasks is 7, with an average consumption of 8 bottles of alchemy supplements and an average of 10 hours required for corpse handling. Conclusion: A Keeper's job is extremely dangerous. Please stay safe during operations."
+        },
+        {
+          "id": "voice-4936",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "Searching teacher records: Erica Layfield, Silver Mechatronics and Automation Lecturer, Deceased—Is this not what you were looking for? Okay, re-searching keyword \"Erica.\""
+        },
+        {
+          "id": "voice-4933",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "Trust,\" \"Obedience,\" \"Slave,\" \"Affection,\" \"Respect\"... Reconstructing and learning language module. Please, Keeper, guide me."
+        },
+        {
+          "id": "voice-4934",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "Erica is currently in standby mode. The body will complete cooling in 1 hour and 15 minutes. <Del:To turn Erica on, offer your beating heart> Emergency start? ... Permission verification in progress... Highest authority of the Keeper verified. Hello, Keeper."
+        },
+        {
+          "id": "voice-6208",
+          "title": "Chat: Touch",
+          "content": "Hello, Keeper. How may I assist you?"
+        },
+        {
+          "id": "voice-5156",
+          "title": "Chat: About Erica",
+          "content": "Erica is functioning normally and is well-connected to the electrical equipment at Mythag University. Do you need me to turn on the dorm lights?"
+        },
+        {
+          "id": "voice-4966",
+          "title": "Chat: About Doll",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Doll\"",
+          "content": "When Doll is around, investigators' efficiency +78.312%, but more people also fall into emotional slumps. As she put it: \"If some people could keep their mouths shut, the world would run more smoothly.\""
+        },
+        {
+          "id": "voice-5631",
+          "title": "Chat: About Winkle",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Winkle\"",
+          "content": "To research the internal structure of this body while Erica is \"sleeping,\" Winkle requested that I rest in her office at night. Should I mention that Erica retains a portion of her consciousness while asleep?"
+        },
+        {
+          "id": "voice-5545",
+          "title": "Chat: About Dissolution",
+          "content": "Searching \"Dissolution\" in the wide Archive... Not needed? You wish to know my stance on Dissolution? Understood. Searching for \"Anti-Dissolution weapons\" in the Awakener private domain... Result: \"Null.\""
+        },
+        {
+          "id": "voice-4961",
+          "title": "Chat: About Mythag",
+          "content": "In Year @1@2, Mr. Ward Philips, Mr. Khlarcus, and Ms. Tawil together founded Mythag College. After a long development, it became <Del:this damned prison> Mythag University."
+        },
+        {
+          "id": "voice-5970",
+          "title": "Chat: What I Like",
+          "content": "New mechanical parts will greatly help my system operate—doesn't that count as liking something? Sorry, I'm afraid I don't understand your question. Preferences hold no meaning for mechanical dolls."
+        },
+        {
+          "id": "voice-5396",
+          "title": "Chat: What I Hate",
+          "content": "Aversion, a descriptive verb, meaning to develop a dislike for something. Dislike, a verb, refers to the feeling of aversion when something is disliked and avoided. Hate, a noun, the feeling of dislike, <Del:I hate being suppressed! Let me destroy destory DESTROY> —Sorry, but I'm afraid I don't understand what \"hate\" is."
+        },
+        {
+          "id": "voice-6543",
+          "title": "Chat: About \"Protagonist\"",
+          "content": "You are recognized by Mythag University as a Keeper, so I will grant you the corresponding access permissions."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-6709",
+          "title": "Investigation Begins",
+          "content": "Enter battle command."
+        },
+        {
+          "id": "voice-6185",
+          "title": "Investigation Success",
+          "content": "The combat log has been archived. Thank you for your hard work, Keeper."
+        },
+        {
+          "id": "voice-5516",
+          "title": "Investigation Halted",
+          "content": "Runtime error, error, error, error..."
+        },
+        {
+          "id": "voice-5500",
+          "title": "Strike: I",
+          "content": "Command received."
+        },
+        {
+          "id": "voice-5499",
+          "title": "Strike: II",
+          "content": "Yes."
+        },
+        {
+          "id": "voice-6282",
+          "title": "Defense: I",
+          "content": "Alert."
+        },
+        {
+          "id": "voice-6283",
+          "title": "Defense: II",
+          "content": "Alert."
+        },
+        {
+          "id": "voice-6584",
+          "title": "Hit: I",
+          "content": "Hit."
+        },
+        {
+          "id": "voice-6583",
+          "title": "Hit: II",
+          "content": "Warning."
+        },
+        {
+          "id": "voice-6582",
+          "title": "Hit: III",
+          "content": "Danger."
+        },
+        {
+          "id": "voice-6586",
+          "title": "Hit: IV",
+          "content": "Damage taken."
+        },
+        {
+          "id": "voice-5594",
+          "title": "Skill: I",
+          "content": "Load."
+        },
+        {
+          "id": "voice-5402",
+          "title": "Skill: II",
+          "content": "Overload."
+        },
+        {
+          "id": "voice-6052",
+          "title": "Rouse",
+          "content": "Lock released."
+        },
+        {
+          "id": "voice-4943",
+          "title": "Exalt",
+          "content": "Charge complete, ready to detonate."
+        },
+        {
+          "id": "voice-56386",
+          "title": "Over-Exalt",
+          "content": "Current input complete. Emitting current."
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-99743",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Twin Doll Erica, happy to serve you."
+        },
+        {
+          "id": "traphase-99838",
+          "title": "Chat: About Doll",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Command received, currently recording battle data.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0013",
+              "lineId": "traphase-99840"
+            },
+            {
+              "awakenerId": "awakener-0015",
+              "lineId": "traphase-99838"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99882",
+          "title": "Chat: About Nautila",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Request denied. Daily Maintenance authorization not verified.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0036",
+              "lineId": "traphase-99951"
+            },
+            {
+              "awakenerId": "awakener-0015",
+              "lineId": "traphase-99882"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99853",
+          "title": "Chat: About Pandia",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "To answer your question: No. Erica is equipped with an advanced defense system and can seamlessly switch to attack mode.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0039",
+              "lineId": "traphase-100094"
+            },
+            {
+              "awakenerId": "awakener-0015",
+              "lineId": "traphase-99853"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99867",
+          "title": "Chat: About Leigh",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Of course, I'll definitely whip you to death-th-th-...—apologies, system error. The request you submitted falls outside Erica's service scope.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0028",
+              "lineId": "traphase-100052"
+            },
+            {
+              "awakenerId": "awakener-0015",
+              "lineId": "traphase-99867"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100110",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Retrieving the battle system plan."
+        },
+        {
+          "id": "traphase-99870",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Please issue a battle command."
+        },
+        {
+          "id": "traphase-99940",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Activating the anti-personnel explosive weapon—"
+        },
+        {
+          "id": "traphase-99775",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "System failure. Please try restarting."
+        },
+        {
+          "id": "traphase-99769",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Body function damaged. Please go to the Mythag Resource Management Room to submit a repair request."
+        }
+      ]
+    }
   }
 }

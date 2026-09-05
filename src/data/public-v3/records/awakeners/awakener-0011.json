@@ -69,7 +69,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "No one knows where that ghost ship lies, nor can anyone confirm whether \"it\" truly exists. The only clue I have is that ivory head sculpture, which seems to possess some sort of strange magic.\n\nEver since I came into possession of it, I have had the same dream every night—yes, the dream of that ghost ship, drifting somewhere unknown. Its hull burns with a glimmer that writhes like a living thing, as though opening a gateway to dimensions beyond mortal reach. Upon waking, I can still recall those blasphemous, pathological whispers.\n\nHow I wish I were mad, or that I could forget those bizarre sounds—sounds that no human throat could ever produce. But I cannot.\n\nThat cursed dream, that cursed flicker of intellect, torment me without rest. And so I must find \"it,\" led by the ivory sculpture. Frtunately, the professors from Miskatonic will walk this road with me, and together we shall seek out the ghost ship and the St. Elmo's Fire—that is what they call the writhing glimmer.\n\nWish me luck. May the Lord watch over us.\n\n—Excerpt from <Italic:Miskatonic Supernatural Phenomena Investigation Archives>"
       },
       {
@@ -90,6 +90,327 @@
         "unlockCondition": "Affinity Level 9",
         "content": "Until the last moment, Corposant was diligently fulfilling her duties, yet the ship she piloted still sank.\n\nEvery night, she dreams of those lost passengers: water flooding into the cabins, sea monsters' Tentacles rampaging, people drowning, jumping overboard, kneeling for one last guidance, but hope was lost.\n\nThis brutal reality reproaches her, tortures her—she has desecrated her profession.\n\nFor this, she must be punished, and the lightning that eternally entwines and torments her is the retribution. But it's not enough; she must atone for her negligence.\n\nFortunately, the great entity provided the answer: when the Divine Realm descends, the world will become paradise.\n\n\"So, to quell the eternal roaring of the sea, for the innocent buried at sea, for guiding the direction of all beings, I request the Divine Realm's arrival.\"\n\nThis is her last, final navigation."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-84218",
+          "title": "Awaken",
+          "content": "The navigator Corposant reports for duty! The flag has been prepared, personal condition is good, please give the launch order, Keeper."
+        },
+        {
+          "id": "voice-84198",
+          "title": "Upgrade: I",
+          "content": "I am merely fulfilling my duty as navigator and require neither report nor praise."
+        },
+        {
+          "id": "voice-84189",
+          "title": "Upgrade: II",
+          "content": "Rest assured, I shall use this power to guide the ship safely, and I will never misuse it."
+        },
+        {
+          "id": "voice-84212",
+          "title": "Upgrade: III",
+          "content": "I firmly believe in the fundamental law that effort brings reward, and I shall work even harder in future."
+        },
+        {
+          "id": "voice-84208",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "The ritual to deepen spiritual connection carries risks and unknown results. But rest assured, I will navigate for you to ensure the ritual is completed smoothly."
+        },
+        {
+          "id": "voice-84226",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "I feel... a sense of weightlessness, followed by violent shaking—as if the ship were being tossed about. Keeper, follow my movements to find your centre and stay balanced."
+        },
+        {
+          "id": "voice-84205",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "This dizzying sensation is much like seasickness. Please close your eyes, take my hand, and lean against me. That should ease it a little."
+        },
+        {
+          "id": "voice-84185",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "An unexpected incident occurred during the ritual. Forgive me for striking your arm with the flag; I had to keep you conscious."
+        },
+        {
+          "id": "voice-84201",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "The spiritual link has been established. I can sense your presence. This is my first time navigating the void. If anything drifts off course, please correct me at once."
+        },
+        {
+          "id": "voice-84187",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "The ritual is complete. Thank you for your cooperation. Next time, I'll prepare special flags to guide us more safely through it."
+        },
+        {
+          "id": "voice-84215",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "As long as you are in need, Corposant is always on standby."
+        },
+        {
+          "id": "voice-84211",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "Some people are like steamships—slow to respond, but capable of high speed. Others, diesel ships—quick to start, but with limited power. So what about you, Keeper?"
+        },
+        {
+          "id": "voice-84192",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "Forgive me. I understand ships better than people. But if I may: your keel is neither wood nor iron, but steel. Strong. Steadfast. Truly admirable."
+        },
+        {
+          "id": "voice-84213",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "You've proven self on multiple occassions. I believe you're an excellent navigator, perhaps more capable than I am."
+        },
+        {
+          "id": "voice-84197",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "On our next voyage, I'd like to board the ship as something other than navigator. Uh... I mean, as one who follows your lead. You have my complete trust, Keeper."
+        },
+        {
+          "id": "voice-84220",
+          "title": "Chat: Touch",
+          "content": "Is my hat askew? Apologies, but I'm not sure what you mean. Please give me clear instructions."
+        },
+        {
+          "id": "voice-84188",
+          "title": "Chat: About the Crisis",
+          "content": "I don't know why it exists. I know only this: I must navigate successfully, and bring everyone home."
+        },
+        {
+          "id": "voice-84186",
+          "title": "Chat: About Mythag",
+          "content": "Here, I encounter many kinds of ships and work with advanced navigation equipment. I find it deeply rewarding. Above all, I believe this \"ship\" is charting the right course for human history."
+        },
+        {
+          "id": "voice-84194",
+          "title": "Chat: What I Like",
+          "content": "Rather than \"like, \" I prefer the word \"devotion.\" When I look directly at that indescribable god, my mind loses reason and fills with ecstasy. I should fear Him, but I can't help myself."
+        },
+        {
+          "id": "voice-84196",
+          "title": "Chat: What I Hate",
+          "content": "Without order, what remains in this world? Only chaos."
+        },
+        {
+          "id": "voice-84191",
+          "title": "Chat: About the Keeper",
+          "content": "You have my full respect. I vow to carry out every order you give."
+        },
+        {
+          "id": "voice-84225",
+          "title": "Chat: About Celeste",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Celeste\"",
+          "content": "When necessary, a navigator trained in engine room cooperation can act as helmsman. But for the ship's safety, I still prefer to entrust that task to someone more skilled."
+        },
+        {
+          "id": "voice-84199",
+          "title": "Chat: About Faros",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Faros\"",
+          "content": "The lighthouse system eases the demands of navigation. Its beam is strong and clear. I'm glad to sail with Faros."
+        },
+        {
+          "id": "voice-84221",
+          "title": "Chat: About Her Flag",
+          "content": "The flag is the navigator's language, and also their epitaph. When the ship sinks, salvagers will read the last message I left from the wreckage of the flag."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-84202",
+          "title": "Investigation Begins",
+          "content": "Cirrus clouds observed, with a continued drop in barometric pressure. All hands alert. The ship is about to enter a storm."
+        },
+        {
+          "id": "voice-84207",
+          "title": "Investigation Success",
+          "content": "These experiences are invaluable. I will record them in detail in the logbook, for future sailors."
+        },
+        {
+          "id": "voice-84203",
+          "title": "Investigation Halted",
+          "content": "This chaos is the result of my miscalculation of the route. I am willing to accept punishment in accordance with the rules."
+        },
+        {
+          "id": "voice-84193",
+          "title": "Strike: I",
+          "content": "Surrender."
+        },
+        {
+          "id": "voice-84190",
+          "title": "Strike: II",
+          "content": "Please stop resisting."
+        },
+        {
+          "id": "voice-84222",
+          "title": "Defense: I",
+          "content": "Assessing the ship's trim and balance."
+        },
+        {
+          "id": "voice-84209",
+          "title": "Defense: II",
+          "content": "Readjusting weight distribution."
+        },
+        {
+          "id": "voice-84195",
+          "title": "Hit: I",
+          "content": "I will not be defeated by this storm."
+        },
+        {
+          "id": "voice-84210",
+          "title": "Hit: II",
+          "content": "Ensure the ship's safety above all else."
+        },
+        {
+          "id": "voice-84204",
+          "title": "Skill: I",
+          "content": "Measuring the altitude angle of celestial bodies."
+        },
+        {
+          "id": "voice-84224",
+          "title": "Skill: II",
+          "content": "E flag conveys instructions."
+        },
+        {
+          "id": "voice-84406",
+          "title": "Special Skill: I",
+          "content": "Begin updating the nautical chart with corrections."
+        },
+        {
+          "id": "voice-84408",
+          "title": "Special Skill: II",
+          "content": "C flag acknowledges instructions."
+        },
+        {
+          "id": "voice-84219",
+          "title": "Rouse",
+          "content": "I will lead my ship to the correct course."
+        },
+        {
+          "id": "voice-84223",
+          "title": "Exalt",
+          "content": "Lower the foremast sails. Waves are pressing against the port side. Helmsman, adjust course per my calculations."
+        },
+        {
+          "id": "voice-84200",
+          "title": "Over-Exalt",
+          "content": "Sailors, follow my guidance. I will make sure we reach the harbour safely."
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-99904",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I will light the way ahead with my light!"
+        },
+        {
+          "id": "traphase-100058",
+          "title": "Chat: About Celeste",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "To watch over the ships returning home... What a grand and noble wish.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0011",
+              "lineId": "traphase-100058"
+            },
+            {
+              "awakenerId": "awakener-0009",
+              "lineId": "traphase-100190"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100183",
+          "title": "Chat: About Horla",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Thank you for your praise, but there's no need to pity my fate—I take pride in it, sentimental lady.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0024",
+              "lineId": "traphase-100008"
+            },
+            {
+              "awakenerId": "awakener-0011",
+              "lineId": "traphase-100183"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100118",
+          "title": "Chat: About Nautila",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "You are an excellent mechanic. People like you even more important than the captain on the sea.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0011",
+              "lineId": "traphase-100118"
+            },
+            {
+              "awakenerId": "awakener-0036",
+              "lineId": "traphase-99798"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99876",
+          "title": "Chat: About Sanga",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Thank you. Is this intended for constructing a city statue in which park?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0045",
+              "lineId": "traphase-100153"
+            },
+            {
+              "awakenerId": "awakener-0011",
+              "lineId": "traphase-99876"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99858",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Next, should the rudder be turned 10 or 15 degrees to the left..."
+        },
+        {
+          "id": "traphase-100216",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "It's time to set sail."
+        },
+        {
+          "id": "traphase-99752",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "My fleet will never sink!"
+        },
+        {
+          "id": "traphase-99871",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "The bow's direction is off..."
+        },
+        {
+          "id": "traphase-100175",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "The blue light has dimmed..."
+        }
+      ]
+    }
   }
 }

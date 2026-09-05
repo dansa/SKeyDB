@@ -69,7 +69,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "Year 3@2 Summer, legends of sea monsters spread across the Irian Isles.\n\nFishermen claimed to have spotted a five-story-tall cephalopod near the shore. Its skin was deep crimson, with black concentric rings on its tentacles.\n\nI heard this rumor while verifying suspected D-phenomenon in Mianland with Senior Johansen. The next day, the senior set sail for the Irian Isles, and I wrote this report in the Amirante Ocean.\n\nOn the third day of sailing, vast fish carcasses appeared: mackerel, flounder, dolphins, and even a pregnant sperm whale—I swear! Old sailors blamed oxygen depletion caused by overbreeding, but I felt like we were missing something...\n\nOn the eighth day of sailing, my seasickness worsened, and severe nausea made it nearly impossible to eat. Despite nearing the Irian Isles, Johansen insisted on returning@3... I didn't understand, but I trusted the senior.\n\n—Bale Columbus \"Year 3@2 Summer Internship Report\""
       },
       {
@@ -90,6 +90,606 @@
         "unlockCondition": "Affinity Level 9",
         "content": "The arrogance of disregarding others is merely an empty show of force. Beneath that elegant dress lies a rebellious heart known only to herself.\n\nTrapped in a beautiful cage crafted by sacred narratives, Murphy understands better than anyone the hypocrisy of humans and gods: the gaze of the congregation upon her is nothing but fear and pity, and the care shown by her \"nurturers\" is merely for a sacrificial offering. The end goal of her mission will not be glory, but her own death — she already knows the outcome. How could she be lost in the distant kingdom painted by doctrines?\n\nThe plans for deification, the revival of the old king, so many unrealistic expectations placed upon her — yet no one has ever cared whether she is willing to accept a doomed fate for an uncertain future.\n\nThe canary does not wish to remain forever trapped in a cage; thus it flaps its wings toward the thorny fence. Determined to wager her life to break free from the shackles of destiny, she must now decide the direction of her flight herself.\n\n\"My name is Murphy... don't think you can order me around! I know what I should do and what I shouldn't do.\""
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-5214",
+          "title": "Awaken",
+          "content": "Ugh, isn't this annoying? Stop pestering me about that! ...Fine, do what you want. It's just a way to kill time, after all."
+        },
+        {
+          "id": "voice-117825",
+          "title": "Awaken",
+          "content": "Stop! This is a robbery! I suggest you be sensible and hand over all your candy, or else... Hmph."
+        },
+        {
+          "id": "voice-5597",
+          "title": "Upgrade: I",
+          "content": "What? You actually expect a \"thank you\" from me?"
+        },
+        {
+          "id": "voice-117813",
+          "title": "Upgrade: I",
+          "content": "Those despicable people at Mythag, daring to block my access to candy! See? I still got to have them in the end!"
+        },
+        {
+          "id": "voice-5598",
+          "title": "Upgrade: II",
+          "content": "As a tribute, it is hardly adequate... but seeing your sincerity, I suppose I'll accept it. Just this once."
+        },
+        {
+          "id": "voice-117794",
+          "title": "Upgrade: II",
+          "content": "How do they get the filling inside? I can't find any seams or pinholes! I wish these candy inventors would join Mythag's staff and invent a new dessert for me every single day!"
+        },
+        {
+          "id": "voice-5599",
+          "title": "Upgrade: III",
+          "content": "Did you truly believe this would make me listen to you?"
+        },
+        {
+          "id": "voice-117826",
+          "title": "Upgrade: III",
+          "content": "Soft, hard, crunchy, flaky, milky, fruity, nutty, chocolatey... Ah, how can there be so many varieties I haven't tasted yet? I've decided: Mythag must make Halloween a weekly holiday!"
+        },
+        {
+          "id": "voice-5554",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "Have you reserved the venue? It must be a garden at least 150 square meters!"
+        },
+        {
+          "id": "voice-117821",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "You're far more thoughtful than those dreadful waiters—even reserved some candy just for me. Keep up the good work, my exclusive servant."
+        },
+        {
+          "id": "voice-5318",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "Brownie, caramel pudding, Sachertorte, chocolate mousse, cookies... All must be served on every single table!"
+        },
+        {
+          "id": "voice-117803",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "You still have chocolate? Excellent, give it all to me. What? Your stuff is my stuff; isn't that only natural?"
+        },
+        {
+          "id": "voice-5321",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "The tables and chairs must have lace that suits my taste, and the potted plants must be red spider lilies... Now, hurry and get this prepared!"
+        },
+        {
+          "id": "voice-117835",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "What? You can roast this kind of marshmallow? But it's gonna get hot and sticky... You sure it tastes good? Let me try... Fine, I'll take a nibble. If you dare to trick me... Huh?! This soft and crispy texture is actually amazing!"
+        },
+        {
+          "id": "voice-5322",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "Go and invite the guests! Is even this simple task too much for you?"
+        },
+        {
+          "id": "voice-117804",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "Which candy do I like the most? Let me think... Hazelnut brittle is fragrant, caramel chocolate is delicious, those strawberry and grape-flavored gummies have quite the fun texture, and there's a malt sugar that can be pulled very long and has a beautiful color like honey... No, I refuse to choose. Every candy has its own unique charm! Anyway, I have plenty of pumpkin baskets, so I'll just take them all!"
+        },
+        {
+          "id": "voice-5319",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "Check my dress for me, quickly! No wrinkles, nothing loose... What? Is there a problem?"
+        },
+        {
+          "id": "voice-117805",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "My current life goal is to eat every single candy in the world. Just thinking about the countless kinds of candy waiting for me out there... that is my entire reason for getting out of bed. Cake, you say? Cake is my other life goal."
+        },
+        {
+          "id": "voice-5320",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "Welcome to my final Enlightenment Ceremony! All of this was meticulously designed by me. Of course, you contributed... a tiny bit."
+        },
+        {
+          "id": "voice-117792",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "Hahaha! Mine, all mine! All of Mythag's candies belong to me! What are you waiting for? Follow me, the great Candy Witch! We're going to conquer every candy shop in Londinium right now!"
+        },
+        {
+          "id": "voice-5522",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "You'd better not put on airs with me. Know your place! I call the shots in this room."
+        },
+        {
+          "id": "voice-117801",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "Are there really Witches out there? If they live in deserted forests, who handles their cooking, cleaning, and dessert preparation? If you can't even host an afternoon tea, what is the point of that life? I can't even stand the thought of it."
+        },
+        {
+          "id": "voice-5521",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "Don't just barge into a lady's room, and do not comment on her demeanor. Leave now, I need to rest."
+        },
+        {
+          "id": "voice-117807",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "If I were a witch, my palace would be the height of luxury, of course. I'd hire ten master chefs to make new cakes and candies for me daily... That would make me a princess, not a witch, you say? So what? I shall be the Princess Witch!"
+        },
+        {
+          "id": "voice-6596",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "I dislike those slimy tentacles, and I do not like the deep sea... Don't give me that knowing look! I am not a child afraid of my parents!"
+        },
+        {
+          "id": "voice-117798",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "I heard witches have a mysterious black cat. But that disgusting campus stray is too embarrassing for a fine lady like me. So, it's settled now. Put on this {Male=catboy,Female=catgirl} headband. I'll make you my little black cat."
+        },
+        {
+          "id": "voice-5519",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "Living in their illusory dreams, stripped of my right to be normal, without any choice... all for a ridiculous prophecy... I was willing to do anything to escape this life!"
+        },
+        {
+          "id": "voice-117797",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "You found a new candy? Let me see... Tsk, this Ring Pop looks so ridiculous! A \"diamond\" ring the size of an egg? Wait! What do you mean by presenting me with a ring? Explain yourself immediately!"
+        },
+        {
+          "id": "voice-5518",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "Was my only option to wait for death? Could anyone help me? Could I truly resist? I asked myself this daily. The answer was in my mind—I just never dared to see it... If you hadn't appeared, I don't know if I'd have the courage to fight back.\nTh-Thank you—don't get me wrong, this isn't a confession or anything!"
+        },
+        {
+          "id": "voice-117812",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "No more plush lambskin rugs, black pearl necklaces or silk pajamas from the far east... and yet, to wake up every day in a room full of candy, with baskets overflowing... this might be what happiness truly looks like... Hey, wipe that silly smile off your face! If you want to serve me forever, you still have a lot of work to do!"
+        },
+        {
+          "id": "voice-117814",
+          "title": "Chat: Touch",
+          "content": "You want some of my candy? Hmph. I'm feeling generous, so I might bestow a piece upon you... if you beg nicely, that is."
+        },
+        {
+          "id": "voice-117810",
+          "title": "Chat: About Dissolution",
+          "content": "The world is full of dark, disgusting things. Instead of worrying about its end, you'd be better off using that time to eat some more candy before it happens."
+        },
+        {
+          "id": "voice-117809",
+          "title": "Chat: About Mythag",
+          "content": "The rules at Mythag's restaurant are often annoying, but their pastry skills... hmm, they're barely passable, I suppose."
+        },
+        {
+          "id": "voice-117796",
+          "title": "Chat: What I Like",
+          "content": "I used to find candy too plain and not elegant enough compared to cake, but now it seems I underestimated these little things in colorful plastic wrappers. They have such a long shelf life! I could hoard as much as I want, I could fill the whole room with them!"
+        },
+        {
+          "id": "voice-117818",
+          "title": "Chat: What I Hate",
+          "content": "Why does that little mouse get to blatantly steal candy, yet I cannot? This is blatant discrimination against a lady! Such disrespect!"
+        },
+        {
+          "id": "voice-117824",
+          "title": "Chat: About the Keeper",
+          "content": "Why are you stopping me? As my faithful servant, shouldn't you be actively helping me rob... I mean, acquire all the candy?"
+        },
+        {
+          "id": "voice-117791",
+          "title": "Chat: About Jenkin",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Jenkin\"",
+          "content": "I admit she has a crude skill for stealing, but a fine lady like me has no need for such despicable tricks. If I desire something, I simply make them hand it over \"voluntarily.\""
+        },
+        {
+          "id": "voice-117831",
+          "title": "Chat: About Lily",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Lily\"",
+          "content": "That child is frighteningly obedient. She just hands over all her candy... which actually makes me feel marginally bad. Ahem! I mean, since she's so sensible, the benevolent Witch will naturally leave her some candies... as a small reward!"
+        },
+        {
+          "id": "voice-117806",
+          "title": "Chat: About Tulu",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Tulu\"",
+          "content": "Don't be fooled by his looks! Tulu looks like a child, but he's practically a resident of the grave. He has no use for anything a living person enjoys, certainly not candy. So, the candy allocated to him... you should hand it all to me. I am the only one who will truly appreciate it."
+        },
+        {
+          "id": "voice-117808",
+          "title": "Chat: About Candy",
+          "content": "Hey! Go fetch me several varieties of toothpaste, quickly! No, I haven't eaten that much candy! And I do not have a cavity! It just... hurts a little when I sleep..."
+        },
+        {
+          "id": "voice-5145",
+          "title": "Chat: Touch",
+          "content": "Hey! Hands off my dress, you're wrinkling it! ...Fine, I'll allow it this time, generous as I am."
+        },
+        {
+          "id": "voice-5471",
+          "title": "Chat: About Dissolution",
+          "content": "The one who lent her power to me has been tormented by Dissolution... What kind of look is that? Don't even think about it! I won't tell you where She is!"
+        },
+        {
+          "id": "voice-5704",
+          "title": "Chat: About Mythag",
+          "content": "This place is absolutely dreadful! How dare they expect me to share a table for afternoon tea! ...The homemade cookies are acceptable, though. Send a plate to my room after dinner."
+        },
+        {
+          "id": "voice-36683",
+          "title": "Chat: About Mythag II",
+          "unlockCondition": "Unlocked after completing Main Story Chapter 6",
+          "content": "Everyone at this school seems so busy, but...\nThere's a quiet peace here I've never known.\nWorking together toward the same goal... Hmph, I suppose it's not entirely awful."
+        },
+        {
+          "id": "voice-5193",
+          "title": "Chat: What I Like",
+          "content": "What! You didn't manage to get a single one?! Not the Constantinople carpet, the Ceylon tea, or the Andalucía churros...? Ugh, that woman always gets them so easily! I thought they were common!"
+        },
+        {
+          "id": "voice-5978",
+          "title": "Chat: What I Hate",
+          "content": "Huh? How could you allow stray cats to roam the campus?! What if that savage creature scratches someone?!"
+        },
+        {
+          "id": "voice-5020",
+          "title": "Chat: About the Keeper",
+          "content": "I am the master, you are the servant. Whatever I desire must be brought to me immediately. What? You expect a reward? Fine, take it, then!"
+        },
+        {
+          "id": "voice-36685",
+          "title": "Chat: About the Keeper II",
+          "unlockCondition": "Unlocked after completing Main Story Chapter 6",
+          "content": "Thank you... H-Huh? Why am I saying that? Well, obviously! It's for everything you did for me at sea...\nWait, why are you laughing?! You just want to see me flustered!"
+        },
+        {
+          "id": "voice-36684",
+          "title": "Chat: About the Keeper III",
+          "unlockCondition": "Unlocked after completing Main Story Chapter 6",
+          "content": "The bed is too hard, the weather too cold, the tea tastes like dirty rinse water... I have a thousand reasons to despise this place. \nHowever, since you're here, I suppose I can tolerate it. Reluctantly."
+        },
+        {
+          "id": "voice-6259",
+          "title": "Chat: About Miryam",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Miryam\"",
+          "content": "You! How did you let that woman in here?! Set up a perimeter immediately! Keep her at least fifty steps away from me!"
+        },
+        {
+          "id": "voice-36686",
+          "title": "Chat: About Miryam II",
+          "unlockCondition": "Unlocked after completing Main Story Chapter 6",
+          "content": "I once believed there was some sort of familial bond between us...\nBut now, after everything, I realize those fleeting warm moments were just my wishful thinking.\nWhat you do with her is your business, just keep her away from me."
+        },
+        {
+          "id": "voice-4909",
+          "title": "Chat: About Tulu",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Tulu\"",
+          "content": "Damn it, he's just a boy! Why do you all treat him with such respect?! Show me the same reverence, understood?!"
+        },
+        {
+          "id": "voice-36679",
+          "title": "Chat: About Caecus",
+          "unlockCondition": "Unlocked after completing Main Story Chapter 6",
+          "content": "He joined the cult while I was asleep, so I have no connection to him.\nI heard he came willingly, wanting to abandon his human form to become a full Seafarer... Hmph, another fool blinded by power."
+        },
+        {
+          "id": "voice-36680",
+          "title": "Chat: About Goliath",
+          "unlockCondition": "Unlocked after completing Main Story Chapter 6",
+          "content": "Goliath was never a loyal pet. I cannot understand why Miryam values him so much... If he wasn't chained, he would have run off and betrayed her immediately."
+        },
+        {
+          "id": "voice-4910",
+          "title": "Chat: About Daily Life",
+          "content": "Hey, do you know what the other Awakeners usually do? Don't misunderstand, I don't want friends, I just... I'm simply making an inspection!"
+        },
+        {
+          "id": "voice-36682",
+          "title": "Chat: About the \"Ghost Ship\"",
+          "unlockCondition": "Unlocked after completing Main Story Chapter 6",
+          "content": "Celeste's off-key sea shanty, the captain's signature smoked fish stew, blankets stiff and fishy from the sea breeze... Though tense and dangerous, I will never forget those months in exile at sea."
+        },
+        {
+          "id": "voice-36681",
+          "title": "Chat: About Seafarers",
+          "unlockCondition": "Unlocked after completing Main Story Chapter 6",
+          "content": "Seafarers are not born this way. To blend in, they live their first half just like humans...\nYou'd better watch out—your favorite cake shop owner might be one of them!"
+        },
+        {
+          "id": "voice-36687",
+          "title": "Chat: About \"Awakeners\"",
+          "unlockCondition": "Unlocked after completing Main Story Chapter 6",
+          "content": "How peculiar... This feeling is so strange.\nMy heart has stopped, yet my body is still warm... Hey, come here and touch my hand. Tell me this isn't some trick."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-5501",
+          "title": "Investigation Begins",
+          "content": "Hmph. Disrespectful! Very well, I'll humor you with a little game."
+        },
+        {
+          "id": "voice-117816",
+          "title": "Investigation Begins",
+          "content": "The Righteous Candy Witch has arrived! All lost sweets shall return to their proper, glorious owner!"
+        },
+        {
+          "id": "voice-5658",
+          "title": "Investigation Success",
+          "content": "Phew... I'm so sleepy. Have you prepared some proper refreshments before I rest?"
+        },
+        {
+          "id": "voice-117828",
+          "title": "Investigation Success",
+          "content": "The Great Witch shall be victorious! The great candy god protects me, and I, in turn, protect all candy! AHAHAHA!"
+        },
+        {
+          "id": "voice-5295",
+          "title": "Investigation Halted",
+          "content": "Don't you dare think this is over! I will make you pay for every ounce of this humiliation!"
+        },
+        {
+          "id": "voice-117817",
+          "title": "Investigation Halted",
+          "content": "Curse you, you stingy thing! I'll remember your face..."
+        },
+        {
+          "id": "voice-5131",
+          "title": "Strike: I",
+          "content": "Be gone!"
+        },
+        {
+          "id": "voice-117802",
+          "title": "Strike: I",
+          "content": "The Witch is coming!"
+        },
+        {
+          "id": "voice-5132",
+          "title": "Strike: II",
+          "content": "This is unbearable!"
+        },
+        {
+          "id": "voice-117820",
+          "title": "Strike: II",
+          "content": "Have some candy!"
+        },
+        {
+          "id": "voice-5905",
+          "title": "Defense: I",
+          "content": "Back off!"
+        },
+        {
+          "id": "voice-117800",
+          "title": "Defense: I",
+          "content": "BLEEEHHH!"
+        },
+        {
+          "id": "voice-5541",
+          "title": "Hit: I",
+          "content": "W-wait!"
+        },
+        {
+          "id": "voice-117823",
+          "title": "Hit: I",
+          "content": "That's too much!"
+        },
+        {
+          "id": "voice-5542",
+          "title": "Hit: II",
+          "content": "No!"
+        },
+        {
+          "id": "voice-117833",
+          "title": "Hit: II",
+          "content": "I am officially furious now!"
+        },
+        {
+          "id": "voice-5543",
+          "title": "Hit: III",
+          "content": "Agh!"
+        },
+        {
+          "id": "voice-117811",
+          "title": "Hit: III",
+          "content": "Ouch!"
+        },
+        {
+          "id": "voice-5544",
+          "title": "Hit: IV",
+          "content": "(Pained yelp)"
+        },
+        {
+          "id": "voice-117827",
+          "title": "Hit: IV",
+          "content": "(Groan)"
+        },
+        {
+          "id": "voice-5039",
+          "title": "Skill: I",
+          "content": "Learn your lesson!"
+        },
+        {
+          "id": "voice-117832",
+          "title": "Skill: I",
+          "content": "Don't you dare mess with the Witch!"
+        },
+        {
+          "id": "voice-4947",
+          "title": "Skill: II",
+          "content": "Watch me!"
+        },
+        {
+          "id": "voice-117799",
+          "title": "Skill: II",
+          "content": "Resistance is pointless."
+        },
+        {
+          "id": "voice-6011",
+          "title": "Rouse",
+          "content": "I truly wish I didn't have to use this power."
+        },
+        {
+          "id": "voice-117815",
+          "title": "Rouse",
+          "content": "How dare you call this \"robbery?\" I am simply exercising a lady's noble privilege!"
+        },
+        {
+          "id": "voice-6309",
+          "title": "Exalt",
+          "content": "Since you have crowned me your Holy Maiden, you will submit!"
+        },
+        {
+          "id": "voice-117834",
+          "title": "Exalt",
+          "content": "All candy shall eventually belong to me!"
+        },
+        {
+          "id": "voice-57823",
+          "title": "Over-Exalt",
+          "content": "False missions, destined futures... I will fight them until the very end!"
+        },
+        {
+          "id": "voice-117819",
+          "title": "Over-Exalt",
+          "content": "No candy? Then this Witch will be forced to get serious!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-99993",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I suppose I'll lend you a hand. Now hurry up and bring me some cupcakes!"
+        },
+        {
+          "id": "traphase-100003",
+          "title": "Chat: About Karen",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "If you dare bring that dark, smelly cake of yours in front of me again, I'll blow your head wide open!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0034",
+              "lineId": "traphase-100003"
+            },
+            {
+              "awakenerId": "awakener-0026",
+              "lineId": "traphase-99877"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99943",
+          "title": "Chat: About Doresain",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "How rude! Stop looking at me like I'm a little cupcake!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0014",
+              "lineId": "traphase-100065"
+            },
+            {
+              "awakenerId": "awakener-0034",
+              "lineId": "traphase-99943"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99780",
+          "title": "Chat: About Goliath",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Ugh, you're so annoying! Leave me alone!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0021",
+              "lineId": "traphase-100101"
+            },
+            {
+              "awakenerId": "awakener-0034",
+              "lineId": "traphase-99780"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99919",
+          "title": "Chat: About Miryam",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "After all you've done, now you're here to show your \"motherly love\"? Sorry, but I don't need it anymore!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0032",
+              "lineId": "traphase-99760"
+            },
+            {
+              "awakenerId": "awakener-0034",
+              "lineId": "traphase-99919"
+            }
+          ]
+        },
+        {
+          "id": "traphase-120285",
+          "title": "Chat: About Murphy: Fauxborn",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Willingly giving up freedom to become a compliant prisoner... I will absolutely not become like you!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0035",
+              "lineId": "traphase-120263"
+            },
+            {
+              "awakenerId": "awakener-0034",
+              "lineId": "traphase-120285"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100131",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Tsk... I haven't admitted defeat yet!"
+        },
+        {
+          "id": "traphase-99971",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "What, struggling to think of a way to win? Of course you can't win against me!"
+        },
+        {
+          "id": "traphase-100083",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Hah! I'll show you what I can do!"
+        },
+        {
+          "id": "traphase-100006",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Huh? My cake! You just spilled it all over the place!"
+        },
+        {
+          "id": "traphase-99956",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I'll remember this... Just you wait..."
+        }
+      ]
+    }
   }
 }

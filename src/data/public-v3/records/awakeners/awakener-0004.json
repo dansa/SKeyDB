@@ -69,7 +69,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "A.F.18@1/@1/@2 Infantry Regiment, the Kingdom of Remouahe, Port Alexandria\nThe situation in Port Alexandria is stabilizing. The 3rd and 4th battalions, along with three companies of musketeers, have crossed the canal to proceed to @4 for the next stage of operations. Now only the 1st battalion and a company of musketeers remain in Port Alexandria.\n\nA squad encountered rebels during a patrol and quickly dealt with them. They brought back an interesting trinket that looks like silver but is heavier. I've stored it in the safe; the commander will like this gift.\n\n.....\n\nDay 13 of the garrison, soldiers from various companies are showing abnormal behavior, including but not limited to attacking comrades, officers, destroying inventory, and military equipment. These soldiers, along with the earlier madmen, are now under my direct supervision in confinement.\n\nTheir eyes are bloodshot, and they drool, looking more like pitiful animals than soldiers. Madness is spreading here; I'm worried it will become a plague.\n\n.....\n\nDay 30 of the garrison.\n\nTo date, 370 soldiers have shown mad behavior. After 20 days of severe hysteria, 331 of them developed limb numbness and paralysis. Their aggression remains strong; two military doctors were bitten while trying to treat them.\n\nThe madness continues to spread. I've reported the situation, hoping for swift action.\n\n.....\n\nThe Committee took over the Alexandria garrison for 10 days; people still fall into madness, my brothers one after another. Why are only we suffering this damned plague? Why are the locals fine? Why do the rebels who hassle us remain unaffected?\n\nMy head hurts more and more, and the doctors are helpless—they fell into madness before me and became those biting monsters.\n\nI fear I will also go mad.\n\nThey say we have to wait for the Mythag University people. Damn them, we fought for our country, we shouldn't be treated this way.\n\n.....\n\nI know now, I finally know. It's a vengeful spirit within that piece of silver, seeking revenge on all who invaded this land. That one-legged woman wants us to leave, wants us all gone, to return everything here to its original owners. Yes, yes, it should be this way, we never should've come, never started this war, I @1@3@4@2@1@2@3\n— Excerpt from the \"@2 Infantry Regiment 1st Battalion Acting Commander's Log\""
       },
       {
@@ -90,6 +90,323 @@
         "unlockCondition": "Affinity Level 9",
         "content": "Alva had doubted her righteousness, but those bewildered days and nights brought her profound enlightenment.\n\nIllusions are tangible.\n\nThe initial starting point never changed; the justice she fights for is not an organization turned aggressor, not an individual shouting slogans, but a genuine existence within her beliefs.\n\nAll life, all innocence, all dreams, aspirations, and beautiful yearnings can easily turn to ash under gunfire.\n\nWhat is lost in war will never return, like hellish demons devouring all goodness.\n\nThus, those who start wars for selfish desires must also taste the ashes of destruction. There will be true heroes, with noble intentions, selflessly fighting for the bright future of all.\n\nThis is the value called justice.\n\n......\n\nWrong, then correct it.\n\nMake the sacrifices worthwhile, make this phantom pain of severed legs and limbs worthwhile.\n\nIf there is anything unfortunate destroyed, reclaim it with these new prosthetics.\n\nThose small and fragile things will never lose their shine.\n\nEverything is for that truly bloodless, tearless utopia."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-5007",
+          "title": "Awaken",
+          "content": "Need me to accompany you as a guard? If your pursuit is just, I will assist you."
+        },
+        {
+          "id": "voice-6736",
+          "title": "Upgrade: I",
+          "content": "I am more agile now."
+        },
+        {
+          "id": "voice-6735",
+          "title": "Upgrade: II",
+          "content": "Training must not be neglected!"
+        },
+        {
+          "id": "voice-6734",
+          "title": "Upgrade: III",
+          "content": "The blade has not lost its edge yet."
+        },
+        {
+          "id": "voice-5079",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "Is this some kind of new technology? My prosthetic limb feels much lighter."
+        },
+        {
+          "id": "voice-6213",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "The honor of being a warrior is being restored."
+        },
+        {
+          "id": "voice-6210",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "Can you believe it? I can feel my broken leg bone healing."
+        },
+        {
+          "id": "voice-6209",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "One day, I will return to the battlefield as the leader at the vanguard."
+        },
+        {
+          "id": "voice-6212",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "The day is fast approaching for another expedition, and my blood is boiling with purpose."
+        },
+        {
+          "id": "voice-6211",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "Thank you sincerely for your trust in training me to this level. You must also be someone who pursues justice; thus, I will continue to bring glory to our cause here."
+        },
+        {
+          "id": "voice-5064",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "My title? Are you truly that interested in my personal affairs? You just want to chat... Very well.\nIn the army, we don't differentiate between comrades based on gender—that includes strength, speed, and naturally, hairstyles and titles. Over time, I've grown accustomed to this way of expression."
+        },
+        {
+          "id": "voice-5061",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "This injured leg? I didn't expect you'd care. I got it on the battlefield before I became an Awakener.\nDon't worry, it doesn't interfere with my combat ability anymore, now that I'm an Awakener.\nDoes it hurt, you ask? No. I haven't thought about it."
+        },
+        {
+          "id": "voice-5062",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "Sylvia asked about my mental state. You sent her, did you not? I admit the phantom pain flares up occasionally. But don't worry about it. I am your sword, your blade. As long as I can fight for justice, minor pain won't matter."
+        },
+        {
+          "id": "voice-6304",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "I got your schedule from Sylvia, and it's too demanding for newcomers. I understand you're doing the right thing, but overburdening rookies might cause unnecessary trouble for the team.\nYou say you're not a rookie? No, I can tell by the look in your eyes; there are many things you haven't experienced yet."
+        },
+        {
+          "id": "voice-5924",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "After glimpsing the real world beyond the front lines, I once questioned the value of \"heroes.\" But luckily, I met you—honest, brave, and pure. Under your command, I will fight tirelessly for peace and stability. This time, I will secure my redemption."
+        },
+        {
+          "id": "voice-5873",
+          "title": "Chat: Touch",
+          "content": "Show some respect, junior. In the army, seniority is absolute, and orders are followed without exception. Such improper behavior will be punished."
+        },
+        {
+          "id": "voice-5789",
+          "title": "Chat: About @2",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Helot\" or \"Lily\"",
+          "content": "I encountered some unsettling individuals in the corridor. You may need to cooperate with them due to the circumstances, but remain vigilant! The human heart is crueler than war, and the worst betrayals often come from within."
+        },
+        {
+          "id": "voice-6331",
+          "title": "Chat: About Nautila",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Nautila\"",
+          "content": "Every so often, the girl on the motorcycle helps me maintain my prosthetic limb. However, recently, hasn't the frequency of maintenance checks been excessively high?"
+        },
+        {
+          "id": "voice-5654",
+          "title": "Chat: About Sorel",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Sorel\"",
+          "content": "Keeper, I must speak with you. Before we achieve final victory, some individuals should not be so extravagant. Remember, I am not fighting for the luxurious lives of such people!"
+        },
+        {
+          "id": "voice-5311",
+          "title": "Chat: About Dissolution",
+          "content": "War always brings pain, and enduring suffering is a warrior's duty. Even if I lose my hands, my feet, and everything else, I will still fight for you and for justice."
+        },
+        {
+          "id": "voice-5533",
+          "title": "Chat: About Mythag",
+          "content": "Mythag University is no different from the military. Each of us stands on the front line, polishing our weapons and preparing for battle."
+        },
+        {
+          "id": "voice-4962",
+          "title": "Chat: What I Like",
+          "content": "Justice, loyalty, resilience, discipline. These have long been engraved in my heart."
+        },
+        {
+          "id": "voice-6670",
+          "title": "Chat: What I Hate",
+          "content": "I oppose all acts of injustice; betrayal is the worst. In the army, if you cannot or dare not trust your comrades to guard your back, the entire unit will fall apart."
+        },
+        {
+          "id": "voice-5846",
+          "title": "Chat: About the Keeper",
+          "content": "As long as you can uphold this justice, I will always shoulder the duty of the blade."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-6691",
+          "title": "Investigation Begins",
+          "content": "It's time to head to the battlefield!"
+        },
+        {
+          "id": "voice-6258",
+          "title": "Investigation Success",
+          "content": "Not bad; this is a warrior's glory!"
+        },
+        {
+          "id": "voice-6021",
+          "title": "Investigation Halted",
+          "content": "Don't fret; scars are a warrior's badge of honor!"
+        },
+        {
+          "id": "voice-5417",
+          "title": "Strike: I",
+          "content": "As you command!"
+        },
+        {
+          "id": "voice-5686",
+          "title": "Defense: I",
+          "content": "Be careful!"
+        },
+        {
+          "id": "voice-5800",
+          "title": "Defense: II",
+          "content": "Don't worry!"
+        },
+        {
+          "id": "voice-5003",
+          "title": "Hit: I",
+          "content": "Useless!"
+        },
+        {
+          "id": "voice-5616",
+          "title": "Hit: II",
+          "content": "(Scornful Endurance)"
+        },
+        {
+          "id": "voice-5001",
+          "title": "Hit: III",
+          "content": "(Exclamation)"
+        },
+        {
+          "id": "voice-5004",
+          "title": "Hit: IV",
+          "content": "(Endure)"
+        },
+        {
+          "id": "voice-5242",
+          "title": "Skill: I",
+          "content": "Sound the horn!"
+        },
+        {
+          "id": "voice-5387",
+          "title": "Skill: II",
+          "content": "For peace!"
+        },
+        {
+          "id": "voice-5675",
+          "title": "Rouse",
+          "content": "Fight to the end!"
+        },
+        {
+          "id": "voice-6762",
+          "title": "Exalt",
+          "content": "The light of justice is lit here!"
+        },
+        {
+          "id": "voice-54622",
+          "title": "Over-Exalt",
+          "content": "In the abyss... there will be a light of justice."
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-100057",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I am prepared for battle at any time."
+        },
+        {
+          "id": "traphase-99763",
+          "title": "Chat: About Ogier",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Ogier, seize the moment! Don't hold back. Remember what you learned in the special training class!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0004",
+              "lineId": "traphase-99763"
+            },
+            {
+              "awakenerId": "awakener-0038",
+              "lineId": "traphase-99928"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100073",
+          "title": "Chat: About Uvhash",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Turning a warrior into such an existence is a desecration of the military.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0004",
+              "lineId": "traphase-100073"
+            },
+            {
+              "awakenerId": "awakener-0051",
+              "lineId": "traphase-99999"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100012",
+          "title": "Chat: About Nautila",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Thank you for your concern, but didn't we just perform daily maintenance two days ago?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0036",
+              "lineId": "traphase-99747"
+            },
+            {
+              "awakenerId": "awakener-0004",
+              "lineId": "traphase-100012"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99959",
+          "title": "Chat: About Winkle",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I don't understand the purpose of your request, but I'm more than willing to lend a hand.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0053",
+              "lineId": "traphase-100055"
+            },
+            {
+              "awakenerId": "awakener-0004",
+              "lineId": "traphase-99959"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99828",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Adjust the layout now, based on the battle situation."
+        },
+        {
+          "id": "traphase-100035",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Seize the moment, the battlefield waits for no one."
+        },
+        {
+          "id": "traphase-100113",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "With this one strike!"
+        },
+        {
+          "id": "traphase-100019",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "It seems this tactic failed us."
+        },
+        {
+          "id": "traphase-100197",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Failure is a common occurrence in war..."
+        }
+      ]
+    }
   }
 }

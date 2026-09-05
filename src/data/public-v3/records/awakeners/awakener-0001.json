@@ -69,7 +69,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "Awakener ID: MA-C06\nDanger Level: A\nSpecial Containment Procedures: MA-C06 is currently housed in Awakener Observation Room 7 with dim lighting. Fearing mind control by @3, MA-C06 refuses to sleep, only provided with a chair.\n\nDue to good behavior and friendly attitude, MA-C06 is allowed to use the greenhouse and explore parts of the campus with an Investigator escort.\n\n—\"Awakener Containment FileMA-C06\""
       },
       {
@@ -90,6 +90,342 @@
         "unlockCondition": "Affinity Level 9",
         "content": "On a snowy day that November, 24 fell ill.\n\nAfter a week of grueling work, she came down with a severe fever and lay in bed for days on end.\n\nIn her daze, she seemed to hear little mice whimpering near her ears. After an unknown stretch of time, someone was standing at her bedside.\n\nShe recognized those eyes—it was the child from the sewer. Covered in mud, the child held out a grimy little pill to 24.\n\n\"For you. Take it,\" the child said bluntly, her voice surprisingly pleasant—so it turned out she was a girl.\n\n24 looked at the scrapes on her elbow and face but did not ask where the pill had come from. She simply held the girl's hand tightly.\n\nThe girl mumbled awkwardly, then said in a cool tone, \"I won't leave. I'll go once you're better.\"\n\nEven when I'm better—don't leave.\n\n24 answered silently, in her heart.\n\nThe first snow of winter fell over Londinium for an entire week. On the day it finally stopped, 24 was very happy—because not only had her fever broken, but she had also gained a sister."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-6516",
+          "title": "Awaken",
+          "content": "My name, uh, I can't remember. Oh, right, \"24,\" that's what they call me... No! Stop! Don't come out! You can't, not now..."
+        },
+        {
+          "id": "voice-5751",
+          "title": "Upgrade: I",
+          "content": "Shh... Please don't let \"them\" discover that I'm getting stronger."
+        },
+        {
+          "id": "voice-5752",
+          "title": "Upgrade: II",
+          "content": "\"They\" all said... Thank you."
+        },
+        {
+          "id": "voice-5753",
+          "title": "Upgrade: III",
+          "content": "Uh... What is this?"
+        },
+        {
+          "id": "voice-6576",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "This feels so strange... Am I dying? No, save me! Help! No!!"
+        },
+        {
+          "id": "voice-4928",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "Huh? I'm still alive... You... You really won't steal my organs or use me for experiments?"
+        },
+        {
+          "id": "voice-4926",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "{Male=Sir,Female=Madam}, you are truly kind. Sadly, I have nothing to repay you with, worthless as I am..."
+        },
+        {
+          "id": "voice-4927",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "...Just a little further, and I'll be completely separated from \"them\"?"
+        },
+        {
+          "id": "voice-4924",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "I am feeling it... The Source of Uncleanliness... One step closer to Our true form... Ahhh, I shall tear this world apart!"
+        },
+        {
+          "id": "voice-4925",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "We're...ready. Please give the order, Keeper."
+        },
+        {
+          "id": "voice-6135",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "I feel fantastic right now. What? You say my mind has been taken over by something else? N-no way... uh..."
+        },
+        {
+          "id": "voice-6134",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "Heh, that woman is so scared of me coming out that she doesn't even dare to sleep at night. Relax, I wouldn't kill you—not while you're giving me gifts. Who am I? Of course, I'm \"24,\" hahaha!"
+        },
+        {
+          "id": "voice-6133",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "Please don't worry. We'll all share a steak and a bed, and never cause you any trouble."
+        },
+        {
+          "id": "voice-6132",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "I used to work until midnight every day—spinning, washing, cleaning, babysitting, even scavenging... I would do anything to earn money. Back then, living was merely surviving. Now, we have fresh food, warm bed, and a kind master like you... It's beyond my wildest dreams."
+        },
+        {
+          "id": "voice-6131",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "There are many \"me\" inside. Happy, sad, angry... They love sponge cake, hate Londinium's rainy days. They all go by \"24,\" and they all adore you."
+        },
+        {
+          "id": "voice-5010",
+          "title": "Chat: Touch",
+          "content": "Oh... Would you like a hug?"
+        },
+        {
+          "id": "voice-5272",
+          "title": "Chat: About Myself",
+          "content": "Arms, those pesky arms! They always grab onto my hair. I can't even control my own hands—what a useless woman I am... Maybe I should..."
+        },
+        {
+          "id": "voice-6290",
+          "title": "Chat: About Jenkin",
+          "unlockCondition": "Unlocks after clearing Main Story Chapter 2",
+          "content": "Excuse me... Have you seen my sister, Jenkin? She's a girl who carries a mouse and can be quite fierce... I couldn't possibly mistake her."
+        },
+        {
+          "id": "voice-6695",
+          "title": "Chat: About Herbert",
+          "unlockCondition": "Unlocks after clearing Main Story Chapter 2",
+          "content": "Although Herbert is a terrifying person, his cats are very gentle... No, to be precise, there are two cats, right?"
+        },
+        {
+          "id": "voice-5137",
+          "title": "Chat: About Dissolution",
+          "content": "That... is the black viscous liquid surging through my veins, the ultimate power that silences all screams of pain! \"I\" was born from this, born to destroy! HAHAHA!"
+        },
+        {
+          "id": "voice-6553",
+          "title": "Chat: About Mythag",
+          "content": "Why, why lock me up here? Haha... you're not getting what you want. I'll tear these restraints, this prison, into fragments!"
+        },
+        {
+          "id": "voice-6312",
+          "title": "Chat: What I Like",
+          "content": "\"The Lady's Wardrobe\" and \"The Working Woman's Guide\" are both excellent reads... Though I can't afford those beautiful dresses, simply admiring them is fun."
+        },
+        {
+          "id": "voice-6412",
+          "title": "Chat: What I Hate",
+          "content": "It's raining. The rain washes away everything: spoiled food, stubborn filth, and people like me... the dispensable."
+        },
+        {
+          "id": "voice-5362",
+          "title": "Chat: About the Keeper",
+          "content": "Don't worry, all of us are quite useful. I can sew and clean, another me excels at fighting, and the others..."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-6297",
+          "title": "Investigation Begins",
+          "content": "Although I am a pacifist, \"they\" clearly think otherwise..."
+        },
+        {
+          "id": "voice-6529",
+          "title": "Investigation Success",
+          "content": "Slice, slice, tear apart. Just like they did to me... Hehe... HAHAHA!"
+        },
+        {
+          "id": "voice-5308",
+          "title": "Investigation Halted",
+          "content": "A gathering of weak souls... What good can we do except produce noise? Sigh..."
+        },
+        {
+          "id": "voice-5252",
+          "title": "Strike: Mania",
+          "content": "Hahaha!"
+        },
+        {
+          "id": "voice-5253",
+          "title": "Strike: Depression",
+          "content": "Hmm..."
+        },
+        {
+          "id": "voice-6602",
+          "title": "Defense: Mania",
+          "content": "Scram!"
+        },
+        {
+          "id": "voice-6601",
+          "title": "Defense: Depression",
+          "content": "Don't..."
+        },
+        {
+          "id": "voice-6482",
+          "title": "Hit: Hysteria: I",
+          "content": "How could this be?!"
+        },
+        {
+          "id": "voice-6483",
+          "title": "Hit: Depression: I",
+          "content": "Ugh..."
+        },
+        {
+          "id": "voice-6484",
+          "title": "Hit: Depression: II",
+          "content": "It hurts..."
+        },
+        {
+          "id": "voice-6480",
+          "title": "Hit: Depression: III",
+          "content": "Ah!"
+        },
+        {
+          "id": "voice-6450",
+          "title": "Skill: I: Mania",
+          "content": "Let me out!"
+        },
+        {
+          "id": "voice-6451",
+          "title": "Skill: I: Depression",
+          "content": "Don't do this..."
+        },
+        {
+          "id": "voice-4958",
+          "title": "Skill: II: Mania",
+          "content": "Chop!"
+        },
+        {
+          "id": "voice-4959",
+          "title": "Skill: II: Depression",
+          "content": "Sorry... I didn't want this to happen..."
+        },
+        {
+          "id": "voice-5926",
+          "title": "Rouse",
+          "content": "Unclean, filthy, chaotic—this is our power."
+        },
+        {
+          "id": "voice-6144",
+          "title": "Exalt: Mania",
+          "content": "Welcome—to our grand feast!"
+        },
+        {
+          "id": "voice-6665",
+          "title": "Exalt: Depression",
+          "content": "This is the Source of Uncleanliness..."
+        },
+        {
+          "id": "voice-54613",
+          "title": "Over-Exalt",
+          "content": "Don't hinder me!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-99754",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I... We... We'll do our best together!"
+        },
+        {
+          "id": "traphase-100145",
+          "title": "Chat: About Ogier",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Ogier, you're even younger than Jenkin, but you're always so composed and reliable.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0001",
+              "lineId": "traphase-100145"
+            },
+            {
+              "awakenerId": "awakener-0038",
+              "lineId": "traphase-99955"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100095",
+          "title": "Chat: About Jenkin",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Oh no, Jenkin, when did your clothes get torn again? Bring them over, and I'll mend them for you.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0001",
+              "lineId": "traphase-100095"
+            },
+            {
+              "awakenerId": "awakener-0025",
+              "lineId": "traphase-99878"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100217",
+          "title": "Chat: About Nymphaea",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Are there many people like me at Miss Nymphaea's Sanatorium?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0001",
+              "lineId": "traphase-100217"
+            },
+            {
+              "awakenerId": "awakener-0037",
+              "lineId": "traphase-100064"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100111",
+          "title": "Chat: About Aigis",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "It's okay, Aigis. You can just call me \"Sister\" like Jenkin does.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0003",
+              "lineId": "traphase-100007"
+            },
+            {
+              "awakenerId": "awakener-0001",
+              "lineId": "traphase-100111"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99909",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Hmm... This seems a bit complicated. No worries, I'll discuss it with the others."
+        },
+        {
+          "id": "traphase-100195",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I don't have much time, so don't test my patience."
+        },
+        {
+          "id": "traphase-99794",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "All of you—disappear! Now!"
+        },
+        {
+          "id": "traphase-99917",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Uh... this isn't right... no..."
+        },
+        {
+          "id": "traphase-99984",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Eek, what is this feeling? Am I going to die? Jenkin..."
+        }
+      ]
+    }
   }
 }

@@ -90,6 +90,349 @@
         "unlockCondition": "Affinity Level 9",
         "content": "A fishing village with crystal-clear waters, a shoreline adorned like the Milky Way on a midsummer night, and the lighthearted laughter echoing from a touring caravan—these memories of a world that no longer exists flash back from time to time, only to be promptly cast aside.\n\nAs long as companions keep appearing by her side, new memories can always be made. Besides, the jellyfish are always there—at least, that is what Aurita believes.\n\nAfter all, to drift and propagate, and face down formidable threats through sheer numbers, is both the nature and the destiny of the jellyfish."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-5826",
+          "title": "Awaken",
+          "content": "Hehe... Hi! It's me, Aurita! One, two, three... Woah! Welcome, welcome! New friends have joined us! Huh? I'm your new friend this time? Well, I guess that works too!"
+        },
+        {
+          "id": "voice-6753",
+          "title": "Upgrade: I",
+          "content": "Can we go further this time? Let's head to the beach!"
+        },
+        {
+          "id": "voice-6756",
+          "title": "Upgrade: II",
+          "content": "Friends~ More Friends~"
+        },
+        {
+          "id": "voice-6755",
+          "title": "Upgrade: III",
+          "content": "Wow—thank you, dear friend~"
+        },
+        {
+          "id": "voice-6720",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "Ehe!"
+        },
+        {
+          "id": "voice-6024",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "Mealtime? Or activity time?"
+        },
+        {
+          "id": "voice-6028",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "Everyone disappeared after starting hide-and-seek. This time, I'm determined to find everyone!"
+        },
+        {
+          "id": "voice-6027",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "It's my turn to be the ghost this time! You only have 5 seconds to hide! 5, 4—"
+        },
+        {
+          "id": "voice-6026",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "Ms. Sylvia said I should say \"thank you\" when I receive something... Thank you, thank you, thank you!!"
+        },
+        {
+          "id": "voice-6025",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "Haha! Now Aurita's Friends won't disappear again!"
+        },
+        {
+          "id": "voice-5379",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "I've traveled! I wasn't carried away by the waves, I actually sat in a caravan!"
+        },
+        {
+          "id": "voice-5380",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "Lighthouse jellyfish, crown jellyfish, peach blossom jellyfish—they all move in groups. Of course, Aurita does too! I want to be with everyone!"
+        },
+        {
+          "id": "voice-5381",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "Past events? Hard to recall... But I remember working at an aquarium! I got paid 2 Pensh a day!"
+        },
+        {
+          "id": "voice-5382",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "Let me tell you a secret: I'm actually from Atlan...tis... um, basically, I'm a sea person! As long as I behave, eat veggies, and make more friends, That Atlan-whatever place will welcome me!"
+        },
+        {
+          "id": "voice-5383",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "My home, my aquarium friends, my favorite jellyfish—they're all gone... Will you disappear, too? Can't you stay with me forever?"
+        },
+        {
+          "id": "voice-6527",
+          "title": "Chat: Touch",
+          "content": "Hehe—so ticklish! Don't run! I've got to scratch you back!"
+        },
+        {
+          "id": "voice-5162",
+          "title": "Chat: About \"Awakeners",
+          "content": "Awakener? Hmm... Yes, 7 AM is the best time to wake up! Let's collect shells at the beach tomorrow morning at 7!"
+        },
+        {
+          "id": "voice-6016",
+          "title": "Chat: About Casiah",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Casiah\"",
+          "content": "Casiah is incredible! She can make a bunny appear in the blink of an eye!"
+        },
+        {
+          "id": "voice-5809",
+          "title": "Chat: About Agrippa",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Agrippa\"",
+          "content": "Hmm... Agrippa has many Friends, but they all seem to be afraid of her. Could it be that she steals their food?"
+        },
+        {
+          "id": "voice-6609",
+          "title": "Chat: About Dissolution",
+          "content": "Dissolution? Hmm... Yes! Ice cream melts! But if we share it, we can eat it before it completely turns into cream!"
+        },
+        {
+          "id": "voice-6646",
+          "title": "Chat: About Mythag",
+          "content": "Oh no! I've been found! As a penalty for losing, you can make one request of me—just please don't make me go to class, pretty please!"
+        },
+        {
+          "id": "voice-5794",
+          "title": "Chat: What I Like",
+          "content": "Aurita loves playing with everyone! Will you join? This one is Jelly, that one is Hela, and over there is Jelly, too... huh?"
+        },
+        {
+          "id": "voice-5628",
+          "title": "Chat: What I Hate",
+          "content": "Aurita dislikes friends leaving suddenly... But, if they return, I will forgive them!"
+        },
+        {
+          "id": "voice-6199",
+          "title": "Chat: About the Keeper",
+          "content": "Big friend! Partner! Hoo-hoo, let's be best friends forever, okay?"
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-6436",
+          "title": "Investigation Begins",
+          "content": "Play here today?"
+        },
+        {
+          "id": "voice-6702",
+          "title": "Investigation Success",
+          "content": "Yahoo—I'm so tired, can I go play now!"
+        },
+        {
+          "id": "voice-5293",
+          "title": "Investigation Halted",
+          "content": "If only there were more Friends..."
+        },
+        {
+          "id": "voice-6416",
+          "title": "Strike: I",
+          "content": "Look this way!"
+        },
+        {
+          "id": "voice-6573",
+          "title": "Defense: I",
+          "content": "Don't drown!"
+        },
+        {
+          "id": "voice-6215",
+          "title": "Hit: I",
+          "content": "Ouch!"
+        },
+        {
+          "id": "voice-6217",
+          "title": "Hit: II",
+          "content": "Cheater!"
+        },
+        {
+          "id": "voice-6216",
+          "title": "Hit: III",
+          "content": "(Groan)"
+        },
+        {
+          "id": "voice-6214",
+          "title": "Hit: IV",
+          "content": "(Groan)"
+        },
+        {
+          "id": "voice-5191",
+          "title": "Skill: I",
+          "content": "More friends!"
+        },
+        {
+          "id": "voice-5349",
+          "title": "Skill: II",
+          "content": "Come on! Join Aurita!"
+        },
+        {
+          "id": "voice-5241",
+          "title": "Rouse",
+          "content": "How can I help you?"
+        },
+        {
+          "id": "voice-5596",
+          "title": "Exalt",
+          "content": "Let's make this our clamorous sea of happiness!"
+        },
+        {
+          "id": "voice-57848",
+          "title": "Over-Exalt",
+          "content": "Everyone, let's attack together!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-100099",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Friends, friends, so many friends! Let's all play together!"
+        },
+        {
+          "id": "traphase-99875",
+          "title": "Chat: About Thais",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Proliferate? What does that mean? Hmm, I like \"proliferating\" lots of friends!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0048",
+              "lineId": "traphase-99901"
+            },
+            {
+              "awakenerId": "awakener-0005",
+              "lineId": "traphase-99875"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99894",
+          "title": "Chat: About Lily",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Wow, you have so many friends, just like I do! Let's all go play in the sea together!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0005",
+              "lineId": "traphase-99894"
+            },
+            {
+              "awakenerId": "awakener-0029",
+              "lineId": "traphase-99788"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100000",
+          "title": "Chat: About Faros",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "The homeland you mentioned, is it also called Atlan... something? Are there many friends there?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0005",
+              "lineId": "traphase-100000"
+            },
+            {
+              "awakenerId": "awakener-0017",
+              "lineId": "traphase-99818"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99930",
+          "title": "Chat: About Agrippa",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Wow, you have even more friends than me! That's amazing!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0005",
+              "lineId": "traphase-99930"
+            },
+            {
+              "awakenerId": "awakener-0002",
+              "lineId": "traphase-100022"
+            }
+          ]
+        },
+        {
+          "id": "traphase-140522",
+          "title": "Chat: About Saya",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "You mean making more of us? Isn't that simple? Look! I've got lots of friends!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0005",
+              "lineId": "traphase-140522"
+            },
+            {
+              "awakenerId": "awakener-0057",
+              "lineId": "traphase-140521"
+            }
+          ]
+        },
+        {
+          "id": "traphase-150094",
+          "title": "Chat: About Caraboo",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I am, I am! Umm... but Aurita's only got one piece of candy left. Can't I keep just this one?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0060",
+              "lineId": "traphase-150096"
+            },
+            {
+              "awakenerId": "awakener-0005",
+              "lineId": "traphase-150094"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100159",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Uhhhhh... Friends? Let's all think this through together!"
+        },
+        {
+          "id": "traphase-100124",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Come on, come on! Come play with me!"
+        },
+        {
+          "id": "traphase-99872",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Friends! Let's go!"
+        },
+        {
+          "id": "traphase-99779",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Oh no, my friends are dehydrated!"
+        },
+        {
+          "id": "traphase-99966",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I'm... tired..."
+        }
+      ]
+    }
   }
 }

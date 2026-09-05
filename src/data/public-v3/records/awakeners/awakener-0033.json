@@ -90,6 +90,334 @@
         "unlockCondition": "Affinity Level 9",
         "content": "One day, she will return to her own world.\n\nBut before that, she wants to see the conclusion of this world—\n\nWill the one known as the \"Keeper\" be consumed by this chaotic and terrifying world, or will they shine brightly, bringing true redemption and light to this crumbling world?\n\nThis is a mystery, a challenge, a gamble.\n\nAnd she wants to know the answer."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-123788",
+          "title": "Awakening",
+          "content": "Name's Mouchette, investigator of... Oh right, I'm not A.U.G.E.'s vanguard anymore. Let me reintroduce myself—I'm Mouchette, just a sweet, cute girl."
+        },
+        {
+          "id": "voice-123801",
+          "title": "Upgrade: I",
+          "content": "So you're still building me. Aren't you afraid I might lose control someday? Just kidding... Haha!"
+        },
+        {
+          "id": "voice-123785",
+          "title": "Upgrade: II",
+          "content": "That's it... I'm getting closer to my \"true self\". I can feel it..."
+        },
+        {
+          "id": "voice-123804",
+          "title": "Upgrade: III",
+          "content": "I'm still stuck here, but hey, getting stronger is always nice."
+        },
+        {
+          "id": "voice-123777",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "This ritual sends me home? You sure? How many times have we tried...? Well, trying never hurts, I guess."
+        },
+        {
+          "id": "voice-123783",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "It feels like I'm stepping into the Mist again. Speaking of which, I already miss those little creatures in the Mist. Too bad I can't vent my bad mood on them anymore."
+        },
+        {
+          "id": "voice-123800",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "Is the ritual not over yet? I really wanna go back. Been craving some Ravenlog Stewed Fish and steaming Hazelnut Kava Tea lately. Though, the Ceylon Black Tea and Andalusian Churros here aren't bad either."
+        },
+        {
+          "id": "voice-123776",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "Keeper, I think I saw a light... Did it work this time...? I wonder how my colleagues are doing? They'd better not leave a mountain of work for me; I will not work overtime."
+        },
+        {
+          "id": "voice-123786",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "Ah... So it didn't work. I expected as much. Life is full of ups and downs—well, mostly downs... you get used to it one day. Still, thanks for trying."
+        },
+        {
+          "id": "voice-123802",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "You know, it doesn't seem so bad to stay here for a while. I'll remember everything that happens here, write it down, and share it with them back home. How about the title <Italic:Mouchette's Otherworld Adventure>? It has a nice ring to it, right?"
+        },
+        {
+          "id": "voice-123315",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "You want a deep conversation for my mental health? C'mon, spare me. If we must bore ourselves, let's at least be quick about it."
+        },
+        {
+          "id": "voice-123316",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "I'm just pretending to be normal when answering your questions, you say? Heh, you caught me. So, are you ready to see what I really am?"
+        },
+        {
+          "id": "voice-123314",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "An uncontrollable maniac? Bingo! This is not my world; no tedious laws or rules can hold me back... Here, I do whatever I want. So be careful, Keeper, you never know when a maniac might bite."
+        },
+        {
+          "id": "voice-123312",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "So my true self doesn't scare you because you've \"seen true terror\"? Hmph... a cunning reply. But that just makes me... want to pick you apart even more."
+        },
+        {
+          "id": "voice-123313",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "What's the world like in your eyes? Where are the limits of true terror? Don't just tell me; I wanna go feel it first hand with you, feel all the madness, death, and horror! Yeah, I've made up my mind! I'm not leaving your side until my curiosity is satisfied!"
+        },
+        {
+          "id": "voice-123796",
+          "title": "Chat: Touch",
+          "content": "New mission? Skip the pleasantries next time; we're way past needing to perform the \"socialization rituals\" by now."
+        },
+        {
+          "id": "voice-123787",
+          "title": "Chat: About the Crisis",
+          "content": "I know as much about Dissolution as I do about the Mist Disaster back home—nothing, that is. But that's precisely what makes them so fascinating, right?"
+        },
+        {
+          "id": "voice-123790",
+          "title": "Chat: About Mythag",
+          "content": "We're too close to human settlements here; boring adults are everywhere... Have you ever considered moving the school to the deserted deep mountains?"
+        },
+        {
+          "id": "voice-123792",
+          "title": "Chat: What I Like",
+          "content": "I'm starting to love this feeling of being stranded in another world! Strong Awakeners, terrifying Dissolution, and mysterious gods! Ah, the sheer exhilaration of being far away from the mundane!"
+        },
+        {
+          "id": "voice-123784",
+          "title": "Chat: What I Hate",
+          "content": "Hate? I wouldn't say that. I merely wish those tedious meetings, social obligations, and universal values could one day poof! Be gone."
+        },
+        {
+          "id": "voice-123774",
+          "title": "Chat: About the Keeper",
+          "content": "You want to save this twisted, terrifying world? That's gonna be a crazy fun way to die. Let's see how far you can go."
+        },
+        {
+          "id": "voice-123805",
+          "title": "Chat: About Karen",
+          "unlockCondition": "Unlock after acquiring Awakener \"Karen\"",
+          "content": "A maid? I've been one too. I should find time to show her my vacuum cleaner moves in battle!"
+        },
+        {
+          "id": "voice-123803",
+          "title": "Chat: About Murphy",
+          "unlockCondition": "Unlock after acquiring Awakener \"Murphy\"",
+          "content": "I admit she's quite cute... Yeah, she's adorable when chasing and fighting those campus strays."
+        },
+        {
+          "id": "voice-123797",
+          "title": "Chat: About Salvador",
+          "unlockCondition": "Unlock after acquiring Awakener \"Salvador\"",
+          "content": "Sacrificing yourself for other people? What a stupid idea. It's infuriating. No one has the right to ask that of anyone, not even a god."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-123775",
+          "title": "Investigation Begins",
+          "content": "Wanna taste my axe, sweeties? Don't fret, here it comes..."
+        },
+        {
+          "id": "voice-123793",
+          "title": "Investigation Successful",
+          "content": "That's all? I was just starting to have fun! Come on, who's next for the chop?"
+        },
+        {
+          "id": "voice-123795",
+          "title": "Investigation Halted",
+          "content": "They say one failure doesn't define you... I disagree! My axe's gonna do the defining, so keep your necks on a swivel!"
+        },
+        {
+          "id": "voice-123770",
+          "title": "Strike: I",
+          "content": "Off with your head."
+        },
+        {
+          "id": "voice-123779",
+          "title": "Strike: II",
+          "content": "Ha!"
+        },
+        {
+          "id": "voice-123798",
+          "title": "Defense: I",
+          "content": "Hah, not bad..."
+        },
+        {
+          "id": "voice-123789",
+          "title": "Defense: II",
+          "content": "Go away!"
+        },
+        {
+          "id": "voice-123772",
+          "title": "Hit: I",
+          "content": "It shouldn't be me..."
+        },
+        {
+          "id": "voice-123794",
+          "title": "Hit: II",
+          "content": "(A pained groan)"
+        },
+        {
+          "id": "voice-123781",
+          "title": "Skill: I",
+          "content": "Shining☆Supernova—BLAST!"
+        },
+        {
+          "id": "voice-123773",
+          "title": "Skill: II",
+          "content": "Shining☆Crush!"
+        },
+        {
+          "id": "voice-124738",
+          "title": "Special Skill: I",
+          "content": "Line up nicely for my axe!"
+        },
+        {
+          "id": "voice-124737",
+          "title": "Special Skill: II",
+          "content": "One strike, one kill."
+        },
+        {
+          "id": "voice-123799",
+          "title": "Rouse",
+          "content": "Finally, no more pretending... Now, let's have some <Italic:real> fun."
+        },
+        {
+          "id": "voice-123782",
+          "title": "Exalt",
+          "content": "Here's everyone's favorite—Shining☆Tornado!"
+        },
+        {
+          "id": "voice-123806",
+          "title": "Over-Exalt",
+          "content": "Haha, now this is the life! Beats the boring daily grind any day!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-123999",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Hehe☆! Finally, a chance to cut loose!"
+        },
+        {
+          "id": "traphase-123998",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Yes, let me hear those beautiful cries!"
+        },
+        {
+          "id": "traphase-124005",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Stop dawdling! Make up your mind already!"
+        },
+        {
+          "id": "traphase-124001",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I'll show you what it can do! SHINING☆TORNADO!"
+        },
+        {
+          "id": "traphase-124008",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Ugh, so boring. Is this really it? I was promised <Italic:entertainment> here."
+        },
+        {
+          "id": "traphase-124002",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "So... this is what it feels like to have the lights go out..."
+        },
+        {
+          "id": "traphase-124006",
+          "title": "Chat: About Salvador",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "BORING! These worldly shackles were getting way too tight. Time for the <Italic:real> me to play!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0044",
+              "lineId": "traphase-124007"
+            },
+            {
+              "awakenerId": "awakener-0033",
+              "lineId": "traphase-124006"
+            }
+          ]
+        },
+        {
+          "id": "traphase-123997",
+          "title": "Chat: About Kathigu-Ra",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Hahaha! Now we're talking! Don't you dare underestimate me!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0027",
+              "lineId": "traphase-124000"
+            },
+            {
+              "awakenerId": "awakener-0033",
+              "lineId": "traphase-123997"
+            }
+          ]
+        },
+        {
+          "id": "traphase-124004",
+          "title": "Chat: About Arachne",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "You want to choose the \"right\" fate? That sounds so boring. Why bother?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0033",
+              "lineId": "traphase-124004"
+            },
+            {
+              "awakenerId": "awakener-0056",
+              "lineId": "traphase-123996"
+            }
+          ]
+        },
+        {
+          "id": "traphase-124009",
+          "title": "Chat: About Xu",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Behold! This is everyone's favorite... SHINING☆TORNADO!"
+        },
+        {
+          "id": "traphase-140526",
+          "title": "Chat: About Saya",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Huh, did you just say something? Whatever. Shining! Tornado!!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0057",
+              "lineId": "traphase-140523"
+            },
+            {
+              "awakenerId": "awakener-0033",
+              "lineId": "traphase-140526"
+            }
+          ]
+        }
+      ]
+    }
   }
 }

@@ -91,6 +91,349 @@
         "unlockCondition": "Affinity Level 9",
         "content": "Beheading death's cold embrace, he survived and transformed. The glitter on his blade fades. The mask of apostle conceals his savage expression.\n\nHe did revere instinctively when that miracle manifested. But no god could capture his fear, and no cult could earn his faith.\n\nA giant should not yield to others. A warrior should not lower his head.\n\nHis past already wreathed in dust, his war still longing for final triumph. The desire for conquest run through his veins, etching into bones like a sigil bearing the bestowed power. Perhaps, one day, death will end his dominion. Perhaps, one day, he will rise to the sole supremacy."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-5399",
+          "title": "Awaken",
+          "content": "Remember my name, Goliath. This name is destined to trample upon humanity's insignificant history."
+        },
+        {
+          "id": "voice-5065",
+          "title": "Upgrade: I",
+          "content": "Interesting... Aren't you afraid I'll tear you into fragments and feed you to the fish once I gain power?"
+        },
+        {
+          "id": "voice-5067",
+          "title": "Upgrade: II",
+          "content": "Time to give this a try. Hmph. How about cutting the throat of a few weaklings first?"
+        },
+        {
+          "id": "voice-5066",
+          "title": "Upgrade: III",
+          "content": "You do work hard to be a Keeper worthy of me, I see."
+        },
+        {
+          "id": "voice-6532",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "Very well... You have a keen eye for recognizing capable people."
+        },
+        {
+          "id": "voice-6700",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "Don't get carried away. Sometimes, the line between the noble and the lowly is but a single step."
+        },
+        {
+          "id": "voice-6683",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "Not bad. One step closer to tearing off that hypocrite woman's veil."
+        },
+        {
+          "id": "voice-6682",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "I'm regaining my strength... Next, I'll claim the dominion that is rightfully mine!"
+        },
+        {
+          "id": "voice-6260",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "The reason to be stronger? In my tribe, the weak are stripped bare, their heads shorn, and subjected to the most vile disgrace imaginable—the cost of weakness is not one that everyone can bear."
+        },
+        {
+          "id": "voice-6680",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "This moment has finally arrived, after thousands of years of waiting... I am the Philistines' one and only ruler!"
+        },
+        {
+          "id": "voice-5178",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "Companions? Hmph... I don't need any. I won't be weighed down by the same burden twice."
+        },
+        {
+          "id": "voice-5179",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "I must remind you that our cooperation hinges entirely on your power. Should your power wane, this contract will immediately cease, and I will sever your head without any hesitation."
+        },
+        {
+          "id": "voice-5180",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "I see the light in your eyes. That desire, that ambition... it burns. Admit it, mortal! We're the same kind."
+        },
+        {
+          "id": "voice-5181",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "Do you know the Albatross? They bravely confront the storms, but once banished to the ground, surrounded by mockery, those giant, drooping wings ironically become a pathetic hindrance. Anyway, this story means nothing... It just came to mind as I feel very relaxed to be with you—just casual chat."
+        },
+        {
+          "id": "voice-5182",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "Perhaps the times have truly changed. Nowadays, even the weak can surmount the reefs, command the waves, and become the king of the sky. Mortal, I await the day you rewrite history. It will be my honor to become the mighty blade in your hand!"
+        },
+        {
+          "id": "voice-6022",
+          "title": "Chat: Touch",
+          "content": "Tremble before these muscles... They are always ready to sever your head."
+        },
+        {
+          "id": "voice-5121",
+          "title": "Chat: About Murphy",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Murphy\"",
+          "content": "Oh, our puppet princess is weeping again. Is the milk bottle not fitting, or is the lullaby not soothing enough?"
+        },
+        {
+          "id": "voice-5629",
+          "title": "Chat: About Miryam",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Miryam\"",
+          "content": "A woman who would sail across the ocean alone isn't always a divine being. She's just as likely mad. I mistook Miryam for a goddess, and that was a stupid mistake."
+        },
+        {
+          "id": "voice-6329",
+          "title": "Chat: About Dissolution",
+          "content": "Have you ever had D-Slime forced into your veins? The black goo coils around your heart like a viper, and then... boom! Your body explodes into a warm, pulpy mess. Disgusting, but effective."
+        },
+        {
+          "id": "voice-6330",
+          "title": "Chat: About Mythag",
+          "content": "Hmph, a haven for the weak to huddle together."
+        },
+        {
+          "id": "voice-5172",
+          "title": "Chat: What I Like",
+          "content": "I love grilled octopus, boiled octopus, fried octopus... Some say I'm committing blasphemy. Ha, my apologies, but octopus is simply too delicious, hahaha!"
+        },
+        {
+          "id": "voice-6196",
+          "title": "Chat: What I Hate",
+          "content": "Gods? Only fools would entrust their lives to such intangible beings. Instead of betting your life on the so-called gods, you'd be better off focusing on how to become stronger."
+        },
+        {
+          "id": "voice-5470",
+          "title": "Chat: About the Keeper",
+          "content": "With such a frail body, it's too much to ask you to be my companion. You are simply too weak; you must intensify your training. Come, I'll take you to the academy's sports club and open your eyes."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-5046",
+          "title": "Investigation Begins",
+          "content": "The dice is cast. Now, finish this swiftly!"
+        },
+        {
+          "id": "voice-5524",
+          "title": "Investigation Success",
+          "content": "Well done. Time to celebrate the victory with a barrel of rum!"
+        },
+        {
+          "id": "voice-5842",
+          "title": "Investigation Halted",
+          "content": "The taste of being exiled and cast adrift at sea... Once was enough."
+        },
+        {
+          "id": "voice-5863",
+          "title": "Strike: I",
+          "content": "Foolish."
+        },
+        {
+          "id": "voice-5785",
+          "title": "Defense: I",
+          "content": "Too weak."
+        },
+        {
+          "id": "voice-5997",
+          "title": "Hit: I",
+          "content": "Hmph."
+        },
+        {
+          "id": "voice-6000",
+          "title": "Hit: II",
+          "content": "That's all?"
+        },
+        {
+          "id": "voice-5999",
+          "title": "Hit: III",
+          "content": "(Groan)"
+        },
+        {
+          "id": "voice-5093",
+          "title": "Hit: IV",
+          "content": "(Grumble)"
+        },
+        {
+          "id": "voice-6509",
+          "title": "Skill: I",
+          "content": "Hahaha!"
+        },
+        {
+          "id": "voice-6070",
+          "title": "Skill: II",
+          "content": "Taste my endless power!"
+        },
+        {
+          "id": "voice-6255",
+          "title": "Special Skill: I",
+          "content": "Absolute command."
+        },
+        {
+          "id": "voice-6413",
+          "title": "Rouse",
+          "content": "The raging tide of vengeance never ceases!"
+        },
+        {
+          "id": "voice-5817",
+          "title": "Exalt",
+          "content": "Nothing compares to the power of a Giant!"
+        },
+        {
+          "id": "voice-57851",
+          "title": "Over-Exalt",
+          "content": "Behold! This is the power the Philistines rely on!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-99879",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Prepare to face the might of the giant!"
+        },
+        {
+          "id": "traphase-99991",
+          "title": "Chat: About Lotan",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Tsk, it's that mad woman again...",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0031",
+              "lineId": "traphase-100031"
+            },
+            {
+              "awakenerId": "awakener-0021",
+              "lineId": "traphase-99991"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100101",
+          "title": "Chat: About Murphy",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Eating nothing but those sticky sweets isn't nutritious enough—how are you supposed to build strong muscles? Eat more meat!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0021",
+              "lineId": "traphase-100101"
+            },
+            {
+              "awakenerId": "awakener-0034",
+              "lineId": "traphase-99780"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100164",
+          "title": "Chat: About Miryam",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Your Holiness! Give the word, and I'll immediately hold back eighty percent of my strength, just for you.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0021",
+              "lineId": "traphase-100164"
+            },
+            {
+              "awakenerId": "awakener-0032",
+              "lineId": "traphase-100137"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100072",
+          "title": "Chat: About Caecus",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Of course not, kid. Unfortunately, strength is sometimes determined by birth.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0006",
+              "lineId": "traphase-99990"
+            },
+            {
+              "awakenerId": "awakener-0021",
+              "lineId": "traphase-100072"
+            }
+          ]
+        },
+        {
+          "id": "traphase-120269",
+          "title": "Chat: About Murphy: Fauxborn",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Foolish little girl, absolute strength should always be firmly in your own hands.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0021",
+              "lineId": "traphase-120269"
+            },
+            {
+              "awakenerId": "awakener-0035",
+              "lineId": "traphase-120267"
+            }
+          ]
+        },
+        {
+          "id": "traphase-131820",
+          "title": "Chat: About Vortice",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Huh, here again... Idiot...",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0055",
+              "lineId": "traphase-131810"
+            },
+            {
+              "awakenerId": "awakener-0021",
+              "lineId": "traphase-131820"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100200",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "So? I'll just beat up all of them, hmm?"
+        },
+        {
+          "id": "traphase-100163",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Don't test my patience."
+        },
+        {
+          "id": "traphase-99827",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "This is the power capable of conquering the world!"
+        },
+        {
+          "id": "traphase-99759",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Tsk, missed with that one..."
+        },
+        {
+          "id": "traphase-99758",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "This failure... is temporary..."
+        }
+      ]
+    }
   }
 }

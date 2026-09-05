@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0010",
   "ownerAwakenerName": "Clementine",
   "lineupToken": "x0",
-  "descriptionTemplate": "Team Unique: Increases the wielder's Keyflare Regen by [StateArg1]%. At the start of the first battle, apply 1 stack of {Weakness} and {Vulnerability} to all enemies.",
+  "descriptionTemplate": "Team Unique: Increases the wielder's Keyflare Regen by [StateArg1]%. At the start of the first battle, inflict 1 stack of {Weakness} and {Vulnerable} on all enemies.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

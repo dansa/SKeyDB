@@ -77,7 +77,7 @@
         "kind": "story",
         "title": "Story: II",
         "unlockCondition": "Affinity Level 5",
-        "content": "After being awakened, Murphy: Fauxborn frequently has a dream of escaping. In the end of that dream, she holds her \"Mother's\" dagger and plunges it through her own chest under the brilliant moonlight. The dream then abruptly ends, and the moment she opens her eyes, they meet the gaze of the ivory statue at the foot of her bed.\n\nIn Mythag, Murphy: Fauxborn acts like a younger version of her \"Nurturer.\" She wears white mourning clothes year-round, rarely laughs or speaks lightly with others. Only when the conversation turns to her preference for sweets does a crack appear in her flawless, saintly facade.\n\n<Italic:(Archivist's Annotation: I hope next time she wishes to enjoy cupcakes, she will ask for it immediately, rather than leaving a note requesting delivery to her room after everyone's afternoon tea has ended.)\n\nShe maintains a distance from any Awakener with relation to the Seafarers. Unlike her other-world counterpart, she never deliberately avoids contact with them; however, the frozen, emotionless expression and thinly veiled hostility in her sarcasm subconsciously drive away those who don't want a confrontation."
+        "content": "After being awakened, Murphy: Fauxborn frequently has a dream of escaping. In the end of that dream, she holds her \"Mother's\" dagger and plunges it through her own chest under the brilliant moonlight. The dream then abruptly ends, and the moment she opens her eyes, they meet the gaze of the ivory statue at the foot of her bed.\n\nIn Mythag, Murphy: Fauxborn acts like a younger version of her \"Nurturer.\" She wears white mourning clothes year-round, rarely laughs or speaks lightly with others. Only when the conversation turns to her preference for sweets does a crack appear in her flawless, saintly facade.\n\n<Italic:(Archivist's Annotation: I hope next time she wishes to enjoy cupcakes, she will ask for it immediately, rather than leaving a note requesting delivery to her room after everyone's afternoon tea has ended.)>\n\nShe maintains a distance from any Awakener with relation to the Seafarers. Unlike her other-world counterpart, she never deliberately avoids contact with them; however, the frozen, emotionless expression and thinly veiled hostility in her sarcasm subconsciously drive away those who don't want a confrontation."
       },
       {
         "kind": "story",
@@ -91,6 +91,344 @@
         "unlockCondition": "Affinity Level 9",
         "content": "\"I am the Daughter of God, and simultaneously the Bearer of God.\"\n\nThis is how she confirms her authority. Only by maintaining this universally admired dignity can she preserve a precarious balance. So what if it's hypocrisy? So what if it's a delusion? Who isn't living in the \"present\" moment?\n\nMurphy holds the swaddling cloth, which conceals the grotesque Divine Fetus, and acts as the God's proxy, speaking one lie after another:\n\"He has descended.\" \"The Divine Realm will rise.\" \"Please wait for the next moment of Stellar Alignment.\"\n\nRather than letting others' hypocrisy fabricate an illusion, she would rather decorate this prison with her own hands to a likeness she finds acceptable. As long as the \"Mother,\" \"Companions,\" and \"Servants\" she desires are still by her side, whether it is superficial deference or insincere mystification, she accepts it and finds it sweet.\n\n\"My name is Murphy, the Princess who bore the God. Regarding Lemuria, regarding the Seafarers' long-cherished wish... you need not inquire. I have my own arrangements.\""
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-5859",
+          "title": "Awaken",
+          "content": "You presumptuous wretch, why do you insist on awakening me?"
+        },
+        {
+          "id": "voice-5314",
+          "title": "Upgrade: I",
+          "content": "He is now... within my womb..."
+        },
+        {
+          "id": "voice-5312",
+          "title": "Upgrade: II",
+          "content": "Is this the tribute you offer Him?"
+        },
+        {
+          "id": "voice-5313",
+          "title": "Upgrade: III",
+          "content": "You truly think this is enough to change the future?"
+        },
+        {
+          "id": "voice-5281",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "Don't forget to reserve the venue. Don't tell me it's even smaller than that one in Elworth?"
+        },
+        {
+          "id": "voice-5476",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "Carefully inscribed runes, piously carved idols, repeatedly refined forbidden elixirs... not a single one can be missing."
+        },
+        {
+          "id": "voice-5477",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "The Throne must be built from ancient blue stone mined from the ocean's abyss, and the altar should be coated with the blood of human sacrifices... Now go prepare!"
+        },
+        {
+          "id": "voice-5478",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "Bring them all here! They ought to be trembling and kneeling to welcome His advent."
+        },
+        {
+          "id": "voice-5479",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "I shall travel to that abyssal ruin and bathe in the seawater of His birth..."
+        },
+        {
+          "id": "voice-5480",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "Finally. Welcome to the ritual where we shall witness His divine birth... What? You say His demise is also destined? ...No! That can't be... I have already made such great sacrifices..."
+        },
+        {
+          "id": "voice-5945",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "Stay away. Do you wish to become my plaything? Or perhaps a sacrifice for the Divine Birth?"
+        },
+        {
+          "id": "voice-5676",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "Your courage is truly commendable. Look at these tentacles—do you not fear the madness they carry?"
+        },
+        {
+          "id": "voice-5946",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "I bestow upon you the honor of being witness. You shall behold the glorious moment that defies mortal ethics."
+        },
+        {
+          "id": "voice-5949",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "Seeing how deferential you are, I shall grant you an answer. In the beginning, I was indeed reluctant. But I've come to understand: I am only living this extravagant life because of Him. Death is never the end. He will in turn rebirth me, and we shall gain eternal life through this morbid cycle..."
+        },
+        {
+          "id": "voice-5948",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "Keeper, by the authority of the Divine Mother, I secure your place beside the Throne. You will witness the era reborn after destruction—this is the promise of the Divine Mother. Now rejoice! Rejoice with gratitude!"
+        },
+        {
+          "id": "voice-5767",
+          "title": "Chat: Touch",
+          "content": "If you are doing this to feel His existence, I shall temporarily pardon your insolence."
+        },
+        {
+          "id": "voice-6505",
+          "title": "Chat: About \"Murphy\"",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Murphy\"",
+          "content": "Yes, of course I know her. She is my other self, another possibility. But why does she resist? If she accepts her fate as the chosen one, wouldn't she get anything she wished at her fingertips?"
+        },
+        {
+          "id": "voice-5727",
+          "title": "Chat: About Miryam",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Miryam\"",
+          "content": "She is a pathetic woman, destined to be tormented by fate. I pity her, in a way, for on the occasion of His true birth, I shall grant her the mercy of death."
+        },
+        {
+          "id": "voice-6369",
+          "title": "Chat: About Tulu",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Tulu\"",
+          "content": "Is that boy the fragment of Him? Not bad. He certainly has a regal bearing."
+        },
+        {
+          "id": "voice-5492",
+          "title": "Chat: About Dissolution",
+          "content": "His advent will surely end the suffering caused by this dark liquid of death, won't it?"
+        },
+        {
+          "id": "voice-4987",
+          "title": "Chat: About Mythag",
+          "content": "Huh, a congregation of ants... No, not even ants—the likes of you are merely bread crumbs, providing nourishment for His rebirth."
+        },
+        {
+          "id": "voice-4918",
+          "title": "Chat: What I Like",
+          "content": "What I like? My baby, the Divine Fetus that earned my prestige, of course. You think it is unlike me to say that?"
+        },
+        {
+          "id": "voice-5805",
+          "title": "Chat: What I Hate",
+          "content": "Do not make me remember... the days I was imprisoned in Elworth..."
+        },
+        {
+          "id": "voice-5943",
+          "title": "Chat: About the Keeper",
+          "content": "I am His Daughter, and also His Mother. As for you, in His presence, you are merely an insignificant insect."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-6154",
+          "title": "Investigation Begins",
+          "content": "Hmph. Insolent crudes."
+        },
+        {
+          "id": "voice-4944",
+          "title": "Investigation Success",
+          "content": "Don't interrupt my rest with such trifles again."
+        },
+        {
+          "id": "voice-6620",
+          "title": "Investigation Halted",
+          "content": "Once He is born... I won't have to endure such humiliation anymore..."
+        },
+        {
+          "id": "voice-5418",
+          "title": "Strike: I",
+          "content": "Foolish!"
+        },
+        {
+          "id": "voice-5415",
+          "title": "Strike: I",
+          "content": "Get lost!"
+        },
+        {
+          "id": "voice-5265",
+          "title": "Defense: I",
+          "content": "Get off me!"
+        },
+        {
+          "id": "voice-5266",
+          "title": "Defense: II",
+          "content": "Insolence!"
+        },
+        {
+          "id": "voice-6183",
+          "title": "Hit: I",
+          "content": "Argh!"
+        },
+        {
+          "id": "voice-6181",
+          "title": "Hit: II",
+          "content": "Hmph!"
+        },
+        {
+          "id": "voice-6111",
+          "title": "Skill: I",
+          "content": "Accept your destiny."
+        },
+        {
+          "id": "voice-6110",
+          "title": "Skill: I",
+          "content": "Don't think you can get close to me."
+        },
+        {
+          "id": "voice-5963",
+          "title": "Skill: I",
+          "content": "Behold what I have been bestowed—"
+        },
+        {
+          "id": "voice-5962",
+          "title": "Skill: IV",
+          "content": "Abyss Hymns!"
+        },
+        {
+          "id": "voice-5860",
+          "title": "Rouse",
+          "content": "I shall become the Divine Mother!"
+        },
+        {
+          "id": "voice-6689",
+          "title": "Exalt",
+          "content": "Sacrifice! Sacrifice it all... to me!"
+        },
+        {
+          "id": "voice-122115",
+          "title": "Over-Exaltation",
+          "content": "Illusion, Inversion... These are the instruments of Fate!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-120265",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "What triviality makes you dare interrupt the Divine Mother's rest? Present it now."
+        },
+        {
+          "id": "traphase-120263",
+          "title": "Chat: About Murphy",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Weak and naive... Just thinking about how foolish I was in the past makes me laugh.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0035",
+              "lineId": "traphase-120263"
+            },
+            {
+              "awakenerId": "awakener-0034",
+              "lineId": "traphase-120285"
+            }
+          ]
+        },
+        {
+          "id": "traphase-120245",
+          "title": "Chat: About Miryam",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Good. Now why don't you hurry up and hand the victory over to me?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0032",
+              "lineId": "traphase-120272"
+            },
+            {
+              "awakenerId": "awakener-0035",
+              "lineId": "traphase-120245"
+            }
+          ]
+        },
+        {
+          "id": "traphase-120267",
+          "title": "Chat: About Goliath",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Why would a mediocre talent, who is beneath Miryam, dare to offend the authority of me?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0021",
+              "lineId": "traphase-120269"
+            },
+            {
+              "awakenerId": "awakener-0035",
+              "lineId": "traphase-120267"
+            }
+          ]
+        },
+        {
+          "id": "traphase-120282",
+          "title": "Chat: About Pickman",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "What is this? Do you plan to you present me with the supreme scroll of a God's Divine Birth?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0035",
+              "lineId": "traphase-120282"
+            },
+            {
+              "awakenerId": "awakener-0040",
+              "lineId": "traphase-120299"
+            }
+          ]
+        },
+        {
+          "id": "traphase-120274",
+          "title": "Chat: About Castor",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I was once as stubbornly foolish as you. Why do you refuse the great, glorious fate of divine service?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0035",
+              "lineId": "traphase-120274"
+            },
+            {
+              "awakenerId": "awakener-0008",
+              "lineId": "traphase-120252"
+            }
+          ]
+        },
+        {
+          "id": "traphase-120264",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "When exactly will He be born...?"
+        },
+        {
+          "id": "traphase-120250",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "A bunch of ants. Be quick. I need to go back and rest."
+        },
+        {
+          "id": "traphase-120281",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Hmph, disrespectful one."
+        },
+        {
+          "id": "traphase-120273",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "No, my fate shouldn't be this way... Something must have gone wrong!"
+        },
+        {
+          "id": "traphase-120266",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Is this... my fate?"
+        }
+      ]
+    }
   }
 }

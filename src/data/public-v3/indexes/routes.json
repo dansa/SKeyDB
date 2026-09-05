@@ -1248,6 +1248,12 @@
         "canonicalSlug": "alien-heart",
         "canonicalPath": "/database/relics/alien-heart"
       },
+      "ancient-anchor": {
+        "kind": "relic",
+        "id": "relic-0320",
+        "canonicalSlug": "ancient-anchor",
+        "canonicalPath": "/database/relics/ancient-anchor"
+      },
       "antique-puzzle": {
         "kind": "relic",
         "id": "relic-0063",
@@ -1313,6 +1319,12 @@
         "id": "relic-0077",
         "canonicalSlug": "black-star-ember",
         "canonicalPath": "/database/relics/black-star-ember"
+      },
+      "blackened-flame": {
+        "kind": "relic",
+        "id": "relic-0324",
+        "canonicalSlug": "blackened-flame",
+        "canonicalPath": "/database/relics/blackened-flame"
       },
       "blessed-blood": {
         "kind": "relic",
@@ -1679,6 +1691,12 @@
         "id": "relic-0315",
         "canonicalSlug": "crystal-globe",
         "canonicalPath": "/database/relics/crystal-globe"
+      },
+      "cursed-feather": {
+        "kind": "relic",
+        "id": "relic-0325",
+        "canonicalSlug": "cursed-feather",
+        "canonicalPath": "/database/relics/cursed-feather"
       },
       "cursed-stele": {
         "kind": "relic",
@@ -2286,6 +2304,12 @@
         "canonicalSlug": "guidance-of-erasmus",
         "canonicalPath": "/database/relics/guidance-of-erasmus"
       },
+      "guild-medal": {
+        "kind": "relic",
+        "id": "relic-0323",
+        "canonicalSlug": "guild-medal",
+        "canonicalPath": "/database/relics/guild-medal"
+      },
       "harfords-elixir": {
         "kind": "relic",
         "id": "relic-0178",
@@ -2333,6 +2357,12 @@
         "id": "relic-0185",
         "canonicalSlug": "hyperstring-pocketwatch",
         "canonicalPath": "/database/relics/hyperstring-pocketwatch"
+      },
+      "immortal-flesh": {
+        "kind": "relic",
+        "id": "relic-0319",
+        "canonicalSlug": "immortal-flesh",
+        "canonicalPath": "/database/relics/immortal-flesh"
       },
       "in-twilight": {
         "kind": "relic",
@@ -2544,6 +2574,12 @@
         "canonicalSlug": "neurotoxin",
         "canonicalPath": "/database/relics/neurotoxin"
       },
+      "nightmare-lantern": {
+        "kind": "relic",
+        "id": "relic-0322",
+        "canonicalSlug": "nightmare-lantern",
+        "canonicalPath": "/database/relics/nightmare-lantern"
+      },
       "nightmare-manifest": {
         "kind": "relic",
         "id": "relic-0226",
@@ -2585,6 +2621,12 @@
         "id": "relic-0232",
         "canonicalSlug": "our-home",
         "canonicalPath": "/database/relics/our-home"
+      },
+      "painkillers": {
+        "kind": "relic",
+        "id": "relic-0318",
+        "canonicalSlug": "painkillers",
+        "canonicalPath": "/database/relics/painkillers"
       },
       "pallid-egg": {
         "kind": "relic",
@@ -2681,6 +2723,12 @@
         "id": "relic-0307",
         "canonicalSlug": "ration-pack",
         "canonicalPath": "/database/relics/ration-pack"
+      },
+      "refined-prosthesis": {
+        "kind": "relic",
+        "id": "relic-0321",
+        "canonicalSlug": "refined-prosthesis",
+        "canonicalPath": "/database/relics/refined-prosthesis"
       },
       "relic-of-the-past": {
         "kind": "relic",
@@ -2993,6 +3041,12 @@
         "id": "relic-0303",
         "canonicalSlug": "winners-cup",
         "canonicalPath": "/database/relics/winners-cup"
+      },
+      "withered-pupil": {
+        "kind": "relic",
+        "id": "relic-0317",
+        "canonicalSlug": "withered-pupil",
+        "canonicalPath": "/database/relics/withered-pupil"
       },
       "wriggling-cord": {
         "kind": "relic",
@@ -6681,6 +6735,12 @@
         "id": "derived.global.embryo",
         "canonicalSlug": "embryo",
         "canonicalPath": "/database/derived-skills/embryo"
+      },
+      "endless-combustion": {
+        "kind": "derivedSkill",
+        "id": "derived.global.endless-combustion",
+        "canonicalSlug": "endless-combustion",
+        "canonicalPath": "/database/derived-skills/endless-combustion"
       },
       "erica/retract-mecha": {
         "kind": "derivedSkill",
@@ -10659,6 +10719,12 @@
         "id": "overlay.global.barrier",
         "canonicalSlug": "barrier",
         "canonicalPath": "/database/overlays/barrier"
+      },
+      "blackened-flame": {
+        "kind": "overlay",
+        "id": "overlay.global.blackened-flame",
+        "canonicalSlug": "blackened-flame",
+        "canonicalPath": "/database/overlays/blackened-flame"
       },
       "bleed": {
         "kind": "overlay",

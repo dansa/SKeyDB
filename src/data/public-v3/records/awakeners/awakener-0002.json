@@ -69,7 +69,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "@3Built in the Second Samnite period, decorated in the exquisite Third Pompeian and Lemovician styles, this is a typical residence of the wealthy merchant class during the Roman era. Featuring two courtyards and four triclinia, @1@1\n.....all reduced to ashes in the famous slave uprising... According to contemporaneous anecdotes, a massive pale spider was sealed beneath the ruins, referred to by locals as the \"God of the Maze,\" and they firmly believe that those who tread upon the spider's territory will become disoriented among countless passages and entrances, ultimately becoming hosts for its offspring.\n\nAn interesting horror story, but it will not deter us @2@1\n—Excerpt from \"@2Archaeological Notes on the Ruins\"\n\n.....The situation is dire, Sir Goodman. Moretti and his party have been missing for several days now. We all understand this has nothing to do with the legend of the \"God of the Maze,\" yet it is indeed unsettling. We have decided to end the investigation early and return to Durham.\n\nAdditionally, the archaeological team discovered a cluster of Silver-like objects in the ruins, which may be related to the @1 you mentioned earlier...\n\n—Excerpt from Clarkson Johnson's \"A Letter to Goodman\""
       },
       {
@@ -90,6 +90,343 @@
         "unlockCondition": "Affinity Level 9",
         "content": "It was... a dazzling daylight and heat wave, an ecstasy of indulgent revelry.\n\nCheers roared like waves, the warriors bathed in blood and glory in the arena.\n\nThe girl returned home reluctantly, still wielding her whip, mercilessly striking the dazed gladiator in front of her.\n\nThis was her battlefield.\n\nThere were no thrilling duels, no flowers or applause. The tall warriors were the gentlest reindeer; all her curses and fury dissolved into the dark void, leaving not even a whisper of wind."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-6232",
+          "title": "Awaken",
+          "content": "It's Agrippa. I have nothing to say to you—unless you dare to volunteer as my gladiator."
+        },
+        {
+          "id": "voice-5315",
+          "title": "Upgrade: I",
+          "content": "Heh. You're slightly smarter than I thought."
+        },
+        {
+          "id": "voice-5316",
+          "title": "Upgrade: II",
+          "content": "As my slave, paying tribute to your master is only natural."
+        },
+        {
+          "id": "voice-5317",
+          "title": "Upgrade: III",
+          "content": "You look quite amusing when you try to please me."
+        },
+        {
+          "id": "voice-6405",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "It tickles! Just like when the maid uses a feather to tickle the soles of my feet. You didn't do that on purpose, did you?!"
+        },
+        {
+          "id": "voice-6223",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "Hmph... Not bad. Give me more. I need to feed these little spiderlings."
+        },
+        {
+          "id": "voice-6221",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "I have a very strong urge to watch a duel... It would be even better if it was in a maze!"
+        },
+        {
+          "id": "voice-6222",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "Contract... Yes, I want to sign a contract with you; an everlasting master-servant contract..."
+        },
+        {
+          "id": "voice-6219",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "I hear someone calling my name: Agrippa, Agrippa, Agrippina..."
+        },
+        {
+          "id": "voice-6220",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "I saw... It climbing up from the darkness of the well; countless eyes appearing on its flesh egg. They stared at me, calling me... Maze God!"
+        },
+        {
+          "id": "voice-5608",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "Unbelievable. My home has perished like this... That was the great Rome! You must have heard of it!"
+        },
+        {
+          "id": "voice-5607",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "I was an hour late for this meeting—and I blame those insipid do-gooders who abolished slavery! Now there's no one to comb my hair for me!"
+        },
+        {
+          "id": "voice-5606",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "If I were you, I'd lock all the Awakeners in cages! Once mad dogs break free, they always bite their master first!"
+        },
+        {
+          "id": "voice-5612",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "Don't ask me that again! I was careless, let the gladiator escape, and got my entire family killed! We were reduced to ashes, like the Roman Empire!"
+        },
+        {
+          "id": "voice-5611",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "Keep your pity to yourself! I despise it, and I absolutely don't need anyone's sympathy! If you keep looking at me like that, I simply won't be able to resist tormenting you. You don't want things to spiral out of control, do you? So, be a good slave, listen, and obediently become my gladiator..."
+        },
+        {
+          "id": "voice-6507",
+          "title": "Chat: Touch",
+          "content": "Shit! What are you doing?! Believe it or not, I'll chop your hand off!"
+        },
+        {
+          "id": "voice-4965",
+          "title": "Chat: About the Maze",
+          "content": "If you're bored, why not come \"keep me company\" in the maze? After all, your hopeless life is no different from this endless labyrinth!"
+        },
+        {
+          "id": "voice-6757",
+          "title": "Chat: About Uvhash",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Uvhash\"",
+          "content": "Uvhash... he's special. Did you think my family's prosperity came easily? It's all thanks to him killing like a mad dog in the arena. He was our biggest cash cow."
+        },
+        {
+          "id": "voice-5326",
+          "title": "Chat: About Wanda",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Wanda\"",
+          "content": "I quite like that woman. We have a... a... right, a common language!"
+        },
+        {
+          "id": "voice-6122",
+          "title": "Chat: About Dissolution",
+          "content": "Dissolution...? Of course, I know! It just means the slave's leash is broken. What's so hard about that?"
+        },
+        {
+          "id": "voice-5297",
+          "title": "Chat: About Mythag",
+          "content": "What's wrong with playing bridge in the classroom? There's a table, people are here, and I've brought the cards! That means it's \"Game On!\""
+        },
+        {
+          "id": "voice-5773",
+          "title": "Chat: What I Like",
+          "content": "The bathhouse is a great place to pass the time! The food is delicious, and they offer muscle relaxation services! Are you tempted? Then build one at this school right away!"
+        },
+        {
+          "id": "voice-6448",
+          "title": "Chat: What I Hate",
+          "content": "Tips, of course, tips! Look at those utterly clueless waiters in the school cafeteria! They don't even bother to prepare the lounge chairs in advance, yet they still expect extra pay? Dream on!"
+        },
+        {
+          "id": "voice-6535",
+          "title": "Chat: About the Keeper",
+          "content": "Weak muscles, a haggard face—only those dead-like eyes hold some value. They're perfect for feeding spiders!"
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-5013",
+          "title": "Investigation Begins",
+          "content": "Is this a provocation? I'm ready at any time!"
+        },
+        {
+          "id": "voice-5049",
+          "title": "Investigation Success",
+          "content": "What should we do with these failures?"
+        },
+        {
+          "id": "voice-4911",
+          "title": "Investigation Halted",
+          "content": "Damn it! Next time, I'll throw their corpses to the spiders for dinner!"
+        },
+        {
+          "id": "voice-6107",
+          "title": "Strike: I",
+          "content": "How dare you look elsewhere!"
+        },
+        {
+          "id": "voice-6108",
+          "title": "Strike: II",
+          "content": "Focus!"
+        },
+        {
+          "id": "voice-6363",
+          "title": "Defense: I",
+          "content": "Tsk, annoying!"
+        },
+        {
+          "id": "voice-6362",
+          "title": "Defense: II",
+          "content": "Disgusting!"
+        },
+        {
+          "id": "voice-5074",
+          "title": "Hit: I",
+          "content": "(Cry of pain)"
+        },
+        {
+          "id": "voice-5075",
+          "title": "Hit: II",
+          "content": "Ouch! Ouch!"
+        },
+        {
+          "id": "voice-5076",
+          "title": "Hit: III",
+          "content": "(Grunt of pain)"
+        },
+        {
+          "id": "voice-5077",
+          "title": "Hit: IV",
+          "content": "(Annoyed grunt)"
+        },
+        {
+          "id": "voice-5435",
+          "title": "Skill: I",
+          "content": "Do not come near me!"
+        },
+        {
+          "id": "voice-5592",
+          "title": "Skill: II",
+          "content": "Torture them slowly."
+        },
+        {
+          "id": "voice-6275",
+          "title": "Rouse",
+          "content": "Come on, take a deep breath—"
+        },
+        {
+          "id": "voice-6092",
+          "title": "Exalt",
+          "content": "This is a blessing from the Great One!"
+        },
+        {
+          "id": "voice-57841",
+          "title": "Over-Exalt",
+          "content": "The God of the Underground Maze pronounces judgment upon all of you!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-99969",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "The great Lady of the Maze has arrived. Tremble before me, you slaves!"
+        },
+        {
+          "id": "traphase-100001",
+          "title": "Chat: About Karen",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "You're a professional slave, right? Go clean the entire maze for me!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0002",
+              "lineId": "traphase-100001"
+            },
+            {
+              "awakenerId": "awakener-0026",
+              "lineId": "traphase-99824"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100022",
+          "title": "Chat: About Aurita",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Hmph, these offsprings are not my friends. They are all slaves prostrating before the great Lady of Labyrinths!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0005",
+              "lineId": "traphase-99930"
+            },
+            {
+              "awakenerId": "awakener-0002",
+              "lineId": "traphase-100022"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100160",
+          "title": "Chat: About Leigh",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Of course... What? Three hours? That's way too exhausting!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0028",
+              "lineId": "traphase-100136"
+            },
+            {
+              "awakenerId": "awakener-0002",
+              "lineId": "traphase-100160"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99933",
+          "title": "Chat: About Wanda",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Hey, teach me. How can I acquire so many slaves?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0002",
+              "lineId": "traphase-99933"
+            },
+            {
+              "awakenerId": "awakener-0052",
+              "lineId": "traphase-100036"
+            }
+          ]
+        },
+        {
+          "id": "traphase-150097",
+          "title": "Chat: About Caraboo",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Hey!! What's that smug little look supposed to mean?! Why, you—%...#¥!!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0060",
+              "lineId": "traphase-150099"
+            },
+            {
+              "awakenerId": "awakener-0002",
+              "lineId": "traphase-150097"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100165",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Quiet, this simple task... why don't we just have all the Gladiators join in at once!"
+        },
+        {
+          "id": "traphase-99950",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Hey, hurry up and fight! How can the gladiatorial match come to a halt!"
+        },
+        {
+          "id": "traphase-100005",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Prepare to face the judgment of the Ashen Mistress!"
+        },
+        {
+          "id": "traphase-99862",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Huh? Did I mess up again? Who came up with such a troublesome rule anyway! I'm not playing anymore!"
+        },
+        {
+          "id": "traphase-100070",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Damn it, I'm feeding all of you to my offsprings..."
+        }
+      ]
+    }
   }
 }

@@ -90,6 +90,349 @@
         "unlockCondition": "Affinity Level 9",
         "content": "Out on the boundless ocean, in the salty breeze, the ship gave her a family and friends beyond blood ties before the torrent swallowed everything. For the first time, she truly understood what loneliness was, and she never wanted to feel it again.\n\nYet for her best friend, her little family, she was willing to return to that pitch-black silence.\n\nAfter the darkness covered everything, she was reborn in a new form. Sure, this new life comes with inconveniences—she keeps forgetting how destructive her power is—but the chance to make more friends still fills her with pure joy.\n\nOf course, it would be even better if her best friend could remember the stories they once shared.\n\n\"Even better than better—super-duper better!\""
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-129695",
+          "title": "Awaken",
+          "content": "I! Vortice! Yahoo!"
+        },
+        {
+          "id": "voice-129679",
+          "title": "Upgrade: I",
+          "content": "Yahoo!"
+        },
+        {
+          "id": "voice-129694",
+          "title": "Upgrade: II",
+          "content": "Vortice! Strong!"
+        },
+        {
+          "id": "voice-129692",
+          "title": "Upgrade: III",
+          "content": "Vortice! Great!"
+        },
+        {
+          "id": "voice-129671",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "Ritual?! Bring me!"
+        },
+        {
+          "id": "voice-129662",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "So fun! Next time! More!"
+        },
+        {
+          "id": "voice-129688",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "Hurry, hurry!"
+        },
+        {
+          "id": "voice-129677",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "Find many, shiny!"
+        },
+        {
+          "id": "voice-129690",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "Whoosh whoosh~ Big wave up!"
+        },
+        {
+          "id": "voice-129672",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "Whirlpool! Strong! Good!"
+        },
+        {
+          "id": "voice-129657",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "No touch! You break!"
+        },
+        {
+          "id": "voice-129658",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "Shell, shiny! Pretty! Give you!"
+        },
+        {
+          "id": "voice-129653",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "Coalsie, I, eat, together? Together!"
+        },
+        {
+          "id": "voice-129686",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "Hug! Vortice! Like!"
+        },
+        {
+          "id": "voice-129689",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "Vortice! Coalsie! Together, always? Forever!"
+        },
+        {
+          "id": "voice-129663",
+          "title": "Chat: Touch",
+          "content": "Pat pat, good! Vortice, you, pat pat!"
+        },
+        {
+          "id": "voice-129664",
+          "title": "Chat: About the Crisis",
+          "content": "No, no! Coalsie, Vortice protect!"
+        },
+        {
+          "id": "voice-129691",
+          "title": "Chat: About Mythag",
+          "content": "Friends! Many! Like!"
+        },
+        {
+          "id": "voice-129683",
+          "title": "Chat: What I Like",
+          "content": "Nautilus, Nautila, Coalsie! Shinies!"
+        },
+        {
+          "id": "voice-129661",
+          "title": "Chat: What I Hate",
+          "content": "Hunt! Bad! Break! Vortice, hit them, break!"
+        },
+        {
+          "id": "voice-129687",
+          "title": "Chat: About the Keeper",
+          "content": "Coalsie, friend! Vortice, forever!"
+        },
+        {
+          "id": "voice-129693",
+          "title": "Chat: About Nautila",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Nautila\"",
+          "content": "Nautila, miss you... Eh? Nautila, Vortice, here, Vortice, HERE!"
+        },
+        {
+          "id": "voice-129676",
+          "title": "Chat: About Goliath",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Goliath\"",
+          "content": "FIGHT! ME!"
+        },
+        {
+          "id": "voice-129659",
+          "title": "Chat: About Doll",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Doll\"",
+          "content": "Cold, scary. Vortice, hide!"
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-129674",
+          "title": "Investigation Begins",
+          "content": "Go, go!"
+        },
+        {
+          "id": "voice-129660",
+          "title": "Investigation Success",
+          "content": "Hooray!"
+        },
+        {
+          "id": "voice-129665",
+          "title": "Investigation Halted",
+          "content": "Again? Again!"
+        },
+        {
+          "id": "voice-129668",
+          "title": "Strike: I",
+          "content": "Bang!"
+        },
+        {
+          "id": "voice-129667",
+          "title": "Strike: II",
+          "content": "Big wave coming!"
+        },
+        {
+          "id": "voice-129675",
+          "title": "Defense: I",
+          "content": "Whoosh whoosh~"
+        },
+        {
+          "id": "voice-129652",
+          "title": "Defense: II",
+          "content": "Gurgle gurgle~"
+        },
+        {
+          "id": "voice-129670",
+          "title": "Hit: I",
+          "content": "Eek!"
+        },
+        {
+          "id": "voice-129669",
+          "title": "Hit: II",
+          "content": "Ow!"
+        },
+        {
+          "id": "voice-129654",
+          "title": "Skill: I",
+          "content": "Vortice! Very strong!"
+        },
+        {
+          "id": "voice-129684",
+          "title": "Skill: II",
+          "content": "Vortice, load!"
+        },
+        {
+          "id": "voice-129685",
+          "title": "Skill: II",
+          "content": "Vortice, wash away!"
+        },
+        {
+          "id": "voice-130511",
+          "title": "Skill: II",
+          "content": "WHOOSH—"
+        },
+        {
+          "id": "voice-129673",
+          "title": "Special Skill: I",
+          "content": "Bang!"
+        },
+        {
+          "id": "voice-129666",
+          "title": "Rouse",
+          "content": "Hehe, Vortice, wanna play!"
+        },
+        {
+          "id": "voice-129682",
+          "title": "Exalt",
+          "content": "Gobble up! Yum yum!"
+        },
+        {
+          "id": "voice-129655",
+          "title": "Over-Exalt",
+          "content": "Abyss! Spiral! Gone, everything—all become whirlpool!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-131811",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Wahoo! Vortice is here!!"
+        },
+        {
+          "id": "traphase-131819",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Vortice! Fight! Fight!"
+        },
+        {
+          "id": "traphase-131815",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Hurry! Hurry!"
+        },
+        {
+          "id": "traphase-131812",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Spinny spinny! Into whirlpool!"
+        },
+        {
+          "id": "traphase-131813",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "No! NO!!"
+        },
+        {
+          "id": "traphase-131817",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "It hurts... Vortice, scared..."
+        },
+        {
+          "id": "traphase-131809",
+          "title": "Chat: About Nautila",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Nautilus, Nautila! Like! Friends!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0055",
+              "lineId": "traphase-131809"
+            },
+            {
+              "awakenerId": "awakener-0036",
+              "lineId": "traphase-131814"
+            }
+          ]
+        },
+        {
+          "id": "traphase-131810",
+          "title": "Chat: About Goliath",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Goliath! Fight! Play!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0055",
+              "lineId": "traphase-131810"
+            },
+            {
+              "awakenerId": "awakener-0021",
+              "lineId": "traphase-131820"
+            }
+          ]
+        },
+        {
+          "id": "traphase-131818",
+          "title": "Chat: About Lotan",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Whale, whale! Big wave coming!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0031",
+              "lineId": "traphase-131816"
+            },
+            {
+              "awakenerId": "awakener-0055",
+              "lineId": "traphase-131818"
+            }
+          ]
+        },
+        {
+          "id": "traphase-131808",
+          "title": "Chat: About Arachne",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Spiderweb... scary! Vortice, hide...",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0055",
+              "lineId": "traphase-131808"
+            },
+            {
+              "awakenerId": "awakener-0056",
+              "lineId": "traphase-135222"
+            }
+          ]
+        },
+        {
+          "id": "traphase-143462",
+          "title": "Chat: About Pontos",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Friendly! Familiar! Play with Vortice!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0055",
+              "lineId": "traphase-143462"
+            },
+            {
+              "awakenerId": "awakener-0058",
+              "lineId": "traphase-143461"
+            }
+          ]
+        }
+      ]
+    }
   }
 }

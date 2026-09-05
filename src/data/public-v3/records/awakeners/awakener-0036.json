@@ -69,7 +69,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "A.F. 3@2, a D-phenomenon occurred in coastal towns of the Agló Republic, spreading outward in a spiral from the port, affecting an area hundreds of meters wide and causing @1 deaths.\n\nInvestigations traced the phenomenon back to a fishing boat that set out on A.F. 3@2 @1 @1@1, catching a silver-patterned cod-like creature.\n\nThe creature's soft body ruptured when cut by a sharp tool, releasing fluid laden with shell fragments and other residues. Upon reaching the port, shell-like growths had appeared among the catch but were ignored until a fisherman perceived himself as a shell, twisting his body and ending up hospitalized. Only then was the event reported.\n\nMythag personnel later located the source of the phenomenon at @4 cannery, removed it, and secured Silver O-36.\n\n—<Italic:\"Awakening System Silver Acquisition Report: O-36\">"
       },
       {
@@ -90,6 +90,332 @@
         "unlockCondition": "Affinity Level 9",
         "content": "A.F. 315, January, @2\nDr. Sylvia suggested that I jot down my thoughts in a notebook to help train my memory. Everyone says doctors know a lot and can surely help me. So I'm counting on it; tomorrow, I mustn't forget the purpose of this notebook! \n\n Today, I completed the production and assembly of the exhaust pipe. Now it can exhaust air without interfering with the auxiliary hose's movement. This should be the last step, right? At least I haven't found any issues so far, but I can't rule out forgetting a screw somewhere... That's right, I must have forgotten something—either a screw or a pipe, or maybe bearing lubrication? Engine oil? Honestly, I've always had this nagging feeling that something's off with the Phantom. It's always... lacking? Is that the word? It misses a crucial component, even more critical than the engine. Without it, I can't set off, can't embark on that journey into the unknown, because that is ours. @2 \n Why am I saying ours? Who am I with? Did I... have someone? I remember, it seems like... @2 @4 @3 \n Uh, my head hurts so much. \n\n But this notebook feels quite useful; that way, I can continue recalling from here tomorrow, and who knows, maybe I really will remember? \n\n—The only entry in Nautila's diary."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-5642",
+          "title": "Awaken",
+          "content": "Hello, I am... Uhh... Can you tell me my name?"
+        },
+        {
+          "id": "voice-5673",
+          "title": "Upgrade: I",
+          "content": "One step closer to officially setting off for adventure!"
+        },
+        {
+          "id": "voice-5668",
+          "title": "Upgrade: II",
+          "content": "Good tools are half the success!"
+        },
+        {
+          "id": "voice-5353",
+          "title": "Upgrade: III",
+          "content": "Whether it's screws or nails, the more, the better!"
+        },
+        {
+          "id": "voice-5615",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "Tools need maintenance too. A handy set of tools is the soul of a mechanic."
+        },
+        {
+          "id": "voice-6383",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "Twenty, twenty-one, twenty-four... Wait, what number was I on? One, two, three..."
+        },
+        {
+          "id": "voice-6384",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "I finally figured out how many materials I had before, so I can finish the repairs faster—Wait, where did these come from?"
+        },
+        {
+          "id": "voice-6385",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "Thanks to your help, the efficiency of recent repairs has improved. We'll soon be able to set off on an adventure!"
+        },
+        {
+          "id": "voice-6386",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "I think I'm starting to remember things... Did you hand me a No. 7 wrench yesterday?"
+        },
+        {
+          "id": "voice-6387",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "Reparation complete! An unknown adventure, a mysterious world, here I come!"
+        },
+        {
+          "id": "voice-5419",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "...Huh? Are you calling me? I didn't hear while fixing the motorcycle... By the way, kind stranger, have you seen my wrench?"
+        },
+        {
+          "id": "voice-5421",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "You look somewhat familiar, but I can't recall your name... Are you my assistant? Could you get me seven bolts?"
+        },
+        {
+          "id": "voice-5420",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "My memory is always hazy, and I can only focus on what's right in front of me. However, I'll do my best to engrave your name in my mind... What was it again?"
+        },
+        {
+          "id": "voice-5423",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "So familiar, so familiar. Something must have happened between us, right? Give me a moment to recall... Ah, it's you, the Keeper!"
+        },
+        {
+          "id": "voice-5422",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "I engraved your name on my bike, the Phantom! When we go on adventures someday, I won't forget how to address you."
+        },
+        {
+          "id": "voice-5690",
+          "title": "Chat: Touch",
+          "content": "...We might need a torque wrench for this... Hmm, sorry, did you just call me?"
+        },
+        {
+          "id": "voice-4969",
+          "title": "Chat: About Adventures",
+          "content": "Who wouldn't love adventure? Delving into unexplored mysterious realms, discovering the unknown, and weaving your own story... How thrilling!"
+        },
+        {
+          "id": "voice-5831",
+          "title": "Chat: About Jenkin",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Jenkin\"",
+          "content": "Sorry, have you seen my screw? It's strange, but whenever that kid with the mouse ears is around, I seem to forget where I've put things more often..."
+        },
+        {
+          "id": "voice-5453",
+          "title": "Chat: About Spare Parts",
+          "content": "Ah, this is exactly the part I needed, thanks! ...Huh? I asked you to find it? I don't remember that at all. Are you sure you're not mistaken?"
+        },
+        {
+          "id": "voice-6645",
+          "title": "Chat: About Dissolution",
+          "content": "Dissolution... Uh, My brain capacity is limited and I can't comprehend such complex diseases... If you need any machinery repaired, come find me!"
+        },
+        {
+          "id": "voice-4986",
+          "title": "Chat: About Mythag",
+          "content": "I really like the academy's recorder. If only I could create a portable version that reminds me in real-time of what I've forgotten..."
+        },
+        {
+          "id": "voice-5503",
+          "title": "Chat: What I Like",
+          "content": "Wrench, adjustable wrench, box-end wrench, flathead screwdriver, Phillips screwdriver, countersunk screw, pan head screw... If it can fix broken things, I like it."
+        },
+        {
+          "id": "voice-4956",
+          "title": "Chat: What I Hate",
+          "content": "Actually... let me tell you a secret. I'm not quite satisfied with my current motorcycle—it's not that I don't like it! It's just that I feel like something is missing..."
+        },
+        {
+          "id": "voice-6313",
+          "title": "Chat: About the Keeper",
+          "content": "It's strange. I usually have a hard time remembering things, but I memorized you in just a few days... What? It's been three months already? I'm sorry, I forgot again."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-5377",
+          "title": "Investigation Begins",
+          "content": "My wrench isn't in position yet!"
+        },
+        {
+          "id": "voice-6348",
+          "title": "Investigation Success",
+          "content": "Adventure is just as exciting as in the stories! What was that story again...?"
+        },
+        {
+          "id": "voice-5914",
+          "title": "Investigation Halted",
+          "content": "So adventuring is this dangerous..."
+        },
+        {
+          "id": "voice-5939",
+          "title": "Strike: I",
+          "content": "Full throttle!"
+        },
+        {
+          "id": "voice-5852",
+          "title": "Defense: I",
+          "content": "Watch this!"
+        },
+        {
+          "id": "voice-6173",
+          "title": "Hit: I",
+          "content": "(Groan)"
+        },
+        {
+          "id": "voice-6171",
+          "title": "Hit: II",
+          "content": "(Groan)"
+        },
+        {
+          "id": "voice-6172",
+          "title": "Hit: III",
+          "content": "Ouch!"
+        },
+        {
+          "id": "voice-6169",
+          "title": "Hit: IV",
+          "content": "(Exclamation)"
+        },
+        {
+          "id": "voice-5984",
+          "title": "Skill: I",
+          "content": "It's time to use more steel."
+        },
+        {
+          "id": "voice-5626",
+          "title": "Skill: II",
+          "content": "Where did my screws go?!"
+        },
+        {
+          "id": "voice-6650",
+          "title": "Rouse",
+          "content": "Super tough custom-made material!"
+        },
+        {
+          "id": "voice-5071",
+          "title": "Exalt",
+          "content": "Whether it's forgetfulness or loss, this time we will definitely return!"
+        },
+        {
+          "id": "voice-54629",
+          "title": "Over-Exalt",
+          "content": "All the screws are here!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-100162",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Huh? Where am I? Is this a new adventure?"
+        },
+        {
+          "id": "traphase-99951",
+          "title": "Chat: About Erica",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "What a fascinating mechanical structure. I really want to take it apart and study it.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0036",
+              "lineId": "traphase-99951"
+            },
+            {
+              "awakenerId": "awakener-0015",
+              "lineId": "traphase-99882"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99747",
+          "title": "Chat: About Alva",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I remember you. It's been a long time! Time to do maintenance for your prosthetic again, yes?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0036",
+              "lineId": "traphase-99747"
+            },
+            {
+              "awakenerId": "awakener-0004",
+              "lineId": "traphase-100012"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99816",
+          "title": "Chat: About Celeste",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "The ever-guiding Blessed Maiden who never falters... If only we had you back then... What was I doing at that time again?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0009",
+              "lineId": "traphase-99873"
+            },
+            {
+              "awakenerId": "awakener-0036",
+              "lineId": "traphase-99816"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99798",
+          "title": "Chat: About Corposant",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Are you complimenting me? Thanks, but I don't remember ever repairing a ship... Or did I?",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0011",
+              "lineId": "traphase-100118"
+            },
+            {
+              "awakenerId": "awakener-0036",
+              "lineId": "traphase-99798"
+            }
+          ]
+        },
+        {
+          "id": "traphase-131814",
+          "title": "Chat: About Vortice",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Even though I still can't remember... I like you too, Vortice!",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0055",
+              "lineId": "traphase-131809"
+            },
+            {
+              "awakenerId": "awakener-0036",
+              "lineId": "traphase-131814"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100127",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "This one seems unfamiliar to me... Don't worry, I'll figure it out."
+        },
+        {
+          "id": "traphase-99980",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Hurry up! I can't hold back any longer— I'm about to activate the engine!"
+        },
+        {
+          "id": "traphase-100140",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "The Nautilus, full speed ahead!"
+        },
+        {
+          "id": "traphase-99821",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Hey, hey! Why did the engine shut down!"
+        },
+        {
+          "id": "traphase-99913",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Adventure terminated. Let me take a breather first..."
+        }
+      ]
+    }
   }
 }

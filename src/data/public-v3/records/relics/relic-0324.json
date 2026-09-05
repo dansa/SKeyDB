@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0324",
+  "name": "Blackened Flame",
+  "route": {
+    "slug": "blackened-flame",
+    "canonicalPath": "/database/relics/blackened-flame"
+  },
+  "assets": {
+    "icon": "asset-relic-0324-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0578",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "At turn start, apply {Burn} to 1 Command Card in hand and gain 1 stack of {Blackened Flame}. When {Blackened Flame} reaches 3 stacks, put 1 {Endless Combustion} into hand.",
+  "descriptionArgs": {},
+  "lore": "The pitch-black flames will execute her will, burning everything to ashes.",
+  "variants": [
+    {
+      "id": "relic-variant-0578",
+      "name": "Blackened Flame",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "At turn start, apply {Burn} to 1 Command Card in hand and gain 1 stack of {Blackened Flame}. When {Blackened Flame} reaches 3 stacks, put 1 {Endless Combustion} into hand.",
+      "descriptionArgs": {},
+      "lore": "The pitch-black flames will execute her will, burning everything to ashes."
+    }
+  ]
+}

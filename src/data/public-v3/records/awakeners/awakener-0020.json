@@ -69,7 +69,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "■ File Number: AF315-C01\n■ Awakener Codename: @2 Walker\nThis Awakener was first observed in A.F. 315, @1.\n\nDuring the initial \"Artificial Domain\" experiment, influenced by the psychic resonance of the homogenous object, the \"Artificial Domain\" based on the Spirit Realm of our university's @2-level student Ramona Dexter unexpectedly broke through dimensional boundaries.\n\nAt that time, the Keeper confirmed the existence of the world outside dimensions for the first time in that \"Artificial Domain\" and also confirmed how @2's power would affect Ramona Dexter.\n\nThereafter, researches on the \"Genesis Awakeners\" was officially launched by the Awakener Sciences Research Institute.\n\nMeanwhile, the planning of the teaching plan for new Power Control course for Ramona Dexter is also on the agenda."
       },
       {
@@ -90,6 +90,317 @@
         "unlockCondition": "Affinity Level 9",
         "content": "When occupying Ramona's body, \"Ramona\" has never walked through the campus.\n\nLotan's boldness, Ogier's shy loyalty, William's calm composure, Doll's strict seriousness... No one remembers these moments more than she does.\n\nBut she always kept in mind: these beautiful things no longer belong to her.\n\nNow, she needs to focus entirely on protecting another destined person... This is also to protect another precarious world and another innocent version of herself."
       }
-    ]
+    ],
+    "voiceLines": {
+      "daily": [
+        {
+          "id": "voice-5964",
+          "title": "Awaken",
+          "content": "If you can still see me as \"Ramona\"... then please continue to use that name."
+        },
+        {
+          "id": "voice-5400",
+          "title": "Upgrade: I",
+          "content": "Please don't worry."
+        },
+        {
+          "id": "voice-5397",
+          "title": "Upgrade: II",
+          "content": "In the end, I'm only..."
+        },
+        {
+          "id": "voice-5398",
+          "title": "Upgrade: III",
+          "content": "...straying further from my former self."
+        },
+        {
+          "id": "voice-5638",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "It's drawing closer..."
+        },
+        {
+          "id": "voice-6284",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "Something is wailing... inside my mind."
+        },
+        {
+          "id": "voice-6285",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "It feels like a veil of white mist is clouding my thoughts."
+        },
+        {
+          "id": "voice-6286",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "The sound is louder now. The mist thickens."
+        },
+        {
+          "id": "voice-6287",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "Is that the sound... of the clock's hands turning?"
+        },
+        {
+          "id": "voice-6288",
+          "title": "Enlighten: Florish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "When the final bell tolls... will I still be here?"
+        },
+        {
+          "id": "voice-6459",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "The eye patch doesn't affect my sight. If anything, it helps me avoid seeing too much."
+        },
+        {
+          "id": "voice-6461",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "Too many mysteries, too many people who need saving. I don't know how long I can keep this up... I cannot protect everyone. It is difficult."
+        },
+        {
+          "id": "voice-6460",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "Do I look... unfamiliar? I've been trying to keep control. Her presence is growing stronger."
+        },
+        {
+          "id": "voice-6458",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "I don't regret becoming this, Keeper; I'd choose it again. But I am afraid... afraid that the \"Ramona\" I used to be will leave no trace behind."
+        },
+        {
+          "id": "voice-6457",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "Make a promise with me? Promise that, no matter what happens, you'll remember \"Ramona\"."
+        },
+        {
+          "id": "voice-5529",
+          "title": "Chat: Touch",
+          "content": "Curious about what's under the eyepatch? I'll show you... when the setting is more appropriate. Do not be impatient."
+        },
+        {
+          "id": "voice-6233",
+          "title": "Chat: About Tawil",
+          "content": "Tawil... she is far more dangerous than we realize. When I'm no longer here, you must be extremely cautious of her."
+        },
+        {
+          "id": "voice-5184",
+          "title": "Chat: About @2",
+          "unlockCondition": "Unlocks after acquiring Awakener@2",
+          "content": "Have you encountered the other Doll? The so-called \"truth of the world\" can shatter a calm mind completely. Will we... will you and I become the same?"
+        },
+        {
+          "id": "voice-6034",
+          "title": "Chat: About Murphy",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Murphy\"",
+          "content": "Compared to the noble ladies at that party, Murphy's temper is rather endearing."
+        },
+        {
+          "id": "voice-6324",
+          "title": "Chat: About Dissolution",
+          "content": "I've seen past events of the Dissolution in her memories... But every time I try to speak of it, my consciousness breaks. I believe it's her doing."
+        },
+        {
+          "id": "voice-5959",
+          "title": "Chat: About Mythag",
+          "content": "Mythag holds the most memories for me... it is also my warmest home."
+        },
+        {
+          "id": "voice-6747",
+          "title": "Chat: What I Like",
+          "content": "Time spent with friends is always so... relaxing."
+        },
+        {
+          "id": "voice-5801",
+          "title": "Chat: What I Hate",
+          "content": "Ramona... I mean, I don't like farewells. They are too sad."
+        },
+        {
+          "id": "voice-6343",
+          "title": "Chat: About the Keeper",
+          "content": "As long as I am still \"Ramona\"... we are still partners, aren't we?"
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-6307",
+          "title": "Investigation Begins",
+          "content": "Time is limited. Let's move."
+        },
+        {
+          "id": "voice-5384",
+          "title": "Investigation Success",
+          "content": "We prevailed? That is... good."
+        },
+        {
+          "id": "voice-5812",
+          "title": "Investigation Halted",
+          "content": "Not enough... I'm still not strong enough."
+        },
+        {
+          "id": "voice-5711",
+          "title": "Strike: I",
+          "content": "We will finish this now!"
+        },
+        {
+          "id": "voice-5371",
+          "title": "Defense: I",
+          "content": "Caution!"
+        },
+        {
+          "id": "voice-5372",
+          "title": "Defense: II",
+          "content": "Stay back."
+        },
+        {
+          "id": "voice-6659",
+          "title": "Hit: I",
+          "content": "(A soft, suppressed inhale)"
+        },
+        {
+          "id": "voice-6658",
+          "title": "Hit: II",
+          "content": "It is manageable."
+        },
+        {
+          "id": "voice-6120",
+          "title": "Hit: III",
+          "content": "(Groan)"
+        },
+        {
+          "id": "voice-6599",
+          "title": "Skill: I",
+          "content": "Disappear."
+        },
+        {
+          "id": "voice-5111",
+          "title": "Skill: II",
+          "content": "An opening!"
+        },
+        {
+          "id": "voice-5442",
+          "title": "Rouse",
+          "content": "Finally... There is it."
+        },
+        {
+          "id": "voice-6733",
+          "title": "Exalt",
+          "content": "Heaven and Earth, follow the cycle of causality!"
+        },
+        {
+          "id": "voice-54625",
+          "title": "Over-Exalt",
+          "content": "I will be the one to reveal the future!"
+        }
+      ],
+      "traphase": [
+        {
+          "id": "traphase-99799",
+          "title": "Opening",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I am always here for you, whenever you need me."
+        },
+        {
+          "id": "traphase-100039",
+          "title": "Chat: About Ramona",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I have no desire to compete, but if you insist, then proceed, the other me.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0042",
+              "lineId": "traphase-100080"
+            },
+            {
+              "awakenerId": "awakener-0020",
+              "lineId": "traphase-100039"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99994",
+          "title": "Chat: About Lotan",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Sparring with Lotan... it brings back such nostalgic feelings.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0031",
+              "lineId": "traphase-100132"
+            },
+            {
+              "awakenerId": "awakener-0020",
+              "lineId": "traphase-99994"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99789",
+          "title": "Chat: About Tawil",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Before my consciousness entirely fades, I will protect the Keeper until the very last moment.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0020",
+              "lineId": "traphase-99789"
+            },
+            {
+              "awakenerId": "awakener-0047",
+              "lineId": "traphase-99845"
+            }
+          ]
+        },
+        {
+          "id": "traphase-100196",
+          "title": "Chat: About Doll: Inferno",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "For Professor Doll to end up like this... Fate is truly unpredictable...",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0020",
+              "lineId": "traphase-100196"
+            },
+            {
+              "awakenerId": "awakener-0018",
+              "lineId": "traphase-99934"
+            }
+          ]
+        },
+        {
+          "id": "traphase-99865",
+          "title": "Thinking",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I see... I will formulate a foolproof plan..."
+        },
+        {
+          "id": "traphase-99988",
+          "title": "Urging",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Let's end this quickly!"
+        },
+        {
+          "id": "traphase-99888",
+          "title": "Fatal Blow",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "This blade shall carve the path to victory!"
+        },
+        {
+          "id": "traphase-99812",
+          "title": "Blunder",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "How could this be..."
+        },
+        {
+          "id": "traphase-100051",
+          "title": "Death",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "I... failed to protect you..."
+        }
+      ]
+    }
   }
 }
