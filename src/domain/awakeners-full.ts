@@ -32,6 +32,7 @@ export type AwakenerVoiceLines = Partial<Record<AwakenerQuoteCategory, AwakenerQ
 export interface AwakenerProfile {
   title?: string
   birthday?: string
+  voiceActor?: string
   gender?: string
   height?: string
   weight?: string

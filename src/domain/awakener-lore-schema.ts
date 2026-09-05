@@ -21,6 +21,7 @@ export const awakenerQuoteSchema: z.ZodType<AwakenerQuote> = z.looseObject({
 export const awakenerProfileSchema: z.ZodType<AwakenerProfile> = z.looseObject({
   title: z.string().optional(),
   birthday: z.string().optional(),
+  voiceActor: z.string().optional(),
   gender: z.string().optional(),
   height: z.string().optional(),
   weight: z.string().optional(),

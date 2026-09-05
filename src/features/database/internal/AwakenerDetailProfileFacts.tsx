@@ -39,7 +39,7 @@ export function AwakenerDetailProfileFacts({
         }).format(date)
       : null
 
-  if (facts.length === 0 && !released) {
+  if (facts.length === 0 && !released && !profile?.voiceActor) {
     return null
   }
 
@@ -56,12 +56,21 @@ export function AwakenerDetailProfileFacts({
             <dd className='text-right font-medium text-slate-200'>{fact.value}</dd>
           </div>
         ))}
-        {released ? (
+        {profile?.voiceActor ? (
           <div
             className={`flex items-baseline justify-between gap-3 text-[11px] leading-4 ${compact ? 'col-span-2' : ''} ${facts.length ? 'mt-2 border-t border-slate-600/30 pt-2' : ''}`}
             style={scaleWithContent ? scaledTypographyStyle(11, 16) : undefined}
           >
-            <dt className='text-slate-500'>Released</dt>
+            <dt className='shrink-0 text-slate-500'>Voice Actor</dt>
+            <dd className='text-right font-medium text-slate-200'>{profile.voiceActor}</dd>
+          </div>
+        ) : null}
+        {released ? (
+          <div
+            className={`flex items-baseline justify-between gap-3 text-[11px] leading-4 ${compact ? 'col-span-2' : ''} ${facts.length && !profile?.voiceActor ? 'mt-2 border-t border-slate-600/30 pt-2' : ''}`}
+            style={scaleWithContent ? scaledTypographyStyle(11, 16) : undefined}
+          >
+            <dt className='shrink-0 text-slate-500'>Released</dt>
             <dd className='text-right font-medium text-slate-200'>
               <time dateTime={releaseDate}>{released}</time>
             </dd>

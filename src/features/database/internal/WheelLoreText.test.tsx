@@ -10,6 +10,16 @@ function getGlyphKeys(node: HTMLElement): string[] {
 }
 
 describe('WheelLoreText', () => {
+  it('renders player-name placeholders without changing other percent text', () => {
+    const {container} = render(
+      <WheelLoreText lore='Keeper %player%. <Italic:Protect %player%.> 80% %unknown%' />,
+    )
+    expect(container).toHaveTextContent(
+      'Keeper [player name]. Protect [player name]. 80% %unknown%',
+    )
+    expect(container.querySelector('em')).toHaveTextContent('Protect [player name].')
+  })
+
   it('preserves source deletion and red emphasis while leaving unknown redactions intact', () => {
     const {container} = render(
       <WheelLoreText lore='Memory <Del:this damned prison>. <Red:Keep them apart!> A.F. 3@7.' />,

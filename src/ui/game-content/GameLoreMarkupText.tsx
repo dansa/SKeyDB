@@ -265,10 +265,12 @@ export function GameLoreMarkupText({
   text,
   keyPrefix = 'game-lore-markup',
 }: GameLoreMarkupTextProps) {
-  const displayText = text.replace(
-    /\{(Male|Female)=([^{}]*?),\s*(Male|Female)=([^{}]*)\}/g,
-    (token: string, firstLabel: string, first: string, secondLabel: string, second: string) =>
-      firstLabel === secondLabel ? token : `${first}/${second}`,
-  )
+  const displayText = text
+    .replaceAll('%player%', '[player name]')
+    .replace(
+      /\{(Male|Female)=([^{}]*?),\s*(Male|Female)=([^{}]*)\}/g,
+      (token: string, firstLabel: string, first: string, secondLabel: string, second: string) =>
+        firstLabel === secondLabel ? token : `${first}/${second}`,
+    )
   return <>{buildGameLoreInlineNodes(displayText, keyPrefix)}</>
 }
