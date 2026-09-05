@@ -1,5 +1,6 @@
 import {useMemo} from 'react'
 
+import {resolvePublicAsset} from '@/data-access/public-data/assetRepository'
 import type {OrisonDatabaseDescriptionRecord} from '@/domain/description-records'
 import {buildGlobalDatabaseReferenceLayer} from '@/domain/global-database-reference-layer'
 import {getOrisonAssetByAssetId} from '@/domain/orison-assets'
@@ -93,7 +94,8 @@ export function OrisonDetailModal({
     referenceLayer,
     showTagIcons: preferences.shared.showTagIcons,
   })
-  const artAsset = getOrisonAssetByAssetId(item.assetId)
+  const variantAssetId = resolvePublicAsset(selectedVariant.assets.icon)?.assetId
+  const artAsset = getOrisonAssetByAssetId(variantAssetId ?? item.assetId)
 
   return (
     <DbDetailShell
