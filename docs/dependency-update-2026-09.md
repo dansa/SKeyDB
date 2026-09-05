@@ -42,3 +42,40 @@ React Doctor adds eight nonblocking warnings. Reviewed: four complexity warnings
 ## Validation
 
 Passed 2,038 Vitest tests across 275 files, 20 script tests, type-aware lint, formatting, production build and all 143 wheel-mini asset checks. React Doctor passed with the eight advisory warnings discussed above. The browser smoke passed desktop, adaptive and mobile layouts, including desktop/adaptive drag and drop. Its first run timed out during the cold Vite dependency optimization after the lockfile change; the subsequent run completed without timeout changes. No browser test changes were retained.
+
+## Optional follow-up review
+
+Reviewed the eight diagnostics against the current code, then reused the fixed en-GB/UTC release-date formatter at module scope. This preserves output on desktop and mobile and removes the formatter warning. The changed-file Doctor scan now reports seven warnings and no errors; no suppressions were added.
+
+| Finding | Assessment and decision |
+| --- | --- |
+| Formatter construction | Confirmed, low-impact inefficiency; fixed without adding state or changing formatting. |
+| Index membership lookup | Correct observation, low impact: the desktop loop checks a handful of top-level groups (three quote categories, two upgrade/skill groups, or four stories). Building another Set every render is unnecessary at this size. |
+| Story filter followed by map | Correct observation, low impact: a small profile story collection, outside the scroll handler. Keep the readable pipeline. |
+| Exchange key ordinal | No demonstrated identity bug. The key includes Awakener ID, quote ID and position. The loaded exchange is an immutable, ordered snapshot; repeated references must remain distinct. Removing the ordinal could introduce duplicate keys. Revisit if exchanges become editable or reorderable. |
+| Lore reader complexity | Branch-heavy but cohesive section rendering, with no demonstrated correctness defect. The user confirmed this covers essentially all in-game lore. Keep it together; do not schedule a speculative split when further growth is unlikely. |
+| Modal body complexity | Mostly desktop/mobile layout and tab predicates. It already delegates header, sidebar and tab contents. Further extraction currently requires forwarding a large group of props without removing decisions. |
+| Profile facts complexity | Mostly optional fields, separator placement and compact/content-scale presentation. Keep these related display rules together. |
+| Quote component complexity | Four loading states plus expansion and retry behavior. The discriminated union keeps transitions explicit. No race was demonstrated by this warning; avoid introducing a generic async abstraction just to lower branch count. |
+
+### Zod measurements and API fit
+
+A temporary Vitest probe used the real 60-record lite catalog and exported `awakenerLiteDatasetSchema`. In one local Node 24/jsdom run, the first `getAwakenersLite()` call took 3.87 ms, excluding module import time. The getter then returns a cached result. Nine batches of 100 repeated parses had median per-call times of 0.075 ms for plain parsing and 0.0086 ms for compiled parsing. Creating the compiled schema took 1.47 ms, and its first parse took 0.27 ms. Compiled output matched the existing output. These are local diagnostic timings, not browser or whole-application benchmarks; the temporary probe was removed.
+
+Compilation helps synthetic repeated parsing, but the actual getter caches its work. Do not enable global auto-compilation for this PR. If profiling identifies a frequently repeated resolver parse as a bottleneck, measure and compile that specific schema, including compilation cost and emitted bundle impact.
+
+Do not replace parsing with `z.validate()` at current boundaries. Catalog adapters consume parsed output and use normalizing schemas; the exchange participant path also consumes `parsed.data`. Boolean validation cannot supply those transformed/defaulted values or validation issue details. The lower schema-memory footprint and faster failed parsing from Zod 4.5 are already available from the dependency upgrade without further changes. See the [Zod announcement](https://zod.dev/blog/zod-4-5).
+
+### Other items surfaced during maintenance
+
+- **Native React compiler:** keep disabled. The [plugin changelog](https://github.com/vitejs/vite-plugin-react/blob/plugin-react%406.1.1/packages/plugin-react/CHANGELOG.md) marks it experimental and requires an additional package. A separate experiment should compare rendering performance, bundle/build cost and interaction behavior before adoption.
+- **Vitest isolation:** retain it. Route and exchange tests use module mocks, and routes also mutate localStorage. A faster run with reused workers is not enough evidence that state cannot leak across files. Use targeted shuffled/repeated runs for flake investigations, rather than adding repeat cost to every CI test. See [Vitest performance guidance](https://vitest.dev/guide/improving-performance.html).
+- **Browser smoke readiness:** addressed. Each run owns a Vite child process with a fresh disposable cache, which leaves existing dev servers and their caches untouched. Navigation waits for the document response and then the actual Builder surface, with a dedicated 60-second cold-compilation budget; interaction waits remain unchanged. Failures include pending request URLs and browser errors. Nested cleanup closes the browser, waits for the owned Vite process to exit, and removes the temporary cache even when startup or assertions fail. The cold-cache run passed all three viewports, including desktop/adaptive drag and drop. This follows [Playwright guidance](https://playwright.dev/docs/api/class-page#page-goto) to use application assertions instead of network-idle readiness.
+- **Node types:** the existing Node 26 types versus Node 24 runtime mismatch remains. Aligning the type major to the deployed runtime is reasonable separate dependency hygiene, but the patch updates did not introduce it or adopt new Node 26 APIs.
+- **npm allow-scripts notice:** this comes from machine-level configuration, not a repository `.npmrc`. Do not change the user's package-script security policy as part of repository cleanup.
+
+Validation for this follow-up: profile component tests, type-aware lint, formatting and the changed-file React Doctor scan. No visual output changes are intended.
+
+The browser-smoke follow-up also passed the production build and all 20 script tests. An intentional blocked-script failure was used to verify nonzero exit, browser-error diagnostics and temporary-cache/server cleanup.
+
+The forced-failure check exposed lingering Vite optimizer work with an in-process server. Keeping Vite in an owned child process resolves this: the final deliberate failure exited nonzero in 2.5 seconds with diagnostics and released its cache and port.

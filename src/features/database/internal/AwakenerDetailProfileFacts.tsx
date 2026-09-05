@@ -2,6 +2,13 @@ import type {AwakenerProfile} from '@/domain/awakeners-full'
 
 import {scaledTypographyStyle} from './font-scale'
 
+const releaseDateFormatter = new Intl.DateTimeFormat('en-GB', {
+  day: 'numeric',
+  month: 'short',
+  year: 'numeric',
+  timeZone: 'UTC',
+})
+
 interface AwakenerDetailProfileFactsProps {
   profile: AwakenerProfile | null | undefined
   releaseDate?: string
@@ -30,14 +37,7 @@ export function AwakenerDetailProfileFacts({
 
   const date = releaseDate ? new Date(`${releaseDate}T00:00:00Z`) : null
   const released =
-    date && Number.isFinite(date.getTime())
-      ? new Intl.DateTimeFormat('en-GB', {
-          day: 'numeric',
-          month: 'short',
-          year: 'numeric',
-          timeZone: 'UTC',
-        }).format(date)
-      : null
+    date && Number.isFinite(date.getTime()) ? releaseDateFormatter.format(date) : null
 
   if (facts.length === 0 && !released && !profile?.voiceActor) {
     return null

@@ -1,5 +1,8 @@
 import {spawn} from 'node:child_process'
-import {fileURLToPath} from 'node:url'
+import {once} from 'node:events'
+import {mkdtempDisposable} from 'node:fs/promises'
+import {tmpdir} from 'node:os'
+import {join} from 'node:path'
 
 import {chromium} from '@playwright/test'
 
@@ -13,47 +16,88 @@ const VIEWPORTS = [
   {name: 'mobile', width: 390, height: 844, dnd: false},
 ]
 
-let serverProcess = null
 let baseUrl = ''
 let builderUrl = ''
 
 async function main() {
   const port = await findAvailablePort()
   setBaseUrl(port)
-  const viteBin = fileURLToPath(new URL('../node_modules/vite/bin/vite.js', import.meta.url))
-  serverProcess = spawn(process.execPath, [viteBin, '--host', HOST, '--port', String(port)], {
-    env: {...process.env, BROWSER: 'none'},
-    stdio: ['ignore', 'pipe', 'pipe'],
-  })
-
-  serverProcess.stdout.on('data', (chunk) => {
-    process.stdout.write(`[vite] ${chunk}`)
-  })
-  serverProcess.stderr.on('data', (chunk) => {
-    process.stderr.write(`[vite] ${chunk}`)
-  })
-  serverProcess.on('exit', (code) => {
-    if (code !== 0 && code !== null) {
-      process.stderr.write(`Vite dev server exited with code ${String(code)}.\n`)
-    }
-  })
-
-  await waitForServer()
-
-  const browser = await chromium.launch()
+  // Every run exercises cold optimization without touching an existing dev server's cache.
+  const cache = await mkdtempDisposable(join(tmpdir(), 'skeydb-browser-smoke-'))
+  let server
+  let browser
   try {
+    server = spawn(
+      process.execPath,
+      [
+        '--input-type=module',
+        '--eval',
+        `
+      import {createServer} from 'vite'
+      const server = await createServer({
+        cacheDir: process.env.SKEYDB_SMOKE_CACHE,
+        server: {host: '127.0.0.1', port: Number(process.env.SKEYDB_SMOKE_PORT), strictPort: true, open: false},
+      })
+      await server.listen()
+      process.send('ready')
+    `,
+      ],
+      {
+        env: {...process.env, SKEYDB_SMOKE_CACHE: cache.path, SKEYDB_SMOKE_PORT: String(port)},
+        stdio: ['ignore', 'inherit', 'inherit', 'ipc'],
+      },
+    )
+    await waitForServer(server)
+    browser = await chromium.launch()
     for (const viewport of VIEWPORTS) {
       await runViewportSmoke(browser, viewport)
     }
   } finally {
-    await browser.close()
-    stopServer()
+    try {
+      await browser?.close()
+    } finally {
+      try {
+        if (server?.pid && server.exitCode === null && server.signalCode === null) {
+          const exited = once(server, 'exit')
+          server.kill()
+          await exited
+        }
+      } finally {
+        await cache.remove()
+      }
+    }
   }
+}
+
+async function waitForServer(server) {
+  return new Promise((resolve, reject) => {
+    const timer = setTimeout(() => finish(new Error('Vite startup timed out.')), 30_000)
+    const onMessage = (message) => {
+      if (message === 'ready') finish()
+    }
+    const onExit = (code) => finish(new Error(`Vite exited before startup: ${String(code)}`))
+    function finish(error) {
+      clearTimeout(timer)
+      server.off('message', onMessage)
+      server.off('exit', onExit)
+      server.off('error', finish)
+      if (error) reject(error)
+      else resolve()
+    }
+    server.on('message', onMessage)
+    server.once('exit', onExit)
+    server.once('error', finish)
+  })
 }
 
 async function runViewportSmoke(browser, viewport) {
   const page = await browser.newPage({viewport})
   const consoleMessages = []
+  const pendingRequests = new Set()
+  page.on('request', (request) => pendingRequests.add(request))
+  page.on('requestfinished', (request) => pendingRequests.delete(request))
+  page.on('requestfailed', (request) => pendingRequests.delete(request))
+  page.on('pageerror', (error) => consoleMessages.push(error.message))
   page.on('console', (message) => {
     if (message.type() === 'error') {
       consoleMessages.push(message.text())
@@ -61,8 +105,9 @@ async function runViewportSmoke(browser, viewport) {
   })
 
   try {
-    await page.goto(builderUrl, {waitUntil: 'networkidle'})
-    await assertVisible(page.locator('.builder-v2-page'), `${viewport.name} builder page`)
+    await page.goto(builderUrl, {waitUntil: 'commit'})
+    // Cold compilation gets its own startup budget; interaction waits remain short.
+    await page.locator('.builder-v2-page').waitFor({state: 'visible', timeout: 60_000})
     await assertAttached(
       page.locator('#builder-v2-title', {hasText: 'Builder V2'}),
       `${viewport.name} heading`,
@@ -84,6 +129,12 @@ async function runViewportSmoke(browser, viewport) {
     }
 
     console.log(`[${viewport.name}] Builder V2 browser smoke passed.`)
+  } catch (error) {
+    const pending = [...pendingRequests].slice(0, 10).map((request) => request.url())
+    throw new Error(
+      `[${viewport.name}] ${error instanceof Error ? error.message : String(error)}\nPending requests: ${pending.join(', ') || 'none'}\nBrowser errors: ${consoleMessages.join('\n') || 'none'}`,
+      {cause: error},
+    )
   } finally {
     await page.close()
   }
@@ -520,53 +571,17 @@ async function findAvailablePort() {
   throw new Error(`No available Vite port found in ${PORTS.join(', ')}.`)
 }
 
-async function isThisAppServer(candidateBaseUrl) {
+async function isServerReachable(candidateBaseUrl) {
   try {
-    const response = await fetch(candidateBaseUrl)
-    if (!response.ok) return false
-    const html = await response.text()
-    return html.includes('<title>SKeyDB</title>')
-  } catch {
-    return false
-  }
-}
-
-async function isServerReachable(candidateBaseUrl = baseUrl) {
-  try {
-    await fetch(candidateBaseUrl)
+    await fetch(candidateBaseUrl, {signal: AbortSignal.timeout(2_000)})
     return true
-  } catch {
-    return false
+  } catch (error) {
+    // A stalled response still means the port is occupied.
+    return error instanceof Error && error.name === 'TimeoutError'
   }
 }
-
-async function waitForServer() {
-  const startedAt = Date.now()
-  while (Date.now() - startedAt < 30_000) {
-    if (await isThisAppServer(baseUrl)) {
-      return
-    }
-    await new Promise((resolve) => {
-      setTimeout(resolve, 500)
-    })
-  }
-  throw new Error(`Timed out waiting for Vite dev server at ${baseUrl}.`)
-}
-
-process.on('exit', () => {
-  stopServer()
-})
 
 main().catch((error) => {
-  stopServer()
   console.error(error)
   process.exitCode = 1
 })
-
-function stopServer() {
-  if (!serverProcess || serverProcess.killed) {
-    return
-  }
-  serverProcess.kill()
-  serverProcess = null
-}
