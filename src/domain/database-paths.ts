@@ -5,6 +5,7 @@ import {
 } from '@/data-access/public-data/routeResolver'
 import {getDatabaseEntityPublicDataScope} from '@/domain/database-entity-definitions'
 
+import {buildAwakenerLoreSuffix, type AwakenerLoreRoute} from './awakener-lore-routes'
 import type {Awakener} from './awakeners'
 import type {Covenant} from './covenants'
 import {
@@ -145,13 +146,14 @@ function asPublicDataScope(scope: string | undefined): PublicDataScope | undefin
 export function buildDatabaseAwakenerPath(
   awakener: Pick<Awakener, 'name'> & Partial<Pick<Awakener, 'id'>>,
   tab: DatabaseAwakenerTab = DEFAULT_DATABASE_AWAKENER_TAB,
+  lore?: AwakenerLoreRoute,
 ): string {
   const basePath = buildDatabaseEntityPath('awakeners', awakener)
   const visibleTab = resolveDatabaseAwakenerVisibleTab(tab)
   if (visibleTab === DEFAULT_DATABASE_AWAKENER_TAB) {
     return basePath
   }
-  return `${basePath}/${visibleTab}`
+  return `${basePath}/${visibleTab}${visibleTab === 'lore' ? `/${buildAwakenerLoreSuffix(lore)}` : ''}`
 }
 
 export function buildDatabaseWheelBrowsePath(): string {

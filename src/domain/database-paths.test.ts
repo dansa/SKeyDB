@@ -54,7 +54,7 @@ describe('database paths', () => {
     ).toBe('/database/awakeners/helot-catena')
     expect(
       buildDatabaseAwakenerPath(makeAwakener({id: 'awakener-0019', name: 'helot: catena'}), 'lore'),
-    ).toBe('/database/awakeners/helot-catena/lore')
+    ).toBe('/database/awakeners/helot-catena/lore/intro')
   })
 
   it('normalizes awakener names into shareable slugs', () => {

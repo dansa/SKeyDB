@@ -323,4 +323,98 @@ describe('DetailIndexedReader', () => {
     expect(screen.queryByRole('combobox')).not.toBeInTheDocument()
     expect(screen.getByRole('button', {name: 'Intro'})).toBeInTheDocument()
   })
+  it('applies route anchors without navigation feedback or pinning subsequent scrolling', () => {
+    const resizes = new Set<() => void>()
+    vi.stubGlobal(
+      'ResizeObserver',
+      class {
+        callback: () => void
+        constructor(callback: () => void) {
+          this.callback = callback
+          resizes.add(callback)
+        }
+        observe = vi.fn()
+        disconnect = () => {
+          resizes.delete(this.callback)
+        }
+      },
+    )
+    const onAnchorNavigate = vi.fn()
+    const {rerender} = render(
+      <DetailIndexedReader items={items} scrollKey='quotes' onAnchorNavigate={onAnchorNavigate}>
+        <Contents />
+      </DetailIndexedReader>,
+    )
+    const reader = screen.getByRole('region', {name: 'Reading area'})
+    mockPositions(reader)
+    Object.defineProperty(reader, 'clientHeight', {value: 0, configurable: true})
+    vi.spyOn(
+      screen.getByRole('heading', {name: 'Battle quotes'}),
+      'getClientRects',
+    ).mockReturnValue([{}] as unknown as DOMRectList)
+    rerender(
+      <DetailIndexedReader
+        items={items}
+        scrollKey='quotes'
+        scrollToId='battle'
+        onAnchorNavigate={onAnchorNavigate}
+      >
+        <Contents />
+      </DetailIndexedReader>,
+    )
+    expect(reader.scrollTop).toBe(0)
+    Object.defineProperty(reader, 'clientHeight', {value: 200, configurable: true})
+    act(() => {
+      for (const resize of [...resizes]) resize()
+    })
+    expect(reader.scrollTop).toBe(600)
+    expect(onAnchorNavigate).not.toHaveBeenCalled()
+    reader.scrollTop = 200
+    fireEvent.scroll(reader)
+    act(() => {
+      for (const resize of [...resizes]) resize()
+    })
+    expect(reader.scrollTop).toBe(200)
+    fireEvent.click(screen.getByRole('button', {name: 'Daily'}))
+    expect(onAnchorNavigate).toHaveBeenCalledWith('daily')
+  })
+
+  it('waits for a routed chapter before applying its footer scroll reset', () => {
+    const onSelect = vi.fn()
+    const {rerender} = render(
+      <DetailIndexedReader items={items} scrollKey='daily' selectedId='daily' onSelect={onSelect}>
+        <Contents />
+      </DetailIndexedReader>,
+    )
+    const reader = screen.getByRole('region', {name: 'Reading area'})
+    reader.scrollTop = 300
+    fireEvent.scroll(reader)
+    rerender(
+      <DetailIndexedReader
+        items={items}
+        scrollKey='daily'
+        selectedId='daily'
+        onSelect={onSelect}
+        resetScrollKey={1}
+        resetScrollTargetId='battle'
+      >
+        <Contents />
+      </DetailIndexedReader>,
+    )
+    expect(reader.scrollTop).toBe(300)
+    rerender(
+      <DetailIndexedReader
+        items={items}
+        scrollKey='battle'
+        selectedId='battle'
+        onSelect={onSelect}
+        resetScrollKey={1}
+        resetScrollTargetId='battle'
+      >
+        <Contents />
+      </DetailIndexedReader>,
+    )
+    expect(reader.scrollTop).toBe(0)
+    expect(screen.getByRole('heading', {name: 'Battle quotes'})).toHaveFocus()
+  })
 })

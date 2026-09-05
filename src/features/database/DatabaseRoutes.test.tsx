@@ -9,6 +9,7 @@ import {afterEach, describe, expect, it, vi} from 'vitest'
 
 import {createMockPublicCatalog, createMockPublicDetailLoaders} from '@/test/publicCatalogFixtures'
 
+import type {AwakenerLoreNavigation} from './internal/AwakenerDetailLore'
 import {clearDatabaseDetailRecordCacheForTests} from './internal/useDatabaseDetailRouteRecord'
 import {DatabaseRouteElements} from './routes'
 import {getDatabaseEntityRuntime} from './runtime/databaseEntityRuntime'
@@ -163,12 +164,14 @@ vi.mock('@/domain/mainstats', () => ({
 }))
 
 function MockAwakenerDetailModal({
+  loreNavigation,
   activeTab = 'overview',
   awakener,
   onClose,
   onSelectAwakener,
   onTabChange,
 }: {
+  loreNavigation?: AwakenerLoreNavigation
   activeTab?: 'overview' | 'upgrades' | 'skills' | 'builds' | 'teams' | 'lore'
   awakener: {id: string; name: string}
   onClose: () => void
@@ -183,6 +186,11 @@ function MockAwakenerDetailModal({
   return (
     <dialog aria-label={`${awakener.name} details`} open>
       <div>{`Active tab ${activeTab}`}</div>
+      <div data-testid='lore-route'>{JSON.stringify(loreNavigation?.route)}</div>
+      <button onClick={() => loreNavigation?.onChange({section: 'quotes', category: 'traphase'})}>
+        Traphase quotes
+      </button>
+      <button onClick={() => loreNavigation?.onChange({section: 'skills'})}>Skill lore</button>
       <div>{`Mock slider level ${String(mockSliderLevel)}`}</div>
       <button
         aria-label='Set mock slider level'
@@ -1048,5 +1056,51 @@ describe('DatabasePage', () => {
     cards.forEach((card) => {
       expect(card).not.toHaveAttribute('aria-label')
     })
+  })
+  it.each([
+    ['/lore', {section: 'intro'}, '/lore/intro'],
+    ['/lore/stories/missing', {section: 'stories'}, '/lore/stories'],
+    ['/lore/quotes/Traphase', {section: 'quotes', category: 'traphase'}, '/lore/quotes/traphase'],
+    ['/lore/skills', {section: 'skills'}, '/lore/skills'],
+  ])('opens and canonicalizes deep Lore route %s', async (suffix, route, canonical) => {
+    await renderDatabasePage(`/database/awakeners/alpha${suffix}`)
+    await waitFor(() =>
+      expect(screen.getByTestId('lore-route')).toHaveTextContent(JSON.stringify(route)),
+    )
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path').textContent).toBe(
+        `/database/awakeners/alpha${canonical}`,
+      )
+    })
+  })
+
+  it('replaces Lore navigation within the open modal and retains browse history', async () => {
+    await renderDatabasePage('/database?q=Alpha')
+    fireEvent.click(screen.getByLabelText('View details for Alpha'))
+    await findAwakenerDetailDialog(/alpha details/i)
+    fireEvent.click(screen.getByLabelText('Switch to lore tab'))
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path').textContent).toBe(
+        '/database/awakeners/alpha/lore/intro',
+      )
+    })
+    fireEvent.click(screen.getByRole('button', {name: 'Traphase quotes'}))
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path').textContent).toBe(
+        '/database/awakeners/alpha/lore/quotes/traphase',
+      )
+    })
+    expect(screen.getByTestId('location-search')).toHaveTextContent('?q=Alpha')
+    fireEvent.click(screen.getByRole('button', {name: 'Skill lore'}))
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path').textContent).toBe(
+        '/database/awakeners/alpha/lore/skills',
+      )
+    })
+    fireEvent.click(screen.getByRole('button', {name: 'Go back in history', hidden: true}))
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path').textContent).toBe('/database')
+    })
+    expect(screen.getByTestId('location-search')).toHaveTextContent('?q=Alpha')
   })
 })
