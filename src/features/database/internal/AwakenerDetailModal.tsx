@@ -462,6 +462,23 @@ interface AwakenerDetailBodyProps {
   tabsetId: string
 }
 
+function getDetailBodyLayout(activeTab: DatabaseAwakenerTab) {
+  const usesProfileSidebar = activeTab === 'overview' || activeTab === 'lore'
+  const usesIndexedReader =
+    activeTab === 'lore' || activeTab === 'skills' || activeTab === 'upgrades'
+  let overflowClass = 'overflow-y-auto p-5 pr-8 lg:pr-16'
+  if (usesIndexedReader) overflowClass = 'overflow-hidden'
+  else if (activeTab === 'overview')
+    overflowClass = 'overflow-y-auto px-5 pt-0 pb-5 md:overflow-hidden md:p-5 md:pr-5 lg:pr-5'
+  return {
+    usesProfileSidebar,
+    usesIndexedReader,
+    contentClassName: `database-scrollbar min-h-0 flex-1 ${overflowClass}`,
+    panelClassName:
+      usesIndexedReader || activeTab === 'overview' ? 'h-full min-h-0 max-w-none' : 'max-w-2xl',
+  }
+}
+
 function AwakenerDetailBody({
   activeTab,
   areStatsExpanded,
@@ -485,9 +502,8 @@ function AwakenerDetailBody({
   tabsetId,
 }: AwakenerDetailBodyProps) {
   const {resolvedControls, resolvedSelection, resolvedStats} = sessionRuntime
-  const usesProfileSidebar = activeTab === 'overview' || activeTab === 'lore'
-  const usesIndexedReader =
-    activeTab === 'lore' || activeTab === 'skills' || activeTab === 'upgrades'
+  const {usesProfileSidebar, usesIndexedReader, contentClassName, panelClassName} =
+    getDetailBodyLayout(activeTab)
   const mobileControls =
     isMobileHeader && !usesProfileSidebar ? (
       <div className='mb-4'>
@@ -543,24 +559,12 @@ function AwakenerDetailBody({
           tabsetId={tabsetId}
         />
 
-        <div
-          className={`database-scrollbar min-h-0 flex-1 ${
-            usesIndexedReader
-              ? 'overflow-hidden'
-              : activeTab === 'overview'
-                ? 'overflow-y-auto px-5 pt-0 pb-5 md:overflow-hidden md:p-5 md:pr-5 lg:pr-5'
-                : 'overflow-y-auto p-5 pr-8 lg:pr-16'
-          }`}
-        >
+        <div className={contentClassName}>
           {!usesIndexedReader ? mobileControls : null}
 
           <div
             aria-labelledby={`${tabsetId}-tab-${activeTab}`}
-            className={
-              usesIndexedReader || activeTab === 'overview'
-                ? 'h-full min-h-0 max-w-none'
-                : 'max-w-2xl'
-            }
+            className={panelClassName}
             id={tabPanelId}
             role='tabpanel'
             tabIndex={0}

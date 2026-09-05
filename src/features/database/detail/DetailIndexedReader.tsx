@@ -66,6 +66,8 @@ export function DetailIndexedReader({
       ? groupExpansion.ids
       : [activeGroup]
 
+  const expandedIdSet = new Set(expandedIds)
+
   useLayoutEffect(() => {
     const index = indexRef.current
     if (!index) return
@@ -237,7 +239,7 @@ export function DetailIndexedReader({
             </p>
             <ul className='space-y-1'>
               {items.map((item) => {
-                const expanded = expandedIds.includes(item.id)
+                const expanded = expandedIdSet.has(item.id)
                 const childrenId = `${selectId}-${item.id}`
                 return (
                   <li key={item.id}>

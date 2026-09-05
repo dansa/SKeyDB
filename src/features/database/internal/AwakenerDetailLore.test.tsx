@@ -17,6 +17,7 @@ const LOCAL_QUOTE: AwakenerQuote = {
   id: 'local',
   title: 'Chat: About Thais',
   content: 'Local reply.',
+  unlockCondition: 'Unlock after triggering this dialogue in Traphase',
   exchange: [
     {awakenerId: 'awakener-0048', lineId: 'other'},
     {awakenerId: 'awakener-0005', lineId: 'local'},
@@ -144,8 +145,18 @@ describe('Awakener Lore reading sections', () => {
     render(<AwakenerDetailLore awakener={awakening} fullData={fullData} />)
     openQuotes()
     expect(screen.getByText('Good morning.')).toBeInTheDocument()
+    const greeting = screen.getByRole('heading', {name: 'Greeting'}).closest('article')
+    if (!greeting) throw new Error('Missing greeting article')
+    expect(within(greeting).getByText('Affinity Level 9')).toBeInTheDocument()
+    expect(within(greeting).getByText('Unlock condition:')).toHaveClass('sr-only')
+    const victory = screen.getByRole('heading', {name: 'Victory'}).closest('article')
+    if (!victory) throw new Error('Missing victory article')
+    expect(within(victory).queryByText('Unlock condition:')).not.toBeInTheDocument()
     expect(screen.getByText('A battle quote.')).toBeInTheDocument()
     expect(screen.getByText('Local reply.')).toBeInTheDocument()
+    expect(
+      screen.getByText('Unlock after triggering this dialogue in Traphase'),
+    ).toBeInTheDocument()
     expect(loadAwakenerQuoteExchange).not.toHaveBeenCalled()
     fireEvent.click(screen.getByRole('button', {name: 'Read full exchange'}))
     const exchange = await screen.findByRole('region', {name: 'Full exchange'})
@@ -158,6 +169,23 @@ describe('Awakener Lore reading sections', () => {
     expect(loadAwakenerQuoteExchange).toHaveBeenCalledTimes(1)
   })
 
+  it('preserves repeated source lines in an expanded exchange', async () => {
+    const line = {awakenerId: 'awakener-0005', speakerName: 'Aurita', quote: LOCAL_QUOTE}
+    vi.mocked(loadAwakenerQuoteExchange).mockResolvedValue([line, line])
+    const errors = vi.spyOn(console, 'error').mockImplementation(() => undefined)
+    try {
+      render(<AwakenerDetailLore awakener={awakening} fullData={fullData} />)
+      openQuotes()
+      fireEvent.click(screen.getByRole('button', {name: 'Read full exchange'}))
+      const exchange = await screen.findByRole('region', {name: 'Full exchange'})
+      expect(within(exchange).getAllByText('Local reply.')).toHaveLength(2)
+      expect(errors).not.toHaveBeenCalled()
+      fireEvent.click(screen.getByRole('button', {name: 'Hide exchange'}))
+      expect(screen.getAllByText('Local reply.')).toHaveLength(1)
+    } finally {
+      errors.mockRestore()
+    }
+  })
   it('keeps the original quote available on failure and retries on request', async () => {
     vi.mocked(loadAwakenerQuoteExchange)
       .mockRejectedValueOnce(new Error('Offline'))

@@ -7,7 +7,7 @@ The Awakener modal retains its desktop portrait, profile, and progression sideba
 - Lore has quieter Intro, Stories, Quotes, and Skills navigation below the primary tabs.
 - Intro shows the introduction without an unnecessary index. On mobile it also contains the profile facts otherwise shown in the desktop sidebar.
 - Stories shows one complete chapter at a time. Its index selects chapters; quiet previous/next footer controls open adjacent chapters at the beginning. Unlock conditions are source metadata, never website access gates.
-- Quotes is a continuous list grouped into Daily, Battle, and Traphase. Its index jumps to groups or individual entries and tracks the visible entry.
+- Quotes is a continuous list grouped into Daily, Battle, and Traphase. Its index jumps to groups or individual entries and tracks the visible entry. Source unlock conditions appear as small, muted metadata beside each title, wrapping beneath it on narrow screens and following the content text-size setting. They never gate access.
 - Skill Lore is a continuous list of the current character's available skill lore. Combat descriptions and progression controls stay in the other tabs.
 - Skills and Upgrades retain continuous scrolling. Their indexes derive from the same displayed collections, including optional entries only when present. All groups start expanded and retain manual collapse choices while scrolling.
 - The right index is slim and becomes a grouped native Index selector when the reading shell is narrower than 700px. The existing compact mobile character header and scrolling progression controls remain available.
@@ -20,7 +20,7 @@ The Awakener modal retains its desktop portrait, profile, and progression sideba
 
 `DetailIndexedReader` owns local scrolling, anchor focus, active-entry tracking, responsive navigation, and scroll positions keyed to Lore section/chapter while that reader is mounted. Its controlled selection mode supports chapters without teaching the common component about story data. Character changes reset reader state. Switching away from a main modal tab remounts that tab on return.
 
-`AwakenerDetailLore` owns content selection and source-backed index entries. `AwakenerQuoteText` owns request/expansion state. The domain exchange resolver validates quote references and reads counterpart records through the existing retryable record cache; it does not load counterpart skill, talent, or upgrade dependencies.
+`AwakenerDetailLore` owns content selection and source-backed index entries, with focused renderers for each section. Exchange line keys use source identity plus occurrence within that identity, preserving repeated source references without depending on unrelated lines' positions. `AwakenerQuoteText` owns request/expansion state. The domain exchange resolver validates quote references and reads counterpart records through the existing retryable record cache; it does not load counterpart skill, talent, or upgrade dependencies.
 
 The optional voice and skill-lore contracts preserve older records that have no such fields. Generated game data and assets remain unchanged.
 
