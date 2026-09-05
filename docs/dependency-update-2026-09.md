@@ -79,3 +79,13 @@ Validation for this follow-up: profile component tests, type-aware lint, formatt
 The browser-smoke follow-up also passed the production build and all 20 script tests. An intentional blocked-script failure was used to verify nonzero exit, browser-error diagnostics and temporary-cache/server cleanup.
 
 The forced-failure check exposed lingering Vite optimizer work with an in-process server. Keeping Vite in an owned child process resolves this: the final deliberate failure exited nonzero in 2.5 seconds with diagnostics and released its cache and port.
+
+## Node 24 runtime refresh
+
+Updated `.node-version` and the package/lockfile engine minimum from 24.16.0 to 24.20.0. Both GitHub verification and deployment builds already consume `.node-version`. Node 26 remains deferred; Node 24 type definitions stay aligned with the runtime major. See the [24.20.0 release notes](https://nodejs.org/en/blog/release/v24.20.0).
+
+Verification uses the official Windows executable, checked against the release SHA-256 manifest, from a workspace cache. The machine-wide installation remains 24.16.0; existing dev-server processes were not restarted. Initial verification from Temp and four-worker runs hit cold-load timeouts, affecting the broad detail-record test or route setup. The data test passed independently from the workspace cache. This does not establish the exact cause of the timing difference.
+
+Cold browser verification exposed an unrestricted Vite entry scan stalling before compilation. A separate smoke-test commit scopes dependency scanning to `index.html`; desktop, adaptive and mobile smoke checks then passed under 24.20.0 without increasing the startup timeout further.
+
+Final validation under 24.20.0: all 2,038 tests across 275 files passed with two workers (168.72 seconds); production build, 20 script tests, all 143 mini assets and browser smoke passed. Formatting, lint and Doctor passed earlier in the same runtime verification. Four-worker local runs had the timing failures described above; CI worker settings and timeout thresholds are unchanged.

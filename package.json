@@ -5,7 +5,7 @@
   "license": "SEE LICENSE IN LICENSE.md",
   "type": "module",
   "engines": {
-    "node": ">=24.16.0"
+    "node": ">=24.20.0"
   },
   "scripts": {
     "dev": "vite",
