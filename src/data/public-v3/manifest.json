@@ -1,10 +1,10 @@
 {
   "schemaVersion": 3,
-  "gameDataVersion": "compiled-sha256-100980755b8cff40",
-  "generatedAt": "2026-09-05T18:06:29Z",
-  "buildId": "public-v3-sha256-493ca642ce5261e6",
+  "gameDataVersion": "compiled-sha256-f9c66be3bd02a457",
+  "generatedAt": "2026-09-13T18:36:15Z",
+  "buildId": "public-v3-sha256-4e55c485c668be3d",
   "build": {
-    "gameDataVersion": "compiled-sha256-100980755b8cff40",
+    "gameDataVersion": "compiled-sha256-f9c66be3bd02a457",
     "recordCount": 1976,
     "scopes": [
       "awakeners",

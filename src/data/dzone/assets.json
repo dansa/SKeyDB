@@ -4264,6 +4264,21 @@
           "src/assets/monster-preview/Portrait_Small_Monster_C0101_CT_BOSSSIZE.png"
         ]
       }
+    },
+    "asset-dzone-monster-0338-preview": {
+      "id": "asset-dzone-monster-0338-preview",
+      "slot": "preview",
+      "kind": "dzoneMonster",
+      "ownerId": "dzone-monster-0338",
+      "assetName": "Portrait_Minihead_EnemyAwaker_D14_AF",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/monster-preview/Portrait_Minihead_EnemyAwaker_D14_AF.webp",
+        "candidates": [
+          "src/assets/monster-preview/Portrait_Minihead_EnemyAwaker_D14_AF.webp",
+          "src/assets/monster-preview/Portrait_Minihead_EnemyAwaker_D14_AF.png"
+        ]
+      }
     }
   },
   "entities": {
@@ -5262,6 +5277,9 @@
     },
     "dzone-monster-0134": {
       "preview": "asset-dzone-monster-0134-preview"
+    },
+    "dzone-monster-0338": {
+      "preview": "asset-dzone-monster-0338-preview"
     }
   }
 }
