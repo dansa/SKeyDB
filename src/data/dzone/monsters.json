@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "scope": "monsters",
-  "recordCount": 332,
+  "recordCount": 333,
   "records": [
     {
       "id": "dzone-monster-0264",
@@ -2495,6 +2495,14 @@
       "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0015"],
       "descriptionTemplate": "His football gear does not quite fit, but his rust-covered wrench hits hard and inflicts many wounds.",
       "assetName": "Portrait_Small_Monster_C0101_CT_BOSSSIZE",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0338",
+      "name": "“Divus: The White Night”",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008", "enemy-characteristic-0016", "enemy-characteristic-0014"],
+      "descriptionTemplate": "O fledgling of tender years, before you have even learned to fly, the cage has already marked you.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_D14_AF",
       "badges": ["Boss"]
     }
   ]
