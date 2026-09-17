@@ -3,7 +3,7 @@ import {useCallback, useEffect, useMemo, useRef, useState} from 'react'
 import {useStore} from 'zustand'
 
 import {
-  normalizeAwakenerDatabaseSelectionForRecord,
+  normalizeAwakenerDatabaseSelection,
   patchAwakenerDatabaseSelection,
   resolveAwakenerDatabaseState,
   type AwakenerDatabaseSelection,
@@ -68,13 +68,14 @@ export function useAwakenerDetailDatabaseState({fullData}: UseAwakenerDetailData
 
   const handlePatchDefaultSelection = useCallback(
     (nextPartial: Partial<AwakenerDatabaseSelection>) => {
-      const nextSelection = normalizeAwakenerDatabaseSelectionForRecord(fullData, {
+      // Shared defaults must not inherit the open awakener's locked talent levels.
+      const nextSelection = normalizeAwakenerDatabaseSelection({
         ...preferences.awakener.defaultSelection,
         ...nextPartial,
       })
       updateAwakenerPreferences({defaultSelection: nextSelection})
     },
-    [fullData, preferences.awakener.defaultSelection, updateAwakenerPreferences],
+    [preferences.awakener.defaultSelection, updateAwakenerPreferences],
   )
 
   const handlePatchSelection = useCallback(
