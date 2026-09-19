@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 3,
+  "kind": "wheel",
+  "id": "wheel-0180",
+  "name": "Darker than Darkness",
+  "route": {
+    "slug": "darker-than-darkness",
+    "canonicalPath": "/database/wheels/darker-than-darkness"
+  },
+  "assets": {
+    "icon": "asset-wheel-0180-icon"
+  },
+  "rarity": "SSR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "CRIT_RATE",
+  "lineupToken": "ze",
+  "descriptionTemplate": "Team Unique: After exploration begins, generate 1 {derived:Fall into Night} and place it into the deck.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": ["18", "22", "26", "30"]
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": ["1", "2", "3", "4"]
+    }
+  }
+}

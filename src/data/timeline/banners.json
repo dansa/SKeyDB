@@ -398,5 +398,37 @@
     "startDate": "2026/09/07 09:00",
     "endDate": "2026/10/05 09:00",
     "featured": ["Amber-Tinted Death", "Treasured Rarity", "Uteri Somnia"]
+  },
+  {
+    "id": "banner-ogier-oathbound",
+    "title": "Sin-Bound Glory / Sullied White",
+    "type": "awaken",
+    "description": "Featured rate-up banners for Ogier: Oathbound and his SSR Wheel \"Ever Sunward\".",
+    "startDate": "2026/09/21 09:00",
+    "endDate": "2026/10/19 09:00",
+    "featured": [
+      {"name": "Ogier: Oathbound", "kind": "awakener"},
+      {"name": "Ever Sunward", "kind": "wheel"}
+    ],
+    "pinned": true
+  },
+  {
+    "id": "banner-triune-verdant-oct",
+    "title": "Triune Verdant",
+    "type": "rerun",
+    "description": "Three rerun banners featuring Castor, Miryam and Xu.",
+    "startDate": "2026/10/05 09:00",
+    "endDate": "2026/11/02 09:00",
+    "featured": ["Castor", "Miryam", "Xu"]
+  },
+  {
+    "id": "banner-sylvan-omen-oct",
+    "title": "Sylvan Omen",
+    "type": "rerun",
+    "tags": ["rerun", "wheel"],
+    "description": "Three rerun banners featuring the Wheels Unbearable Freedom, Power of the Pious and Vain Regrets.",
+    "startDate": "2026/10/05 09:00",
+    "endDate": "2026/11/02 09:00",
+    "featured": ["Unbearable Freedom", "Power of the Pious", "Vain Regrets"]
   }
 ]

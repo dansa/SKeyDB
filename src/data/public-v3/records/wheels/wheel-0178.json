@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 3,
+  "kind": "wheel",
+  "id": "wheel-0178",
+  "name": "Ever Sunward",
+  "route": {
+    "slug": "ever-sunward",
+    "canonicalPath": "/database/wheels/ever-sunward"
+  },
+  "assets": {
+    "icon": "asset-wheel-0178-icon"
+  },
+  "rarity": "SSR",
+  "realm": "CHAOS",
+  "mainstatKey": "CRIT_RATE",
+  "ownerAwakenerId": "awakener-0061",
+  "ownerAwakenerName": "Ogier: Oathbound",
+  "descriptionTemplate": "Team Unique: The wielder's \"Exalt\" generates +[StateArg1]% Base Shield and Fixed {STR}. The wielder's \"Defense\" generates +[StateArg2]% Base Shield. After the wielder plays \"Defense,\" gain {STR} equal to [StateArg3]% of the wielder's ATK.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": ["15", "20", "25", "30"],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": ["20", "30", "40", "50"],
+      "suffix": "%"
+    },
+    "StateArg3": {
+      "kind": "scaling",
+      "values": ["2", "3", "4", "5"],
+      "suffix": "%"
+    }
+  },
+  "searchTags": ["STR Up", "Shield", "Defense"],
+  "lineupToken": "zc"
+}

@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 3,
+  "kind": "wheel",
+  "id": "wheel-0179",
+  "name": "Shadowed by the Past",
+  "route": {
+    "slug": "shadowed-by-the-past",
+    "canonicalPath": "/database/wheels/shadowed-by-the-past"
+  },
+  "assets": {
+    "icon": "asset-wheel-0179-icon"
+  },
+  "rarity": "SR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "CRIT_RATE",
+  "ownerAwakenerId": "awakener-0061",
+  "ownerAwakenerName": "Ogier: Oathbound",
+  "lineupToken": "zd",
+  "descriptionTemplate": "Team Unique: The wielder's \"Exalt\" generates +[StateArg1]% Base Shield and Fixed {STR}.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": ["9", "11", "13", "15"],
+      "suffix": "%"
+    }
+  },
+  "searchTags": ["Shield"]
+}

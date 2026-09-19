@@ -4357,6 +4357,106 @@
         "mainstatKey": "SIGIL_YIELD",
         "tags": ["arithmetica", "heal"]
       }
+    },
+    {
+      "kind": "wheel",
+      "id": "wheel-0178",
+      "name": "Ever Sunward",
+      "aliases": [],
+      "tokens": [
+        "chaos",
+        "defence",
+        "defend",
+        "defense",
+        "ever",
+        "ever sunward",
+        "g",
+        "g ogier",
+        "generation",
+        "genesis",
+        "genesis ogier",
+        "gogier",
+        "oathbound",
+        "ogier",
+        "ogier oathbound",
+        "shield",
+        "shield generation",
+        "ssr",
+        "str",
+        "str up",
+        "strength",
+        "strength up",
+        "sunward",
+        "up"
+      ],
+      "fields": {
+        "name": ["Ever Sunward", "ever-sunward"],
+        "owner": ["Ogier: Oathbound", "ogier-oathbound", "ogier oathbound", "genesis ogier", "gogier", "g-ogier"],
+        "tag": ["str-up", "shield", "defense", "STR Up", "strength up", "shield generation", "defence", "defend"],
+        "facet": ["CHAOS", "SSR"]
+      },
+      "facets": {
+        "realm": "CHAOS",
+        "rarity": "SSR",
+        "mainstatKey": "CRIT_RATE",
+        "owner": "awakener-0061",
+        "tags": ["defense", "shield", "str-up"]
+      }
+    },
+    {
+      "kind": "wheel",
+      "id": "wheel-0179",
+      "name": "Shadowed by the Past",
+      "aliases": [],
+      "tokens": [
+        "by",
+        "g",
+        "g ogier",
+        "generation",
+        "genesis",
+        "genesis ogier",
+        "gogier",
+        "neutral",
+        "oathbound",
+        "ogier",
+        "ogier oathbound",
+        "past",
+        "shadowed",
+        "shadowed by the past",
+        "shield",
+        "shield generation",
+        "sr",
+        "the"
+      ],
+      "fields": {
+        "name": ["Shadowed by the Past", "shadowed-by-the-past"],
+        "owner": ["Ogier: Oathbound", "ogier-oathbound", "ogier oathbound", "genesis ogier", "gogier", "g-ogier"],
+        "tag": ["shield", "shield generation"],
+        "facet": ["NEUTRAL", "SR"]
+      },
+      "facets": {
+        "realm": "NEUTRAL",
+        "rarity": "SR",
+        "mainstatKey": "CRIT_RATE",
+        "owner": "awakener-0061",
+        "tags": ["shield"]
+      }
+    },
+    {
+      "kind": "wheel",
+      "id": "wheel-0180",
+      "name": "Darker than Darkness",
+      "aliases": [],
+      "tokens": ["darker", "darker than darkness", "darkness", "neutral", "ssr", "than"],
+      "fields": {
+        "name": ["Darker than Darkness", "darker-than-darkness"],
+        "facet": ["NEUTRAL", "SSR"]
+      },
+      "facets": {
+        "realm": "NEUTRAL",
+        "rarity": "SSR",
+        "mainstatKey": "CRIT_RATE"
+      }
     }
   ]
 }

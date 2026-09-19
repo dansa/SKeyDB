@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 3,
+  "kind": "talent",
+  "id": "talent.ogier-oathbound.soulforge-aptitude",
+  "name": "Soulforge Aptitude",
+  "route": {
+    "slug": "soulforge-aptitude",
+    "canonicalPath": "/database/awakeners/ogier-oathbound/talents/soulforge-aptitude"
+  },
+  "ownerAwakenerId": "awakener-0061",
+  "family": "soulforge_aptitude",
+  "maxLevel": 10,
+  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\n{Endless Shadow} {STR} reduction and {STR} generation multipliers +[Arg3]%. Each activation grants the next {Sin-Stained Spear} an additional [Arg4]% {STR} bonus, up to an additional 1200%.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "linear",
+      "base": "3",
+      "gainPerLevel": "3"
+    },
+    "Arg2": {
+      "kind": "linear",
+      "base": "50",
+      "gainPerLevel": "50"
+    },
+    "Arg3": {
+      "kind": "linear",
+      "base": "5",
+      "gainPerLevel": "5"
+    },
+    "Arg4": {
+      "kind": "linear",
+      "base": "20",
+      "gainPerLevel": "20"
+    }
+  },
+  "ownerAwakenerName": "Ogier: Oathbound"
+}

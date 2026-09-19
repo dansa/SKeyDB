@@ -61,7 +61,8 @@
       "awakener-0057",
       "awakener-0058",
       "awakener-0059",
-      "awakener-0060"
+      "awakener-0060",
+      "awakener-0061"
     ],
     "wheels": [
       "wheel-0001",
@@ -206,7 +207,10 @@
       "wheel-0174",
       "wheel-0175",
       "wheel-0176",
-      "wheel-0177"
+      "wheel-0177",
+      "wheel-0178",
+      "wheel-0179",
+      "wheel-0180"
     ],
     "covenants": [
       "covenant-0001",
@@ -285,7 +289,8 @@
       "posse-0051",
       "posse-0052",
       "posse-0053",
-      "posse-0062"
+      "posse-0062",
+      "posse-0063"
     ],
     "awakenerBuilds": [
       "awakener-build-0001",
@@ -404,8 +409,8 @@
     "awakener-0055": "xl",
     "awakener-0056": "3",
     "awakener-0057": "xj",
-    "awakener-0058": "xq",
-    "awakener-0059": "xs",
+    "awakener-0058": "xo",
+    "awakener-0059": "xq",
     "awakener-0060": "4",
     "covenant-0001": "k",
     "covenant-0002": "m",
@@ -482,6 +487,7 @@
     "posse-0052": "6",
     "posse-0053": "7",
     "posse-0062": "8",
+    "posse-0063": "0",
     "wheel-0001": "xb",
     "wheel-0002": "xC",
     "wheel-0003": "W",
@@ -619,12 +625,16 @@
     "wheel-0169": "y6",
     "wheel-0170": "y8",
     "wheel-0171": "y7",
-    "wheel-0172": "zc",
+    "wheel-0172": "y9",
     "wheel-0173": "zb",
     "wheel-0174": "za",
     "wheel-0175": "yj",
     "wheel-0176": "yA",
-    "wheel-0177": "zf"
+    "wheel-0177": "zf",
+    "wheel-0179": "zd",
+    "wheel-0180": "ze",
+    "awakener-0061": "xs",
+    "wheel-0178": "zc"
   },
   "groups": {
     "wheelsByAwakener": {
@@ -686,7 +696,8 @@
       "awakener-0057": ["wheel-0167", "wheel-0168"],
       "awakener-0058": ["wheel-0169", "wheel-0171"],
       "awakener-0059": ["wheel-0172", "wheel-0173"],
-      "awakener-0060": ["wheel-0175", "wheel-0176"]
+      "awakener-0060": ["wheel-0175", "wheel-0176"],
+      "awakener-0061": ["wheel-0178", "wheel-0179"]
     },
     "possesByRealm": {
       "AEQUOR": ["posse-0010", "posse-0014", "posse-0021", "posse-0025", "posse-0031", "posse-0035", "posse-0044", "posse-0049", "posse-0052"],
@@ -715,7 +726,8 @@
         "posse-0030",
         "posse-0038",
         "posse-0046",
-        "posse-0053"
+        "posse-0053",
+        "posse-0063"
       ],
       "FADED_LEGACY": ["posse-0001", "posse-0002", "posse-0003", "posse-0004", "posse-0005", "posse-0006", "posse-0008"],
       "OTHER": ["posse-0007", "posse-0033", "posse-0041", "posse-0043", "posse-0045", "posse-0048"],
@@ -759,7 +771,8 @@
       "awakener-0057": ["posse-0051"],
       "awakener-0058": ["posse-0052"],
       "awakener-0059": ["posse-0053"],
-      "awakener-0060": ["posse-0062"]
+      "awakener-0060": ["posse-0062"],
+      "awakener-0061": ["posse-0063"]
     },
     "covenantsBySetBonus": {
       "3": [

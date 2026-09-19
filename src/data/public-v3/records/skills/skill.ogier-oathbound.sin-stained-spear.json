@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 3,
+  "kind": "skill",
+  "id": "skill.ogier-oathbound.sin-stained-spear",
+  "name": "Sin-Stained Spear",
+  "route": {
+    "slug": "sin-stained-spear",
+    "canonicalPath": "/database/awakeners/ogier-oathbound/skills/sin-stained-spear"
+  },
+  "ownerAwakenerId": "awakener-0061",
+  "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG, enjoy a 300% {STR} bonus. {Turn Unique}: Gain 1 stack of {Undertow}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": ["100", "120", "140", "160", "180", "200"],
+      "stat": "ATK",
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "2",
+  "ownerAwakenerName": "Ogier: Oathbound"
+}

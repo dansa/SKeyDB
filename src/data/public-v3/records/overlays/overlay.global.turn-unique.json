@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 3,
+  "kind": "overlay",
+  "id": "overlay.global.turn-unique",
+  "name": "Turn Unique",
+  "route": {
+    "slug": "turn-unique",
+    "canonicalPath": "/database/overlays/turn-unique"
+  },
+  "overlayType": "tag",
+  "aliases": [],
+  "textColor": "misc",
+  "descriptionTemplate": "This effect can trigger only once per turn.",
+  "descriptionArgs": {}
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 3,
+  "kind": "skill",
+  "id": "skill.ogier-oathbound.strike",
+  "name": "Strike",
+  "route": {
+    "slug": "strike",
+    "canonicalPath": "/database/awakeners/ogier-oathbound/skills/strike"
+  },
+  "ownerAwakenerId": "awakener-0061",
+  "slot": "Strike",
+  "cardFamily": "command",
+  "cardTypes": ["strike"],
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG. Ogier: Oathbound gains [Energy:Arg2] Aliemus.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": ["10", "12", "14", "16", "18", "20"],
+      "stat": "ATK",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": ["5", "6", "7", "8", "9", "10"]
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.ogier-oathbound.bear-the-glimmer.skill.ogier-oathbound.strike",
+      "operation": "replace_description",
+      "upgraderId": "enlighten.ogier-oathbound.bear-the-glimmer",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "E2",
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
+      "patch": {
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG. Ogier: Oathbound gains [Energy:Arg2] Aliemus. Takes effect 1 additional time."
+      }
+    }
+  ],
+  "ownerAwakenerName": "Ogier: Oathbound"
+}

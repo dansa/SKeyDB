@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 3,
+  "kind": "skill",
+  "id": "skill.ogier-oathbound.flesh-as-fortress",
+  "name": "Flesh as Fortress",
+  "route": {
+    "slug": "flesh-as-fortress",
+    "canonicalPath": "/database/awakeners/ogier-oathbound/skills/flesh-as-fortress"
+  },
+  "ownerAwakenerId": "awakener-0061",
+  "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
+  "descriptionTemplate": "Ogier: Oathbound gains [Arg2]% Base Aliemus. {Rouse}: Ogier: Oathbound's \"Defense\" cards gain +50% Base Shield and \"Draw 1 card.\" {Turn Unique}: When Ogier: Oathbound's {Sin-Stained Spear} deals DMG, apply an equal amount of {Corrosion}.",
+  "descriptionArgs": {
+    "Arg2": {
+      "kind": "scaling",
+      "values": ["25", "30", "35", "40", "45", "50"],
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "3",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.ogier-oathbound.the-vow-sworn-anew.skill.ogier-oathbound.flesh-as-fortress",
+      "operation": "replace_description",
+      "upgraderId": "enlighten.ogier-oathbound.the-vow-sworn-anew",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "AbsoluteAxiom",
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
+      "patch": {
+        "descriptionTemplate": "Ogier: Oathbound gains [Arg2]% Base Aliemus. {Rouse}: Ogier: Oathbound's {Sin-Stained Spear} gains +100% Base DMG and an additional 200% {STR} bonus. Ogier: Oathbound's \"Defense\" cards gain +100% Base Shield and \"Draw 1 card.\" {Turn Unique}: When Ogier: Oathbound's {Sin-Stained Spear} deals DMG, apply an equal amount of {Corrosion}."
+      }
+    }
+  ],
+  "ownerAwakenerName": "Ogier: Oathbound"
+}

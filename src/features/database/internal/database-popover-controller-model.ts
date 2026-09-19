@@ -62,6 +62,7 @@ export function buildTrailEntry(
   return {
     key: `${reference.kind}:${reference.id}${reference.variantId ? `:${reference.variantId}` : ''}`,
     referenceId: reference.id,
+    referenceVariantId: reference.variantId,
     name: reference.name,
     label: reference.label,
     description: reference.description,

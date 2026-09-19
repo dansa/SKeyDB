@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 3,
+  "kind": "enlighten",
+  "id": "enlighten.ogier-oathbound.fall-for-the-cause",
+  "name": "Fall for the Cause",
+  "route": {
+    "slug": "fall-for-the-cause",
+    "canonicalPath": "/database/awakeners/ogier-oathbound/enlightens/fall-for-the-cause"
+  },
+  "ownerAwakenerId": "awakener-0061",
+  "slot": "E3",
+  "descriptionTemplate": "Each stack of {Undertow} now increases the Final DMG of Ogier: Oathbound's Command Cards by 50%. The Base Shield and {STR} increase provided by {Unfallen Heart} for each stack of {Undertow} consumed becomes 50%.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Ogier: Oathbound"
+}

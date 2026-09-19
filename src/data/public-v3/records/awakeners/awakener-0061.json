@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 3,
+  "kind": "awakener",
+  "id": "awakener-0061",
+  "name": "Ogier: Oathbound",
+  "route": {
+    "slug": "ogier-oathbound",
+    "canonicalPath": "/database/awakeners/ogier-oathbound"
+  },
+  "assets": {
+    "icon": "asset-awakener-0061-icon"
+  },
+  "numericId": 61,
+  "ingameId": "C03EX",
+  "realm": "CHAOS",
+  "rarity": "Genesis",
+  "type": "WARDEN",
+  "availabilityType": "LIMITED_ASTRAL_REIGN",
+  "releaseDate": "2026-09-21",
+  "faction": "The Fools",
+  "aliases": ["ogier oathbound", "genesis ogier", "gogier", "g-ogier"],
+  "searchTags": [],
+  "primaryScalingBase": 20,
+  "baseStatsLv1": {
+    "CON": 33,
+    "ATK": 40,
+    "DEF": 34
+  },
+  "substatsLv1": {
+    "CritRate": 6.6,
+    "CritDamage": 51.2,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 15,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 1.55,
+    "ATK": 1.9,
+    "DEF": 1.6
+  },
+  "substatScaling": {
+    "CritRate": 1.6,
+    "CritDamage": 1.2,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 0,
+    "RealmMastery": 0,
+    "SigilYield": 0,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Ogier: Oathbound",
+    "voiceActor": "Otowa Rina",
+    "voiceLines": {
+      "daily": [],
+      "battle": [],
+      "traphase": []
+    }
+  },
+  "lineupToken": "xs"
+}

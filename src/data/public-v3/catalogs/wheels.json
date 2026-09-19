@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "wheels",
   "kind": "wheel",
-  "recordCount": 143,
+  "recordCount": 146,
   "records": [
     {
       "kind": "wheel",
@@ -2515,7 +2515,7 @@
       "mainstatKey": "SIGIL_YIELD",
       "ownerAwakenerId": "awakener-0059",
       "ownerAwakenerName": "Lotan: Cetarchon",
-      "lineupToken": "zc",
+      "lineupToken": "y9",
       "searchTags": ["Aliemus", "Strike", "Crit DMG"]
     },
     {
@@ -2607,6 +2607,60 @@
       "mainstatKey": "SIGIL_YIELD",
       "lineupToken": "zf",
       "searchTags": ["Arithmetica", "Heal"]
+    },
+    {
+      "kind": "wheel",
+      "id": "wheel-0178",
+      "name": "Ever Sunward",
+      "route": {
+        "slug": "ever-sunward",
+        "canonicalPath": "/database/wheels/ever-sunward"
+      },
+      "assets": {
+        "icon": "asset-wheel-0178-icon"
+      },
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "mainstatKey": "CRIT_RATE",
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
+      "searchTags": ["STR Up", "Shield", "Defense"],
+      "lineupToken": "zc"
+    },
+    {
+      "kind": "wheel",
+      "id": "wheel-0179",
+      "name": "Shadowed by the Past",
+      "route": {
+        "slug": "shadowed-by-the-past",
+        "canonicalPath": "/database/wheels/shadowed-by-the-past"
+      },
+      "assets": {
+        "icon": "asset-wheel-0179-icon"
+      },
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "CRIT_RATE",
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
+      "lineupToken": "zd",
+      "searchTags": ["Shield"]
+    },
+    {
+      "kind": "wheel",
+      "id": "wheel-0180",
+      "name": "Darker than Darkness",
+      "route": {
+        "slug": "darker-than-darkness",
+        "canonicalPath": "/database/wheels/darker-than-darkness"
+      },
+      "assets": {
+        "icon": "asset-wheel-0180-icon"
+      },
+      "realm": "NEUTRAL",
+      "rarity": "SSR",
+      "mainstatKey": "CRIT_RATE",
+      "lineupToken": "ze"
     }
   ]
 }

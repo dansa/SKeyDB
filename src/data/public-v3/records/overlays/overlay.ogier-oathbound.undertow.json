@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 3,
+  "kind": "overlay",
+  "id": "overlay.ogier-oathbound.undertow",
+  "name": "Undertow",
+  "route": {
+    "slug": "undertow",
+    "canonicalPath": "/database/awakeners/ogier-oathbound/overlays/undertow"
+  },
+  "assets": {
+    "icon": "asset-overlay.ogier-oathbound.undertow-icon"
+  },
+  "overlayType": "mechanic",
+  "ownerAwakenerId": "awakener-0061",
+  "aliases": [],
+  "iconId": "IconS_Buff_093",
+  "textColor": "damage",
+  "descriptionTemplate": "Each stack increases the Final DMG of Ogier: Oathbound's Command Cards by 33% and reduces turn-start draw by 1. Max [DescArg1] stacks. {Undertow} persists between battles.",
+  "descriptionArgs": {
+    "DescArg1": {
+      "kind": "fixed",
+      "value": "3"
+    }
+  },
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.ogier-oathbound.stand-to-defend.overlay.ogier-oathbound.undertow",
+      "operation": "mixed",
+      "upgraderId": "enlighten.ogier-oathbound.stand-to-defend",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "E1",
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
+      "patch": {
+        "descriptionTemplate": "Each stack increases the Final DMG of Ogier: Oathbound's Command Cards by [DescArg2]% and reduces turn-start draw by 1. Each stack also increases Crit. DMG by [DescArg3]%. Max [DescArg1] stacks. {Undertow} persists between battles.",
+        "descriptionArgs": {
+          "DescArg1": {
+            "kind": "fixed",
+            "value": "3"
+          },
+          "DescArg2": {
+            "kind": "fixed",
+            "value": "33",
+            "suffix": "%"
+          },
+          "DescArg3": {
+            "kind": "fixed",
+            "value": "10",
+            "suffix": "%",
+            "substatBonus": {
+              "substat": "CritRate",
+              "multiplier": "0.3",
+              "mode": "additive"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "upgrade.enlighten.ogier-oathbound.fall-for-the-cause.overlay.ogier-oathbound.undertow",
+      "operation": "mixed",
+      "upgraderId": "enlighten.ogier-oathbound.fall-for-the-cause",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "E3",
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
+      "patch": {
+        "descriptionTemplate": "Each stack increases the Final DMG of Ogier: Oathbound's Command Cards by [DescArg2]% and reduces turn-start draw by 1. Each stack also increases Crit. DMG by [DescArg3]%. Max [DescArg1] stacks. {Undertow} persists between battles.",
+        "descriptionArgs": {
+          "DescArg1": {
+            "kind": "fixed",
+            "value": "3"
+          },
+          "DescArg2": {
+            "kind": "fixed",
+            "value": "50",
+            "suffix": "%"
+          },
+          "DescArg3": {
+            "kind": "fixed",
+            "value": "10",
+            "suffix": "%",
+            "substatBonus": {
+              "substat": "CritRate",
+              "multiplier": "0.3",
+              "mode": "additive"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "ownerAwakenerName": "Ogier: Oathbound"
+}

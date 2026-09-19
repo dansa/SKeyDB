@@ -2,6 +2,7 @@ import {act, fireEvent, render, screen, waitFor} from '@testing-library/react'
 import {MemoryRouter} from 'react-router'
 import {afterEach, describe, expect, it, vi} from 'vitest'
 
+import {resolveAwakenerDatabaseState} from '@/domain/awakener-database-state'
 import type {
   AwakenerEnlightenRecord,
   AwakenerOverlayRecord,
@@ -13,6 +14,7 @@ import type {
 } from '@/domain/database-reference-layer'
 import * as globalDatabaseReferenceLayer from '@/domain/global-database-reference-layer'
 import type {PublicDescriptionArg} from '@/domain/public-description-args'
+import {loadPublicAwakenerDetailById} from '@/domain/public-detail-record-adapters'
 import type {PublicFormulaContext} from '@/domain/public-formula-context'
 
 import type {DatabasePopoverDescriptionRankContext} from './database-popover-context'
@@ -282,6 +284,16 @@ function ControllerHarness({
       <div onClick={onOuterClick}>
         <button
           onClick={(event) => {
+            const overlay = referenceLayer?.overlayByName.get('satiety')
+            if (!overlay) throw new Error('Expected Satiety overlay')
+            popoverController.contextValue.openRootOverlay(overlay, event)
+          }}
+          type='button'
+        >
+          Open Satiety
+        </button>
+        <button
+          onClick={(event) => {
             popoverController.contextValue.openRootReferenceByName('Strike', event)
           }}
           type='button'
@@ -386,6 +398,107 @@ function ControllerHarness({
 }
 
 describe('useDatabasePopoverController', () => {
+  it.each(['root', 'nested'] as const)(
+    'refreshes an open lazy %s reference and ignores obsolete hydration',
+    async (position) => {
+      let finishObsoleteRequest: (() => void) | undefined
+      vi.spyOn(
+        globalDatabaseReferenceLayer,
+        'hydrateGlobalDatabaseReferenceInfo',
+      ).mockImplementation((reference, _formulaContext, _stats, slot) => {
+        const hydrated = withTestDescription(reference, `Counter at ${String(slot)}.`)
+        if (slot === 'E2') {
+          return new Promise((resolve) => {
+            finishObsoleteRequest = () => {
+              resolve(hydrated)
+            }
+          })
+        }
+        return Promise.resolve(hydrated)
+      })
+      const referenceLayer = buildReferenceLayer('Gain {Counter}.')
+      const view = (slot: AwakenerEnlightenRecord['slot']) => (
+        <ControllerHarness referenceLayer={referenceLayer} selectedEnlightenSlot={slot} />
+      )
+      const {rerender} = render(view('E3'))
+      if (position === 'nested') {
+        fireEvent.click(screen.getByRole('button', {name: 'Open Strike'}))
+        fireEvent.click(await screen.findByRole('button', {name: 'Counter'}))
+      } else {
+        fireEvent.click(screen.getByRole('button', {name: 'Open Counter'}))
+      }
+      expect(await screen.findByText('Counter at E3.')).toBeInTheDocument()
+      rerender(view('E2'))
+      await waitFor(() => {
+        expect(finishObsoleteRequest).toBeDefined()
+      })
+      rerender(view('E1'))
+      expect(await screen.findByText('Counter at E1.')).toBeInTheDocument()
+      await act(async () => {
+        finishObsoleteRequest?.()
+      })
+      expect(screen.queryByText('Counter at E2.')).not.toBeInTheDocument()
+      expect(screen.getByText('Counter at E1.')).toBeInTheDocument()
+    },
+  )
+
+  it('does not restore an old trail when a live refresh completes after root replacement', async () => {
+    let finishRefresh: (() => void) | undefined
+    vi.spyOn(globalDatabaseReferenceLayer, 'hydrateGlobalDatabaseReferenceInfo').mockImplementation(
+      (reference, _formulaContext, _stats, slot) => {
+        const hydrated = withTestDescription(reference, `Counter at ${String(slot)}.`)
+        if (slot === 'E2') {
+          return new Promise((resolve) => {
+            finishRefresh = () => {
+              resolve(hydrated)
+            }
+          })
+        }
+        return Promise.resolve(hydrated)
+      },
+    )
+    const referenceLayer = buildReferenceLayer('Base text.')
+    const {rerender} = render(
+      <ControllerHarness referenceLayer={referenceLayer} selectedEnlightenSlot='E3' />,
+    )
+    fireEvent.click(screen.getByRole('button', {name: 'Open Counter'}))
+    expect(await screen.findByText('Counter at E3.')).toBeInTheDocument()
+    rerender(<ControllerHarness referenceLayer={referenceLayer} selectedEnlightenSlot='E2' />)
+    await waitFor(() => {
+      expect(finishRefresh).toBeDefined()
+    })
+    fireEvent.click(screen.getByRole('button', {name: 'Open Guard'}))
+    await act(async () => {
+      finishRefresh?.()
+    })
+    expect(screen.getByText('Guard text.')).toBeInTheDocument()
+    expect(screen.queryByText('Counter at E2.')).not.toBeInTheDocument()
+  })
+
+  it.each(['E3', null] as const)(
+    'updates Caraboo Satiety in both directions after opening at %s',
+    async (initialSlot) => {
+      const caraboo = await loadPublicAwakenerDetailById(60)
+      if (!caraboo) throw new Error('Expected Caraboo')
+      const view = (slot: AwakenerEnlightenRecord['slot'] | null) => (
+        <ControllerHarness
+          referenceLayer={
+            resolveAwakenerDatabaseState(caraboo, {selectedEnlightenSlot: slot}).referenceLayer
+          }
+          selectedEnlightenSlot={slot}
+        />
+      )
+      const {rerender} = render(view(initialSlot))
+      fireEvent.click(screen.getByRole('button', {name: 'Open Satiety'}))
+      expect(await screen.findByText(initialSlot === 'E3' ? /15%/ : /10%/)).toBeInTheDocument()
+      for (const slot of ['E3', 'E2', 'E3', null] as const) {
+        rerender(view(slot))
+        expect(await screen.findByText(slot === 'E3' ? /15%/ : /10%/)).toBeInTheDocument()
+        expect(screen.queryByText(slot === 'E3' ? /10%/ : /15%/)).not.toBeInTheDocument()
+      }
+    },
+  )
+
   it('live updates open popovers when the database view changes', async () => {
     const {rerender} = render(
       <ControllerHarness referenceLayer={buildReferenceLayer('Base text.')} />,
@@ -731,24 +844,30 @@ describe('useDatabasePopoverController', () => {
     expect(screen.queryByText('Details coming soon')).not.toBeInTheDocument()
   })
 
-  it('hydrates and routes exact Orison variants from nested popover descriptions', async () => {
+  it('preserves exact Orison variants when live context refreshes an open popover', async () => {
     const hydrateGlobalDatabaseReferenceInfo = vi
       .spyOn(globalDatabaseReferenceLayer, 'hydrateGlobalDatabaseReferenceInfo')
-      .mockImplementation((reference) =>
-        Promise.resolve(withTestDescription(reference, 'When played, draw 1 card.')),
+      .mockImplementation((reference, _formulaContext, _stats, slot) =>
+        Promise.resolve(
+          withTestDescription(
+            reference,
+            `${reference.variantId ?? 'default'} at ${slot ?? 'base'}.`,
+          ),
+        ),
       )
     const referenceLayer = buildReferenceLayer('Choose {orison:0001@v-0002|Finesse}.')
 
-    render(
+    const view = (slot: AwakenerEnlightenRecord['slot'] | null) => (
       <MemoryRouter>
-        <ControllerHarness referenceLayer={referenceLayer} />
-      </MemoryRouter>,
+        <ControllerHarness referenceLayer={referenceLayer} selectedEnlightenSlot={slot} />
+      </MemoryRouter>
     )
+    const {rerender} = render(view(null))
 
     fireEvent.click(screen.getByRole('button', {name: 'Open Strike'}))
     fireEvent.click(await screen.findByRole('button', {name: 'Finesse'}))
 
-    expect(await screen.findByText('When played, draw 1 card.')).toBeInTheDocument()
+    expect(await screen.findByText('orison-variant-0002 at base.')).toBeInTheDocument()
     expect(hydrateGlobalDatabaseReferenceInfo).toHaveBeenCalledWith(
       expect.objectContaining({
         id: 'orison-0001',
@@ -758,6 +877,18 @@ describe('useDatabasePopoverController', () => {
       undefined,
       null,
       null,
+    )
+    rerender(view('E1'))
+    expect(await screen.findByText('orison-variant-0002 at E1.')).toBeInTheDocument()
+    expect(hydrateGlobalDatabaseReferenceInfo).toHaveBeenLastCalledWith(
+      expect.objectContaining({
+        id: 'orison-0001',
+        kind: 'orison',
+        variantId: 'orison-variant-0002',
+      }),
+      undefined,
+      null,
+      'E1',
     )
     expect(screen.getByRole('link', {name: /Open in Orisons DB/})).toHaveAttribute(
       'href',
