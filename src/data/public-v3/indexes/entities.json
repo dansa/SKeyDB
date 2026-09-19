@@ -1021,6 +1021,23 @@
       "availabilityType": "LIMITED_ASTRAL_REIGN",
       "releaseDate": "2026-08-24"
     },
+    "awakener-0061": {
+      "kind": "awakener",
+      "id": "awakener-0061",
+      "name": "Ogier: Oathbound",
+      "route": {
+        "slug": "ogier-oathbound",
+        "canonicalPath": "/database/awakeners/ogier-oathbound"
+      },
+      "assets": {
+        "icon": "asset-awakener-0061-icon"
+      },
+      "realm": "CHAOS",
+      "rarity": "Genesis",
+      "type": "WARDEN",
+      "availabilityType": "LIMITED_ASTRAL_REIGN",
+      "releaseDate": "2026-09-21"
+    },
     "awakener-build-0001": {
       "kind": "awakenerBuild",
       "id": "awakener-build-0001",
@@ -2656,6 +2673,15 @@
         "canonicalPath": "/database/derived-skills/barbed-trident"
       }
     },
+    "derived.global.black-tide-rebirth": {
+      "kind": "derivedSkill",
+      "id": "derived.global.black-tide-rebirth",
+      "name": "Black Tide Rebirth",
+      "route": {
+        "slug": "black-tide-rebirth",
+        "canonicalPath": "/database/derived-skills/black-tide-rebirth"
+      }
+    },
     "derived.global.bone-of-agony": {
       "kind": "derivedSkill",
       "id": "derived.global.bone-of-agony",
@@ -2844,6 +2870,15 @@
       "route": {
         "slug": "endless-combustion",
         "canonicalPath": "/database/derived-skills/endless-combustion"
+      }
+    },
+    "derived.global.fall-into-night": {
+      "kind": "derivedSkill",
+      "id": "derived.global.fall-into-night",
+      "name": "Fall into Night",
+      "route": {
+        "slug": "fall-into-night",
+        "canonicalPath": "/database/derived-skills/fall-into-night"
       }
     },
     "derived.global.falling-upward": {
@@ -3213,6 +3248,15 @@
       "route": {
         "slug": "soul-synchronization",
         "canonicalPath": "/database/derived-skills/soul-synchronization"
+      }
+    },
+    "derived.global.spiritual-evolution": {
+      "kind": "derivedSkill",
+      "id": "derived.global.spiritual-evolution",
+      "name": "Spiritual Evolution",
+      "route": {
+        "slug": "spiritual-evolution",
+        "canonicalPath": "/database/derived-skills/spiritual-evolution"
       }
     },
     "derived.global.stagger": {
@@ -6412,6 +6456,66 @@
       "ownerAwakenerName": "Nymphaea",
       "slot": "E2"
     },
+    "enlighten.ogier-oathbound.bear-the-glimmer": {
+      "kind": "enlighten",
+      "id": "enlighten.ogier-oathbound.bear-the-glimmer",
+      "name": "Bear the Glimmer",
+      "route": {
+        "slug": "bear-the-glimmer",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/enlightens/bear-the-glimmer"
+      },
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
+      "slot": "E2"
+    },
+    "enlighten.ogier-oathbound.fall-for-the-cause": {
+      "kind": "enlighten",
+      "id": "enlighten.ogier-oathbound.fall-for-the-cause",
+      "name": "Fall for the Cause",
+      "route": {
+        "slug": "fall-for-the-cause",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/enlightens/fall-for-the-cause"
+      },
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
+      "slot": "E3"
+    },
+    "enlighten.ogier-oathbound.oath-to-tomorrow": {
+      "kind": "enlighten",
+      "id": "enlighten.ogier-oathbound.oath-to-tomorrow",
+      "name": "Oath to Tomorrow",
+      "route": {
+        "slug": "oath-to-tomorrow",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/enlightens/oath-to-tomorrow"
+      },
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
+      "slot": "OverExalt"
+    },
+    "enlighten.ogier-oathbound.stand-to-defend": {
+      "kind": "enlighten",
+      "id": "enlighten.ogier-oathbound.stand-to-defend",
+      "name": "Stand to Defend",
+      "route": {
+        "slug": "stand-to-defend",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/enlightens/stand-to-defend"
+      },
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
+      "slot": "E1"
+    },
+    "enlighten.ogier-oathbound.the-vow-sworn-anew": {
+      "kind": "enlighten",
+      "id": "enlighten.ogier-oathbound.the-vow-sworn-anew",
+      "name": "The Vow, Sworn Anew",
+      "route": {
+        "slug": "the-vow-sworn-anew",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/enlightens/the-vow-sworn-anew"
+      },
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
+      "slot": "AbsoluteAxiom"
+    },
     "enlighten.ogier.deathless-loyalty": {
       "kind": "enlighten",
       "id": "enlighten.ogier.deathless-loyalty",
@@ -9512,6 +9616,36 @@
       "ownerAwakenerName": "Murphy: Fauxborn",
       "overlayType": "mechanic"
     },
+    "overlay.ogier-oathbound.guilt": {
+      "kind": "overlay",
+      "id": "overlay.ogier-oathbound.guilt",
+      "name": "Guilt",
+      "route": {
+        "slug": "guilt",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/overlays/guilt"
+      },
+      "assets": {
+        "icon": "asset-overlay.ogier-oathbound.guilt-icon"
+      },
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
+      "overlayType": "mechanic"
+    },
+    "overlay.ogier-oathbound.undertow": {
+      "kind": "overlay",
+      "id": "overlay.ogier-oathbound.undertow",
+      "name": "Undertow",
+      "route": {
+        "slug": "undertow",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/overlays/undertow"
+      },
+      "assets": {
+        "icon": "asset-overlay.ogier-oathbound.undertow-icon"
+      },
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
+      "overlayType": "mechanic"
+    },
     "overlay.pickman.collaboration": {
       "kind": "overlay",
       "id": "overlay.pickman.collaboration",
@@ -10823,6 +10957,23 @@
       "realm": "CARO",
       "ownerAwakenerId": "awakener-0060",
       "ownerAwakenerName": "Caraboo"
+    },
+    "posse-0063": {
+      "kind": "posse",
+      "id": "posse-0063",
+      "name": "Pages Ever New",
+      "route": {
+        "slug": "pages-ever-new",
+        "canonicalPath": "/database/posses/pages-ever-new"
+      },
+      "assets": {
+        "icon": "asset-posse-0063-icon",
+        "crystal": "asset-posse-0063-crystal",
+        "badge": "asset-posse-0063-badge"
+      },
+      "realm": "CHAOS",
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound"
     },
     "relic-0001": {
       "kind": "relic",
@@ -18177,6 +18328,90 @@
       "ownerAwakenerName": "Nymphaea",
       "slot": "Strike"
     },
+    "skill.ogier-oathbound.def": {
+      "kind": "skill",
+      "id": "skill.ogier-oathbound.def",
+      "name": "Defense",
+      "route": {
+        "slug": "defense",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/skills/defense"
+      },
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
+      "slot": "Defense"
+    },
+    "skill.ogier-oathbound.endless-shadow": {
+      "kind": "skill",
+      "id": "skill.ogier-oathbound.endless-shadow",
+      "name": "Endless Shadow",
+      "route": {
+        "slug": "endless-shadow",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/skills/endless-shadow"
+      },
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
+      "slot": "Skill2"
+    },
+    "skill.ogier-oathbound.flesh-as-fortress": {
+      "kind": "skill",
+      "id": "skill.ogier-oathbound.flesh-as-fortress",
+      "name": "Flesh as Fortress",
+      "route": {
+        "slug": "flesh-as-fortress",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/skills/flesh-as-fortress"
+      },
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
+      "slot": "Rouse"
+    },
+    "skill.ogier-oathbound.oath-to-tomorrow": {
+      "kind": "skill",
+      "id": "skill.ogier-oathbound.oath-to-tomorrow",
+      "name": "Oath to Tomorrow",
+      "route": {
+        "slug": "oath-to-tomorrow",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/skills/oath-to-tomorrow"
+      },
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
+      "slot": "OverExalt"
+    },
+    "skill.ogier-oathbound.sin-stained-spear": {
+      "kind": "skill",
+      "id": "skill.ogier-oathbound.sin-stained-spear",
+      "name": "Sin-Stained Spear",
+      "route": {
+        "slug": "sin-stained-spear",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/skills/sin-stained-spear"
+      },
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
+      "slot": "Skill1"
+    },
+    "skill.ogier-oathbound.strike": {
+      "kind": "skill",
+      "id": "skill.ogier-oathbound.strike",
+      "name": "Strike",
+      "route": {
+        "slug": "strike",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/skills/strike"
+      },
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
+      "slot": "Strike"
+    },
+    "skill.ogier-oathbound.unfallen-heart": {
+      "kind": "skill",
+      "id": "skill.ogier-oathbound.unfallen-heart",
+      "name": "Unfallen Heart",
+      "route": {
+        "slug": "unfallen-heart",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/skills/unfallen-heart"
+      },
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
+      "slot": "Exalt"
+    },
     "skill.ogier.defense": {
       "kind": "skill",
       "id": "skill.ogier.defense",
@@ -21829,6 +22064,58 @@
       "family": "soulforge_aptitude",
       "maxLevel": 10
     },
+    "talent.ogier-oathbound.gnostic-potential": {
+      "kind": "talent",
+      "id": "talent.ogier-oathbound.gnostic-potential",
+      "name": "Gnostic Potential",
+      "route": {
+        "slug": "gnostic-potential",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/talents/gnostic-potential"
+      },
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
+      "family": "gnostic_potential",
+      "maxLevel": 5,
+      "defaultMaxed": true
+    },
+    "talent.ogier-oathbound.madness-omen": {
+      "kind": "talent",
+      "id": "talent.ogier-oathbound.madness-omen",
+      "name": "Madness Omen",
+      "route": {
+        "slug": "madness-omen",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/talents/madness-omen"
+      },
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    "talent.ogier-oathbound.primordial-breath": {
+      "kind": "talent",
+      "id": "talent.ogier-oathbound.primordial-breath",
+      "name": "Primordial Breath",
+      "route": {
+        "slug": "primordial-breath",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/talents/primordial-breath"
+      },
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
+      "family": "passive"
+    },
+    "talent.ogier-oathbound.soulforge-aptitude": {
+      "kind": "talent",
+      "id": "talent.ogier-oathbound.soulforge-aptitude",
+      "name": "Soulforge Aptitude",
+      "route": {
+        "slug": "soulforge-aptitude",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/talents/soulforge-aptitude"
+      },
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
     "talent.ogier.formless-refinement": {
       "kind": "talent",
       "id": "talent.ogier.formless-refinement",
@@ -25193,6 +25480,65 @@
       "realm": "NEUTRAL",
       "rarity": "SSR",
       "mainstatKey": "SIGIL_YIELD"
+    },
+    "wheel-0178": {
+      "kind": "wheel",
+      "id": "wheel-0178",
+      "name": "Ever Sunward",
+      "route": {
+        "slug": "ever-sunward",
+        "canonicalPath": "/database/wheels/ever-sunward"
+      },
+      "assets": {
+        "icon": "asset-wheel-0178-icon"
+      },
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "mainstatKey": "CRIT_RATE",
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound"
+    },
+    "wheel-0179": {
+      "kind": "wheel",
+      "id": "wheel-0179",
+      "name": "Shadowed by the Past",
+      "route": {
+        "slug": "shadowed-by-the-past",
+        "canonicalPath": "/database/wheels/shadowed-by-the-past"
+      },
+      "assets": {
+        "icon": "asset-wheel-0179-icon"
+      },
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "CRIT_RATE",
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound"
+    },
+    "wheel-0180": {
+      "kind": "wheel",
+      "id": "wheel-0180",
+      "name": "Darker than Darkness",
+      "route": {
+        "slug": "darker-than-darkness",
+        "canonicalPath": "/database/wheels/darker-than-darkness"
+      },
+      "assets": {
+        "icon": "asset-wheel-0180-icon"
+      },
+      "realm": "NEUTRAL",
+      "rarity": "SSR",
+      "mainstatKey": "CRIT_RATE"
+    },
+    "overlay.global.turn-unique": {
+      "kind": "overlay",
+      "id": "overlay.global.turn-unique",
+      "name": "Turn Unique",
+      "route": {
+        "slug": "turn-unique",
+        "canonicalPath": "/database/overlays/turn-unique"
+      },
+      "overlayType": "tag"
     }
   },
   "scopes": {
@@ -25314,7 +25660,8 @@
       "awakener-0057",
       "awakener-0058",
       "awakener-0059",
-      "awakener-0060"
+      "awakener-0060",
+      "awakener-0061"
     ],
     "covenants": [
       "covenant-0001",
@@ -25405,6 +25752,7 @@
       "derived.global.arouse",
       "derived.global.assemble",
       "derived.global.barbed-trident",
+      "derived.global.black-tide-rebirth",
       "derived.global.bone-of-agony",
       "derived.global.bone-of-blades",
       "derived.global.bone-of-fury",
@@ -25426,6 +25774,7 @@
       "derived.global.echoes-of-the-past",
       "derived.global.embryo",
       "derived.global.endless-combustion",
+      "derived.global.fall-into-night",
       "derived.global.falling-upward",
       "derived.global.fleeting-beauty",
       "derived.global.flicker-of-humanity",
@@ -25467,6 +25816,7 @@
       "derived.global.slumber",
       "derived.global.solidify",
       "derived.global.soul-synchronization",
+      "derived.global.spiritual-evolution",
       "derived.global.stagger",
       "derived.global.stakes-of-wisdom",
       "derived.global.suspicion",
@@ -25744,6 +26094,11 @@
       "enlighten.nymphaea.oceans-vessel",
       "enlighten.nymphaea.sentiment-oc-anique",
       "enlighten.nymphaea.silent-permeation",
+      "enlighten.ogier-oathbound.bear-the-glimmer",
+      "enlighten.ogier-oathbound.fall-for-the-cause",
+      "enlighten.ogier-oathbound.oath-to-tomorrow",
+      "enlighten.ogier-oathbound.stand-to-defend",
+      "enlighten.ogier-oathbound.the-vow-sworn-anew",
       "enlighten.ogier.deathless-loyalty",
       "enlighten.ogier.honesty-unto-thyself",
       "enlighten.ogier.mercy-for-the-meek",
@@ -25979,6 +26334,7 @@
       "overlay.global.temporary-str",
       "overlay.global.tentacle-dmg",
       "overlay.global.tranquil-sea",
+      "overlay.global.turn-unique",
       "overlay.global.ultra",
       "overlay.global.ultra-mastery",
       "overlay.global.ultra-round",
@@ -26006,6 +26362,8 @@
       "overlay.miryam.vanitys-collapse",
       "overlay.murphy-fauxborn.birth-ritual",
       "overlay.murphy-fauxborn.life-seal",
+      "overlay.ogier-oathbound.guilt",
+      "overlay.ogier-oathbound.undertow",
       "overlay.pickman.collaboration",
       "overlay.pickman.creativity",
       "overlay.pickman.fantasia",
@@ -26091,7 +26449,8 @@
       "posse-0059",
       "posse-0060",
       "posse-0061",
-      "posse-0062"
+      "posse-0062",
+      "posse-0063"
     ],
     "relics": [
       "relic-0001",
@@ -26675,6 +27034,13 @@
       "skill.nymphaea.midnight-tide",
       "skill.nymphaea.passage-of-the-ego",
       "skill.nymphaea.strike",
+      "skill.ogier-oathbound.def",
+      "skill.ogier-oathbound.endless-shadow",
+      "skill.ogier-oathbound.flesh-as-fortress",
+      "skill.ogier-oathbound.oath-to-tomorrow",
+      "skill.ogier-oathbound.sin-stained-spear",
+      "skill.ogier-oathbound.strike",
+      "skill.ogier-oathbound.unfallen-heart",
       "skill.ogier.defense",
       "skill.ogier.knights-zeal",
       "skill.ogier.piercing-strike",
@@ -26970,6 +27336,10 @@
       "talent.nymphaea.immerse",
       "talent.nymphaea.madness-omen",
       "talent.nymphaea.soulforge-aptitude",
+      "talent.ogier-oathbound.gnostic-potential",
+      "talent.ogier-oathbound.madness-omen",
+      "talent.ogier-oathbound.primordial-breath",
+      "talent.ogier-oathbound.soulforge-aptitude",
       "talent.ogier.formless-refinement",
       "talent.ogier.gnostic-potential",
       "talent.ogier.madness-omen",
@@ -27194,7 +27564,10 @@
       "wheel-0174",
       "wheel-0175",
       "wheel-0176",
-      "wheel-0177"
+      "wheel-0177",
+      "wheel-0178",
+      "wheel-0179",
+      "wheel-0180"
     ]
   }
 }

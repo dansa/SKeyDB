@@ -945,6 +945,36 @@
         "realm": "CARO",
         "owner": "awakener-0060"
       }
+    },
+    {
+      "kind": "posse",
+      "id": "posse-0063",
+      "name": "Pages Ever New",
+      "aliases": [],
+      "tokens": [
+        "chaos",
+        "ever",
+        "g",
+        "g ogier",
+        "genesis",
+        "genesis ogier",
+        "gogier",
+        "new",
+        "oathbound",
+        "ogier",
+        "ogier oathbound",
+        "pages",
+        "pages ever new"
+      ],
+      "fields": {
+        "name": ["Pages Ever New", "pages-ever-new"],
+        "owner": ["Ogier: Oathbound", "ogier-oathbound", "ogier oathbound", "genesis ogier", "gogier", "g-ogier"],
+        "facet": ["CHAOS"]
+      },
+      "facets": {
+        "realm": "CHAOS",
+        "owner": "awakener-0061"
+      }
     }
   ]
 }

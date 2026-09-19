@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "talents",
   "kind": "talent",
-  "recordCount": 226,
+  "recordCount": 230,
   "records": [
     {
       "kind": "talent",
@@ -2924,6 +2924,58 @@
       },
       "ownerAwakenerId": "awakener-0060",
       "ownerAwakenerName": "Caraboo",
+      "family": "gnostic_potential",
+      "maxLevel": 5,
+      "defaultMaxed": true
+    },
+    {
+      "kind": "talent",
+      "id": "talent.ogier-oathbound.primordial-breath",
+      "name": "Primordial Breath",
+      "route": {
+        "slug": "primordial-breath",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/talents/primordial-breath"
+      },
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
+      "family": "passive"
+    },
+    {
+      "kind": "talent",
+      "id": "talent.ogier-oathbound.madness-omen",
+      "name": "Madness Omen",
+      "route": {
+        "slug": "madness-omen",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/talents/madness-omen"
+      },
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "kind": "talent",
+      "id": "talent.ogier-oathbound.soulforge-aptitude",
+      "name": "Soulforge Aptitude",
+      "route": {
+        "slug": "soulforge-aptitude",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/talents/soulforge-aptitude"
+      },
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "kind": "talent",
+      "id": "talent.ogier-oathbound.gnostic-potential",
+      "name": "Gnostic Potential",
+      "route": {
+        "slug": "gnostic-potential",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/talents/gnostic-potential"
+      },
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
       "family": "gnostic_potential",
       "maxLevel": 5,
       "defaultMaxed": true

@@ -71,7 +71,7 @@
       "section": "affix",
       "aliases": ["strength up"],
       "order": 210,
-      "count": 49
+      "count": 50
     },
     {
       "id": "str-down",
@@ -207,7 +207,7 @@
       "section": "archetype",
       "aliases": ["shield generation"],
       "order": 945,
-      "count": 39
+      "count": 41
     },
     {
       "id": "hand-limit",
@@ -287,7 +287,7 @@
       "section": "archetype",
       "aliases": ["defence", "defend"],
       "order": 1015,
-      "count": 8
+      "count": 9
     },
     {
       "id": "tentacles",

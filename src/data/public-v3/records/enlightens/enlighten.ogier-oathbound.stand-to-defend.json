@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 3,
+  "kind": "enlighten",
+  "id": "enlighten.ogier-oathbound.stand-to-defend",
+  "name": "Stand to Defend",
+  "route": {
+    "slug": "stand-to-defend",
+    "canonicalPath": "/database/awakeners/ogier-oathbound/enlightens/stand-to-defend"
+  },
+  "ownerAwakenerId": "awakener-0061",
+  "slot": "E1",
+  "descriptionTemplate": "{Unfallen Heart} Shield and {STR} generation multipliers +10%. Each stack of {Undertow} grants Ogier: Oathbound +10% Crit. DMG.\nFor every 1% Crit. Rate provided by Ogier: Oathbound and his equipped WoD & Covenant, the Shield and {STR} generation multipliers of {Unfallen Heart} additionally +0.3%, and the Crit. DMG granted by each stack of {Undertow} additionally +0.3%.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Ogier: Oathbound"
+}

@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 3,
+  "kind": "overlay",
+  "id": "overlay.ogier-oathbound.guilt",
+  "name": "Guilt",
+  "route": {
+    "slug": "guilt",
+    "canonicalPath": "/database/awakeners/ogier-oathbound/overlays/guilt"
+  },
+  "assets": {
+    "icon": "asset-overlay.ogier-oathbound.guilt-icon"
+  },
+  "overlayType": "mechanic",
+  "ownerAwakenerId": "awakener-0061",
+  "aliases": [],
+  "iconId": "IconS_Buff_094",
+  "textColor": "shield",
+  "descriptionTemplate": "When a \"Skill\" of Ogier: Oathbound is played, consume 1 stack to draw 1 of his Defense cards. The drawn card gains {Retain} until it is played. Max [DescArg1] stacks. {Guilt} persists between battles.",
+  "descriptionArgs": {
+    "DescArg1": {
+      "kind": "fixed",
+      "value": "3"
+    }
+  },
+  "ownerAwakenerName": "Ogier: Oathbound"
+}

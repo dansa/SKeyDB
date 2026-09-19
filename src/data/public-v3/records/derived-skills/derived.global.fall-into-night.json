@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.fall-into-night",
+  "name": "Fall into Night",
+  "route": {
+    "slug": "fall-into-night",
+    "canonicalPath": "/database/derived-skills/fall-into-night"
+  },
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
+  "descriptionTemplate": "The wielder gains [Arg1] Fixed Aliemus. After playing, transforms into {Spiritual Evolution} and returns to hand.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": ["18", "22", "26", "30"],
+      "scalingContext": "wheelRefinement"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    },
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.prepare",
+      "value": 3
+    }
+  ],
+  "cost": "3"
+}

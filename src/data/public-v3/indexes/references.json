@@ -1,6 +1,12 @@
 {
   "schemaVersion": 3,
   "tokens": {
+    "24": [
+      {
+        "kind": "awakener",
+        "id": "awakener-0001"
+      }
+    ],
     "0 countdown": [
       {
         "kind": "derivedSkill",
@@ -17,12 +23,6 @@
       {
         "kind": "derivedSkill",
         "id": "derived.global.countdown-2"
-      }
-    ],
-    "24": [
-      {
-        "kind": "awakener",
-        "id": "awakener-0001"
       }
     ],
     "24 builds": [
@@ -637,6 +637,12 @@
         "id": "posse-0041"
       }
     ],
+    "bear the glimmer": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.ogier-oathbound.bear-the-glimmer"
+      }
+    ],
     "beast of chaos": [
       {
         "kind": "skill",
@@ -785,6 +791,12 @@
       {
         "kind": "posse",
         "id": "posse-0032"
+      }
+    ],
+    "black tide rebirth": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.black-tide-rebirth"
       }
     ],
     "blackened nourishment": [
@@ -1993,6 +2005,12 @@
         "id": "skill.liz.dance-to-destruction"
       }
     ],
+    "darker than darkness": [
+      {
+        "kind": "wheel",
+        "id": "wheel-0180"
+      }
+    ],
     "data is flesh": [
       {
         "kind": "wheel",
@@ -3079,6 +3097,12 @@
         "id": "enlighten.kathigu-ra.endless-purgatory"
       }
     ],
+    "endless shadow": [
+      {
+        "kind": "skill",
+        "id": "skill.ogier-oathbound.endless-shadow"
+      }
+    ],
     "endless slaughter": [
       {
         "kind": "enlighten",
@@ -3217,6 +3241,12 @@
         "id": "enlighten.faint.ever-barren-rainbow"
       }
     ],
+    "ever sunward": [
+      {
+        "kind": "wheel",
+        "id": "wheel-0178"
+      }
+    ],
     "everburning flame": [
       {
         "kind": "enlighten",
@@ -3323,6 +3353,18 @@
       {
         "kind": "derivedSkill",
         "id": "derived.miryam.faith-of-the-divine-realm"
+      }
+    ],
+    "fall for the cause": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.ogier-oathbound.fall-for-the-cause"
+      }
+    ],
+    "fall into night": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.fall-into-night"
       }
     ],
     "falling skyward": [
@@ -3533,6 +3575,12 @@
       {
         "kind": "overlay",
         "id": "overlay.global.fleeting"
+      }
+    ],
+    "flesh as fortress": [
+      {
+        "kind": "skill",
+        "id": "skill.ogier-oathbound.flesh-as-fortress"
       }
     ],
     "flesh detached": [
@@ -3775,6 +3823,12 @@
         "id": "awakener-0035"
       }
     ],
+    "g ogier": [
+      {
+        "kind": "awakener",
+        "id": "awakener-0061"
+      }
+    ],
     "g ramona": [
       {
         "kind": "awakener",
@@ -3833,6 +3887,12 @@
       {
         "kind": "awakenerBuild",
         "id": "awakener-build-0008"
+      }
+    ],
+    "genesis ogier": [
+      {
+        "kind": "awakener",
+        "id": "awakener-0061"
       }
     ],
     "get em brown": [
@@ -3985,6 +4045,12 @@
         "id": "derived.global.gobble-up"
       }
     ],
+    "gogier": [
+      {
+        "kind": "awakener",
+        "id": "awakener-0061"
+      }
+    ],
     "golden butterflys memories": [
       {
         "kind": "enlighten",
@@ -4073,6 +4139,12 @@
       {
         "kind": "relic",
         "id": "relic-0323"
+      }
+    ],
+    "guilt": [
+      {
+        "kind": "overlay",
+        "id": "overlay.ogier-oathbound.guilt"
       }
     ],
     "gynoecium": [
@@ -5959,6 +6031,12 @@
         "id": "awakener-build-0038"
       }
     ],
+    "ogier oathbound": [
+      {
+        "kind": "awakener",
+        "id": "awakener-0061"
+      }
+    ],
     "old embers": [
       {
         "kind": "overlay",
@@ -6101,6 +6179,12 @@
       {
         "kind": "enlighten",
         "id": "enlighten.uvhash.paean-of-twisted-fury"
+      }
+    ],
+    "pages ever new": [
+      {
+        "kind": "posse",
+        "id": "posse-0063"
       }
     ],
     "pain and pleasure": [
@@ -6653,12 +6737,6 @@
       {
         "kind": "overlay",
         "id": "overlay.global.primordia-mastery-scaling"
-      }
-    ],
-    "primordial breath": [
-      {
-        "kind": "talent",
-        "id": "talent.lotan-cetarchon.primordial-breath"
       }
     ],
     "primordial memories": [
@@ -7675,6 +7753,12 @@
         "id": "enlighten.vortice.shackled-impulse"
       }
     ],
+    "shadowed by the past": [
+      {
+        "kind": "wheel",
+        "id": "wheel-0179"
+      }
+    ],
     "shapeshifters invitation": [
       {
         "kind": "relic",
@@ -7829,6 +7913,12 @@
       {
         "kind": "overlay",
         "id": "overlay.pollux.sin-mark"
+      }
+    ],
+    "sin stained spear": [
+      {
+        "kind": "skill",
+        "id": "skill.ogier-oathbound.sin-stained-spear"
       }
     ],
     "sinful black candle": [
@@ -8173,6 +8263,12 @@
         "id": "skill.wanda.spine-needle-chains"
       }
     ],
+    "spiritual evolution": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.spiritual-evolution"
+      }
+    ],
     "spring in the embers": [
       {
         "kind": "enlighten",
@@ -8219,6 +8315,12 @@
       {
         "kind": "relic",
         "id": "relic-0277"
+      }
+    ],
+    "stand to defend": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.ogier-oathbound.stand-to-defend"
       }
     ],
     "standard support": [
@@ -8689,6 +8791,12 @@
         "id": "enlighten.agrippa.the-usurper"
       }
     ],
+    "the vow sworn anew": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.ogier-oathbound.the-vow-sworn-anew"
+      }
+    ],
     "the witness": [
       {
         "kind": "enlighten",
@@ -9091,6 +9199,12 @@
         "id": "enlighten.lotan-cetarchon.uncrowned-storm"
       }
     ],
+    "undertow": [
+      {
+        "kind": "overlay",
+        "id": "overlay.ogier-oathbound.undertow"
+      }
+    ],
     "undying bird of paradise": [
       {
         "kind": "skill",
@@ -9131,6 +9245,12 @@
       {
         "kind": "skill",
         "id": "skill.ryker.unexpected-gain"
+      }
+    ],
+    "unfallen heart": [
+      {
+        "kind": "skill",
+        "id": "skill.ogier-oathbound.unfallen-heart"
       }
     ],
     "unified evolution reagent": [
@@ -9774,6 +9894,12 @@
         "kind": "enlighten",
         "id": "enlighten.pandia.youre-being-naughty"
       }
+    ],
+    "turn unique": [
+      {
+        "kind": "overlay",
+        "id": "overlay.global.turn-unique"
+      }
     ]
   },
   "ambiguous": {
@@ -10123,6 +10249,10 @@
       {
         "kind": "skill",
         "id": "skill.nymphaea.defense"
+      },
+      {
+        "kind": "skill",
+        "id": "skill.ogier-oathbound.def"
       },
       {
         "kind": "skill",
@@ -10590,6 +10720,10 @@
       },
       {
         "kind": "talent",
+        "id": "talent.ogier-oathbound.gnostic-potential"
+      },
+      {
+        "kind": "talent",
         "id": "talent.ogier.gnostic-potential"
       },
       {
@@ -10966,6 +11100,10 @@
       },
       {
         "kind": "talent",
+        "id": "talent.ogier-oathbound.madness-omen"
+      },
+      {
+        "kind": "talent",
         "id": "talent.ogier.madness-omen"
       },
       {
@@ -11089,6 +11227,16 @@
         "id": "skill.murphy.oath-of-liberation"
       }
     ],
+    "oath to tomorrow": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.ogier-oathbound.oath-to-tomorrow"
+      },
+      {
+        "kind": "skill",
+        "id": "skill.ogier-oathbound.oath-to-tomorrow"
+      }
+    ],
     "octahedron dice": [
       {
         "kind": "derivedSkill",
@@ -11177,6 +11325,16 @@
       {
         "kind": "relic",
         "id": "relic-0316"
+      }
+    ],
+    "primordial breath": [
+      {
+        "kind": "talent",
+        "id": "talent.lotan-cetarchon.primordial-breath"
+      },
+      {
+        "kind": "talent",
+        "id": "talent.ogier-oathbound.primordial-breath"
       }
     ],
     "private afternoon": [
@@ -11445,6 +11603,10 @@
       {
         "kind": "talent",
         "id": "talent.nymphaea.soulforge-aptitude"
+      },
+      {
+        "kind": "talent",
+        "id": "talent.ogier-oathbound.soulforge-aptitude"
       },
       {
         "kind": "talent",
@@ -11887,6 +12049,10 @@
       {
         "kind": "skill",
         "id": "skill.nymphaea.strike"
+      },
+      {
+        "kind": "skill",
+        "id": "skill.ogier-oathbound.strike"
       },
       {
         "kind": "skill",

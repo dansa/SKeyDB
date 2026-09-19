@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 3,
+  "kind": "posse",
+  "id": "posse-0063",
+  "name": "Pages Ever New",
+  "route": {
+    "slug": "pages-ever-new",
+    "canonicalPath": "/database/posses/pages-ever-new"
+  },
+  "assets": {
+    "icon": "asset-posse-0063-icon",
+    "crystal": "asset-posse-0063-crystal",
+    "badge": "asset-posse-0063-badge"
+  },
+  "ownerAwakenerId": "awakener-0061",
+  "ownerAwakenerName": "Ogier: Oathbound",
+  "acquisitionSource": "Clear Psyche Deepdive: The Pentameron",
+  "realm": "CHAOS",
+  "lineupToken": "0",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield, gain [Arg2] {STR}. If Ogier: Oathbound is in the party, Ogier: Oathbound gains [Arg3] Aliemus and gains 1 stack of {Undertow}.\nScaling guide: {Primordia Mastery Scaling}",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.085,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "primordiaPosseScaled",
+      "baseFormula": "esotericResearchDepth",
+      "rounding": "ceil",
+      "multiplier": 0.02,
+      "inputs": ["accountLevel", "ownedPosseCount", "realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "offensive"
+    },
+    "Arg3": {
+      "kind": "computed",
+      "formulaKey": "primordiaPosseScaled",
+      "baseFormula": "fixed",
+      "baseValue": 20.0,
+      "rounding": "ceil",
+      "inputs": ["realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "utility"
+    }
+  }
+}

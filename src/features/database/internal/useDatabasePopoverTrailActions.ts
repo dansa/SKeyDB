@@ -45,6 +45,7 @@ import {
   openTrailRoot,
   type TrailEntry,
 } from './popover-trail'
+import {useLiveDatabasePopoverHydration} from './useLiveDatabasePopoverHydration'
 
 type TrailSetter = Dispatch<SetStateAction<TrailEntry[]>>
 interface RootHydrationRequestRef {
@@ -108,6 +109,15 @@ export function useDatabasePopoverTrailActions({
   const [trailAnchorElement, setTrailAnchorElement] = useState<HTMLElement | null>(null)
   const rootHydrationRequestRef = useRef(0)
   const hydrationInputsRef = useRef<HydrationInputs>({formulaContext, selectedEnlightenSlot, stats})
+
+  useLiveDatabasePopoverHydration({
+    trail,
+    setTrail,
+    referenceLayer,
+    formulaContext,
+    stats,
+    selectedEnlightenSlot,
+  })
 
   useLayoutEffect(() => {
     hydrationInputsRef.current = {formulaContext, selectedEnlightenSlot, stats}

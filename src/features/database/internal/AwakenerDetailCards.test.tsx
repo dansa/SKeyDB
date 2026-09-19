@@ -31,11 +31,79 @@ vi.mock('./RichDescription', () => ({
 }))
 
 const openRootReferenceByName = vi.fn()
+const openRootInfo = vi.fn()
 const popoverContext = makeDatabasePopoverContext({
+  openRootInfo,
   openRootReferenceByName,
 })
 
 describe('AwakenerDetailCards', () => {
+  it.each([
+    ['X', 'Consumes all available Arithmetica, including 0. X equals the amount consumed.'],
+    ['X5', 'Consumes up to 5 available Arithmetica, including 0. X equals the amount consumed.'],
+  ])('opens a parameterized popover for %s costs', (cost, description) => {
+    openRootInfo.mockClear()
+    const shellView = makeDatabaseShellView({
+      commandCards: [
+        makeDatabaseDescribedEntry({
+          key: 'C2',
+          label: `Card · C2 · Cost ${cost}`,
+          record: makeSkillRecord({
+            id: `skill.test.variable-cost-${cost}`,
+            kind: 'command',
+            displayName: 'Variable Cost Card',
+            cost,
+          }),
+          resolved: {description: 'Variable cost card text'} as never,
+        }),
+      ],
+    })
+
+    render(
+      <DatabasePopoverContext.Provider value={popoverContext}>
+        <AwakenerDetailCards referenceLayer={null} shellView={shellView} />
+      </DatabasePopoverContext.Provider>,
+    )
+
+    fireEvent.click(screen.getByRole('button', {name: `Cost ${cost} details`}))
+    expect(openRootInfo).toHaveBeenCalledWith(
+      expect.objectContaining({
+        key: `card-cost:${cost.toLowerCase()}`,
+        name: `${cost} Cost`,
+        label: 'Variable Arithmetica Cost',
+        description,
+      }),
+      expect.anything(),
+    )
+  })
+
+  it('keeps fixed card costs as plain metadata', () => {
+    const shellView = makeDatabaseShellView({
+      commandCards: [
+        makeDatabaseDescribedEntry({
+          key: 'C2',
+          label: 'Card · C2 · Cost 2',
+          record: makeSkillRecord({
+            id: 'skill.test.fixed-cost',
+            kind: 'command',
+            displayName: 'Fixed Cost Card',
+            cost: '2',
+          }),
+          resolved: {description: 'Fixed cost card text'} as never,
+        }),
+      ],
+    })
+
+    render(
+      <DatabasePopoverContext.Provider value={popoverContext}>
+        <AwakenerDetailCards referenceLayer={null} shellView={shellView} />
+      </DatabasePopoverContext.Provider>,
+    )
+
+    expect(screen.getByText('Cost 2')).toBeInTheDocument()
+    expect(screen.queryByRole('button', {name: 'Cost 2 details'})).not.toBeInTheDocument()
+  })
+
   it('shows enlighten influence badges for affected cards', () => {
     const onToggleEnlightenSlot = vi.fn()
     const shellView = makeDatabaseShellView({

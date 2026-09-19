@@ -20,9 +20,11 @@ import {
   getDatabaseDetailBodyTextStyle,
   getDatabaseDetailSectionHeadingStyle,
 } from './database-detail-typography'
+import {useDatabasePopoverControllerContext} from './database-popover-context'
 import {DatabaseRootReferenceLabel} from './DatabaseRootReferenceLabel'
 import {DatabaseScopedRichDescription} from './DatabaseScopedRichDescription'
 import {
+  DATABASE_INHERIT_FONT_SIZE_CLASS,
   DATABASE_ITEM_NAME_CLASS,
   DATABASE_SECTION_TITLE_CLASS,
   DATABASE_STAT_TOKEN_CLASS,
@@ -54,6 +56,49 @@ interface CardSectionMeta {
   key: string
   costKind: CardCostKind
   classificationReferenceName?: string
+}
+
+function getVariableCostDescription(cost: string): string | undefined {
+  const match = /^X(\d+)?$/.exec(cost)
+  if (!match) {
+    return undefined
+  }
+
+  const cap = match[1]
+  return cap
+    ? `Consumes up to ${cap} available Arithmetica, including 0. X equals the amount consumed.`
+    : 'Consumes all available Arithmetica, including 0. X equals the amount consumed.'
+}
+
+function CardCostLabel({cost}: {cost: string}) {
+  const popoverController = useDatabasePopoverControllerContext()
+  const description = getVariableCostDescription(cost)
+  const label = `Cost ${cost}`
+
+  if (!description || !popoverController?.openRootInfo) {
+    return <span>{label}</span>
+  }
+
+  return (
+    <button
+      aria-label={`${label} details`}
+      className={`cursor-pointer transition-colors hover:text-amber-100 ${DATABASE_INHERIT_FONT_SIZE_CLASS}`}
+      onClick={(event) => {
+        popoverController.openRootInfo?.(
+          {
+            key: `card-cost:${cost.toLowerCase()}`,
+            name: `${cost} Cost`,
+            label: 'Variable Arithmetica Cost',
+            description,
+          },
+          event,
+        )
+      }}
+      type='button'
+    >
+      {label}
+    </button>
+  )
 }
 
 function AwakenerCardDescription({
@@ -132,8 +177,9 @@ function AwakenerCardSection<TRecord extends AwakenerSkillRecord | DerivedSkillR
       <div>
         {entries.map((entry, index) => {
           const meta = getEntryMeta(entry)
+          const displayCost = getCardDisplayCost(entry.record.cost, meta.costKind, exaltBaseCost)
           const metadataLabels = [
-            `Cost ${getCardDisplayCost(entry.record.cost, meta.costKind, exaltBaseCost)}`,
+            `Cost ${displayCost}`,
             ...getCanonicalCardClassificationLabels(entry.record),
           ]
 
@@ -170,7 +216,7 @@ function AwakenerCardSection<TRecord extends AwakenerSkillRecord | DerivedSkillR
                             key={`${label}:${labelIndex.toString()}`}
                             className={`${DATABASE_STAT_TOKEN_CLASS} whitespace-nowrap`}
                           >
-                            {label}
+                            <CardCostLabel cost={displayCost} />
                           </span>
                         ) : (
                           <span

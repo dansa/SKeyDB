@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "posses",
   "kind": "posse",
-  "recordCount": 62,
+  "recordCount": 63,
   "records": [
     {
       "kind": "posse",
@@ -1184,6 +1184,24 @@
       "ownerAwakenerId": "awakener-0060",
       "ownerAwakenerName": "Caraboo",
       "lineupToken": "8"
+    },
+    {
+      "kind": "posse",
+      "id": "posse-0063",
+      "name": "Pages Ever New",
+      "route": {
+        "slug": "pages-ever-new",
+        "canonicalPath": "/database/posses/pages-ever-new"
+      },
+      "assets": {
+        "icon": "asset-posse-0063-icon",
+        "crystal": "asset-posse-0063-crystal",
+        "badge": "asset-posse-0063-badge"
+      },
+      "realm": "CHAOS",
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
+      "lineupToken": "0"
     }
   ]
 }

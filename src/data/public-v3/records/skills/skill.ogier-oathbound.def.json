@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 3,
+  "kind": "skill",
+  "id": "skill.ogier-oathbound.def",
+  "name": "Defense",
+  "route": {
+    "slug": "defense",
+    "canonicalPath": "/database/awakeners/ogier-oathbound/skills/defense"
+  },
+  "ownerAwakenerId": "awakener-0061",
+  "slot": "Defense",
+  "cardFamily": "command",
+  "cardTypes": ["defense"],
+  "descriptionTemplate": "Gain [Block:Arg3] Shield. Ogier: Oathbound gains [Energy:Arg2] Aliemus.",
+  "descriptionArgs": {
+    "Arg2": {
+      "kind": "scaling",
+      "values": ["5", "6", "7", "8", "9", "10"]
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": ["10", "12", "14", "16", "18", "20"],
+      "stat": "DEF",
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1",
+  "ownerAwakenerName": "Ogier: Oathbound"
+}

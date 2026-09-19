@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 3,
+  "kind": "skill",
+  "id": "skill.ogier-oathbound.endless-shadow",
+  "name": "Endless Shadow",
+  "route": {
+    "slug": "endless-shadow",
+    "canonicalPath": "/database/awakeners/ogier-oathbound/skills/endless-shadow"
+  },
+  "ownerAwakenerId": "awakener-0061",
+  "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
+  "descriptionTemplate": "Temporarily reduce all enemies' {STR▼} by [Exhaustion:Arg1]. Gain [Power:Arg2] {STR}. Take effect X additional times (X ≤ 5).",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": ["4", "4.8", "5.6", "6.4", "7.2", "8"],
+      "stat": "DEF",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": ["1.5", "1.8", "2.1", "2.4", "2.7", "3"],
+      "stat": "ATK",
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "X5",
+  "ownerAwakenerName": "Ogier: Oathbound"
+}

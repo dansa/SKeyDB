@@ -3644,6 +3644,43 @@
         "gender": "Female",
         "tags": ["corrosion", "dispel", "divine-realm", "fixed-dmg", "str-down", "str-up", "weakness"]
       }
+    },
+    {
+      "kind": "awakener",
+      "id": "awakener-0061",
+      "name": "Ogier: Oathbound",
+      "aliases": ["ogier oathbound", "genesis ogier", "gogier", "g-ogier"],
+      "tokens": [
+        "astral",
+        "chaos",
+        "fools",
+        "g",
+        "g ogier",
+        "genesis",
+        "genesis ogier",
+        "gogier",
+        "limited",
+        "limited astral reign",
+        "oathbound",
+        "ogier",
+        "ogier oathbound",
+        "reign",
+        "the",
+        "the fools",
+        "warden"
+      ],
+      "fields": {
+        "name": ["Ogier: Oathbound", "ogier-oathbound"],
+        "alias": ["ogier oathbound", "genesis ogier", "gogier", "g-ogier"],
+        "facet": ["CHAOS", "Genesis", "WARDEN", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "The Fools"]
+      },
+      "facets": {
+        "realm": "CHAOS",
+        "rarity": "Genesis",
+        "type": "WARDEN",
+        "availabilityType": "LIMITED_ASTRAL_REIGN",
+        "faction": "The Fools"
+      }
     }
   ]
 }

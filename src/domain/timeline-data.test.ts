@@ -659,4 +659,53 @@ describe('timeline data loading', () => {
     ])
     expect([triune?.type, sylvan?.type]).toEqual(['rerun', 'rerun'])
   })
+
+  it('loads the patch 2.6.1 banners and event cycles', () => {
+    const ogier = timelineBanners.find((banner) => banner.id === 'banner-ogier-oathbound')
+    const triune = timelineBanners.find((banner) => banner.id === 'banner-triune-verdant-oct')
+    const sylvan = timelineBanners.find((banner) => banner.id === 'banner-sylvan-omen-oct')
+    const gameplay = timelineEvents.find((event) => event.id === 'event-story-ogier-oathbound')
+    const archives = timelineEvents.find((event) => event.id === 'event-wheel-darker-than-darkness')
+    const preorder = timelineEvents.find(
+      (event) => event.id === 'event-preorder-witchs-nocturnal-operation',
+    )
+    const rerun = timelineEvents.find((event) => event.id === 'event-story-rerun-mirrored-prisoner')
+
+    expect(ogier).toMatchObject({
+      endDate: '2026-10-19T01:00:00.000Z',
+      pinned: true,
+      startDate: '2026-09-21T01:00:00.000Z',
+      title: 'Sin-Bound Glory / Sullied White',
+    })
+    expect(ogier?.featured?.map((unit) => unit.name)).toEqual(['Ogier: Oathbound', 'Ever Sunward'])
+    expect(triune?.featured?.map((unit) => unit.name)).toEqual(['Castor', 'Miryam', 'Xu'])
+    expect(sylvan?.featured?.map((unit) => unit.name)).toEqual([
+      'Unbearable Freedom',
+      'Power of the Pious',
+      'Vain Regrets',
+    ])
+    expect(gameplay).toMatchObject({
+      category: 'gameplay-event',
+      customArt: expect.stringContaining('should-glory-fade'),
+      title: 'Should Glory Fade',
+    })
+    expect(archives).toMatchObject({
+      category: 'wheel-event',
+      customArt: expect.stringContaining('born-in-darkness'),
+      pricing: '1680 Silver Prime',
+      title: 'Special Archives: Born in Darkness',
+    })
+    expect(preorder).toMatchObject({
+      category: 'preorder',
+      customArt: expect.stringContaining('witchs-nocturnal-operation'),
+      endDate: '2026-11-16T01:00:00.000Z',
+      pricing: '1980 Silver Prime',
+    })
+    expect(preorder?.featured).toBeUndefined()
+    expect(rerun).toMatchObject({
+      category: 'gameplay-event',
+      rerun: true,
+      title: 'Mirrored Prisoner',
+    })
+  })
 })

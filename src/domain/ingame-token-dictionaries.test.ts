@@ -47,7 +47,7 @@ describe('buildIngameTokenDictionaries', () => {
     expect(result.awakeners.byIdToken.size).toBeGreaterThan(40)
     expect(result.wheels.byIdToken.size).toBeGreaterThan(100)
     expect(result.covenants.byIdToken.size).toBe(21)
-    expect(result.posses.byIdToken.size).toBe(54)
+    expect(result.posses.byIdToken.size).toBe(55)
     expect(result.issues).toEqual([])
   })
 
@@ -55,7 +55,7 @@ describe('buildIngameTokenDictionaries', () => {
     const result = buildIngameTokenDictionaries()
 
     expect(result.awakeners.byIdToken.get('awakener-0056')).toBe('3')
-    expect(result.awakeners.byIdToken.get('awakener-0058')).toBe('xq')
+    expect(result.awakeners.byIdToken.get('awakener-0058')).toBe('xo')
     expect(result.wheels.byIdToken.get('wheel-0128')).toBe('yi')
     expect(result.wheels.byIdToken.get('wheel-0170')).toBe('y8')
     expect(result.covenants.byIdToken.get('covenant-0020')).toBe('w')
@@ -63,7 +63,7 @@ describe('buildIngameTokenDictionaries', () => {
     expect(result.posses.byIdToken.get('posse-0052')).toBe('6')
 
     expect(result.awakeners.byTokenId.get('3')).toBe('awakener-0056')
-    expect(result.awakeners.byTokenId.get('xq')).toBe('awakener-0058')
+    expect(result.awakeners.byTokenId.get('xo')).toBe('awakener-0058')
     expect(result.wheels.byTokenId.get('yi')).toBe('wheel-0128')
     expect(result.wheels.byTokenId.get('y8')).toBe('wheel-0170')
     expect(result.covenants.byTokenId.get('w')).toBe('covenant-0020')

@@ -11,6 +11,7 @@ interface KeyedTrailEntry {
 export type TrailEntry = KeyedTrailEntry &
   DatabaseReferenceEntry & {
     referenceId?: string
+    referenceVariantId?: string
     selectedEnlightenSlot?: AwakenerEnlightenRecord['slot'] | null
   }
 

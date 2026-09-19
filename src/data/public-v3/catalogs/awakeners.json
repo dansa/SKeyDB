@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "awakeners",
   "kind": "awakener",
-  "recordCount": 60,
+  "recordCount": 61,
   "records": [
     {
       "kind": "awakener",
@@ -3233,7 +3233,7 @@
         "DamageAmplification": 0.8,
         "DeathResistance": 0
       },
-      "lineupToken": "xq",
+      "lineupToken": "xo",
       "aliases": ["pontos"],
       "searchTags": ["STR Down", "Tentacle DMG", "Fixed DMG", "Dispel", "Divine Realm"]
     },
@@ -3289,7 +3289,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 2.8
       },
-      "lineupToken": "xs",
+      "lineupToken": "xq",
       "aliases": ["lotan cetarchon", "cetarchon", "glotan", "rotan"],
       "searchTags": ["STR Up", "Divine Realm"]
     },
@@ -3348,6 +3348,61 @@
       "lineupToken": "4",
       "aliases": ["caraboo"],
       "searchTags": ["Weakness", "STR Up", "STR Down", "Fixed DMG", "Dispel", "Corrosion", "Divine Realm"]
+    },
+    {
+      "kind": "awakener",
+      "id": "awakener-0061",
+      "name": "Ogier: Oathbound",
+      "route": {
+        "slug": "ogier-oathbound",
+        "canonicalPath": "/database/awakeners/ogier-oathbound"
+      },
+      "assets": {
+        "icon": "asset-awakener-0061-icon"
+      },
+      "numericId": 61,
+      "ingameId": "C03EX",
+      "realm": "CHAOS",
+      "rarity": "Genesis",
+      "type": "WARDEN",
+      "availabilityType": "LIMITED_ASTRAL_REIGN",
+      "releaseDate": "2026-09-21",
+      "faction": "The Fools",
+      "primaryScalingBase": 20,
+      "defaultPrimaryStatBonusLevel": 10,
+      "baseStatsLv1": {
+        "CON": 33,
+        "ATK": 40,
+        "DEF": 34
+      },
+      "substatsLv1": {
+        "CritRate": 6.6,
+        "CritDamage": 51.2,
+        "AliemusRegen": 0,
+        "KeyflareRegen": 15,
+        "RealmMastery": 0,
+        "SigilYield": 0,
+        "DamageAmplification": 0,
+        "DeathResistance": 0
+      },
+      "statScaling": {
+        "CON": 1.55,
+        "ATK": 1.9,
+        "DEF": 1.6
+      },
+      "substatScaling": {
+        "CritRate": 1.6,
+        "CritDamage": 1.2,
+        "AliemusRegen": 0,
+        "KeyflareRegen": 0,
+        "RealmMastery": 0,
+        "SigilYield": 0,
+        "DamageAmplification": 0,
+        "DeathResistance": 0
+      },
+      "aliases": ["ogier oathbound", "genesis ogier", "gogier", "g-ogier"],
+      "searchTags": [],
+      "lineupToken": "xs"
     }
   ]
 }

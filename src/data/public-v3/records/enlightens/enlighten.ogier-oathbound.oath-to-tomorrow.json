@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 3,
+  "kind": "enlighten",
+  "id": "enlighten.ogier-oathbound.oath-to-tomorrow",
+  "name": "Oath to Tomorrow",
+  "route": {
+    "slug": "oath-to-tomorrow",
+    "canonicalPath": "/database/awakeners/ogier-oathbound/enlightens/oath-to-tomorrow"
+  },
+  "ownerAwakenerId": "awakener-0061",
+  "slot": "OverExalt",
+  "descriptionTemplate": "{STR} gained is tripled.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Ogier: Oathbound"
+}

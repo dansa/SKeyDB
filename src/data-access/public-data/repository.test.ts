@@ -1,4 +1,10 @@
+import {existsSync} from 'node:fs'
+import {resolve} from 'node:path'
+import {cwd} from 'node:process'
+
 import {describe, expect, it} from 'vitest'
+
+import assetsIndexJson from '@/data/public-v3/indexes/assets.json'
 
 import {resolvePublicAsset, resolvePublicEntityAsset} from './assetRepository'
 import {awakenerSearchDocumentRepository} from './awakenerSearchRepository'
@@ -17,6 +23,7 @@ import {relicSearchDocumentRepository} from './relicSearchRepository'
 import {getPublicRoutesIndex, resolvePublicRoute} from './routeResolver'
 import {
   publicCatalogRecordSchema,
+  publicAssetsIndexSchema,
   publicManifestSchema,
   publicRouteInfoSchema,
   publicRoutesIndexSchema,
@@ -34,6 +41,17 @@ const searchableRepositories = [
 ] as const
 
 describe('public-data repository', () => {
+  it('keeps every available generated asset path backed by a repository file', () => {
+    const assetsIndex = publicAssetsIndexSchema.parse(assetsIndexJson)
+    const missingPaths = Object.values(assetsIndex.assets)
+      .filter((asset) => asset.availability.status === 'available')
+      .map((asset) => asset.availability.path)
+      .filter((path): path is string => Boolean(path))
+      .filter((path) => !existsSync(resolve(cwd(), path)))
+
+    expect(missingPaths).toEqual([])
+  })
+
   it('loads and validates the V3 manifest and small catalogs', () => {
     const manifest = getPublicManifest()
     const covenants = getPublicCovenantCatalog()

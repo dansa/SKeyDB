@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.black-tide-rebirth",
+  "name": "Black Tide Rebirth",
+  "route": {
+    "slug": "black-tide-rebirth",
+    "canonicalPath": "/database/derived-skills/black-tide-rebirth"
+  },
+  "derivedFromId": "derived.global.spiritual-evolution",
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
+  "descriptionTemplate": "All Awakeners' next Strike takes effect 1 additional time.",
+  "descriptionArgs": {},
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    },
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.prepare",
+      "value": 3
+    }
+  ],
+  "cost": "9"
+}

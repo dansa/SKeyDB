@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 3,
+  "kind": "enlighten",
+  "id": "enlighten.ogier-oathbound.bear-the-glimmer",
+  "name": "Bear the Glimmer",
+  "route": {
+    "slug": "bear-the-glimmer",
+    "canonicalPath": "/database/awakeners/ogier-oathbound/enlightens/bear-the-glimmer"
+  },
+  "ownerAwakenerId": "awakener-0061",
+  "slot": "E2",
+  "descriptionTemplate": "\"Strike\" takes effect 1 additional time.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Ogier: Oathbound"
+}

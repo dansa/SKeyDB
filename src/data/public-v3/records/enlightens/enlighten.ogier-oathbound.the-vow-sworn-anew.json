@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 3,
+  "kind": "enlighten",
+  "id": "enlighten.ogier-oathbound.the-vow-sworn-anew",
+  "name": "The Vow, Sworn Anew",
+  "route": {
+    "slug": "the-vow-sworn-anew",
+    "canonicalPath": "/database/awakeners/ogier-oathbound/enlightens/the-vow-sworn-anew"
+  },
+  "ownerAwakenerId": "awakener-0061",
+  "slot": "AbsoluteAxiom",
+  "descriptionTemplate": "{Rouse} {Flesh as Fortress} is enhanced.\n{Sin-Stained Spear} gains +100% Base DMG and an additional 200% {STR} bonus. The Base Shield increase for Ogier: Oathbound's \"Defense\" cards becomes 100%.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Ogier: Oathbound"
+}

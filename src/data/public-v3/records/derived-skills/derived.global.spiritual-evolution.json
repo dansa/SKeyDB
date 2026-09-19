@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.spiritual-evolution",
+  "name": "Spiritual Evolution",
+  "route": {
+    "slug": "spiritual-evolution",
+    "canonicalPath": "/database/derived-skills/spiritual-evolution"
+  },
+  "derivedFromId": "derived.global.fall-into-night",
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
+  "descriptionTemplate": "Draw all of the wielder's Strike cards and grant them {Retain} until played. After playing, transforms into {Black Tide Rebirth} and returns to hand.",
+  "descriptionArgs": {},
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    },
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.prepare",
+      "value": 3
+    }
+  ],
+  "cost": "6"
+}

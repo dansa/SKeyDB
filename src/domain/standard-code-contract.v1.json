@@ -361,6 +361,12 @@
       "legacyId": 60,
       "legacyName": "caraboo",
       "id": "awakener-0060"
+    },
+    {
+      "codecIndex": 61,
+      "legacyId": 61,
+      "legacyName": "ogier-oathbound",
+      "id": "awakener-0061"
     }
   ],
   "wheels": [
@@ -1078,6 +1084,21 @@
       "codecIndex": 143,
       "legacyId": "wheel-0177",
       "id": "wheel-0177"
+    },
+    {
+      "codecIndex": 144,
+      "legacyId": "wheel-0178",
+      "id": "wheel-0178"
+    },
+    {
+      "codecIndex": 145,
+      "legacyId": "wheel-0179",
+      "id": "wheel-0179"
+    },
+    {
+      "codecIndex": 146,
+      "legacyId": "wheel-0180",
+      "id": "wheel-0180"
     }
   ],
   "covenants": [
@@ -1457,6 +1478,11 @@
       "codecIndex": 56,
       "legacyId": "posse-0062",
       "id": "posse-0062"
+    },
+    {
+      "codecIndex": 57,
+      "legacyId": "posse-0063",
+      "id": "posse-0063"
     }
   ]
 }

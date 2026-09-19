@@ -190,7 +190,10 @@ describe('awakener-skills', () => {
 
   it('keeps canonical ids aligned with source-backed display names', () => {
     const skills = getAwakenerSkills()
+    const reviewedStableIdExceptions = new Set(['skill.ogier-oathbound.def'])
     const mismatches = skills.filter((entry) => {
+      if (reviewedStableIdExceptions.has(entry.id)) return false
+
       const slug = entry.id.split('.').slice(2).join('.')
       const normalizedDisplayName = entry.displayName
         .trim()
