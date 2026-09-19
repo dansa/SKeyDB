@@ -166,8 +166,8 @@
       "sha256": "186f784906c15ad11c7e6f34d746158b712e40903297440ba5fc99ec2f9a06d3"
     },
     "indexes/assets.json": {
-      "bytes": 498904,
-      "sha256": "3fb709e607bd4f7ba2567002b95d696450b329e989bfbbfa9fc190324aab057e"
+      "bytes": 498910,
+      "sha256": "c6dd59e8de7879f96de582df202934153579a0ca4ed151220b1d519d387545f4"
     },
     "indexes/builder-catalog.json": {
       "bytes": 23977,
@@ -199,7 +199,7 @@
     },
     "indexes/scopes.json": {
       "bytes": 5354,
-      "sha256": "0a1bd52dad7e0a4797d36ded422ddbc9af898604049e7868b81347a84a013a4a"
+      "sha256": "645eecac295ec56ecfbf5c272ac230d0283491e133225209459bff88e3b64a82"
     },
     "indexes/search-awakeners.json": {
       "bytes": 87993,
