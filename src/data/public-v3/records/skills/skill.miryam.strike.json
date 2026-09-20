@@ -11,7 +11,7 @@
   "slot": "Strike",
   "cardFamily": "command",
   "cardTypes": ["strike"],
-  "descriptionTemplate": "Deal [Damage:Arg1] DMG, which benefits from 100% {Tentacle DMG} bonus. Miryam gains [Energy:Arg2] Aliemus. {Ritual}: Final DMG bonus by [Arg4]%/[Arg5]%/[Arg6]%.",
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG, which benefits from 100% {Tentacle DMG} bonus. Miryam gains [Energy:Arg2] Aliemus. {Ritual}: Final DMG +[Arg4]%/[Arg5]%/[Arg6]%.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

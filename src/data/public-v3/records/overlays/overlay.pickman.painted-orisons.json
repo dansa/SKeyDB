@@ -13,6 +13,7 @@
   "textColor": "misc",
   "descriptionTemplate": "Includes the following {Orisons}: {orison:0002@v-0003|Computation}, {orison:0001@v-0001|Finesse}, {orison:0003@v-0005|Berserk}, {orison:0016@v-0031|Catalyst}, {orison:0014@v-0027|Might}, {orison:0006@v-0011|Bastion}, {orison:0018@v-0035|Drain}, {orison:0017@v-0033|Insight}.",
   "descriptionArgs": {},
+  "ownerAwakenerName": "Pickman",
   "upgrades": [
     {
       "id": "upgrade.enlighten.pickman.centered-composition.overlay.pickman.painted-orisons",
@@ -26,6 +27,5 @@
         "descriptionTemplate": "Includes the following {Orisons}: {orison:0002@v-0004|Computation}, {orison:0001@v-0002|Finesse}, {orison:0003@v-0006|Berserk}, {orison:0016@v-0032|Catalyst}, {orison:0014@v-0028|Might}, {orison:0006@v-0012|Bastion}, {orison:0018@v-0036|Drain}, {orison:0017@v-0034|Insight}."
       }
     }
-  ],
-  "ownerAwakenerName": "Pickman"
+  ]
 }

@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0192",
   "rarity": "N",
   "aliases": ["Crimson Brooch+"],
-  "descriptionTemplate": "At the start of combat, gain [Arg1] {STR}.",
+  "descriptionTemplate": "At battle start, gain [Arg1] {STR}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
@@ -36,7 +36,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "At the start of combat, gain [Arg1] {STR}.",
+      "descriptionTemplate": "At battle start, gain [Arg1] {STR}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -55,7 +55,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "At the start of combat, gain [Arg1] {STR}.",
+      "descriptionTemplate": "At battle start, gain [Arg1] {STR}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0041",
   "ownerAwakenerName": "Pollux",
   "lineupToken": "yg",
-  "descriptionTemplate": "Team Unique: The wielder's cards gain +[StateArg1]% Base DMG and Crit. DMG. At the start of your turn and after using the wielder's Exalt, gain 1 stack of {Alight}. When the wielder's Command Card is played, consume 1 stack to increase its Final DMG and Shield by [StateArg2]%. During an {Ultra Round}, gain {Ablaze} instead (effect doubled).",
+  "descriptionTemplate": "{Team Unique}: The wielder's cards gain +[StateArg1]% Base DMG and Crit. DMG. At the start of your turn and after using the wielder's Exalt, gain 1 stack of {Alight}. When the wielder's Command Card is played, consume 1 stack to increase its Final DMG and Shield by [StateArg2]%. During an {Ultra Round}, gain {Ablaze} instead (effect doubled).",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

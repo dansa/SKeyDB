@@ -15,7 +15,7 @@
   "variantCount": 2,
   "defaultVariantId": "relic-variant-0458",
   "aliases": [],
-  "descriptionTemplate": "At the start of the battle, inflict [Arg1] {Poison} on all enemies. At turn start, remove [Arg2]% of the enemy's {Poison} and inflict [Arg3]% of the removed amount as {Bleeding}.",
+  "descriptionTemplate": "At battle start, inflict [Arg1] {Poison} on all enemies. At turn start, remove [Arg2]% of the enemy's {Poison} and apply [Arg3]% of the removed amount as {Bleed}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
@@ -44,7 +44,7 @@
       "variantType": "STANDARD",
       "tier": "Cursed",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "At the start of the battle, inflict [Arg1] {Poison} on all enemies. At turn start, remove [Arg2]% of the enemy's {Poison} and inflict [Arg3]% of the removed amount as {Bleeding}.",
+      "descriptionTemplate": "At battle start, inflict [Arg1] {Poison} on all enemies. At turn start, remove [Arg2]% of the enemy's {Poison} and apply [Arg3]% of the removed amount as {Bleed}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

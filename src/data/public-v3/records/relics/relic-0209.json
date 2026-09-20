@@ -23,7 +23,7 @@
       "value": "1"
     }
   },
-  "lore": "To leave the snow mountain, you adopted a strategy prioritizing efficiency, watching as people fell one by one. The survivors regarded you with more fear than gratitude.",
+  "lore": "To leave the snowy mountain, you adopted a strategy prioritizing efficiency, watching as people fell one by one. The survivors regarded you with more fear than gratitude.",
   "variants": [
     {
       "id": "relic-variant-0343",
@@ -40,7 +40,7 @@
           "value": "1"
         }
       },
-      "lore": "To leave the snow mountain, you adopted a strategy prioritizing efficiency, watching as people fell one by one. The survivors regarded you with more fear than gratitude."
+      "lore": "To leave the snowy mountain, you adopted a strategy prioritizing efficiency, watching as people fell one by one. The survivors regarded you with more fear than gratitude."
     },
     {
       "id": "relic-variant-0347",
@@ -50,7 +50,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SR",
-      "descriptionTemplate": "At the beginning of the turn, gain [Arg1] {Flicker of Humanity}.",
+      "descriptionTemplate": "At turn start, gain [Arg1] {Flicker of Humanity}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -84,7 +84,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SR",
-      "descriptionTemplate": "At the beginning of the turn, gain [Arg1] {Radiance of Humanity}.",
+      "descriptionTemplate": "At turn start, gain [Arg1] {Radiance of Humanity}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -108,7 +108,7 @@
           "value": "1"
         }
       },
-      "lore": "You've performed an incredible miracle; everyone survived the disaster. You're a great hero, and your legend may soon spread around the snow mountain."
+      "lore": "You've performed an incredible miracle; everyone survived the disaster. You're a great hero, and your legend may soon spread around the snowy mountain."
     }
   ]
 }

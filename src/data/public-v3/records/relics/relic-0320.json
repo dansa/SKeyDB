@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0573",
   "rarity": "N",
   "aliases": [],
-  "descriptionTemplate": "At the start of the battle, the current HP of Elite and Boss enemies -20%.",
+  "descriptionTemplate": "At battle start, the current HP of Elite and Boss enemies -20%.",
   "descriptionArgs": {},
   "lore": "Come home, my old sailor.",
   "variants": [
@@ -28,7 +28,7 @@
       "tier": "Silver",
       "category": "EVENT",
       "rarity": "N",
-      "descriptionTemplate": "At the start of the battle, the current HP of Elite and Boss enemies -20%.",
+      "descriptionTemplate": "At battle start, the current HP of Elite and Boss enemies -20%.",
       "descriptionArgs": {},
       "lore": "Come home, my old sailor."
     }

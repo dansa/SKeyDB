@@ -102,7 +102,7 @@ describe('public Orison families', () => {
       temporary?.members.every((member) => !member.defaultVariantId && !member.upgradedVariantId),
     ).toBe(true)
     expect(temporary?.members.at(-1)?.temporaryEffect).toEqual({
-      descriptionTemplate: 'Gain [Block:Arg1] Shield',
+      descriptionTemplate: 'Gain a [Block:Arg1] shield',
       descriptionArgs: {
         Arg1: {
           kind: 'scaling',

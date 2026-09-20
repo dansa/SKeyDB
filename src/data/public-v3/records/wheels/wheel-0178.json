@@ -15,7 +15,8 @@
   "mainstatKey": "CRIT_RATE",
   "ownerAwakenerId": "awakener-0061",
   "ownerAwakenerName": "Ogier: Oathbound",
-  "descriptionTemplate": "Team Unique: The wielder's \"Exalt\" generates +[StateArg1]% Base Shield and Fixed {STR}. The wielder's \"Defense\" generates +[StateArg2]% Base Shield. After the wielder plays \"Defense,\" gain {STR} equal to [StateArg3]% of the wielder's ATK.",
+  "lineupToken": "zc",
+  "descriptionTemplate": "{Team Unique}: The wielder's \"Exalt\" generates +[StateArg1]% Base Shield and Fixed {STR}. The wielder's \"Defense\" generates +[StateArg2]% Base Shield. After the wielder plays \"Defense,\" gain {STR} equal to [StateArg3]% of the wielder's ATK.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",
@@ -33,6 +34,6 @@
       "suffix": "%"
     }
   },
-  "searchTags": ["STR Up", "Shield", "Defense"],
-  "lineupToken": "zc"
+  "lore": "\"Wear your garland straight, my dear young knight; let this be your accolade.\"\nIn those days, when daisies carpeted the fields, idle men-at-arms would often draw the lad along in their sauntering under the guise of patrol.\nA garland, woven from the commonest blooms of the Duchy of Aequidan, was laid gently upon his golden hair.\n\"Sir, perhaps... we ought to return to our drills?\"\nThe boy murmured, yet he meekly straightened the pure white garland upon his head.\nThis little flower, always bathed in light, was a symbol of hope in the boy's homeland.\n\nWhen his eyes opened again, all those sunlit visions were gone.\nWarhorses screamed; the enemy swarmed forward in disdain. Amid a thundering press of steel, he stood utterly alone.\nSuddenly, the cacophony ceased—\nA tide of viscous blackness surged into his soul.\nThere followed the sickening tear of a spear through flesh, the gurgle of welling blood, and the wailing of the enemy.\nThe scorn upon the enemy's faces vanished, replaced by all-engulfing dread.\nThe youth moved with soulless rhythm—thrust, withdraw, raise again.\nUntil the last soldier fell.\nSmoke and dust obscured countless faces. Conqueror and conquered lay heaped together, indistinguishable at last.\n\nThe shadow coiled about his spine, sneering. <Italic:\"Go on... Bring your spear down... Just once more.\">\n<Italic:\"Between the guardian and the destroyer, there is but a hair's breadth. And now... you have already made your choice.\">\n\nDarkness eclipsed the heavens; blood soaked the soil.\nHe looked toward the distant fields—in a single night, their former hues were lost forever.\nThe wind lifted his hem and brushed against a patch of meadow the slaughter had spared.\nThere, in the silent dark, in a corner hidden even from the fiend, a faint trace of white still lingered in his eyes.\nIt was the last daisy of this realm, growing quietly where none cared to look.\nThough its stem was bent and its petals stained with crimson, it refused to fall.",
+  "searchTags": ["STR Up", "Shield", "Defense"]
 }

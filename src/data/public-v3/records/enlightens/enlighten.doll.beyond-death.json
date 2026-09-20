@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0013",
   "slot": "E2",
-  "descriptionTemplate": "{Equivalent Exchange} increases Base HP recovery and discard HP recovery effects by 20%. For each card discarded, an additional amount of HP is recovered and an equal amount of shield is obtained.",
+  "descriptionTemplate": "{Equivalent Exchange} increases Base HP Recovery and discard HP Recovery effects by 20%. For each card discarded, an additional amount of HP is recovered and an equal amount of shield is obtained.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Doll"
 }

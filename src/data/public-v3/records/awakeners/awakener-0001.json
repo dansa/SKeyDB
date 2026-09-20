@@ -20,7 +20,20 @@
   "releaseDate": "2024-04-27",
   "faction": "Hybrid",
   "aliases": ["24", "twenty-four"],
-  "searchTags": ["Weakness", "Vulnerable", "Poison", "Bleed", "Counter", "STR Up", "Tentacle DMG", "Pierce DMG", "Arithmetica", "Hand Limit", "Keyflare"],
+  "searchTags": [
+    "Weakness",
+    "Vulnerable",
+    "Poison",
+    "Bleed",
+    "Counter",
+    "STR Up",
+    "STR Down",
+    "Tentacle DMG",
+    "Pierce DMG",
+    "Arithmetica",
+    "Hand Limit",
+    "Keyflare"
+  ],
   "primaryScalingBase": 20,
   "baseStatsLv1": {
     "CON": 35,
@@ -70,7 +83,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Affinity Level 3",
+        "unlockCondition": "Awakener Level 3",
         "content": "Awakener ID: MA-C06\nDanger Level: A\nSpecial Containment Procedures: MA-C06 is currently housed in Awakener Observation Room 7 with dim lighting. Fearing mind control by @3, MA-C06 refuses to sleep, only provided with a chair.\n\nDue to good behavior and friendly attitude, MA-C06 is allowed to use the greenhouse and explore parts of the campus with an Investigator escort.\n\n—\"Awakener Containment FileMA-C06\""
       },
       {

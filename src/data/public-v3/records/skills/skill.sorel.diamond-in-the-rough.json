@@ -11,7 +11,7 @@
   "slot": "Skill2",
   "cardFamily": "command",
   "cardTypes": ["skill"],
-  "descriptionTemplate": "Lose [Arg1]% of current HP. {Embryo Fusion} +[Blood:Arg2]. For the remaining duration of this turn, each time you deal 1 instance of DMG, restore [Arg3] HP at the end of the turn.",
+  "descriptionTemplate": "Lose [Arg1]% of current HP. {Embryo Fusion} +[Blood:Arg2]. For the remaining duration of this turn, each time you deal 1 instance of DMG, restore [Arg3] HP at turn end.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",

@@ -13,8 +13,8 @@
   "rarity": "SSR",
   "realm": "NEUTRAL",
   "mainstatKey": "SIGIL_YIELD",
-  "lineupToken": "zf",
-  "descriptionTemplate": "Team Unique: At the start of exploration, add 1 {Soul Synchronization} to your deck.\n{derived:Soul Synchronization} (0 Arithmetica Cost): Gain 1 Arithmetica when played.\n{Retain}: While in hand, this card accumulates Fixed HP Recovery (equal to [StateArg1]% of the wielder's CON) and [StateArg2] Fixed Aliemus per turn. If the wielder takes fatal damage, this card prevents their death, releases all stored HP and Aliemus to them, and is then {Destroyed}.",
+  "lineupToken": "zb",
+  "descriptionTemplate": "{Team Unique}: At the start of exploration, add 1 {Soul Synchronization} to your deck.\n{derived:Soul Synchronization} (0 Arithmetica Cost): Gain 1 Arithmetica when played.\n{Retain}: While in hand, this card accumulates Fixed HP Recovery (equal to [StateArg1]% of the wielder's CON) and [StateArg2] Fixed Aliemus per turn. If the wielder takes fatal damage, this card prevents their death, releases all stored HP and Aliemus to them, and is then {Destroyed}.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

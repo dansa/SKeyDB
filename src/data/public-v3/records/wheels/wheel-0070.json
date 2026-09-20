@@ -14,7 +14,7 @@
   "realm": "NEUTRAL",
   "mainstatKey": "DMG_AMP",
   "lineupToken": "xl",
-  "descriptionTemplate": "Team Unique: After a normal battle ends, the number of available {Orisons} becomes 4. {Orisons} on the wielder's cards has a [StateArg1]% chance to upgrade to Advanced. In {Astral Reign}, this effect changes to \"Increases the chance for the wielder's Dimensional Image Relic to appear by 100%.\"",
+  "descriptionTemplate": "{Team Unique}: After a normal battle ends, the number of available {Orisons} becomes 4. {Orisons} on the wielder's cards has a [StateArg1]% chance to upgrade to Advanced. In {Astral Reign}, this effect changes to \"Increases the chance for the wielder's Dimensional Image Relic to appear by 100%.\"",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

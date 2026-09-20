@@ -22,6 +22,7 @@
       "value": "3"
     }
   },
+  "ownerAwakenerName": "Arachne",
   "upgrades": [
     {
       "id": "upgrade.enlighten.arachne.destiny-as-i-arrange.overlay.arachne.weaver",
@@ -40,6 +41,5 @@
         }
       }
     }
-  ],
-  "ownerAwakenerName": "Arachne"
+  ]
 }

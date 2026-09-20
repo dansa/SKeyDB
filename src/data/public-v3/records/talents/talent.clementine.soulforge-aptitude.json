@@ -10,7 +10,7 @@
   "ownerAwakenerId": "awakener-0010",
   "family": "soulforge_aptitude",
   "maxLevel": 10,
-  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nThe {STR} gained by all Awakeners +[Arg3]%.\nWhen Clementine deals DMG to \"Insectoid\" enemies, she inflicts a {Bleed} effect equal to [Arg4]% of the DMG dealt. The first time each turn Clementine provides a Shield or recovers HP, \"Insectoid\" enemies temporarily lose {STR} equal to [Arg5]% of Clementine's DEF.",
+  "descriptionTemplate": "·This talent only takes effect in {Astral Reign} stages.\n·This Awaker's CON, ATK, and DEF are increased by [Arg1]%, and this Awaker gains [Arg2] Aliemus after first {Rouse}.\n·Strength gained by all Awakers is increased by [Arg3]%.\n·When Clementine deals DMG to \"Insectoid\" enemies, inflicts {Bleed} equal to [Arg4]% of the DMG dealt. The first time each turn Clementine grants a shield or restores HP, \"Insectoid\" enemies temporarily lose Strength equal to [Arg5]% of Clementine's DEF.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "linear",

@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0112",
   "rarity": "N",
   "aliases": ["Chant of the Tides+"],
-  "descriptionTemplate": "At battle start, Tentacle Limit +[Arg1], gain [Arg2] Tentacles.",
+  "descriptionTemplate": "At battle start, Tentacle Limit +[Arg1], gain [Arg2] {plural:[Arg2]|Tentacle|Tentacles}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -37,7 +37,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "At battle start, Tentacle Limit +[Arg1], gain [Arg2] Tentacles.",
+      "descriptionTemplate": "At battle start, Tentacle Limit +[Arg1], gain [Arg2] {plural:[Arg2]|Tentacle|Tentacles}",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -88,7 +88,7 @@
           "inputs": ["accountLevel", "ownedPosseCount"]
         }
       },
-      "lore": "It is said that inedible animals like whelks absorb around 80% of the ocean's nutrients"
+      "lore": "It is said that inedible animals like whelks absorb around 80% of the ocean's nutrients."
     }
   ]
 }

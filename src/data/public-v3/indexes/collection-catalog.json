@@ -450,7 +450,8 @@
       "relic-0322",
       "relic-0323",
       "relic-0324",
-      "relic-0325"
+      "relic-0325",
+      "relic-0326"
     ],
     "wheels": [
       "wheel-0001",
@@ -1119,7 +1120,8 @@
         "relic-0322",
         "relic-0323",
         "relic-0324",
-        "relic-0325"
+        "relic-0325",
+        "relic-0326"
       ]
     },
     "wheelsByRealm": {

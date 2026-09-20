@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0359",
   "rarity": "N",
   "aliases": ["Mute Jukebox+"],
-  "descriptionTemplate": "After playing a Non-Derived Command Card, shuffle [Arg1] temporary copies of that card with its Arithmetica Cost reduced by 2 into the Draw Pile. Cooldown: 3 turns.",
+  "descriptionTemplate": "After playing a Non-Derived Command Card, shuffle [Arg1] temporary copies of that card with its Arithmetica Cost reduced by 2 into the Draw Pile. 3-turn cooldown.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -33,7 +33,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "After playing a Non-Derived Command Card, shuffle [Arg1] temporary copies of that card with its Arithmetica Cost reduced by 2 into the Draw Pile. Cooldown: 3 turns.",
+      "descriptionTemplate": "After playing a Non-Derived Command Card, shuffle [Arg1] temporary copies of that card with its Arithmetica Cost reduced by 2 into the Draw Pile. 3-turn cooldown.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -49,7 +49,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "After playing a Non-Derived Command Card, shuffle [Arg1] temporary copies of that card with its Arithmetica Cost reduced by 2 into the Draw Pile. Cooldown: 3 turns.",
+      "descriptionTemplate": "After playing a Non-Derived Command Card, shuffle [Arg1] temporary copies of that card with its Arithmetica Cost reduced by 2 into the Draw Pile. 3-turn cooldown.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

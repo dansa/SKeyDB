@@ -38,7 +38,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "Crit. Rate and Crit. DMG +100%. For each instance of DMG/{Tentacle DMG} dealt this turn, all Awakeners' Crit. Rate and Crit. DMG -10%, up to 50%. {Poison} and {Counter} DMG +10%, up to 50%.",
+      "descriptionTemplate": "Crit. Rate and Crit. DMG +100%. For each instance of Active or {Tentacle DMG} dealt this turn, all Awakeners' Crit. Rate and Crit. DMG -10%, and {Poison} and {Counter} DMG dealt +10%, up to 5 stacks.",
       "descriptionArgs": {}
     }
   ]

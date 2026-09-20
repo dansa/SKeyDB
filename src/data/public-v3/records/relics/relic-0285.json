@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0506",
   "rarity": "SSR",
   "aliases": [],
-  "descriptionTemplate": "After releasing 5 Exalts, the Awakener who released the Exalts gains 100 Aliemus.",
+  "descriptionTemplate": "After releasing Exalt 5 times, the Awakener who next releases Exalt gains 100 Aliemus.",
   "descriptionArgs": {},
   "lore": "Carrying hope, blessings, and love.",
   "variants": [
@@ -28,7 +28,7 @@
       "tier": "Gold",
       "category": "FADED_LEGACY",
       "rarity": "SSR",
-      "descriptionTemplate": "After releasing 5 Exalts, the Awakener who released the Exalts gains 100 Aliemus.",
+      "descriptionTemplate": "After releasing Exalt 5 times, the Awakener who next releases Exalt gains 100 Aliemus.",
       "descriptionArgs": {},
       "lore": "Carrying hope, blessings, and love."
     }

@@ -11,7 +11,7 @@
   "slot": "Skill1",
   "cardFamily": "command",
   "cardTypes": ["skill"],
-  "descriptionTemplate": "Dispel self {Fragile}, {Weakness}, and {Vulnerable} states. {Steal} [Arg1] {STR} from all enemies. The next card played this turn is guaranteed to {Leap}. {Leap}: Instead {Steal} [Arg2] {STR}.",
+  "descriptionTemplate": "Dispel self {Fragile}, {Weakness}, and {Vulnerable} states. {Steal} [Arg1] {STR▼} from all enemies. The next card played this turn is guaranteed to {Leap}. {Leap}: Instead {Steal} [Arg2] {STR▼}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

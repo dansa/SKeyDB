@@ -225,7 +225,7 @@
         {
           "id": "voice-133737",
           "title": "Chat: About Hameln",
-          "unlockCondition": "Unlocks after acquiring Awakener \"Sanga\"",
+          "unlockCondition": "Unlock after acquiring Awakener \"Hameln\"",
           "content": "I once heard him play. That music made the soul tremble... Perhaps I should invite him to compose a symphony of fate for my next production."
         },
         {
@@ -260,7 +260,7 @@
         {
           "id": "voice-133748",
           "title": "Strike: I",
-          "content": "Hmph..."
+          "content": "Ah..."
         },
         {
           "id": "voice-133727",

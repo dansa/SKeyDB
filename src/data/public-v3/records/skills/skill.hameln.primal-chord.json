@@ -11,7 +11,7 @@
   "slot": "Exalt",
   "cardFamily": "exalt",
   "cardTypes": ["exalt"],
-  "descriptionTemplate": "Randomly deal [Damage:Arg1] {Pierce DMG} 3 times, {Stealing} [Arg2] {STR▼} each time. Choose 1 non-Derived Command Card in hand that does not have {Exhaust}, {Rondino}, or {Crescendo}, and add {Rondino} to it. If there are no cards in your hand which qualify, deal DMG 3 more times.",
+  "descriptionTemplate": "随机造成 [Damage:Arg1] 点{穿刺伤害} 3 次，每造成 1 次伤害{偷取}目标 [Arg2] 点{力量}。选择手中 1 张不具有「乐音」的非消耗且非衍生的指令卡添加「{回环乐音}」。每次若没有手牌可被添加，改为额外造成 3 次伤害。\n{overlay:Crescendo}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

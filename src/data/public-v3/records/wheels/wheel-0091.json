@@ -14,7 +14,7 @@
   "realm": "NEUTRAL",
   "mainstatKey": "SIGIL_YIELD",
   "lineupToken": "M",
-  "descriptionTemplate": "Team Unique: At the start of exploration, add one \"Defense\" of the wielder to the deck, increasing the Shield of the wielder's \"Defense\" by [StateArg1]%.",
+  "descriptionTemplate": "{Team Unique}: At the start of exploration, add one \"Defense\" of the wielder to the deck, increasing the Shield of the wielder's \"Defense\" by [StateArg1]%.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

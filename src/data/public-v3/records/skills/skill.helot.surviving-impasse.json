@@ -11,7 +11,7 @@
   "slot": "Exalt",
   "cardFamily": "exalt",
   "cardTypes": ["exalt"],
-  "descriptionTemplate": "[{Devour}: Draw [Arg1] \"Strike\" cards, Temporary Hand Limit +2, increase the Base DMG of Helot's \"Strike\" by [Arg3]% for this battle.] Dispel self {Weakness} and Temporary {STR} debuffs. In this turn, \"Strike\" Final DMG +[Arg2]%, Helot's DMG output +[Arg4]%.",
+  "descriptionTemplate": "[{Devour}: Draw [Arg1] \"Strike\" cards, Temporary Hand Limit +2, increase the Base DMG of Helot's \"Strike\" by [Arg3]% for this battle.] Dispel self {Weakness} and Temporary {STR▼} debuffs. In this turn, \"Strike\" Final DMG +[Arg2]%, Helot's DMG output +[Arg4]%.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",

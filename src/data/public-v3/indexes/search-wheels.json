@@ -4426,12 +4426,17 @@
         "shield",
         "shield generation",
         "sr",
-        "the"
+        "str",
+        "str up",
+        "strength",
+        "strength up",
+        "the",
+        "up"
       ],
       "fields": {
         "name": ["Shadowed by the Past", "shadowed-by-the-past"],
         "owner": ["Ogier: Oathbound", "ogier-oathbound", "ogier oathbound", "genesis ogier", "gogier", "g-ogier"],
-        "tag": ["shield", "shield generation"],
+        "tag": ["str-up", "shield", "STR Up", "strength up", "shield generation"],
         "facet": ["NEUTRAL", "SR"]
       },
       "facets": {
@@ -4439,7 +4444,7 @@
         "rarity": "SR",
         "mainstatKey": "CRIT_RATE",
         "owner": "awakener-0061",
-        "tags": ["shield"]
+        "tags": ["shield", "str-up"]
       }
     },
     {
@@ -4447,15 +4452,17 @@
       "id": "wheel-0180",
       "name": "Darker than Darkness",
       "aliases": [],
-      "tokens": ["darker", "darker than darkness", "darkness", "neutral", "ssr", "than"],
+      "tokens": ["aliemus", "aliemus generation", "darker", "darker than darkness", "darkness", "draw", "generation", "neutral", "ssr", "strike", "than"],
       "fields": {
         "name": ["Darker than Darkness", "darker-than-darkness"],
+        "tag": ["draw", "aliemus", "strike", "aliemus generation"],
         "facet": ["NEUTRAL", "SSR"]
       },
       "facets": {
         "realm": "NEUTRAL",
         "rarity": "SSR",
-        "mainstatKey": "CRIT_RATE"
+        "mainstatKey": "CRIT_RATE",
+        "tags": ["aliemus", "draw", "strike"]
       }
     }
   ]

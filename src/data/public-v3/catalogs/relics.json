@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "relics",
   "kind": "relic",
-  "recordCount": 306,
+  "recordCount": 307,
   "records": [
     {
       "kind": "relic",
@@ -6936,7 +6936,7 @@
     {
       "kind": "relic",
       "id": "relic-0265",
-      "name": "Severed Head Worm",
+      "name": "Sparganum",
       "route": {
         "slug": "severed-head-worm",
         "canonicalPath": "/database/relics/severed-head-worm"
@@ -6949,7 +6949,7 @@
       "categories": ["ASTRAL_REIGN", "FADED_LEGACY"],
       "variantCount": 3,
       "defaultVariantId": "relic-variant-0463",
-      "aliases": ["Severed Head Worm+"],
+      "aliases": ["Sparganum+"],
       "variantTiers": ["Silver", "Gold"],
       "variantCategoryTiers": [
         {
@@ -8646,6 +8646,33 @@
         {
           "category": "EVENT",
           "tier": "Special"
+        }
+      ]
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0326",
+      "name": "Dimensional Image: Ogier: Oathbound",
+      "route": {
+        "slug": "dimensional-image-ogier-oathbound",
+        "canonicalPath": "/database/relics/dimensional-image-ogier-oathbound"
+      },
+      "assets": {
+        "icon": "asset-relic-0326-icon"
+      },
+      "rarity": "SSR",
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
+      "relicType": "Dimensional Image",
+      "categories": ["DIMENSIONAL_IMAGE"],
+      "variantCount": 1,
+      "defaultVariantId": "relic-variant-0580",
+      "aliases": [],
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
         }
       ]
     }

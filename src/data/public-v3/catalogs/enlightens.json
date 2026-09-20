@@ -2346,6 +2346,66 @@
     },
     {
       "kind": "enlighten",
+      "id": "enlighten.ogier-oathbound.bear-the-glimmer",
+      "name": "Bear the Glimmer",
+      "route": {
+        "slug": "bear-the-glimmer",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/enlightens/bear-the-glimmer"
+      },
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
+      "slot": "E2"
+    },
+    {
+      "kind": "enlighten",
+      "id": "enlighten.ogier-oathbound.fall-for-the-cause",
+      "name": "Fall for the Cause",
+      "route": {
+        "slug": "fall-for-the-cause",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/enlightens/fall-for-the-cause"
+      },
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
+      "slot": "E3"
+    },
+    {
+      "kind": "enlighten",
+      "id": "enlighten.ogier-oathbound.oath-to-tomorrow",
+      "name": "Oath to Tomorrow",
+      "route": {
+        "slug": "oath-to-tomorrow",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/enlightens/oath-to-tomorrow"
+      },
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
+      "slot": "OverExalt"
+    },
+    {
+      "kind": "enlighten",
+      "id": "enlighten.ogier-oathbound.stand-to-defend",
+      "name": "Stand to Defend",
+      "route": {
+        "slug": "stand-to-defend",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/enlightens/stand-to-defend"
+      },
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
+      "slot": "E1"
+    },
+    {
+      "kind": "enlighten",
+      "id": "enlighten.ogier-oathbound.the-vow-sworn-anew",
+      "name": "The Vow, Sworn Anew",
+      "route": {
+        "slug": "the-vow-sworn-anew",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/enlightens/the-vow-sworn-anew"
+      },
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "kind": "enlighten",
       "id": "enlighten.ogier.deathless-loyalty",
       "name": "Deathless Loyalty",
       "route": {
@@ -3603,66 +3663,6 @@
       "ownerAwakenerId": "awakener-0054",
       "ownerAwakenerName": "Xu",
       "slot": "E3"
-    },
-    {
-      "kind": "enlighten",
-      "id": "enlighten.ogier-oathbound.bear-the-glimmer",
-      "name": "Bear the Glimmer",
-      "route": {
-        "slug": "bear-the-glimmer",
-        "canonicalPath": "/database/awakeners/ogier-oathbound/enlightens/bear-the-glimmer"
-      },
-      "ownerAwakenerId": "awakener-0061",
-      "ownerAwakenerName": "Ogier: Oathbound",
-      "slot": "E2"
-    },
-    {
-      "kind": "enlighten",
-      "id": "enlighten.ogier-oathbound.fall-for-the-cause",
-      "name": "Fall for the Cause",
-      "route": {
-        "slug": "fall-for-the-cause",
-        "canonicalPath": "/database/awakeners/ogier-oathbound/enlightens/fall-for-the-cause"
-      },
-      "ownerAwakenerId": "awakener-0061",
-      "ownerAwakenerName": "Ogier: Oathbound",
-      "slot": "E3"
-    },
-    {
-      "kind": "enlighten",
-      "id": "enlighten.ogier-oathbound.oath-to-tomorrow",
-      "name": "Oath to Tomorrow",
-      "route": {
-        "slug": "oath-to-tomorrow",
-        "canonicalPath": "/database/awakeners/ogier-oathbound/enlightens/oath-to-tomorrow"
-      },
-      "ownerAwakenerId": "awakener-0061",
-      "ownerAwakenerName": "Ogier: Oathbound",
-      "slot": "OverExalt"
-    },
-    {
-      "kind": "enlighten",
-      "id": "enlighten.ogier-oathbound.stand-to-defend",
-      "name": "Stand to Defend",
-      "route": {
-        "slug": "stand-to-defend",
-        "canonicalPath": "/database/awakeners/ogier-oathbound/enlightens/stand-to-defend"
-      },
-      "ownerAwakenerId": "awakener-0061",
-      "ownerAwakenerName": "Ogier: Oathbound",
-      "slot": "E1"
-    },
-    {
-      "kind": "enlighten",
-      "id": "enlighten.ogier-oathbound.the-vow-sworn-anew",
-      "name": "The Vow, Sworn Anew",
-      "route": {
-        "slug": "the-vow-sworn-anew",
-        "canonicalPath": "/database/awakeners/ogier-oathbound/enlightens/the-vow-sworn-anew"
-      },
-      "ownerAwakenerId": "awakener-0061",
-      "ownerAwakenerName": "Ogier: Oathbound",
-      "slot": "AbsoluteAxiom"
     }
   ]
 }

@@ -14,7 +14,7 @@
   "realm": "NEUTRAL",
   "mainstatKey": "DEATH_RESISTANCE",
   "lineupToken": "xT",
-  "descriptionTemplate": "Team Unique: Gain [StateArg1] Keyflare at turn end. Gain [StateArg2] Keyflare after triggering {Death Resistance}. Using Emergency Gnosis increases Arithmetica cap by 3 and allows you to draw 3 cards per turn.",
+  "descriptionTemplate": "{Team Unique}: Gain [StateArg1] Keyflare at turn end. Gain [StateArg2] Keyflare after triggering {Death Resistance}. Using Emergency Gnosis increases Arithmetica Limit by 3 and allows you to draw 3 cards per turn.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

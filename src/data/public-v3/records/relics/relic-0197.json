@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0321",
   "rarity": "N",
   "aliases": ["Lemurian Delight+"],
-  "descriptionTemplate": "Activate all Tentacle attacks on enemies immediately using the {Raging Waves} stance [Arg1] {plural:[Arg1]|time|times}, with a 3-turn cooldown.",
+  "descriptionTemplate": "Activate all Tentacle attacks on enemies immediately using the {Raging Waves} stance [Arg1] {plural:[Arg1]|time|times}, 3-turn cooldown.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -33,7 +33,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "Activate all Tentacle attacks on enemies immediately using the {Raging Waves} stance [Arg1] {plural:[Arg1]|time|times}, with a 3-turn cooldown.",
+      "descriptionTemplate": "Activate all Tentacle attacks on enemies immediately using the {Raging Waves} stance [Arg1] {plural:[Arg1]|time|times}, 3-turn cooldown.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -49,7 +49,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "Activate all Tentacle attacks on enemies immediately using the {Raging Waves} stance [Arg1] {plural:[Arg1]|time|times}, with a 3-turn cooldown.",
+      "descriptionTemplate": "Activate all Tentacle attacks on enemies immediately using the {Raging Waves} stance [Arg1] {plural:[Arg1]|time|times}, 3-turn cooldown.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

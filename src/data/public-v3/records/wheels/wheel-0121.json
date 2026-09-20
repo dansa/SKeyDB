@@ -14,7 +14,7 @@
   "realm": "NEUTRAL",
   "mainstatKey": "DMG_AMP",
   "lineupToken": "N",
-  "descriptionTemplate": "Team Unique: The wielder's Base DMG, {Poison}, and {Counter} +[StateArg1]%. Crit. Rate and Crit. DMG +[StateArg2]%.",
+  "descriptionTemplate": "{Team Unique}: The wielder's Base DMG, {Poison}, and {Counter} +[StateArg1]%. Crit. Rate and Crit. DMG +[StateArg2]%.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

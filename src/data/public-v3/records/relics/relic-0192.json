@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0310",
   "rarity": "N",
   "aliases": ["Kaleidoscope+"],
-  "descriptionTemplate": "At the start of the battle, gain [Arg1]% DMG Amplification. For each Command Card played by a different Awakener, gain an additional [Arg1]% Temporary DMG Amplification.",
+  "descriptionTemplate": "At battle start, gain [Arg1]% DMG Amplification. For each Command Card played by a different Awakener, gain an additional [Arg1]% Temporary DMG Amplification.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -34,7 +34,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "At the start of the battle, gain [Arg1]% DMG Amplification. For each Command Card played by a different Awakener, gain an additional [Arg1]% Temporary DMG Amplification.",
+      "descriptionTemplate": "At battle start, gain [Arg1]% DMG Amplification. For each Command Card played by a different Awakener, gain an additional [Arg1]% Temporary DMG Amplification.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -51,7 +51,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "At the start of the battle, gain [Arg1]% DMG Amplification. For each Command Card played by a different Awakener, gain an additional [Arg1]% Temporary DMG Amplification.",
+      "descriptionTemplate": "At battle start, gain [Arg1]% DMG Amplification. For each Command Card played by a different Awakener, gain an additional [Arg1]% Temporary DMG Amplification.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

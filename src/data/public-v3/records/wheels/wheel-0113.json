@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0041",
   "ownerAwakenerName": "Pollux",
   "lineupToken": "yD",
-  "descriptionTemplate": "Team Unique: In the {Ultra Round}: Gain 3 stacks of {Alight}. When the wielder plays a Command Card, consume 1 stack to increase its Final DMG and Shield Generation by [StateArg1]%.",
+  "descriptionTemplate": "{Team Unique}: In the {Ultra Round}: Gain 3 stacks of {Alight}. When the wielder plays a Command Card, consume 1 stack to increase its Final DMG and Shield Generation by [StateArg1]%.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

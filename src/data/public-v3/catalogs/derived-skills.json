@@ -374,7 +374,7 @@
     {
       "kind": "derivedSkill",
       "id": "derived.daffodil.thousand-mirage-effect-blessing",
-      "name": "Blessing",
+      "name": "Divinia",
       "route": {
         "slug": "blessing",
         "canonicalPath": "/database/awakeners/daffodil/derived-skills/blessing"
@@ -999,6 +999,18 @@
     },
     {
       "kind": "derivedSkill",
+      "id": "derived.global.black-tide-rebirth",
+      "name": "Black Tide Rebirth",
+      "route": {
+        "slug": "black-tide-rebirth",
+        "canonicalPath": "/database/derived-skills/black-tide-rebirth"
+      },
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
+      "derivedFromId": "derived.global.spiritual-evolution"
+    },
+    {
+      "kind": "derivedSkill",
       "id": "derived.global.bone-of-agony",
       "name": "Bone of Agony",
       "route": {
@@ -1239,6 +1251,17 @@
       "route": {
         "slug": "endless-combustion",
         "canonicalPath": "/database/derived-skills/endless-combustion"
+      },
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.global.fall-into-night",
+      "name": "Fall into Night",
+      "route": {
+        "slug": "fall-into-night",
+        "canonicalPath": "/database/derived-skills/fall-into-night"
       },
       "cardFamily": "buff",
       "cardTypes": ["buff"]
@@ -1705,6 +1728,18 @@
       },
       "cardFamily": "buff",
       "cardTypes": ["buff"]
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.global.spiritual-evolution",
+      "name": "Spiritual Evolution",
+      "route": {
+        "slug": "spiritual-evolution",
+        "canonicalPath": "/database/derived-skills/spiritual-evolution"
+      },
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
+      "derivedFromId": "derived.global.fall-into-night"
     },
     {
       "kind": "derivedSkill",
@@ -2863,41 +2898,6 @@
       "ownerAwakenerName": "Xu",
       "derivedFromId": "skill.xu.mist-bound-vow",
       "rootSkillId": "skill.xu.mist-bound-vow"
-    },
-    {
-      "kind": "derivedSkill",
-      "id": "derived.global.black-tide-rebirth",
-      "name": "Black Tide Rebirth",
-      "route": {
-        "slug": "black-tide-rebirth",
-        "canonicalPath": "/database/derived-skills/black-tide-rebirth"
-      },
-      "cardFamily": "buff",
-      "cardTypes": ["buff"],
-      "derivedFromId": "derived.global.spiritual-evolution"
-    },
-    {
-      "kind": "derivedSkill",
-      "id": "derived.global.fall-into-night",
-      "name": "Fall into Night",
-      "route": {
-        "slug": "fall-into-night",
-        "canonicalPath": "/database/derived-skills/fall-into-night"
-      },
-      "cardFamily": "buff",
-      "cardTypes": ["buff"]
-    },
-    {
-      "kind": "derivedSkill",
-      "id": "derived.global.spiritual-evolution",
-      "name": "Spiritual Evolution",
-      "route": {
-        "slug": "spiritual-evolution",
-        "canonicalPath": "/database/derived-skills/spiritual-evolution"
-      },
-      "cardFamily": "buff",
-      "cardTypes": ["buff"],
-      "derivedFromId": "derived.global.fall-into-night"
     }
   ]
 }

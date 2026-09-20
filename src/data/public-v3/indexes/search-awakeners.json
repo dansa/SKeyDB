@@ -16,6 +16,7 @@
         "counter",
         "damage",
         "dmg",
+        "down",
         "faded",
         "female",
         "four",
@@ -33,8 +34,10 @@
         "poison",
         "ssr",
         "str",
+        "str down",
         "str up",
         "strength",
+        "strength down",
         "strength up",
         "tentacle",
         "tentacle damage",
@@ -58,6 +61,7 @@
           "bleed",
           "counter",
           "str-up",
+          "str-down",
           "tentacle-dmg",
           "pierce-dmg",
           "arithmetica",
@@ -68,6 +72,8 @@
           "vuln",
           "STR Up",
           "strength up",
+          "STR Down",
+          "strength down",
           "Tentacle DMG",
           "tentacle damage",
           "Pierce DMG",
@@ -83,7 +89,20 @@
         "availabilityType": "LIMITED_FADED_LEGACY",
         "faction": "Hybrid",
         "gender": "Female",
-        "tags": ["arithmetica", "bleed", "counter", "hand-limit", "keyflare", "pierce-dmg", "poison", "str-up", "tentacle-dmg", "vulnerable", "weakness"]
+        "tags": [
+          "arithmetica",
+          "bleed",
+          "counter",
+          "hand-limit",
+          "keyflare",
+          "pierce-dmg",
+          "poison",
+          "str-down",
+          "str-up",
+          "tentacle-dmg",
+          "vulnerable",
+          "weakness"
+        ]
       }
     },
     {
@@ -1368,15 +1387,11 @@
         "pierce dmg",
         "poison",
         "ssr",
-        "steal",
-        "steal str",
         "str",
         "str down",
-        "str steal",
         "str up",
         "strength",
         "strength down",
-        "strength steal",
         "strength up",
         "the",
         "the unknowable",
@@ -1398,7 +1413,6 @@
           "bleed",
           "str-up",
           "str-down",
-          "steal-str",
           "pierce-dmg",
           "arithmetica",
           "weak",
@@ -1408,10 +1422,6 @@
           "strength up",
           "STR Down",
           "strength down",
-          "Steal STR",
-          "steal",
-          "str steal",
-          "strength steal",
           "Pierce DMG",
           "pierce damage"
         ],
@@ -1424,7 +1434,7 @@
         "availabilityType": "LIMITED_FADED_LEGACY",
         "faction": "The Unknowable",
         "gender": "Male",
-        "tags": ["arithmetica", "bleed", "pierce-dmg", "poison", "steal-str", "str-down", "str-up", "vulnerable", "weakness"]
+        "tags": ["arithmetica", "bleed", "pierce-dmg", "poison", "str-down", "str-up", "vulnerable", "weakness"]
       }
     },
     {
@@ -2346,23 +2356,15 @@
       "tokens": [
         "assault",
         "chaos",
-        "cleanse",
-        "clear",
         "counter",
-        "dispel",
         "female",
         "outlanders",
         "pandia",
         "permanent",
-        "remove",
         "ssr",
-        "steal",
-        "steal str",
         "str",
-        "str steal",
         "str up",
         "strength",
-        "strength steal",
         "strength up",
         "up",
         "vuln",
@@ -2372,24 +2374,7 @@
       "fields": {
         "name": ["Pandia"],
         "alias": ["pandia"],
-        "tag": [
-          "vulnerable",
-          "counter",
-          "str-up",
-          "steal-str",
-          "dispel",
-          "vulnerability",
-          "vuln",
-          "STR Up",
-          "strength up",
-          "Steal STR",
-          "steal",
-          "str steal",
-          "strength steal",
-          "cleanse",
-          "clear",
-          "remove"
-        ],
+        "tag": ["vulnerable", "counter", "str-up", "vulnerability", "vuln", "STR Up", "strength up"],
         "facet": ["CHAOS", "SSR", "ASSAULT", "PERMANENT", "Outlanders", "Female"]
       },
       "facets": {
@@ -2399,7 +2384,7 @@
         "availabilityType": "PERMANENT",
         "faction": "Outlanders",
         "gender": "Female",
-        "tags": ["counter", "dispel", "steal-str", "str-up", "vulnerable"]
+        "tags": ["counter", "str-up", "vulnerable"]
       }
     },
     {
@@ -3651,8 +3636,14 @@
       "name": "Ogier: Oathbound",
       "aliases": ["ogier oathbound", "genesis ogier", "gogier", "g-ogier"],
       "tokens": [
+        "alt",
+        "alt realm",
         "astral",
         "chaos",
+        "corrosion",
+        "divine",
+        "divine realm",
+        "down",
         "fools",
         "g",
         "g ogier",
@@ -3661,25 +3652,37 @@
         "gogier",
         "limited",
         "limited astral reign",
+        "male",
         "oathbound",
         "ogier",
         "ogier oathbound",
+        "realm",
         "reign",
+        "str",
+        "str down",
+        "str up",
+        "strength",
+        "strength down",
+        "strength up",
         "the",
         "the fools",
+        "up",
         "warden"
       ],
       "fields": {
         "name": ["Ogier: Oathbound", "ogier-oathbound"],
         "alias": ["ogier oathbound", "genesis ogier", "gogier", "g-ogier"],
-        "facet": ["CHAOS", "Genesis", "WARDEN", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "The Fools"]
+        "tag": ["str-up", "str-down", "corrosion", "divine-realm", "STR Up", "strength up", "STR Down", "strength down", "Divine Realm", "alt realm"],
+        "facet": ["CHAOS", "Genesis", "WARDEN", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "The Fools", "Male"]
       },
       "facets": {
         "realm": "CHAOS",
         "rarity": "Genesis",
         "type": "WARDEN",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
-        "faction": "The Fools"
+        "faction": "The Fools",
+        "gender": "Male",
+        "tags": ["corrosion", "divine-realm", "str-down", "str-up"]
       }
     }
   ]

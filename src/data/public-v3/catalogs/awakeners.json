@@ -58,7 +58,20 @@
       },
       "lineupToken": "S",
       "aliases": ["24", "twenty-four"],
-      "searchTags": ["Weakness", "Vulnerable", "Poison", "Bleed", "Counter", "STR Up", "Tentacle DMG", "Pierce DMG", "Arithmetica", "Hand Limit", "Keyflare"]
+      "searchTags": [
+        "Weakness",
+        "Vulnerable",
+        "Poison",
+        "Bleed",
+        "Counter",
+        "STR Up",
+        "STR Down",
+        "Tentacle DMG",
+        "Pierce DMG",
+        "Arithmetica",
+        "Hand Limit",
+        "Keyflare"
+      ]
     },
     {
       "kind": "awakener",
@@ -776,7 +789,7 @@
         "DamageAmplification": 0.8,
         "DeathResistance": 0
       },
-      "lineupToken": "xh",
+      "lineupToken": "xg",
       "aliases": ["doresain"],
       "searchTags": ["Vulnerable", "STR Up", "Pierce DMG", "Self-Damage"]
     },
@@ -1221,7 +1234,7 @@
       },
       "lineupToken": "X",
       "aliases": ["hameln"],
-      "searchTags": ["Weakness", "Vulnerable", "Poison", "Bleed", "STR Up", "STR Down", "Steal STR", "Pierce DMG", "Arithmetica"]
+      "searchTags": ["Weakness", "Vulnerable", "Poison", "Bleed", "STR Up", "STR Down", "Pierce DMG", "Arithmetica"]
     },
     {
       "kind": "awakener",
@@ -2176,7 +2189,7 @@
       },
       "lineupToken": "b",
       "aliases": ["pandia"],
-      "searchTags": ["Vulnerable", "Counter", "STR Up", "Steal STR", "Dispel"]
+      "searchTags": ["Vulnerable", "Counter", "STR Up"]
     },
     {
       "kind": "awakener",
@@ -3009,7 +3022,7 @@
         "DamageAmplification": 1.6,
         "DeathResistance": 2.8
       },
-      "lineupToken": "xi",
+      "lineupToken": "xh",
       "aliases": ["xu"],
       "searchTags": ["Poison", "STR Down", "Arithmetica", "Max HP DMG"]
     },
@@ -3065,7 +3078,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "xl",
+      "lineupToken": "xj",
       "aliases": ["vortice"],
       "searchTags": ["Tentacle DMG", "Pursuit", "Fixed DMG", "Aftershock", "Dispel", "Divine Realm"]
     },
@@ -3177,7 +3190,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "xj",
+      "lineupToken": "xi",
       "aliases": ["saya"],
       "searchTags": ["Discard", "Corrosion", "Divine Realm", "Self-Damage"]
     },
@@ -3368,6 +3381,7 @@
       "availabilityType": "LIMITED_ASTRAL_REIGN",
       "releaseDate": "2026-09-21",
       "faction": "The Fools",
+      "gender": "Male",
       "primaryScalingBase": 20,
       "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {
@@ -3400,9 +3414,9 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
+      "lineupToken": "xs",
       "aliases": ["ogier oathbound", "genesis ogier", "gogier", "g-ogier"],
-      "searchTags": [],
-      "lineupToken": "xs"
+      "searchTags": ["STR Up", "STR Down", "Corrosion", "Divine Realm"]
     }
   ]
 }

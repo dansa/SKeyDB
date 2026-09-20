@@ -44,7 +44,6 @@
       "baseValue": 20.0,
       "rounding": "ceil",
       "inputs": ["realmMasteryFinal", "primordiaAllChaosTeam"],
-      "suffix": "%",
       "scalingBucket": "utility"
     }
   },

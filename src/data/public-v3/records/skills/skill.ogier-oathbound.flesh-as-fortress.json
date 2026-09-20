@@ -11,7 +11,7 @@
   "slot": "Rouse",
   "cardFamily": "rouse",
   "cardTypes": ["rouse"],
-  "descriptionTemplate": "Ogier: Oathbound gains [Arg2]% Base Aliemus. {Rouse}: Ogier: Oathbound's \"Defense\" cards gain +50% Base Shield and \"Draw 1 card.\" {Turn Unique}: When Ogier: Oathbound's {Sin-Stained Spear} deals DMG, apply an equal amount of {Corrosion}.",
+  "descriptionTemplate": "Ogier: Oathbound gains [Arg2]% Base Aliemus. {Rouse}: Ogier: Oathbound's \"Defense\" cards gain +50% Base Shield and \"Draw 1 card.\" Ogier: Oathbound's {Sin-Stained Spear} gains {Turn Unique}: When it deals DMG, apply {Corrosion} equal to the DMG dealt.",
   "descriptionArgs": {
     "Arg2": {
       "kind": "scaling",
@@ -25,6 +25,7 @@
     }
   ],
   "cost": "3",
+  "lore": "Once, the youth had tried to tear this vile black slime from his own flesh. Yet whatever he did—ripping with his bare hands, cutting with blades, striking with blunt force—the formless nightmare refused to leave, it only pressed in closer.\nFinally, he accepted the truth: he and It had long since bled into one another.\nIt had become his shadow.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.ogier-oathbound.the-vow-sworn-anew.skill.ogier-oathbound.flesh-as-fortress",
@@ -35,7 +36,7 @@
       "ownerAwakenerId": "awakener-0061",
       "ownerAwakenerName": "Ogier: Oathbound",
       "patch": {
-        "descriptionTemplate": "Ogier: Oathbound gains [Arg2]% Base Aliemus. {Rouse}: Ogier: Oathbound's {Sin-Stained Spear} gains +100% Base DMG and an additional 200% {STR} bonus. Ogier: Oathbound's \"Defense\" cards gain +100% Base Shield and \"Draw 1 card.\" {Turn Unique}: When Ogier: Oathbound's {Sin-Stained Spear} deals DMG, apply an equal amount of {Corrosion}."
+        "descriptionTemplate": "Ogier: Oathbound gains [Arg2]% Base Aliemus. {Rouse}: Ogier: Oathbound's {Sin-Stained Spear} gains +100% Base DMG and an additional 200% {STR} bonus. Ogier: Oathbound's \"Defense\" cards gain +100% Base Shield and \"Draw 1 card.\" Ogier: Oathbound's {Sin-Stained Spear} gains {Turn Unique}: When it deals DMG, apply {Corrosion} equal to the DMG dealt."
       }
     }
   ],

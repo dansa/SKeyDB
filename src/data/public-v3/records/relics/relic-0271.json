@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0474",
   "rarity": "N",
   "aliases": ["Silver Tongue+"],
-  "descriptionTemplate": "All Awakeners gain [Arg1] Keyflare from their first \"Command Card\" each turn.",
+  "descriptionTemplate": "All Awakeners generate [Arg1] Keyflare with their first \"Command Card\" each turn.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -33,7 +33,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "All Awakeners gain [Arg1] Keyflare from their first \"Command Card\" each turn.",
+      "descriptionTemplate": "All Awakeners generate [Arg1] Keyflare with their first \"Command Card\" each turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -49,7 +49,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "All Awakeners gain [Arg1] Keyflare from their first \"Command Card\" each turn.",
+      "descriptionTemplate": "All Awakeners generate [Arg1] Keyflare with their first \"Command Card\" each turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

@@ -26,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "\"Do you see it? How their flesh splits open beneath your blade, how brilliantly the blood blossoms.\"\n\"Closing your eyes won't make it vanish, dear child.\"\n\"You know. You know it well.\"\n\"The skill you've honed took on the color of death long ago; it serves only to sow the next ruin.\"",
   "upgrades": [
     {
       "id": "upgrade.enlighten.ogier-oathbound.bear-the-glimmer.skill.ogier-oathbound.strike",

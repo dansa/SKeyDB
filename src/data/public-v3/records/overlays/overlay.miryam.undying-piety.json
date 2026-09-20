@@ -14,7 +14,7 @@
   "ownerAwakenerId": "awakener-0032",
   "aliases": [],
   "iconId": "IconS_Buff_045",
-  "descriptionTemplate": "At the start of the battle, place 1 {Obsession} into hand.",
+  "descriptionTemplate": "At battle start, place 1 {Obsession} into hand.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Miryam"
 }

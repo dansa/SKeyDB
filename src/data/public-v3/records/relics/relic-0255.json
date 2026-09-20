@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0435",
   "rarity": "N",
   "aliases": ["Painted Rite of Spring", "Painted Rite of Spring+", "Rite of Spring+"],
-  "descriptionTemplate": "After the battle starts, Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Vulnerable} to all enemies, with the effect doubled in Boss Battles. All Awakener Base DMG is +[Arg2]%.",
+  "descriptionTemplate": "After battle start, Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Vulnerable} to all enemies, with the effect doubled in Boss Battles. All Awakener base DMG is +[Arg2]%.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -38,7 +38,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "After the battle starts, Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Vulnerable} to all enemies, with the effect doubled in Boss Battles. All Awakener Base DMG is +[Arg2]%.",
+      "descriptionTemplate": "After battle start, Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Vulnerable} to all enemies, with the effect doubled in Boss Battles. All Awakener base DMG is +[Arg2]%.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -59,7 +59,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "After the battle starts, Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Vulnerable} to all enemies, with the effect doubled in Boss Battles. All Awakener base DMG is +[Arg2]%.",
+      "descriptionTemplate": "After battle start, Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Vulnerable} to all enemies, with the effect doubled in Boss Battles. All Awakener base DMG is +[Arg2]%.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -81,7 +81,7 @@
       "tier": "Silver",
       "category": "FADED_LEGACY",
       "rarity": "N",
-      "descriptionTemplate": "Every 3 turns, add 1 stack of {Vulnerable} to all enemies. After dealing DMG to a {Vulnerable} enemy, reduce their Temporary {STR} by [Arg1], with a maximum of 3 triggers per turn.",
+      "descriptionTemplate": "Every 3 turns, add 1 stack of {Vulnerable} to all enemies. After dealing DMG to a {Vulnerable} enemy, reduce their Temporary {STR▼} by [Arg1], with a maximum of 3 triggers per turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

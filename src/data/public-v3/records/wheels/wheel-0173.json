@@ -15,8 +15,8 @@
   "mainstatKey": "SIGIL_YIELD",
   "ownerAwakenerId": "awakener-0059",
   "ownerAwakenerName": "Lotan: Cetarchon",
-  "lineupToken": "zb",
-  "descriptionTemplate": "Team Unique: The wielder's \"Strike\" Crit. DMG +[StateArg1]%.",
+  "lineupToken": "y8",
+  "descriptionTemplate": "{Team Unique}: The wielder's \"Strike\" Crit. DMG +[StateArg1]%.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

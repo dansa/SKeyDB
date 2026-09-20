@@ -22,6 +22,7 @@
       "suffix": "%"
     }
   },
+  "ownerAwakenerName": "Doll: Inferno",
   "upgrades": [
     {
       "id": "upgrade.enlighten.doll-inferno.envoy-of-extinction.overlay.doll-inferno.illusions-end",
@@ -41,6 +42,5 @@
         }
       }
     }
-  ],
-  "ownerAwakenerName": "Doll: Inferno"
+  ]
 }

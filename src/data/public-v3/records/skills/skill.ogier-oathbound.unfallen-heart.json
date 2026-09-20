@@ -28,6 +28,7 @@
   },
   "cardKeywords": [],
   "cost": "100",
+  "lore": "In truth, the image of that castle had long faded from Ogier's memory.\nYet now, he can raise a new rampart out of the yearning in his heart.\nIf, under his protection, the laughter of people can still be heard, and familiar flowers bloom across the fields once more...\nthen this long-tainted heart might still hold a purpose in this world.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.ogier-oathbound.stand-to-defend.skill.ogier-oathbound.unfallen-heart",
@@ -35,6 +36,43 @@
       "upgraderId": "enlighten.ogier-oathbound.stand-to-defend",
       "upgraderType": "enlighten",
       "upgraderSlot": "E1",
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
+      "patch": {
+        "descriptionArgs": {
+          "Arg3": {
+            "kind": "scaling",
+            "values": ["35", "42", "49", "56", "63", "70"],
+            "stat": "DEF",
+            "suffix": "%",
+            "substatBonus": {
+              "substat": "CritRate",
+              "multiplier": "0.3",
+              "mode": "additive_factor",
+              "baseMultiplier": "1.1"
+            }
+          },
+          "Arg4": {
+            "kind": "scaling",
+            "values": ["4", "4.8", "5.6", "6.4", "7.2", "8"],
+            "stat": "ATK",
+            "suffix": "%",
+            "substatBonus": {
+              "substat": "CritRate",
+              "multiplier": "0.3",
+              "mode": "additive_factor",
+              "baseMultiplier": "1.1"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "upgrade.enlighten.ogier-oathbound.bear-the-glimmer.skill.ogier-oathbound.unfallen-heart",
+      "operation": "override_args",
+      "upgraderId": "enlighten.ogier-oathbound.bear-the-glimmer",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "E2",
       "ownerAwakenerId": "awakener-0061",
       "ownerAwakenerName": "Ogier: Oathbound",
       "patch": {

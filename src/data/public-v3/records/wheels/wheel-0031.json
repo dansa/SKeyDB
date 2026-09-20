@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0012",
   "ownerAwakenerName": "Daffodil",
   "lineupToken": "l",
-  "descriptionTemplate": "Team Unique: Gain [StateArg1] Black Sigils each time an enemy dies. After the wielder kills an enemy, the wielder's Crit. DMG in this level permanently +[StateArg2]%, stacking up to 5 stacks. Each time the wielder triggers the {Leap} effect, increase the Final DMG dealt by the wielder this turn by [StateArg3]%, stacking up to 3 stacks.",
+  "descriptionTemplate": "{Team Unique}: Gain [StateArg1] Black Sigils each time an enemy dies. After the wielder kills an enemy, the wielder's Crit. DMG in this stage permanently +[StateArg2]%, stacking up to 5 stacks. Each time the wielder triggers the {Leap} effect, increase the Final DMG dealt by the wielder this turn by [StateArg3]%, stacking up to 3 stacks.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "fixed",

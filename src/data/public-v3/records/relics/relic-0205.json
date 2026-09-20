@@ -41,7 +41,7 @@
       "tier": "Upgraded",
       "category": "OTHER",
       "mechanicOwner": "Ryker",
-      "descriptionTemplate": "All Awakeners' Crit. Rate +15%. The final result of Ryker and dice random effects +1.",
+      "descriptionTemplate": "All Awakeners' Crit Rate +15%. Ryker's final random dice results +1.",
       "descriptionArgs": {},
       "lore": "It will raise a thick barrier to keep out the winds, rains, and misfortunes."
     }

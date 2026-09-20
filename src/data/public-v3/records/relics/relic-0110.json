@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0135",
   "rarity": "SR",
   "aliases": [],
-  "descriptionTemplate": "For each instance of DMG dealt, gain [Arg1] Shield. At turn start, for every 3 remaining Shield, gain 1 point of Temporary {STR} and {Tentacle DMG}.",
+  "descriptionTemplate": "For each instance of Active or {Tentacle DMG} dealt, gain [Arg1] Shield. At turn start, for every 3 remaining Shield, gain 1 Temporary {STR} and {Tentacle DMG}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
@@ -35,7 +35,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "For each instance of DMG dealt, gain [Arg1] Shield. At turn start, for every 3 remaining Shield, gain 1 point of Temporary {STR} and {Tentacle DMG}.",
+      "descriptionTemplate": "For each instance of Active or {Tentacle DMG} dealt, gain [Arg1] Shield. At turn start, for every 3 remaining Shield, gain 1 Temporary {STR} and {Tentacle DMG}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

@@ -14,7 +14,7 @@
   "realm": "NEUTRAL",
   "mainstatKey": "KEYFLARE_REGEN",
   "lineupToken": "ya",
-  "descriptionTemplate": "Team Unique: If the wielder is the Awakener \"Ramona,\" the Affinity gained upon completing the stage +[StateArg1]%.",
+  "descriptionTemplate": "{Team Unique}: If the wielder is the Awakener \"Ramona,\" the Affinity gained upon completing the stage +[StateArg1]%.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "fixed",

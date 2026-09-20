@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0342",
   "rarity": "SSR",
   "aliases": [],
-  "descriptionTemplate": "At the start of the battle, all cards with a current Arithmetica Cost of 1 gain +[Arg1] DMG and +[Arg2] Shield for this battle.",
+  "descriptionTemplate": "At battle start, all cards with a current Arithmetica Cost of 1 gain +[Arg1] DMG and +[Arg2] Shield for this battle.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
@@ -43,7 +43,7 @@
       "tier": "Gold",
       "category": "FADED_LEGACY",
       "rarity": "SSR",
-      "descriptionTemplate": "At the start of the battle, all cards with a current Arithmetica Cost of 1 gain +[Arg1] DMG and +[Arg2] Shield for this battle.",
+      "descriptionTemplate": "At battle start, all cards with a current Arithmetica Cost of 1 gain +[Arg1] DMG and +[Arg2] Shield for this battle.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

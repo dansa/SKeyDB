@@ -17,6 +17,7 @@
   "textColor": "damage",
   "descriptionTemplate": "Each stack increases Max HP by 10% of Caraboo's CON (Max 50 stacks). At max stacks, excess stacks instead heal for 3× this HP value. Up to 10 stacks of {Satiety} can be gained per non-Boss battle. {Satiety} Persists between battles.",
   "descriptionArgs": {},
+  "ownerAwakenerName": "Caraboo",
   "upgrades": [
     {
       "id": "upgrade.enlighten.caraboo.threefold-vow.overlay.caraboo.satiety",
@@ -30,6 +31,5 @@
         "descriptionTemplate": "Each stack increases Max HP by 15% of Caraboo's CON (Max 50 stacks). At max stacks, excess stacks instead heal for 3× this HP value. Up to 10 stacks of {Satiety} can be gained per non-Boss Battle. {Satiety} persists between battles."
       }
     }
-  ],
-  "ownerAwakenerName": "Caraboo"
+  ]
 }

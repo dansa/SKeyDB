@@ -17,7 +17,7 @@
   "acquisitionSource": "Clear Psyche Deepdive: The Pentameron",
   "realm": "CHAOS",
   "lineupToken": "0",
-  "descriptionTemplate": "Gain [Block:Arg1] Shield, gain [Arg2] {STR}. If Ogier: Oathbound is in the party, Ogier: Oathbound gains [Arg3] Aliemus and gains 1 stack of {Undertow}.\nScaling guide: {Primordia Mastery Scaling}",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield, gain [Arg2] {STR}. If Ogier: Oathbound is in the team, Ogier: Oathbound gains [Arg3] Aliemus and gains 1 stack of {Undertow}.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
@@ -44,5 +44,6 @@
       "inputs": ["realmMasteryFinal", "primordiaAllChaosTeam"],
       "scalingBucket": "utility"
     }
-  }
+  },
+  "lore": "No matter the yesterdays, when the sun rises anew, turn the page—a brand new chapter awaits."
 }

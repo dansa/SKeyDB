@@ -79,7 +79,7 @@
         {
           "orisonId": "orison-0003",
           "temporaryEffect": {
-            "descriptionTemplate": "Gain [Energy:Arg1] Aliemus",
+            "descriptionTemplate": "Gain [Energy:Arg1] points of Aliemus",
             "descriptionArgs": {
               "Arg1": {
                 "kind": "fixed",
@@ -91,7 +91,7 @@
         {
           "orisonId": "orison-0004",
           "temporaryEffect": {
-            "descriptionTemplate": "Inflict [Arg1] {plural:[Arg1]|turn|turns} of {Vulnerable} on all enemies",
+            "descriptionTemplate": "Cause [Arg1] rounds of {Vulnerability} to all enemies",
             "descriptionArgs": {
               "Arg1": {
                 "kind": "fixed",
@@ -103,7 +103,7 @@
         {
           "orisonId": "orison-0005",
           "temporaryEffect": {
-            "descriptionTemplate": "Inflict [Arg1] {plural:[Arg1]|turn|turns} of {Weakness} on all enemies",
+            "descriptionTemplate": "Inflict [Arg1] turns of {Weakness} on all enemies",
             "descriptionArgs": {
               "Arg1": {
                 "kind": "fixed",
@@ -115,7 +115,7 @@
         {
           "orisonId": "orison-0006",
           "temporaryEffect": {
-            "descriptionTemplate": "Gain [Block:Arg1] Shield",
+            "descriptionTemplate": "Gain a [Block:Arg1] shield",
             "descriptionArgs": {
               "Arg1": {
                 "kind": "scaling",

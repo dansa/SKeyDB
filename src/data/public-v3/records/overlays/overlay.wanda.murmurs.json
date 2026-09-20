@@ -26,6 +26,7 @@
       "suffix": "%"
     }
   },
+  "ownerAwakenerName": "Wanda",
   "upgrades": [
     {
       "id": "upgrade.enlighten.wanda.lakeborne-dweller.overlay.wanda.murmurs",
@@ -45,6 +46,5 @@
         }
       }
     }
-  ],
-  "ownerAwakenerName": "Wanda"
+  ]
 }

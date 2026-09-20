@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0390",
   "rarity": "N",
   "aliases": ["Our Home+"],
-  "descriptionTemplate": "Use {Keyflare Rouse} and gain [Arg1] {STR} and [Arg2] Keyflare.",
+  "descriptionTemplate": "{Keyflare Rouse} grants [Arg1] {STR} and [Arg2] Keyflare.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
@@ -40,7 +40,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "Use {Keyflare Rouse} and gain [Arg1] {STR} and [Arg2] Keyflare.",
+      "descriptionTemplate": "{Keyflare Rouse} grants [Arg1] {STR} and [Arg2] Keyflare.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -63,7 +63,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "Use {Keyflare Rouse} and gain [Arg1] {STR} and [Arg2] Keyflare.",
+      "descriptionTemplate": "{Keyflare Rouse} grants [Arg1] {STR} and [Arg2] Keyflare.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

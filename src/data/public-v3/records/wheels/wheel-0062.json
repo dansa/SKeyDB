@@ -14,7 +14,7 @@
   "realm": "NEUTRAL",
   "mainstatKey": "KEYFLARE_REGEN",
   "lineupToken": "xr",
-  "descriptionTemplate": "Team Unique: The number of Relic Slots becomes 3, with one being a Cursed Relic Slot. Purchasing a Cursed Relic grants [StateArg1] Black Sigils. In {Astral Reign}, this effect changes to \"Increases the chance for the wielder's Dimensional Image Relic to appear by 100%.\"",
+  "descriptionTemplate": "{Team Unique}: The number of Relic Slots becomes 3, with one being a Cursed Relic Slot. Purchasing a Cursed Relic grants [StateArg1] Black Sigils. In {Astral Reign}, this effect changes to \"Increases the chance for the wielder's Dimensional Image Relic to appear by 100%.\"",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

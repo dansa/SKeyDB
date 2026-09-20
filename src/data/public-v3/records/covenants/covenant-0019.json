@@ -25,7 +25,7 @@
     },
     {
       "set": 6,
-      "descriptionTemplate": "Team Unique: After using Posse, recover HP equal to 12% of the wielder's CON, increasing with the percentage of lost HP, up to 24% of the wielder's CON.",
+      "descriptionTemplate": "{Team Unique}: After using Posse, recover HP equal to 12% of the wielder's CON, increasing with the percentage of lost HP, up to 24% of the wielder's CON.",
       "descriptionArgs": {}
     }
   ],

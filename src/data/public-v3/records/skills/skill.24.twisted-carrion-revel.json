@@ -11,7 +11,7 @@
   "slot": "Exalt",
   "cardFamily": "exalt",
   "cardTypes": ["exalt"],
-  "descriptionTemplate": "Deal [Damage:Arg1] {Pierce DMG}, increasing the Base DMG of {Twisted Carrion Revel} by 20% for this battle,\n\"24\" switches between Depressed and Manic Personas. Trigger additional effects based on the current {Realm and Persona}.",
+  "descriptionTemplate": "Deal [Damage:Arg1] {Pierce DMG}, increasing the Base DMG of {Twisted Carrion Revel} by 20% for this battle.\n\"24\" switches between Depressed and Manic Personas. Trigger additional effects based on the current {Realm and Persona}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

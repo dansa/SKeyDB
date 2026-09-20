@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "kind": "derivedSkill",
   "id": "derived.daffodil.thousand-mirage-effect-blessing",
-  "name": "Blessing",
+  "name": "Divinia",
   "route": {
     "slug": "blessing",
     "canonicalPath": "/database/awakeners/daffodil/derived-skills/blessing"

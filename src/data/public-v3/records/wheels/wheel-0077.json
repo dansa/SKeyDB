@@ -14,7 +14,7 @@
   "realm": "NEUTRAL",
   "mainstatKey": "REALM_MASTERY",
   "lineupToken": "5",
-  "descriptionTemplate": "Team Unique: After the wielder triggers Exalt, all allies gain [StateArg1] Aliemus.",
+  "descriptionTemplate": "{Team Unique}: After the wielder triggers Exalt, all allies gain [StateArg1] Aliemus.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

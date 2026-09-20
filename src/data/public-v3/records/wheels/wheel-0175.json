@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0060",
   "ownerAwakenerName": "Caraboo",
   "lineupToken": "yj",
-  "descriptionTemplate": "Team Unique: The wielder's Exalt generates +[StateArg1]% Base Shield. After the wielder plays a Command Card that inflicts {Weakness}, their next Command Card generates +[StateArg1]% Base Shield. Upon using {Crimson Furnace}, draw the wielder's Skill Card with the highest Arithmetica Cost and {Embryo Fusion} +[StateArg1]%. (Cooldown: 3 turns)",
+  "descriptionTemplate": "{Team Unique}: The wielder's Exalt generates +[StateArg1]% Base Shield. After the wielder plays a Command Card that inflicts {Weakness}, their next Command Card generates +[StateArg1]% Base Shield. Upon using {Crimson Furnace}, draw the wielder's Skill Card with the highest Arithmetica Cost and {Embryo Fusion} +[StateArg1]. 3-turn cooldown.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

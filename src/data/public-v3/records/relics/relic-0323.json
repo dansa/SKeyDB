@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0576",
   "rarity": "SSR",
   "aliases": [],
-  "descriptionTemplate": "At the start of battle, for each Orison in your deck, gain [Arg1] {STR}. For each Relic, recover [Arg2] HP.",
+  "descriptionTemplate": "At battle start, for each Orison in your deck, gain [Arg1] {STR}. For each Relic, recover [Arg2] HP.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
@@ -43,7 +43,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SSR",
-      "descriptionTemplate": "At the start of battle, for each Orison in your deck, gain [Arg1] {STR}. For each Relic, recover [Arg2] HP.",
+      "descriptionTemplate": "At battle start, for each Orison in your deck, gain [Arg1] {STR}. For each Relic, recover [Arg2] HP.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

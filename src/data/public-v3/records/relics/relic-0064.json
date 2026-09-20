@@ -75,7 +75,7 @@
       "tier": "Gold",
       "category": "FADED_LEGACY",
       "rarity": "SSR",
-      "descriptionTemplate": "Max Arithmetica +1. When you play 2 cards with Arithmetica Costs higher than the previous card in succession, gain 1 Arithmetica.",
+      "descriptionTemplate": "Max Arithmetica +1. When 2 cards with Arithmetica Costs higher than the previous card are played in succession, gain 1 Arithmetica.",
       "descriptionArgs": {},
       "lore": "The flow of fate."
     }

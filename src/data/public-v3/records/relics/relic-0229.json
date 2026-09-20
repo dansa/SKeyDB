@@ -15,7 +15,7 @@
   "variantCount": 4,
   "defaultVariantId": "relic-variant-0384",
   "aliases": ["Blessed: Omen Ritual Bird", "Sinful: Omen Ritual Bird"],
-  "descriptionTemplate": "Gain [Arg1] {STR} At battle start. At turn start, for each [Arg2] Permanent {STR}, gain [Arg3] Temporary {STR}, up to [Arg4] Temporary {STR}, and lose Shield equals to half of the Temporary {STR} gained by that Relic at turn end.",
+  "descriptionTemplate": "Gain [Arg1] {STR} at battle start. At turn start, for every [Arg2] permanent {STR}, gain [Arg3] Temporary {STR}, up to [Arg4] Temporary {STR}, and lose Shield equals to half of the Temporary {STR} gained by that Relic at turn end.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
@@ -46,7 +46,7 @@
       "variantType": "STANDARD",
       "tier": "Cursed",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "Gain [Arg1] {STR} At battle start. At turn start, for each [Arg2] Permanent {STR}, gain [Arg3] Temporary {STR}, up to [Arg4] Temporary {STR}, and lose Shield equals to half of the Temporary {STR} gained by that Relic at turn end.",
+      "descriptionTemplate": "Gain [Arg1] {STR} at battle start. At turn start, for every [Arg2] permanent {STR}, gain [Arg3] Temporary {STR}, up to [Arg4] Temporary {STR}, and lose Shield equals to half of the Temporary {STR} gained by that Relic at turn end.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -77,7 +77,7 @@
       "variantType": "STANDARD",
       "tier": "Cursed",
       "category": "FADED_LEGACY",
-      "descriptionTemplate": "After releasing Exalt, lose 8% of current HP, {Steal} [Arg1] Temporary {STR} from all enemies. If there is only 1 enemy, {Steal} an additional [Arg2] Temporary {STR}.",
+      "descriptionTemplate": "After releasing Exalt, lose 8% of current HP, {Steal} [Arg1] Temporary {STR▼} from all enemies. If there is only 1 enemy, {Steal} an additional [Arg2] Temporary {STR▼}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -103,7 +103,7 @@
       "variantType": "BLESSED",
       "tier": "Blessed",
       "category": "FADED_LEGACY",
-      "descriptionTemplate": "After releasing Exalt, Gain [Arg1] Temporary {STR} and {Steal} [Arg1] Temporary {STR} from All enemies. If there is only 1 enemy, {Steal} an additional [Arg2] Temporary {STR}.",
+      "descriptionTemplate": "After releasing Exalt, Gain [Arg1] Temporary {STR} and {Steal} [Arg1] Temporary {STR▼} from All enemies. If there is only 1 enemy, {Steal} an additional [Arg2] Temporary {STR▼}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -129,7 +129,7 @@
       "variantType": "SINFUL",
       "tier": "Sinful",
       "category": "FADED_LEGACY",
-      "descriptionTemplate": "After releasing exalt, lose 12% of current HP, {Steal} [Arg1] Temporary {STR} from all enemies. If there is only 1 enemy, {Steal} an additional [Arg2] Temporary {STR}.",
+      "descriptionTemplate": "After releasing exalt, lose 12% of current HP, {Steal} [Arg1] Temporary {STR▼} from all enemies. If there is only 1 enemy, {Steal} an additional [Arg2] Temporary {STR▼}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

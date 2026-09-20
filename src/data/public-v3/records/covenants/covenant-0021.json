@@ -26,7 +26,7 @@
     },
     {
       "set": 6,
-      "descriptionTemplate": "Team Unique. The wielder gains 8% Temporary Crit. DMG for each Tentacle after consuming an {Embryo} for the first time each turn, up to 80%.",
+      "descriptionTemplate": "{Team Unique}. The wielder gains 8% Temporary Crit. DMG for each Tentacle after consuming an {Embryo} for the first time each turn, up to 80%.",
       "descriptionArgs": {}
     }
   ],

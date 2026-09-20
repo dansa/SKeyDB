@@ -12,7 +12,7 @@
   },
   "numericId": 57,
   "ingameId": "B15",
-  "lineupToken": "xj",
+  "lineupToken": "xi",
   "realm": "CARO",
   "rarity": "SSR",
   "type": "CHORUS",
@@ -70,7 +70,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Affinity Level 3",
+        "unlockCondition": "Awakener Level 3",
         "content": "Like what is yet to come but has not yet come to pass. Like what is held in the heart and will never be forgotten.\n\nNo matter what form they take, no matter what shape the world assumes, the two beings—utterly different, yet utterly alike—will always arrive at the same answer.\n\n<Italic:\"There is someone we want to see again.\"\n\n\"We will stop at nothing to find them... and the world where we can stay by their side.\"\n\n\"If the path there has no end, then we will spend our whole lives walking it. A lifetime measured in searching.\"\n\n>\nPerhaps this is why, amid the screeching, ugly blobs of flesh, a brilliant Silver Core fell into the Keeper's palm."
       },
       {

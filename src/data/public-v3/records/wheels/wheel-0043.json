@@ -14,7 +14,7 @@
   "realm": "NEUTRAL",
   "mainstatKey": "CRIT_RATE",
   "lineupToken": "yH",
-  "descriptionTemplate": "Team Unique: After unleashing a Posse, the wielder's Crit. Rate is temporarily+[StateArg1]%.",
+  "descriptionTemplate": "{Team Unique}: After unleashing a Posse, the wielder's Crit. Rate is temporarily+[StateArg1]%.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

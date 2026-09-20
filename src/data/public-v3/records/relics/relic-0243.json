@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0415",
   "rarity": "SSR",
   "aliases": [],
-  "descriptionTemplate": "At the start of the battle, gain 1 stack of {Mind Barrier}, and after 3 turns, convert it to \"{Crumble}\".",
+  "descriptionTemplate": "At battle start, gain 1 stack of {Mind Barrier}, and after 3 turns, convert it to \"{Crumble}\".",
   "descriptionArgs": {},
   "lore": "Look closely at your heart, and do not make the wrong choice.",
   "variants": [
@@ -28,7 +28,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SSR",
-      "descriptionTemplate": "At the start of the battle, gain 1 stack of {Mind Barrier}, and after 3 turns, convert it to \"{Crumble}\".",
+      "descriptionTemplate": "At battle start, gain 1 stack of {Mind Barrier}, and after 3 turns, convert it to \"{Crumble}\".",
       "descriptionArgs": {},
       "lore": "Look closely at your heart, and do not make the wrong choice."
     }

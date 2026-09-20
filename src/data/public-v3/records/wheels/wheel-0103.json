@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0043",
   "ownerAwakenerName": "Ryker",
   "lineupToken": "x3",
-  "descriptionTemplate": "Team Unique: Increases the wielder's Crit. Rate by [StateArg1]%. Gain [StateArg2] Black Sigil upon killing an enemy, up to 3 times during exploration. After 3 triggers, the wielder's Crit. Rate permanently +[StateArg3]% for the rest of the exploration.",
+  "descriptionTemplate": "{Team Unique}: Increases the wielder's Crit. Rate by [StateArg1]%. Gain [StateArg2] Black Sigil upon killing an enemy, up to 3 times during exploration. After 3 triggers, the wielder's Crit. Rate permanently +[StateArg3]% for the rest of the exploration.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

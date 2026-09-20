@@ -70,7 +70,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Affinity Level 3",
+        "unlockCondition": "Awakener Level 3",
         "content": "This Silver Core was recovered by Mythag's Keeper %player% in the aftermath of the Mount Ever@2t collapse incident. As the dimension in which it originally resided is no longer observable, the consequences of Silver Core extraction—as well as the proper awakening method—remain undetermined.\n\nThe following observations are transcribed from the paper handbook carried by Keeper %player%:\n\nUpon visual inspection, the Silver Core presents as exceptionally pure, showing no discernible impurities. In the absence of external interference, its overall structure trends toward regularity—as though some underlying will were straining to keep it appearing whole and composed, radiating a bright luster not unlike firelight.\n\nIts Gnosis Index, however, sits near the absolute lower bound. The actual internal structure is extraordinarily fragile and loosely bound. When the observation distance falls below 1/@1 inch, the Silver Core's self-protection response is triggered: the observer is abruptly confronted with a dense flow of particles resembling drifting ice crystals. It is presumed these particles were previously refracting incident light in a highly unusual manner, shielding the interior from direct observation.\nTo put it less professionally... I'd call this a Silver Core steeped in \"deception.\"\n\nOnce the self-protection mechanism is triggered, the observer's body enters a brief paralytic state, the pupils gradually fading until fully blanched. Throughout this window, the Silver Core continues to adjust itself, returning to the stable configuration it maintained prior to observation.\nRepeated trials indicate that the mechanism inflicts no lasting harm; however, the accompanying hypothermic symptoms pose a non-negligible risk. Note: prompt consumption of sweets—apple-based desserts in particular—provides a distinctly soothing effect. The reason for this... remains unclear... <Italic:Right?\n>\n\n\nLuckily, after everything, it's plain enough that this selfish, tightly-guarded little trickster bears no genuine ill will toward us.\n\n—Excerpt from <Italic:Mythag University Silver Core Storage Records>"
       },
       {
@@ -146,7 +146,7 @@
         },
         {
           "id": "voice-149671",
-          "title": "Enlighten: Florish",
+          "title": "Enlighten: Bloom",
           "unlockCondition": "Unlocks at Enlighten Level 15",
           "content": "Come, stand here beside your Fairy. What? Everyone shares the offerings and eats together? ...Well. If that's Mythag's custom... then I... I certainly have no objection at all. Come now, everyone, let's make it a party!"
         },
@@ -272,7 +272,7 @@
         {
           "id": "voice-149703",
           "title": "Hit: II",
-          "content": "Owie~"
+          "content": "Shut up!"
         },
         {
           "id": "voice-149704",
@@ -296,7 +296,7 @@
         },
         {
           "id": "voice-149705",
-          "title": "Over-Exaltation",
+          "title": "Over-Exalt",
           "content": "The sevenfold rite, the threefold vow—offer them up, and buy yourself the Fairy's absolution!"
         }
       ],

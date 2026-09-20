@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0372",
   "rarity": "N",
   "aliases": ["Neurotoxin+"],
-  "descriptionTemplate": "At the start of battle, Inflict [Arg1] {Poison} to all enemies, with double effect in Boss Battles.",
+  "descriptionTemplate": "At battle start, Inflict [Arg1] {Poison} to all enemies, with double effect in Boss Battles.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
@@ -36,7 +36,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "At the start of battle, Inflict [Arg1] {Poison} to all enemies, with double effect in Boss Battles.",
+      "descriptionTemplate": "At battle start, Inflict [Arg1] {Poison} to all enemies, with double effect in Boss Battles.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -55,7 +55,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "At the start of battle, Inflict [Arg1] {Poison} to all enemies, with double effect in Boss Battles.",
+      "descriptionTemplate": "At battle start, Inflict [Arg1] {Poison} to all enemies, with double effect in Boss Battles.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

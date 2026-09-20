@@ -14,7 +14,7 @@
   "realm": "NEUTRAL",
   "mainstatKey": "CRIT_RATE",
   "lineupToken": "K",
-  "descriptionTemplate": "Team Unique: At the start of exploration, add one \"Strike\" of the wielder to the deck, increasing the Base DMG of the wielder's \"Strike\" by [StateArg1]%.",
+  "descriptionTemplate": "{Team Unique}: At the start of exploration, add one \"Strike\" of the wielder to the deck, increasing the Base DMG of the wielder's \"Strike\" by [StateArg1]%.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

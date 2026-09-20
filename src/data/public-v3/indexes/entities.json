@@ -2234,7 +2234,7 @@
     "derived.daffodil.thousand-mirage-effect-blessing": {
       "kind": "derivedSkill",
       "id": "derived.daffodil.thousand-mirage-effect-blessing",
-      "name": "Blessing",
+      "name": "Divinia",
       "route": {
         "slug": "blessing",
         "canonicalPath": "/database/awakeners/daffodil/derived-skills/blessing"
@@ -9224,6 +9224,16 @@
       },
       "overlayType": "mechanic"
     },
+    "overlay.global.team-unique": {
+      "kind": "overlay",
+      "id": "overlay.global.team-unique",
+      "name": "Team Unique",
+      "route": {
+        "slug": "team-unique",
+        "canonicalPath": "/database/overlays/team-unique"
+      },
+      "overlayType": "tag"
+    },
     "overlay.global.temporary-counter": {
       "kind": "overlay",
       "id": "overlay.global.temporary-counter",
@@ -9279,6 +9289,16 @@
         "canonicalPath": "/database/overlays/tranquil-sea"
       },
       "overlayType": "mechanic"
+    },
+    "overlay.global.turn-unique": {
+      "kind": "overlay",
+      "id": "overlay.global.turn-unique",
+      "name": "Turn Unique",
+      "route": {
+        "slug": "turn-unique",
+        "canonicalPath": "/database/overlays/turn-unique"
+      },
+      "overlayType": "tag"
     },
     "overlay.global.ultra": {
       "kind": "overlay",
@@ -10411,7 +10431,7 @@
     "posse-0029": {
       "kind": "posse",
       "id": "posse-0029",
-      "name": "Answer of the Gate",
+      "name": "The Gated Answer",
       "route": {
         "slug": "answer-of-the-gate",
         "canonicalPath": "/database/posses/answer-of-the-gate"
@@ -10673,7 +10693,7 @@
     "posse-0045": {
       "kind": "posse",
       "id": "posse-0045",
-      "name": "Reunion Wish",
+      "name": "Reunion's Wish",
       "route": {
         "slug": "reunion-wish",
         "canonicalPath": "/database/posses/reunion-wish"
@@ -14263,7 +14283,7 @@
     "relic-0265": {
       "kind": "relic",
       "id": "relic-0265",
-      "name": "Severed Head Worm",
+      "name": "Sparganum",
       "route": {
         "slug": "severed-head-worm",
         "canonicalPath": "/database/relics/severed-head-worm"
@@ -15051,6 +15071,21 @@
         "icon": "asset-relic-0325-icon"
       },
       "rarity": "SSR"
+    },
+    "relic-0326": {
+      "kind": "relic",
+      "id": "relic-0326",
+      "name": "Dimensional Image: Ogier: Oathbound",
+      "route": {
+        "slug": "dimensional-image-ogier-oathbound",
+        "canonicalPath": "/database/relics/dimensional-image-ogier-oathbound"
+      },
+      "assets": {
+        "icon": "asset-relic-0326-icon"
+      },
+      "rarity": "SSR",
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound"
     },
     "skill.24.aberrant-vivisection": {
       "kind": "skill",
@@ -18328,9 +18363,9 @@
       "ownerAwakenerName": "Nymphaea",
       "slot": "Strike"
     },
-    "skill.ogier-oathbound.def": {
+    "skill.ogier-oathbound.defense": {
       "kind": "skill",
-      "id": "skill.ogier-oathbound.def",
+      "id": "skill.ogier-oathbound.defense",
       "name": "Defense",
       "route": {
         "slug": "defense",
@@ -25529,16 +25564,6 @@
       "realm": "NEUTRAL",
       "rarity": "SSR",
       "mainstatKey": "CRIT_RATE"
-    },
-    "overlay.global.turn-unique": {
-      "kind": "overlay",
-      "id": "overlay.global.turn-unique",
-      "name": "Turn Unique",
-      "route": {
-        "slug": "turn-unique",
-        "canonicalPath": "/database/overlays/turn-unique"
-      },
-      "overlayType": "tag"
     }
   },
   "scopes": {
@@ -26329,6 +26354,7 @@
       "overlay.global.strength",
       "overlay.global.stun",
       "overlay.global.surging-tides",
+      "overlay.global.team-unique",
       "overlay.global.temporary-counter",
       "overlay.global.temporary-enhance",
       "overlay.global.temporary-str",
@@ -26758,7 +26784,8 @@
       "relic-0322",
       "relic-0323",
       "relic-0324",
-      "relic-0325"
+      "relic-0325",
+      "relic-0326"
     ],
     "skills": [
       "skill.24.aberrant-vivisection",
@@ -27034,7 +27061,7 @@
       "skill.nymphaea.midnight-tide",
       "skill.nymphaea.passage-of-the-ego",
       "skill.nymphaea.strike",
-      "skill.ogier-oathbound.def",
+      "skill.ogier-oathbound.defense",
       "skill.ogier-oathbound.endless-shadow",
       "skill.ogier-oathbound.flesh-as-fortress",
       "skill.ogier-oathbound.oath-to-tomorrow",

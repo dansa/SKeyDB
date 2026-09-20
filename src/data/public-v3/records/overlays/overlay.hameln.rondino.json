@@ -10,9 +10,9 @@
   "overlayType": "mechanic",
   "ownerAwakenerId": "awakener-0022",
   "aliases": [],
-  "textColor": "damage",
   "descriptionTemplate": "When played, takes effect 2 times and changes to {Crescendo}",
   "descriptionArgs": {},
+  "ownerAwakenerName": "Hameln",
   "upgrades": [
     {
       "id": "upgrade.enlighten.hameln.oneiric-waltz.overlay.hameln.rondino",
@@ -26,6 +26,5 @@
         "descriptionTemplate": "Arithmetica Cost -2, takes effect 2 times, then changes to {Crescendo}"
       }
     }
-  ],
-  "ownerAwakenerName": "Hameln"
+  ]
 }

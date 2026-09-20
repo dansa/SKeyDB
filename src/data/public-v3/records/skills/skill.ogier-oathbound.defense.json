@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "kind": "skill",
-  "id": "skill.ogier-oathbound.def",
+  "id": "skill.ogier-oathbound.defense",
   "name": "Defense",
   "route": {
     "slug": "defense",
@@ -11,7 +11,7 @@
   "slot": "Defense",
   "cardFamily": "command",
   "cardTypes": ["defense"],
-  "descriptionTemplate": "Gain [Block:Arg3] Shield. Ogier: Oathbound gains [Energy:Arg2] Aliemus.",
+  "descriptionTemplate": "Gain [Block:Arg3] Shield. Ogier: Oathbound gains [Energy:Arg2] Aliemus.\nDraw 1 card",
   "descriptionArgs": {
     "Arg2": {
       "kind": "scaling",
@@ -26,5 +26,6 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "\"Do you hear it? How their wailing rings through every corner, yet no one rises to shelter them.\"\n\"Covering your ears won't shut it out, worthless knight.\"\n\"You were there. You made your choice.\"\n\"When the tide of enemies swept in, you cast off your armor and let them ravage your beloved homeland.\"",
   "ownerAwakenerName": "Ogier: Oathbound"
 }

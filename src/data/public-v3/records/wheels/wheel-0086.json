@@ -14,7 +14,7 @@
   "realm": "NEUTRAL",
   "mainstatKey": "ALIEMUS_REGEN",
   "lineupToken": "J",
-  "descriptionTemplate": "Team Unique: After Exalt, gain Shield equal to [StateArg1]% of the wielder's DEF.",
+  "descriptionTemplate": "{Team Unique}: After Exalt, gain Shield equal to [StateArg1]% of the wielder's DEF.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

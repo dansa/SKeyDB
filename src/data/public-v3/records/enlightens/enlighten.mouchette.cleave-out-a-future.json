@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0033",
   "slot": "E3",
-  "descriptionTemplate": "{Shining☆Tornado} grants Mouchette +1 hits count this turn.",
+  "descriptionTemplate": "{Shining☆Tornado} grants Mouchette +1 hit count this turn.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Mouchette"
 }

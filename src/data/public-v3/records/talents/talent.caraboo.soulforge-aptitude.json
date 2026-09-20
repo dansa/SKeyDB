@@ -10,7 +10,7 @@
   "ownerAwakenerId": "awakener-0060",
   "family": "soulforge_aptitude",
   "maxLevel": 10,
-  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nCaraboo's Exalt Crit. Rate and Crit. DMG +[Arg3]%. The amount of Max HP bonus provided by {Satiety} stacks +[Arg5]%.\nIn the \"Icefields\" terrain: {Snowy Hex} Arithmetica Cost -1; DMG hits count +1; deal DMG to & inflict {Weakness} on all enemies.",
+  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nCaraboo's Exalt Crit. Rate and Crit. DMG +[Arg3]%. The amount of Max HP bonus provided by {Satiety} stacks +[Arg5]%.\nIn the \"Icefields\" terrain: {Snowy Hex} Arithmetica Cost -1; DMG hit count +1; deal DMG to & inflict {Weakness} on all enemies.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "linear",

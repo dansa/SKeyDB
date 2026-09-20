@@ -12,7 +12,7 @@
   "rootSkillId": "skill.doll-inferno.self-destruct",
   "cardFamily": "command",
   "cardTypes": ["derived"],
-  "descriptionTemplate": "All enemies Temp. {STR▼} -[Exhaustion:Arg2].",
+  "descriptionTemplate": "使所有敌人临时降低 [Exhaustion:Arg2] 点{力量} 。",
   "descriptionArgs": {
     "Arg2": {
       "kind": "scaling",
@@ -25,26 +25,14 @@
   "upgrades": [
     {
       "id": "upgrade.enlighten.doll-inferno.borealis-visitor.derived.doll-inferno.curse",
-      "operation": "mixed",
+      "operation": "replace_description",
       "upgraderId": "enlighten.doll-inferno.borealis-visitor",
       "upgraderType": "enlighten",
       "upgraderSlot": "E1",
       "ownerAwakenerId": "awakener-0018",
       "ownerAwakenerName": "Doll: Inferno",
       "patch": {
-        "descriptionTemplate": "Inflict {Weakness} on all enemies for [Arg1] {plural:[Arg1]|turn|turns}, and temporarily reduce their {STR▼} by [Exhaustion:Arg2].",
-        "descriptionArgs": {
-          "Arg1": {
-            "kind": "fixed",
-            "value": "1"
-          },
-          "Arg2": {
-            "kind": "scaling",
-            "values": ["20", "24", "28", "32", "36", "40"],
-            "stat": "DEF",
-            "suffix": "%"
-          }
-        }
+        "descriptionTemplate": "All enemies Temp. {STR▼} -[Exhaustion:Arg2]."
       }
     }
   ],
