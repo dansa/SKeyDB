@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0292",
   "rarity": "N",
   "aliases": ["Hyperstring Pocketwatch+"],
-  "descriptionTemplate": "Gain [Arg1] Shield from {Annihilation}, with a cooldown of 3 turns.",
+  "descriptionTemplate": "Gain [Arg1] Shield from {Annihilation}, 3-turn cooldown.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
@@ -36,7 +36,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "Gain [Arg1] Shield from {Annihilation}, with a cooldown of 3 turns.",
+      "descriptionTemplate": "Gain [Arg1] Shield from {Annihilation}, 3-turn cooldown.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -55,7 +55,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "Gain [Arg1] Shield from {Annihilation}, with a cooldown of 3 turns.",
+      "descriptionTemplate": "Gain [Arg1] Shield from {Annihilation}, 3-turn cooldown.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

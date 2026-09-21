@@ -20,19 +20,5 @@
     }
   },
   "cardKeywords": [],
-  "upgrades": [
-    {
-      "id": "upgrade.enlighten.xu.nirvanas-kiss.derived.xu.betroth",
-      "operation": "replace_description",
-      "upgraderId": "enlighten.xu.nirvanas-kiss",
-      "upgraderType": "enlighten",
-      "upgraderSlot": "E3",
-      "ownerAwakenerId": "awakener-0054",
-      "ownerAwakenerName": "Xu",
-      "patch": {
-        "descriptionTemplate": "Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Spellbound} on all enemies."
-      }
-    }
-  ],
   "ownerAwakenerName": "Xu"
 }

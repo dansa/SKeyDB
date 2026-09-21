@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0012",
   "ownerAwakenerName": "Daffodil",
   "lineupToken": "x8",
-  "descriptionTemplate": "Team Unique: The Base DMG dealt by the first Command Card used by the wielder each turn +[StateArg1]%. If they enter the {Ultra Space}, the wielder gains [StateArg2] Aliemus.",
+  "descriptionTemplate": "{Team Unique}: The Base DMG dealt by the first Command Card used by the wielder each turn +[StateArg1]%. If they enter the {Ultra Space}, the wielder gains [StateArg2] Aliemus.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

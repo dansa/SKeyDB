@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0153",
   "rarity": "SR",
   "aliases": [],
-  "descriptionTemplate": "All Awakeners' Keyflare Regen +30. After releasing Posse, shuffle 3 {derived:Insight} into your deck.",
+  "descriptionTemplate": "All Awakener's Keyflare Regen +30. After unleashing Posse, shuffle 3 {derived:Insight} into the deck.",
   "descriptionArgs": {},
   "variants": [
     {
@@ -27,7 +27,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "All Awakeners' Keyflare Regen +30. After releasing Posse, shuffle 3 {derived:Insight} into your deck.",
+      "descriptionTemplate": "All Awakener's Keyflare Regen +30. After unleashing Posse, shuffle 3 {derived:Insight} into the deck.",
       "descriptionArgs": {}
     },
     {

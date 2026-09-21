@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0061",
   "ownerAwakenerName": "Ogier: Oathbound",
   "lineupToken": "zd",
-  "descriptionTemplate": "Team Unique: The wielder's \"Exalt\" generates +[StateArg1]% Base Shield and Fixed {STR}.",
+  "descriptionTemplate": "{Team Unique}: The wielder's \"Exalt\" generates +[StateArg1]% Base Shield and Fixed {STR}.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",
@@ -24,5 +24,6 @@
       "suffix": "%"
     }
   },
-  "searchTags": ["Shield"]
+  "lore": "A nameless plague devoured towns and villages. People who hungered for war slaughtered at will amid the turmoil, a symphony of iron and blood rising in frenzy.\nThey acted out of fear, or they fed upon it.\nFear—the formless foe, the ancient foe, the deadly foe.\nHe was a knight of no merit; he had succumbed to fear.\nYet the vows once solemnly sworn still rang in his ears—year upon year—echoing through a homeland long turned to naught.\n<Italic:\"I shall show mercy to the weak. I shall stand valiant against the mighty.\">\nThe night concealed the footprints of the killer. A deluge of screams and weeping drowned the streets. The crowds fled like panicked sheep.\n<Italic:\"I shall confront the wicked without reserve. I shall fight for those who cannot fight.\">\nSpearpoint stained with blood, silver shield rusted; the shadow smiled in sated glee as ravens circled overhead, a devilish glint in their eyes.\n<Italic:\"I shall aid all those who have need of me.\">\n\"It is him... he has come,\" the people stammered, their faces twisted by fear. \"The hollow monster, the vengeful ghost, returned from the abyss of death to drag his enemies into the mire of hatred.\"\nIt was him. He had not forgotten. He had never forgotten.\nWhy persist, if all must end in dust, glory and faith alike?\nWhy flinch, since fate only laughs and forces a man to his knees?\nLoyalty, devotion... what was it all for?\nThe last knight of the Duchy asked in vain—his soul as barren as his broken frame, and the dregs of fear flowing unchecked, gathering into a sea of ruin.\nBut his hollow chest remained silent, the lost answer nowhere to be found.",
+  "searchTags": ["STR Up", "Shield"]
 }

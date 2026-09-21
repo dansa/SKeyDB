@@ -65,12 +65,12 @@
         "kind": "introduction",
         "title": "Basic Information",
         "unlockCondition": "Awakener Level 1",
-        "content": "Do not approach, do not touch, do not look directly, do not pity; there are beings in this world that are meant to dwell alone in the darkness.\n\nThough it is not her intention, if you gaze affectionately into her eyes because of her frail figure, timid voice, or childlike clothing, you will fall into eternal stillness and silence."
+        "content": "Do not come close. Do not touch. Do not look at her directly. Do not pity her. Perhaps some creatures were only ever meant to live alone in the dark.\nIt is not what she wants. But if her frail body, her timid voice, her childish clothes move you to look tenderly into her eyes, you will fall into stillness and silence forever."
       },
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Affinity Level 3",
+        "unlockCondition": "Awakener Level 3",
         "content": "According to the \"Cataclysm Event Record III,\" the Keeper brought back this piece of Silver Core from the Londinium Orphanage. Accompanying the Silver Core was a tiny, patch-covered teddy bear.\n\nThis Silver weighs about 2.1 grams, is slender and smooth, resembling a teardrop. Those who come into direct contact with the Silver will fall into a Stasis State, maintaining the posture of touching the Silver until Awakened by someone else. To prevent accidental contact, Researcher Doll kept this Silver in a closed glass orb and replaced the teddy bear's eyes.\n\n\"It looks as if it has been crying every day.\""
       },
       {
@@ -83,13 +83,13 @@
         "kind": "story",
         "title": "Story: III",
         "unlockCondition": "Affinity Level 7",
-        "content": "On a clear morning twelve years ago, in the eastern district of Londinium, a baby girl tightly wrapped in a scarf appeared at the door of the poorhouse. This was not uncommon in the paranoid eastern district, but what angered young Sarah was that, in the harsh winter, the heartless abandoner had also wrapped the baby girl's mouth and nose in the scarf. Moreover, this baby girl neither cried nor made a fuss; if not for those clear and bright eyes blinking a few times under the impact, Sarah would have almost thought she was dead.\n\nJust as Sarah thought she would become another \"sister\" to a well-behaved child, the then-director sent this child, for the price of one Leo Fang, to the tailor of the eastern district market.\n\n\"We can't afford to raise that child. Becoming a tailor's daughter, although she will suffer a bit, at least she can learn a skill.\"\n\nWhat can a child not even two months old know about \"skills\"?\n\nFeeling her empty stomach, Sarah did not refute the director's decision."
+        "content": "On a morning twelve years ago, in the East District of Londinium, an infant girl bundled in layer upon layer of scarf appeared at the door of the Workhouse. In the East District, where everyone was busy saving their own skin, that was hardly rare. What enraged young Sarah was that in the bite of that winter, whoever abandoned the child had been cruel enough to wrap the scarf over her mouth and nose as well. And the baby neither cried nor fussed. If those clear, bright eyes hadn't blinked a few times when Sarah patted her, Sarah would have taken her for dead.\nJust as Sarah was resigning herself to becoming yet another well-behaved child's \"big sister,\" the director at the time handed the baby to a tailor in the East District market for one Leonian Florin.\n\"We can't afford to feed that child. As a tailor's daughter she'll have a hard time of it, but at least she'll learn a trade.\"\nA trade—for a child not two months old?\nSarah felt her empty stomach and said nothing against the director's decision."
       },
       {
         "kind": "story",
         "title": "Story: IV",
         "unlockCondition": "Affinity Level 9",
-        "content": "Fearful of light, fearful of gaze, fearful of love, fearful of embrace.\n\nDesiring light, desiring gaze, desiring love, desiring embrace.\n\nIf only I could avoid harming others, if only I wouldn't trouble others, if only I were as smart as Tiuog, if only I were as brave as Jenkin...\n\nThen I wouldn't be scorched by the blazing sun, nor despised by others, right?\n\nWith unfounded worries, the doll cautiously reached out its pale, almost translucent hand from the shadow into the sunlight."
+        "content": "Afraid of light, afraid of being looked at, afraid of love, afraid of being held.\nLonging for light, longing to be looked at, longing for love, longing to be held.\nIf only she could not hurt anyone. If only she were no trouble to anyone. If only she were clever, like T'yog. If only she were brave, like Jenkin. If only she were like—\nThen the sun would not burn her, and no one would find her loathsome. Wouldn't that be so?\nAnd so the doll, carrying worries that can never come true, reaches a small hand, pale to the point of transparency, out of the shadow toward the edge of the light."
       }
     ],
     "voiceLines": {

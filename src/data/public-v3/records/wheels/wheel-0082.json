@@ -14,7 +14,7 @@
   "realm": "NEUTRAL",
   "mainstatKey": "SIGIL_YIELD",
   "lineupToken": "xF",
-  "descriptionTemplate": "Team Unique: After playing the wielder's \"Defense,\" gain Temporary {STR} equal to [StateArg1]% the wielder's ATK.",
+  "descriptionTemplate": "{Team Unique}: After playing the wielder's \"Defense,\" gain Temporary {STR} equal to [StateArg1]% the wielder's ATK.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

@@ -794,6 +794,7 @@ describe('derived-skills', () => {
       'derived.tawil.mutated-heart',
       'derived.caraboo.blessing-prices',
       'derived.caraboo.gift-drain',
+      'derived.daffodil.thousand-mirage-effect-blessing',
     ])
     const mismatches = derivedSkills.filter((entry) => {
       if (reviewedStableIdExceptions.has(entry.id)) return false

@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0519",
   "rarity": "N",
   "aliases": ["Truth Unbound+"],
-  "descriptionTemplate": "After the battle starts, gain [Arg1] Realm Mastery. All Awakeners' {Counter} and Relics' {Counter} DMG +[Arg2]%.",
+  "descriptionTemplate": "After battle start, gain [Arg1] Realm Mastery. All Awakeners' {Counter} and Relics' {Counter} DMG +[Arg2]%.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -38,7 +38,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "After the battle starts, gain [Arg1] Realm Mastery. All Awakeners' {Counter} and Relics' {Counter} DMG +[Arg2]%.",
+      "descriptionTemplate": "After battle start, gain [Arg1] Realm Mastery. All Awakeners' {Counter} and Relics' {Counter} DMG +[Arg2]%.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -59,7 +59,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "After the battle starts, gain [Arg1] Realm Mastery. All Awakeners' {Counter} and Relics' {Counter} DMG +[Arg2]%.",
+      "descriptionTemplate": "After battle start, gain [Arg1] Realm Mastery. All Awakeners' {Counter} and Relics' {Counter} DMG +[Arg2]%.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

@@ -24,7 +24,7 @@
     "Pure Silver Core: Scathe",
     "Pure Silver Core: Sorrow"
   ],
-  "descriptionTemplate": "At the start of the battle, {Rouse} all Awakeners, place {Twilight: Innocent Return Gift} into hand. Each Awakener can release Exalt 1 additional time per turn; after releasing Exalt, reduce enemy {STR} by [Arg2]. At turn start, all Awakeners gain [Arg1] Aliemus.",
+  "descriptionTemplate": "At battle start, {Rouse} all Awakeners, place {Twilight: Innocent Return Gift} into hand. Awakeners can release Exalt +1 time per turn; after releasing Exalt, reduce enemy {STR} by [Arg2]. At turn start, all Awakeners gain [Arg1] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -47,7 +47,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SR",
-      "descriptionTemplate": "At the start of the battle, {Rouse} all Awakeners, place {Twilight: Innocent Return Gift} into hand. Each Awakener can release Exalt 1 additional time per turn; after releasing Exalt, reduce enemy {STR} by [Arg2]. At turn start, all Awakeners gain [Arg1] Aliemus.",
+      "descriptionTemplate": "At battle start, {Rouse} all Awakeners, place {Twilight: Innocent Return Gift} into hand. Awakeners can release Exalt +1 time per turn; after releasing Exalt, reduce enemy {STR} by [Arg2]. At turn start, all Awakeners gain [Arg1] Aliemus.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -70,7 +70,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SR",
-      "descriptionTemplate": "At the start of the battle, {Rouse} all Awakeners, place {Twilight: Unfinished Wax Sculpture} into hand, copying all cards in the Draw Pile. Draw 5 additional cards each turn and gain 5 Arithmetica. After playing \"Strike\" or \"Defense,\" gain [Arg1] Shield.",
+      "descriptionTemplate": "At battle start, {Rouse} all Awakeners, place {Twilight: Unfinished Wax Sculpture} into hand, copying all cards in the Draw Pile. Draw 5 additional cards each turn and gain 5 Arithmetica. After playing \"Strike\" or \"Defense,\" gain [Arg1] Shield.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -89,7 +89,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SR",
-      "descriptionTemplate": "At the start of the battle, {Rouse} all Awakeners, place {derived:Twilight: Heart of Mutation} into hand. At turn start, you can choose to discard any number of cards in hand and draw the same amount. Gain [Arg1] Temporary {STR} in odd-numbered turns, and place \"{Unyielding Will β} into hand. Gain [Arg2] Temporary {Alert} in even-numbered turns, and place {Hideβ} into hand",
+      "descriptionTemplate": "At battle start, {Rouse} all Awakeners, place {derived:Twilight: Heart of Mutation} into hand. At turn start, you can choose to discard any number of cards in hand and draw the same amount. Gain [Arg1] Temporary {STR} in odd-numbered turns, and place \"{Unyielding Will β} into hand. Gain [Arg2] Temporary {Alert} in even-numbered turns, and place {Hideβ} into hand",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -115,7 +115,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SR",
-      "descriptionTemplate": "At the start of the battle, {Rouse} all Awakeners, place {Twilight: Honey Mead} into hand, and increase all Awakeners' Crit. DMG to 1.5 times. At turn end, Awakeners that did not release Exalt gain [Arg1] Aliemus. If the number of cards played is less than [Arg2], draw 2 cards next turn and gain 2 Arithmetica.",
+      "descriptionTemplate": "At battle start, {Rouse} all Awakeners, place {Twilight: Honey Mead} into hand, and increase all Awakener's Crit. DMG by 1.5 times. At turn end, Awakener that did not release Exalt gain [Arg1] Aliemus. If the number of cards played is less than [Arg2], draw 2 cards next turn and gain 2 Arithmetica.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -156,7 +156,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SR",
-      "descriptionTemplate": "At battle start, {Rouse} all Awakeners, draw {Twilight: Utopian Veil} into hand, increase the team's Hand Limit by +2, and increase the Keyflare storage limit by +100%. After releasing the Posse, all Awakeners' Crit. DMG and Temporary Crit. Rate +[Arg1]%, receive Shield equal to 20% of their Max HP, and draw cards until the Hand Limit is reached.",
+      "descriptionTemplate": "At battle start, {Rouse} all Awakener, place {Twilight: Utopian Veil} into hand, increase the team's Hand Limit by +2, and increase the Keyflare storage limit by +100%. After unleashing Posse, all Awakeners' Crit. DMG and Temporary Crit. Rate +[Arg1]%, receive Shield equal to 20% of their Max HP, and draw cards until the hand reaches the limit.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -173,7 +173,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SR",
-      "descriptionTemplate": "At the start of the battle, {Rouse} all Awakeners, place {Twilight: Seed of Abundance} into hand. At turn end, {Retain} remaining Arithmetica and no longer discard cards. For each instance of Active DMG dealt, gain [Arg1] Temporary {STR} and [Arg2] Shield.",
+      "descriptionTemplate": "At battle start, {Rouse} all Awakeners, place {Twilight: Seed of Abundance} into hand. At turn end, {Retain} remaining Arithmetica and no longer discard cards. For each instance of Active DMG dealt, gain [Arg1] Temporary {STR} and [Arg2] Shield.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

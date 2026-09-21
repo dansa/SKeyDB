@@ -18,6 +18,7 @@
       "suffix": "%"
     }
   },
+  "ownerAwakenerName": "Celeste",
   "upgrades": [
     {
       "id": "upgrade.enlighten.celeste.beyond-joy-and-sorrow.overlay.celeste.revival",
@@ -42,6 +43,5 @@
         }
       }
     }
-  ],
-  "ownerAwakenerName": "Celeste"
+  ]
 }

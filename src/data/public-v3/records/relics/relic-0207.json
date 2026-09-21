@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0338",
   "rarity": "N",
   "aliases": ["Malignant Child+", "Painted Malignant Child", "Painted Malignant Child+"],
-  "descriptionTemplate": "After the battle starts, Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Weakness} to all enemies, with the effect doubled in Boss Battles. All Awakeners' Base DMG is +[Arg2]%.",
+  "descriptionTemplate": "After battle start, Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Weakness} to all enemies, with the effect doubled in Boss Battles. All Awakeners' Base DMG is +[Arg2]%.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -38,7 +38,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "After the battle starts, Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Weakness} to all enemies, with the effect doubled in Boss Battles. All Awakeners' Base DMG is +[Arg2]%.",
+      "descriptionTemplate": "After battle start, Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Weakness} to all enemies, with the effect doubled in Boss Battles. All Awakeners' Base DMG is +[Arg2]%.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -59,7 +59,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "After the battle starts, Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Weakness} to all enemies, with the effect doubled in Boss Battles. All Awakeners' Base DMG is +[Arg2]%.",
+      "descriptionTemplate": "After battle start, Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Weakness} to all enemies, with the effect doubled in Boss Battles. All Awakeners' Base DMG is +[Arg2]%.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

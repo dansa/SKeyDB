@@ -9,7 +9,7 @@
   },
   "cardFamily": "buff",
   "cardTypes": ["buff"],
-  "descriptionTemplate": "Place all Awakeners' \"Defense\" into hand and set their Arithmetica Cost to 0.",
+  "descriptionTemplate": "Put all Awakeners' \"Defense\" into hand and set their Arithmetica Cost to 0.",
   "descriptionArgs": {},
   "cardKeywords": [
     {

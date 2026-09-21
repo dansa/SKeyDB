@@ -20,7 +20,7 @@
   "releaseDate": "2023-11-29",
   "faction": "Outlanders",
   "aliases": ["pandia"],
-  "searchTags": ["Vulnerable", "Counter", "STR Up", "Steal STR", "Dispel"],
+  "searchTags": ["Vulnerable", "Counter", "STR Up"],
   "primaryScalingBase": 20,
   "baseStatsLv1": {
     "CON": 32,
@@ -65,31 +65,31 @@
         "kind": "introduction",
         "title": "Basic Information",
         "unlockCondition": "Awakener Level 1",
-        "content": "A tinkling sweet laugh echoes hollowly, and a petite figure appears in dim candlelight. She is both the fear and desire of the condemned, the dew and poison for the dying, bringing sweet pain and romantic madness. The \"snap\" from her ever-present whip on the skin is an evil symphony playing in the darkness."
+        "content": "Sweet laughter like a silver bell rings hollow, and a small body takes shape in the failing candlelight. She is the terror and the longing of the guilty, sweet rain and poisoned wine to the dying, bringing sweet pain and romantic madness. The crack of the whip that never leaves her hand, landing on bare flesh, is the wicked music of the dark."
       },
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Affinity Level 3",
+        "unlockCondition": "Awakener Level 3",
         "content": "Awakening Material: Silver Core #G752a, unearthed from a festering mud heap at the ruins of Londinium's Newgate Prison. Investigator @2 accidentally slipped on a shattered skull while walking through the dim, grimy prison corridor and stumbled upon it by chance.\n\nThe awakening result deviated from expectations—what emerged from the black D-Slime was not some vicious death-row convict or a hulking executioner, but a petite young maiden with a sly smile."
       },
       {
         "kind": "story",
         "title": "Story: II",
         "unlockCondition": "Affinity Level 5",
-        "content": "\"Be wary of Pandia. Her danger is not reflected by her appearance. She's a demon.\"\n\nThese are the heartfelt words of countless investigators, born from bitter experience.\n\nPandia often creates sweet traps, luring other researchers or Awakeners into master-slave Contracts, then mercilessly manipulating their emotions and Souls.\n\nConversations with Pandia always end fruitlessly. She insists that she is merely spreading joy with her new lovers, and the Contracts are voluntary. After all, she also lets her slaves taste the sweet fruits.\n\nHowever, there is someone at the school who can counter Pandia. Whenever Sorel passes by Pandia's dormitory, Pandia falls silent, no matter the topic. Rumor has it that Pandia once suffered a major setback while trying to beguile Sorel, but the truth remains a mystery."
+        "content": "\"Watch out for Pandia. She is nothing like she looks. She's a demon.\"\nThat warning was paid for in the blood and tears of a long line of Investigators.\nPandia is forever laying sweet traps, coaxing researchers and Awakeners into master-and-servant contracts, then wringing out their feelings and their souls for her own amusement.\nTalking to Pandia gets nowhere. She insists she only makes, shares, and scatters the seeds of pleasure with each new lover, and that every contract was signed willingly on both sides. After all, she lets her slaves taste the sweet fruit too.\nStill, there is one thing at the school Pandia cannot face. Whenever Sorel passes her dormitory door, Pandia falls abruptly silent, no matter what she was talking about a moment before. Rumor says Pandia once took a bad beating while trying to seduce Sorel, but what actually happened remains a mystery."
       },
       {
         "kind": "story",
         "title": "Story: III",
         "unlockCondition": "Affinity Level 7",
-        "content": "\"O sinners, this is the abyss of Desire, the bottom of Hell. The black hound roars here, the stench spreads here, and the death knell tolls here. You have gathered here due to your indulgent desires and cruel actions, and what awaits you is suffering and death.\"\n\nPandia once served in Newgate Prison, the most oppressive, gloomy, and sunless filthy corner of Londinium. Once bloodied heavy criminals were shackled and stripped of their dignity, kneeling to her in the Maze-like cell area, kissing her leather boots, humbly calling themselves her servants.\n\nWhenever a new execution took place, she would summon new death row inmates, asking them to appreciate their own demise. As the executed squirmed in the hemp rope, she liked to sit high up, watching the worst of the worst tremble in fear and desperation.\n\nBut there was also a \"Hell Cat\" who observed that Pandia came to the iron gate of Newgate Prison countless times, tiptoeing to gaze outside London, as if waiting for a visitor from afar.\n\n\"In fact, I too can only be, a part of the miserable dark and damp dungeon that I can never escape.\""
+        "content": "\"You who have sinned—this is the abyss of appetite, the floor of hell. Here the black hounds howl, here the stench spreads, here the death bell tolls. Your reckless desires and your cruelties have brought you together in this place, and what waits for you is suffering and death.\"\nPandia once worked at Newgate Prison, the most oppressive, the grimmest, the most sunless filthy corner of all Londinium. Men whose hands had been red with blood were put in irons and stripped of their dignity; in the maze of the cell blocks they knelt and begged her, kissed her boots, and humbly called themselves her servants.\nEach time a new hanging was set, she would send for the condemned so they could admire the road's end. While the man on the rope twisted and died, she liked to sit up high and watch the worst of them shiver with fear and despair.\nBut the \"cats of hell\" also saw her come to Newgate's iron gate, again and again, standing on tiptoe to peer out past the walls of Londinium, as though waiting for a visitor from somewhere far away.\n\"The truth is, I'm only one more of those prisoners who will never get out of this dark, damp, miserable dungeon.\""
       },
       {
         "kind": "story",
         "title": "Story: IV",
         "unlockCondition": "Affinity Level 9",
-        "content": "\"Master, whip me.\"\n\nThe fire of desire burned in her eyes that should have dried up, melting wax dripping like tears.\n\nThirst, pain, curses, filth—all the humiliation she craved, all the pleasures she offered, finally arrived upon her in this moment."
+        "content": "\"Master, whip me.\"\nDesire burns in eyes that ought to be long dry, and melted wax slides down like tears.\nHunger, pain, curses, filth—every humiliation she begged for, every pleasure she handed out—all of it comes home to her at last."
       }
     ],
     "voiceLines": {

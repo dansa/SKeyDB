@@ -5070,8 +5070,8 @@
     {
       "kind": "relic",
       "id": "relic-0265",
-      "name": "Severed Head Worm",
-      "aliases": ["Severed Head Worm+"],
+      "name": "Sparganum",
+      "aliases": ["Sparganum+"],
       "tokens": [
         "astral",
         "astral reign",
@@ -5086,11 +5086,12 @@
         "severed",
         "severed head worm",
         "silver",
+        "sparganum",
         "worm"
       ],
       "fields": {
-        "name": ["Severed Head Worm", "severed-head-worm"],
-        "alias": ["Severed Head Worm+"],
+        "name": ["Sparganum", "severed-head-worm"],
+        "alias": ["Sparganum+"],
         "facet": ["N", "Relic", "ASTRAL_REIGN", "Astral Reign", "FADED_LEGACY", "Faded Legacy", "Silver", "Gold"]
       },
       "facets": {
@@ -6315,6 +6316,40 @@
         "relicType": "Event",
         "categories": ["EVENT"],
         "variantTiers": ["Special"]
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0326",
+      "name": "Dimensional Image: Ogier: Oathbound",
+      "aliases": [],
+      "tokens": [
+        "dimensional",
+        "dimensional image",
+        "dimensional image ogier oathbound",
+        "g",
+        "g ogier",
+        "genesis",
+        "genesis ogier",
+        "gogier",
+        "image",
+        "oathbound",
+        "ogier",
+        "ogier oathbound",
+        "ssr",
+        "unique"
+      ],
+      "fields": {
+        "name": ["Dimensional Image: Ogier: Oathbound", "dimensional-image-ogier-oathbound"],
+        "owner": ["Ogier: Oathbound", "ogier-oathbound", "ogier oathbound", "genesis ogier", "gogier", "g-ogier"],
+        "facet": ["SSR", "Dimensional Image", "DIMENSIONAL_IMAGE", "Unique"]
+      },
+      "facets": {
+        "rarity": "SSR",
+        "relicType": "Dimensional Image",
+        "categories": ["DIMENSIONAL_IMAGE"],
+        "variantTiers": ["Unique"],
+        "owner": "awakener-0061"
       }
     }
   ]

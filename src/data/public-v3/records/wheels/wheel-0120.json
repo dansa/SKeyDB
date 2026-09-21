@@ -14,7 +14,7 @@
   "realm": "NEUTRAL",
   "mainstatKey": "KEYFLARE_REGEN",
   "lineupToken": "u",
-  "descriptionTemplate": "Team Unique: At turn end, the wielder gains [StateArg1] Aliemus and Keyflare equal to their Keyflare Regen.",
+  "descriptionTemplate": "{Team Unique}: At turn end, the wielder gains [StateArg1] Aliemus and Keyflare equal to their Keyflare Regen.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

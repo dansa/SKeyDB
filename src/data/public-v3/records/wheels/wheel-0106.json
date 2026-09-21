@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0018",
   "ownerAwakenerName": "Doll: Inferno",
   "lineupToken": "x1",
-  "descriptionTemplate": "Team Unique: At the start of the battle, the equipped gains Aliemus equal to [StateArg1]% of the wielder Aliemus Regen. After the equipped releases Exalt for the first time in each battle, this effect repeats once.",
+  "descriptionTemplate": "{Team Unique}: At battle start, the wielder gains Aliemus equal to [StateArg1]% of the wielder's Aliemus Regen. After the wielder releases Exalt for the first time in each battle, this effect repeats once.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

@@ -11,7 +11,7 @@
   "slot": "OverExalt",
   "cardFamily": "exalt",
   "cardTypes": ["over_exalt"],
-  "descriptionTemplate": "Makes the next 3 Command Cards of Sorel take effect 2 times. Each time this Exalt deals DMG, at turn end, it heals HP equal to CON [Arg1]%.",
+  "descriptionTemplate": "Makes the next 3 Command Cards of Sorel take effect 2 times. Each time this Exalt deals DMG, at turn end, it heals HP equal to [Arg1]% CON.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

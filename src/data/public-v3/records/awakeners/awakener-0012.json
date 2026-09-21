@@ -370,7 +370,17 @@
           "id": "traphase-99815",
           "title": "Chat: About Jenkin",
           "unlockCondition": "Unlock after triggering this dialogue in Traphase",
-          "content": "Naughty little mouse, you'll be tied up and tickled until you beg for mercy."
+          "content": "Naughty little mouse, you'll be tied up and tickled until you beg for mercy.",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0025",
+              "lineId": "traphase-99772"
+            },
+            {
+              "awakenerId": "awakener-0012",
+              "lineId": "traphase-99815"
+            }
+          ]
         },
         {
           "id": "traphase-146418",

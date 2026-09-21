@@ -10,7 +10,7 @@
   "ownerAwakenerId": "awakener-0055",
   "family": "madness_omen",
   "maxLevel": 12,
-  "descriptionTemplate": "After the exploration starts, gain [Arg1] Aliemus.",
+  "descriptionTemplate": "Obtain [Arg1] Aliemus after the start of exploration.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "linear",

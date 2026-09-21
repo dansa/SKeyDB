@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0504",
   "rarity": "N",
   "aliases": ["Time Scarab+"],
-  "descriptionTemplate": "{Annihilation} grants the Awakener with the lowest Aliemus gains [Arg1] Aliemus, with a cooldown of 3 turns.",
+  "descriptionTemplate": "{Annihilation} grants the Awakener with the lowest Aliemus gains [Arg1] Aliemus, 3-turn cooldown.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -33,7 +33,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "{Annihilation} grants the Awakener with the lowest Aliemus gains [Arg1] Aliemus, with a cooldown of 3 turns.",
+      "descriptionTemplate": "{Annihilation} grants the Awakener with the lowest Aliemus gains [Arg1] Aliemus, 3-turn cooldown.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -49,7 +49,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "{Annihilation} grants the Awakener with the lowest Aliemus gains [Arg1] Aliemus, with a cooldown of 3 turns.",
+      "descriptionTemplate": "{Annihilation} grants the Awakener with the lowest Aliemus gains [Arg1] Aliemus, 3-turn cooldown.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

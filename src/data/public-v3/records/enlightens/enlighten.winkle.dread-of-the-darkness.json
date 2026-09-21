@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0053",
   "slot": "E1",
-  "descriptionTemplate": "\"Basic Strike\" and {Energy Beam} DMG enjoys a 25% {Counter} bonus.",
+  "descriptionTemplate": "\"Basic Strike\" and {Energy Beam} DMG enjoy a 50% {Counter} bonus.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Winkle"
 }

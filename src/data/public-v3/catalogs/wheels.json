@@ -210,7 +210,7 @@
       "mainstatKey": "CRIT_DMG",
       "ownerAwakenerId": "awakener-0014",
       "ownerAwakenerName": "Doresain",
-      "lineupToken": "yN",
+      "lineupToken": "yL",
       "searchTags": ["Aliemus", "Crit Rate"]
     },
     {
@@ -248,7 +248,7 @@
       "mainstatKey": "DMG_AMP",
       "ownerAwakenerId": "awakener-0054",
       "ownerAwakenerName": "Xu",
-      "lineupToken": "yT",
+      "lineupToken": "yR",
       "searchTags": ["Poison", "Aliemus", "Embryo Fusion"]
     },
     {
@@ -551,7 +551,7 @@
       "mainstatKey": "DEATH_RESISTANCE",
       "ownerAwakenerId": "awakener-0033",
       "ownerAwakenerName": "Mouchette",
-      "lineupToken": "yK",
+      "lineupToken": "yJ",
       "searchTags": ["Pursuit", "Strike"]
     },
     {
@@ -849,7 +849,7 @@
       "realm": "NEUTRAL",
       "rarity": "SSR",
       "mainstatKey": "DEATH_RESISTANCE",
-      "lineupToken": "yQ"
+      "lineupToken": "yO"
     },
     {
       "kind": "wheel",
@@ -865,7 +865,7 @@
       "realm": "NEUTRAL",
       "rarity": "SSR",
       "mainstatKey": "KEYFLARE_REGEN",
-      "lineupToken": "yR",
+      "lineupToken": "yP",
       "searchTags": ["Arithmetica", "Draw"]
     },
     {
@@ -882,7 +882,7 @@
       "realm": "NEUTRAL",
       "rarity": "SSR",
       "mainstatKey": "CRIT_DMG",
-      "lineupToken": "y2",
+      "lineupToken": "yX",
       "searchTags": ["Aliemus"]
     },
     {
@@ -915,7 +915,7 @@
       "realm": "NEUTRAL",
       "rarity": "N",
       "mainstatKey": "KEYFLARE_REGEN",
-      "lineupToken": "yU"
+      "lineupToken": "yS"
     },
     {
       "kind": "wheel",
@@ -1123,7 +1123,7 @@
       "mainstatKey": "REALM_MASTERY",
       "ownerAwakenerId": "awakener-0055",
       "ownerAwakenerName": "Vortice",
-      "lineupToken": "yZ",
+      "lineupToken": "yV",
       "searchTags": ["Aliemus", "Temporary Realm Mastery"]
     },
     {
@@ -1949,7 +1949,7 @@
       "mainstatKey": "CRIT_DMG",
       "ownerAwakenerId": "awakener-0014",
       "ownerAwakenerName": "Doresain",
-      "lineupToken": "yM"
+      "lineupToken": "yK"
     },
     {
       "kind": "wheel",
@@ -1986,7 +1986,7 @@
       "mainstatKey": "KEYFLARE_REGEN",
       "ownerAwakenerId": "awakener-0035",
       "ownerAwakenerName": "Murphy: Fauxborn",
-      "lineupToken": "yO",
+      "lineupToken": "yM",
       "searchTags": ["Shield", "Keyflare"]
     },
     {
@@ -2119,7 +2119,7 @@
       "mainstatKey": "DMG_AMP",
       "ownerAwakenerId": "awakener-0054",
       "ownerAwakenerName": "Xu",
-      "lineupToken": "yS",
+      "lineupToken": "yQ",
       "searchTags": ["Poison", "Aliemus"]
     },
     {
@@ -2138,7 +2138,7 @@
       "mainstatKey": "REALM_MASTERY",
       "ownerAwakenerId": "awakener-0055",
       "ownerAwakenerName": "Vortice",
-      "lineupToken": "y1",
+      "lineupToken": "yW",
       "searchTags": ["Temporary Realm Mastery"]
     },
     {
@@ -2257,7 +2257,7 @@
       "realm": "NEUTRAL",
       "rarity": "SSR",
       "mainstatKey": "REALM_MASTERY",
-      "lineupToken": "yP",
+      "lineupToken": "yN",
       "searchTags": ["Draw"]
     },
     {
@@ -2293,7 +2293,7 @@
       "realm": "NEUTRAL",
       "rarity": "SSR",
       "mainstatKey": "CRIT_DMG",
-      "lineupToken": "y3",
+      "lineupToken": "yY",
       "searchTags": ["Crit DMG"]
     },
     {
@@ -2384,7 +2384,7 @@
       "realm": "NEUTRAL",
       "rarity": "SSR",
       "mainstatKey": "REALM_MASTERY",
-      "lineupToken": "y4",
+      "lineupToken": "yZ",
       "searchTags": ["Keyflare"]
     },
     {
@@ -2401,7 +2401,7 @@
       "realm": "NEUTRAL",
       "rarity": "SSR",
       "mainstatKey": "SIGIL_YIELD",
-      "lineupToken": "y5",
+      "lineupToken": "y1",
       "searchTags": ["Arithmetica", "Heal", "Sigil Yield"]
     },
     {
@@ -2420,7 +2420,7 @@
       "mainstatKey": "SIGIL_YIELD",
       "ownerAwakenerId": "awakener-0057",
       "ownerAwakenerName": "Saya",
-      "lineupToken": "yW",
+      "lineupToken": "yU",
       "searchTags": ["Arithmetica", "Embryo Fusion"]
     },
     {
@@ -2439,7 +2439,7 @@
       "mainstatKey": "SIGIL_YIELD",
       "ownerAwakenerId": "awakener-0057",
       "ownerAwakenerName": "Saya",
-      "lineupToken": "yV",
+      "lineupToken": "yT",
       "searchTags": ["Aliemus"]
     },
     {
@@ -2458,7 +2458,7 @@
       "mainstatKey": "CRIT_DMG",
       "ownerAwakenerId": "awakener-0058",
       "ownerAwakenerName": "Pontos",
-      "lineupToken": "y6",
+      "lineupToken": "y2",
       "searchTags": ["Crit DMG"]
     },
     {
@@ -2477,7 +2477,7 @@
       "mainstatKey": "DMG_AMP",
       "ownerAwakenerId": "awakener-0029",
       "ownerAwakenerName": "Lily",
-      "lineupToken": "y8",
+      "lineupToken": "y4",
       "searchTags": ["Aliemus"]
     },
     {
@@ -2496,7 +2496,7 @@
       "mainstatKey": "CRIT_DMG",
       "ownerAwakenerId": "awakener-0058",
       "ownerAwakenerName": "Pontos",
-      "lineupToken": "y7",
+      "lineupToken": "y3",
       "searchTags": ["Aliemus", "Crit DMG"]
     },
     {
@@ -2534,7 +2534,7 @@
       "mainstatKey": "SIGIL_YIELD",
       "ownerAwakenerId": "awakener-0059",
       "ownerAwakenerName": "Lotan: Cetarchon",
-      "lineupToken": "zb",
+      "lineupToken": "y8",
       "searchTags": ["Strike", "Crit DMG"]
     },
     {
@@ -2551,7 +2551,7 @@
       "realm": "NEUTRAL",
       "rarity": "SSR",
       "mainstatKey": "REALM_MASTERY",
-      "lineupToken": "za"
+      "lineupToken": "y7"
     },
     {
       "kind": "wheel",
@@ -2605,7 +2605,7 @@
       "realm": "NEUTRAL",
       "rarity": "SSR",
       "mainstatKey": "SIGIL_YIELD",
-      "lineupToken": "zf",
+      "lineupToken": "zb",
       "searchTags": ["Arithmetica", "Heal"]
     },
     {
@@ -2624,8 +2624,8 @@
       "mainstatKey": "CRIT_RATE",
       "ownerAwakenerId": "awakener-0061",
       "ownerAwakenerName": "Ogier: Oathbound",
-      "searchTags": ["STR Up", "Shield", "Defense"],
-      "lineupToken": "zc"
+      "lineupToken": "zc",
+      "searchTags": ["STR Up", "Shield", "Defense"]
     },
     {
       "kind": "wheel",
@@ -2644,7 +2644,7 @@
       "ownerAwakenerId": "awakener-0061",
       "ownerAwakenerName": "Ogier: Oathbound",
       "lineupToken": "zd",
-      "searchTags": ["Shield"]
+      "searchTags": ["STR Up", "Shield"]
     },
     {
       "kind": "wheel",
@@ -2660,7 +2660,8 @@
       "realm": "NEUTRAL",
       "rarity": "SSR",
       "mainstatKey": "CRIT_RATE",
-      "lineupToken": "ze"
+      "lineupToken": "ze",
+      "searchTags": ["Draw", "Aliemus", "Strike"]
     }
   ]
 }

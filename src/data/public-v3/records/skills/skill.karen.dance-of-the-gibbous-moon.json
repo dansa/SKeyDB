@@ -51,7 +51,7 @@
       "ownerAwakenerId": "awakener-0026",
       "ownerAwakenerName": "Karen",
       "patch": {
-        "descriptionTemplate": "Karen gains [Energy:Arg1] Aliemus. {Rouse}: After Karen plays a card, recover [Heal:Arg2] HP and gain [Energy:Arg3] Aliemus. At the end of the turn, if Karen's Command Card is {Retained}, the HP Recovery and Aliemus Generation trigger 2 times. After playing {derived:Marvelous Cuisine}, inflict [{Poison}:Arg4] stacks of {Poison} on all enemies."
+        "descriptionTemplate": "Karen gains [Energy:Arg1] Aliemus. {Rouse}: After Karen plays a card, recover [Heal:Arg2] HP and gain [Energy:Arg3] Aliemus. at turn end, if Karen's Command Card is {Retained}, the HP Recovery and Aliemus Generation trigger 2 times. After playing {derived:Marvelous Cuisine}, inflict [{Poison}:Arg4] stacks of {Poison} on all enemies."
       }
     }
   ],

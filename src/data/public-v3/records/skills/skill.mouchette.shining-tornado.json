@@ -39,7 +39,7 @@
       "ownerAwakenerId": "awakener-0033",
       "ownerAwakenerName": "Mouchette",
       "patch": {
-        "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies. This turn, Mouchette's hits count +1, and all Awakeners' \"Strike\" DMG +[Arg3]."
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies. This turn, Mouchette's hit count +1, and all Awakeners' \"Strike\" DMG +[Arg3]."
       }
     }
   ],

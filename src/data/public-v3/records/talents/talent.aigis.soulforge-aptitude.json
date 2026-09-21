@@ -10,7 +10,7 @@
   "ownerAwakenerId": "awakener-0003",
   "family": "soulforge_aptitude",
   "maxLevel": 10,
-  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nAigis obtains [Arg3]% of her Keyflare Regen as Keyflare after playing the first Command Card each Turn.",
+  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nAigis obtains [Arg3]% of her Keyflare Regen as Keyflare after playing the first Command Card each turn.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "linear",

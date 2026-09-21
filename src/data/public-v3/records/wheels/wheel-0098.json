@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0032",
   "ownerAwakenerName": "Miryam",
   "lineupToken": "xQ",
-  "descriptionTemplate": "Team Unique: After the battle starts, gain {STR} equal to [StateArg1]% of the wielder's ATK. If the current realm is {Aequor}, also increase {Tentacle DMG} by [StateArg2]% of the wielder's ATK.",
+  "descriptionTemplate": "{Team Unique}: After battle start, gain {STR} equal to [StateArg1]% of the wielder's ATK. If the current realm is {Aequor}, also increase {Tentacle DMG} by [StateArg2]% of the wielder's ATK.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

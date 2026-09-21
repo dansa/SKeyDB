@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0132",
   "rarity": "SR",
   "aliases": [],
-  "descriptionTemplate": "Crit. DMG +50%. Every third attack is guaranteed to be a Critical Hit.",
+  "descriptionTemplate": "Crit. DMG +50%. Every third Active or {Tentacle DMG} is guaranteed to be a Critical Hit.",
   "descriptionArgs": {},
   "variants": [
     {
@@ -27,7 +27,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "Crit. DMG +50%. Every third attack is guaranteed to be a Critical Hit.",
+      "descriptionTemplate": "Crit. DMG +50%. Every third Active or {Tentacle DMG} is guaranteed to be a Critical Hit.",
       "descriptionArgs": {}
     }
   ]

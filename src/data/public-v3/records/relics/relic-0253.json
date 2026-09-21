@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0429",
   "rarity": "N",
   "aliases": ["Relic of the Past+"],
-  "descriptionTemplate": "At the start of battle and after triggering {Death Resistance}, gain [Arg1] Keyflare.",
+  "descriptionTemplate": "At battle start and after triggering {Death Resistance}, gain [Arg1] Keyflare.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -33,7 +33,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "At the start of battle and after triggering {Death Resistance}, gain [Arg1] Keyflare.",
+      "descriptionTemplate": "At battle start and after triggering {Death Resistance}, gain [Arg1] Keyflare.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -49,7 +49,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "At the start of battle and after triggering {Death Resistance}, gain [Arg1] Keyflare.",
+      "descriptionTemplate": "At battle start and after triggering {Death Resistance}, gain [Arg1] Keyflare.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

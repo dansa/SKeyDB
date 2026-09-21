@@ -52,7 +52,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "Relic Capacity +1. In the first five turns of battle, at the beginning of each turn, gain a relic, including \"{Radium Jawbone}, {Uncanny Salve}, {Forgotten Loom}, {Other Tongue}, Chrono Pendulum: Surge\".",
+      "descriptionTemplate": "Relic Capacity +1. At the start of each of the first 5 turns of battle, gain 1 of the following Relics: {Radium Jawbone}, {Uncanny Salve}, {Forgotten Loom}, {Other Tongue}, Chrono Pendulum: Surge.",
       "descriptionArgs": {},
       "lore": "It is said that Lemuria fell into these waters. Who can resist the temptation to explore the secrets of shipwreck treasures?"
     },
@@ -64,7 +64,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "Relic Capacity +1. In the first five turns of battle, at the beginning of each turn, gain a relic, including \"{Nettle Vest}, {Deceased's Chrono}, {Forgotten Prelude}, {Salvific Limb}, Chrono Pendulum: Proliferate\".",
+      "descriptionTemplate": "Relic Capacity +1. At the start of each of the first 5 turns of battle, gain 1 of the following Relics: {Nettle Vest}, {Deceased's Chrono}, {Forgotten Prelude}, {Salvific Limb}, Chrono Pendulum: Proliferate.",
       "descriptionArgs": {},
       "lore": "It is said that Lemuria fell into these waters. Who can resist the temptation to explore the secrets of shipwreck treasures?"
     },

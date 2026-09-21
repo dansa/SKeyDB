@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "kind": "relic",
   "id": "relic-0265",
-  "name": "Severed Head Worm",
+  "name": "Sparganum",
   "route": {
     "slug": "severed-head-worm",
     "canonicalPath": "/database/relics/severed-head-worm"
@@ -15,8 +15,8 @@
   "variantCount": 3,
   "defaultVariantId": "relic-variant-0463",
   "rarity": "N",
-  "aliases": ["Severed Head Worm+"],
-  "descriptionTemplate": "At turn end, if in {Surging Tides} stance, gain [Arg1] {Tentacle DMG}, 3 turn cooldown.",
+  "aliases": ["Sparganum+"],
+  "descriptionTemplate": "At turn end, if in {Surging Tides} stance, gain [Arg1] {Tentacle DMG}, 3-turn cooldown.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
@@ -30,13 +30,13 @@
   "variants": [
     {
       "id": "relic-variant-0463",
-      "name": "Severed Head Worm",
+      "name": "Sparganum",
       "label": "Astral Reign - Silver",
       "variantType": "STANDARD",
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "At turn end, if in {Surging Tides} stance, gain [Arg1] {Tentacle DMG}, 3 turn cooldown.",
+      "descriptionTemplate": "At turn end, if in {Surging Tides} stance, gain [Arg1] {Tentacle DMG}, 3-turn cooldown.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -50,12 +50,12 @@
     },
     {
       "id": "relic-variant-0464",
-      "name": "Severed Head Worm+",
+      "name": "Sparganum+",
       "label": "Astral Reign - Gold",
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "At turn end, if in {Surging Tides} stance, gain [Arg1] {Tentacle DMG}, 3 turn cooldown.",
+      "descriptionTemplate": "At turn end, if in {Surging Tides} stance, gain [Arg1] {Tentacle DMG}, 3-turn cooldown.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -69,7 +69,7 @@
     },
     {
       "id": "relic-variant-0462",
-      "name": "Severed Head Worm",
+      "name": "Sparganum",
       "label": "Faded Legacy - Silver",
       "variantType": "STANDARD",
       "tier": "Silver",

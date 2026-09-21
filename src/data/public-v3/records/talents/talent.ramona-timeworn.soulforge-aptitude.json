@@ -10,7 +10,7 @@
   "ownerAwakenerId": "awakener-0020",
   "family": "soulforge_aptitude",
   "maxLevel": 10,
-  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nRamona: Timeworn's Keyflare Regen +[Arg3]%. At the start of battle, obtain Keyflare equal to [Arg4]% of Ramona: Timeworn's Keyflare Regen.",
+  "descriptionTemplate": "This talent is only effective in the {Astral Reign} stages.\nThis Awakener's CON, ATK, and DEF +[Arg1]%, and they gain [Arg2] Keyflare upon their first {Rouse}.\nRamona: Timeworn's Keyflare Regen +[Arg3]%. At battle start, obtain Keyflare equal to [Arg4]% of Ramona: Timeworn's Keyflare Regen.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "linear",

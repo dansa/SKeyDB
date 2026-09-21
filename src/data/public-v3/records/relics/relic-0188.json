@@ -124,7 +124,7 @@
           "inputs": ["accountLevel", "ownedPosseCount"]
         }
       },
-      "lore": "A thick and sturdy lock, difficult to open without a key.\nOf course, this is nothing for a master thief"
+      "lore": "A thick and sturdy lock, difficult to open without a key.\nOf course, this is nothing for a master thief."
     }
   ]
 }

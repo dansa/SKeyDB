@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0248",
   "rarity": "N",
   "aliases": ["Forgotten Loom+", "☆Forgotten Loom☆"],
-  "descriptionTemplate": "After the battle starts, gain [Arg1] Realm Mastery. All Awakener and Relic {Poison} effects are +[Arg2]%.",
+  "descriptionTemplate": "After battle start, gain [Arg1] Realm Mastery. All Awakener and Relic {Poison} effects are +[Arg2]%.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -38,7 +38,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "After the battle starts, gain [Arg1] Realm Mastery. All Awakener and Relic {Poison} effects are +[Arg2]%.",
+      "descriptionTemplate": "After battle start, gain [Arg1] Realm Mastery. All Awakener and Relic {Poison} effects are +[Arg2]%.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -59,7 +59,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "After the battle starts, gain [Arg1] Realm Mastery. All Awakener and Relic {Poison} effects are +[Arg2]%.",
+      "descriptionTemplate": "After battle start, gain [Arg1] Realm Mastery. All Awakener and Relic {Poison} effects are +[Arg2]%.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -101,7 +101,7 @@
       "tier": "Special",
       "category": "OTHER",
       "rarity": "SSR",
-      "descriptionTemplate": "For every 1 DMG instance dealt, Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Poison} to the target. If the number of triggers accumulates to 25 times within this battle, trigger immediately {Poison} for all enemies.",
+      "descriptionTemplate": "For each instance of Active or {Tentacle DMG} dealt, inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Poison} on the target. If the number of triggers accumulates to 25 times within this battle, immediately trigger {Poison} on all enemies.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

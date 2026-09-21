@@ -25,7 +25,7 @@
     },
     {
       "set": 6,
-      "descriptionTemplate": "Team Unique: Increases the wielder's Base Aliemus by 20. Increases Crit. Rate, Crit. DMG, Shield, and HP Recovery of the wielder's Command Cards by 20%.",
+      "descriptionTemplate": "{Team Unique}: Increases the wielder's Base Aliemus by 20. Increases Crit. Rate, Crit. DMG, Shield, and HP Recovery of the wielder's Command Cards by 20%.",
       "descriptionArgs": {}
     }
   ],

@@ -15,7 +15,7 @@
   "variantCount": 1,
   "defaultVariantId": "relic-variant-0104",
   "aliases": [],
-  "descriptionTemplate": "After playing \"Strike\" and \"Defense,\" the corresponding Awakeners gain 35 Aliemus. However, their Arithmetica Cost +1.",
+  "descriptionTemplate": "After playing \"Strike\" and \"Defense,\" the corresponding Awakener gains 35 Aliemus. However, their Arithmetica Cost +1.",
   "descriptionArgs": {},
   "lore": "Whose face, filled with terror, is frozen in time.",
   "variants": [
@@ -26,7 +26,7 @@
       "variantType": "STANDARD",
       "tier": "Cursed",
       "category": "FADED_LEGACY",
-      "descriptionTemplate": "After playing \"Strike\" and \"Defense,\" the corresponding Awakeners gain 35 Aliemus. However, their Arithmetica Cost +1.",
+      "descriptionTemplate": "After playing \"Strike\" and \"Defense,\" the corresponding Awakener gains 35 Aliemus. However, their Arithmetica Cost +1.",
       "descriptionArgs": {},
       "lore": "Whose face, filled with terror, is frozen in time."
     }

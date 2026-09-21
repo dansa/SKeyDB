@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0449",
   "rarity": "N",
   "aliases": ["Rusty Lancet+"],
-  "descriptionTemplate": "\"Strike\" deals additional DMG equal to [Arg1]% of the Awakener's Attack, triggering up to 3 times per turn.",
+  "descriptionTemplate": "\"Strike\" deals an additional instance of DMG equal to [Arg1]% of the Awakener's ATK, and can trigger up to 3 times per turn.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -34,7 +34,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "\"Strike\" deals additional DMG equal to [Arg1]% of the Awakener's Attack, triggering up to 3 times per turn.",
+      "descriptionTemplate": "\"Strike\" deals an additional instance of DMG equal to [Arg1]% of the Awakener's ATK, and can trigger up to 3 times per turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

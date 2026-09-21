@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0022",
   "ownerAwakenerName": "Hameln",
   "lineupToken": "x2",
-  "descriptionTemplate": "Team Unique: At turn end, the wielder gains 5 Aliemus. After the wielder releases Exalt, the next Command Card played by the wielder this turn increases its Crit. Rate, Crit. DMG, Shield, and health recovery by [StateArg1]%.",
+  "descriptionTemplate": "{Team Unique}: At turn end, the wielder gains 5 Aliemus. After the wielder releases Exalt, the next Command Card played by the wielder this turn increases its Crit. Rate, Crit. DMG, Shield, and health recovery by [StateArg1]%.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0013",
   "ownerAwakenerName": "Doll",
   "lineupToken": "4",
-  "descriptionTemplate": "Team Unique: The wielder's Command Card HP Recovery +[StateArg2]%.\nAfter the wielder Exalts, grant all other Awakeners [StateArg1] Aliemus. If Awakeners were {Vulnerable} before the Exalt was released, Aliemus granted this way is doubled.",
+  "descriptionTemplate": "{Team Unique}: The wielder's Command Card HP Recovery +[StateArg2]%.\nAfter the wielder Exalts, grant all other Awakeners [StateArg1] Aliemus. If Awakeners were {Vulnerable} before the Exalt was released, Aliemus granted this way is doubled.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

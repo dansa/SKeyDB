@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0151",
   "rarity": "SR",
   "aliases": [],
-  "descriptionTemplate": "For each instance of DMG dealt, gain [Arg1] Temporary {STR}, up to 5 stacks. When the stack limit is reached, gain [Arg1] {STR}.",
+  "descriptionTemplate": "For each instance of Active or {Tentacle DMG} dealt, gain [Arg1] Temporary {STR}, up to 5 stacks. When the stack limit is reached, gain [Arg1] {STR}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
@@ -35,7 +35,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "For each instance of DMG dealt, gain [Arg1] Temporary {STR}, up to 5 stacks. When the stack limit is reached, gain [Arg1] {STR}.",
+      "descriptionTemplate": "For each instance of Active or {Tentacle DMG} dealt, gain [Arg1] Temporary {STR}, up to 5 stacks. When the stack limit is reached, gain [Arg1] {STR}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

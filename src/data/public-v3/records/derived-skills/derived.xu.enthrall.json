@@ -26,19 +26,5 @@
     }
   },
   "cardKeywords": [],
-  "upgrades": [
-    {
-      "id": "upgrade.enlighten.xu.nirvanas-kiss.derived.xu.enthrall",
-      "operation": "replace_description",
-      "upgraderId": "enlighten.xu.nirvanas-kiss",
-      "upgraderType": "enlighten",
-      "upgraderSlot": "E3",
-      "ownerAwakenerId": "awakener-0054",
-      "ownerAwakenerName": "Xu",
-      "patch": {
-        "descriptionTemplate": "Remove all enemies' {Spellbound}. Each stack removed causes {Pure DMG} equal to [Arg1]% of the target's Max HP and triggers [Arg2]% {Poison}."
-      }
-    }
-  ],
   "ownerAwakenerName": "Xu"
 }

@@ -491,7 +491,7 @@
     {
       "kind": "posse",
       "id": "posse-0029",
-      "name": "Answer of the Gate",
+      "name": "The Gated Answer",
       "route": {
         "slug": "answer-of-the-gate",
         "canonicalPath": "/database/posses/answer-of-the-gate"
@@ -769,7 +769,7 @@
     {
       "kind": "posse",
       "id": "posse-0045",
-      "name": "Reunion Wish",
+      "name": "Reunion's Wish",
       "route": {
         "slug": "reunion-wish",
         "canonicalPath": "/database/posses/reunion-wish"

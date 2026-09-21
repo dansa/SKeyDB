@@ -16,7 +16,7 @@
   "ownerAwakenerId": "awakener-0050",
   "ownerAwakenerName": "Tulu",
   "lineupToken": "x7",
-  "descriptionTemplate": "Team Unique: At the start of the battle, grant the \"Immortal Dominion\" effect to all Command Cards in the Draw Pile with Arithmetica consumption greater than or equal to 3. This card has the {Retain} effect. After being played, all Awakeners temporarily increase their Crit. Rate by [StateArg1]% and remove \"Immortal Dominion.\" If the current Realm is {Aequor}, gain 1 Arithmetica after \"Immortal Dominion\" is removed.",
+  "descriptionTemplate": "{Team Unique}: At battle start, grant the \"Immortal Dominion\" effect to all Command Cards in the Draw Pile with Arithmetica consumption greater than or equal to 3. This card has the {Retain} effect. After being played, all Awakeners temporarily increase their Crit. Rate by [StateArg1]% and remove \"Immortal Dominion.\" If the current Realm is {Aequor}, gain 1 Arithmetica after \"Immortal Dominion\" is removed.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

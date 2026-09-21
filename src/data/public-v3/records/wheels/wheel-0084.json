@@ -14,7 +14,7 @@
   "realm": "NEUTRAL",
   "mainstatKey": "CRIT_DMG",
   "lineupToken": "xH",
-  "descriptionTemplate": "Team Unique: After the wielder uses Exalt, all allies' Crit. Rate + [StateArg1]% this turn.",
+  "descriptionTemplate": "{Team Unique}: After the wielder uses Exalt, all allies' Crit. Rate + [StateArg1]% this turn.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

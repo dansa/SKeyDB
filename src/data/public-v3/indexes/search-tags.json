@@ -71,7 +71,7 @@
       "section": "affix",
       "aliases": ["strength up"],
       "order": 210,
-      "count": 50
+      "count": 52
     },
     {
       "id": "str-down",
@@ -79,7 +79,7 @@
       "section": "affix",
       "aliases": ["strength down", "str down"],
       "order": 220,
-      "count": 15
+      "count": 17
     },
     {
       "id": "tentacle-dmg",
@@ -111,7 +111,7 @@
       "section": "mechanic",
       "aliases": ["steal", "str steal", "strength steal"],
       "order": 245,
-      "count": 5
+      "count": 3
     },
     {
       "id": "pierce-dmg",
@@ -151,7 +151,7 @@
       "section": "mechanic",
       "aliases": ["cleanse", "clear", "remove"],
       "order": 300,
-      "count": 26
+      "count": 25
     },
     {
       "id": "arithmetica",
@@ -183,7 +183,7 @@
       "section": "affix",
       "aliases": [],
       "order": 925,
-      "count": 3
+      "count": 4
     },
     {
       "id": "divine-realm",
@@ -191,7 +191,7 @@
       "section": "archetype",
       "aliases": ["alt realm"],
       "order": 930,
-      "count": 7
+      "count": 8
     },
     {
       "id": "draw",
@@ -199,7 +199,7 @@
       "section": "archetype",
       "aliases": [],
       "order": 940,
-      "count": 35
+      "count": 36
     },
     {
       "id": "shield",
@@ -239,7 +239,7 @@
       "section": "archetype",
       "aliases": ["aliemus generation"],
       "order": 975,
-      "count": 46
+      "count": 47
     },
     {
       "id": "max-hp-dmg",
@@ -279,7 +279,7 @@
       "section": "archetype",
       "aliases": [],
       "order": 1010,
-      "count": 22
+      "count": 23
     },
     {
       "id": "defense",

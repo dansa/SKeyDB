@@ -15,7 +15,7 @@
   "variantCount": 4,
   "defaultVariantId": "relic-variant-0353",
   "aliases": ["Blessed: Mind Engraving", "Sinful: Mind Engraving"],
-  "descriptionTemplate": "After using {Keyflare Rouse}, consume an additional [Arg1] Keyflare, reducing the Arithmetica Cost of the received {Rouse} card to 0. Upon playing, the corresponding Awakener gains an additional [Arg2] Aliemus.",
+  "descriptionTemplate": "After {Keyflare Rouse}, additionally consumes [Arg1] Keyflare to make the Arithmetica Cost of gained {Rouse} cards 0. Playing it causes the corresponding Awakener to additionally gain [Arg2] Aliemus.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -35,7 +35,7 @@
       "variantType": "STANDARD",
       "tier": "Cursed",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "After using {Keyflare Rouse}, consume an additional [Arg1] Keyflare, reducing the Arithmetica Cost of the received {Rouse} card to 0. Upon playing, the corresponding Awakener gains an additional [Arg2] Aliemus.",
+      "descriptionTemplate": "After {Keyflare Rouse}, additionally consumes [Arg1] Keyflare to make the Arithmetica Cost of gained {Rouse} cards 0. Playing it causes the corresponding Awakener to additionally gain [Arg2] Aliemus.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -66,7 +66,7 @@
       "variantType": "BLESSED",
       "tier": "Blessed",
       "category": "FADED_LEGACY",
-      "descriptionTemplate": "Increase Hand Limit by 5 and replenish hand to the limit At battle start. Draw 1 extra card at turn start, and discard all Symptom Cards and State Cards at turn end while keeping other cards.",
+      "descriptionTemplate": "Increase Hand Limit by 5 and replenish hand to the limit at battle start. Draw 1 extra card at turn start, and discard all Symptom Cards and State Cards at turn end while keeping other cards.",
       "descriptionArgs": {},
       "lore": "The greedy carve their mistakes into their hearts and dedicate themselves to atoning for their past."
     },
@@ -77,7 +77,7 @@
       "variantType": "SINFUL",
       "tier": "Sinful",
       "category": "FADED_LEGACY",
-      "descriptionTemplate": "Increase Hand Limit by 5 and draw 6 cards At battle start. At turn end, discard all Symptom Cards and State Cards in hand, keeping other cards, but draw 2 fewer cards each turn.",
+      "descriptionTemplate": "Increase Hand Limit by 5 and draw 6 cards at battle start. At turn end, discard all Symptom Cards and State Cards in hand, keep other cards, but draw 2 fewer cards each turn.",
       "descriptionArgs": {},
       "lore": "The greedy treat others as objects, deriving pleasure from others' suffering."
     }

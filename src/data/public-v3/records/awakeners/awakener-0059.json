@@ -146,7 +146,7 @@
         },
         {
           "id": "voice-146193",
-          "title": "Enlighten: Florish",
+          "title": "Enlighten: Bloom",
           "unlockCondition": "Unlocks at Enlighten Level 15",
           "content": "Ah, I see... there never was an end to power. The true challenge has only just begun! It was you who brought me here and showed me the reality. Soon, I shall present a more perfect warrior before you. Ensure that you return even stronger, my \"opponent.\""
         },
@@ -225,7 +225,7 @@
         {
           "id": "voice-146168",
           "title": "Chat: About Doll: Inferno",
-          "unlockCondition": "Unlock after acquiring Awakener \"Doll: Inferno\".",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Doll: Inferno\"",
           "content": "Doubting the value of existence simply because oblivion awaits... I have no interest in such childish debates. Destruction means nothing, nor does memory. Power itself is the meaning."
         }
       ],

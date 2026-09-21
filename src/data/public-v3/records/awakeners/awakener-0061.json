@@ -12,6 +12,7 @@
   },
   "numericId": 61,
   "ingameId": "C03EX",
+  "lineupToken": "xs",
   "realm": "CHAOS",
   "rarity": "Genesis",
   "type": "WARDEN",
@@ -19,7 +20,7 @@
   "releaseDate": "2026-09-21",
   "faction": "The Fools",
   "aliases": ["ogier oathbound", "genesis ogier", "gogier", "g-ogier"],
-  "searchTags": [],
+  "searchTags": ["STR Up", "STR Down", "Corrosion", "Divine Realm"],
   "primaryScalingBase": 20,
   "baseStatsLv1": {
     "CON": 33,
@@ -53,12 +54,263 @@
   },
   "profile": {
     "title": "Ogier: Oathbound",
+    "birthday": "5-May",
     "voiceActor": "Otowa Rina",
+    "gender": "Male",
+    "height": "4'8\"",
+    "weight": "72lbs",
+    "gnosticIndex": "22",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "unlockCondition": "Awakener Level 1",
+        "content": "Though their frames are the same, the difference between this boy and the familiar little knight is plain to see.\nThe light has left his eyes; his white garments are sullied. More telling still, he keeps to himself, pointedly maintaining a distance from all living souls.\nBut there is no need to fear. Beneath that horrific slime beats the heart you once knew—one that still pulses for loyalty and justice.\nThough his oaths were once forsaken, he has at last reclaimed his creed.\nHe will continue his struggle—against the other voice echoing within him, and against any force that threatens what he holds dear."
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "unlockCondition": "Affinity Level 3",
+        "content": "Dear readers, this is an afterword, but more so, it is my confession.\nTo finish this old-fashioned chivalric novel, I spent a fortune at auction to acquire that mysterious helmet, one said to belong to no kingdom known to history. And thanks to it, as you can see, inspiration flooded me; I felt as if I truly saw a vast and ancient battlefield, with armored knights crossing blades. Relying on these wondrous hallucinations, I completed what I consider my finest work.\nBut I never expected that this antique, even as it granted me inspiration, harbored a terrifying demon within.\nReaders, try to imagine a voice—chaotic, unrelenting, droning day and night. Now imagine your limbs acting on their own, your mind blacking out again and again. No, it's not blacking out; it's more like your will detaching from your body. You know exactly what you are doing, but you can only watch... yet that was undoubtedly my body.\nJust last night, as I finished the final page, I heard It again.\nAnd then—God, I cannot bear to recall those scenes—\nI have committed an unforgivable sin. The newspapers will tell you before this book does...\nIt—again—It is starting again—\n<Italic:(handwriting grows crooked)>\nNo no no no no no no no, I can't—not again—\n...\n\n<Italic:(handwriting steadies)>\nSurprisingly, It stopped—as if something was weighing It down. I don't know what it was, but I am grateful for its struggle.\nPerhaps God is giving me one last chance, sparing me from becoming a devil entirely.\n\nMy pistol is loaded.\nMay God forgive me.\n\n—Excerpt from the afterword of <Italic:The Shadowless Knight>, the final work of writer Clark Zeiros"
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "unlockCondition": "Affinity Level 5",
+        "content": "Mythag once had a haunting that put the whole school on edge. Below is the interview transcript compiled by campus reporter Hannah:\n\"Late at night, I heard rustling in the stacks... I didn't dare look. But the next morning, I found all the books shelved perfectly, better than I could have done it myself!\" —School Librarian\n\"Don't you think the campus has been much cleaner lately? Could there be a ghost picking up the trash at night?\" —A Fieldwork Instructor\n\"On missions, I always feel like I'm being followed... Sometimes I hear fierce fighting, but when I turn around, there are only the remains of Dissoluted monsters all over the ground.\" —A Rookie Investigator\nA few bold students formed an investigation squad, trading one night's sleep for the truth.\nThe culprit confessed to his \"crimes\" and sincerely apologized for causing panic. Yet when the thanks began to pour in, he seemed rather ill at ease. In his own words, \"I just like to keep my hands busy.\"\nWhen asked, the school counselor, Sylvia, offered her diagnosis: \"He's a good boy, kind by nature—but he carries too much guilt over the past. Over time, it turned into a deep-rooted sense of unworthiness—kindness offered too plainly only makes it harder for him.\"\nThis incident blew over quietly, but the legend of the \"Formless Ghost\" spread in its wake. By unspoken agreement, the faculty and students said nothing of who he was. In time, everyone came to understand that this \"ghost\" simply wanted to help.\nEveryone seemed to sense that for a boy who doesn't want to be seen, the best thanks is to let this secret remain his alone."
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "unlockCondition": "Affinity Level 7",
+        "content": "He too once set out on a journey, just like the heroes in bedtime stories.\nBut he was no knight of justice, and there was no longer any princess left in the world to be saved.\nHe slew not fearsome dragons, but many unarmed civilians, wailing and fleeing in terror.\n<Italic:\"The young knight slew the wicked wizard, routed the stubborn enemy forces, and razed the monsters' fortress to the ground... He was brave, mighty, invincible. Down that endless road, he left nothing but a long, trailing streak of blood.\">\nWere there a bard who couldn't tell dreams from reality, he would surely spin the tale like that.\nBut the protagonist was lucid; those eyes had never reflected anything false.\nHe knew his spear had pierced an old man's chest. He knew the black slime had devoured the soldiers long since surrendered. He knew a family's little cottage had turned to ash as he passed... all because they were connected to those who took what he once guarded.\nHe knew he had never lived in any fairy tale; those romantic illusions had died along with his homeland. Perhaps he grew up in that moment. Perhaps he was a child still.\nIt wasn't until he finally came to his senses, giving his life for complete strangers, that he saw a phantom in his tears—a phantom that should not exist.\n<Italic:\"Ogier, I am deeply disappointed in you. You are a knight in name only, the most unworthy of all.\">\nThe \"princess's\" face seemed veiled in sheer silk, but her voice was crystal clear, sharper than any blade in the world, gouging his heart.\nThis cruel hallucination torments him still, a nightmare that did not fade with death.\nHe will spend eternity drowning in the remorse of a broken oath."
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "unlockCondition": "Affinity Level 9",
+        "content": "The pitch-black sludge, the symbol of his sin, still roils within him, scheming to seize control of this body again. He must constantly cling to that fragile thread of will to keep from losing the battle.\nAnd what he has found anew for himself—what is worth defending—has become the sole anchor tethering his sanity.\nHe can never return to his homeland, but Mythag has become his new castle.\nHe can no longer guard his princess, but fate will bring new encounters.\nWhere none can bear witness, the boy drops to one knee, one hand pressed against his cold chest, and declares to his absent lord:\n<Italic:\"I shall obey your command, my lord. Though my life burns to ash, though my soul is bled dry... I shall guard you and your world forever.\">\n<Italic:\"This... is the oath... I bear once more.\">"
+      }
+    ],
     "voiceLines": {
-      "daily": [],
-      "battle": [],
+      "daily": [
+        {
+          "id": "voice-150471",
+          "title": "Awaken",
+          "content": "Honor, justice, loyalty... every virtue worth the name perished by my own hand. What you have summoned is no knight of virtue, but a mere sinner. Even so, I will guard you with this broken body. Please give the order... if you can still trust me."
+        },
+        {
+          "id": "voice-150473",
+          "title": "Upgrade: I",
+          "content": "You truly wish to elevate me? ...As you wish, my lord. Thank you."
+        },
+        {
+          "id": "voice-150468",
+          "title": "Upgrade: II",
+          "content": "Silence! ...Forgive me, my lord. That demon grows more restless as my power grows."
+        },
+        {
+          "id": "voice-150479",
+          "title": "Upgrade: III",
+          "content": "With this power, I can protect more people..."
+        },
+        {
+          "id": "voice-150451",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "The formless power keeps churning... It's harder to master than I imagined."
+        },
+        {
+          "id": "voice-150474",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "<Italic:Devour... Destroy...> Tch—do not think to sway me! I will not bend to your will again!"
+        },
+        {
+          "id": "voice-150456",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "I know—only the unwavering can master this dreadful power. I have wrestled with It deep within for far too long."
+        },
+        {
+          "id": "voice-150460",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "Its restlessness seems to have abated. Is it because... you are here?"
+        },
+        {
+          "id": "voice-150450",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "It still whispers in my ear, urging me to turn my spear upon the innocent... But worry not. I know I can resist. Your faith in me has given me the strength to believe in myself."
+        },
+        {
+          "id": "voice-150463",
+          "title": "Enlighten: Flourish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "I feel a strength beyond measure, yet that tormenting voice has vanished. It must be your tireless encouragement that has steeled my will to stand against it.\n...Thank you. Thank you, my lord."
+        },
+        {
+          "id": "voice-150461",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "Have you commands for me, my lord? If not, I shall return to my patrol."
+        },
+        {
+          "id": "voice-150464",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "You are curious about the black slime clinging to my body?\nIt is the source of my power—and my despair, too. Restless as it is, it can take any shape, so it serves me well in battle. I shape it into spear and shield, for someone once took great care to teach me how to wield them... What? You wish to touch it? I must refuse. It is far too dangerous."
+        },
+        {
+          "id": "voice-150466",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "If it isn't too much trouble, could you tell me about your time as a Keeper? No, I do not seek a tale—I only wish to learn. After all, on this path of \"protection,\" you have walked long before me."
+        },
+        {
+          "id": "voice-150444",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "I know the wrongs I have committed can never be undone. \"Atonement\" is nothing but a comfort I offer myself. But even so... Wait... please don't pat my head, my lord."
+        },
+        {
+          "id": "voice-150475",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "My lord, I must confess—each time I watch you give your all to fight the calamities and save this world, a quiet longing stirs within me. If only I could be of some use to you... You truly permit it? I see.\nThen... allow me to stay by your side until your journey reaches its end. As your knight, and yours alone, I shall spend what remains of this life clearing every obstacle before you."
+        },
+        {
+          "id": "voice-150455",
+          "title": "Chat: Touch",
+          "content": "Don't touch me! ...No, forgive me. I only feared I might hurt you."
+        },
+        {
+          "id": "voice-150443",
+          "title": "Chat: About the Crisis",
+          "content": "It feels so much like the power that coils about my body, only... more evil. Is this what you've been fighting all this time, my lord?"
+        },
+        {
+          "id": "voice-150465",
+          "title": "Chat: About Mythag",
+          "content": "Mythag... it is such a beautiful, peaceful place. I had a home like this once, though now, not even a record of it remains."
+        },
+        {
+          "id": "voice-150462",
+          "title": "Chat: What I Like",
+          "content": "The drift of hearth-smoke at dusk, rain-swept meadows, the smiling faces of the people... all of these speak of peace. That is what I cherish. And I shall give my all to guard it."
+        },
+        {
+          "id": "voice-150453",
+          "title": "Chat: What I Hate",
+          "content": "I despise the weak, the wavering, and those who harm the innocent. Because... that's exactly who I used to be. I loathe myself for all the sins I've committed."
+        },
+        {
+          "id": "voice-150467",
+          "title": "Chat: About the Keeper",
+          "content": "I never dared hope to protect another, nor to find a path to atonement—yet you made it possible. For someone like me, my lord... you are the only reason I'm still here."
+        },
+        {
+          "id": "voice-150457",
+          "title": "Chat: About Ogier",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Ogier\"",
+          "content": "Though his power is limited and his hopes naive, he remains pure, unstained. I think that's what a real knight ought to be. Yet I can never again become someone like him."
+        },
+        {
+          "id": "voice-152465",
+          "title": "Chat: About Helot: Catena",
+          "unlockCondition": "Unlock after acquiring Awakener \"Helot: Catena\"",
+          "content": "Miss Helot: Catena's power seems to stem from a profound hatred. But hatred, once kindled, keeps spreading until it swallows everything. I fear that one day it will cost her far more than she can bear."
+        },
+        {
+          "id": "voice-152466",
+          "title": "Chat: Cherished Things",
+          "content": "Even if all I once cherished turns to dust, I will protect others to the end—I will not die with regret again."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-150452",
+          "title": "Investigation Begins",
+          "content": "Stay behind me."
+        },
+        {
+          "id": "voice-150446",
+          "title": "Investigation Success",
+          "content": "Victory, as expected."
+        },
+        {
+          "id": "voice-150449",
+          "title": "Investigation Halted",
+          "content": "Again... I could not... protect them..."
+        },
+        {
+          "id": "voice-150459",
+          "title": "Strike: I",
+          "content": "Be gone."
+        },
+        {
+          "id": "voice-150478",
+          "title": "Strike: II",
+          "content": "Hah!"
+        },
+        {
+          "id": "voice-150472",
+          "title": "Defense: I",
+          "content": "Hmph..."
+        },
+        {
+          "id": "voice-150442",
+          "title": "Defense: II",
+          "content": "I'll cover you."
+        },
+        {
+          "id": "voice-150448",
+          "title": "Hit: I",
+          "content": "Just a scratch."
+        },
+        {
+          "id": "voice-150470",
+          "title": "Hit: II",
+          "content": "It's okay."
+        },
+        {
+          "id": "voice-150454",
+          "title": "Skill: I - Undertow 1",
+          "content": "Stay back!"
+        },
+        {
+          "id": "voice-152212",
+          "title": "Skill: I - Undertow 2",
+          "content": "Hmph!"
+        },
+        {
+          "id": "voice-152209",
+          "title": "Skill: I - Undertow 3",
+          "content": "Pierce!"
+        },
+        {
+          "id": "voice-150458",
+          "title": "Skill: II",
+          "content": "Return... to the formless!"
+        },
+        {
+          "id": "voice-150445",
+          "title": "Rouse",
+          "content": "That which is formless... may become all things."
+        },
+        {
+          "id": "voice-150477",
+          "title": "Exalt",
+          "content": "I shall be your fortress!"
+        },
+        {
+          "id": "voice-150469",
+          "title": "Over-Exalt",
+          "content": "Black slime, stand forth as a rampart!"
+        }
+      ],
       "traphase": []
     }
-  },
-  "lineupToken": "xs"
+  }
 }

@@ -26,7 +26,7 @@
     },
     {
       "set": 6,
-      "descriptionTemplate": "Team Unique: At turn start, if the enemies' total HP is above 75%, the wielder's Temporary Crit. Rate and Crit. DMG increase by 35%.",
+      "descriptionTemplate": "{Team Unique}: At turn start, if the enemies' total HP is above 75%, the wielder's Temporary Crit. Rate and Crit. DMG increase by 35%.",
       "descriptionArgs": {}
     }
   ],

@@ -11,7 +11,7 @@
   "slot": "Rouse",
   "cardFamily": "rouse",
   "cardTypes": ["rouse"],
-  "descriptionTemplate": "Agrippa gains [Energy:Arg1] Aliemus. {Rouse}: {Poison} applied by Agrippa increases by 50%. At the end of the turn, gain [Block:Arg2] Shield.",
+  "descriptionTemplate": "Agrippa gains [Energy:Arg1] Aliemus. {Rouse}: {Poison} applied by Agrippa increases by 50%. at turn end, gain [Block:Arg2] Shield.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

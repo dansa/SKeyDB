@@ -14,7 +14,7 @@
   "realm": "NEUTRAL",
   "mainstatKey": "KEYFLARE_REGEN",
   "lineupToken": "xD",
-  "descriptionTemplate": "Team Unique: After triggering Posse, the wielder gains [StateArg1] Aliemus.",
+  "descriptionTemplate": "{Team Unique}: After triggering Posse, the wielder gains [StateArg1] Aliemus.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

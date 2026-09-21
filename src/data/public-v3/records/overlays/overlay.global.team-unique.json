@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 3,
+  "kind": "overlay",
+  "id": "overlay.global.team-unique",
+  "name": "Team Unique",
+  "route": {
+    "slug": "team-unique",
+    "canonicalPath": "/database/overlays/team-unique"
+  },
+  "overlayType": "tag",
+  "aliases": [],
+  "textColor": "misc",
+  "descriptionTemplate": "This effect will only take effect on one Awakener in the team.",
+  "descriptionArgs": {}
+}

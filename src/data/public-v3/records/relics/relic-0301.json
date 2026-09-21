@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0541",
   "rarity": "SSR",
   "aliases": [],
-  "descriptionTemplate": "The first Command Card played each turn that triggers a {Leap} effect draws 1 card; otherwise, gain 1 Arithmetica. During {Ultra Rounds}, both effects apply.",
+  "descriptionTemplate": "In each turn, if the first Command Card triggered {Leap}, draw 1 card; otherwise, gain 1 Arithmetica. During {Ultra Rounds}, both effects apply.",
   "descriptionArgs": {},
   "lore": "Reflects a twisted shadow.",
   "variants": [
@@ -28,7 +28,7 @@
       "tier": "Gold",
       "category": "FADED_LEGACY",
       "rarity": "SSR",
-      "descriptionTemplate": "The first Command Card played each turn that triggers a {Leap} effect draws 1 card; otherwise, gain 1 Arithmetica. During {Ultra Rounds}, both effects apply.",
+      "descriptionTemplate": "In each turn, if the first Command Card triggered {Leap}, draw 1 card; otherwise, gain 1 Arithmetica. During {Ultra Rounds}, both effects apply.",
       "descriptionArgs": {},
       "lore": "Reflects a twisted shadow."
     }

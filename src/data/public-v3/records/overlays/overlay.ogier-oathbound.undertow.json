@@ -22,6 +22,7 @@
       "value": "3"
     }
   },
+  "ownerAwakenerName": "Ogier: Oathbound",
   "upgrades": [
     {
       "id": "upgrade.enlighten.ogier-oathbound.stand-to-defend.overlay.ogier-oathbound.undertow",
@@ -89,6 +90,5 @@
         }
       }
     }
-  ],
-  "ownerAwakenerName": "Ogier: Oathbound"
+  ]
 }

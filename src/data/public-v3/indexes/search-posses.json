@@ -433,11 +433,11 @@
     {
       "kind": "posse",
       "id": "posse-0029",
-      "name": "Answer of the Gate",
+      "name": "The Gated Answer",
       "aliases": [],
-      "tokens": ["answer", "answer of the gate", "chaos", "gate", "of", "the"],
+      "tokens": ["answer", "answer of the gate", "chaos", "gate", "gated", "of", "the", "the gated answer"],
       "fields": {
-        "name": ["Answer of the Gate", "answer-of-the-gate"],
+        "name": ["The Gated Answer", "answer-of-the-gate"],
         "facet": ["CHAOS"]
       },
       "facets": {
@@ -679,11 +679,11 @@
     {
       "kind": "posse",
       "id": "posse-0045",
-      "name": "Reunion Wish",
+      "name": "Reunion's Wish",
       "aliases": [],
-      "tokens": ["other", "ramona", "reunion", "reunion wish", "wish"],
+      "tokens": ["other", "ramona", "reunion", "reunion wish", "reunions", "reunions wish", "wish"],
       "fields": {
-        "name": ["Reunion Wish", "reunion-wish"],
+        "name": ["Reunion's Wish", "reunion-wish"],
         "owner": ["Ramona"],
         "facet": ["OTHER"]
       },

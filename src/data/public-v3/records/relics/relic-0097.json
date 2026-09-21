@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0122",
   "rarity": "SR",
   "aliases": [],
-  "descriptionTemplate": "Crit. Rate +25%; double the first DMG dealt each turn.",
+  "descriptionTemplate": "Crit. Rate +25%; double the first Active or {Tentacle DMG} dealt each turn.",
   "descriptionArgs": {},
   "variants": [
     {
@@ -27,7 +27,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "Crit. Rate +25%; double the first DMG dealt each turn.",
+      "descriptionTemplate": "Crit. Rate +25%; double the first Active or {Tentacle DMG} dealt each turn.",
       "descriptionArgs": {}
     }
   ]

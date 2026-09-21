@@ -14,7 +14,7 @@
   "realm": "NEUTRAL",
   "mainstatKey": "CRIT_RATE",
   "lineupToken": "xG",
-  "descriptionTemplate": "Team Unique: After killing an enemy, the wielder gains [StateArg1] Aliemus and 1% Crit. DMG, effective for the entire exploration.",
+  "descriptionTemplate": "{Team Unique}: After killing an enemy, the wielder gains [StateArg1] Aliemus and 1% Crit. DMG, effective for the entire exploration.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

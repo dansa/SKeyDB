@@ -11,7 +11,7 @@
   "slot": "Rouse",
   "cardFamily": "rouse",
   "cardTypes": ["rouse"],
-  "descriptionTemplate": "Salvador gains [Energy:Arg1] Aliemus. {Rouse}: Place 1 {Sanctuary of Mercy} into hand. At the end of the turn, gain [Power:Arg2] {STR}.",
+  "descriptionTemplate": "Salvador gains [Energy:Arg1] Aliemus. {Rouse}: Place 1 {Sanctuary of Mercy} into hand. at turn end, gain [Power:Arg2] {STR}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

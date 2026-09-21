@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0326",
+  "name": "Dimensional Image: Ogier: Oathbound",
+  "route": {
+    "slug": "dimensional-image-ogier-oathbound",
+    "canonicalPath": "/database/relics/dimensional-image-ogier-oathbound"
+  },
+  "assets": {
+    "icon": "asset-relic-0326-icon"
+  },
+  "relicType": "Dimensional Image",
+  "categories": ["DIMENSIONAL_IMAGE"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0580",
+  "ownerAwakenerId": "awakener-0061",
+  "ownerAwakenerName": "Ogier: Oathbound",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "At turn start, Ogier: Oathbound gains [Arg1] Aliemus. {Undertow} no longer reduces card draw.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0580",
+      "name": "Dimensional Image: Ogier: Oathbound",
+      "label": "Dimensional Image",
+      "variantType": "DIMENSIONAL_IMAGE",
+      "tier": "Unique",
+      "category": "DIMENSIONAL_IMAGE",
+      "ownerAwakenerId": "awakener-0061",
+      "ownerAwakenerName": "Ogier: Oathbound",
+      "rarity": "SSR",
+      "descriptionTemplate": "At turn start, Ogier: Oathbound gains [Arg1] Aliemus. {Undertow} no longer reduces card draw.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        }
+      }
+    }
+  ]
+}

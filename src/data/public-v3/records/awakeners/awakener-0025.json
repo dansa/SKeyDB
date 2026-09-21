@@ -360,7 +360,17 @@
           "id": "traphase-99772",
           "title": "Chat: About Daffodil",
           "unlockCondition": "Unlock after triggering this dialogue in Traphase",
-          "content": "I heard that witch's warehouse is filled with countless rare treasures. If only we could let Brown sneak in for a quick tour..."
+          "content": "I heard that witch's warehouse is filled with countless rare treasures. If only we could let Brown sneak in for a quick tour...",
+          "exchange": [
+            {
+              "awakenerId": "awakener-0025",
+              "lineId": "traphase-99772"
+            },
+            {
+              "awakenerId": "awakener-0012",
+              "lineId": "traphase-99815"
+            }
+          ]
         },
         {
           "id": "traphase-99880",

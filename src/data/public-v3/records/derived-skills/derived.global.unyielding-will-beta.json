@@ -9,7 +9,7 @@
   },
   "cardFamily": "buff",
   "cardTypes": ["buff"],
-  "descriptionTemplate": "Gain [Arg1] {STR}, and put the \"Strike\" of other Awakeners's skills into hand, making their Arithmetica Cost 0.",
+  "descriptionTemplate": "Gain [Arg1] {STR}, and put all other Awakeners' \"Strike\" into hand and set their Arithmetica Cost to 0.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",

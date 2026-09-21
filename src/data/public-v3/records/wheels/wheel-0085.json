@@ -14,7 +14,7 @@
   "realm": "NEUTRAL",
   "mainstatKey": "DEATH_RESISTANCE",
   "lineupToken": "xI",
-  "descriptionTemplate": "Team Unique: After playing a Symptom card, the wielder gains [StateArg1] Aliemus. This effect triggers up to 2 times per turn. After playing a Command Card, the wielder gains 1 Aliemus.",
+  "descriptionTemplate": "{Team Unique}: After playing a Symptom card, the wielder gains [StateArg1] Aliemus. This effect triggers up to 2 times per turn. After playing a Command Card, the wielder gains 1 Aliemus.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

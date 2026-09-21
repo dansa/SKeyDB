@@ -26,7 +26,7 @@
     },
     {
       "set": 6,
-      "descriptionTemplate": "After releasing Posse, the wielder gains 30% Temporary Crit. Rate.",
+      "descriptionTemplate": "After unleashing Posse, the wielder gains 30% Temporary Crit. Rate.",
       "descriptionArgs": {}
     }
   ],

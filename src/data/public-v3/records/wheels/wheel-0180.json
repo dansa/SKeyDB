@@ -14,7 +14,8 @@
   "realm": "NEUTRAL",
   "mainstatKey": "CRIT_RATE",
   "lineupToken": "ze",
-  "descriptionTemplate": "Team Unique: After exploration begins, generate 1 {derived:Fall into Night} and place it into the deck.",
+  "searchTags": ["Draw", "Aliemus", "Strike"],
+  "descriptionTemplate": "{Team Unique}: At the start of exploration, add 1 {Fall into Night} card to the deck.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",
@@ -24,5 +25,6 @@
       "kind": "scaling",
       "values": ["1", "2", "3", "4"]
     }
-  }
+  },
+  "lore": "O you who sleep in darkness, hear my call.\nThe world you once knew is besieged by a darkness called Oblivion. Silent chaos is devouring every trace of your existence.\nFrom the distant past, before land was born, to this very moment—\nthrough the three centuries and more since the Great Flood, the black tide has reached everywhere and spared nothing.\nIt washes over your soul, leaving shining drops of silver.\nThey are the light that guides the way.\nWe pray for your awakening, for your bond with those who lead the way.\nWe pray that the radiance of your soul may become the bedrock of civilization—a foundation that endures beyond darkness, unto immortality.\nMay the Silver Key guide us."
 }

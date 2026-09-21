@@ -70,7 +70,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Affinity Level 3",
+        "unlockCondition": "Awakener Level 3",
         "content": "In the \"P-063 Opera House @2 Event,\" a metal box was discovered in a corner of the burnt backstage, and the Silver inside was recovered.\n\nThe current instruments at Mythag University are unable to identify the material of the box. After consulting @2 documents and analyzing its decorative engravings, Professor Doll concluded that the box might originate from an extinct civilization that perished in an explosion centuries ago.\n\nThe Silver remains quiet and unremarkable while inside the box but emits a continuous humming sound when removed. Professor Doll suspects that the metal box functions as a signal blocker, preventing special frequency signals from resonating with the Silver.\n\nThe model of the resonating Silver has also been identified."
       },
       {
@@ -89,7 +89,7 @@
         "kind": "story",
         "title": "Story: IV",
         "unlockCondition": "Affinity Level 9",
-        "content": "At this point, discussing \"my own life\" with me may be asking too much.\n\nI have grown accustomed to dissipating into the high skies and concealing myself among the stars.\n\nThe person the onlookers are gazing at is not me; I am not the one being played with like a music box, nor the one drifting through the desolate starry sky. That is merely a tool selling its voice for survival, a walking corpse wandering in search of Faint. Only by believing that others' value far surpasses my own can I find meaning in all this effort.\n\nSo, at this point, please don't make me notice myself anymore.\n\n\"But, dear sister, don't dwell on those memories that have already passed.\n\nOpen your eyes and take a look—your one-of-a-kind song has already resounded throughout the universe.\""
+        "content": "At this point, asking me about \"a life of my own\" may be asking too much.\nI have grown used to dissolving beyond the sky, hiding away in the sea of stars.\nIt is not me the spectators watch. It is not me they toy with like a music box. It is not me drifting through that barren starlight. That is a tool that sells its voice to make a living, a corpse walking on in search of Faint. Only by believing that others are worth more than I am can I believe any of it was worth the cost.\nSo, at this point, please don't make me notice myself again.\n\n\"But little sister, stop drowning in a past that is already past.\nOpen your eyes and look. That voice of yours, the only one like it, is ringing all the way across the universe now.\""
       }
     ],
     "voiceLines": {

@@ -242,6 +242,12 @@
         "canonicalSlug": "ogier",
         "canonicalPath": "/database/awakeners/ogier"
       },
+      "ogier-oathbound": {
+        "kind": "awakener",
+        "id": "awakener-0061",
+        "canonicalSlug": "ogier-oathbound",
+        "canonicalPath": "/database/awakeners/ogier-oathbound"
+      },
       "pandia": {
         "kind": "awakener",
         "id": "awakener-0039",
@@ -361,12 +367,6 @@
         "id": "awakener-0054",
         "canonicalSlug": "xu",
         "canonicalPath": "/database/awakeners/xu"
-      },
-      "ogier-oathbound": {
-        "kind": "awakener",
-        "id": "awakener-0061",
-        "canonicalSlug": "ogier-oathbound",
-        "canonicalPath": "/database/awakeners/ogier-oathbound"
       }
     },
     "wheels": {
@@ -514,6 +514,12 @@
         "canonicalSlug": "cursed-binding",
         "canonicalPath": "/database/wheels/cursed-binding"
       },
+      "darker-than-darkness": {
+        "kind": "wheel",
+        "id": "wheel-0180",
+        "canonicalSlug": "darker-than-darkness",
+        "canonicalPath": "/database/wheels/darker-than-darkness"
+      },
       "data-is-flesh": {
         "kind": "wheel",
         "id": "wheel-0089",
@@ -621,6 +627,12 @@
         "id": "wheel-0128",
         "canonicalSlug": "eternal-weave",
         "canonicalPath": "/database/wheels/eternal-weave"
+      },
+      "ever-sunward": {
+        "kind": "wheel",
+        "id": "wheel-0178",
+        "canonicalSlug": "ever-sunward",
+        "canonicalPath": "/database/wheels/ever-sunward"
       },
       "exile": {
         "kind": "wheel",
@@ -994,6 +1006,12 @@
         "canonicalSlug": "sever-and-scar",
         "canonicalPath": "/database/wheels/sever-and-scar"
       },
+      "shadowed-by-the-past": {
+        "kind": "wheel",
+        "id": "wheel-0179",
+        "canonicalSlug": "shadowed-by-the-past",
+        "canonicalPath": "/database/wheels/shadowed-by-the-past"
+      },
       "shepherds-staff": {
         "kind": "wheel",
         "id": "wheel-0106",
@@ -1227,24 +1245,6 @@
         "id": "wheel-0110",
         "canonicalSlug": "witchs-wide-brimmed-hat",
         "canonicalPath": "/database/wheels/witchs-wide-brimmed-hat"
-      },
-      "darker-than-darkness": {
-        "kind": "wheel",
-        "id": "wheel-0180",
-        "canonicalSlug": "darker-than-darkness",
-        "canonicalPath": "/database/wheels/darker-than-darkness"
-      },
-      "ever-sunward": {
-        "kind": "wheel",
-        "id": "wheel-0178",
-        "canonicalSlug": "ever-sunward",
-        "canonicalPath": "/database/wheels/ever-sunward"
-      },
-      "shadowed-by-the-past": {
-        "kind": "wheel",
-        "id": "wheel-0179",
-        "canonicalSlug": "shadowed-by-the-past",
-        "canonicalPath": "/database/wheels/shadowed-by-the-past"
       }
     },
     "relics": {
@@ -2033,6 +2033,12 @@
         "id": "relic-0038",
         "canonicalSlug": "dimensional-image-ogier",
         "canonicalPath": "/database/relics/dimensional-image-ogier"
+      },
+      "dimensional-image-ogier-oathbound": {
+        "kind": "relic",
+        "id": "relic-0326",
+        "canonicalSlug": "dimensional-image-ogier-oathbound",
+        "canonicalPath": "/database/relics/dimensional-image-ogier-oathbound"
       },
       "dimensional-image-pandia": {
         "kind": "relic",
@@ -3534,6 +3540,12 @@
         "canonicalSlug": "orbis-fatum",
         "canonicalPath": "/database/posses/orbis-fatum"
       },
+      "pages-ever-new": {
+        "kind": "posse",
+        "id": "posse-0063",
+        "canonicalSlug": "pages-ever-new",
+        "canonicalPath": "/database/posses/pages-ever-new"
+      },
       "plague-of-illusions": {
         "kind": "posse",
         "id": "posse-0030",
@@ -3731,12 +3743,6 @@
         "id": "posse-0048",
         "canonicalSlug": "year-end-sparks",
         "canonicalPath": "/database/posses/year-end-sparks"
-      },
-      "pages-ever-new": {
-        "kind": "posse",
-        "id": "posse-0063",
-        "canonicalSlug": "pages-ever-new",
-        "canonicalPath": "/database/posses/pages-ever-new"
       }
     },
     "skills": {
@@ -5378,6 +5384,48 @@
         "canonicalSlug": "strike",
         "canonicalPath": "/database/awakeners/nymphaea/skills/strike"
       },
+      "ogier-oathbound/defense": {
+        "kind": "skill",
+        "id": "skill.ogier-oathbound.defense",
+        "canonicalSlug": "defense",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/skills/defense"
+      },
+      "ogier-oathbound/endless-shadow": {
+        "kind": "skill",
+        "id": "skill.ogier-oathbound.endless-shadow",
+        "canonicalSlug": "endless-shadow",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/skills/endless-shadow"
+      },
+      "ogier-oathbound/flesh-as-fortress": {
+        "kind": "skill",
+        "id": "skill.ogier-oathbound.flesh-as-fortress",
+        "canonicalSlug": "flesh-as-fortress",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/skills/flesh-as-fortress"
+      },
+      "ogier-oathbound/oath-to-tomorrow": {
+        "kind": "skill",
+        "id": "skill.ogier-oathbound.oath-to-tomorrow",
+        "canonicalSlug": "oath-to-tomorrow",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/skills/oath-to-tomorrow"
+      },
+      "ogier-oathbound/sin-stained-spear": {
+        "kind": "skill",
+        "id": "skill.ogier-oathbound.sin-stained-spear",
+        "canonicalSlug": "sin-stained-spear",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/skills/sin-stained-spear"
+      },
+      "ogier-oathbound/strike": {
+        "kind": "skill",
+        "id": "skill.ogier-oathbound.strike",
+        "canonicalSlug": "strike",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/skills/strike"
+      },
+      "ogier-oathbound/unfallen-heart": {
+        "kind": "skill",
+        "id": "skill.ogier-oathbound.unfallen-heart",
+        "canonicalSlug": "unfallen-heart",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/skills/unfallen-heart"
+      },
       "ogier/defense": {
         "kind": "skill",
         "id": "skill.ogier.defense",
@@ -6259,48 +6307,6 @@
         "id": "skill.xu.strike",
         "canonicalSlug": "strike",
         "canonicalPath": "/database/awakeners/xu/skills/strike"
-      },
-      "ogier-oathbound/defense": {
-        "kind": "skill",
-        "id": "skill.ogier-oathbound.def",
-        "canonicalSlug": "defense",
-        "canonicalPath": "/database/awakeners/ogier-oathbound/skills/defense"
-      },
-      "ogier-oathbound/endless-shadow": {
-        "kind": "skill",
-        "id": "skill.ogier-oathbound.endless-shadow",
-        "canonicalSlug": "endless-shadow",
-        "canonicalPath": "/database/awakeners/ogier-oathbound/skills/endless-shadow"
-      },
-      "ogier-oathbound/flesh-as-fortress": {
-        "kind": "skill",
-        "id": "skill.ogier-oathbound.flesh-as-fortress",
-        "canonicalSlug": "flesh-as-fortress",
-        "canonicalPath": "/database/awakeners/ogier-oathbound/skills/flesh-as-fortress"
-      },
-      "ogier-oathbound/oath-to-tomorrow": {
-        "kind": "skill",
-        "id": "skill.ogier-oathbound.oath-to-tomorrow",
-        "canonicalSlug": "oath-to-tomorrow",
-        "canonicalPath": "/database/awakeners/ogier-oathbound/skills/oath-to-tomorrow"
-      },
-      "ogier-oathbound/sin-stained-spear": {
-        "kind": "skill",
-        "id": "skill.ogier-oathbound.sin-stained-spear",
-        "canonicalSlug": "sin-stained-spear",
-        "canonicalPath": "/database/awakeners/ogier-oathbound/skills/sin-stained-spear"
-      },
-      "ogier-oathbound/strike": {
-        "kind": "skill",
-        "id": "skill.ogier-oathbound.strike",
-        "canonicalSlug": "strike",
-        "canonicalPath": "/database/awakeners/ogier-oathbound/skills/strike"
-      },
-      "ogier-oathbound/unfallen-heart": {
-        "kind": "skill",
-        "id": "skill.ogier-oathbound.unfallen-heart",
-        "canonicalSlug": "unfallen-heart",
-        "canonicalPath": "/database/awakeners/ogier-oathbound/skills/unfallen-heart"
       }
     },
     "derived-skills": {
@@ -6381,6 +6387,12 @@
         "id": "derived.global.barbed-trident",
         "canonicalSlug": "barbed-trident",
         "canonicalPath": "/database/derived-skills/barbed-trident"
+      },
+      "black-tide-rebirth": {
+        "kind": "derivedSkill",
+        "id": "derived.global.black-tide-rebirth",
+        "canonicalSlug": "black-tide-rebirth",
+        "canonicalPath": "/database/derived-skills/black-tide-rebirth"
       },
       "bone-of-agony": {
         "kind": "derivedSkill",
@@ -6819,6 +6831,12 @@
         "id": "derived.erica.retract-mecha",
         "canonicalSlug": "retract-mecha",
         "canonicalPath": "/database/awakeners/erica/derived-skills/retract-mecha"
+      },
+      "fall-into-night": {
+        "kind": "derivedSkill",
+        "id": "derived.global.fall-into-night",
+        "canonicalSlug": "fall-into-night",
+        "canonicalPath": "/database/derived-skills/fall-into-night"
       },
       "falling-upward": {
         "kind": "derivedSkill",
@@ -7330,6 +7348,12 @@
         "canonicalSlug": "soul-synchronization",
         "canonicalPath": "/database/derived-skills/soul-synchronization"
       },
+      "spiritual-evolution": {
+        "kind": "derivedSkill",
+        "id": "derived.global.spiritual-evolution",
+        "canonicalSlug": "spiritual-evolution",
+        "canonicalPath": "/database/derived-skills/spiritual-evolution"
+      },
       "stagger": {
         "kind": "derivedSkill",
         "id": "derived.global.stagger",
@@ -7545,24 +7569,6 @@
         "id": "derived.xu.enthrall",
         "canonicalSlug": "enthrall",
         "canonicalPath": "/database/awakeners/xu/derived-skills/enthrall"
-      },
-      "black-tide-rebirth": {
-        "kind": "derivedSkill",
-        "id": "derived.global.black-tide-rebirth",
-        "canonicalSlug": "black-tide-rebirth",
-        "canonicalPath": "/database/derived-skills/black-tide-rebirth"
-      },
-      "fall-into-night": {
-        "kind": "derivedSkill",
-        "id": "derived.global.fall-into-night",
-        "canonicalSlug": "fall-into-night",
-        "canonicalPath": "/database/derived-skills/fall-into-night"
-      },
-      "spiritual-evolution": {
-        "kind": "derivedSkill",
-        "id": "derived.global.spiritual-evolution",
-        "canonicalSlug": "spiritual-evolution",
-        "canonicalPath": "/database/derived-skills/spiritual-evolution"
       }
     },
     "talents": {
@@ -8442,6 +8448,30 @@
         "canonicalSlug": "soulforge-aptitude",
         "canonicalPath": "/database/awakeners/nymphaea/talents/soulforge-aptitude"
       },
+      "ogier-oathbound/gnostic-potential": {
+        "kind": "talent",
+        "id": "talent.ogier-oathbound.gnostic-potential",
+        "canonicalSlug": "gnostic-potential",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/talents/gnostic-potential"
+      },
+      "ogier-oathbound/madness-omen": {
+        "kind": "talent",
+        "id": "talent.ogier-oathbound.madness-omen",
+        "canonicalSlug": "madness-omen",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/talents/madness-omen"
+      },
+      "ogier-oathbound/primordial-breath": {
+        "kind": "talent",
+        "id": "talent.ogier-oathbound.primordial-breath",
+        "canonicalSlug": "primordial-breath",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/talents/primordial-breath"
+      },
+      "ogier-oathbound/soulforge-aptitude": {
+        "kind": "talent",
+        "id": "talent.ogier-oathbound.soulforge-aptitude",
+        "canonicalSlug": "soulforge-aptitude",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/talents/soulforge-aptitude"
+      },
       "ogier/formless-refinement": {
         "kind": "talent",
         "id": "talent.ogier.formless-refinement",
@@ -8921,30 +8951,6 @@
         "id": "talent.xu.soulforge-aptitude",
         "canonicalSlug": "soulforge-aptitude",
         "canonicalPath": "/database/awakeners/xu/talents/soulforge-aptitude"
-      },
-      "ogier-oathbound/gnostic-potential": {
-        "kind": "talent",
-        "id": "talent.ogier-oathbound.gnostic-potential",
-        "canonicalSlug": "gnostic-potential",
-        "canonicalPath": "/database/awakeners/ogier-oathbound/talents/gnostic-potential"
-      },
-      "ogier-oathbound/madness-omen": {
-        "kind": "talent",
-        "id": "talent.ogier-oathbound.madness-omen",
-        "canonicalSlug": "madness-omen",
-        "canonicalPath": "/database/awakeners/ogier-oathbound/talents/madness-omen"
-      },
-      "ogier-oathbound/primordial-breath": {
-        "kind": "talent",
-        "id": "talent.ogier-oathbound.primordial-breath",
-        "canonicalSlug": "primordial-breath",
-        "canonicalPath": "/database/awakeners/ogier-oathbound/talents/primordial-breath"
-      },
-      "ogier-oathbound/soulforge-aptitude": {
-        "kind": "talent",
-        "id": "talent.ogier-oathbound.soulforge-aptitude",
-        "canonicalSlug": "soulforge-aptitude",
-        "canonicalPath": "/database/awakeners/ogier-oathbound/talents/soulforge-aptitude"
       }
     },
     "enlightens": {
@@ -10118,6 +10124,36 @@
         "canonicalSlug": "silent-permeation",
         "canonicalPath": "/database/awakeners/nymphaea/enlightens/silent-permeation"
       },
+      "ogier-oathbound/bear-the-glimmer": {
+        "kind": "enlighten",
+        "id": "enlighten.ogier-oathbound.bear-the-glimmer",
+        "canonicalSlug": "bear-the-glimmer",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/enlightens/bear-the-glimmer"
+      },
+      "ogier-oathbound/fall-for-the-cause": {
+        "kind": "enlighten",
+        "id": "enlighten.ogier-oathbound.fall-for-the-cause",
+        "canonicalSlug": "fall-for-the-cause",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/enlightens/fall-for-the-cause"
+      },
+      "ogier-oathbound/oath-to-tomorrow": {
+        "kind": "enlighten",
+        "id": "enlighten.ogier-oathbound.oath-to-tomorrow",
+        "canonicalSlug": "oath-to-tomorrow",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/enlightens/oath-to-tomorrow"
+      },
+      "ogier-oathbound/stand-to-defend": {
+        "kind": "enlighten",
+        "id": "enlighten.ogier-oathbound.stand-to-defend",
+        "canonicalSlug": "stand-to-defend",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/enlightens/stand-to-defend"
+      },
+      "ogier-oathbound/the-vow-sworn-anew": {
+        "kind": "enlighten",
+        "id": "enlighten.ogier-oathbound.the-vow-sworn-anew",
+        "canonicalSlug": "the-vow-sworn-anew",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/enlightens/the-vow-sworn-anew"
+      },
       "ogier/deathless-loyalty": {
         "kind": "enlighten",
         "id": "enlighten.ogier.deathless-loyalty",
@@ -10747,36 +10783,6 @@
         "id": "enlighten.xu.nirvanas-kiss",
         "canonicalSlug": "nirvanas-kiss",
         "canonicalPath": "/database/awakeners/xu/enlightens/nirvanas-kiss"
-      },
-      "ogier-oathbound/bear-the-glimmer": {
-        "kind": "enlighten",
-        "id": "enlighten.ogier-oathbound.bear-the-glimmer",
-        "canonicalSlug": "bear-the-glimmer",
-        "canonicalPath": "/database/awakeners/ogier-oathbound/enlightens/bear-the-glimmer"
-      },
-      "ogier-oathbound/fall-for-the-cause": {
-        "kind": "enlighten",
-        "id": "enlighten.ogier-oathbound.fall-for-the-cause",
-        "canonicalSlug": "fall-for-the-cause",
-        "canonicalPath": "/database/awakeners/ogier-oathbound/enlightens/fall-for-the-cause"
-      },
-      "ogier-oathbound/oath-to-tomorrow": {
-        "kind": "enlighten",
-        "id": "enlighten.ogier-oathbound.oath-to-tomorrow",
-        "canonicalSlug": "oath-to-tomorrow",
-        "canonicalPath": "/database/awakeners/ogier-oathbound/enlightens/oath-to-tomorrow"
-      },
-      "ogier-oathbound/stand-to-defend": {
-        "kind": "enlighten",
-        "id": "enlighten.ogier-oathbound.stand-to-defend",
-        "canonicalSlug": "stand-to-defend",
-        "canonicalPath": "/database/awakeners/ogier-oathbound/enlightens/stand-to-defend"
-      },
-      "ogier-oathbound/the-vow-sworn-anew": {
-        "kind": "enlighten",
-        "id": "enlighten.ogier-oathbound.the-vow-sworn-anew",
-        "canonicalSlug": "the-vow-sworn-anew",
-        "canonicalPath": "/database/awakeners/ogier-oathbound/enlightens/the-vow-sworn-anew"
       }
     },
     "overlays": {
@@ -11284,6 +11290,18 @@
         "canonicalSlug": "life-seal",
         "canonicalPath": "/database/awakeners/murphy-fauxborn/overlays/life-seal"
       },
+      "ogier-oathbound/guilt": {
+        "kind": "overlay",
+        "id": "overlay.ogier-oathbound.guilt",
+        "canonicalSlug": "guilt",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/overlays/guilt"
+      },
+      "ogier-oathbound/undertow": {
+        "kind": "overlay",
+        "id": "overlay.ogier-oathbound.undertow",
+        "canonicalSlug": "undertow",
+        "canonicalPath": "/database/awakeners/ogier-oathbound/overlays/undertow"
+      },
       "over-exalt": {
         "kind": "overlay",
         "id": "overlay.global.over-exalt",
@@ -11566,6 +11584,12 @@
         "canonicalSlug": "surging-tides",
         "canonicalPath": "/database/overlays/surging-tides"
       },
+      "team-unique": {
+        "kind": "overlay",
+        "id": "overlay.global.team-unique",
+        "canonicalSlug": "team-unique",
+        "canonicalPath": "/database/overlays/team-unique"
+      },
       "temporary-counter": {
         "kind": "overlay",
         "id": "overlay.global.temporary-counter",
@@ -11601,6 +11625,12 @@
         "id": "overlay.tulu.the-stars-are-right",
         "canonicalSlug": "the-stars-are-right",
         "canonicalPath": "/database/awakeners/tulu/overlays/the-stars-are-right"
+      },
+      "turn-unique": {
+        "kind": "overlay",
+        "id": "overlay.global.turn-unique",
+        "canonicalSlug": "turn-unique",
+        "canonicalPath": "/database/overlays/turn-unique"
       },
       "ultra": {
         "kind": "overlay",
@@ -11685,24 +11715,6 @@
         "id": "overlay.xu.spellbound",
         "canonicalSlug": "spellbound",
         "canonicalPath": "/database/awakeners/xu/overlays/spellbound"
-      },
-      "ogier-oathbound/guilt": {
-        "kind": "overlay",
-        "id": "overlay.ogier-oathbound.guilt",
-        "canonicalSlug": "guilt",
-        "canonicalPath": "/database/awakeners/ogier-oathbound/overlays/guilt"
-      },
-      "ogier-oathbound/undertow": {
-        "kind": "overlay",
-        "id": "overlay.ogier-oathbound.undertow",
-        "canonicalSlug": "undertow",
-        "canonicalPath": "/database/awakeners/ogier-oathbound/overlays/undertow"
-      },
-      "turn-unique": {
-        "kind": "overlay",
-        "id": "overlay.global.turn-unique",
-        "canonicalSlug": "turn-unique",
-        "canonicalPath": "/database/overlays/turn-unique"
       }
     },
     "awakener-builds": {

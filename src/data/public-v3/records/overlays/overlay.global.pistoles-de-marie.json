@@ -9,6 +9,6 @@
   },
   "overlayType": "mechanic",
   "aliases": [],
-  "descriptionTemplate": "May gain or lose Aliemus, {STR}, HP, Keyflare, and Arithmetica and draw cards.",
+  "descriptionTemplate": "May gain or lose Aliemus, {STR▼}, HP, Keyflare, and Arithmetica and draw cards.",
   "descriptionArgs": {}
 }

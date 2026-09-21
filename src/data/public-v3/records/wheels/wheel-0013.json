@@ -15,8 +15,8 @@
   "mainstatKey": "DMG_AMP",
   "ownerAwakenerId": "awakener-0054",
   "ownerAwakenerName": "Xu",
-  "lineupToken": "yT",
-  "descriptionTemplate": "Team Unique: The wielder's Fixed {Poison} Infliction and {Poison} Trigger +[StateArg1]%, and {Caro} Realm's automatic {Embryo Fusion} +[StateArg2]%. When the wielder first triggers {Resonance} each turn, other Awakeners gain [StateArg3] Aliemus.",
+  "lineupToken": "yR",
+  "descriptionTemplate": "{Team Unique}: The wielder's Fixed {Poison} Infliction and {Poison} Trigger +[StateArg1]%, and {Caro} Realm's automatic {Embryo Fusion} +[StateArg2]%. When the wielder first triggers {Resonance} each turn, other Awakeners gain [StateArg3] Aliemus.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

@@ -14,7 +14,7 @@
   "realm": "NEUTRAL",
   "mainstatKey": "CRIT_RATE",
   "lineupToken": "xq",
-  "descriptionTemplate": "Team Unique: After each stage starts, all Awakeners gain [StateArg1] Aliemus. At the start of a Boss Battle, draw 2 cards. In {Astral Reign}, this effect changes to \"Increases the chance for the wielder's Dimensional Image Relic to appear by 100%.\"",
+  "descriptionTemplate": "{Team Unique}: After each stage starts, all Awakeners gain [StateArg1] Aliemus. At the start of a Boss Battle, draw 2 cards. In {Astral Reign}, this effect changes to \"Increases the chance for the wielder's Dimensional Image Relic to appear by 100%.\"",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

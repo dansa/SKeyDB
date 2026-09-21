@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "overlays",
   "kind": "overlay",
-  "recordCount": 154,
+  "recordCount": 155,
   "records": [
     {
       "kind": "overlay",
@@ -15,9 +15,7 @@
       "ownerAwakenerId": "awakener-0001",
       "ownerAwakenerName": "24",
       "overlayType": "tag",
-      "aliases": [
-        "Realm and Persona Effects"
-      ]
+      "aliases": ["Realm and Persona Effects"]
     },
     {
       "kind": "overlay",
@@ -288,9 +286,7 @@
         "canonicalPath": "/database/overlays/aequor"
       },
       "overlayType": "realm",
-      "aliases": [
-        "Aequor Realm"
-      ]
+      "aliases": ["Aequor Realm"]
     },
     {
       "kind": "overlay",
@@ -332,9 +328,7 @@
       },
       "overlayType": "mechanic",
       "textColor": "affliction",
-      "aliases": [
-        "Old Embers"
-      ]
+      "aliases": ["Old Embers"]
     },
     {
       "kind": "overlay",
@@ -427,9 +421,7 @@
       },
       "overlayType": "mechanic",
       "textColor": "damage",
-      "aliases": [
-        "Bleeding"
-      ]
+      "aliases": ["Bleeding"]
     },
     {
       "kind": "overlay",
@@ -459,9 +451,7 @@
       },
       "overlayType": "mechanic",
       "textColor": "damage",
-      "aliases": [
-        "Burned"
-      ]
+      "aliases": ["Burned"]
     },
     {
       "kind": "overlay",
@@ -566,9 +556,7 @@
       },
       "overlayType": "mechanic",
       "textColor": "misc",
-      "aliases": [
-        "Destroyed"
-      ]
+      "aliases": ["Destroyed"]
     },
     {
       "kind": "overlay",
@@ -580,10 +568,7 @@
       },
       "overlayType": "mechanic",
       "textColor": "misc",
-      "aliases": [
-        "Devouring",
-        "Devoured"
-      ]
+      "aliases": ["Devouring", "Devoured"]
     },
     {
       "kind": "overlay",
@@ -598,9 +583,7 @@
       },
       "overlayType": "mechanic",
       "textColor": "affliction",
-      "aliases": [
-        "Singularity Shuttle"
-      ]
+      "aliases": ["Singularity Shuttle"]
     },
     {
       "kind": "overlay",
@@ -612,9 +595,7 @@
       },
       "overlayType": "mechanic",
       "textColor": "misc",
-      "aliases": [
-        "Discovered"
-      ]
+      "aliases": ["Discovered"]
     },
     {
       "kind": "overlay",
@@ -625,9 +606,7 @@
         "canonicalPath": "/database/overlays/divine-realm-aequor"
       },
       "overlayType": "realm",
-      "aliases": [
-        "Divine Realm: Aequor"
-      ]
+      "aliases": ["Divine Realm: Aequor"]
     },
     {
       "kind": "overlay",
@@ -638,9 +617,7 @@
         "canonicalPath": "/database/overlays/divine-realm-aequor-mastery"
       },
       "overlayType": "mechanic",
-      "aliases": [
-        "Divine Realm: Aequor Mastery"
-      ]
+      "aliases": ["Divine Realm: Aequor Mastery"]
     },
     {
       "kind": "overlay",
@@ -651,9 +628,7 @@
         "canonicalPath": "/database/overlays/divine-realm-raging-waves"
       },
       "overlayType": "mechanic",
-      "aliases": [
-        "Divine Realm: Raging Waves"
-      ]
+      "aliases": ["Divine Realm: Raging Waves"]
     },
     {
       "kind": "overlay",
@@ -664,9 +639,7 @@
         "canonicalPath": "/database/overlays/divine-realm-surging-tides"
       },
       "overlayType": "mechanic",
-      "aliases": [
-        "Divine Realm: Surging Tides"
-      ]
+      "aliases": ["Divine Realm: Surging Tides"]
     },
     {
       "kind": "overlay",
@@ -677,9 +650,7 @@
         "canonicalPath": "/database/overlays/divine-realm-tentacle-stance"
       },
       "overlayType": "mechanic",
-      "aliases": [
-        "Divine Realm: Tentacle Stance"
-      ]
+      "aliases": ["Divine Realm: Tentacle Stance"]
     },
     {
       "kind": "overlay",
@@ -690,9 +661,7 @@
         "canonicalPath": "/database/overlays/divine-realm-tranquil-sea"
       },
       "overlayType": "mechanic",
-      "aliases": [
-        "Divine Realm: Tranquil Sea"
-      ]
+      "aliases": ["Divine Realm: Tranquil Sea"]
     },
     {
       "kind": "overlay",
@@ -753,9 +722,7 @@
       },
       "overlayType": "mechanic",
       "textColor": "misc",
-      "aliases": [
-        "Exhausted"
-      ]
+      "aliases": ["Exhausted"]
     },
     {
       "kind": "overlay",
@@ -782,9 +749,7 @@
       },
       "overlayType": "mechanic",
       "textColor": "misc",
-      "aliases": [
-        "Absolute Axiom"
-      ]
+      "aliases": ["Absolute Axiom"]
     },
     {
       "kind": "overlay",
@@ -819,12 +784,7 @@
         "canonicalPath": "/database/overlays/forbidden-lore"
       },
       "overlayType": "help",
-      "aliases": [
-        "Forbidden Lore Level",
-        "Somatic Research",
-        "Esoteric Research",
-        "Occult Research"
-      ]
+      "aliases": ["Forbidden Lore Level", "Somatic Research", "Esoteric Research", "Occult Research"]
     },
     {
       "kind": "overlay",
@@ -940,9 +900,7 @@
       },
       "overlayType": "mechanic",
       "textColor": "misc",
-      "aliases": [
-        "Over Exalt"
-      ]
+      "aliases": ["Over Exalt"]
     },
     {
       "kind": "overlay",
@@ -1015,13 +973,7 @@
       },
       "overlayType": "mechanic",
       "textColor": "misc",
-      "aliases": [
-        "Prepare 1",
-        "Prepare 2",
-        "Prepare 3",
-        "Prepare 4",
-        "Prepare 5"
-      ]
+      "aliases": ["Prepare 1", "Prepare 2", "Prepare 3", "Prepare 4", "Prepare 5"]
     },
     {
       "kind": "overlay",
@@ -1032,10 +984,7 @@
         "canonicalPath": "/database/overlays/primordia-chaos"
       },
       "overlayType": "realm",
-      "aliases": [
-        "Divine Realm: Chaos",
-        "Primordia Chaos"
-      ]
+      "aliases": ["Divine Realm: Chaos", "Primordia Chaos"]
     },
     {
       "kind": "overlay",
@@ -1046,10 +995,7 @@
         "canonicalPath": "/database/overlays/primordia-mastery-scaling"
       },
       "overlayType": "help",
-      "aliases": [
-        "Primordia: Chaos Mastery Scaling",
-        "Primordia Posse Scaling"
-      ]
+      "aliases": ["Primordia: Chaos Mastery Scaling", "Primordia Posse Scaling"]
     },
     {
       "kind": "overlay",
@@ -1060,11 +1006,7 @@
         "canonicalPath": "/database/overlays/propagation-caro"
       },
       "overlayType": "realm",
-      "aliases": [
-        "Propagation Caro",
-        "Divine Caro",
-        "Propagation: Caro Mastery"
-      ]
+      "aliases": ["Propagation Caro", "Divine Caro", "Propagation: Caro Mastery"]
     },
     {
       "kind": "overlay",
@@ -1079,10 +1021,7 @@
       },
       "overlayType": "mechanic",
       "textColor": "damage",
-      "aliases": [
-        "Propagation Frenzy",
-        "Breeding Frenzy"
-      ]
+      "aliases": ["Propagation Frenzy", "Breeding Frenzy"]
     },
     {
       "kind": "overlay",
@@ -1151,13 +1090,7 @@
       },
       "overlayType": "mechanic",
       "textColor": "misc",
-      "aliases": [
-        "Resonance 1",
-        "Resonance 2",
-        "Resonance 3",
-        "Resonance 4",
-        "Resonance 5"
-      ]
+      "aliases": ["Resonance 1", "Resonance 2", "Resonance 3", "Resonance 4", "Resonance 5"]
     },
     {
       "kind": "overlay",
@@ -1169,9 +1102,7 @@
       },
       "overlayType": "mechanic",
       "textColor": "misc",
-      "aliases": [
-        "Retained"
-      ]
+      "aliases": ["Retained"]
     },
     {
       "kind": "overlay",
@@ -1183,9 +1114,7 @@
       },
       "overlayType": "mechanic",
       "textColor": "misc",
-      "aliases": [
-        "Keyflare Rouse"
-      ]
+      "aliases": ["Keyflare Rouse"]
     },
     {
       "kind": "overlay",
@@ -1297,9 +1226,7 @@
       },
       "overlayType": "mechanic",
       "textColor": "affliction",
-      "aliases": [
-        "Stealing"
-      ]
+      "aliases": ["Stealing"]
     },
     {
       "kind": "overlay",
@@ -1326,9 +1253,7 @@
       },
       "overlayType": "mechanic",
       "textColor": "heal",
-      "aliases": [
-        "Strength"
-      ]
+      "aliases": ["Strength"]
     },
     {
       "kind": "overlay",
@@ -1343,9 +1268,7 @@
       },
       "overlayType": "mechanic",
       "textColor": "affliction",
-      "aliases": [
-        "STR⯆"
-      ]
+      "aliases": ["STR⯆"]
     },
     {
       "kind": "overlay",
@@ -1371,6 +1294,18 @@
         "canonicalPath": "/database/overlays/surging-tides"
       },
       "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "kind": "overlay",
+      "id": "overlay.global.team-unique",
+      "name": "Team Unique",
+      "route": {
+        "slug": "team-unique",
+        "canonicalPath": "/database/overlays/team-unique"
+      },
+      "overlayType": "tag",
+      "textColor": "misc",
       "aliases": []
     },
     {
@@ -1481,9 +1416,7 @@
         "canonicalPath": "/database/overlays/ultra-round"
       },
       "overlayType": "mechanic",
-      "aliases": [
-        "Ultra Rounds"
-      ]
+      "aliases": ["Ultra Rounds"]
     },
     {
       "kind": "overlay",
@@ -1558,9 +1491,7 @@
       },
       "overlayType": "mechanic",
       "textColor": "damage",
-      "aliases": [
-        "Vulnerability"
-      ]
+      "aliases": ["Vulnerability"]
     },
     {
       "kind": "overlay",
@@ -1600,13 +1531,7 @@
       },
       "ownerAwakenerId": "awakener-0022",
       "ownerAwakenerName": "Hameln",
-      "childOverlayIds": [
-        "overlay.global.bleed",
-        "overlay.global.poison",
-        "overlay.global.weakness",
-        "overlay.global.vulnerable",
-        "overlay.global.strength"
-      ],
+      "childOverlayIds": ["overlay.global.bleed", "overlay.global.poison", "overlay.global.weakness", "overlay.global.vulnerable", "overlay.global.strength"],
       "overlayType": "mechanic",
       "textColor": "misc",
       "aliases": []
@@ -1622,10 +1547,7 @@
       "ownerAwakenerId": "awakener-0022",
       "ownerAwakenerName": "Hameln",
       "nodeKind": "group",
-      "childOverlayIds": [
-        "overlay.hameln.rondino",
-        "overlay.hameln.crescendo"
-      ],
+      "childOverlayIds": ["overlay.hameln.rondino", "overlay.hameln.crescendo"],
       "overlayType": "mechanic",
       "aliases": []
     },
@@ -1640,7 +1562,6 @@
       "ownerAwakenerId": "awakener-0022",
       "ownerAwakenerName": "Hameln",
       "overlayType": "mechanic",
-      "textColor": "damage",
       "aliases": []
     },
     {
@@ -1719,9 +1640,7 @@
       "ownerAwakenerId": "awakener-0024",
       "ownerAwakenerName": "Horla",
       "overlayType": "mechanic",
-      "aliases": [
-        "Metaphors"
-      ]
+      "aliases": ["Metaphors"]
     },
     {
       "kind": "overlay",
@@ -1734,10 +1653,7 @@
       "ownerAwakenerId": "awakener-0024",
       "ownerAwakenerName": "Horla",
       "overlayType": "tag",
-      "aliases": [
-        "Poetry Pages",
-        "Poems"
-      ]
+      "aliases": ["Poetry Pages", "Poems"]
     },
     {
       "kind": "overlay",
@@ -1957,10 +1873,7 @@
       "ownerAwakenerName": "Pickman",
       "overlayType": "mechanic",
       "textColor": "misc",
-      "aliases": [
-        "Advanced Orisons",
-        "Orisons"
-      ]
+      "aliases": ["Advanced Orisons", "Orisons"]
     },
     {
       "kind": "overlay",
@@ -1974,11 +1887,7 @@
       "ownerAwakenerName": "Pickman",
       "overlayType": "mechanic",
       "textColor": "misc",
-      "aliases": [
-        "Golden Relics",
-        "Silver Relics",
-        "Painted Silver Relics"
-      ]
+      "aliases": ["Golden Relics", "Silver Relics", "Painted Silver Relics"]
     },
     {
       "kind": "overlay",
@@ -1991,9 +1900,7 @@
       "ownerAwakenerId": "awakener-0041",
       "ownerAwakenerName": "Pollux",
       "overlayType": "mechanic",
-      "aliases": [
-        "Aflame"
-      ]
+      "aliases": ["Aflame"]
     },
     {
       "kind": "overlay",
@@ -2040,9 +1947,7 @@
       "ownerAwakenerName": "Pontos",
       "overlayType": "mechanic",
       "textColor": "shield",
-      "aliases": [
-        "Battue"
-      ]
+      "aliases": ["Battue"]
     },
     {
       "kind": "overlay",
@@ -2136,9 +2041,7 @@
       "ownerAwakenerName": "Saya",
       "overlayType": "mechanic",
       "textColor": "light",
-      "aliases": [
-        "Gynoecium stacks"
-      ]
+      "aliases": ["Gynoecium stacks"]
     },
     {
       "kind": "overlay",
@@ -2204,9 +2107,7 @@
       "ownerAwakenerId": "awakener-0052",
       "ownerAwakenerName": "Wanda",
       "overlayType": "mechanic",
-      "aliases": [
-        "Murmur"
-      ]
+      "aliases": ["Murmur"]
     },
     {
       "kind": "overlay",

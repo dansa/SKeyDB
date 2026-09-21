@@ -14,7 +14,7 @@
   "realm": "NEUTRAL",
   "mainstatKey": "KEYFLARE_REGEN",
   "lineupToken": "x6",
-  "descriptionTemplate": "Team Unique: Upon releasing Posse, gain [StateArg1]% of the wielder's ATK as {STR} and Shield equal to [StateArg2]% of their DEF. Upon using an Emergency Gnosis, all Awakeners gain [StateArg3] Aliemus at turn end.",
+  "descriptionTemplate": "{Team Unique}: Upon unleashing Posse, gain [StateArg1]% of the wielder's ATK as {STR} and Shield equal to [StateArg2]% of their DEF. Upon using an Emergency Gnosis, all Awakeners gain [StateArg3] Aliemus at turn end.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",

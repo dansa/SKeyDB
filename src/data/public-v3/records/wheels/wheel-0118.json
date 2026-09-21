@@ -15,8 +15,8 @@
   "mainstatKey": "DMG_AMP",
   "ownerAwakenerId": "awakener-0054",
   "ownerAwakenerName": "Xu",
-  "lineupToken": "yS",
-  "descriptionTemplate": "Team Unique: The wielder's Fixed {Poison} Infliction and {Poison} Trigger +[StateArg1]%. The wielder gains [StateArg2] Aliemus the first time they trigger {Resonance} each turn.",
+  "lineupToken": "yQ",
+  "descriptionTemplate": "{Team Unique}: The wielder's Fixed {Poison} Infliction and {Poison} Trigger +[StateArg1]%. The wielder gains [StateArg2] Aliemus the first time they trigger {Resonance} each turn.",
   "descriptionArgs": {
     "StateArg1": {
       "kind": "scaling",
