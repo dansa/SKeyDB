@@ -19,7 +19,8 @@
   "descriptionArgs": {
     "DescArg1": {
       "kind": "fixed",
-      "value": "3"
+      "value": "3",
+      "omitsCombatScaling": true
     }
   },
   "ownerAwakenerName": "Ogier: Oathbound",

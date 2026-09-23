@@ -11,7 +11,7 @@
   "slot": "Skill2",
   "cardFamily": "command",
   "cardTypes": ["skill"],
-  "descriptionTemplate": "Temporarily reduce all enemies' {STR▼} by [Exhaustion:Arg1]. Gain [Power:Arg2] {STR▼}. Take effect X additional times (X ≤ 5).",
+  "descriptionTemplate": "Temporarily reduce all enemies' {STR▼} by [Exhaustion:Arg1]. Gain [Power:Arg2] {STR}. Take effect X additional times (X ≤ 5).",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

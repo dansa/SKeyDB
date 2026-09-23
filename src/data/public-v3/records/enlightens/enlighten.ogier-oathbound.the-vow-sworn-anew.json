@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0061",
   "slot": "AbsoluteAxiom",
-  "descriptionTemplate": "{Rouse} {Flesh as Fortress} is enhanced.\n{Sin-Stained Spear} gains +100% Base DMG and an additional 200% {STR} bonus. The Base Shield increase for Ogier: Oathbound's \"Defense\" cards becomes 100%.",
+  "descriptionTemplate": "{Rouse} {Flesh as Fortress} is enhanced.\n{Sin-Stained Spear} gains +200% Base DMG and an additional 400% {STR} bonus. The Base Shield increase for Ogier: Oathbound's \"Defense\" cards becomes 100%.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Ogier: Oathbound"
 }

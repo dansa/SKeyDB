@@ -11,7 +11,7 @@
   "slot": "Skill2",
   "cardFamily": "command",
   "cardTypes": ["skill"],
-  "descriptionTemplate": "获得 [Counterattack:Arg2] 层{反击}。{偷取}所有敌人 [Arg1] 点{力量}并移除其{反击}状态。",
+  "descriptionTemplate": "Gain [Counterattack:Arg2] stacks of {Counter}. {Steal} [Arg1] {STR} from all enemies and remove their {Counter} State.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -41,14 +41,37 @@
   "upgrades": [
     {
       "id": "upgrade.enlighten.pandia.blazing-desire.skill.pandia.wax-hot-desire",
-      "operation": "replace_description",
+      "operation": "mixed",
       "upgraderId": "enlighten.pandia.blazing-desire",
       "upgraderType": "enlighten",
       "upgraderSlot": "E2",
       "ownerAwakenerId": "awakener-0039",
       "ownerAwakenerName": "Pandia",
       "patch": {
-        "descriptionTemplate": "Obtain [Counterattack:Arg2] stacks of {Counter}. {Steal} [Arg1] {STR▼} from all enemies. Remove all enemies' {Counter}."
+        "descriptionTemplate": "Obtain [Counterattack:Arg2] stacks of {Counter}. {Steal} [Arg1] {STR} from all enemies. Remove all enemies' {Counter}. Gain [Energy:Arg3] Aliemus.",
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": ["10", "12", "14", "16", "18", "20"],
+            "stat": "ATK",
+            "suffix": "%"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": ["10", "12", "14", "16", "18", "20"],
+            "stat": "ATK",
+            "suffix": "%",
+            "substatBonus": {
+              "substat": "CritRate",
+              "multiplier": "0.2",
+              "mode": "scale_base"
+            }
+          },
+          "Arg3": {
+            "kind": "fixed",
+            "value": "20"
+          }
+        }
       }
     }
   ],

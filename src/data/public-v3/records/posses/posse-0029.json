@@ -15,7 +15,7 @@
   "acquisitionSource": "Clear Operation: Faded Legacy - Ch. 9 - A Long Dream's End",
   "realm": "CHAOS",
   "lineupToken": "H",
-  "descriptionTemplate": "{Discover} 1 out of 3 random Posses and gain [Arg1] Keyflare.\nScaling guide: {Primordia Mastery Scaling}",
+  "descriptionTemplate": "{Discover} 1 out of 3 random Posses, choose 1 and trigger its effect, and gain [Arg1] Keyflare.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
