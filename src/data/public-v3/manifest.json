@@ -1,10 +1,10 @@
 {
   "schemaVersion": 3,
-  "gameDataVersion": "compiled-sha256-f7704a7ac61a2067",
-  "generatedAt": "2026-09-23T16:20:13Z",
-  "buildId": "public-v3-sha256-35236d186c48cc7e",
+  "gameDataVersion": "compiled-sha256-ae94f46a61e6c332",
+  "generatedAt": "2026-09-23T16:37:37Z",
+  "buildId": "public-v3-sha256-bd683f5f9c6f2e2d",
   "build": {
-    "gameDataVersion": "compiled-sha256-f7704a7ac61a2067",
+    "gameDataVersion": "compiled-sha256-ae94f46a61e6c332",
     "recordCount": 2005,
     "scopes": [
       "awakeners",
@@ -6154,8 +6154,8 @@
       "sha256": "f2e81204b3d8b76810140519609ec66a14dceb17e8bb117c720e533ac32afe77"
     },
     "records/skills/skill.ogier-oathbound.strike.json": {
-      "bytes": 1625,
-      "sha256": "a7088132a672fc078ce2000cceb38a47fdd9789039fd0296b1056fccc31260d0"
+      "bytes": 1695,
+      "sha256": "17af076bdc832277f3c0a0e9c7e4433e77661cb2ce663096c10a1bb3a14fd11d"
     },
     "records/skills/skill.ogier-oathbound.unfallen-heart.json": {
       "bytes": 5102,
