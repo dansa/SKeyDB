@@ -15,7 +15,7 @@
   "acquisitionSource": "Clear Dreamscape: See You in Neverland",
   "realm": "OTHER",
   "lineupToken": "T",
-  "descriptionTemplate": "Choose an Awakener; create 1 of their basic \"Strike\" s. It has {Exhaust}. Every {ordinal:3rd} time this is unleashed, instead create 1 {derived:Fleeting Beauty} and gain +[Arg1] Temp. Crit. Rate.\nScaling guide: {Primordia Mastery Scaling}",
+  "descriptionTemplate": "Choose an Awakener; place 1 of their temporary basic \"Strike\" s with 0 cost into hand. Every {ordinal:3rd} time this is unleashed, instead place 1 {derived:Fleeting Beauty} into hand and gain +[Arg1] Temp. Crit. Rate.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",

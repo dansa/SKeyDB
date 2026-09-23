@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0061",
   "slot": "E2",
-  "descriptionTemplate": "\"Strike\" takes effect 1 additional time.",
+  "descriptionTemplate": "\"Strike\" takes effect 1 additional time. {Turn Unique}: When \"Strike\" is played, draw 1 {Sin-Stained Spear}.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Ogier: Oathbound"
 }

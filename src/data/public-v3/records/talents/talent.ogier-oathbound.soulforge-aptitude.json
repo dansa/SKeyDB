@@ -24,8 +24,8 @@
     },
     "Arg3": {
       "kind": "linear",
-      "base": "5",
-      "gainPerLevel": "5"
+      "base": "10",
+      "gainPerLevel": "10"
     },
     "Arg4": {
       "kind": "linear",

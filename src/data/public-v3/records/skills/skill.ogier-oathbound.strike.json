@@ -37,7 +37,7 @@
       "ownerAwakenerId": "awakener-0061",
       "ownerAwakenerName": "Ogier: Oathbound",
       "patch": {
-        "descriptionTemplate": "Deal [Damage:Arg1] DMG. Ogier: Oathbound gains [Energy:Arg2] Aliemus. Takes effect 1 additional time."
+        "descriptionTemplate": "Deal [Damage:Arg1] DMG. Ogier: Oathbound gains [Energy:Arg2] Aliemus. Takes effect 1 additional time. {Turn Unique}: When \"Strike\" is played, draw 1 {Sin-Stained Spear}."
       }
     }
   ],

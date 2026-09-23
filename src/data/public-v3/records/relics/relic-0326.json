@@ -18,7 +18,7 @@
   "ownerAwakenerName": "Ogier: Oathbound",
   "rarity": "SSR",
   "aliases": [],
-  "descriptionTemplate": "At turn start, Ogier: Oathbound gains [Arg1] Aliemus. {Undertow} no longer reduces card draw.",
+  "descriptionTemplate": "At turn start, Ogier: Oathbound gains [Arg1] Aliemus. {Undertow} no longer reduces card draw. Max stacks of {Undertow} and {Guilt} are increased to 5.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -36,7 +36,7 @@
       "ownerAwakenerId": "awakener-0061",
       "ownerAwakenerName": "Ogier: Oathbound",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Ogier: Oathbound gains [Arg1] Aliemus. {Undertow} no longer reduces card draw.",
+      "descriptionTemplate": "At turn start, Ogier: Oathbound gains [Arg1] Aliemus. {Undertow} no longer reduces card draw. Max stacks of {Undertow} and {Guilt} are increased to 5.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

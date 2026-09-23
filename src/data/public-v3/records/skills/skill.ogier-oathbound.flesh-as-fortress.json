@@ -36,7 +36,7 @@
       "ownerAwakenerId": "awakener-0061",
       "ownerAwakenerName": "Ogier: Oathbound",
       "patch": {
-        "descriptionTemplate": "Ogier: Oathbound gains [Arg2]% Base Aliemus. {Rouse}: Ogier: Oathbound's {Sin-Stained Spear} gains +100% Base DMG and an additional 200% {STR} bonus. Ogier: Oathbound's \"Defense\" cards gain +100% Base Shield and \"Draw 1 card.\" Ogier: Oathbound's {Sin-Stained Spear} gains {Turn Unique}: When it deals DMG, apply {Corrosion} equal to the DMG dealt."
+        "descriptionTemplate": "Ogier: Oathbound gains [Arg2]% Base Aliemus. {Rouse}: Ogier: Oathbound's {Sin-Stained Spear} Base DMG +200%, enjoying an additional 400% {STR} bonus. Ogier: Oathbound's \"Defense\" cards gain +100% Base Shield and \"Draw 1 card.\" Ogier: Oathbound's {Sin-Stained Spear} gains {Turn Unique}: When it deals DMG, apply {Corrosion} equal to the DMG dealt."
       }
     }
   ],
