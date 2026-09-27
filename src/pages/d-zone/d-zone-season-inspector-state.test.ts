@@ -130,4 +130,46 @@ describe('d-zone season inspector state', () => {
       }),
     ).toBeNull()
   })
+
+  it('keeps highest selected across five, four, and seven tier formats in both directions', () => {
+    const formats = [
+      ['Alert I', 'Alert II', 'Alert III', 'Alert IV', 'Alert V'],
+      ['Normal', 'Hard', 'Nightmare', 'Madness'],
+      [
+        'Threat Level C',
+        'Threat Level B',
+        'Threat Level A',
+        'Threat Level S',
+        'Threat Level SS',
+        'Threat Level SSS',
+        '\u25bc',
+      ],
+    ].map((names) => names.map((name, i) => ({id: `alert-${(i + 1).toString()}`, name})))
+    for (const source of formats) {
+      const preference = getPersistedAlertPreferenceId({
+        alertOptions: source,
+        selectedAlertId: `alert-${source.length.toString()}`,
+      })
+      for (const target of formats) {
+        expect(
+          getSelectedAlertId({alertOptions: target, alertSelectionState: {alertId: preference}}),
+        ).toBe(`alert-${target.length.toString()}`)
+      }
+    }
+  })
+
+  it('distinguishes explicit SS from the legacy highest preference', () => {
+    const alertOptions = ['C', 'B', 'A', 'S', 'SS', 'SSS', '\u25bc'].map((name, i) => ({
+      id: `alert-${(i + 1).toString()}`,
+      name,
+    }))
+    const preference = getPersistedAlertPreferenceId({alertOptions, selectedAlertId: 'alert-5'})
+    expect(preference).toBe('tier-5')
+    expect(getSelectedAlertId({alertOptions, alertSelectionState: {alertId: preference}})).toBe(
+      'alert-5',
+    )
+    expect(getSelectedAlertId({alertOptions, alertSelectionState: {alertId: 'alert-5'}})).toBe(
+      'alert-7',
+    )
+  })
 })

@@ -1,0 +1,2322 @@
+{
+  "schemaVersion": 3,
+  "scope": "dzone-season",
+  "recordCount": 1,
+  "records": [
+    {
+      "id": "dzone-0070",
+      "period": 70,
+      "name": "Dissoluted Abyss",
+      "start": "2026-09-28T01:00:00Z",
+      "end": "2026-10-12T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "waves": [
+        {
+          "id": "wave-1",
+          "name": "Zone 1",
+          "initialRelicIds": ["relic-0060", "relic-0278"],
+          "initialRelicVariantIds": ["relic-variant-0060", "relic-variant-0490"],
+          "monsterIds": [
+            "dzone-monster-0093",
+            "dzone-monster-0222",
+            "dzone-monster-0033",
+            "dzone-monster-0190",
+            "dzone-monster-0031",
+            "dzone-monster-0181",
+            "dzone-monster-0140",
+            "dzone-monster-0066",
+            "dzone-monster-0125",
+            "dzone-monster-0223"
+          ],
+          "alerts": [
+            {
+              "id": "alert-1",
+              "name": "Threat Level C",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0093",
+                  "level": 41,
+                  "hp": 38509,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0222",
+                  "level": 38,
+                  "hp": 2294,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0033",
+                  "level": 38,
+                  "hp": 1774,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0190",
+                  "level": 38,
+                  "hp": 650,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0031",
+                  "level": 38,
+                  "hp": 931,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0181",
+                  "level": 38,
+                  "hp": 1265,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0140",
+                  "level": 38,
+                  "hp": 1380,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0066",
+                  "level": 38,
+                  "hp": 1265,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0125",
+                  "level": 38,
+                  "hp": 1318,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0223",
+                  "level": 38,
+                  "hp": 1958,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-2",
+              "name": "Threat Level B",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0093",
+                  "level": 55,
+                  "hp": 116905,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0222",
+                  "level": 52,
+                  "hp": 7220,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0033",
+                  "level": 52,
+                  "hp": 5583,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0190",
+                  "level": 52,
+                  "hp": 2043,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0031",
+                  "level": 52,
+                  "hp": 2930,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0181",
+                  "level": 52,
+                  "hp": 3979,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0140",
+                  "level": 52,
+                  "hp": 4343,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0066",
+                  "level": 52,
+                  "hp": 3979,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0125",
+                  "level": 52,
+                  "hp": 4148,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0223",
+                  "level": 52,
+                  "hp": 6161,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-3",
+              "name": "Threat Level A",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0093",
+                  "level": 65,
+                  "hp": 295866,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0222",
+                  "level": 62,
+                  "hp": 21366,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0033",
+                  "level": 62,
+                  "hp": 16523,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0190",
+                  "level": 62,
+                  "hp": 6046,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0031",
+                  "level": 62,
+                  "hp": 8672,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0181",
+                  "level": 62,
+                  "hp": 11775,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0140",
+                  "level": 62,
+                  "hp": 12852,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0066",
+                  "level": 62,
+                  "hp": 11775,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0125",
+                  "level": 62,
+                  "hp": 12275,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0223",
+                  "level": 62,
+                  "hp": 18233,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-4",
+              "name": "Threat Level S",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0093",
+                  "level": 75,
+                  "hp": 724479,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0222",
+                  "level": 72,
+                  "hp": 53999,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0033",
+                  "level": 72,
+                  "hp": 41760,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0190",
+                  "level": 72,
+                  "hp": 15280,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0031",
+                  "level": 72,
+                  "hp": 21916,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0181",
+                  "level": 72,
+                  "hp": 29760,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0140",
+                  "level": 72,
+                  "hp": 32480,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0066",
+                  "level": 72,
+                  "hp": 29760,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0125",
+                  "level": 72,
+                  "hp": 31024,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0223",
+                  "level": 72,
+                  "hp": 46080,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-5",
+              "name": "Threat Level SS",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0093",
+                  "level": 85,
+                  "hp": 1771662,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0222",
+                  "level": 82,
+                  "hp": 136629,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0033",
+                  "level": 82,
+                  "hp": 105660,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0190",
+                  "level": 82,
+                  "hp": 38661,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0031",
+                  "level": 82,
+                  "hp": 55451,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0181",
+                  "level": 82,
+                  "hp": 75298,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0140",
+                  "level": 82,
+                  "hp": 82180,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0066",
+                  "level": 82,
+                  "hp": 75298,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0125",
+                  "level": 82,
+                  "hp": 78496,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0223",
+                  "level": 82,
+                  "hp": 116590,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-6",
+              "name": "Threat Level SSS",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0093",
+                  "level": 94,
+                  "hp": 4165066,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0222",
+                  "level": 91,
+                  "hp": 319676,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0033",
+                  "level": 91,
+                  "hp": 247217,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0190",
+                  "level": 91,
+                  "hp": 92950,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0031",
+                  "level": 91,
+                  "hp": 133907,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0181",
+                  "level": 91,
+                  "hp": 173977,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0140",
+                  "level": 91,
+                  "hp": 198146,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0066",
+                  "level": 91,
+                  "hp": 173977,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0125",
+                  "level": 91,
+                  "hp": 188882,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0223",
+                  "level": 91,
+                  "hp": 272791,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-7",
+              "name": "▼",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0093",
+                  "level": 99,
+                  "hp": 9433485,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0222",
+                  "level": 96,
+                  "hp": 724978,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0033",
+                  "level": 96,
+                  "hp": 560650,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0190",
+                  "level": 96,
+                  "hp": 225913,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0031",
+                  "level": 96,
+                  "hp": 328934,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0181",
+                  "level": 96,
+                  "hp": 381216,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0140",
+                  "level": 96,
+                  "hp": 484934,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0066",
+                  "level": 96,
+                  "hp": 381216,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0125",
+                  "level": 96,
+                  "hp": 460010,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0223",
+                  "level": 96,
+                  "hp": 618648,
+                  "hpBars": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "wave-2",
+          "name": "Zone 2",
+          "initialRelicIds": ["relic-0143", "relic-0060"],
+          "initialRelicVariantIds": ["relic-variant-0205", "relic-variant-0060"],
+          "monsterIds": [
+            "dzone-monster-0257",
+            "dzone-monster-0339",
+            "dzone-monster-0190",
+            "dzone-monster-0213",
+            "dzone-monster-0318",
+            "dzone-monster-0189",
+            "dzone-monster-0016",
+            "dzone-monster-0197",
+            "dzone-monster-0096",
+            "dzone-monster-0296"
+          ],
+          "alerts": [
+            {
+              "id": "alert-1",
+              "name": "Threat Level C",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0257",
+                  "level": 44,
+                  "hp": 26996,
+                  "hpBars": 2,
+                  "hpBarValues": [26996, 40494],
+                  "effectiveHp": 67490,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 26996,
+                      "kind": "base",
+                      "maxHp": 26996
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 40494,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 40494,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0339",
+                  "level": 43,
+                  "hp": 26915,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0190",
+                  "level": 41,
+                  "hp": 788,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0213",
+                  "level": 41,
+                  "hp": 1000,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0318",
+                  "level": 41,
+                  "hp": 1113,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0189",
+                  "level": 41,
+                  "hp": 672,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0016",
+                  "level": 41,
+                  "hp": 1586,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0197",
+                  "level": 42,
+                  "hp": 8449,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0096",
+                  "level": 42,
+                  "hp": 7329,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0296",
+                  "level": 42,
+                  "hp": 7376,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-2",
+              "name": "Threat Level B",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0257",
+                  "level": 57,
+                  "hp": 76402,
+                  "hpBars": 2,
+                  "hpBarValues": [76402, 114603],
+                  "effectiveHp": 191005,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 76402,
+                      "kind": "base",
+                      "maxHp": 76402
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 114603,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 114603,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0339",
+                  "level": 56,
+                  "hp": 73989,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0190",
+                  "level": 54,
+                  "hp": 2530,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0213",
+                  "level": 54,
+                  "hp": 3212,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0318",
+                  "level": 54,
+                  "hp": 3577,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0189",
+                  "level": 54,
+                  "hp": 2159,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0016",
+                  "level": 54,
+                  "hp": 5095,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0197",
+                  "level": 55,
+                  "hp": 23020,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0096",
+                  "level": 55,
+                  "hp": 19971,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0296",
+                  "level": 55,
+                  "hp": 20098,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-3",
+              "name": "Threat Level A",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0257",
+                  "level": 67,
+                  "hp": 192066,
+                  "hpBars": 2,
+                  "hpBarValues": [192066, 288099],
+                  "effectiveHp": 480165,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 192066,
+                      "kind": "base",
+                      "maxHp": 192066
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 288099,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 288099,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0339",
+                  "level": 66,
+                  "hp": 177542,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0190",
+                  "level": 64,
+                  "hp": 7109,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0213",
+                  "level": 64,
+                  "hp": 9024,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0318",
+                  "level": 64,
+                  "hp": 10050,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0189",
+                  "level": 64,
+                  "hp": 6067,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0016",
+                  "level": 64,
+                  "hp": 14315,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0197",
+                  "level": 65,
+                  "hp": 60502,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0096",
+                  "level": 65,
+                  "hp": 52487,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0296",
+                  "level": 65,
+                  "hp": 52822,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-4",
+              "name": "Threat Level S",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0257",
+                  "level": 77,
+                  "hp": 494276,
+                  "hpBars": 2,
+                  "hpBarValues": [494276, 741414],
+                  "effectiveHp": 1235690,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 494276,
+                      "kind": "base",
+                      "maxHp": 494276
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 741414,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 741414,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0339",
+                  "level": 76,
+                  "hp": 448583,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0190",
+                  "level": 74,
+                  "hp": 18959,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0213",
+                  "level": 74,
+                  "hp": 24066,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0318",
+                  "level": 74,
+                  "hp": 26800,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0189",
+                  "level": 74,
+                  "hp": 16180,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0016",
+                  "level": 74,
+                  "hp": 38175,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0197",
+                  "level": 75,
+                  "hp": 153053,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0096",
+                  "level": 75,
+                  "hp": 132777,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0296",
+                  "level": 75,
+                  "hp": 133625,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-5",
+              "name": "Threat Level SS",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0257",
+                  "level": 87,
+                  "hp": 1189739,
+                  "hpBars": 2,
+                  "hpBarValues": [1189739, 1784609],
+                  "effectiveHp": 2974348,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 1189739,
+                      "kind": "base",
+                      "maxHp": 1189739
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 1784609,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 1784609,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0339",
+                  "level": 86,
+                  "hp": 1095278,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0190",
+                  "level": 84,
+                  "hp": 46886,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0213",
+                  "level": 84,
+                  "hp": 59515,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0318",
+                  "level": 84,
+                  "hp": 66278,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0189",
+                  "level": 84,
+                  "hp": 40012,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0016",
+                  "level": 84,
+                  "hp": 94409,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0197",
+                  "level": 85,
+                  "hp": 372069,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0096",
+                  "level": 85,
+                  "hp": 322780,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0296",
+                  "level": 85,
+                  "hp": 324841,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-6",
+              "name": "Threat Level SSS",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0257",
+                  "level": 95,
+                  "hp": 2964574,
+                  "hpBars": 2,
+                  "hpBarValues": [2964574, 4446861],
+                  "effectiveHp": 7411435,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 2964574,
+                      "kind": "base",
+                      "maxHp": 2964574
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 4446861,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 4446861,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0339",
+                  "level": 94,
+                  "hp": 2590791,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0190",
+                  "level": 92,
+                  "hp": 114035,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0213",
+                  "level": 92,
+                  "hp": 146967,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0318",
+                  "level": 92,
+                  "hp": 153399,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0189",
+                  "level": 92,
+                  "hp": 105594,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0016",
+                  "level": 92,
+                  "hp": 230586,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0197",
+                  "level": 93,
+                  "hp": 879348,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0096",
+                  "level": 93,
+                  "hp": 749338,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0296",
+                  "level": 93,
+                  "hp": 766050,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-7",
+              "name": "▼",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0257",
+                  "level": 100,
+                  "hp": 7245970,
+                  "hpBars": 2,
+                  "hpBarValues": [7245970, 10868955],
+                  "effectiveHp": 18114925,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 7245970,
+                      "kind": "base",
+                      "maxHp": 7245970
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 10868955,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 10868955,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0339",
+                  "level": 99,
+                  "hp": 6008448,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0190",
+                  "level": 97,
+                  "hp": 273804,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0213",
+                  "level": 97,
+                  "hp": 358724,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0318",
+                  "level": 97,
+                  "hp": 347713,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0189",
+                  "level": 97,
+                  "hp": 275396,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0016",
+                  "level": 97,
+                  "hp": 556194,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0197",
+                  "level": 98,
+                  "hp": 2031504,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0096",
+                  "level": 98,
+                  "hp": 1694382,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0296",
+                  "level": 98,
+                  "hp": 1765193,
+                  "hpBars": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "wave-3",
+          "name": "Zone 3",
+          "initialRelicIds": ["relic-0078", "relic-0060"],
+          "initialRelicVariantIds": ["relic-variant-0091", "relic-variant-0060"],
+          "monsterIds": ["dzone-monster-0324"],
+          "alerts": [
+            {
+              "id": "alert-1",
+              "name": "Threat Level C",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0324",
+                  "level": 47,
+                  "hp": 33553,
+                  "hpBars": 2,
+                  "hpBarValues": [33553, 50330],
+                  "effectiveHp": 83883,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 33553,
+                      "kind": "base",
+                      "maxHp": 33553
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 50330,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 50330,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                }
+              ]
+            },
+            {
+              "id": "alert-2",
+              "name": "Threat Level B",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0324",
+                  "level": 59,
+                  "hp": 108449,
+                  "hpBars": 2,
+                  "hpBarValues": [108449, 162674],
+                  "effectiveHp": 271123,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 108449,
+                      "kind": "base",
+                      "maxHp": 108449
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 162674,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 162674,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                }
+              ]
+            },
+            {
+              "id": "alert-3",
+              "name": "Threat Level A",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0324",
+                  "level": 69,
+                  "hp": 287315,
+                  "hpBars": 2,
+                  "hpBarValues": [287315, 430973],
+                  "effectiveHp": 718288,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 287315,
+                      "kind": "base",
+                      "maxHp": 287315
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 430973,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 430973,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                }
+              ]
+            },
+            {
+              "id": "alert-4",
+              "name": "Threat Level S",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0324",
+                  "level": 79,
+                  "hp": 750849,
+                  "hpBars": 2,
+                  "hpBarValues": [750849, 1126274],
+                  "effectiveHp": 1877123,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 750849,
+                      "kind": "base",
+                      "maxHp": 750849
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 1126274,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 1126274,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                }
+              ]
+            },
+            {
+              "id": "alert-5",
+              "name": "Threat Level SS",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0324",
+                  "level": 89,
+                  "hp": 1864266,
+                  "hpBars": 2,
+                  "hpBarValues": [1864266, 2796399],
+                  "effectiveHp": 4660665,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 1864266,
+                      "kind": "base",
+                      "maxHp": 1864266
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 2796399,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 2796399,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                }
+              ]
+            },
+            {
+              "id": "alert-6",
+              "name": "Threat Level SSS",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0324",
+                  "level": 96,
+                  "hp": 4326791,
+                  "hpBars": 2,
+                  "hpBarValues": [4326791, 6490187],
+                  "effectiveHp": 10816978,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 4326791,
+                      "kind": "base",
+                      "maxHp": 4326791
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 6490187,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 6490187,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                }
+              ]
+            },
+            {
+              "id": "alert-7",
+              "name": "▼",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0324",
+                  "level": 101,
+                  "hp": 9818771,
+                  "hpBars": 2,
+                  "hpBarValues": [9818771, 14728157],
+                  "effectiveHp": 24546928,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 9818771,
+                      "kind": "base",
+                      "maxHp": 9818771
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 14728157,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 14728157,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "wave-4",
+          "name": "Zone 4",
+          "initialRelicIds": ["relic-0060", "relic-0204"],
+          "initialRelicVariantIds": ["relic-variant-0060", "relic-variant-0331"],
+          "monsterIds": ["dzone-monster-0340", "dzone-monster-0207", "dzone-monster-0342", "dzone-monster-0341"],
+          "alerts": [
+            {
+              "id": "alert-1",
+              "name": "Threat Level C",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0340",
+                  "level": 50,
+                  "hp": 42966,
+                  "hpBars": 2,
+                  "hpBarValues": [42966, 64449],
+                  "effectiveHp": 107415,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 42966,
+                      "kind": "base",
+                      "maxHp": 42966
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 64449,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 64449,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0207",
+                  "level": 49,
+                  "hp": 14181,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0342",
+                  "level": 49,
+                  "hp": 4750,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0341",
+                  "level": 49,
+                  "hp": 4750,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-2",
+              "name": "Threat Level B",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0340",
+                  "level": 61,
+                  "hp": 121499,
+                  "hpBars": 2,
+                  "hpBarValues": [121499, 182249],
+                  "effectiveHp": 303748,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 121499,
+                      "kind": "base",
+                      "maxHp": 121499
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 182249,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 182249,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0207",
+                  "level": 60,
+                  "hp": 50980,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0342",
+                  "level": 60,
+                  "hp": 17075,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0341",
+                  "level": 60,
+                  "hp": 17075,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-3",
+              "name": "Threat Level A",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0340",
+                  "level": 71,
+                  "hp": 326738,
+                  "hpBars": 2,
+                  "hpBarValues": [326738, 490107],
+                  "effectiveHp": 816845,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 326738,
+                      "kind": "base",
+                      "maxHp": 326738
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 490107,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 490107,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0207",
+                  "level": 70,
+                  "hp": 140266,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0342",
+                  "level": 70,
+                  "hp": 46979,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0341",
+                  "level": 70,
+                  "hp": 46979,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-4",
+              "name": "Threat Level S",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0340",
+                  "level": 81,
+                  "hp": 814660,
+                  "hpBars": 2,
+                  "hpBarValues": [814660, 1221990],
+                  "effectiveHp": 2036650,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 814660,
+                      "kind": "base",
+                      "maxHp": 814660
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 1221990,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 1221990,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0207",
+                  "level": 80,
+                  "hp": 345225,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0342",
+                  "level": 80,
+                  "hp": 115627,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0341",
+                  "level": 80,
+                  "hp": 115627,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-5",
+              "name": "Threat Level SS",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0340",
+                  "level": 91,
+                  "hp": 1914053,
+                  "hpBars": 2,
+                  "hpBarValues": [1914053, 2871080],
+                  "effectiveHp": 4785133,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 1914053,
+                      "kind": "base",
+                      "maxHp": 1914053
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 2871080,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 2871080,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0207",
+                  "level": 90,
+                  "hp": 823251,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0342",
+                  "level": 90,
+                  "hp": 275732,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0341",
+                  "level": 90,
+                  "hp": 275732,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-6",
+              "name": "Threat Level SSS",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0340",
+                  "level": 97,
+                  "hp": 4532772,
+                  "hpBars": 2,
+                  "hpBarValues": [4532772, 6799158],
+                  "effectiveHp": 11331930,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 4532772,
+                      "kind": "base",
+                      "maxHp": 4532772
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 6799158,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 6799158,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0207",
+                  "level": 96,
+                  "hp": 1850620,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0342",
+                  "level": 96,
+                  "hp": 611513,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0341",
+                  "level": 96,
+                  "hp": 611513,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-7",
+              "name": "▼",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0340",
+                  "level": 102,
+                  "hp": 10624085,
+                  "hpBars": 2,
+                  "hpBarValues": [10624085, 15936128],
+                  "effectiveHp": 26560213,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 10624085,
+                      "kind": "base",
+                      "maxHp": 10624085
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 15936128,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 15936128,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0207",
+                  "level": 101,
+                  "hp": 4225094,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0342",
+                  "level": 101,
+                  "hp": 1384781,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0341",
+                  "level": 101,
+                  "hp": 1384781,
+                  "hpBars": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "wave-5",
+          "name": "Zone 5",
+          "initialRelicIds": ["relic-0060", "relic-0273"],
+          "initialRelicVariantIds": ["relic-variant-0060", "relic-variant-0480"],
+          "monsterIds": [
+            "dzone-monster-0063",
+            "dzone-monster-0215",
+            "dzone-monster-0190",
+            "dzone-monster-0066",
+            "dzone-monster-0019",
+            "dzone-monster-0031",
+            "dzone-monster-0181",
+            "dzone-monster-0140",
+            "dzone-monster-0070",
+            "dzone-monster-0127",
+            "dzone-monster-0123"
+          ],
+          "alerts": [
+            {
+              "id": "alert-1",
+              "name": "Threat Level C",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0063",
+                  "level": 53,
+                  "hp": 56082,
+                  "hpBars": 2,
+                  "hpBarValues": [56082, 84123],
+                  "effectiveHp": 140205,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 56082,
+                      "kind": "base",
+                      "maxHp": 56082
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 84123,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 84123,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0215",
+                  "level": 52,
+                  "hp": 21957,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0190",
+                  "level": 50,
+                  "hp": 1312,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0066",
+                  "level": 50,
+                  "hp": 2554,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0019",
+                  "level": 50,
+                  "hp": 2296,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0031",
+                  "level": 50,
+                  "hp": 1881,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0181",
+                  "level": 50,
+                  "hp": 2554,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0140",
+                  "level": 50,
+                  "hp": 2788,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0070",
+                  "level": 51,
+                  "hp": 9794,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0127",
+                  "level": 51,
+                  "hp": 12004,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0123",
+                  "level": 50,
+                  "hp": 1867,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-2",
+              "name": "Threat Level B",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0063",
+                  "level": 63,
+                  "hp": 157371,
+                  "hpBars": 2,
+                  "hpBarValues": [157371, 236057],
+                  "effectiveHp": 393428,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 157371,
+                      "kind": "base",
+                      "maxHp": 157371
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 236057,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 236057,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0215",
+                  "level": 62,
+                  "hp": 59186,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0190",
+                  "level": 60,
+                  "hp": 4740,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0066",
+                  "level": 60,
+                  "hp": 9232,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0019",
+                  "level": 60,
+                  "hp": 8299,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0031",
+                  "level": 60,
+                  "hp": 6799,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0181",
+                  "level": 60,
+                  "hp": 9232,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0140",
+                  "level": 60,
+                  "hp": 10075,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0070",
+                  "level": 61,
+                  "hp": 29013,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0127",
+                  "level": 61,
+                  "hp": 35561,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0123",
+                  "level": 60,
+                  "hp": 6745,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-3",
+              "name": "Threat Level A",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0063",
+                  "level": 73,
+                  "hp": 398106,
+                  "hpBars": 2,
+                  "hpBarValues": [398106, 597159],
+                  "effectiveHp": 995265,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 398106,
+                      "kind": "base",
+                      "maxHp": 398106
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 597159,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 597159,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0215",
+                  "level": 72,
+                  "hp": 147501,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0190",
+                  "level": 70,
+                  "hp": 12131,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0066",
+                  "level": 70,
+                  "hp": 23626,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0019",
+                  "level": 70,
+                  "hp": 21238,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0031",
+                  "level": 70,
+                  "hp": 17399,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0181",
+                  "level": 70,
+                  "hp": 23626,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0140",
+                  "level": 70,
+                  "hp": 25786,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0070",
+                  "level": 71,
+                  "hp": 72426,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0127",
+                  "level": 71,
+                  "hp": 88771,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0123",
+                  "level": 70,
+                  "hp": 17263,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-4",
+              "name": "Threat Level S",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0063",
+                  "level": 83,
+                  "hp": 938974,
+                  "hpBars": 2,
+                  "hpBarValues": [938974, 1408461],
+                  "effectiveHp": 2347435,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 938974,
+                      "kind": "base",
+                      "maxHp": 938974
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 1408461,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 1408461,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0215",
+                  "level": 82,
+                  "hp": 338570,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0190",
+                  "level": 80,
+                  "hp": 28807,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0066",
+                  "level": 80,
+                  "hp": 56105,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0019",
+                  "level": 80,
+                  "hp": 50434,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0031",
+                  "level": 80,
+                  "hp": 41317,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0181",
+                  "level": 80,
+                  "hp": 56105,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0140",
+                  "level": 80,
+                  "hp": 61233,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0070",
+                  "level": 81,
+                  "hp": 165667,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0127",
+                  "level": 81,
+                  "hp": 203055,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0123",
+                  "level": 80,
+                  "hp": 40993,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-5",
+              "name": "Threat Level SS",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0063",
+                  "level": 93,
+                  "hp": 2184516,
+                  "hpBars": 2,
+                  "hpBarValues": [2184516, 3276774],
+                  "effectiveHp": 5461290,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 2184516,
+                      "kind": "base",
+                      "maxHp": 2184516
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 3276774,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 3276774,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0215",
+                  "level": 92,
+                  "hp": 812374,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0190",
+                  "level": 90,
+                  "hp": 69066,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0066",
+                  "level": 90,
+                  "hp": 134515,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0019",
+                  "level": 90,
+                  "hp": 120919,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0031",
+                  "level": 90,
+                  "hp": 99060,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0181",
+                  "level": 90,
+                  "hp": 134515,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0140",
+                  "level": 90,
+                  "hp": 146809,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0070",
+                  "level": 91,
+                  "hp": 397630,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0127",
+                  "level": 91,
+                  "hp": 487368,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0123",
+                  "level": 90,
+                  "hp": 98283,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-6",
+              "name": "Threat Level SSS",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0063",
+                  "level": 98,
+                  "hp": 5422906,
+                  "hpBars": 2,
+                  "hpBarValues": [5422906, 8134359],
+                  "effectiveHp": 13557265,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 5422906,
+                      "kind": "base",
+                      "maxHp": 5422906
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 8134359,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 8134359,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0215",
+                  "level": 97,
+                  "hp": 1916580,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0190",
+                  "level": 95,
+                  "hp": 172038,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0066",
+                  "level": 95,
+                  "hp": 296023,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0019",
+                  "level": 95,
+                  "hp": 287434,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0031",
+                  "level": 95,
+                  "hp": 250013,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0181",
+                  "level": 95,
+                  "hp": 296023,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0140",
+                  "level": 95,
+                  "hp": 368829,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0070",
+                  "level": 96,
+                  "hp": 982259,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0127",
+                  "level": 96,
+                  "hp": 1183015,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0123",
+                  "level": 95,
+                  "hp": 242713,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-7",
+              "name": "▼",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0063",
+                  "level": 103,
+                  "hp": 12682216,
+                  "hpBars": 2,
+                  "hpBarValues": [12682216, 19023324],
+                  "effectiveHp": 31705540,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 12682216,
+                      "kind": "base",
+                      "maxHp": 12682216
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 19023324,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 19023324,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0215",
+                  "level": 102,
+                  "hp": 4395192,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0190",
+                  "level": 100,
+                  "hp": 405330,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0066",
+                  "level": 100,
+                  "hp": 655972,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0019",
+                  "level": 100,
+                  "hp": 662585,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0031",
+                  "level": 100,
+                  "hp": 592505,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0181",
+                  "level": 100,
+                  "hp": 655972,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0140",
+                  "level": 100,
+                  "hp": 872309,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0070",
+                  "level": 101,
+                  "hp": 2299999,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0127",
+                  "level": 101,
+                  "hp": 2747666,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0123",
+                  "level": 100,
+                  "hp": 569609,
+                  "hpBars": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

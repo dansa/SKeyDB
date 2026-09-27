@@ -287,6 +287,19 @@
   font-weight: 800;
 }
 
+.d-zone-alert-switcher--seven-tier .d-zone-alert-switcher-options {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  width: min(100%, 24rem);
+}
+
+.d-zone-alert-switcher--seven-tier .d-zone-alert-switcher-button {
+  min-width: 0;
+  min-height: 2.5rem;
+  padding-inline: 0.35rem;
+  letter-spacing: 0;
+}
+
 .d-zone-season-realm-badge {
   width: 1.55rem;
   height: 1.55rem;
@@ -792,6 +805,14 @@
   }
 
   .d-zone-season-inspector-copy {
+    padding-right: 4.6rem;
+  }
+
+  .d-zone-season-inspector--seven-tier .d-zone-season-inspector-copy {
+    padding-right: 0;
+  }
+
+  .d-zone-season-inspector--seven-tier :is(.d-zone-season-title, .d-zone-stage-chips) {
     padding-right: 4.6rem;
   }
 

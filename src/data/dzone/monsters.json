@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "scope": "monsters",
-  "recordCount": 333,
+  "recordCount": 337,
   "records": [
     {
       "id": "dzone-monster-0264",
@@ -688,6 +688,14 @@
       "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008", "enemy-characteristic-0013"],
       "descriptionTemplate": "When the Stars Are Right, He will end his eons-long slumber and return to His throne. Whether this is what He truly desires, however, remains unknown.",
       "assetName": "Portrait_Minihead_EnemyAwaker_O01_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0340",
+      "name": "\"Snow White the Fairy\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008", "enemy-characteristic-0005", "enemy-characteristic-0012"],
+      "descriptionTemplate": "Do not be deceived by her pitiful, delicate guise—her so-called \"blessings\" are nothing but another web of lies she has carefully spun.",
+      "assetName": "Portrait_Minihead_EnemyAwaker_B11_AF",
       "badges": ["Boss"]
     },
     {
@@ -1830,6 +1838,14 @@
       "badges": ["Elite"]
     },
     {
+      "id": "dzone-monster-0339",
+      "name": "Measurer",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0014", "enemy-characteristic-0006", "enemy-characteristic-0015"],
+      "descriptionTemplate": "A Maid authorized to \"measure\" fate. She gauges the weight of every strand, reporting any tangles to the Manipulator of Fate. As for what happens after—she remains indifferent.",
+      "assetName": "Portrait_Small_Monster_S2C0502_AT",
+      "badges": ["Elite"]
+    },
+    {
       "id": "dzone-monster-0215",
       "name": "Merge You and Me",
       "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0007"],
@@ -2344,6 +2360,22 @@
       "characteristicIds": ["enemy-characteristic-0010", "enemy-characteristic-0016", "enemy-characteristic-0006"],
       "descriptionTemplate": "Within the savage frame flows the blood of giants. When the sun is devoured, the gods shall meet their twilight.",
       "assetName": "Portrait_Small_Monster_S2C0601_AT"
+    },
+    {
+      "id": "dzone-monster-0341",
+      "name": "The Snowdrifters",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0006", "enemy-characteristic-0005"],
+      "descriptionTemplate": "Pierce the hearts of your companions, tear at their throats, and feast upon their flesh. Then, devour everything in sight.",
+      "assetName": "Portrait_Small_Monster_S2C0603_BT",
+      "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0342",
+      "name": "The Snowdrifters",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0006", "enemy-characteristic-0005"],
+      "descriptionTemplate": "Pierce the hearts of your companions, tear at their throats, and feast upon their flesh. Then, devour everything in sight.",
+      "assetName": "Portrait_Small_Monster_S2C0603_BT",
+      "badges": ["Elite"]
     },
     {
       "id": "dzone-monster-0017",
