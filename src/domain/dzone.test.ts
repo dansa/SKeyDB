@@ -53,9 +53,13 @@ describe('D-zone domain boundary', () => {
     expect(await loadLatestDzoneWaveViewModels()).toHaveLength(5)
   })
 
-  it('preserves legacy alert labels and the current named difficulties', async () => {
+  it('preserves legacy, four-tier, and seven-tier difficulty labels', async () => {
     const legacySeason = await loadDzoneSeasonById('dzone-0067')
-    const [waveOne] = (await loadLatestDzoneSeason()).waves
+    const fourTierSeason = await loadDzoneSeasonById('dzone-0069')
+    const sevenTierSeason = await loadDzoneSeasonById('dzone-0070')
+    const waveOne = sevenTierSeason?.waves[0]
+    expect(waveOne).toBeDefined()
+    if (!waveOne) throw new Error('Missing season 70 wave 1')
 
     expect(legacySeason?.waves[0]?.alerts.map((alert) => alert.name)).toEqual([
       'Alert I',
@@ -65,11 +69,20 @@ describe('D-zone domain boundary', () => {
       'Alert V',
     ])
 
-    expect(waveOne.alerts.map((alert) => alert.name)).toEqual([
+    expect(fourTierSeason?.waves[0]?.alerts.map((alert) => alert.name)).toEqual([
       'Normal',
       'Hard',
       'Nightmare',
       'Madness',
+    ])
+    expect(waveOne.alerts.map((alert) => alert.name)).toEqual([
+      'Threat Level C',
+      'Threat Level B',
+      'Threat Level A',
+      'Threat Level S',
+      'Threat Level SS',
+      'Threat Level SSS',
+      '\u25bc',
     ])
     expect(waveOne.alerts[0]?.monsters[0]).toMatchObject(
       expect.objectContaining({
@@ -95,7 +108,7 @@ describe('D-zone domain boundary', () => {
       id: sourceAlertFourBoss?.monsterId,
       alertStats: {
         alertId: 'alert-4',
-        alertName: 'Madness',
+        alertName: latestSeason.waves[0]?.alerts.find((alert) => alert.id === 'alert-4')?.name,
         level: sourceAlertFourBoss?.level,
         hp: sourceAlertFourBoss?.hp,
         hpBars: sourceAlertFourBoss?.hpBars,

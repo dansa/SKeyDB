@@ -115,7 +115,7 @@ export function DZoneSeasonInspector({
       aria-label={`Season ${season.period.toString()} inspector`}
       className={`d-zone-season-inspector ${getRealmThemeClass(realm)} ${
         showHeader ? 'd-zone-season-inspector--with-header' : ''
-      }`}
+      }${alertOptions.length === 7 ? ' d-zone-season-inspector--seven-tier' : ''}`}
     >
       {showHeader ? (
         <header className='d-zone-season-inspector-header'>
@@ -205,7 +205,7 @@ function DZoneAlertSwitcher({
   return (
     <fieldset
       aria-label='Alert'
-      className={`d-zone-alert-switcher d-zone-alert-switcher--${variant}`}
+      className={`d-zone-alert-switcher d-zone-alert-switcher--${variant}${alertOptions.length === 7 ? ' d-zone-alert-switcher--seven-tier' : ''}`}
     >
       <span className='d-zone-alert-switcher-label'>Alert</span>
       <div className='d-zone-alert-switcher-options'>
@@ -213,6 +213,7 @@ function DZoneAlertSwitcher({
           <button
             aria-label={`Select ${alert.name}`}
             aria-pressed={alert.id === selectedAlertId}
+            title={alert.name}
             className='ui-compact-control ui-compact-control--pressed ui-compact-control--dense d-zone-alert-switcher-button'
             key={alert.id}
             onClick={() => {

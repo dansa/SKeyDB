@@ -13,7 +13,7 @@ const LEGACY_HIGHEST_ALERT_ID = 'alert-5'
 const LEGACY_ALERT_NAME_RE = /^Alert\s+/i
 
 function getAlertLevel(alertId: string): number | null {
-  const level = Number(/^alert-(\d+)$/.exec(alertId)?.[1] ?? Number.NaN)
+  const level = Number(/^(?:alert|tier)-(\d+)$/.exec(alertId)?.[1] ?? Number.NaN)
   return Number.isFinite(level) ? level : null
 }
 
@@ -51,13 +51,17 @@ export function getPersistedAlertPreferenceId({
 }): string {
   const selectedAlert = alertOptions.find((alert) => alert.id === selectedAlertId)
   const highestAlert = alertOptions.at(-1)
-  const usesNamedFourDifficultyFormat =
-    alertOptions.length === 4 &&
-    alertOptions.every((alert) => !LEGACY_ALERT_NAME_RE.test(alert.name))
-
-  return usesNamedFourDifficultyFormat && selectedAlert?.id === highestAlert?.id
-    ? LEGACY_HIGHEST_ALERT_ID
-    : selectedAlertId
+  const usesNamedDifficultyFormat = alertOptions.every(
+    (alert) => !LEGACY_ALERT_NAME_RE.test(alert.name),
+  )
+  if (
+    selectedAlert?.id === highestAlert?.id &&
+    (usesNamedDifficultyFormat || selectedAlertId === LEGACY_HIGHEST_ALERT_ID)
+  ) {
+    return LEGACY_HIGHEST_ALERT_ID
+  }
+  // Legacy storage reserves alert-5 for highest; distinguish an explicit fifth tier.
+  return selectedAlertId === LEGACY_HIGHEST_ALERT_ID ? 'tier-5' : selectedAlertId
 }
 
 export function getResolvedOpenWaveIds({
@@ -107,8 +111,12 @@ export function getSelectedAlertId({
     return null
   }
   if (alertSelectionState.alertId) {
-    if (alertOptions.some((alert) => alert.id === alertSelectionState.alertId)) {
-      return alertSelectionState.alertId
+    if (alertSelectionState.alertId === LEGACY_HIGHEST_ALERT_ID) {
+      return alertOptions.at(-1)?.id ?? null
+    }
+    const explicitAlertId = alertSelectionState.alertId.replace(/^tier-/, 'alert-')
+    if (alertOptions.some((alert) => alert.id === explicitAlertId)) {
+      return explicitAlertId
     }
 
     const nearestAvailableAlertId = getHighestAvailableAlertIdAtOrBelow(
