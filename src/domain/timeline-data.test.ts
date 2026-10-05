@@ -700,6 +700,7 @@ describe('timeline data loading', () => {
       customArt: expect.stringContaining('witchs-nocturnal-operation'),
       endDate: '2026-11-16T01:00:00.000Z',
       pricing: '1980 Silver Prime',
+      startDate: '2026-10-12T01:00:00.000Z',
     })
     expect(preorder?.featured).toBeUndefined()
     expect(rerun).toMatchObject({
