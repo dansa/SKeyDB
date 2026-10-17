@@ -222,10 +222,10 @@
     "id": "banner-pontos",
     "title": "Lord of the Deep / The Abyssal Oubliette",
     "type": "awaken",
-    "description": "Featured rate-up banners for Pontos and his SSR Wheel 'The Living Cage'.",
+    "description": "Featured rate-up banners for Pontos and his signature SSR Wheel.",
     "startDate": "2026/06/29 09:00",
     "endDate": "2026/07/27 09:00",
-    "featured": ["Pontos", "The Living Cage"],
+    "featured": ["Pontos", {"name": "Pontos", "kind": "wheel-auto"}],
     "pinned": true
   },
   {

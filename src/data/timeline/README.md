@@ -186,6 +186,12 @@ Optional object fields:
 - `customArt`: Overrides the art for that specific featured unit or pool member. Paths starting with `/banners/` resolve against `src/assets/banners/*`.
 - `realmId`: Overrides the realm used for icon/tint decoration. Useful for fake or unreleased banner units.
 
+For a character's signature SSR wheel, prefer `wheel-auto` to copying the wheel's
+name into the timeline. Its displayed name, artwork, realm and database target come
+from the current wheel record, so wheel renames do not break archived banners.
+`customArt`, `realmId` and `detailLink` overrides still apply. Use an explicit
+`wheel` entry when selecting a different wheel.
+
 A common pattern for solo rate-up banners (character + their wheel):
 ```json
 "featured": [
