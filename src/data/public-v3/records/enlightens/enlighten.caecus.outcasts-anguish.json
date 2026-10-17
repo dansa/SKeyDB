@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0006",
   "slot": "E3",
-  "descriptionTemplate": "Heal HP equal to 7.5% of CON at turn end.",
+  "descriptionTemplate": "Restores HP equal to 7.5% of CON at turn end.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Caecus"
 }

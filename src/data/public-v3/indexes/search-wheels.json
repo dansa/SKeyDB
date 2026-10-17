@@ -4097,7 +4097,7 @@
     {
       "kind": "wheel",
       "id": "wheel-0169",
-      "name": "Compass to False North",
+      "name": "The Errant Compass",
       "aliases": [],
       "tokens": [
         "compass",
@@ -4109,15 +4109,18 @@
         "critical damage",
         "damage",
         "dmg",
+        "errant",
         "false",
         "neutral",
         "north",
         "pontos",
         "sr",
+        "the",
+        "the errant compass",
         "to"
       ],
       "fields": {
-        "name": ["Compass to False North", "compass-to-false-north"],
+        "name": ["The Errant Compass", "compass-to-false-north"],
         "owner": ["Pontos"],
         "tag": ["crit-dmg", "Crit DMG", "crit. dmg", "crit damage", "critical damage"],
         "facet": ["NEUTRAL", "SR"]
@@ -4153,7 +4156,7 @@
     {
       "kind": "wheel",
       "id": "wheel-0171",
-      "name": "The Living Cage",
+      "name": "Living Cage",
       "aliases": [],
       "tokens": [
         "aequor",
@@ -4169,13 +4172,14 @@
         "dmg",
         "generation",
         "living",
+        "living cage",
         "pontos",
         "ssr",
         "the",
         "the living cage"
       ],
       "fields": {
-        "name": ["The Living Cage", "the-living-cage"],
+        "name": ["Living Cage", "the-living-cage"],
         "owner": ["Pontos"],
         "tag": ["aliemus", "crit-dmg", "aliemus generation", "Crit DMG", "crit. dmg", "crit damage", "critical damage"],
         "facet": ["AEQUOR", "SSR"]
@@ -4463,6 +4467,80 @@
         "rarity": "SSR",
         "mainstatKey": "CRIT_RATE",
         "tags": ["aliemus", "draw", "strike"]
+      }
+    },
+    {
+      "kind": "wheel",
+      "id": "wheel-0181",
+      "name": "The Seer's Riddle",
+      "aliases": [],
+      "tokens": [
+        "chaos",
+        "heal",
+        "healing",
+        "hp",
+        "hp recovery",
+        "recovery",
+        "riddle",
+        "seers",
+        "ssr",
+        "str",
+        "str up",
+        "strength",
+        "strength up",
+        "the",
+        "the seers riddle",
+        "up",
+        "vivian"
+      ],
+      "fields": {
+        "name": ["The Seer's Riddle", "the-seers-riddle"],
+        "owner": ["Vivian"],
+        "tag": ["str-up", "heal", "STR Up", "strength up", "healing", "hp recovery"],
+        "facet": ["CHAOS", "SSR"]
+      },
+      "facets": {
+        "realm": "CHAOS",
+        "rarity": "SSR",
+        "mainstatKey": "CRIT_RATE",
+        "owner": "awakener-0062",
+        "tags": ["heal", "str-up"]
+      }
+    },
+    {
+      "kind": "wheel",
+      "id": "wheel-0182",
+      "name": "She and Her Tree Hole",
+      "aliases": [],
+      "tokens": ["and", "heal", "healing", "her", "hole", "hp", "hp recovery", "neutral", "recovery", "she", "she and her tree hole", "sr", "tree", "vivian"],
+      "fields": {
+        "name": ["She and Her Tree Hole", "she-and-her-tree-hole"],
+        "owner": ["Vivian"],
+        "tag": ["heal", "healing", "hp recovery"],
+        "facet": ["NEUTRAL", "SR"]
+      },
+      "facets": {
+        "realm": "NEUTRAL",
+        "rarity": "SR",
+        "mainstatKey": "CRIT_RATE",
+        "owner": "awakener-0062",
+        "tags": ["heal"]
+      }
+    },
+    {
+      "kind": "wheel",
+      "id": "wheel-0183",
+      "name": "Imago's Clinic",
+      "aliases": [],
+      "tokens": ["clinic", "imagos", "imagos clinic", "neutral", "ssr"],
+      "fields": {
+        "name": ["Imago's Clinic", "imagos-clinic"],
+        "facet": ["NEUTRAL", "SSR"]
+      },
+      "facets": {
+        "realm": "NEUTRAL",
+        "rarity": "SSR",
+        "mainstatKey": "CRIT_RATE"
       }
     }
   ]

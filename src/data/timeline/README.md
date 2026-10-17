@@ -124,6 +124,14 @@ Array of banner objects. Each banner appears as a card in the Banners section wi
 | `customArt` | string | no | Full-card banner art URL or path. Overrides featured/pool artwork when present. Paths starting with `/banners/` are resolved against `src/assets/banners/*`. |
 | `preliminary` | boolean | no | Marks dates, pools, or banner details as provisional. If `tags` is omitted, adds `Preliminary` beside the type label |
 
+Derived pools include only Awakeners released on or before the banner's opening
+day in the game's UTC+8 calendar, together with their matching SSR wheels. Later
+roster additions do not enter older pools, even if released during the banner.
+No archival/freeze step is required. Missing or invalid release dates on otherwise
+eligible Awakeners are reported as data errors. Keep `excludeNames` for announced
+exceptions to the normal pool; use explicit `poolSlots` for nonstandard membership.
+This is a release-date cutoff, not a snapshot of historical database classifications.
+
 ### Banner Types
 
 | Type | Use For |

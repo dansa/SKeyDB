@@ -11,7 +11,7 @@
   "slot": "Skill2",
   "cardFamily": "command",
   "cardTypes": ["skill"],
-  "descriptionTemplate": "Deal [Arg1] {Fixed DMG} to the enemy with the highest HP. Apply [Arg2] turns of {Weakness}.",
+  "descriptionTemplate": "Deal [FixedDamage:Arg1] {Fixed DMG} to the highest-HP enemy. Inflict {Weakness} for [Arg2] {plural:[Arg2]|turn|turns}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -37,7 +37,7 @@
       "ownerAwakenerId": "awakener-0060",
       "ownerAwakenerName": "Caraboo",
       "patch": {
-        "descriptionTemplate": "Deal [Arg1] {Fixed DMG} to the enemy with the highest HP. Apply [Arg2] turns of {Weakness}. Gain [Energy:Arg3] Aliemus.",
+        "descriptionTemplate": "Deal [FixedDamage:Arg1] {Fixed DMG} to the enemy with the highest HP. Apply [Arg2] turns of {Weakness}. Gain [Energy:Arg3] Aliemus.",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

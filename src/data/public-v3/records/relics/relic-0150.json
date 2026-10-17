@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0213",
   "rarity": "SR",
   "aliases": [],
-  "descriptionTemplate": "Start with 2 stacks of the Divine Mother's Power; after the third turn, at turn start, choose to either consume the Divine Mother's Powerr for different effects or restore it. If Fatal DMG is taken, resurrect and consume all stacks of the Divine Mother's Power, with each stack restoring 10% HP. This effect can only trigger once.",
+  "descriptionTemplate": "Start with 2 stacks of the Divine Mother's Power. After the third turn, at turn start, choose to either consume the Divine Mother's Power for different effects or restore it. If you take Fatal DMG, resurrect and consume all stacks of the Divine Mother's Power, with each stack restoring 10% HP. This effect can only trigger once.",
   "descriptionArgs": {},
   "variants": [
     {
@@ -27,7 +27,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SR",
-      "descriptionTemplate": "Start with 2 stacks of the Divine Mother's Power; after the third turn, at turn start, choose to either consume the Divine Mother's Powerr for different effects or restore it. If Fatal DMG is taken, resurrect and consume all stacks of the Divine Mother's Power, with each stack restoring 10% HP. This effect can only trigger once.",
+      "descriptionTemplate": "Start with 2 stacks of the Divine Mother's Power. After the third turn, at turn start, choose to either consume the Divine Mother's Power for different effects or restore it. If you take Fatal DMG, resurrect and consume all stacks of the Divine Mother's Power, with each stack restoring 10% HP. This effect can only trigger once.",
       "descriptionArgs": {}
     }
   ]

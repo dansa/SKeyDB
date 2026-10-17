@@ -66,7 +66,7 @@
       "tier": "Gold",
       "category": "FADED_LEGACY",
       "rarity": "SSR",
-      "descriptionTemplate": "Playing the {ordinal:6th} Command Card returns it to your hand from the Discard Pile.",
+      "descriptionTemplate": "Every {ordinal:6th} Command Card played returns it from the Discard Pile to your hand.",
       "descriptionArgs": {},
       "lore": "Let's take a photo together! Experience the feeling of real pain."
     }

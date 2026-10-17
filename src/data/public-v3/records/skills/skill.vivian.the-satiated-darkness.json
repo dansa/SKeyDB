@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 3,
+  "kind": "skill",
+  "id": "skill.vivian.the-satiated-darkness",
+  "name": "The Satiated Darkness",
+  "route": {
+    "slug": "the-satiated-darkness",
+    "canonicalPath": "/database/awakeners/vivian/skills/the-satiated-darkness"
+  },
+  "ownerAwakenerId": "awakener-0062",
+  "slot": "OverExalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["over_exalt"],
+  "descriptionTemplate": "HP Recovery is tripled.",
+  "descriptionArgs": {},
+  "cardKeywords": [],
+  "ownerAwakenerName": "Vivian"
+}

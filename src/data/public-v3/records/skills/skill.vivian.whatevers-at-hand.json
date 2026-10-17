@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 3,
+  "kind": "skill",
+  "id": "skill.vivian.whatevers-at-hand",
+  "name": "Whatever's at Hand",
+  "route": {
+    "slug": "whatevers-at-hand",
+    "canonicalPath": "/database/awakeners/vivian/skills/whatevers-at-hand"
+  },
+  "ownerAwakenerId": "awakener-0062",
+  "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
+  "descriptionTemplate": "Choose 1 other Awakener to gain [Energy:Arg1] Aliemus. {Turn Unique}: {Concoct} once. {overlay:Potions} {derived:Cauldron}\n{overlay:Quality Nap}",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": ["20", "22", "24", "26", "28", "30"]
+    }
+  },
+  "cardKeywords": [],
+  "cost": "1",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.vivian.heir-to-the-throne.skill.vivian.whatevers-at-hand",
+      "operation": "mixed",
+      "upgraderId": "enlighten.vivian.heir-to-the-throne",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "E1",
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "patch": {
+        "descriptionTemplate": "Choose 1 other Awakener to gain [Energy:Arg1] Aliemus, and increase their Temp. Crit. Rate by [Arg2]%. {Turn Unique}: {Concoct} once. {overlay:Potions} {derived:Cauldron} {overlay:Boiling Anger}",
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": ["20", "22", "24", "26", "28", "30"]
+          },
+          "Arg2": {
+            "kind": "fixed",
+            "value": "10",
+            "suffix": "%",
+            "substatBonus": {
+              "substat": "CritRate",
+              "multiplier": "0.3",
+              "mode": "additive"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "upgrade.enlighten.vivian.pact-of-the-temple.skill.vivian.whatevers-at-hand",
+      "operation": "mixed",
+      "upgraderId": "enlighten.vivian.pact-of-the-temple",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "E3",
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "patch": {
+        "descriptionTemplate": "Choose 1 other Awakener to gain [Energy:Arg1] Aliemus, and increase their Temp. Crit. Rate by [Arg2]%. {Turn Unique}: {Concoct} once. {overlay:Potions} {derived:Cauldron} {overlay:Boiling Anger}",
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": ["20", "22", "24", "26", "28", "30"]
+          },
+          "Arg2": {
+            "kind": "fixed",
+            "value": "10",
+            "suffix": "%",
+            "substatBonus": {
+              "substat": "CritRate",
+              "multiplier": "0.3",
+              "mode": "additive"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "ownerAwakenerName": "Vivian"
+}

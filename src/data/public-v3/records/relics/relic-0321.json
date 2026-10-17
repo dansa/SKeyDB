@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0574",
   "rarity": "N",
   "aliases": [],
-  "descriptionTemplate": "Upon pickup, choose a card to permanently reduce its Arithmetica Cost to 1.",
+  "descriptionTemplate": "Upon pickup, choose a card to permanently set its Arithmetica Cost to 1.",
   "descriptionArgs": {},
   "lore": "An eye that is no longer pure.",
   "variants": [
@@ -28,7 +28,7 @@
       "tier": "Silver",
       "category": "EVENT",
       "rarity": "N",
-      "descriptionTemplate": "Upon pickup, choose a card to permanently reduce its Arithmetica Cost to 1.",
+      "descriptionTemplate": "Upon pickup, choose a card to permanently set its Arithmetica Cost to 1.",
       "descriptionArgs": {},
       "lore": "An eye that is no longer pure."
     }

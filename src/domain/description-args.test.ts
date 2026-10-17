@@ -19,12 +19,26 @@ import {
   createPluralMacroPattern,
 } from './description-token-grammar'
 import type {PublicDescriptionArg} from './public-description-args'
-import {loadPublicAwakenerDetailById} from './public-detail-record-adapters'
+import {
+  loadPublicAwakenerDetailById,
+  loadPublicDerivedSkillDetailById,
+} from './public-detail-record-adapters'
 import {adaptPublicV3TalentRecord} from './public-v3-awakener-record-adapters'
 
 const DETAIL_DESCRIPTION_SCOPES: PublicDataScope[] = [...PUBLIC_DATA_SCOPES]
 const DESCRIPTION_ARG_TOKEN_PATTERN = createDescriptionArgTokenPattern('g')
 const PLURAL_MACRO_PATTERN = createPluralMacroPattern('g')
+
+it('renders the Clinic wielder name without changing refinement numbers or live counters', async () => {
+  const clinic = await loadPublicDerivedSkillDetailById('derived.global.imagos-clinic')
+  if (!clinic) throw new Error('Missing Clinic derived card')
+  expect(clinic.descriptionArgs.Arg2).toEqual({kind: 'fixed', value: 'The wielder'})
+  expect(clinic.descriptionArgs.Arg3).toMatchObject({values: ['4', '6', '8', '10']})
+  expect(clinic.descriptionArgs.Arg4).toMatchObject({value: 'X'})
+  expect(resolveDescriptionTemplate(clinic.descriptionTemplate, clinic.descriptionArgs)).toMatch(
+    /^The wielder gains/,
+  )
+})
 
 async function loadResolvedSkill(
   awakenerId: number,

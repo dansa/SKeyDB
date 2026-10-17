@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 3,
+  "kind": "enlighten",
+  "id": "enlighten.vivian.pact-of-the-temple",
+  "name": "Pact of the Temple",
+  "route": {
+    "slug": "pact-of-the-temple",
+    "canonicalPath": "/database/awakeners/vivian/enlightens/pact-of-the-temple"
+  },
+  "ownerAwakenerId": "awakener-0062",
+  "slot": "E3",
+  "descriptionTemplate": "The Permanent {STR} gained from {The Sleeper of Heaths} is increased by 50%. All {Potions} additionally cause all enemies to take 10% more Active and {Tentacle DMG} this turn.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Vivian"
+}

@@ -15,7 +15,7 @@
   "mainstatKey": "KEYFLARE_REGEN",
   "ownerAwakenerId": "awakener-0035",
   "ownerAwakenerName": "Murphy: Fauxborn",
-  "lineupToken": "yp",
+  "lineupToken": "yn",
   "descriptionTemplate": "{Team Unique}: Hand Limit +2. <Italic:(Does not stack with other Wheels.)>\nThe wielder's Keyflare Regen and their Exalt's Final DMG & Shield Generation +[StateArg1]%.\nUpon switching to the {Tranquil Sea} stance, the wielder gains [StateArg2] Aliemus. 3-turn cooldown.\nUpon switching to the {Raging Waves} stance, inflict [StateArg3] stacks of {Birth Ritual} on all enemies. 3-turn cooldown.",
   "descriptionArgs": {
     "StateArg1": {

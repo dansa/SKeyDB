@@ -11,7 +11,7 @@
   "slot": "Rouse",
   "cardFamily": "rouse",
   "cardTypes": ["rouse"],
-  "descriptionTemplate": "Lily gains [Energy:Arg1] Aliemus. {Rouse}: At turn start, gain 10% Max HP:{Endure}. When Lily applies a Shield, inflict [{Poison}:Arg2] {plural:[{Poison}:Arg2]|stack|stacks} of {Poison} on the enemy with the highest HP.",
+  "descriptionTemplate": "Lily gains [Energy:Arg1] Aliemus. {Rouse}: At turn start, gain 10% Max HP:{Endure}. When Lily generates Shield, inflict [{Poison}:Arg2] {plural:[{Poison}:Arg2]|stack|stacks} of {Poison} on the enemy with the highest HP.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -41,7 +41,7 @@
       "ownerAwakenerId": "awakener-0029",
       "ownerAwakenerName": "Lily",
       "patch": {
-        "descriptionTemplate": "Lily gains [Energy:Arg1] Aliemus. {Rouse}: At turn start, gain {Endure} equal to 10% of Max HP. When Lily applies a Shield, inflict [{Poison}:Arg2] stacks of {Poison} on the enemy with the highest HP. Exalt makes each hit received this turn increases the {Endure} consumption effect of the next {Strike to Protect} by 40%, stacking up to 5 times."
+        "descriptionTemplate": "Lily gains [Energy:Arg1] Aliemus. {Rouse}: At turn start, gain {Endure} equal to 10% of Max HP. When Lily generates Shield, inflict [{Poison}:Arg2] stacks of {Poison} on the enemy with the highest HP. Exalt makes each hit received this turn increases the {Endure} consumption effect of the next {Strike to Protect} by 40%, stacking up to 5 times."
       }
     }
   ],

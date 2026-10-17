@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "awakeners",
   "kind": "awakener",
-  "recordCount": 61,
+  "recordCount": 62,
   "records": [
     {
       "kind": "awakener",
@@ -789,7 +789,7 @@
         "DamageAmplification": 0.8,
         "DeathResistance": 0
       },
-      "lineupToken": "xg",
+      "lineupToken": "xf",
       "aliases": ["doresain"],
       "searchTags": ["Vulnerable", "STR Up", "Pierce DMG", "Self-Damage"]
     },
@@ -1178,7 +1178,7 @@
       },
       "lineupToken": "e",
       "aliases": ["goliath"],
-      "searchTags": ["STR Up", "Tentacle DMG", "Dispel", "Lemurian", "Tentacle Generation"]
+      "searchTags": ["STR Up", "Tentacle DMG", "Lemurian", "Tentacle Generation"]
     },
     {
       "kind": "awakener",
@@ -1234,7 +1234,7 @@
       },
       "lineupToken": "X",
       "aliases": ["hameln"],
-      "searchTags": ["Weakness", "Vulnerable", "Poison", "Bleed", "STR Up", "STR Down", "Pierce DMG", "Arithmetica"]
+      "searchTags": ["Weakness", "Vulnerable", "Poison", "Bleed", "STR Up", "STR Down", "Steal STR", "Pierce DMG", "Arithmetica"]
     },
     {
       "kind": "awakener",
@@ -1855,7 +1855,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 5.6
       },
-      "lineupToken": "xf",
+      "lineupToken": "xe",
       "aliases": ["mouchette"],
       "searchTags": ["Stun", "Pursuit", "Death Resistance", "Strike"]
     },
@@ -2189,7 +2189,7 @@
       },
       "lineupToken": "b",
       "aliases": ["pandia"],
-      "searchTags": ["Vulnerable", "Counter", "STR Up"]
+      "searchTags": ["Vulnerable", "Counter", "STR Up", "Steal STR"]
     },
     {
       "kind": "awakener",
@@ -3022,7 +3022,7 @@
         "DamageAmplification": 1.6,
         "DeathResistance": 2.8
       },
-      "lineupToken": "xh",
+      "lineupToken": "xg",
       "aliases": ["xu"],
       "searchTags": ["Poison", "STR Down", "Arithmetica", "Max HP DMG"]
     },
@@ -3078,7 +3078,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "xj",
+      "lineupToken": "xi",
       "aliases": ["vortice"],
       "searchTags": ["Tentacle DMG", "Pursuit", "Fixed DMG", "Aftershock", "Dispel", "Divine Realm"]
     },
@@ -3190,7 +3190,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "xi",
+      "lineupToken": "xh",
       "aliases": ["saya"],
       "searchTags": ["Discard", "Corrosion", "Divine Realm", "Self-Damage"]
     },
@@ -3246,7 +3246,7 @@
         "DamageAmplification": 0.8,
         "DeathResistance": 0
       },
-      "lineupToken": "xo",
+      "lineupToken": "xn",
       "aliases": ["pontos"],
       "searchTags": ["STR Down", "Tentacle DMG", "Fixed DMG", "Dispel", "Divine Realm"]
     },
@@ -3302,7 +3302,7 @@
         "DamageAmplification": 0,
         "DeathResistance": 2.8
       },
-      "lineupToken": "xq",
+      "lineupToken": "xp",
       "aliases": ["lotan cetarchon", "cetarchon", "glotan", "rotan"],
       "searchTags": ["STR Up", "Divine Realm"]
     },
@@ -3414,9 +3414,64 @@
         "DamageAmplification": 0,
         "DeathResistance": 0
       },
-      "lineupToken": "xs",
+      "lineupToken": "xr",
       "aliases": ["ogier oathbound", "genesis ogier", "gogier", "g-ogier"],
       "searchTags": ["STR Up", "STR Down", "Corrosion", "Divine Realm"]
+    },
+    {
+      "kind": "awakener",
+      "id": "awakener-0062",
+      "name": "Vivian",
+      "route": {
+        "slug": "vivian",
+        "canonicalPath": "/database/awakeners/vivian"
+      },
+      "assets": {
+        "icon": "asset-awakener-0062-icon"
+      },
+      "numericId": 62,
+      "ingameId": "C20",
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "availabilityType": "LIMITED_ASTRAL_REIGN",
+      "releaseDate": "2026-10-19",
+      "faction": "TBD",
+      "primaryScalingBase": 20,
+      "defaultPrimaryStatBonusLevel": 10,
+      "baseStatsLv1": {
+        "CON": 35,
+        "ATK": 23,
+        "DEF": 25
+      },
+      "substatsLv1": {
+        "CritRate": 6.6,
+        "CritDamage": 50,
+        "AliemusRegen": 0,
+        "KeyflareRegen": 15,
+        "RealmMastery": 0,
+        "SigilYield": 0.6,
+        "DamageAmplification": 0,
+        "DeathResistance": 0
+      },
+      "statScaling": {
+        "CON": 1.65,
+        "ATK": 1.05,
+        "DEF": 1.15
+      },
+      "substatScaling": {
+        "CritRate": 1.6,
+        "CritDamage": 0,
+        "AliemusRegen": 0,
+        "KeyflareRegen": 0,
+        "RealmMastery": 0,
+        "SigilYield": 0.6,
+        "DamageAmplification": 0,
+        "DeathResistance": 0
+      },
+      "lineupToken": "xs",
+      "aliases": ["vivian"],
+      "searchTags": ["STR Up", "Corrosion", "Divine Realm"]
     }
   ]
 }

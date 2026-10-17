@@ -10,6 +10,6 @@
   "overlayType": "mechanic",
   "aliases": ["Destroyed"],
   "textColor": "misc",
-  "descriptionTemplate": "Remains in deck after battle, but permanently removed once played or consumed.",
+  "descriptionTemplate": "Stays in the deck after battle, but permanently removed once played or consumed.",
   "descriptionArgs": {}
 }

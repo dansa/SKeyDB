@@ -301,6 +301,69 @@ function buildOverlayRecords(): AwakenerOverlayRecord[] {
 }
 
 describe('awakeners-full-resolver', () => {
+  it('shows Vivian basic-card draw references only from E2 without changing their args', async () => {
+    const vivian = await loadPublicAwakenerDetailById('awakener-0062')
+    if (!vivian) throw new Error('Missing public V3 Vivian record')
+    const base = resolveAwakenerFullRecord(vivian, {selectedEnlightenSlot: 'E1'})
+    for (const slot of ['E2', 'E3'] as const) {
+      const upgraded = resolveAwakenerFullRecord(vivian, {selectedEnlightenSlot: slot})
+      for (const id of ['skill.vivian.strike', 'skill.vivian.defense']) {
+        const before = [
+          base.record.cards.C1,
+          base.record.cards.C2,
+          base.record.cards.C3,
+          base.record.cards.C4,
+          base.record.cards.C5,
+        ].find((card) => card.id === id)
+        const after = [
+          upgraded.record.cards.C1,
+          upgraded.record.cards.C2,
+          upgraded.record.cards.C3,
+          upgraded.record.cards.C4,
+          upgraded.record.cards.C5,
+        ].find((card) => card.id === id)
+        if (!before || !after) throw new Error(`Missing Vivian basic card: ${id}`)
+        expect(before.descriptionTemplate).not.toContain('Unclean Toad God')
+        expect(after.descriptionTemplate).toBe(
+          `${before.descriptionTemplate}\n{overlay:Unclean Toad God}`,
+        )
+        expect(after.descriptionArgs).toEqual(before.descriptionArgs)
+        expect(after.cardTypes).toEqual(before.cardTypes)
+        expect(after.cardKeywords).toEqual(before.cardKeywords)
+      }
+    }
+  })
+
+  it('preserves Vivian corrosion scaling and cumulative Exalt/Potions upgrades', async () => {
+    const vivian = await loadPublicAwakenerDetailById('awakener-0062')
+    if (!vivian) throw new Error('Missing public V3 Vivian record')
+
+    const resolved = resolveAwakenerFullRecord(
+      vivian,
+      {selectedEnlightenSlot: 'E3'},
+      getAwakenerOverlays(),
+    )
+    const soup = [
+      resolved.record.cards.C1,
+      resolved.record.cards.C2,
+      resolved.record.cards.C3,
+      resolved.record.cards.C4,
+      resolved.record.cards.C5,
+    ].find((card) => card.id === 'skill.vivian.soup-rains-from-above')
+    expect(soup?.descriptionArgs.Arg1).toMatchObject({
+      values: ['5000', '6000', '7000', '8000', '9000', '10000'],
+      stat: 'ATK',
+    })
+    expect(soup?.descriptionArgs.Arg2).toMatchObject({
+      value: '1100',
+      substatBonus: {substat: 'CritRate', multiplier: '5', mode: 'additive'},
+    })
+    expect(resolved.record.cards.Exalt.descriptionTemplate).toContain('Unclean Toad God')
+    expect(resolved.overlayOverridesById['overlay.vivian.potions'].descriptionTemplate).toContain(
+      '10%',
+    )
+  })
+
   it('treats selected enlighten slot as cumulative through that slot', () => {
     const resolved = resolveAwakenerFullRecord(
       buildRecord(),

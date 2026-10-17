@@ -31,7 +31,7 @@
       "ownerAwakenerId": "awakener-0047",
       "ownerAwakenerName": "Tawil",
       "patch": {
-        "descriptionTemplate": "This turn, the Final DMG of your Command Cards is increased by 15%. Gain [Arg1] Keyflare. {Discover} 5 Skill Cards from the current Realm, choose up to 3 to place into hand and treat them as Tawil's cards; these cards gain {Exhaust}, {Prepare 1}, and {Retain}. The next Command Card Tawil plays takes effect 1 additional time."
+        "descriptionTemplate": "This turn, the Final DMG of your Command Cards +15%. Gain [Arg1] Keyflare. {Discover} 5 Skill Cards from the current Realm, choose up to 3 to place into hand and treat them as Tawil's cards; these cards gain {Exhaust}, {Prepare 1}, and {Retain}. The next Command Card Tawil plays takes effect 1 additional time."
       }
     }
   ],

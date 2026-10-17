@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 3,
+  "kind": "overlay",
+  "id": "overlay.global.diagnostic-records",
+  "name": "Diagnostic Records",
+  "route": {
+    "slug": "diagnostic-records",
+    "canonicalPath": "/database/overlays/diagnostic-records"
+  },
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "Each stack makes their \"Command Cards\" count as having [DescArg2] {plural:[DescArg2]|stack|stacks} of {Enhance}, stacking up to 5 times.\nWhen a total of 5/10/15/20/25 stacks have been gained in this exploration, generate 1 {derived:Insect Taxidermy} and permanently add it to the deck. (Total gained: [DescArg3])",
+  "descriptionArgs": {
+    "DescArg2": {
+      "kind": "scaling",
+      "values": ["4", "6", "8", "10"],
+      "scalingContext": "wheelRefinement"
+    },
+    "DescArg3": {
+      "kind": "fixed",
+      "value": "X",
+      "displayFormula": "runtime value"
+    }
+  }
+}

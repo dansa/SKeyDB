@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 3,
+  "kind": "enlighten",
+  "id": "enlighten.vivian.heir-to-the-throne",
+  "name": "Heir to the Throne",
+  "route": {
+    "slug": "heir-to-the-throne",
+    "canonicalPath": "/database/awakeners/vivian/enlightens/heir-to-the-throne"
+  },
+  "ownerAwakenerId": "awakener-0062",
+  "slot": "E1",
+  "descriptionTemplate": "The {STR} scaling of {Soup Rains from Above} is increased by 100%, plus an additional 5% for every 1% Crit Rate from Vivian herself, her WoD, and her Covenant. {Whatever's at Hand} grants the selected Awakener +10% Temporary Crit Rate, plus an additional 0.3% for every 1% Crit Rate from Vivian herself, her WoD, and her Covenant. This effect is boosted by {Boiling Anger}.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Vivian"
+}

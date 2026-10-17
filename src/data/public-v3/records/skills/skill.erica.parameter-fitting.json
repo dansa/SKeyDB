@@ -11,7 +11,7 @@
   "slot": "Rouse",
   "cardFamily": "rouse",
   "cardTypes": ["rouse"],
-  "descriptionTemplate": "Erica gains [Energy:Arg1] Aliemus. {Rouse}: When Erica deals DMG, she Gains [Power:Arg2] Temporary {STR}; when Erica applies a Shield, she Gains [Arg3] Temporary {Alert}.",
+  "descriptionTemplate": "Erica gains [Energy:Arg1] Aliemus. {Rouse}: When Erica deals DMG, she Gains [Power:Arg2] Temporary {STR}; when Erica generates Shield, she Gains [Arg3] Temporary {Alert}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -47,7 +47,7 @@
       "ownerAwakenerId": "awakener-0015",
       "ownerAwakenerName": "Erica",
       "patch": {
-        "descriptionTemplate": "Erica gains [Energy:Arg1] Aliemus. {Rouse}: When Erica deals DMG, she gains [Power:Arg2] Temporary {STR}; when Erica applies a Shield, she gains [Arg3] Temporary {Alert}. After Erica unleashes Exalt, her Exalt additionaly enjoys a 1× {STR} and {Alert} bonuses."
+        "descriptionTemplate": "Erica gains [Energy:Arg1] Aliemus. {Rouse}: When Erica deals DMG, she gains [Power:Arg2] Temporary {STR}; when Erica generates Shield, she gains [Arg3] Temporary {Alert}. After Erica unleashes Exalt, her Exalt additionaly enjoys a 1× {STR} and {Alert} bonuses."
       }
     }
   ],

@@ -9,7 +9,7 @@
   },
   "cardFamily": "buff",
   "cardTypes": ["buff"],
-  "descriptionTemplate": "Draw 2 cards and gain 2 Arithmetica.",
+  "descriptionTemplate": "Gain 2 Arithmetica, draw 2 cards.",
   "descriptionArgs": {},
   "cardKeywords": [
     {

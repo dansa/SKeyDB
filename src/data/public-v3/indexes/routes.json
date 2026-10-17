@@ -344,6 +344,12 @@
         "canonicalSlug": "uvhash",
         "canonicalPath": "/database/awakeners/uvhash"
       },
+      "vivian": {
+        "kind": "awakener",
+        "id": "awakener-0062",
+        "canonicalSlug": "vivian",
+        "canonicalPath": "/database/awakeners/vivian"
+      },
       "vortice": {
         "kind": "awakener",
         "id": "awakener-0055",
@@ -772,6 +778,12 @@
         "canonicalSlug": "hypnotic-pendulum",
         "canonicalPath": "/database/wheels/hypnotic-pendulum"
       },
+      "imagos-clinic": {
+        "kind": "wheel",
+        "id": "wheel-0183",
+        "canonicalSlug": "imagos-clinic",
+        "canonicalPath": "/database/wheels/imagos-clinic"
+      },
       "impending-sun": {
         "kind": "wheel",
         "id": "wheel-0116",
@@ -1012,6 +1024,12 @@
         "canonicalSlug": "shadowed-by-the-past",
         "canonicalPath": "/database/wheels/shadowed-by-the-past"
       },
+      "she-and-her-tree-hole": {
+        "kind": "wheel",
+        "id": "wheel-0182",
+        "canonicalSlug": "she-and-her-tree-hole",
+        "canonicalPath": "/database/wheels/she-and-her-tree-hole"
+      },
       "shepherds-staff": {
         "kind": "wheel",
         "id": "wheel-0106",
@@ -1131,6 +1149,12 @@
         "id": "wheel-0171",
         "canonicalSlug": "the-living-cage",
         "canonicalPath": "/database/wheels/the-living-cage"
+      },
+      "the-seers-riddle": {
+        "kind": "wheel",
+        "id": "wheel-0181",
+        "canonicalSlug": "the-seers-riddle",
+        "canonicalPath": "/database/wheels/the-seers-riddle"
       },
       "thirsting-brush": {
         "kind": "wheel",
@@ -3527,6 +3551,12 @@
         "id": "posse-0020",
         "canonicalSlug": "miracles-dawn",
         "canonicalPath": "/database/posses/miracles-dawn"
+      },
+      "nightborn-evil": {
+        "kind": "posse",
+        "id": "posse-0064",
+        "canonicalSlug": "nightborn-evil",
+        "canonicalPath": "/database/posses/nightborn-evil"
       },
       "obsession-eternal": {
         "kind": "posse",
@@ -6140,6 +6170,48 @@
         "canonicalSlug": "vermilion-rite",
         "canonicalPath": "/database/awakeners/uvhash/skills/vermilion-rite"
       },
+      "vivian/defense": {
+        "kind": "skill",
+        "id": "skill.vivian.defense",
+        "canonicalSlug": "defense",
+        "canonicalPath": "/database/awakeners/vivian/skills/defense"
+      },
+      "vivian/parchment-scroll": {
+        "kind": "skill",
+        "id": "skill.vivian.parchment-scroll",
+        "canonicalSlug": "parchment-scroll",
+        "canonicalPath": "/database/awakeners/vivian/skills/parchment-scroll"
+      },
+      "vivian/soup-rains-from-above": {
+        "kind": "skill",
+        "id": "skill.vivian.soup-rains-from-above",
+        "canonicalSlug": "soup-rains-from-above",
+        "canonicalPath": "/database/awakeners/vivian/skills/soup-rains-from-above"
+      },
+      "vivian/strike": {
+        "kind": "skill",
+        "id": "skill.vivian.strike",
+        "canonicalSlug": "strike",
+        "canonicalPath": "/database/awakeners/vivian/skills/strike"
+      },
+      "vivian/the-satiated-darkness": {
+        "kind": "skill",
+        "id": "skill.vivian.the-satiated-darkness",
+        "canonicalSlug": "the-satiated-darkness",
+        "canonicalPath": "/database/awakeners/vivian/skills/the-satiated-darkness"
+      },
+      "vivian/the-sleeper-of-heaths": {
+        "kind": "skill",
+        "id": "skill.vivian.the-sleeper-of-heaths",
+        "canonicalSlug": "the-sleeper-of-heaths",
+        "canonicalPath": "/database/awakeners/vivian/skills/the-sleeper-of-heaths"
+      },
+      "vivian/whatevers-at-hand": {
+        "kind": "skill",
+        "id": "skill.vivian.whatevers-at-hand",
+        "canonicalSlug": "whatevers-at-hand",
+        "canonicalPath": "/database/awakeners/vivian/skills/whatevers-at-hand"
+      },
       "vortice/abyssal-vortex-cannon": {
         "kind": "skill",
         "id": "skill.vortice.abyssal-vortex-cannon",
@@ -6958,11 +7030,23 @@
         "canonicalSlug": "ichigo-ichie",
         "canonicalPath": "/database/derived-skills/ichigo-ichie"
       },
+      "imagos-clinic": {
+        "kind": "derivedSkill",
+        "id": "derived.global.imagos-clinic",
+        "canonicalSlug": "imagos-clinic",
+        "canonicalPath": "/database/derived-skills/imagos-clinic"
+      },
       "infinite-silver-vault": {
         "kind": "derivedSkill",
         "id": "derived.global.infinite-silver-vault",
         "canonicalSlug": "infinite-silver-vault",
         "canonicalPath": "/database/derived-skills/infinite-silver-vault"
+      },
+      "insect-taxidermy": {
+        "kind": "derivedSkill",
+        "id": "derived.global.insect-taxidermy",
+        "canonicalSlug": "insect-taxidermy",
+        "canonicalPath": "/database/derived-skills/insect-taxidermy"
       },
       "insight": {
         "kind": "derivedSkill",
@@ -7533,6 +7617,12 @@
         "id": "derived.global.vernal-message",
         "canonicalSlug": "vernal-message",
         "canonicalPath": "/database/derived-skills/vernal-message"
+      },
+      "vivian/cauldron": {
+        "kind": "derivedSkill",
+        "id": "derived.vivian.cauldron",
+        "canonicalSlug": "cauldron",
+        "canonicalPath": "/database/awakeners/vivian/derived-skills/cauldron"
       },
       "vortice/vortex-shell": {
         "kind": "derivedSkill",
@@ -8867,6 +8957,30 @@
         "id": "talent.uvhash.soulforge-aptitude",
         "canonicalSlug": "soulforge-aptitude",
         "canonicalPath": "/database/awakeners/uvhash/talents/soulforge-aptitude"
+      },
+      "vivian/gnostic-potential": {
+        "kind": "talent",
+        "id": "talent.vivian.gnostic-potential",
+        "canonicalSlug": "gnostic-potential",
+        "canonicalPath": "/database/awakeners/vivian/talents/gnostic-potential"
+      },
+      "vivian/madness-omen": {
+        "kind": "talent",
+        "id": "talent.vivian.madness-omen",
+        "canonicalSlug": "madness-omen",
+        "canonicalPath": "/database/awakeners/vivian/talents/madness-omen"
+      },
+      "vivian/primordial-breath": {
+        "kind": "talent",
+        "id": "talent.vivian.primordial-breath",
+        "canonicalSlug": "primordial-breath",
+        "canonicalPath": "/database/awakeners/vivian/talents/primordial-breath"
+      },
+      "vivian/soulforge-aptitude": {
+        "kind": "talent",
+        "id": "talent.vivian.soulforge-aptitude",
+        "canonicalSlug": "soulforge-aptitude",
+        "canonicalPath": "/database/awakeners/vivian/talents/soulforge-aptitude"
       },
       "vortice/gnostic-potential": {
         "kind": "talent",
@@ -10664,6 +10778,36 @@
         "canonicalSlug": "the-gladiator",
         "canonicalPath": "/database/awakeners/uvhash/enlightens/the-gladiator"
       },
+      "vivian/heir-to-the-throne": {
+        "kind": "enlighten",
+        "id": "enlighten.vivian.heir-to-the-throne",
+        "canonicalSlug": "heir-to-the-throne",
+        "canonicalPath": "/database/awakeners/vivian/enlightens/heir-to-the-throne"
+      },
+      "vivian/once-in-a-life-potion": {
+        "kind": "enlighten",
+        "id": "enlighten.vivian.once-in-a-life-potion",
+        "canonicalSlug": "once-in-a-life-potion",
+        "canonicalPath": "/database/awakeners/vivian/enlightens/once-in-a-life-potion"
+      },
+      "vivian/pact-of-the-temple": {
+        "kind": "enlighten",
+        "id": "enlighten.vivian.pact-of-the-temple",
+        "canonicalSlug": "pact-of-the-temple",
+        "canonicalPath": "/database/awakeners/vivian/enlightens/pact-of-the-temple"
+      },
+      "vivian/the-satiated-darkness": {
+        "kind": "enlighten",
+        "id": "enlighten.vivian.the-satiated-darkness",
+        "canonicalSlug": "the-satiated-darkness",
+        "canonicalPath": "/database/awakeners/vivian/enlightens/the-satiated-darkness"
+      },
+      "vivian/unclean-toad-god": {
+        "kind": "enlighten",
+        "id": "enlighten.vivian.unclean-toad-god",
+        "canonicalSlug": "unclean-toad-god",
+        "canonicalPath": "/database/awakeners/vivian/enlightens/unclean-toad-god"
+      },
       "vortice/bang-pop-boom": {
         "kind": "enlighten",
         "id": "enlighten.vortice.bang-pop-boom",
@@ -10989,6 +11133,18 @@
         "id": "overlay.global.devour",
         "canonicalSlug": "devour",
         "canonicalPath": "/database/overlays/devour"
+      },
+      "diagnosis": {
+        "kind": "overlay",
+        "id": "overlay.global.diagnosis",
+        "canonicalSlug": "diagnosis",
+        "canonicalPath": "/database/overlays/diagnosis"
+      },
+      "diagnostic-records": {
+        "kind": "overlay",
+        "id": "overlay.global.diagnostic-records",
+        "canonicalSlug": "diagnostic-records",
+        "canonicalPath": "/database/overlays/diagnostic-records"
       },
       "dimension-shuttle": {
         "kind": "overlay",
@@ -11661,6 +11817,36 @@
         "id": "overlay.global.usable-x-times",
         "canonicalSlug": "usable-x-times",
         "canonicalPath": "/database/overlays/usable-x-times"
+      },
+      "vivian/boiling-anger": {
+        "kind": "overlay",
+        "id": "overlay.vivian.boiling-anger",
+        "canonicalSlug": "boiling-anger",
+        "canonicalPath": "/database/awakeners/vivian/overlays/boiling-anger"
+      },
+      "vivian/concoct": {
+        "kind": "overlay",
+        "id": "overlay.vivian.concoct",
+        "canonicalSlug": "concoct",
+        "canonicalPath": "/database/awakeners/vivian/overlays/concoct"
+      },
+      "vivian/potions": {
+        "kind": "overlay",
+        "id": "overlay.vivian.potions",
+        "canonicalSlug": "potions",
+        "canonicalPath": "/database/awakeners/vivian/overlays/potions"
+      },
+      "vivian/quality-nap": {
+        "kind": "overlay",
+        "id": "overlay.vivian.quality-nap",
+        "canonicalSlug": "quality-nap",
+        "canonicalPath": "/database/awakeners/vivian/overlays/quality-nap"
+      },
+      "vivian/unclean-toad-god": {
+        "kind": "overlay",
+        "id": "overlay.vivian.unclean-toad-god",
+        "canonicalSlug": "unclean-toad-god",
+        "canonicalPath": "/database/awakeners/vivian/overlays/unclean-toad-god"
       },
       "void": {
         "kind": "overlay",

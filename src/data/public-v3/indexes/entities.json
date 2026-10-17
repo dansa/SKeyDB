@@ -1038,6 +1038,23 @@
       "availabilityType": "LIMITED_ASTRAL_REIGN",
       "releaseDate": "2026-09-21"
     },
+    "awakener-0062": {
+      "kind": "awakener",
+      "id": "awakener-0062",
+      "name": "Vivian",
+      "route": {
+        "slug": "vivian",
+        "canonicalPath": "/database/awakeners/vivian"
+      },
+      "assets": {
+        "icon": "asset-awakener-0062-icon"
+      },
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "type": "CHORUS",
+      "availabilityType": "LIMITED_ASTRAL_REIGN",
+      "releaseDate": "2026-10-19"
+    },
     "awakener-build-0001": {
       "kind": "awakenerBuild",
       "id": "awakener-build-0001",
@@ -2980,6 +2997,15 @@
         "canonicalPath": "/database/derived-skills/ichigo-ichie"
       }
     },
+    "derived.global.imagos-clinic": {
+      "kind": "derivedSkill",
+      "id": "derived.global.imagos-clinic",
+      "name": "Imago's Clinic",
+      "route": {
+        "slug": "imagos-clinic",
+        "canonicalPath": "/database/derived-skills/imagos-clinic"
+      }
+    },
     "derived.global.infinite-silver-vault": {
       "kind": "derivedSkill",
       "id": "derived.global.infinite-silver-vault",
@@ -2987,6 +3013,15 @@
       "route": {
         "slug": "infinite-silver-vault",
         "canonicalPath": "/database/derived-skills/infinite-silver-vault"
+      }
+    },
+    "derived.global.insect-taxidermy": {
+      "kind": "derivedSkill",
+      "id": "derived.global.insect-taxidermy",
+      "name": "Insect Taxidermy",
+      "route": {
+        "slug": "insect-taxidermy",
+        "canonicalPath": "/database/derived-skills/insect-taxidermy"
       }
     },
     "derived.global.insight": {
@@ -4049,6 +4084,17 @@
       },
       "ownerAwakenerId": "awakener-0048",
       "ownerAwakenerName": "Thais"
+    },
+    "derived.vivian.cauldron": {
+      "kind": "derivedSkill",
+      "id": "derived.vivian.cauldron",
+      "name": "Cauldron",
+      "route": {
+        "slug": "cauldron",
+        "canonicalPath": "/database/awakeners/vivian/derived-skills/cauldron"
+      },
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian"
     },
     "derived.vortice.vortex-shell": {
       "kind": "derivedSkill",
@@ -7536,6 +7582,66 @@
       "ownerAwakenerName": "Uvhash",
       "slot": "E1"
     },
+    "enlighten.vivian.heir-to-the-throne": {
+      "kind": "enlighten",
+      "id": "enlighten.vivian.heir-to-the-throne",
+      "name": "Heir to the Throne",
+      "route": {
+        "slug": "heir-to-the-throne",
+        "canonicalPath": "/database/awakeners/vivian/enlightens/heir-to-the-throne"
+      },
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "slot": "E1"
+    },
+    "enlighten.vivian.once-in-a-life-potion": {
+      "kind": "enlighten",
+      "id": "enlighten.vivian.once-in-a-life-potion",
+      "name": "Once-in-a-Life Potion",
+      "route": {
+        "slug": "once-in-a-life-potion",
+        "canonicalPath": "/database/awakeners/vivian/enlightens/once-in-a-life-potion"
+      },
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "slot": "AbsoluteAxiom"
+    },
+    "enlighten.vivian.pact-of-the-temple": {
+      "kind": "enlighten",
+      "id": "enlighten.vivian.pact-of-the-temple",
+      "name": "Pact of the Temple",
+      "route": {
+        "slug": "pact-of-the-temple",
+        "canonicalPath": "/database/awakeners/vivian/enlightens/pact-of-the-temple"
+      },
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "slot": "E3"
+    },
+    "enlighten.vivian.the-satiated-darkness": {
+      "kind": "enlighten",
+      "id": "enlighten.vivian.the-satiated-darkness",
+      "name": "The Satiated Darkness",
+      "route": {
+        "slug": "the-satiated-darkness",
+        "canonicalPath": "/database/awakeners/vivian/enlightens/the-satiated-darkness"
+      },
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "slot": "OverExalt"
+    },
+    "enlighten.vivian.unclean-toad-god": {
+      "kind": "enlighten",
+      "id": "enlighten.vivian.unclean-toad-god",
+      "name": "Unclean Toad God",
+      "route": {
+        "slug": "unclean-toad-god",
+        "canonicalPath": "/database/awakeners/vivian/enlightens/unclean-toad-god"
+      },
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "slot": "E2"
+    },
     "enlighten.vortice.bang-pop-boom": {
       "kind": "enlighten",
       "id": "enlighten.vortice.bang-pop-boom",
@@ -8590,6 +8696,26 @@
       "route": {
         "slug": "devour",
         "canonicalPath": "/database/overlays/devour"
+      },
+      "overlayType": "mechanic"
+    },
+    "overlay.global.diagnosis": {
+      "kind": "overlay",
+      "id": "overlay.global.diagnosis",
+      "name": "Diagnosis",
+      "route": {
+        "slug": "diagnosis",
+        "canonicalPath": "/database/overlays/diagnosis"
+      },
+      "overlayType": "mechanic"
+    },
+    "overlay.global.diagnostic-records": {
+      "kind": "overlay",
+      "id": "overlay.global.diagnostic-records",
+      "name": "Diagnostic Records",
+      "route": {
+        "slug": "diagnostic-records",
+        "canonicalPath": "/database/overlays/diagnostic-records"
       },
       "overlayType": "mechanic"
     },
@@ -9882,6 +10008,72 @@
       "ownerAwakenerName": "Tulu",
       "overlayType": "mechanic"
     },
+    "overlay.vivian.boiling-anger": {
+      "kind": "overlay",
+      "id": "overlay.vivian.boiling-anger",
+      "name": "Boiling Anger",
+      "route": {
+        "slug": "boiling-anger",
+        "canonicalPath": "/database/awakeners/vivian/overlays/boiling-anger"
+      },
+      "assets": {
+        "icon": "asset-overlay.vivian.boiling-anger-icon"
+      },
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "overlayType": "mechanic"
+    },
+    "overlay.vivian.concoct": {
+      "kind": "overlay",
+      "id": "overlay.vivian.concoct",
+      "name": "Concoct",
+      "route": {
+        "slug": "concoct",
+        "canonicalPath": "/database/awakeners/vivian/overlays/concoct"
+      },
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "overlayType": "tag"
+    },
+    "overlay.vivian.potions": {
+      "kind": "overlay",
+      "id": "overlay.vivian.potions",
+      "name": "Potions",
+      "route": {
+        "slug": "potions",
+        "canonicalPath": "/database/awakeners/vivian/overlays/potions"
+      },
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "overlayType": "tag"
+    },
+    "overlay.vivian.quality-nap": {
+      "kind": "overlay",
+      "id": "overlay.vivian.quality-nap",
+      "name": "Quality Nap",
+      "route": {
+        "slug": "quality-nap",
+        "canonicalPath": "/database/awakeners/vivian/overlays/quality-nap"
+      },
+      "assets": {
+        "icon": "asset-overlay.vivian.quality-nap-icon"
+      },
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "overlayType": "tag"
+    },
+    "overlay.vivian.unclean-toad-god": {
+      "kind": "overlay",
+      "id": "overlay.vivian.unclean-toad-god",
+      "name": "Unclean Toad God",
+      "route": {
+        "slug": "unclean-toad-god",
+        "canonicalPath": "/database/awakeners/vivian/overlays/unclean-toad-god"
+      },
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "overlayType": "tag"
+    },
     "overlay.vortice.vortex-reload": {
       "kind": "overlay",
       "id": "overlay.vortice.vortex-reload",
@@ -10994,6 +11186,23 @@
       "realm": "CHAOS",
       "ownerAwakenerId": "awakener-0061",
       "ownerAwakenerName": "Ogier: Oathbound"
+    },
+    "posse-0064": {
+      "kind": "posse",
+      "id": "posse-0064",
+      "name": "Nightborn Evil",
+      "route": {
+        "slug": "nightborn-evil",
+        "canonicalPath": "/database/posses/nightborn-evil"
+      },
+      "assets": {
+        "icon": "asset-posse-0064-icon",
+        "crystal": "asset-posse-0064-crystal",
+        "badge": "asset-posse-0064-badge"
+      },
+      "realm": "CHAOS",
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian"
     },
     "relic-0001": {
       "kind": "relic",
@@ -19875,6 +20084,90 @@
       "ownerAwakenerName": "Uvhash",
       "slot": "Rouse"
     },
+    "skill.vivian.defense": {
+      "kind": "skill",
+      "id": "skill.vivian.defense",
+      "name": "Defense",
+      "route": {
+        "slug": "defense",
+        "canonicalPath": "/database/awakeners/vivian/skills/defense"
+      },
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "slot": "Defense"
+    },
+    "skill.vivian.parchment-scroll": {
+      "kind": "skill",
+      "id": "skill.vivian.parchment-scroll",
+      "name": "Parchment Scroll",
+      "route": {
+        "slug": "parchment-scroll",
+        "canonicalPath": "/database/awakeners/vivian/skills/parchment-scroll"
+      },
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "slot": "Rouse"
+    },
+    "skill.vivian.soup-rains-from-above": {
+      "kind": "skill",
+      "id": "skill.vivian.soup-rains-from-above",
+      "name": "Soup Rains from Above",
+      "route": {
+        "slug": "soup-rains-from-above",
+        "canonicalPath": "/database/awakeners/vivian/skills/soup-rains-from-above"
+      },
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "slot": "Skill1"
+    },
+    "skill.vivian.strike": {
+      "kind": "skill",
+      "id": "skill.vivian.strike",
+      "name": "Strike",
+      "route": {
+        "slug": "strike",
+        "canonicalPath": "/database/awakeners/vivian/skills/strike"
+      },
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "slot": "Strike"
+    },
+    "skill.vivian.the-satiated-darkness": {
+      "kind": "skill",
+      "id": "skill.vivian.the-satiated-darkness",
+      "name": "The Satiated Darkness",
+      "route": {
+        "slug": "the-satiated-darkness",
+        "canonicalPath": "/database/awakeners/vivian/skills/the-satiated-darkness"
+      },
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "slot": "OverExalt"
+    },
+    "skill.vivian.the-sleeper-of-heaths": {
+      "kind": "skill",
+      "id": "skill.vivian.the-sleeper-of-heaths",
+      "name": "The Sleeper of Heaths",
+      "route": {
+        "slug": "the-sleeper-of-heaths",
+        "canonicalPath": "/database/awakeners/vivian/skills/the-sleeper-of-heaths"
+      },
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "slot": "Exalt"
+    },
+    "skill.vivian.whatevers-at-hand": {
+      "kind": "skill",
+      "id": "skill.vivian.whatevers-at-hand",
+      "name": "Whatever's at Hand",
+      "route": {
+        "slug": "whatevers-at-hand",
+        "canonicalPath": "/database/awakeners/vivian/skills/whatevers-at-hand"
+      },
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "slot": "Skill2"
+    },
     "skill.vortice.abyssal-vortex-cannon": {
       "kind": "skill",
       "id": "skill.vortice.abyssal-vortex-cannon",
@@ -23004,6 +23297,58 @@
       "family": "soulforge_aptitude",
       "maxLevel": 10
     },
+    "talent.vivian.gnostic-potential": {
+      "kind": "talent",
+      "id": "talent.vivian.gnostic-potential",
+      "name": "Gnostic Potential",
+      "route": {
+        "slug": "gnostic-potential",
+        "canonicalPath": "/database/awakeners/vivian/talents/gnostic-potential"
+      },
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "family": "gnostic_potential",
+      "maxLevel": 5,
+      "defaultMaxed": true
+    },
+    "talent.vivian.madness-omen": {
+      "kind": "talent",
+      "id": "talent.vivian.madness-omen",
+      "name": "Madness Omen",
+      "route": {
+        "slug": "madness-omen",
+        "canonicalPath": "/database/awakeners/vivian/talents/madness-omen"
+      },
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    "talent.vivian.primordial-breath": {
+      "kind": "talent",
+      "id": "talent.vivian.primordial-breath",
+      "name": "Primordial Breath",
+      "route": {
+        "slug": "primordial-breath",
+        "canonicalPath": "/database/awakeners/vivian/talents/primordial-breath"
+      },
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "family": "passive"
+    },
+    "talent.vivian.soulforge-aptitude": {
+      "kind": "talent",
+      "id": "talent.vivian.soulforge-aptitude",
+      "name": "Soulforge Aptitude",
+      "route": {
+        "slug": "soulforge-aptitude",
+        "canonicalPath": "/database/awakeners/vivian/talents/soulforge-aptitude"
+      },
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
     "talent.vortice.gnostic-potential": {
       "kind": "talent",
       "id": "talent.vortice.gnostic-potential",
@@ -25370,7 +25715,7 @@
     "wheel-0169": {
       "kind": "wheel",
       "id": "wheel-0169",
-      "name": "Compass to False North",
+      "name": "The Errant Compass",
       "route": {
         "slug": "compass-to-false-north",
         "canonicalPath": "/database/wheels/compass-to-false-north"
@@ -25404,7 +25749,7 @@
     "wheel-0171": {
       "kind": "wheel",
       "id": "wheel-0171",
-      "name": "The Living Cage",
+      "name": "Living Cage",
       "route": {
         "slug": "the-living-cage",
         "canonicalPath": "/database/wheels/the-living-cage"
@@ -25564,6 +25909,55 @@
       "realm": "NEUTRAL",
       "rarity": "SSR",
       "mainstatKey": "CRIT_RATE"
+    },
+    "wheel-0181": {
+      "kind": "wheel",
+      "id": "wheel-0181",
+      "name": "The Seer's Riddle",
+      "route": {
+        "slug": "the-seers-riddle",
+        "canonicalPath": "/database/wheels/the-seers-riddle"
+      },
+      "assets": {
+        "icon": "asset-wheel-0181-icon"
+      },
+      "realm": "CHAOS",
+      "rarity": "SSR",
+      "mainstatKey": "CRIT_RATE",
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian"
+    },
+    "wheel-0182": {
+      "kind": "wheel",
+      "id": "wheel-0182",
+      "name": "She and Her Tree Hole",
+      "route": {
+        "slug": "she-and-her-tree-hole",
+        "canonicalPath": "/database/wheels/she-and-her-tree-hole"
+      },
+      "assets": {
+        "icon": "asset-wheel-0182-icon"
+      },
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "mainstatKey": "CRIT_RATE",
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian"
+    },
+    "wheel-0183": {
+      "kind": "wheel",
+      "id": "wheel-0183",
+      "name": "Imago's Clinic",
+      "route": {
+        "slug": "imagos-clinic",
+        "canonicalPath": "/database/wheels/imagos-clinic"
+      },
+      "assets": {
+        "icon": "asset-wheel-0183-icon"
+      },
+      "realm": "NEUTRAL",
+      "rarity": "SSR",
+      "mainstatKey": "CRIT_RATE"
     }
   },
   "scopes": {
@@ -25686,7 +26080,8 @@
       "awakener-0058",
       "awakener-0059",
       "awakener-0060",
-      "awakener-0061"
+      "awakener-0061",
+      "awakener-0062"
     ],
     "covenants": [
       "covenant-0001",
@@ -25811,7 +26206,9 @@
       "derived.global.hanafubuki",
       "derived.global.hide-beta",
       "derived.global.ichigo-ichie",
+      "derived.global.imagos-clinic",
       "derived.global.infinite-silver-vault",
+      "derived.global.insect-taxidermy",
       "derived.global.insight",
       "derived.global.inspire-offsprings",
       "derived.global.leahs-coin",
@@ -25916,6 +26313,7 @@
       "derived.thais.blood-of-decay",
       "derived.thais.blood-of-fear",
       "derived.thais.scion-of-purity",
+      "derived.vivian.cauldron",
       "derived.vortice.vortex-shell",
       "derived.wanda.echoes-of-whispers",
       "derived.wanda.hypnotic-veins",
@@ -26209,6 +26607,11 @@
       "enlighten.uvhash.roman-elegy",
       "enlighten.uvhash.sorcerers-end",
       "enlighten.uvhash.the-gladiator",
+      "enlighten.vivian.heir-to-the-throne",
+      "enlighten.vivian.once-in-a-life-potion",
+      "enlighten.vivian.pact-of-the-temple",
+      "enlighten.vivian.the-satiated-darkness",
+      "enlighten.vivian.unclean-toad-god",
       "enlighten.vortice.bang-pop-boom",
       "enlighten.vortice.endless-tide",
       "enlighten.vortice.moskstraumen-boom",
@@ -26296,6 +26699,8 @@
       "overlay.global.delayed-sacrifice",
       "overlay.global.destroy",
       "overlay.global.devour",
+      "overlay.global.diagnosis",
+      "overlay.global.diagnostic-records",
       "overlay.global.dimension-shuttle",
       "overlay.global.discover",
       "overlay.global.divine-realm-aequor",
@@ -26406,6 +26811,11 @@
       "overlay.ryker.winner-takes-all",
       "overlay.saya.gynoecium",
       "overlay.tulu.the-stars-are-right",
+      "overlay.vivian.boiling-anger",
+      "overlay.vivian.concoct",
+      "overlay.vivian.potions",
+      "overlay.vivian.quality-nap",
+      "overlay.vivian.unclean-toad-god",
       "overlay.vortice.vortex-reload",
       "overlay.wanda.dreamlure",
       "overlay.wanda.murmurs",
@@ -26476,7 +26886,8 @@
       "posse-0060",
       "posse-0061",
       "posse-0062",
-      "posse-0063"
+      "posse-0063",
+      "posse-0064"
     ],
     "relics": [
       "relic-0001",
@@ -27187,6 +27598,13 @@
       "skill.uvhash.screech-blood",
       "skill.uvhash.strike",
       "skill.uvhash.vermilion-rite",
+      "skill.vivian.defense",
+      "skill.vivian.parchment-scroll",
+      "skill.vivian.soup-rains-from-above",
+      "skill.vivian.strike",
+      "skill.vivian.the-satiated-darkness",
+      "skill.vivian.the-sleeper-of-heaths",
+      "skill.vivian.whatevers-at-hand",
       "skill.vortice.abyssal-vortex-cannon",
       "skill.vortice.charge",
       "skill.vortice.defense",
@@ -27433,6 +27851,10 @@
       "talent.uvhash.gnostic-potential",
       "talent.uvhash.madness-omen",
       "talent.uvhash.soulforge-aptitude",
+      "talent.vivian.gnostic-potential",
+      "talent.vivian.madness-omen",
+      "talent.vivian.primordial-breath",
+      "talent.vivian.soulforge-aptitude",
       "talent.vortice.gnostic-potential",
       "talent.vortice.lightless-bottom",
       "talent.vortice.madness-omen",
@@ -27594,7 +28016,10 @@
       "wheel-0177",
       "wheel-0178",
       "wheel-0179",
-      "wheel-0180"
+      "wheel-0180",
+      "wheel-0181",
+      "wheel-0182",
+      "wheel-0183"
     ]
   }
 }

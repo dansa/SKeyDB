@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.insect-taxidermy",
+  "name": "Insect Taxidermy",
+  "route": {
+    "slug": "insect-taxidermy",
+    "canonicalPath": "/database/derived-skills/insect-taxidermy"
+  },
+  "derivedFromId": "derived.global.imagos-clinic",
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
+  "descriptionTemplate": "From {Primordial Memory}, {Discover} 3 and choose 1 to take effect once; this does not count as using a Posse.",
+  "descriptionArgs": {},
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    },
+    {
+      "id": "mechanic.exhaust"
+    }
+  ],
+  "cost": "0"
+}

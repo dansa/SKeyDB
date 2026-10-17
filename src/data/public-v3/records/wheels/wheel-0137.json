@@ -15,7 +15,7 @@
   "mainstatKey": "KEYFLARE_REGEN",
   "ownerAwakenerId": "awakener-0010",
   "ownerAwakenerName": "Clementine",
-  "lineupToken": "x0",
+  "lineupToken": "x9",
   "descriptionTemplate": "{Team Unique}: Increases the wielder's Keyflare Regen by [StateArg1]%. At the start of the first battle, inflict 1 stack of {Weakness} and {Vulnerable} on all enemies.",
   "descriptionArgs": {
     "StateArg1": {

@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 3,
+  "kind": "overlay",
+  "id": "overlay.global.diagnosis",
+  "name": "Diagnosis",
+  "route": {
+    "slug": "diagnosis",
+    "canonicalPath": "/database/overlays/diagnosis"
+  },
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "This turn, each time the wielder takes Active or {Tentacle DMG}, they gain 1 stack of {Diagnostic Records} at the start of next turn. Each stack makes their \"Command Cards\" count as having [DescArg1] {plural:[DescArg1]|stack|stacks} of {Enhance}, stacking up to 5 times. Removed at turn end.",
+  "descriptionArgs": {
+    "DescArg1": {
+      "kind": "scaling",
+      "values": ["4", "6", "8", "10"],
+      "scalingContext": "wheelRefinement"
+    }
+  }
+}

@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "kind": "wheel",
   "id": "wheel-0169",
-  "name": "Compass to False North",
+  "name": "The Errant Compass",
   "route": {
     "slug": "compass-to-false-north",
     "canonicalPath": "/database/wheels/compass-to-false-north"
@@ -15,7 +15,7 @@
   "mainstatKey": "CRIT_DMG",
   "ownerAwakenerId": "awakener-0058",
   "ownerAwakenerName": "Pontos",
-  "lineupToken": "y2",
+  "lineupToken": "yZ",
   "descriptionTemplate": "{Team Unique}: The wielder's {STR▼} effect +[StateArg1]%. After switching to the {Raging Waves} stance, Temporary Crit. DMG increases by an amount equal to [StateArg1]% of the wielder's Base Crit. DMG, 3-turn cooldown.",
   "descriptionArgs": {
     "StateArg1": {

@@ -1036,6 +1036,23 @@
         ]
       }
     },
+    "asset-awakener-0062-icon": {
+      "id": "asset-awakener-0062-icon",
+      "slot": "icon",
+      "kind": "awakener",
+      "ownerId": "awakener-0062",
+      "assetId": "vivian",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/awk-cards/vivian.webp",
+        "candidates": [
+          "src/assets/awk-cards/vivian.webp",
+          "src/assets/awk-cards/vivian.png",
+          "src/assets/awk-portraits/vivian.webp",
+          "src/assets/awk-portraits/vivian.png"
+        ]
+      }
+    },
     "asset-wheel-0001-icon": {
       "id": "asset-wheel-0001-icon",
       "slot": "icon",
@@ -2786,6 +2803,42 @@
         "status": "available",
         "path": "src/assets/wheels/Weapon_Full_JP11.webp",
         "candidates": ["src/assets/wheels/Weapon_Full_JP11.webp", "src/assets/wheels/Weapon_Full_JP11.png"]
+      }
+    },
+    "asset-wheel-0181-icon": {
+      "id": "asset-wheel-0181-icon",
+      "slot": "icon",
+      "kind": "wheel",
+      "ownerId": "wheel-0181",
+      "assetId": "Weapon_Full_C20",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/wheels/Weapon_Full_C20.webp",
+        "candidates": ["src/assets/wheels/Weapon_Full_C20.webp", "src/assets/wheels/Weapon_Full_C20.png"]
+      }
+    },
+    "asset-wheel-0182-icon": {
+      "id": "asset-wheel-0182-icon",
+      "slot": "icon",
+      "kind": "wheel",
+      "ownerId": "wheel-0182",
+      "assetId": "Weapon_Full_SR52",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/wheels/Weapon_Full_SR52.webp",
+        "candidates": ["src/assets/wheels/Weapon_Full_SR52.webp", "src/assets/wheels/Weapon_Full_SR52.png"]
+      }
+    },
+    "asset-wheel-0183-icon": {
+      "id": "asset-wheel-0183-icon",
+      "slot": "icon",
+      "kind": "wheel",
+      "ownerId": "wheel-0183",
+      "assetId": "Weapon_Full_JP20",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/wheels/Weapon_Full_JP20.webp",
+        "candidates": ["src/assets/wheels/Weapon_Full_JP20.webp", "src/assets/wheels/Weapon_Full_JP20.png"]
       }
     },
     "asset-relic-0001-icon": {
@@ -11413,6 +11466,42 @@
         "candidates": ["src/assets/posse/Icon/KeyToken_Skill_57.webp", "src/assets/posse/Icon/KeyToken_Skill_57.png"]
       }
     },
+    "asset-posse-0064-badge": {
+      "id": "asset-posse-0064-badge",
+      "slot": "badge",
+      "kind": "posse",
+      "ownerId": "posse-0064",
+      "assetId": "KeyToken_Props_59",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/Badge/KeyToken_Props_59.webp",
+        "candidates": ["src/assets/posse/Badge/KeyToken_Props_59.webp", "src/assets/posse/Badge/KeyToken_Props_59.png"]
+      }
+    },
+    "asset-posse-0064-crystal": {
+      "id": "asset-posse-0064-crystal",
+      "slot": "crystal",
+      "kind": "posse",
+      "ownerId": "posse-0064",
+      "assetId": "KeyToken_Crystal_59",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/FullArt/KeyToken_Crystal_59.webp",
+        "candidates": ["src/assets/posse/FullArt/KeyToken_Crystal_59.webp", "src/assets/posse/FullArt/KeyToken_Crystal_59.png"]
+      }
+    },
+    "asset-posse-0064-icon": {
+      "id": "asset-posse-0064-icon",
+      "slot": "icon",
+      "kind": "posse",
+      "ownerId": "posse-0064",
+      "assetId": "KeyToken_Skill_59",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/Icon/KeyToken_Skill_59.webp",
+        "candidates": ["src/assets/posse/Icon/KeyToken_Skill_59.webp", "src/assets/posse/Icon/KeyToken_Skill_59.png"]
+      }
+    },
     "asset-overlay.aigis.petrify-icon": {
       "id": "asset-overlay.aigis.petrify-icon",
       "slot": "icon",
@@ -12181,6 +12270,30 @@
         "candidates": ["src/assets/icons/IconS_Buff_045.webp", "src/assets/icons/IconS_Buff_045.png"]
       }
     },
+    "asset-overlay.vivian.boiling-anger-icon": {
+      "id": "asset-overlay.vivian.boiling-anger-icon",
+      "slot": "icon",
+      "kind": "overlay",
+      "ownerId": "overlay.vivian.boiling-anger",
+      "assetId": "IconS_Buff_097",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/IconS_Buff_097.webp",
+        "candidates": ["src/assets/icons/IconS_Buff_097.webp", "src/assets/icons/IconS_Buff_097.png"]
+      }
+    },
+    "asset-overlay.vivian.quality-nap-icon": {
+      "id": "asset-overlay.vivian.quality-nap-icon",
+      "slot": "icon",
+      "kind": "overlay",
+      "ownerId": "overlay.vivian.quality-nap",
+      "assetId": "IconS_Buff_043",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/IconS_Buff_043.webp",
+        "candidates": ["src/assets/icons/IconS_Buff_043.webp", "src/assets/icons/IconS_Buff_043.png"]
+      }
+    },
     "asset-overlay.vortice.vortex-reload-icon": {
       "id": "asset-overlay.vortice.vortex-reload-icon",
       "slot": "icon",
@@ -12437,6 +12550,9 @@
     },
     "awakener-0061": {
       "icon": "asset-awakener-0061-icon"
+    },
+    "awakener-0062": {
+      "icon": "asset-awakener-0062-icon"
     },
     "wheel-0001": {
       "icon": "asset-wheel-0001-icon"
@@ -12875,6 +12991,15 @@
     },
     "wheel-0180": {
       "icon": "asset-wheel-0180-icon"
+    },
+    "wheel-0181": {
+      "icon": "asset-wheel-0181-icon"
+    },
+    "wheel-0182": {
+      "icon": "asset-wheel-0182-icon"
+    },
+    "wheel-0183": {
+      "icon": "asset-wheel-0183-icon"
     },
     "relic-0001": {
       "icon": "asset-relic-0001-icon"
@@ -14247,6 +14372,11 @@
       "crystal": "asset-posse-0063-crystal",
       "badge": "asset-posse-0063-badge"
     },
+    "posse-0064": {
+      "icon": "asset-posse-0064-icon",
+      "crystal": "asset-posse-0064-crystal",
+      "badge": "asset-posse-0064-badge"
+    },
     "overlay.aigis.petrify": {
       "icon": "asset-overlay.aigis.petrify-icon"
     },
@@ -14438,6 +14568,12 @@
     },
     "overlay.tulu.the-stars-are-right": {
       "icon": "asset-overlay.tulu.the-stars-are-right-icon"
+    },
+    "overlay.vivian.boiling-anger": {
+      "icon": "asset-overlay.vivian.boiling-anger-icon"
+    },
+    "overlay.vivian.quality-nap": {
+      "icon": "asset-overlay.vivian.quality-nap-icon"
     },
     "overlay.vortice.vortex-reload": {
       "icon": "asset-overlay.vortice.vortex-reload-icon"

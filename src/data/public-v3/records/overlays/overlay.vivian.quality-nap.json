@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 3,
+  "kind": "overlay",
+  "id": "overlay.vivian.quality-nap",
+  "name": "Quality Nap",
+  "route": {
+    "slug": "quality-nap",
+    "canonicalPath": "/database/awakeners/vivian/overlays/quality-nap"
+  },
+  "assets": {
+    "icon": "asset-overlay.vivian.quality-nap-icon"
+  },
+  "overlayType": "tag",
+  "ownerAwakenerId": "awakener-0062",
+  "aliases": [],
+  "iconId": "IconS_Buff_043",
+  "textColor": "misc",
+  "descriptionTemplate": "After this effect resolves, the Awakener falls asleep and cannot act for the rest of this turn.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Vivian"
+}

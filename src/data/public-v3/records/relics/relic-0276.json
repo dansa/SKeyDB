@@ -49,7 +49,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "At battle start, apply [Arg1] {Weakness} and {Vulnerable} to all enemies. This effect is also triggered after {Annihilation}, but has a 3 turn cooldown.",
+      "descriptionTemplate": "At battle start, inflict [Arg1] {Weakness} and {Vulnerable} on all enemies. This effect is also triggered after {Annihilation}, but has a 3 turn cooldown.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

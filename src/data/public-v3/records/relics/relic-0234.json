@@ -15,7 +15,7 @@
   "variantCount": 4,
   "defaultVariantId": "relic-variant-0396",
   "aliases": ["Blessed: Pathwalker's Remains", "Sinful: Pathwalker's Remains"],
-  "descriptionTemplate": "At turn start, gain [Arg1] {Counter}. After using Exalt [Arg2] {plural:[Arg2]|time|times} in one turn, remove [Arg3]% Permanent {Counter}, and gain [Arg4]% of the removed amount as Temporary {Counter}. Cooldown: [Arg5] {plural:[Arg5]|turn|turns}.",
+  "descriptionTemplate": "At turn start, gain [Arg1] {Counter}. After using Exalt [Arg2] {plural:[Arg2]|time|times} in one turn, remove [Arg3]% of Permanent {Counter}, and gain [Arg4]% of the removed amount as Temporary {Counter}. Cooldown: [Arg5] {plural:[Arg5]|turn|turns}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
@@ -52,7 +52,7 @@
       "variantType": "STANDARD",
       "tier": "Cursed",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "At turn start, gain [Arg1] {Counter}. After using Exalt [Arg2] {plural:[Arg2]|time|times} in one turn, remove [Arg3]% Permanent {Counter}, and gain [Arg4]% of the removed amount as Temporary {Counter}. Cooldown: [Arg5] {plural:[Arg5]|turn|turns}.",
+      "descriptionTemplate": "At turn start, gain [Arg1] {Counter}. After using Exalt [Arg2] {plural:[Arg2]|time|times} in one turn, remove [Arg3]% of Permanent {Counter}, and gain [Arg4]% of the removed amount as Temporary {Counter}. Cooldown: [Arg5] {plural:[Arg5]|turn|turns}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

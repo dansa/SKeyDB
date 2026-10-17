@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 3,
+  "kind": "wheel",
+  "id": "wheel-0183",
+  "name": "Imago's Clinic",
+  "route": {
+    "slug": "imagos-clinic",
+    "canonicalPath": "/database/wheels/imagos-clinic"
+  },
+  "assets": {
+    "icon": "asset-wheel-0183-icon"
+  },
+  "rarity": "SSR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "CRIT_RATE",
+  "lineupToken": "zf",
+  "descriptionTemplate": "{Team Unique}: At the start of exploration, add 1 {derived:Imago's Clinic} to the deck. {derived:Insect Taxidermy}",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": ["4", "6", "8", "10"]
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": ["1", "2", "3", "4"]
+    }
+  }
+}

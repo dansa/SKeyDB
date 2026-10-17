@@ -32,6 +32,6 @@ describe('TimelineRichText', () => {
       </p>,
     )
 
-    expect(screen.getByText('Each gift box costs ~$30. Tiers: ~$12-20.')).toBeInTheDocument()
+    expect(screen.getByText('Each gift box costs ~$29. Tiers: ~$11-19.')).toBeInTheDocument()
   })
 })

@@ -1,3 +1,5 @@
+import {z} from 'zod'
+
 import type {Awakener} from './awakeners'
 import type {BannerFeaturedUnit, BannerPoolSlot} from './timeline'
 import type {Wheel} from './wheels'
@@ -44,6 +46,7 @@ export interface DerivedPoolInput {
 
 interface BannerPoolResolutionContext {
   awakeners: Awakener[]
+  releaseDateCutoff: string
   resolveCustomArt: (value: string | undefined) => string | undefined
   wheels: Wheel[]
 }
@@ -52,6 +55,16 @@ const LIMITED_STARS_IN_FULL_BLOOM_AVAILABILITY = new Set([
   'LIMITED_ASTRAL_REIGN',
   'LIMITED_FADED_LEGACY',
 ])
+
+const releaseDateSchema = z.iso.date()
+
+function wasReleasedBy(awakener: Awakener, cutoff: string): boolean {
+  const date = releaseDateSchema.safeParse(awakener.releaseDate)
+  if (!date.success) {
+    throw new Error(`Cannot derive timeline pool: ${awakener.name} has no valid release date.`)
+  }
+  return date.data <= cutoff
+}
 
 function getAwakenerDisplayName(awakener: Awakener): string {
   return (
@@ -113,7 +126,7 @@ function resolveEligibleAwakeners(
     DerivedPoolInput,
     'availabilityTypes' | 'excludeNames' | 'gender' | 'limitedAwakenerType'
   >,
-  context: Pick<BannerPoolResolutionContext, 'awakeners'>,
+  context: Pick<BannerPoolResolutionContext, 'awakeners' | 'releaseDateCutoff'>,
 ): Awakener[] {
   const type = input.limitedAwakenerType?.trim().toUpperCase()
   const gender = input.gender?.trim().toLowerCase()
@@ -127,7 +140,8 @@ function resolveEligibleAwakeners(
       (!gender || awakener.gender?.trim().toLowerCase() === gender) &&
       Boolean(awakener.availabilityType && availabilityTypes.has(awakener.availabilityType)) &&
       !excludedNames.has(awakener.name.toLowerCase()) &&
-      !awakener.aliases.some((alias) => excludedNames.has(alias.toLowerCase())),
+      !awakener.aliases.some((alias) => excludedNames.has(alias.toLowerCase())) &&
+      wasReleasedBy(awakener, context.releaseDateCutoff),
   )
 }
 
@@ -149,7 +163,7 @@ function getSignatureWheels(wheels: Wheel[]): Wheel[] {
 function resolveFilteredSlot(
   input: DerivedPoolSlotInput,
   bannerId: string,
-  context: Pick<BannerPoolResolutionContext, 'awakeners' | 'wheels'>,
+  context: Pick<BannerPoolResolutionContext, 'awakeners' | 'wheels' | 'releaseDateCutoff'>,
 ): BannerPoolSlot {
   const awakeners = resolveEligibleAwakeners(input, context)
   const awakenerIds = new Set(awakeners.map((awakener) => awakener.id))
@@ -192,8 +206,9 @@ function resolveFilteredSlot(
 export function resolveTimelineBannerDerivedPool(
   input: DerivedPoolInput,
   bannerId: string,
-  context: Pick<BannerPoolResolutionContext, 'awakeners' | 'wheels'>,
+  context: Pick<BannerPoolResolutionContext, 'awakeners' | 'wheels' | 'releaseDateCutoff'>,
 ): BannerPoolSlot[] {
+  releaseDateSchema.parse(context.releaseDateCutoff)
   if (input.slots) {
     return input.slots.flatMap((slot) => {
       const mergedSlot = {

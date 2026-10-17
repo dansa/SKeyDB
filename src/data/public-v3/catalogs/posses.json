@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "posses",
   "kind": "posse",
-  "recordCount": 63,
+  "recordCount": 64,
   "records": [
     {
       "kind": "posse",
@@ -1202,6 +1202,24 @@
       "ownerAwakenerId": "awakener-0061",
       "ownerAwakenerName": "Ogier: Oathbound",
       "lineupToken": "0"
+    },
+    {
+      "kind": "posse",
+      "id": "posse-0064",
+      "name": "Nightborn Evil",
+      "route": {
+        "slug": "nightborn-evil",
+        "canonicalPath": "/database/posses/nightborn-evil"
+      },
+      "assets": {
+        "icon": "asset-posse-0064-icon",
+        "crystal": "asset-posse-0064-crystal",
+        "badge": "asset-posse-0064-badge"
+      },
+      "realm": "CHAOS",
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "lineupToken": "xb"
     }
   ]
 }

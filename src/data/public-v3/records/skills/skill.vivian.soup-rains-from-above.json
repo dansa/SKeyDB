@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 3,
+  "kind": "skill",
+  "id": "skill.vivian.soup-rains-from-above",
+  "name": "Soup Rains from Above",
+  "route": {
+    "slug": "soup-rains-from-above",
+    "canonicalPath": "/database/awakeners/vivian/skills/soup-rains-from-above"
+  },
+  "ownerAwakenerId": "awakener-0062",
+  "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
+  "descriptionTemplate": "Inflict [Corrosion:Arg1] (+[Arg2]% of {STR}) {Corrosion} on all enemies. {Turn Unique}: {derived:Cauldron} countdown -1.\n{overlay:Quality Nap}",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": ["5000", "6000", "7000", "8000", "9000", "10000"],
+      "stat": "ATK",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "1000",
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "2",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.vivian.heir-to-the-throne.skill.vivian.soup-rains-from-above",
+      "operation": "override_args",
+      "upgraderId": "enlighten.vivian.heir-to-the-throne",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "E1",
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "patch": {
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": ["5000", "6000", "7000", "8000", "9000", "10000"],
+            "stat": "ATK",
+            "suffix": "%"
+          },
+          "Arg2": {
+            "kind": "fixed",
+            "value": "1100",
+            "suffix": "%",
+            "substatBonus": {
+              "substat": "CritRate",
+              "multiplier": "5",
+              "mode": "additive"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "ownerAwakenerName": "Vivian"
+}

@@ -975,6 +975,22 @@
         "realm": "CHAOS",
         "owner": "awakener-0061"
       }
+    },
+    {
+      "kind": "posse",
+      "id": "posse-0064",
+      "name": "Nightborn Evil",
+      "aliases": [],
+      "tokens": ["chaos", "evil", "nightborn", "nightborn evil", "vivian"],
+      "fields": {
+        "name": ["Nightborn Evil", "nightborn-evil"],
+        "owner": ["Vivian"],
+        "facet": ["CHAOS"]
+      },
+      "facets": {
+        "realm": "CHAOS",
+        "owner": "awakener-0062"
+      }
     }
   ]
 }

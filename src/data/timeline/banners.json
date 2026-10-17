@@ -430,5 +430,37 @@
     "startDate": "2026/10/05 09:00",
     "endDate": "2026/11/02 09:00",
     "featured": ["Unbearable Freedom", "Power of the Pious", "Vain Regrets"]
+  },
+  {
+    "id": "banner-vivian",
+    "title": "Indolent Sorceress / Putrefying Irrigation",
+    "type": "awaken",
+    "description": "Featured rate-up banners for Vivian and her SSR Wheel \"The Seer's Riddle\".",
+    "startDate": "2026/10/19 09:00",
+    "endDate": "2026/11/16 09:00",
+    "featured": [
+      {"name": "Vivian", "kind": "awakener", "realmId": "CHAOS"},
+      {"name": "The Seer's Riddle", "kind": "wheel"}
+    ],
+    "pinned": true
+  },
+  {
+    "id": "banner-triune-verdant-nov",
+    "title": "Triune Verdant",
+    "type": "rerun",
+    "description": "Three rerun banners featuring Pickman, Tulu and Lily.",
+    "startDate": "2026/11/02 09:00",
+    "endDate": "2026/11/30 09:00",
+    "featured": ["Pickman", "Tulu", "Lily"]
+  },
+  {
+    "id": "banner-sylvan-omen-nov",
+    "title": "Sylvan Omen",
+    "type": "rerun",
+    "tags": ["rerun", "wheel"],
+    "description": "Three rerun banners featuring the Wheels Paradoxical Realism, Hymn of the Sovereign and Grace Through Pain.",
+    "startDate": "2026/11/02 09:00",
+    "endDate": "2026/11/30 09:00",
+    "featured": ["Paradoxical Realism", "Hymn of the Sovereign", "Grace Through Pain"]
   }
 ]

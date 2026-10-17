@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "talents",
   "kind": "talent",
-  "recordCount": 230,
+  "recordCount": 234,
   "records": [
     {
       "kind": "talent",
@@ -2976,6 +2976,58 @@
       },
       "ownerAwakenerId": "awakener-0061",
       "ownerAwakenerName": "Ogier: Oathbound",
+      "family": "gnostic_potential",
+      "maxLevel": 5,
+      "defaultMaxed": true
+    },
+    {
+      "kind": "talent",
+      "id": "talent.vivian.primordial-breath",
+      "name": "Primordial Breath",
+      "route": {
+        "slug": "primordial-breath",
+        "canonicalPath": "/database/awakeners/vivian/talents/primordial-breath"
+      },
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "family": "passive"
+    },
+    {
+      "kind": "talent",
+      "id": "talent.vivian.madness-omen",
+      "name": "Madness Omen",
+      "route": {
+        "slug": "madness-omen",
+        "canonicalPath": "/database/awakeners/vivian/talents/madness-omen"
+      },
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "family": "madness_omen",
+      "maxLevel": 12
+    },
+    {
+      "kind": "talent",
+      "id": "talent.vivian.soulforge-aptitude",
+      "name": "Soulforge Aptitude",
+      "route": {
+        "slug": "soulforge-aptitude",
+        "canonicalPath": "/database/awakeners/vivian/talents/soulforge-aptitude"
+      },
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
+    {
+      "kind": "talent",
+      "id": "talent.vivian.gnostic-potential",
+      "name": "Gnostic Potential",
+      "route": {
+        "slug": "gnostic-potential",
+        "canonicalPath": "/database/awakeners/vivian/talents/gnostic-potential"
+      },
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
       "family": "gnostic_potential",
       "maxLevel": 5,
       "defaultMaxed": true

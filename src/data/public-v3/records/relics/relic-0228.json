@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0380",
   "rarity": "SSR",
   "aliases": [],
-  "descriptionTemplate": "At battle start, Shuffle a {Forbidden Truth} into the deck. Draw +[Arg1] each turn. After playing a Command Card, randomly grant {Perception Warp} to [Arg2] Command Cards each in your hand, draw pile, and discard pile.",
+  "descriptionTemplate": "At battle start, shuffle a {Forbidden Truth} into the deck. Draw +[Arg1] each turn. After playing a Command Card, randomly grant {Perception Warp} to [Arg2] Command Cards each in the hand, Draw Pile, and Discard Pile that do not already have {Perception Warp}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -37,7 +37,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SSR",
-      "descriptionTemplate": "At battle start, Shuffle a {Forbidden Truth} into the deck. Draw +[Arg1] each turn. After playing a Command Card, randomly grant {Perception Warp} to [Arg2] Command Cards each in your hand, draw pile, and discard pile.",
+      "descriptionTemplate": "At battle start, shuffle a {Forbidden Truth} into the deck. Draw +[Arg1] each turn. After playing a Command Card, randomly grant {Perception Warp} to [Arg2] Command Cards each in the hand, Draw Pile, and Discard Pile that do not already have {Perception Warp}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

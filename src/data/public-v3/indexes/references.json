@@ -1003,6 +1003,12 @@
         "id": "skill.uvhash.boil-blood"
       }
     ],
+    "boiling anger": [
+      {
+        "kind": "overlay",
+        "id": "overlay.vivian.boiling-anger"
+      }
+    ],
     "bone chalice": [
       {
         "kind": "relic",
@@ -1253,6 +1259,12 @@
       {
         "kind": "relic",
         "id": "relic-0085"
+      }
+    ],
+    "cauldron": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.vivian.cauldron"
       }
     ],
     "ceaseless warlust": [
@@ -1747,6 +1759,12 @@
         "id": "wheel-0169"
       }
     ],
+    "concoct": [
+      {
+        "kind": "overlay",
+        "id": "overlay.vivian.concoct"
+      }
+    ],
     "concubines conceit": [
       {
         "kind": "relic",
@@ -2213,6 +2231,18 @@
       {
         "kind": "overlay",
         "id": "overlay.global.devour"
+      }
+    ],
+    "diagnosis": [
+      {
+        "kind": "overlay",
+        "id": "overlay.global.diagnosis"
+      }
+    ],
+    "diagnostic records": [
+      {
+        "kind": "overlay",
+        "id": "overlay.global.diagnostic-records"
       }
     ],
     "diamond in the rough": [
@@ -4249,6 +4279,12 @@
         "id": "wheel-0124"
       }
     ],
+    "heir to the throne": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.vivian.heir-to-the-throne"
+      }
+    ],
     "helot": [
       {
         "kind": "awakener",
@@ -4667,6 +4703,12 @@
       {
         "kind": "enlighten",
         "id": "enlighten.leigh.insatiable-craving"
+      }
+    ],
+    "insect taxidermy": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.insect-taxidermy"
       }
     ],
     "insight": [
@@ -5135,6 +5177,12 @@
       {
         "kind": "relic",
         "id": "relic-0200"
+      }
+    ],
+    "living cage": [
+      {
+        "kind": "wheel",
+        "id": "wheel-0171"
       }
     ],
     "living deads delirium": [
@@ -5899,6 +5947,12 @@
         "id": "enlighten.leigh.newborn-sanguivore"
       }
     ],
+    "nightborn evil": [
+      {
+        "kind": "posse",
+        "id": "posse-0064"
+      }
+    ],
     "nightborne wings": [
       {
         "kind": "enlighten",
@@ -6097,6 +6151,12 @@
         "id": "skill.tawil.omniscient-verity"
       }
     ],
+    "once in a life potion": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.vivian.once-in-a-life-potion"
+      }
+    ],
     "one way": [
       {
         "kind": "derivedSkill",
@@ -6185,6 +6245,12 @@
       {
         "kind": "overlay",
         "id": "overlay.pontos.pack-hunt"
+      }
+    ],
+    "pact of the temple": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.vivian.pact-of-the-temple"
       }
     ],
     "paean of twisted fury": [
@@ -6365,6 +6431,12 @@
       {
         "kind": "derivedSkill",
         "id": "derived.global.parasol"
+      }
+    ],
+    "parchment scroll": [
+      {
+        "kind": "skill",
+        "id": "skill.vivian.parchment-scroll"
       }
     ],
     "passage of the ego": [
@@ -6581,6 +6653,12 @@
       {
         "kind": "skill",
         "id": "skill.casiah.poof"
+      }
+    ],
+    "potions": [
+      {
+        "kind": "overlay",
+        "id": "overlay.vivian.potions"
       }
     ],
     "power of blessing": [
@@ -7007,6 +7085,12 @@
       {
         "kind": "relic",
         "id": "relic-0251"
+      }
+    ],
+    "quality nap": [
+      {
+        "kind": "overlay",
+        "id": "overlay.vivian.quality-nap"
       }
     ],
     "quasar": [
@@ -7795,6 +7879,12 @@
         "id": "skill.helot.shattering-strike"
       }
     ],
+    "she and her tree hole": [
+      {
+        "kind": "wheel",
+        "id": "wheel-0182"
+      }
+    ],
     "shepard of the souls": [
       {
         "kind": "talent",
@@ -8219,6 +8309,12 @@
       {
         "kind": "skill",
         "id": "skill.pollux.soulsearing-light"
+      }
+    ],
+    "soup rains from above": [
+      {
+        "kind": "skill",
+        "id": "skill.vivian.soup-rains-from-above"
       }
     ],
     "sovereigns power": [
@@ -8701,6 +8797,12 @@
         "id": "derived.miryam.the-end-of-belief"
       }
     ],
+    "the errant compass": [
+      {
+        "kind": "wheel",
+        "id": "wheel-0169"
+      }
+    ],
     "the faraway eden": [
       {
         "kind": "wheel",
@@ -8809,10 +8911,22 @@
         "id": "enlighten.wanda.the-revelation"
       }
     ],
+    "the seers riddle": [
+      {
+        "kind": "wheel",
+        "id": "wheel-0181"
+      }
+    ],
     "the silver key gate": [
       {
         "kind": "skill",
         "id": "skill.tawil.the-silver-key-gate"
+      }
+    ],
+    "the sleeper of heaths": [
+      {
+        "kind": "skill",
+        "id": "skill.vivian.the-sleeper-of-heaths"
       }
     ],
     "the unrivaled": [
@@ -9625,6 +9739,12 @@
         "id": "relic-0298"
       }
     ],
+    "vivian": [
+      {
+        "kind": "awakener",
+        "id": "awakener-0062"
+      }
+    ],
     "voices from beyond": [
       {
         "kind": "skill",
@@ -9773,6 +9893,12 @@
       {
         "kind": "relic",
         "id": "relic-0302"
+      }
+    ],
+    "whatevers at hand": [
+      {
+        "kind": "skill",
+        "id": "skill.vivian.whatevers-at-hand"
       }
     ],
     "wheel unseen": [
@@ -10360,6 +10486,10 @@
       },
       {
         "kind": "skill",
+        "id": "skill.vivian.defense"
+      },
+      {
+        "kind": "skill",
         "id": "skill.vortice.defense"
       },
       {
@@ -10828,6 +10958,10 @@
       },
       {
         "kind": "talent",
+        "id": "talent.vivian.gnostic-potential"
+      },
+      {
+        "kind": "talent",
         "id": "talent.vortice.gnostic-potential"
       },
       {
@@ -10851,6 +10985,16 @@
       {
         "kind": "skill",
         "id": "skill.jenkins.gotcha"
+      }
+    ],
+    "imagos clinic": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.imagos-clinic"
+      },
+      {
+        "kind": "wheel",
+        "id": "wheel-0183"
       }
     ],
     "infinite radiant brilliance": [
@@ -11208,6 +11352,10 @@
       },
       {
         "kind": "talent",
+        "id": "talent.vivian.madness-omen"
+      },
+      {
+        "kind": "talent",
         "id": "talent.vortice.madness-omen"
       },
       {
@@ -11371,6 +11519,10 @@
       {
         "kind": "talent",
         "id": "talent.ogier-oathbound.primordial-breath"
+      },
+      {
+        "kind": "talent",
+        "id": "talent.vivian.primordial-breath"
       }
     ],
     "private afternoon": [
@@ -11711,6 +11863,10 @@
       {
         "kind": "talent",
         "id": "talent.uvhash.soulforge-aptitude"
+      },
+      {
+        "kind": "talent",
+        "id": "talent.vivian.soulforge-aptitude"
       },
       {
         "kind": "talent",
@@ -12160,6 +12316,10 @@
       },
       {
         "kind": "skill",
+        "id": "skill.vivian.strike"
+      },
+      {
+        "kind": "skill",
         "id": "skill.vortice.strike"
       },
       {
@@ -12243,6 +12403,16 @@
         "id": "skill.tulu.the-promised-day"
       }
     ],
+    "the satiated darkness": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.vivian.the-satiated-darkness"
+      },
+      {
+        "kind": "skill",
+        "id": "skill.vivian.the-satiated-darkness"
+      }
+    ],
     "the sea of corals": [
       {
         "kind": "enlighten",
@@ -12309,6 +12479,16 @@
       {
         "kind": "skill",
         "id": "skill.caecus.unbending-resolve"
+      }
+    ],
+    "unclean toad god": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.vivian.unclean-toad-god"
+      },
+      {
+        "kind": "overlay",
+        "id": "overlay.vivian.unclean-toad-god"
       }
     ],
     "undying piety": [

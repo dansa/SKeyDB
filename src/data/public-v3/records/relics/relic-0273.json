@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0479",
   "rarity": "N",
   "aliases": ["Solar Disc+"],
-  "descriptionTemplate": "After battle start, gain [Arg1] Realm Mastery. Draw [Arg2] {plural:[Arg2]|card|cards} at the start of odd turns, and gain [Arg2] Arithmetica at the start of even turns.",
+  "descriptionTemplate": "After battle start, gain [Arg1] Realm Mastery. At the start of odd-numbered turns, draw [Arg2] card. At the start of even-numbered turns, gain [Arg2] Arithmetica.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -37,7 +37,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "After battle start, gain [Arg1] Realm Mastery. Draw [Arg2] {plural:[Arg2]|card|cards} at the start of odd turns, and gain [Arg2] Arithmetica at the start of even turns.",
+      "descriptionTemplate": "After battle start, gain [Arg1] Realm Mastery. At the start of odd-numbered turns, draw [Arg2] card. At the start of even-numbered turns, gain [Arg2] Arithmetica.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -57,7 +57,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "After battle start, gain [Arg1] Realm Mastery. Draw [Arg2] {plural:[Arg2]|card|cards} at the start of odd turns, and gain [Arg2] Arithmetica at the start of even turns.",
+      "descriptionTemplate": "After battle start, gain [Arg1] Realm Mastery. At the start of odd-numbered turns, draw [Arg2] card. At the start of even-numbered turns, gain [Arg2] Arithmetica.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
