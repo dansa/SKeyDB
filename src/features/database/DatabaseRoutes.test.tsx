@@ -317,6 +317,11 @@ vi.mock('@/features/database/internal/RelicDetailModal', () => ({
 await Promise.all([
   import('./DatabasePage'),
   import('./detail/DbDetailModalHost'),
+  import('@/domain/public-detail-record-adapters'),
+  import('./internal/AwakenerDetailModal'),
+  import('./internal/WheelDetailModal'),
+  import('./internal/SimpleArtifactDetailModal'),
+  import('./internal/RelicDetailModal'),
   ...(['awakeners', 'wheels', 'relics', 'posses', 'covenants'] as const).map((entity) =>
     getDatabaseEntityRuntime(entity).loadBrowse(),
   ),
