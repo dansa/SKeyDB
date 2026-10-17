@@ -37,7 +37,7 @@
       "ownerAwakenerId": "awakener-0054",
       "ownerAwakenerName": "Xu",
       "patch": {
-        "descriptionTemplate": "Gain [Block:Arg1] Shield. Xu gains [Energy:Arg2] Aliemus.{Resonance 3}: Additionally gain [Energy:Arg3] Aliemus.",
+        "descriptionTemplate": "Gain [Block:Arg1] Shield. Xu gains [Energy:Arg2] Aliemus. {Resonance 3}: Additionally gain [Energy:Arg3] Aliemus.",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

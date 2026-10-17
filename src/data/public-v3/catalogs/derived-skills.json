@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "derived-skills",
   "kind": "derivedSkill",
-  "recordCount": 210,
+  "recordCount": 213,
   "records": [
     {
       "kind": "derivedSkill",
@@ -1390,6 +1390,17 @@
     },
     {
       "kind": "derivedSkill",
+      "id": "derived.global.imagos-clinic",
+      "name": "Imago's Clinic",
+      "route": {
+        "slug": "imagos-clinic",
+        "canonicalPath": "/database/derived-skills/imagos-clinic"
+      },
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
+    },
+    {
+      "kind": "derivedSkill",
       "id": "derived.global.infinite-silver-vault",
       "name": "Infinite Silver Vault",
       "route": {
@@ -1398,6 +1409,18 @@
       },
       "cardFamily": "buff",
       "cardTypes": ["buff"]
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.global.insect-taxidermy",
+      "name": "Insect Taxidermy",
+      "route": {
+        "slug": "insect-taxidermy",
+        "canonicalPath": "/database/derived-skills/insect-taxidermy"
+      },
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
+      "derivedFromId": "derived.global.imagos-clinic"
     },
     {
       "kind": "derivedSkill",
@@ -2812,6 +2835,21 @@
       "ownerAwakenerName": "Thais",
       "derivedFromId": "skill.thais.ad-matrem-vocatus",
       "rootSkillId": "skill.thais.ad-matrem-vocatus"
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.vivian.cauldron",
+      "name": "Cauldron",
+      "route": {
+        "slug": "cauldron",
+        "canonicalPath": "/database/awakeners/vivian/derived-skills/cauldron"
+      },
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "derivedFromId": "skill.vivian.whatevers-at-hand",
+      "rootSkillId": "skill.vivian.whatevers-at-hand"
     },
     {
       "kind": "derivedSkill",

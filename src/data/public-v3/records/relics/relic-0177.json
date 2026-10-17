@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0276",
   "rarity": "SSR",
   "aliases": [],
-  "descriptionTemplate": "Hand Limit +1. At the start of turn, if there is no \"Navigator's Choice,\" place it in hand.\nEach time the Boss loses 10% of their initial Max HP, gain 1 stack of \"Set Sail,\" max 10 stacks. \"Set Sail\" enhances the effects of \"Archor Off\".\nEach time you lose 10% of your initial Max HP, gain 1 stack of \"Moored Off,\" max 10 stacks. \"Moored Off\" enhances the effects of \"Harbored Rest\".",
+  "descriptionTemplate": "Hand Limit +1. At turn start, if \"Navigator's Choice\" is not in hand, place it there.\nEach time the Leader loses 10% of their initial Max HP, gain 1 stack of \"Set Sail,\" up to 10 stacks. \"Set Sail\" enhances the effects of \"Archor Off\".\nEach time you lose 10% of your initial Max HP, gain 1 stack of \"Moored Off,\" up to 10 stacks. \"Moored Off\" enhances the effects of \"Harbored Rest\".",
   "descriptionArgs": {},
   "lore": "The flickering lightning will guide the direction forward.",
   "variants": [
@@ -28,7 +28,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SSR",
-      "descriptionTemplate": "Hand Limit +1. At the start of turn, if there is no \"Navigator's Choice,\" place it in hand.\nEach time the Boss loses 10% of their initial Max HP, gain 1 stack of \"Set Sail,\" max 10 stacks. \"Set Sail\" enhances the effects of \"Archor Off\".\nEach time you lose 10% of your initial Max HP, gain 1 stack of \"Moored Off,\" max 10 stacks. \"Moored Off\" enhances the effects of \"Harbored Rest\".",
+      "descriptionTemplate": "Hand Limit +1. At turn start, if \"Navigator's Choice\" is not in hand, place it there.\nEach time the Leader loses 10% of their initial Max HP, gain 1 stack of \"Set Sail,\" up to 10 stacks. \"Set Sail\" enhances the effects of \"Archor Off\".\nEach time you lose 10% of your initial Max HP, gain 1 stack of \"Moored Off,\" up to 10 stacks. \"Moored Off\" enhances the effects of \"Harbored Rest\".",
       "descriptionArgs": {},
       "lore": "The flickering lightning will guide the direction forward."
     }

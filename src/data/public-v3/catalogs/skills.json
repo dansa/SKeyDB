@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "skills",
   "kind": "skill",
-  "recordCount": 427,
+  "recordCount": 434,
   "records": [
     {
       "kind": "skill",
@@ -5600,6 +5600,104 @@
       "ownerAwakenerId": "awakener-0051",
       "ownerAwakenerName": "Uvhash",
       "slot": "Rouse"
+    },
+    {
+      "kind": "skill",
+      "id": "skill.vivian.defense",
+      "name": "Defense",
+      "route": {
+        "slug": "defense",
+        "canonicalPath": "/database/awakeners/vivian/skills/defense"
+      },
+      "cardFamily": "command",
+      "cardTypes": ["defense"],
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "slot": "Defense"
+    },
+    {
+      "kind": "skill",
+      "id": "skill.vivian.parchment-scroll",
+      "name": "Parchment Scroll",
+      "route": {
+        "slug": "parchment-scroll",
+        "canonicalPath": "/database/awakeners/vivian/skills/parchment-scroll"
+      },
+      "cardFamily": "rouse",
+      "cardTypes": ["rouse"],
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "slot": "Rouse"
+    },
+    {
+      "kind": "skill",
+      "id": "skill.vivian.soup-rains-from-above",
+      "name": "Soup Rains from Above",
+      "route": {
+        "slug": "soup-rains-from-above",
+        "canonicalPath": "/database/awakeners/vivian/skills/soup-rains-from-above"
+      },
+      "cardFamily": "command",
+      "cardTypes": ["skill"],
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "slot": "Skill1"
+    },
+    {
+      "kind": "skill",
+      "id": "skill.vivian.strike",
+      "name": "Strike",
+      "route": {
+        "slug": "strike",
+        "canonicalPath": "/database/awakeners/vivian/skills/strike"
+      },
+      "cardFamily": "command",
+      "cardTypes": ["strike"],
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "slot": "Strike"
+    },
+    {
+      "kind": "skill",
+      "id": "skill.vivian.the-satiated-darkness",
+      "name": "The Satiated Darkness",
+      "route": {
+        "slug": "the-satiated-darkness",
+        "canonicalPath": "/database/awakeners/vivian/skills/the-satiated-darkness"
+      },
+      "cardFamily": "exalt",
+      "cardTypes": ["over_exalt"],
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "slot": "OverExalt"
+    },
+    {
+      "kind": "skill",
+      "id": "skill.vivian.the-sleeper-of-heaths",
+      "name": "The Sleeper of Heaths",
+      "route": {
+        "slug": "the-sleeper-of-heaths",
+        "canonicalPath": "/database/awakeners/vivian/skills/the-sleeper-of-heaths"
+      },
+      "cardFamily": "exalt",
+      "cardTypes": ["exalt"],
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "slot": "Exalt"
+    },
+    {
+      "kind": "skill",
+      "id": "skill.vivian.whatevers-at-hand",
+      "name": "Whatever's at Hand",
+      "route": {
+        "slug": "whatevers-at-hand",
+        "canonicalPath": "/database/awakeners/vivian/skills/whatevers-at-hand"
+      },
+      "cardFamily": "command",
+      "cardTypes": ["skill"],
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "slot": "Skill2"
     },
     {
       "kind": "skill",

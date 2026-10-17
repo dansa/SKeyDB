@@ -172,8 +172,8 @@ describe('EventList', () => {
 
     render(<EventList events={events} now={now} priceMode='usd-estimate' />)
 
-    expect(screen.getByText('~$30')).toHaveClass('timeline-event-meta-segment')
-    expect(screen.getByText('Each gift box costs ~$30.')).toBeInTheDocument()
+    expect(screen.getByText('~$29')).toHaveClass('timeline-event-meta-segment')
+    expect(screen.getByText('Each gift box costs ~$29.')).toBeInTheDocument()
   })
 
   it('renders shared timeline rich text in event descriptions', () => {

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 3,
+  "kind": "enlighten",
+  "id": "enlighten.vivian.once-in-a-life-potion",
+  "name": "Once-in-a-Life Potion",
+  "route": {
+    "slug": "once-in-a-life-potion",
+    "canonicalPath": "/database/awakeners/vivian/enlightens/once-in-a-life-potion"
+  },
+  "ownerAwakenerId": "awakener-0062",
+  "slot": "AbsoluteAxiom",
+  "descriptionTemplate": "{Rouse} {Parchment Scroll} is enhanced. Vivian's Skills cost 1 less Arithmetica.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Vivian"
+}

@@ -13,7 +13,7 @@
   "rarity": "SSR",
   "realm": "NEUTRAL",
   "mainstatKey": "CRIT_RATE",
-  "lineupToken": "ze",
+  "lineupToken": "zc",
   "searchTags": ["Draw", "Aliemus", "Strike"],
   "descriptionTemplate": "{Team Unique}: At the start of exploration, add 1 {Fall into Night} card to the deck.",
   "descriptionArgs": {

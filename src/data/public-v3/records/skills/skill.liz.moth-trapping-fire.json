@@ -11,7 +11,7 @@
   "slot": "Skill1",
   "cardFamily": "command",
   "cardTypes": ["skill"],
-  "descriptionTemplate": "Gain [Block:Arg1] Shield, put 1 {Exhaust} {Green Flames} into hand. {Leap}: Before the start of next turn, each time you are attacked, put 1 {Exhaust} {Green Flames} into hand.",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield, put 1 {Exhaust} {Green Flames} into hand. {Leap}: Before the start of next turn, upon being attacked, put 1 {Exhaust} {Green Flames} into hand.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

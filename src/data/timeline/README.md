@@ -124,6 +124,14 @@ Array of banner objects. Each banner appears as a card in the Banners section wi
 | `customArt` | string | no | Full-card banner art URL or path. Overrides featured/pool artwork when present. Paths starting with `/banners/` are resolved against `src/assets/banners/*`. |
 | `preliminary` | boolean | no | Marks dates, pools, or banner details as provisional. If `tags` is omitted, adds `Preliminary` beside the type label |
 
+Derived pools include only Awakeners released on or before the banner's opening
+day in the game's UTC+8 calendar, together with their matching SSR wheels. Later
+roster additions do not enter older pools, even if released during the banner.
+No archival/freeze step is required. Missing or invalid release dates on otherwise
+eligible Awakeners are reported as data errors. Keep `excludeNames` for announced
+exceptions to the normal pool; use explicit `poolSlots` for nonstandard membership.
+This is a release-date cutoff, not a snapshot of historical database classifications.
+
 ### Banner Types
 
 | Type | Use For |
@@ -177,6 +185,12 @@ Objects can also carry optional banner-only rendering fields:
 Optional object fields:
 - `customArt`: Overrides the art for that specific featured unit or pool member. Paths starting with `/banners/` resolve against `src/assets/banners/*`.
 - `realmId`: Overrides the realm used for icon/tint decoration. Useful for fake or unreleased banner units.
+
+For a character's signature SSR wheel, prefer `wheel-auto` to copying the wheel's
+name into the timeline. Its displayed name, artwork, realm and database target come
+from the current wheel record, so wheel renames do not break archived banners.
+`customArt`, `realmId` and `detailLink` overrides still apply. Use an explicit
+`wheel` entry when selecting a different wheel.
 
 A common pattern for solo rate-up banners (character + their wheel):
 ```json

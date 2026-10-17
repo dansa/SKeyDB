@@ -115,7 +115,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SR",
-      "descriptionTemplate": "At battle start, {Rouse} all Awakeners, place {Twilight: Honey Mead} into hand, and increase all Awakener's Crit. DMG by 1.5 times. At turn end, Awakener that did not release Exalt gain [Arg1] Aliemus. If the number of cards played is less than [Arg2], draw 2 cards next turn and gain 2 Arithmetica.",
+      "descriptionTemplate": "At battle start, {Rouse} all Awakeners, place {Twilight: Honey Mead} into hand. All Awakeners' Crit. DMG is increased to 150%. At turn end, Awakeners who didn't release Exalt gain [Arg1] Aliemus. If the number of cards played is less than [Arg2], draw 2 cards next turn and gain 2 Arithmetica.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -156,7 +156,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SR",
-      "descriptionTemplate": "At battle start, {Rouse} all Awakener, place {Twilight: Utopian Veil} into hand, increase the team's Hand Limit by +2, and increase the Keyflare storage limit by +100%. After unleashing Posse, all Awakeners' Crit. DMG and Temporary Crit. Rate +[Arg1]%, receive Shield equal to 20% of their Max HP, and draw cards until the hand reaches the limit.",
+      "descriptionTemplate": "At battle start, {Rouse} all Awakeners, place {Twilight: Utopian Veil} into hand. Hand Limit +2. Keyflare Limit +100%. After unleashing Posse, all Awakeners' Crit. DMG and Temporary Crit. Rate +[Arg1]%, receive Shield equal to 20% of their Max HP, and draw cards until the hand reaches the limit.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

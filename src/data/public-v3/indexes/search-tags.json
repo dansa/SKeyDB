@@ -71,7 +71,7 @@
       "section": "affix",
       "aliases": ["strength up"],
       "order": 210,
-      "count": 52
+      "count": 54
     },
     {
       "id": "str-down",
@@ -111,7 +111,7 @@
       "section": "mechanic",
       "aliases": ["steal", "str steal", "strength steal"],
       "order": 245,
-      "count": 3
+      "count": 5
     },
     {
       "id": "pierce-dmg",
@@ -151,7 +151,7 @@
       "section": "mechanic",
       "aliases": ["cleanse", "clear", "remove"],
       "order": 300,
-      "count": 25
+      "count": 24
     },
     {
       "id": "arithmetica",
@@ -183,7 +183,7 @@
       "section": "affix",
       "aliases": [],
       "order": 925,
-      "count": 4
+      "count": 5
     },
     {
       "id": "divine-realm",
@@ -191,7 +191,7 @@
       "section": "archetype",
       "aliases": ["alt realm"],
       "order": 930,
-      "count": 8
+      "count": 9
     },
     {
       "id": "draw",
@@ -223,7 +223,7 @@
       "section": "archetype",
       "aliases": ["healing", "hp recovery"],
       "order": 960,
-      "count": 33
+      "count": 35
     },
     {
       "id": "keyflare",

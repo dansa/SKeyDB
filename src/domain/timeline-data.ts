@@ -303,8 +303,12 @@ function resolvePoolSlots(input: PoolSlotInput[]) {
   return resolveTimelineBannerPoolSlots(input, bannerPoolResolutionContext)
 }
 
-function resolveDerivedPool(input: DerivedPoolInput, bannerId: string) {
-  return resolveTimelineBannerDerivedPool(input, bannerId, bannerPoolResolutionContext)
+function resolveDerivedPool(input: DerivedPoolInput, bannerId: string, startDate: string) {
+  return resolveTimelineBannerDerivedPool(input, bannerId, {
+    ...bannerPoolResolutionContext,
+    // Release dates are day-only values in the game's UTC+8 calendar, not UTC days.
+    releaseDateCutoff: startDate.slice(0, 10).replaceAll('/', '-'),
+  })
 }
 
 function loadBanner(raw: BannerInput): BannerEntry {
@@ -336,7 +340,7 @@ function loadBanner(raw: BannerInput): BannerEntry {
     entry.poolSlots = resolvePoolSlots(raw.poolSlots)
   }
   if (raw.derivedPool) {
-    entry.poolSlots = resolveDerivedPool(raw.derivedPool, raw.id)
+    entry.poolSlots = resolveDerivedPool(raw.derivedPool, raw.id, raw.startDate)
   }
   return entry
 }

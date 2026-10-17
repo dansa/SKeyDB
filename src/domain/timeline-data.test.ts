@@ -10,6 +10,51 @@ import {
 import {loadTimelineBanners, timelineBanners, timelineEvents} from './timeline-data'
 
 describe('timeline data loading', () => {
+  it('links the landed Vivian content and resolves the new event artwork', () => {
+    const banner = timelineBanners.find((entry) => entry.id === 'banner-vivian')
+    expect(banner?.featured).toEqual([
+      expect.objectContaining({name: 'Vivian', realmId: 'CHAOS', detailLink: undefined}),
+      expect.objectContaining({name: "The Seer's Riddle", detailLink: undefined}),
+    ])
+
+    const story = timelineEvents.find((entry) => entry.id === 'event-story-vivian')
+    expect(story?.featured?.[0]).toMatchObject({
+      name: 'Vivian',
+      realmId: 'CHAOS',
+      detailLink: undefined,
+    })
+    expect(story?.customArt).toContain('and-then-there-were-none')
+
+    const clinic = timelineEvents.find((entry) => entry.id === 'event-wheel-imagos-clinic')
+    expect(clinic?.featured?.[0]).toMatchObject({
+      name: "Imago's Clinic",
+      detailLink: undefined,
+    })
+    expect(clinic?.customArt).toContain('soul-anatomist')
+    expect(
+      timelineEvents.find((entry) => entry.id === 'event-story-rerun-dark-side-of-the-canvas')
+        ?.customArt,
+    ).toContain('dark-side-of-the-canvas')
+  })
+
+  it('uses the game opening day rather than the UTC day or banner end for eligibility', () => {
+    const [banner] = loadTimelineBanners([
+      {
+        id: 'test-opening-cutoff',
+        title: 'Opening cutoff',
+        type: 'combo',
+        startDate: '2026/04/20 00:30',
+        endDate: '2026/06/15 09:00',
+        derivedPool: {availabilityTypes: ['LIMITED_ASTRAL_REIGN'], linkedPairs: true},
+      },
+    ])
+    expect(banner.startDate).toBe('2026-04-19T16:30:00.000Z')
+    const names = banner.poolSlots?.[0].pool.map((unit) => unit.name)
+    expect(names).toContain('Arachne')
+    expect(names).not.toContain('Saya')
+    expect(names).not.toContain('Vivian')
+  })
+
   it('preserves labels when copying manual pool slots', () => {
     const slots = resolveTimelineBannerPoolSlots(
       [{count: 2, label: 'Assault', pool: ['Arachne']}],
@@ -220,8 +265,8 @@ describe('timeline data loading', () => {
       'Hymn of the Sovereign',
       'The Faraway Eden',
     ])
-    expect(warden?.poolSlots?.[0]?.pool).toHaveLength(7)
-    expect(warden?.poolSlots?.[2]?.pool).toHaveLength(7)
+    expect(warden?.poolSlots?.[0]?.pool).toHaveLength(6)
+    expect(warden?.poolSlots?.[2]?.pool).toHaveLength(6)
     expect(chorus?.poolSlots?.[0]?.pool).toHaveLength(11)
     expect(chorus?.poolSlots?.[2]?.pool).toHaveLength(11)
     expect(assault?.poolSlots).toHaveLength(4)
@@ -242,8 +287,8 @@ describe('timeline data loading', () => {
     expect(faded?.poolSlots?.[3]?.pool.map((unit) => unit.name)).toContain('Hymn of the Sovereign')
 
     expect(astral?.poolSlots).toHaveLength(4)
-    expect(astral?.poolSlots?.slice(0, 3).map((slot) => slot.pool.length)).toEqual([13, 13, 13])
-    expect(astral?.poolSlots?.[3]?.pool).toHaveLength(13)
+    expect(astral?.poolSlots?.slice(0, 3).map((slot) => slot.pool.length)).toEqual([11, 11, 11])
+    expect(astral?.poolSlots?.[3]?.pool).toHaveLength(11)
     expect(astral?.poolSlots?.[0]?.pool.map((unit) => unit.name)).toContain('Arachne')
     expect(astral?.poolSlots?.[3]?.pool.map((unit) => unit.name)).toContain('Eternal Weave')
   })
@@ -365,6 +410,7 @@ describe('timeline data loading', () => {
       },
       'test-gender-pool',
       {
+        releaseDateCutoff: '2026-05-18',
         awakeners: [
           {
             aliases: ['Female Owner'],
@@ -374,6 +420,7 @@ describe('timeline data loading', () => {
             id: 'awakener-9001',
             lineupToken: 'female-owner',
             name: 'Female Owner',
+            releaseDate: '2026-05-18',
             rarity: 'SSR',
             realm: 'test',
             tags: [],
@@ -386,6 +433,7 @@ describe('timeline data loading', () => {
             id: 'awakener-9002',
             lineupToken: 'male-owner',
             name: 'Male Owner',
+            releaseDate: '2026-05-18',
             rarity: 'SSR',
             realm: 'test',
             tags: [],
@@ -425,6 +473,7 @@ describe('timeline data loading', () => {
       },
       'test-bucket-pool',
       {
+        releaseDateCutoff: '2026-05-18',
         awakeners: [
           {
             aliases: ['Eligible'],
@@ -434,6 +483,7 @@ describe('timeline data loading', () => {
             id: 'awakener-9001',
             lineupToken: 'eligible',
             name: 'Eligible',
+            releaseDate: '2026-05-18',
             rarity: 'SSR',
             realm: 'test',
             tags: [],
@@ -447,6 +497,7 @@ describe('timeline data loading', () => {
             id: 'awakener-9002',
             lineupToken: 'caraboo',
             name: 'Caraboo',
+            releaseDate: '2026-05-18',
             rarity: 'SSR',
             realm: 'test',
             tags: [],
@@ -580,6 +631,7 @@ describe('timeline data loading', () => {
         },
         'test-linked-missing-wheel',
         {
+          releaseDateCutoff: '2026-05-18',
           awakeners: [
             {
               aliases: ['Wheel Owner'],
@@ -588,6 +640,7 @@ describe('timeline data loading', () => {
               id: 'awakener-9001',
               lineupToken: 'wheel-owner',
               name: 'Wheel Owner',
+              releaseDate: '2026-05-18',
               rarity: 'SSR',
               realm: 'test',
               tags: [],
@@ -599,6 +652,7 @@ describe('timeline data loading', () => {
               id: 'awakener-9002',
               lineupToken: 'missing-wheel',
               name: 'Missing Wheel',
+              releaseDate: '2026-05-18',
               rarity: 'SSR',
               realm: 'test',
               tags: [],

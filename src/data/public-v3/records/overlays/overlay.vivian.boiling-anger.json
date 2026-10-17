@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 3,
+  "kind": "overlay",
+  "id": "overlay.vivian.boiling-anger",
+  "name": "Boiling Anger",
+  "route": {
+    "slug": "boiling-anger",
+    "canonicalPath": "/database/awakeners/vivian/overlays/boiling-anger"
+  },
+  "assets": {
+    "icon": "asset-overlay.vivian.boiling-anger-icon"
+  },
+  "overlayType": "mechanic",
+  "ownerAwakenerId": "awakener-0062",
+  "aliases": [],
+  "iconId": "IconS_Buff_097",
+  "textColor": "misc",
+  "descriptionTemplate": "When {Quality Nap} would trigger, consume 1 stack to prevent Vivian from falling asleep. The {STR} Gain, {Corrosion}, and Aliemus Gain from that action are increased by [DescArg1]%. All stacks are removed at turn end.",
+  "descriptionArgs": {
+    "DescArg1": {
+      "kind": "fixed",
+      "value": "50",
+      "suffix": "%",
+      "omitsCombatScaling": true
+    }
+  },
+  "ownerAwakenerName": "Vivian"
+}

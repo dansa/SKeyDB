@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "overlays",
   "kind": "overlay",
-  "recordCount": 155,
+  "recordCount": 162,
   "records": [
     {
       "kind": "overlay",
@@ -569,6 +569,28 @@
       "overlayType": "mechanic",
       "textColor": "misc",
       "aliases": ["Devouring", "Devoured"]
+    },
+    {
+      "kind": "overlay",
+      "id": "overlay.global.diagnosis",
+      "name": "Diagnosis",
+      "route": {
+        "slug": "diagnosis",
+        "canonicalPath": "/database/overlays/diagnosis"
+      },
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "kind": "overlay",
+      "id": "overlay.global.diagnostic-records",
+      "name": "Diagnostic Records",
+      "route": {
+        "slug": "diagnostic-records",
+        "canonicalPath": "/database/overlays/diagnostic-records"
+      },
+      "overlayType": "mechanic",
+      "aliases": []
     },
     {
       "kind": "overlay",
@@ -2057,6 +2079,81 @@
       "ownerAwakenerId": "awakener-0050",
       "ownerAwakenerName": "Tulu",
       "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "kind": "overlay",
+      "id": "overlay.vivian.boiling-anger",
+      "name": "Boiling Anger",
+      "route": {
+        "slug": "boiling-anger",
+        "canonicalPath": "/database/awakeners/vivian/overlays/boiling-anger"
+      },
+      "assets": {
+        "icon": "asset-overlay.vivian.boiling-anger-icon"
+      },
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "overlayType": "mechanic",
+      "textColor": "misc",
+      "aliases": []
+    },
+    {
+      "kind": "overlay",
+      "id": "overlay.vivian.concoct",
+      "name": "Concoct",
+      "route": {
+        "slug": "concoct",
+        "canonicalPath": "/database/awakeners/vivian/overlays/concoct"
+      },
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "overlayType": "tag",
+      "textColor": "misc",
+      "aliases": []
+    },
+    {
+      "kind": "overlay",
+      "id": "overlay.vivian.potions",
+      "name": "Potions",
+      "route": {
+        "slug": "potions",
+        "canonicalPath": "/database/awakeners/vivian/overlays/potions"
+      },
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "overlayType": "tag",
+      "textColor": "misc",
+      "aliases": []
+    },
+    {
+      "kind": "overlay",
+      "id": "overlay.vivian.quality-nap",
+      "name": "Quality Nap",
+      "route": {
+        "slug": "quality-nap",
+        "canonicalPath": "/database/awakeners/vivian/overlays/quality-nap"
+      },
+      "assets": {
+        "icon": "asset-overlay.vivian.quality-nap-icon"
+      },
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "overlayType": "tag",
+      "textColor": "misc",
+      "aliases": []
+    },
+    {
+      "kind": "overlay",
+      "id": "overlay.vivian.unclean-toad-god",
+      "name": "Unclean Toad God",
+      "route": {
+        "slug": "unclean-toad-god",
+        "canonicalPath": "/database/awakeners/vivian/overlays/unclean-toad-god"
+      },
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "overlayType": "tag",
       "aliases": []
     },
     {

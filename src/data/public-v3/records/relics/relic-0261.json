@@ -90,7 +90,7 @@
       "tier": "Silver",
       "category": "FADED_LEGACY",
       "rarity": "N",
-      "descriptionTemplate": "After dealing the {ordinal:3rd} DMG Each turn, Gain [Arg1] Shield. After dealing the {ordinal:6th} DMG Each turn, Gain [Arg2] {STR}.",
+      "descriptionTemplate": "After dealing the {ordinal:3rd} DMG each turn, gain [Arg1] Shield. After dealing the {ordinal:6th} DMG each turn, gain [Arg2] {STR}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

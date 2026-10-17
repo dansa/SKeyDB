@@ -1299,10 +1299,7 @@
       "tokens": [
         "aequor",
         "assault",
-        "cleanse",
-        "clear",
         "damage",
-        "dispel",
         "dmg",
         "fools",
         "gen",
@@ -1313,7 +1310,6 @@
         "limit",
         "male",
         "permanent",
-        "remove",
         "ssr",
         "str",
         "str up",
@@ -1336,16 +1332,12 @@
         "tag": [
           "str-up",
           "tentacle-dmg",
-          "dispel",
           "lemurian",
           "tentacles",
           "STR Up",
           "strength up",
           "Tentacle DMG",
           "tentacle damage",
-          "cleanse",
-          "clear",
-          "remove",
           "lemuria",
           "Tentacle Generation",
           "tentacle gen",
@@ -1360,7 +1352,7 @@
         "availabilityType": "PERMANENT",
         "faction": "The Fools",
         "gender": "Male",
-        "tags": ["dispel", "lemurian", "str-up", "tentacle-dmg", "tentacles"]
+        "tags": ["lemurian", "str-up", "tentacle-dmg", "tentacles"]
       }
     },
     {
@@ -1387,11 +1379,15 @@
         "pierce dmg",
         "poison",
         "ssr",
+        "steal",
+        "steal str",
         "str",
         "str down",
+        "str steal",
         "str up",
         "strength",
         "strength down",
+        "strength steal",
         "strength up",
         "the",
         "the unknowable",
@@ -1413,6 +1409,7 @@
           "bleed",
           "str-up",
           "str-down",
+          "steal-str",
           "pierce-dmg",
           "arithmetica",
           "weak",
@@ -1422,6 +1419,10 @@
           "strength up",
           "STR Down",
           "strength down",
+          "Steal STR",
+          "steal",
+          "str steal",
+          "strength steal",
           "Pierce DMG",
           "pierce damage"
         ],
@@ -1434,7 +1435,7 @@
         "availabilityType": "LIMITED_FADED_LEGACY",
         "faction": "The Unknowable",
         "gender": "Male",
-        "tags": ["arithmetica", "bleed", "pierce-dmg", "poison", "str-down", "str-up", "vulnerable", "weakness"]
+        "tags": ["arithmetica", "bleed", "pierce-dmg", "poison", "steal-str", "str-down", "str-up", "vulnerable", "weakness"]
       }
     },
     {
@@ -2362,9 +2363,13 @@
         "pandia",
         "permanent",
         "ssr",
+        "steal",
+        "steal str",
         "str",
+        "str steal",
         "str up",
         "strength",
+        "strength steal",
         "strength up",
         "up",
         "vuln",
@@ -2374,7 +2379,20 @@
       "fields": {
         "name": ["Pandia"],
         "alias": ["pandia"],
-        "tag": ["vulnerable", "counter", "str-up", "vulnerability", "vuln", "STR Up", "strength up"],
+        "tag": [
+          "vulnerable",
+          "counter",
+          "str-up",
+          "steal-str",
+          "vulnerability",
+          "vuln",
+          "STR Up",
+          "strength up",
+          "Steal STR",
+          "steal",
+          "str steal",
+          "strength steal"
+        ],
         "facet": ["CHAOS", "SSR", "ASSAULT", "PERMANENT", "Outlanders", "Female"]
       },
       "facets": {
@@ -2384,7 +2402,7 @@
         "availabilityType": "PERMANENT",
         "faction": "Outlanders",
         "gender": "Female",
-        "tags": ["counter", "str-up", "vulnerable"]
+        "tags": ["counter", "steal-str", "str-up", "vulnerable"]
       }
     },
     {
@@ -3683,6 +3701,48 @@
         "faction": "The Fools",
         "gender": "Male",
         "tags": ["corrosion", "divine-realm", "str-down", "str-up"]
+      }
+    },
+    {
+      "kind": "awakener",
+      "id": "awakener-0062",
+      "name": "Vivian",
+      "aliases": ["vivian"],
+      "tokens": [
+        "alt",
+        "alt realm",
+        "astral",
+        "chaos",
+        "chorus",
+        "corrosion",
+        "divine",
+        "divine realm",
+        "limited",
+        "limited astral reign",
+        "realm",
+        "reign",
+        "ssr",
+        "str",
+        "str up",
+        "strength",
+        "strength up",
+        "tbd",
+        "up",
+        "vivian"
+      ],
+      "fields": {
+        "name": ["Vivian"],
+        "alias": ["vivian"],
+        "tag": ["str-up", "corrosion", "divine-realm", "STR Up", "strength up", "Divine Realm", "alt realm"],
+        "facet": ["CHAOS", "SSR", "CHORUS", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "TBD"]
+      },
+      "facets": {
+        "realm": "CHAOS",
+        "rarity": "SSR",
+        "type": "CHORUS",
+        "availabilityType": "LIMITED_ASTRAL_REIGN",
+        "faction": "TBD",
+        "tags": ["corrosion", "divine-realm", "str-up"]
       }
     }
   ]

@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0444",
   "rarity": "N",
   "aliases": ["Painted Rusted Saw", "Painted Rusted Saw+", "Rusted Saw+"],
-  "descriptionTemplate": "Upon losing a HP, the {Crimson Furnace} grants [Arg1]% of the HP loss.",
+  "descriptionTemplate": "Upon losing HP, accumulate {Crimson Furnace} equal to [Arg1]% of HP lost.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -34,7 +34,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "Upon losing a HP, the {Crimson Furnace} grants [Arg1]% of the HP loss.",
+      "descriptionTemplate": "Upon losing HP, accumulate {Crimson Furnace} equal to [Arg1]% of HP lost.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -51,7 +51,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "Upon losing a HP, the {Crimson Furnace} grants [Arg1]% of the HP loss.",
+      "descriptionTemplate": "Upon losing HP, accumulate {Crimson Furnace} equal to [Arg1]% of HP lost.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -81,7 +81,7 @@
       "tier": "Silver",
       "mechanicOwner": "Pickman",
       "rarity": "N",
-      "descriptionTemplate": "Gain [Arg1]% of the HP lost as {Crimson Furnace} when losing HP.",
+      "descriptionTemplate": "Upon losing HP, accumulate {Crimson Furnace} equal to [Arg1]% of HP lost.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -98,7 +98,7 @@
       "variantType": "AWAKENER_MECHANIC",
       "tier": "Gold",
       "mechanicOwner": "Pickman",
-      "descriptionTemplate": "Gain [Arg1]% of the HP lost as {Crimson Furnace} when losing HP.",
+      "descriptionTemplate": "Upon losing HP, accumulate {Crimson Furnace} equal to [Arg1]% of HP lost.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

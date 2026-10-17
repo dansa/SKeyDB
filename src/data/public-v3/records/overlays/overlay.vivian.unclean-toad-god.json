@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 3,
+  "kind": "overlay",
+  "id": "overlay.vivian.unclean-toad-god",
+  "name": "Unclean Toad God",
+  "route": {
+    "slug": "unclean-toad-god",
+    "canonicalPath": "/database/awakeners/vivian/overlays/unclean-toad-god"
+  },
+  "overlayType": "tag",
+  "ownerAwakenerId": "awakener-0062",
+  "aliases": [],
+  "descriptionTemplate": "{Turn Unique}: After Vivian plays a basic \"Strike\" or \"Defense\", draw 1 of her Skills, prioritizing a Skill not already in hand.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Vivian"
+}

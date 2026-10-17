@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.vivian.cauldron",
+  "name": "Cauldron",
+  "route": {
+    "slug": "cauldron",
+    "canonicalPath": "/database/awakeners/vivian/derived-skills/cauldron"
+  },
+  "ownerAwakenerId": "awakener-0062",
+  "derivedFromId": "skill.vivian.whatevers-at-hand",
+  "rootSkillId": "skill.vivian.whatevers-at-hand",
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
+  "descriptionTemplate": "Playable only when the countdown reaches 0. Trigger the Potion effect and dispel {Void} from self. Cannot {Concoct} for the rest of this turn. At turn start, countdown -1.",
+  "descriptionArgs": {},
+  "cardKeywords": [],
+  "cost": "0",
+  "ownerAwakenerName": "Vivian"
+}

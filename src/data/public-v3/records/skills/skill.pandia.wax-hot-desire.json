@@ -11,7 +11,7 @@
   "slot": "Skill2",
   "cardFamily": "command",
   "cardTypes": ["skill"],
-  "descriptionTemplate": "Gain [Counterattack:Arg2] stacks of {Counter}. {Steal} [Arg1] {STR} from all enemies and remove their {Counter} State.",
+  "descriptionTemplate": "Obtain [Counterattack:Arg2] stacks of {Counter}. {Steal} [Arg1] {STR} from all enemies. Remove all enemies' {Counter}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

@@ -11,7 +11,7 @@
   "slot": "Exalt",
   "cardFamily": "exalt",
   "cardTypes": ["exalt"],
-  "descriptionTemplate": "Gain [Block:Arg1] Shield. Discard all Symptom Cards and State Cards from hand, and draw a number of cards equal to the quantity discarded.{Vulnerable} All enemies for 1 turn.",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield. Discard all Symptom Cards and State Cards from hand, and draw a number of cards equal to the quantity discarded. {Vulnerable} All enemies for 1 turn.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

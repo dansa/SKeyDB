@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 3,
+  "kind": "skill",
+  "id": "skill.vivian.parchment-scroll",
+  "name": "Parchment Scroll",
+  "route": {
+    "slug": "parchment-scroll",
+    "canonicalPath": "/database/awakeners/vivian/skills/parchment-scroll"
+  },
+  "ownerAwakenerId": "awakener-0062",
+  "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
+  "descriptionTemplate": "Vivian gains [Arg2]% Base Aliemus. {Rouse}: Shuffle 1 copy of each of Vivian's Skills into the Draw Pile. {Turn Unique}: When Vivian falls asleep from {Quality Nap}, she gains [Energy:Arg3] Aliemus and discards all of her Command Cards, generating [Power:Arg4] {STR} for each card discarded.",
+  "descriptionArgs": {
+    "Arg2": {
+      "kind": "scaling",
+      "values": ["25", "30", "35", "40", "45", "50"],
+      "suffix": "%"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": ["15", "17", "19", "21", "23", "25"]
+    },
+    "Arg4": {
+      "kind": "scaling",
+      "values": ["7.5", "9", "10.5", "12", "13.5", "15"],
+      "stat": "ATK",
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ],
+  "cost": "2",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.vivian.once-in-a-life-potion.skill.vivian.parchment-scroll",
+      "operation": "replace_description",
+      "upgraderId": "enlighten.vivian.once-in-a-life-potion",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "AbsoluteAxiom",
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "patch": {
+        "descriptionTemplate": "Vivian gains [Arg2]% Base Aliemus. {Rouse}: Vivian's Skills cost 1 less Arithmetica. Shuffle 1 copy of each of Vivian's Skills into the Draw Pile. {Turn Unique}: When Vivian falls asleep from {Quality Nap}, she gains [Energy:Arg3] Aliemus and discards all of her Command Cards, generating [Power:Arg4] {STR} for each card discarded."
+      }
+    }
+  ],
+  "ownerAwakenerName": "Vivian"
+}

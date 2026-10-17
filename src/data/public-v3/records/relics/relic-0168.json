@@ -81,7 +81,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SSR",
-      "descriptionTemplate": "Each time you deal 1 instance of Active DMG, gain 3 Aliemus and Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Poison} to the Target. If the number of triggers reaches 25 times within this battle, immediately Inflict {Poison} on all Enemy targets.",
+      "descriptionTemplate": "Each time you deal 1 instance of Active DMG, gain 3 Aliemus and inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Poison} to the Target. If the number of triggers reaches 25 within this battle, immediately inflict {Poison} on all Enemy targets.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -101,7 +101,7 @@
       "tier": "Special",
       "category": "OTHER",
       "rarity": "SSR",
-      "descriptionTemplate": "For each instance of Active or {Tentacle DMG} dealt, inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Poison} on the target. If the number of triggers accumulates to 25 times within this battle, immediately trigger {Poison} on all enemies.",
+      "descriptionTemplate": "For each instance of Active or {Tentacle DMG} dealt, inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Poison} on the target. If the number of triggers accumulates to 25 within this battle, immediately trigger {Poison} on all enemies.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

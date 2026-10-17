@@ -844,6 +844,11 @@
         "value": "awakener-0060",
         "label": "Caraboo",
         "order": 59
+      },
+      {
+        "value": "awakener-0062",
+        "label": "Vivian",
+        "order": 61
       }
     ]
   },
@@ -1180,6 +1185,11 @@
         "value": "awakener-0061",
         "label": "Ogier: Oathbound",
         "order": 60
+      },
+      {
+        "value": "awakener-0062",
+        "label": "Vivian",
+        "order": 61
       }
     ]
   },
@@ -1394,6 +1404,11 @@
         "value": "awakener-0061",
         "label": "Ogier: Oathbound",
         "order": 60
+      },
+      {
+        "value": "awakener-0062",
+        "label": "Vivian",
+        "order": 61
       }
     ]
   },
@@ -1625,6 +1640,11 @@
         "value": "awakener-0061",
         "label": "Ogier: Oathbound",
         "order": 60
+      },
+      {
+        "value": "awakener-0062",
+        "label": "Vivian",
+        "order": 61
       }
     ]
   },
@@ -2382,6 +2402,11 @@
         "value": "awakener-0061",
         "label": "Ogier: Oathbound",
         "order": 60
+      },
+      {
+        "value": "awakener-0062",
+        "label": "Vivian",
+        "order": 61
       }
     ]
   },
@@ -2713,6 +2738,11 @@
         "value": "awakener-0061",
         "label": "Ogier: Oathbound",
         "order": 60
+      },
+      {
+        "value": "awakener-0062",
+        "label": "Vivian",
+        "order": 61
       }
     ]
   },
@@ -3108,6 +3138,11 @@
         "value": "awakener-0061",
         "label": "Ogier: Oathbound",
         "order": 60
+      },
+      {
+        "value": "awakener-0062",
+        "label": "Vivian",
+        "order": 61
       }
     ],
     "tags": [

@@ -11,7 +11,7 @@
   "slot": "Exalt",
   "cardFamily": "exalt",
   "cardTypes": ["exalt"],
-  "descriptionTemplate": "Erica gains [Arg4]% Temporary Crit. Rate and Crit. DMG. Gain [Block:Arg2] Shield. Deal [Damage:Arg1] DMG to all enemies and apply [Arg3] {plural:[Arg3]|stack|stacks}{Weakness} and {Vulnerable}.",
+  "descriptionTemplate": "Erica gains [Arg4]% Temporary Crit. Rate and Crit. DMG. Gain [Block:Arg2] Shield. Deal [Damage:Arg1] DMG to all enemies and apply [Arg3] {plural:[Arg3]|stack|stacks} of {Weakness} and {Vulnerable}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -52,7 +52,7 @@
       "ownerAwakenerId": "awakener-0015",
       "ownerAwakenerName": "Erica",
       "patch": {
-        "descriptionTemplate": "Erica gains [Arg4]% Temporary Crit. Rate and Crit. DMG. Gain [Block:Arg2] Shield. Deal [Damage:Arg1] DMG to all enemies and apply [Arg3] {plural:[Arg3]|stack|stacks}{Weakness} and {Vulnerable}. This skill additionally enjoys a [Arg7]x {STR} and {Alert} bonus.",
+        "descriptionTemplate": "Erica gains [Arg4]% Temporary Crit. Rate and Crit. DMG. Gain [Block:Arg2] Shield. Deal [Damage:Arg1] DMG to all enemies and apply [Arg3] {plural:[Arg3]|stack|stacks} of {Weakness} and {Vulnerable}. This skill additionally enjoys a [Arg7]x {STR} and {Alert} bonus.",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

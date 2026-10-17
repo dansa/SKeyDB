@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 3,
+  "kind": "skill",
+  "id": "skill.vivian.the-sleeper-of-heaths",
+  "name": "The Sleeper of Heaths",
+  "route": {
+    "slug": "the-sleeper-of-heaths",
+    "canonicalPath": "/database/awakeners/vivian/skills/the-sleeper-of-heaths"
+  },
+  "ownerAwakenerId": "awakener-0062",
+  "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
+  "descriptionTemplate": "Recover [Heal:Arg1] HP, with a 5% chance to increase the amount recovered by 50%. This chance increases by 1% for every 1% Crit. Rate Vivian has. Gain [Power:Arg2] {STR} and Temporary {STR} equal to [Arg3]% of Permanent {STR}. {Quality Nap}.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": ["40", "48", "56", "64", "72", "80"],
+      "stat": "CON",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": ["25", "30", "35", "40", "45", "50"],
+      "stat": "ATK",
+      "suffix": "%"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "20",
+      "suffix": "%"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "150",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.vivian.unclean-toad-god.skill.vivian.the-sleeper-of-heaths",
+      "operation": "replace_description",
+      "upgraderId": "enlighten.vivian.unclean-toad-god",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "E2",
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "patch": {
+        "descriptionTemplate": "Recover [Heal:Arg1] HP, with a 5% chance to increase the amount recovered by 50%. This chance increases by 1% for every 1% Crit. Rate Vivian has. Gain [Power:Arg2] {STR} and Temporary {STR} equal to [Arg3]% of Permanent {STR}. {Quality Nap}.\n{overlay:Unclean Toad God}"
+      }
+    },
+    {
+      "id": "upgrade.enlighten.vivian.pact-of-the-temple.skill.vivian.the-sleeper-of-heaths",
+      "operation": "mixed",
+      "upgraderId": "enlighten.vivian.pact-of-the-temple",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "E3",
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "patch": {
+        "descriptionTemplate": "Recover [Heal:Arg1] HP, with a 5% chance to increase the amount recovered by 50%. This chance increases by 1% for every 1% Crit. Rate Vivian has. Gain [Power:Arg2] {STR} and Temporary {STR} equal to [Arg3]% of Permanent {STR}. {Quality Nap}.\n{overlay:Unclean Toad God}",
+        "descriptionArgs": {
+          "Arg1": {
+            "kind": "scaling",
+            "values": ["40", "48", "56", "64", "72", "80"],
+            "stat": "CON",
+            "suffix": "%"
+          },
+          "Arg2": {
+            "kind": "scaling",
+            "values": ["37.5", "45", "52.5", "60", "67.5", "75"],
+            "stat": "ATK",
+            "suffix": "%"
+          },
+          "Arg3": {
+            "kind": "fixed",
+            "value": "20",
+            "suffix": "%"
+          }
+        }
+      }
+    }
+  ],
+  "ownerAwakenerName": "Vivian"
+}

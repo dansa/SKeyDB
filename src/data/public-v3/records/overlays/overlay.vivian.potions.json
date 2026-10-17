@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 3,
+  "kind": "overlay",
+  "id": "overlay.vivian.potions",
+  "name": "Potions",
+  "route": {
+    "slug": "potions",
+    "canonicalPath": "/database/awakeners/vivian/overlays/potions"
+  },
+  "overlayType": "tag",
+  "ownerAwakenerId": "awakener-0062",
+  "aliases": [],
+  "textColor": "misc",
+  "descriptionTemplate": "Gain 1 stack of {overlay:Boiling Anger}.\nEffects differ based on the type of Potion concocted:\n{Creekwort Potion}: Draw 2 cards.\n{Beadlily Potion}: Gain 2 Arithmetica.\n{Howlberry Potion}: All Awakeners gain 10 Fixed Aliemus.\nA chosen ingredient is removed from Vivian's stock until all ingredients have been chosen, then the stock resets.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Vivian",
+  "upgrades": [
+    {
+      "id": "upgrade.enlighten.vivian.pact-of-the-temple.overlay.vivian.potions",
+      "operation": "replace_description",
+      "upgraderId": "enlighten.vivian.pact-of-the-temple",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "E3",
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "patch": {
+        "descriptionTemplate": "Gain 1 stack of {overlay:Boiling Anger}. All enemies take +10% Active or {Tentacle DMG} this turn.\nEffects differ based on the type of Potion concocted:\n{Creekwort Potion}: Draw 2 cards.\n{Beadlily Potion}: Gain 2 Arithmetica.\n{Howlberry Potion}: All Awakeners gain 10 Fixed Aliemus.\nA chosen ingredient is removed from Vivian's stock until all ingredients have been chosen, then the stock resets."
+      }
+    }
+  ]
+}

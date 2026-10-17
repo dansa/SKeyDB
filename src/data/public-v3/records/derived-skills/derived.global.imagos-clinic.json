@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.imagos-clinic",
+  "name": "Imago's Clinic",
+  "route": {
+    "slug": "imagos-clinic",
+    "canonicalPath": "/database/derived-skills/imagos-clinic"
+  },
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
+  "descriptionTemplate": "[Arg2] gains {Diagnosis}: This turn, each time the wielder takes Active or {Tentacle DMG}, they gain 1 stack of {Diagnostic Records} at the start of next turn: Each stack makes their \"Command Cards\" count as having [Arg3] {plural:[Arg3]|stack|stacks} of {Enhance}, stacking up to 5 times. Removed at turn end. Upon reaching 5/10/15/20/25 stacks, generate 1 {derived:Insect Taxidermy} and permanently place it in deck (currently [Arg4] stacks).",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": ["1", "2", "3", "4"],
+      "scalingContext": "wheelRefinement"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "The wielder"
+    },
+    "Arg3": {
+      "kind": "scaling",
+      "values": ["4", "6", "8", "10"],
+      "scalingContext": "wheelRefinement"
+    },
+    "Arg4": {
+      "kind": "fixed",
+      "value": "X",
+      "displayFormula": "runtime value"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    },
+    {
+      "id": "mechanic.prepare",
+      "value": 1
+    }
+  ],
+  "cost": "3"
+}

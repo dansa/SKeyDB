@@ -119,7 +119,7 @@
       "variantType": "SINFUL",
       "tier": "Sinful",
       "category": "FADED_LEGACY",
-      "descriptionTemplate": "For every Active DMG instance, Inflict [Arg1] {plural:[Arg1]|stack|stacks} of {Bleed} to self and [Arg2] {plural:[Arg2]|stack|stacks} of {Bleed} to the DMG target.",
+      "descriptionTemplate": "For every instance of Active DMG dealt, apply [Arg1] {plural:[Arg1]|stack|stacks} of {Bleed} to self and [Arg2] {plural:[Arg2]|stack|stacks} of {Bleed} to the target.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

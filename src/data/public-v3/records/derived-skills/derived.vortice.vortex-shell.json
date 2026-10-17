@@ -12,7 +12,7 @@
   "rootSkillId": "skill.vortice.moskstraumen-boom",
   "cardFamily": "command",
   "cardTypes": ["derived", "pursuit"],
-  "descriptionTemplate": "Deal [Arg1] {Fixed DMG} to the enemy with the highest HP, {Tentacle DMG} +[TentaclePower:Arg2].",
+  "descriptionTemplate": "Deal [FixedDamage:Arg1] {Fixed DMG} to the enemy with the highest HP, {Tentacle DMG} +[TentaclePower:Arg2].",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -39,7 +39,7 @@
       "ownerAwakenerId": "awakener-0055",
       "ownerAwakenerName": "Vortice",
       "patch": {
-        "descriptionTemplate": "Deal [Arg1] {Fixed DMG} and {Pure DMG} equal to [Float:Arg3]% of the target's Max HP to the enemy with the highest HP. {Tentacle DMG} +[TentaclePower:Arg2].",
+        "descriptionTemplate": "Deal [FixedDamage:Arg1] {Fixed DMG} and {Pure DMG} equal to [Float:Arg3]% of the target's Max HP to the enemy with the highest HP. {Tentacle DMG} +[TentaclePower:Arg2].",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

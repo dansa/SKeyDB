@@ -15,7 +15,7 @@
   "mainstatKey": "ALIEMUS_REGEN",
   "ownerAwakenerId": "awakener-0040",
   "ownerAwakenerName": "Pickman",
-  "lineupToken": "yd",
+  "lineupToken": "yc",
   "descriptionTemplate": "{Team Unique}: The wielder's Aliemus Generation and {STR} Generation +[StateArg1]%. After unleashing Exalt, the Final DMG, Shield, and HP Recovery from the next Exalt released by other Awakeners this turn +[StateArg2]%. If this Exalt triggered {Devour}, the wielder gains [StateArg3] Aliemus.",
   "descriptionArgs": {
     "StateArg1": {

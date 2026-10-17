@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0460",
   "rarity": "N",
   "aliases": ["Serpent's Husk+"],
-  "descriptionTemplate": "All Awakeners' base effects for HP Recovery and Shield are +[Arg1]%.",
+  "descriptionTemplate": "All Awakeners' base effects for HP Recovery and Shield Generation +[Arg1]%.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -34,7 +34,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "All Awakeners' base effects for HP Recovery and Shield are +[Arg1]%.",
+      "descriptionTemplate": "All Awakeners' base effects for HP Recovery and Shield Generation +[Arg1]%.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -51,7 +51,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "All Awakeners' base effects for HP Recovery and Shield are +[Arg1]%.",
+      "descriptionTemplate": "All Awakeners' base effects for HP Recovery and Shield Generation +[Arg1]%.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

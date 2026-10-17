@@ -367,6 +367,12 @@
       "legacyId": 61,
       "legacyName": "ogier-oathbound",
       "id": "awakener-0061"
+    },
+    {
+      "codecIndex": 62,
+      "legacyId": 62,
+      "legacyName": "vivian",
+      "id": "awakener-0062"
     }
   ],
   "wheels": [
@@ -1099,6 +1105,21 @@
       "codecIndex": 146,
       "legacyId": "wheel-0180",
       "id": "wheel-0180"
+    },
+    {
+      "codecIndex": 147,
+      "legacyId": "wheel-0181",
+      "id": "wheel-0181"
+    },
+    {
+      "codecIndex": 148,
+      "legacyId": "wheel-0182",
+      "id": "wheel-0182"
+    },
+    {
+      "codecIndex": 149,
+      "legacyId": "wheel-0183",
+      "id": "wheel-0183"
     }
   ],
   "covenants": [
@@ -1483,6 +1504,11 @@
       "codecIndex": 57,
       "legacyId": "posse-0063",
       "id": "posse-0063"
+    },
+    {
+      "codecIndex": 58,
+      "legacyId": "posse-0064",
+      "id": "posse-0064"
     }
   ]
 }

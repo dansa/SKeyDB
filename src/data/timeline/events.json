@@ -364,7 +364,7 @@
     "id": "event-story-rerun-helot-catena",
     "title": "Til the Snow Melts",
     "category": "gameplay-event",
-    "description": "Gameplay event rerun featuring Helot: Catena.\n Obtain SR-Wheel \"Compass to False North\" and limited avatar \"By the Silver Key: Helot: Catena\".",
+    "description": "Gameplay event rerun featuring Helot: Catena.\n Obtain SR-Wheel \"The Errant Compass\" and limited avatar \"By the Silver Key: Helot: Catena\".",
     "startDate": "2026/07/13 09:00",
     "endDate": "2026/08/10 09:00",
     "featured": [{"name": "Helot: Catena", "kind": "awakener"}],
@@ -555,6 +555,70 @@
     "endDate": "2026/11/02 09:00",
     "featured": "Castor",
     "customArt": "/events/mirrored-prisoner.webp",
+    "rerun": true
+  },
+  {
+    "id": "event-story-vivian",
+    "title": "And Then There Were None",
+    "category": "gameplay-event",
+    "description": "Gameplay event featuring Vivian. Obtain the SR Wheel \"She and Her Tree Hole\" and limited avatar \"By the Silver Key: Vivian\".",
+    "startDate": "2026/10/19 09:00",
+    "endDate": "2026/11/16 09:00",
+    "featured": {"name": "Vivian", "kind": "awakener", "realmId": "CHAOS"},
+    "customArt": "/events/and-then-there-were-none.webp",
+    "pinned": true
+  },
+  {
+    "id": "event-wheel-imagos-clinic",
+    "title": "Special Archives: Soul Anatomist",
+    "category": "wheel-event",
+    "description": "Limited-time WoD wheel acquisition event featuring \"Imago's Clinic\".\n Complete various tasks to obtain 4 copies & 30 Pure Cores.\n Premium track: Grants +12 copies & 60 Luminous Cores.",
+    "startDate": "2026/10/19 09:00",
+    "endDate": "2026/11/16 09:00",
+    "featured": {"name": "Imago's Clinic", "kind": "wheel"},
+    "customArt": "/events/soul-anatomist.webp",
+    "pricing": "1680 Silver Prime"
+  },
+  {
+    "id": "event-login-season-39",
+    "title": "Gifts from Mythag",
+    "category": "login",
+    "description": "28-day cumulative login rewards featuring 10 Luminous Cores across the first 7 login days, with additional rewards throughout the cycle.",
+    "startDate": "2026/10/19 09:00",
+    "endDate": "2026/11/16 09:00",
+    "customArt": "/events/gifts-from-mythag.webp"
+  },
+  {
+    "id": "event-curriculum-season-39",
+    "title": "Curriculum Honor",
+    "category": "curriculum",
+    "description": "Complete daily and weekly tasks to earn various rewards. \n T1: 680 Silver Prime - SSR wheel, 2500 Silver, 12 Luminous Cores and more. \n T2: 1280 Silver Prime - T1 + Exclusive Avatars, increased daily rewards and more.",
+    "startDate": "2026/10/19 09:00",
+    "endDate": "2026/11/16 09:00",
+    "customArt": "/events/curriculum.webp",
+    "pricing": "680-1280 Silver Prime"
+  },
+  {
+    "id": "event-story-rerun-dark-side-of-the-canvas",
+    "title": "Dark Side of the Canvas",
+    "category": "gameplay-event",
+    "description": "Gameplay event rerun featuring Pickman. Obtain the SR Wheel \"Thirsting Brush\" and limited avatar \"By the Silver Key: Pickman\".",
+    "startDate": "2026/11/02 09:00",
+    "endDate": "2026/11/30 09:00",
+    "featured": "Pickman",
+    "customArt": "/events/dark-side-of-the-canvas.webp",
+    "rerun": true
+  },
+  {
+    "id": "event-skin-rerun-candy-snatcher",
+    "title": "No Candy, No Tricks",
+    "category": "skin",
+    "description": "Skin gacha rerun featuring Murphy's 4☆ skin \"Candy Snatcher\", with an animated illustration, new voice lines, battle sprite and skill effects.\n First pull is free. The skin can drop from pull 5 and is guaranteed within 10 pulls.\n Costs 480-1980 Silver Prime to obtain the skin; 1980 Silver Prime guarantees all rewards. Includes Luminous Cores, Silver, Gnosis Primers and other materials.",
+    "startDate": "2026/10/19 09:00",
+    "endDate": "2026/11/16 09:00",
+    "featured": "Murphy",
+    "customArt": "/events/no-candy-no-tricks.webp",
+    "pricing": "1980 Silver Prime",
     "rerun": true
   }
 ]

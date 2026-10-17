@@ -60,6 +60,7 @@ export const AWAKENER_ID_V1_TO_CURRENT = {
   '59': 'awakener-0059',
   '60': 'awakener-0060',
   '61': 'awakener-0061',
+  '62': 'awakener-0062',
 } as const
 
 export const AWAKENER_NAME_V1_TO_CURRENT = {
@@ -127,6 +128,7 @@ export const AWAKENER_NAME_V1_TO_CURRENT = {
   'lotan-cetarchon': 'awakener-0059',
   caraboo: 'awakener-0060',
   'ogier-oathbound': 'awakener-0061',
+  vivian: 'awakener-0062',
 } as const
 
 export const WHEEL_ID_V1_TO_CURRENT = {
@@ -276,6 +278,9 @@ export const WHEEL_ID_V1_TO_CURRENT = {
   'wheel-0178': 'wheel-0178',
   'wheel-0179': 'wheel-0179',
   'wheel-0180': 'wheel-0180',
+  'wheel-0181': 'wheel-0181',
+  'wheel-0182': 'wheel-0182',
+  'wheel-0183': 'wheel-0183',
 } as const
 
 export const COVENANT_ID_V1_TO_CURRENT = {
@@ -358,6 +363,7 @@ export const POSSE_ID_V1_TO_CURRENT = {
   'posse-0053': 'posse-0053',
   'posse-0062': 'posse-0062',
   'posse-0063': 'posse-0063',
+  'posse-0064': 'posse-0064',
 } as const
 
 export function migrateAwakenerIdV1ToCurrent(id: number | string): string | undefined {

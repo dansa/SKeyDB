@@ -1626,6 +1626,35 @@
       ],
       "ownedOverlays": ["overlay.ogier-oathbound.guilt", "overlay.ogier-oathbound.undertow"]
     },
+    "awakener-0062": {
+      "ownedWheels": ["wheel-0181", "wheel-0182"],
+      "ownedPosses": ["posse-0064"],
+      "ownedSkills": [
+        "skill.vivian.defense",
+        "skill.vivian.parchment-scroll",
+        "skill.vivian.soup-rains-from-above",
+        "skill.vivian.strike",
+        "skill.vivian.the-satiated-darkness",
+        "skill.vivian.the-sleeper-of-heaths",
+        "skill.vivian.whatevers-at-hand"
+      ],
+      "ownedDerivedSkills": ["derived.vivian.cauldron"],
+      "ownedTalents": ["talent.vivian.primordial-breath", "talent.vivian.madness-omen", "talent.vivian.soulforge-aptitude", "talent.vivian.gnostic-potential"],
+      "ownedEnlightens": [
+        "enlighten.vivian.heir-to-the-throne",
+        "enlighten.vivian.once-in-a-life-potion",
+        "enlighten.vivian.pact-of-the-temple",
+        "enlighten.vivian.the-satiated-darkness",
+        "enlighten.vivian.unclean-toad-god"
+      ],
+      "ownedOverlays": [
+        "overlay.vivian.boiling-anger",
+        "overlay.vivian.concoct",
+        "overlay.vivian.potions",
+        "overlay.vivian.quality-nap",
+        "overlay.vivian.unclean-toad-god"
+      ]
+    },
     "awakener-build-0001": {},
     "awakener-build-0002": {},
     "awakener-build-0003": {},
@@ -1802,7 +1831,9 @@
     "derived.global.hanafubuki": {},
     "derived.global.hide-beta": {},
     "derived.global.ichigo-ichie": {},
+    "derived.global.imagos-clinic": {},
     "derived.global.infinite-silver-vault": {},
+    "derived.global.insect-taxidermy": {},
     "derived.global.insight": {},
     "derived.global.inspire-offsprings": {},
     "derived.global.leahs-coin": {},
@@ -1907,6 +1938,7 @@
     "derived.thais.blood-of-decay": {},
     "derived.thais.blood-of-fear": {},
     "derived.thais.scion-of-purity": {},
+    "derived.vivian.cauldron": {},
     "derived.vortice.vortex-shell": {},
     "derived.wanda.echoes-of-whispers": {},
     "derived.wanda.hypnotic-veins": {},
@@ -2198,6 +2230,11 @@
     "enlighten.uvhash.roman-elegy": {},
     "enlighten.uvhash.sorcerers-end": {},
     "enlighten.uvhash.the-gladiator": {},
+    "enlighten.vivian.heir-to-the-throne": {},
+    "enlighten.vivian.once-in-a-life-potion": {},
+    "enlighten.vivian.pact-of-the-temple": {},
+    "enlighten.vivian.the-satiated-darkness": {},
+    "enlighten.vivian.unclean-toad-god": {},
     "enlighten.vortice.bang-pop-boom": {},
     "enlighten.vortice.endless-tide": {},
     "enlighten.vortice.moskstraumen-boom": {},
@@ -2281,6 +2318,8 @@
     "overlay.global.delayed-sacrifice": {},
     "overlay.global.destroy": {},
     "overlay.global.devour": {},
+    "overlay.global.diagnosis": {},
+    "overlay.global.diagnostic-records": {},
     "overlay.global.dimension-shuttle": {},
     "overlay.global.discover": {},
     "overlay.global.divine-realm-aequor": {},
@@ -2391,6 +2430,11 @@
     "overlay.ryker.winner-takes-all": {},
     "overlay.saya.gynoecium": {},
     "overlay.tulu.the-stars-are-right": {},
+    "overlay.vivian.boiling-anger": {},
+    "overlay.vivian.concoct": {},
+    "overlay.vivian.potions": {},
+    "overlay.vivian.quality-nap": {},
+    "overlay.vivian.unclean-toad-god": {},
     "overlay.vortice.vortex-reload": {},
     "overlay.wanda.dreamlure": {},
     "overlay.wanda.murmurs": {},
@@ -2460,6 +2504,7 @@
     "posse-0061": {},
     "posse-0062": {},
     "posse-0063": {},
+    "posse-0064": {},
     "relic-0001": {},
     "relic-0002": {},
     "relic-0003": {},
@@ -3170,6 +3215,13 @@
     "skill.uvhash.screech-blood": {},
     "skill.uvhash.strike": {},
     "skill.uvhash.vermilion-rite": {},
+    "skill.vivian.defense": {},
+    "skill.vivian.parchment-scroll": {},
+    "skill.vivian.soup-rains-from-above": {},
+    "skill.vivian.strike": {},
+    "skill.vivian.the-satiated-darkness": {},
+    "skill.vivian.the-sleeper-of-heaths": {},
+    "skill.vivian.whatevers-at-hand": {},
     "skill.vortice.abyssal-vortex-cannon": {},
     "skill.vortice.charge": {},
     "skill.vortice.defense": {},
@@ -3414,6 +3466,10 @@
     "talent.uvhash.gnostic-potential": {},
     "talent.uvhash.madness-omen": {},
     "talent.uvhash.soulforge-aptitude": {},
+    "talent.vivian.gnostic-potential": {},
+    "talent.vivian.madness-omen": {},
+    "talent.vivian.primordial-breath": {},
+    "talent.vivian.soulforge-aptitude": {},
     "talent.vortice.gnostic-potential": {},
     "talent.vortice.lightless-bottom": {},
     "talent.vortice.madness-omen": {},
@@ -3573,7 +3629,10 @@
     "wheel-0177": {},
     "wheel-0178": {},
     "wheel-0179": {},
-    "wheel-0180": {}
+    "wheel-0180": {},
+    "wheel-0181": {},
+    "wheel-0182": {},
+    "wheel-0183": {}
   },
   "reverse": {
     "awakener-0001": {},
@@ -3637,6 +3696,7 @@
     "awakener-0059": {},
     "awakener-0060": {},
     "awakener-0061": {},
+    "awakener-0062": {},
     "awakener-build-0001": {
       "awakenerId": "awakener-0001"
     },
@@ -4045,7 +4105,9 @@
     "derived.global.hanafubuki": {},
     "derived.global.hide-beta": {},
     "derived.global.ichigo-ichie": {},
+    "derived.global.imagos-clinic": {},
     "derived.global.infinite-silver-vault": {},
+    "derived.global.insect-taxidermy": {},
     "derived.global.insight": {},
     "derived.global.inspire-offsprings": {},
     "derived.global.leahs-coin": {},
@@ -4269,6 +4331,9 @@
     },
     "derived.thais.scion-of-purity": {
       "ownerAwakenerId": "awakener-0048"
+    },
+    "derived.vivian.cauldron": {
+      "ownerAwakenerId": "awakener-0062"
     },
     "derived.vortice.vortex-shell": {
       "ownerAwakenerId": "awakener-0055"
@@ -5143,6 +5208,21 @@
     "enlighten.uvhash.the-gladiator": {
       "ownerAwakenerId": "awakener-0051"
     },
+    "enlighten.vivian.heir-to-the-throne": {
+      "ownerAwakenerId": "awakener-0062"
+    },
+    "enlighten.vivian.once-in-a-life-potion": {
+      "ownerAwakenerId": "awakener-0062"
+    },
+    "enlighten.vivian.pact-of-the-temple": {
+      "ownerAwakenerId": "awakener-0062"
+    },
+    "enlighten.vivian.the-satiated-darkness": {
+      "ownerAwakenerId": "awakener-0062"
+    },
+    "enlighten.vivian.unclean-toad-god": {
+      "ownerAwakenerId": "awakener-0062"
+    },
     "enlighten.vortice.bang-pop-boom": {
       "ownerAwakenerId": "awakener-0055"
     },
@@ -5330,6 +5410,8 @@
     "overlay.global.delayed-sacrifice": {},
     "overlay.global.destroy": {},
     "overlay.global.devour": {},
+    "overlay.global.diagnosis": {},
+    "overlay.global.diagnostic-records": {},
     "overlay.global.dimension-shuttle": {},
     "overlay.global.discover": {},
     "overlay.global.divine-realm-aequor": {},
@@ -5514,6 +5596,21 @@
     "overlay.tulu.the-stars-are-right": {
       "ownerAwakenerId": "awakener-0050"
     },
+    "overlay.vivian.boiling-anger": {
+      "ownerAwakenerId": "awakener-0062"
+    },
+    "overlay.vivian.concoct": {
+      "ownerAwakenerId": "awakener-0062"
+    },
+    "overlay.vivian.potions": {
+      "ownerAwakenerId": "awakener-0062"
+    },
+    "overlay.vivian.quality-nap": {
+      "ownerAwakenerId": "awakener-0062"
+    },
+    "overlay.vivian.unclean-toad-god": {
+      "ownerAwakenerId": "awakener-0062"
+    },
     "overlay.vortice.vortex-reload": {
       "ownerAwakenerId": "awakener-0055"
     },
@@ -5672,6 +5769,9 @@
     },
     "posse-0063": {
       "ownerAwakenerId": "awakener-0061"
+    },
+    "posse-0064": {
+      "ownerAwakenerId": "awakener-0062"
     },
     "relic-0001": {
       "ownerAwakenerId": "awakener-0001"
@@ -7299,6 +7399,27 @@
     "skill.uvhash.vermilion-rite": {
       "ownerAwakenerId": "awakener-0051"
     },
+    "skill.vivian.defense": {
+      "ownerAwakenerId": "awakener-0062"
+    },
+    "skill.vivian.parchment-scroll": {
+      "ownerAwakenerId": "awakener-0062"
+    },
+    "skill.vivian.soup-rains-from-above": {
+      "ownerAwakenerId": "awakener-0062"
+    },
+    "skill.vivian.strike": {
+      "ownerAwakenerId": "awakener-0062"
+    },
+    "skill.vivian.the-satiated-darkness": {
+      "ownerAwakenerId": "awakener-0062"
+    },
+    "skill.vivian.the-sleeper-of-heaths": {
+      "ownerAwakenerId": "awakener-0062"
+    },
+    "skill.vivian.whatevers-at-hand": {
+      "ownerAwakenerId": "awakener-0062"
+    },
     "skill.vortice.abyssal-vortex-cannon": {
       "ownerAwakenerId": "awakener-0055"
     },
@@ -8031,6 +8152,18 @@
     "talent.uvhash.soulforge-aptitude": {
       "ownerAwakenerId": "awakener-0051"
     },
+    "talent.vivian.gnostic-potential": {
+      "ownerAwakenerId": "awakener-0062"
+    },
+    "talent.vivian.madness-omen": {
+      "ownerAwakenerId": "awakener-0062"
+    },
+    "talent.vivian.primordial-breath": {
+      "ownerAwakenerId": "awakener-0062"
+    },
+    "talent.vivian.soulforge-aptitude": {
+      "ownerAwakenerId": "awakener-0062"
+    },
     "talent.vortice.gnostic-potential": {
       "ownerAwakenerId": "awakener-0055"
     },
@@ -8406,6 +8539,13 @@
     "wheel-0179": {
       "ownerAwakenerId": "awakener-0061"
     },
-    "wheel-0180": {}
+    "wheel-0180": {},
+    "wheel-0181": {
+      "ownerAwakenerId": "awakener-0062"
+    },
+    "wheel-0182": {
+      "ownerAwakenerId": "awakener-0062"
+    },
+    "wheel-0183": {}
   }
 }

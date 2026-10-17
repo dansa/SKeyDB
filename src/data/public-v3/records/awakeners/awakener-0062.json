@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 3,
+  "kind": "awakener",
+  "id": "awakener-0062",
+  "name": "Vivian",
+  "route": {
+    "slug": "vivian",
+    "canonicalPath": "/database/awakeners/vivian"
+  },
+  "assets": {
+    "icon": "asset-awakener-0062-icon"
+  },
+  "numericId": 62,
+  "ingameId": "C20",
+  "lineupToken": "xs",
+  "realm": "CHAOS",
+  "rarity": "SSR",
+  "type": "CHORUS",
+  "availabilityType": "LIMITED_ASTRAL_REIGN",
+  "releaseDate": "2026-10-19",
+  "faction": "TBD",
+  "aliases": ["vivian"],
+  "searchTags": ["STR Up", "Corrosion", "Divine Realm"],
+  "primaryScalingBase": 20,
+  "baseStatsLv1": {
+    "CON": 35,
+    "ATK": 23,
+    "DEF": 25
+  },
+  "substatsLv1": {
+    "CritRate": 6.6,
+    "CritDamage": 50,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 15,
+    "RealmMastery": 0,
+    "SigilYield": 0.6,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 1.65,
+    "ATK": 1.05,
+    "DEF": 1.15
+  },
+  "substatScaling": {
+    "CritRate": 1.6,
+    "CritDamage": 0,
+    "AliemusRegen": 0,
+    "KeyflareRegen": 0,
+    "RealmMastery": 0,
+    "SigilYield": 0.6,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Vivian",
+    "voiceActor": "Yuduki Kazuka",
+    "voiceLines": {
+      "daily": [],
+      "battle": [],
+      "traphase": []
+    }
+  }
+}

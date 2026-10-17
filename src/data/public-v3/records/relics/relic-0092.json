@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0117",
   "rarity": "SR",
   "aliases": [],
-  "descriptionTemplate": "At the start of the first turn of battle, add {Prion Virus} to your hand; in the {ordinal:3rd} turn, add {Gluttonous Attack} to your hand; after triggering {Death Resistance}, add {Cocoon of Revival} to your hand.",
+  "descriptionTemplate": "At the start of the first turn of battle, add {Prion Virus} to your hand; on the {ordinal:3rd} turn, add {Gluttonous Attack} to your hand; after triggering {Death Resistance}, add {Cocoon of Revival} to your hand.",
   "descriptionArgs": {},
   "variants": [
     {
@@ -27,7 +27,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "At the start of the first turn of battle, add {Prion Virus} to your hand; in the {ordinal:3rd} turn, add {Gluttonous Attack} to your hand; after triggering {Death Resistance}, add {Cocoon of Revival} to your hand.",
+      "descriptionTemplate": "At the start of the first turn of battle, add {Prion Virus} to your hand; on the {ordinal:3rd} turn, add {Gluttonous Attack} to your hand; after triggering {Death Resistance}, add {Cocoon of Revival} to your hand.",
       "descriptionArgs": {}
     }
   ]

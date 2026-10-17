@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 3,
+  "kind": "enlighten",
+  "id": "enlighten.vivian.the-satiated-darkness",
+  "name": "The Satiated Darkness",
+  "route": {
+    "slug": "the-satiated-darkness",
+    "canonicalPath": "/database/awakeners/vivian/enlightens/the-satiated-darkness"
+  },
+  "ownerAwakenerId": "awakener-0062",
+  "slot": "OverExalt",
+  "descriptionTemplate": "HP Recovery is tripled.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Vivian"
+}

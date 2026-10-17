@@ -15,7 +15,7 @@
   "mainstatKey": "ALIEMUS_REGEN",
   "ownerAwakenerId": "awakener-0040",
   "ownerAwakenerName": "Pickman",
-  "lineupToken": "yt",
+  "lineupToken": "yr",
   "descriptionTemplate": "{Team Unique}: After the wielder unleashes Exalt, they gain 1 stack of {Collaboration}. The next Exalt of other Awakeners this turn can consume {Collaboration}, increasing its Crit. Rate by [StateArg1]%, and the Awakener consuming {Collaboration} gains Aliemus equal to [StateArg1]% the wielder's Aliemus Regen.",
   "descriptionArgs": {
     "StateArg1": {

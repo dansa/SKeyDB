@@ -6,14 +6,15 @@ interface SilverPrimePack {
 }
 
 const SILVER_PRIME_PACKS: SilverPrimePack[] = [
+  // Base plus repeat-purchase gifted Prime; excludes first-purchase doubling.
   {amount: 60, cents: 99},
-  {amount: 300, cents: 499},
-  {amount: 980, cents: 1499},
-  {amount: 1980, cents: 2999},
-  {amount: 3280, cents: 4999},
-  {amount: 6480, cents: 9999},
-  {amount: 9800, cents: 14999},
-  {amount: 12800, cents: 19999},
+  {amount: 330, cents: 499},
+  {amount: 1090, cents: 1499},
+  {amount: 2240, cents: 2999},
+  {amount: 3880, cents: 4999},
+  {amount: 8080, cents: 9999},
+  {amount: 12800, cents: 14999},
+  {amount: 17500, cents: 19999},
 ]
 
 const MAX_PACK_AMOUNT = Math.max(...SILVER_PRIME_PACKS.map((pack) => pack.amount))

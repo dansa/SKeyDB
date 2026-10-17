@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "enlightens",
   "kind": "enlighten",
-  "recordCount": 305,
+  "recordCount": 310,
   "records": [
     {
       "kind": "enlighten",
@@ -3423,6 +3423,66 @@
       "ownerAwakenerId": "awakener-0051",
       "ownerAwakenerName": "Uvhash",
       "slot": "E1"
+    },
+    {
+      "kind": "enlighten",
+      "id": "enlighten.vivian.heir-to-the-throne",
+      "name": "Heir to the Throne",
+      "route": {
+        "slug": "heir-to-the-throne",
+        "canonicalPath": "/database/awakeners/vivian/enlightens/heir-to-the-throne"
+      },
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "slot": "E1"
+    },
+    {
+      "kind": "enlighten",
+      "id": "enlighten.vivian.once-in-a-life-potion",
+      "name": "Once-in-a-Life Potion",
+      "route": {
+        "slug": "once-in-a-life-potion",
+        "canonicalPath": "/database/awakeners/vivian/enlightens/once-in-a-life-potion"
+      },
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "kind": "enlighten",
+      "id": "enlighten.vivian.pact-of-the-temple",
+      "name": "Pact of the Temple",
+      "route": {
+        "slug": "pact-of-the-temple",
+        "canonicalPath": "/database/awakeners/vivian/enlightens/pact-of-the-temple"
+      },
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "slot": "E3"
+    },
+    {
+      "kind": "enlighten",
+      "id": "enlighten.vivian.the-satiated-darkness",
+      "name": "The Satiated Darkness",
+      "route": {
+        "slug": "the-satiated-darkness",
+        "canonicalPath": "/database/awakeners/vivian/enlightens/the-satiated-darkness"
+      },
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "slot": "OverExalt"
+    },
+    {
+      "kind": "enlighten",
+      "id": "enlighten.vivian.unclean-toad-god",
+      "name": "Unclean Toad God",
+      "route": {
+        "slug": "unclean-toad-god",
+        "canonicalPath": "/database/awakeners/vivian/enlightens/unclean-toad-god"
+      },
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "slot": "E2"
     },
     {
       "kind": "enlighten",

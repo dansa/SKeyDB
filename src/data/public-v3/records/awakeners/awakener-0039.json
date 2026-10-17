@@ -20,7 +20,7 @@
   "releaseDate": "2023-11-29",
   "faction": "Outlanders",
   "aliases": ["pandia"],
-  "searchTags": ["Vulnerable", "Counter", "STR Up"],
+  "searchTags": ["Vulnerable", "Counter", "STR Up", "Steal STR"],
   "primaryScalingBase": 20,
   "baseStatsLv1": {
     "CON": 32,

@@ -15,7 +15,7 @@
   "mainstatKey": "CRIT_RATE",
   "ownerAwakenerId": "awakener-0061",
   "ownerAwakenerName": "Ogier: Oathbound",
-  "lineupToken": "zd",
+  "lineupToken": "zb",
   "descriptionTemplate": "{Team Unique}: The wielder's \"Exalt\" generates +[StateArg1]% Base Shield and Fixed {STR}.",
   "descriptionArgs": {
     "StateArg1": {

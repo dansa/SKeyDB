@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 3,
+  "kind": "posse",
+  "id": "posse-0064",
+  "name": "Nightborn Evil",
+  "route": {
+    "slug": "nightborn-evil",
+    "canonicalPath": "/database/posses/nightborn-evil"
+  },
+  "assets": {
+    "icon": "asset-posse-0064-icon",
+    "crystal": "asset-posse-0064-crystal",
+    "badge": "asset-posse-0064-badge"
+  },
+  "ownerAwakenerId": "awakener-0062",
+  "ownerAwakenerName": "Vivian",
+  "acquisitionSource": "Clear Psyche Deepdive: The Diaries of a Princess",
+  "realm": "CHAOS",
+  "lineupToken": "xb",
+  "descriptionTemplate": "Recover [Heal:Arg1] HP. Choose 1 Awakener to gain [Arg2] Aliemus. If Vivian is on the team, the {derived:Cauldron} countdown -1.\nScaling guide: {Primordia Mastery Scaling}",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "computed",
+      "formulaKey": "scaled",
+      "baseFormula": "esotericResearchDepth",
+      "multiplier": 0.06,
+      "inputs": ["accountLevel", "ownedPosseCount"]
+    },
+    "Arg2": {
+      "kind": "computed",
+      "formulaKey": "primordiaPosseScaled",
+      "baseFormula": "fixed",
+      "baseValue": 20.0,
+      "rounding": "ceil",
+      "inputs": ["realmMasteryFinal", "primordiaAllChaosTeam"],
+      "scalingBucket": "utility"
+    }
+  }
+}
