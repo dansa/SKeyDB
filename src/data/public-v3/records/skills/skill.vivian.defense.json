@@ -26,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "Good news. Once Vivian's out, she's out. Thunder, lightning, the end of the world... nothing could ever wake her.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.vivian.unclean-toad-god.skill.vivian.defense",

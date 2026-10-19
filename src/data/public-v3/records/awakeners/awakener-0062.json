@@ -54,10 +54,257 @@
   },
   "profile": {
     "title": "Vivian",
+    "birthday": "22-Feb",
     "voiceActor": "Yuduki Kazuka",
+    "gender": "Female",
+    "height": "6'7''",
+    "weight": "<Italic:Shh...>",
+    "gnosticIndex": "28.3",
+    "storySections": [
+      {
+        "kind": "introduction",
+        "title": "Basic Information",
+        "unlockCondition": "Awakener Level 1",
+        "content": "If we had to describe Vivian with a single sound, it would be <Italic:gubble>.\n\nThe potion boiling in the cauldron goes <Italic:gubble-gubble>. The steam rising off the bath goes <Italic:gubble-gubble>. The toad's belly swells and goes <Italic:gubble-gubble> as it breathes out.\n\nAnd there she sits in the middle of all that lazy <Italic:gubble-gubble>, gubbling away and blowing bubbles of her own.\n\nAs if tomorrow will never come."
+      },
+      {
+        "kind": "story",
+        "title": "Story: I",
+        "unlockCondition": "Affinity Level 3",
+        "content": "Mythag University, Institute of Metallurgy and Materials Science, @2 Branch\n\nReport No.: AWU-M-1923-014\n\nClassification: Internal Use Only; For Circulation Among Research Committee Members\n\nSubject: Preliminary Study of the Anomalous Chemical Inertness of an Excavated Silver Core\n\nDate of Report: November 4, @1\n\nSample Origin: Submitted for analysis by an excavation team working at a site in @2. Sample No. EX-B-7.\n\nAbstract: This interim briefing is submitted to the Research Committee. It concerns inertness tests carried out by the Institute's Department of Chemical Analysis and Department of Metallurgy on a silver core recovered from the ruins of a burned palace, together with preliminary conclusions. It is offered for internal discussion and as a reference for the direction of further experiments.\n\n...The sample was immersed in concentrated sulfuric acid (specific gravity 1.84) for forty-eight hours. It was then treated with a strong alkaline solution and fired in the Institute's newly installed electric furnace at temperatures exceeding one thousand degrees. The loss of mass, as measured by precision balance, came to less than one part in ten thousand... Spectroscopic examination produced spectral lines that matched none of the reference plates held by the Institute. The sample's vibrational frequency fell far below the range the instruments are calibrated to detect...\n\nMost disquieting of all, the excavation team reports that every timber beam and pillar at the site burned to ash and charcoal, and much of the pottery shattered and vitrified in the heat. The silver core alone was recovered intact, its surface showing no trace whatsoever of corrosion or oxide scale... Dr. Kingston admitted during the meeting that the phenomenon lies beyond anything his twenty years of scholarship can explain. Microscopic examination by the Institute likewise found no damage to the crystal grains...\n\nThe Committee members received these results with mixed reactions. Dean Weize Bai ordered the sample sealed at once and additional staff assigned to verify the findings, so as to rule out instrument error or experimental oversight... However, three independent retests produced closely matching results. Colleagues throughout the Institute are astonished, and fear that current metallurgical theory may indeed have gaps...\n\nFurther experimental plans and detailed data are provided in Appendices II through V and are not reproduced in this briefing."
+      },
+      {
+        "kind": "story",
+        "title": "Story: II",
+        "unlockCondition": "Affinity Level 5",
+        "content": "Vivian's laboratory in Mythag has moved several times.\n\nAt first, Mythag built it \"to the standards of a princess's palace,\" as an exact life-size replica of the home she had lived in during her former life.\n\nHowever, that enormously expensive laboratory was flattened by a single potion explosion. The cause was that Vivian had been feeling lazy while mixing her ingredients and had asked the Seer to prepare the raw materials.\n\nClearly, it was too much to ask of a Seer who was, give or take, an amphibian, to tell apart \"blood-red wood with a regular spiral grain\" and \"orange-red wood with a fine, hair-like grain,\" or \"cyan potion with a flowing shimmer\" and \"jade potion with a scaly sheen,\" or \"white combustible metal\" and \"silver mutable metal,“ especially when none of them were moving.\n\nIn any case, Vivian's laboratories got smaller, and smaller, and smaller, until they were so small that if she fell asleep slumped over the workbench, she might kick over a cauldron by accident.\n\nYes, that is exactly how the last lab accident happened.\n\nBut Vivian always quietly tidied up the disaster, then started on the day's potions as if nothing had happened.\n\nAfter all, if you never cause other people any trouble, it's much easier to refuse the trouble they try to cause you. This is one of Vivian's guiding principles in life."
+      },
+      {
+        "kind": "story",
+        "title": "Story: III",
+        "unlockCondition": "Affinity Level 7",
+        "content": "February 22, A.D. @2. Vivian's tenth birthday. She had been born late in the Grand Duke's life, and the whole duchy had blessed her arrival. Every year on this day, the entire nation celebrated her birthday. She had long since grown used to the ritual.\n\nThis year's celebration was grander than ever. She stood at the top of the bell tower, showering joy and hope on all her subjects. The cannons fired, bursting into thousands of colorful streamers that drifted down with the winter snow.\n\nThat was how it should have gone.\n\nBut that day, amid the roaring crowds, Vivian saw an omen. The falling snow blanketed every street, and then the snow and the streamers melted into a sludge of black and red that oozed slowly through the castle, the manors, and every lane and alley.\n\nShe knew the red was the blood of knights. And the black...?\n\nThe black was plague.\n\nPlague came to the remote duchy, and people said the cursed witch princess had brought the black misfortune with her.\n\nSo they would offer the wicked witch princess to the temple. Rumors said it was home to terrible beasts, man-eating monsters, and an evil Seer.\n\nYet Vivian went into the temple and failed to be eaten. Instead, the Seer gave her a potion, one that could be brewed only once in a lifetime.\n\nThe world feared her more than ever, and hated her more than ever.\n\nUntil enemy soldiers broke through the castle's defenses. Until the family and knights she had once loved and trusted fell before her in pools of their own blood.\n\nOnly then did that mysterious potion, coveted and feared by all the world, reveal its true power for the first time.\n\nShe was the last princess of the duchy, the Grand Duke's most beloved daughter, and a cursed orphan.\n\nShe was the Witch Princess. She was Vivian."
+      },
+      {
+        "kind": "story",
+        "title": "Story: IV",
+        "unlockCondition": "Affinity Level 9",
+        "content": "Princess. Noble. Witch. Apothecary. Weirdo.\n\nNone of the roles she had been given or the labels stuck on her meant much to Vivian. If she had her way, everything would simply 'take its natural course.'\n\nIn other words: whatever.\n\nBut stories always take sudden turns, and somehow she had ended up at the center of the conflict.\n\nWhen your opponent has backed you into a corner in a game, what do you do?\n\nSome people fight to the bitter end. Some wave the white flag. Some scramble for every last point.\n\nShe chose to flip the board"
+      }
+    ],
     "voiceLines": {
-      "daily": [],
-      "battle": [],
+      "daily": [
+        {
+          "id": "voice-154160",
+          "title": "Awaken",
+          "content": "Mm...? Is it out-of-bed o'clock already? Nnh—haaa—aaah... Barbaric. So sleepy..."
+        },
+        {
+          "id": "voice-154142",
+          "title": "Upgrade: I",
+          "content": "I could teach you a great many things... You wouldn't want to end up knowing less than a hat, would you?"
+        },
+        {
+          "id": "voice-154140",
+          "title": "Upgrade: II",
+          "content": "All right, all right. Put it away. I'd have helped when it mattered anyway."
+        },
+        {
+          "id": "voice-154135",
+          "title": "Upgrade: III",
+          "content": "What would you like in exchange? I can teach you how to bottle f@2e, brew gl@3, and even st... Oh. You caught me. I picked that line up from a recent novel. It's fun to say a line like that out loud, isn't it?"
+        },
+        {
+          "id": "voice-154157",
+          "title": "Enlighten: Observe",
+          "unlockCondition": "Unlocks at Enlighten Level 1",
+          "content": "The stars are packed full of secrets. They are so vast, so appaling. In front of the stars, any one person's busy little efforts, and their attempts to understand the world, amounts to almost nothing."
+        },
+        {
+          "id": "voice-154129",
+          "title": "Enlighten: Ponder",
+          "unlockCondition": "Unlocks at Enlighten Level 2",
+          "content": "Sleep... only sleep matters. Go to sleep. A dreamless sleep is unbearably sweet. Dreams have their dangers too, naturally, but set beside the unmeasurable things waiting between the stars, the dangers of a dream is hardly worth mentioning. So long as They don't notice you in there."
+        },
+        {
+          "id": "voice-154126",
+          "title": "Enlighten: Reflect",
+          "unlockCondition": "Unlocks at Enlighten Level 3",
+          "content": "A pessimist? Certainly not. I'm fascinated by knowledge, and by the unknown. Any fool reckless enough—arrogant enough to have never once looked up at the sky—I am perfectly willing to hand them the most horrifying knowledge this world contains."
+        },
+        {
+          "id": "voice-154152",
+          "title": "Enlighten: Insight",
+          "unlockCondition": "Unlocks at Enlighten Level 7",
+          "content": "Have you ever wondered... if ignorance is a lovely, necessary veil between humanity and the Great Horror? But only those who choose to lift it can buy a little precious time—a chance at survival—for those cute, foolish creatures when cruelty finally arrives."
+        },
+        {
+          "id": "voice-154132",
+          "title": "Enlighten: Elevate",
+          "unlockCondition": "Unlocks at Enlighten Level 11",
+          "content": "You understand, don't you? Thanks to the power you've given me, I see what you truly are now. I understand the position you stand in, so utterly at odds with the identity you were born to carry. We're the same kind."
+        },
+        {
+          "id": "voice-154158",
+          "title": "Enlighten: Flourish",
+          "unlockCondition": "Unlocks at Enlighten Level 15",
+          "content": "Don't worry. From now on, when you're standing between the unknown and the reality you're so fond of, setting yourself against powers beyond comprehension, you won't be there alone. \nYou have... one very powerful witch. One very small witch. One princess who learned what love is by watching mortals do it. She'll be with you, always."
+        },
+        {
+          "id": "voice-154161",
+          "title": "Affinity: I",
+          "unlockCondition": "Unlocks at Affinity Level 2",
+          "content": "Would you like to know something? In my earliest memories, I couldn't feel fear. Or sorrow. Or joy, or anger. Nothing at all.\nDeep down, there was simply nothing there. Everything felt like a nuisance. All I wanted was to be left alone, collect more knowledge, and think for as long as I pleased.\n\nIt's entirely possible I'm some Other thing wearing a girl's skin. But as Other things go, I was incredibly lucky. My father, my mother, my brothers and sisters... They never cared what kind of bottomless well they were pouring their love into. And somehow, that well really was filled."
+        },
+        {
+          "id": "voice-154144",
+          "title": "Affinity: II",
+          "unlockCondition": "Unlocks at Affinity Level 4",
+          "content": "Yes. I really was lucky. Father and Mother got precisely what they'd always wanted: to spend themselves on our country and its honour, holding it together down to the final moment. Their people lived, especially the children. So no, I've never regretted it. Given the chance to do it over, I would make the same choice. Next time before the water came to a boil, I'd remember to chew a few more belladonna leaves for the pain, though."
+        },
+        {
+          "id": "voice-154130",
+          "title": "Affinity: III",
+          "unlockCondition": "Unlocks at Affinity Level 6",
+          "content": "Why, exactly? What on earth do mortals keep inside their little heads, Keeper? They're exhausting, aren't they? Always acting on their own. Always doing entirely unnecessary things, and then filing them under love. I can't make sense of them at all. Can't they simply show up when they need someone to play board game with, then leave neatly once it's over?"
+        },
+        {
+          "id": "voice-154149",
+          "title": "Affinity: IV",
+          "unlockCondition": "Unlocks at Affinity Level 8",
+          "content": "Alright, alright. Stop looking at me like that. Yeah, I'm talking out of both sides of my mouth. But you understand me, right? We're rather alike, after all. Things like us—beings that aren't truly human—get played like pieces by these dumb, adorable humans, and still we bend over backwards to keep them alive."
+        },
+        {
+          "id": "voice-154153",
+          "title": "Affinity: V",
+          "unlockCondition": "Unlocks at Affinity Level 10",
+          "content": "<Italic:*a very loud swear*>\nThis is... unspeakably awful.\nThis is... absolutely wonderful.\nSo be it then, Keeper. Let's think ourselves to shreds. Let's worry our hearts down to nothing. Use my power however you like. Put everything I know to work. In the middle of all this meaninglessness, let us spend everything we have on the few that aren't."
+        },
+        {
+          "id": "voice-154159",
+          "title": "Chat: Touch",
+          "content": "Wake me one more time when I'm right on the edge of sleep, and I will have my hat bite you. That is not a joke."
+        },
+        {
+          "id": "voice-154151",
+          "title": "Chat: About the Disaster",
+          "content": "Dissolution... I used it to protect the last of my subjects, but it was also what brought my countrty down. A pity. Of all the knowledge They poured into me, not one page contained a way to prevent something like that."
+        },
+        {
+          "id": "voice-154154",
+          "title": "Chat: About Mythag",
+          "content": "No royals here. No subjects. No princess. Hooray! And that's before we discuss the glory of Silver comms, and food that arrives at the door, and... and the fact that I never again have to keep a perfect eight-tooth smile bolted onto my face in public, simply to avoid an hour of sighing, tutting, circular lecturing from elderly ministers!"
+        },
+        {
+          "id": "voice-154127",
+          "title": "Chat: What I Like",
+          "content": "Games I can play from my room without moving, books, snacks... and, naturally, my absolute favorite. Surely you can guess what that is. If Miryam had any real respect for her god, she'd enshrine sleep as the first article of faith, and I would give joining Lemuria serious consideration. I'm not joking!"
+        },
+        {
+          "id": "voice-154163",
+          "title": "Chat: What I Hate",
+          "content": "No. I am not attending a salon, and I am not attending a tea party. This place hosts a frankly horrifying number of them. And I have a strong suspicion that the only reason they insist on seating me in the guest of honour's chair is the word princess. I'm a collectible doll, and they like the way I look on the shelf."
+        },
+        {
+          "id": "voice-154125",
+          "title": "Chat: About the Keeper",
+          "content": "In theory, no one person can be my best friend, my ancestor, my master, and my hat all at once. And yet somehow, you've managed it.\n\nAh, is the word \"master\" too much? It seems to be very popular in the picture books lately. You're the master of a witch-princess now. Go and tell everyone. No need to thank me."
+        },
+        {
+          "id": "voice-154176",
+          "title": "Chat: About Ogier: Oathbound",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Ogier: Oathbound\"",
+          "content": "I really ought to find a chance to apologize to him. I didn't realize the potion would take so long to work. I thought he might at least survive, perhaps even save a few more... He had such a fierce, kind, burning little heart."
+        },
+        {
+          "id": "voice-154175",
+          "title": "Chat: About Tulu",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Tulu\"",
+          "content": "Do you understand how fortunate it is to have another Awakener who loves sleep as much as I do—one who was Awakened earlier than me, and has therefore had far more time to experiment? You have no idea how many excellent sleeping tips he gave me."
+        },
+        {
+          "id": "voice-154146",
+          "title": "Chat: About Gubble",
+          "content": "Have you heard the theory? Everything in this world came from a egg. An egg that stands outside time, outside space, outside every physical concept. It cycles endlessly, beginning and ending in a circle. Everything can exist at once, and yet there is always only one of it. \nI am you. Gubble is you. You are me. We can all be a hat called Gubble."
+        }
+      ],
+      "battle": [
+        {
+          "id": "voice-154147",
+          "title": "Investigation Begins",
+          "content": "Didn't your mother ever teach you? Never provoke a witch."
+        },
+        {
+          "id": "voice-154138",
+          "title": "Investigation Success",
+          "content": "Haaa—aaah. If there's nothing else, I'm going back to sleep."
+        },
+        {
+          "id": "voice-154143",
+          "title": "Investigation Halted",
+          "content": "Insufferable. I'm turning every last one of you into toads!"
+        },
+        {
+          "id": "voice-154133",
+          "title": "Strike: I",
+          "content": "Begone."
+        },
+        {
+          "id": "voice-154155",
+          "title": "Strike: II",
+          "content": "Perish."
+        },
+        {
+          "id": "voice-154136",
+          "title": "Defense: I",
+          "content": "Disappointing."
+        },
+        {
+          "id": "voice-154141",
+          "title": "Defense: II",
+          "content": "Rubbish."
+        },
+        {
+          "id": "voice-154128",
+          "title": "Hit: I",
+          "content": "Ugh!"
+        },
+        {
+          "id": "voice-154148",
+          "title": "Hit: II",
+          "content": "Argh!"
+        },
+        {
+          "id": "voice-154145",
+          "title": "Skill: I",
+          "content": "Gubble, poison them!"
+        },
+        {
+          "id": "voice-154156",
+          "title": "Skill: II",
+          "content": "Struggling is a waste of what little time you have."
+        },
+        {
+          "id": "voice-154134",
+          "title": "Special Skill: I",
+          "content": "Now you've woken a witch!"
+        },
+        {
+          "id": "voice-154162",
+          "title": "Rouse",
+          "content": "The vermins have overstayed their welcome."
+        },
+        {
+          "id": "voice-154139",
+          "title": "Exalt",
+          "content": "My people are not yours to touch!"
+        },
+        {
+          "id": "voice-154150",
+          "title": "Over-Exalt",
+          "content": "Down into the stars with you!"
+        }
+      ],
       "traphase": []
     }
   }

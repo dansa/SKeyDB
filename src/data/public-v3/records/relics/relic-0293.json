@@ -18,7 +18,7 @@
   "aliases": [],
   "descriptionTemplate": "At the start of exploration, increase the Relic Capacity by +1, and {Ultra} Awakener gains its \"Dimensional Image\". For each {Ultra} Awakener in the team, increase the Relic Capacity by +1.",
   "descriptionArgs": {},
-  "lore": "Endless dimensions overlapped, at this moment \"I\" am infinitely complete.",
+  "lore": "Endless dimensions overlapped; at this moment, \"I\" am infinitely complete.",
   "variants": [
     {
       "id": "relic-variant-0523",
@@ -30,7 +30,7 @@
       "rarity": "SSR",
       "descriptionTemplate": "At the start of exploration, increase the Relic Capacity by +1, and {Ultra} Awakener gains its \"Dimensional Image\". For each {Ultra} Awakener in the team, increase the Relic Capacity by +1.",
       "descriptionArgs": {},
-      "lore": "Endless dimensions overlapped, at this moment \"I\" am infinitely complete."
+      "lore": "Endless dimensions overlapped; at this moment, \"I\" am infinitely complete."
     }
   ]
 }

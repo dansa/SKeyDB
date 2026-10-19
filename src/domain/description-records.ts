@@ -10,6 +10,7 @@ import {
   buildDescriptionArgHover,
   formatDescriptionArgProgression,
   getDescriptionArgKeysInTemplateOrder,
+  getDescriptionArgChannel,
   resolveDescriptionArgs,
   resolveDescriptionTemplate,
   type DescriptionArgProgressionContext,
@@ -103,11 +104,16 @@ function buildOrderedArgEntries(
   for (const key of orderedKeys) {
     const resolved = resolvedArgs[key]
     const arg = record.descriptionArgs[key]
+    const context = {
+      ...progressionContext,
+      channel:
+        getDescriptionArgChannel(record.descriptionTemplate, key) ?? progressionContext.channel,
+    }
     entries.push({
       key,
       resolved,
-      progression: formatDescriptionArgProgression(arg, progressionContext),
-      hover: buildDescriptionArgHover(arg, progressionContext),
+      progression: formatDescriptionArgProgression(arg, context),
+      hover: buildDescriptionArgHover(arg, context),
     })
   }
 
@@ -119,7 +125,11 @@ export function resolveDescribedRecord<TRecord extends DescribedRecord>(
   resolveContext: DescriptionArgResolveContext = {},
   progressionContext: DescriptionArgProgressionContext = {},
 ): ResolvedDescribedRecord<TRecord> {
-  const resolvedArgs = resolveDescriptionArgs(record.descriptionArgs, resolveContext)
+  const resolvedArgs = resolveDescriptionArgs(
+    record.descriptionArgs,
+    resolveContext,
+    record.descriptionTemplate,
+  )
   const description = resolveDescriptionTemplate(
     record.descriptionTemplate,
     record.descriptionArgs,

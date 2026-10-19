@@ -17,7 +17,7 @@
   "acquisitionSource": "Clear Psyche Deepdive: The Diaries of a Princess",
   "realm": "CHAOS",
   "lineupToken": "xb",
-  "descriptionTemplate": "Recover [Heal:Arg1] HP. Choose 1 Awakener to gain [Arg2] Aliemus. If Vivian is on the team, the {derived:Cauldron} countdown -1.\nScaling guide: {Primordia Mastery Scaling}",
+  "descriptionTemplate": "Recover [Heal:Arg1] HP. Choose 1 Awakener to gain [Arg2] Aliemus. If Vivian is on the team, the {derived:derived.vivian.cauldron|Cauldron} countdown -1.\nScaling guide: {Primordia Mastery Scaling}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",

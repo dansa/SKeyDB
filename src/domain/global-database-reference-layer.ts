@@ -14,9 +14,11 @@ import {buildCardKeywordFooterText} from './card-keywords'
 import {getCovenants, type Covenant} from './covenants'
 import type {CovenantFullRecord} from './covenants-full'
 import {
+  addDatabaseReferenceInfoById,
   buildDatabaseDerivedSkillReferenceInfo,
   buildDatabaseOverlayLookup,
   buildDatabaseOverlayReferenceInfo,
+  buildDatabasePosseReferenceInfo,
   DatabaseReferenceLookupAccumulator,
   getDatabaseDerivedSkillAliases,
   type DatabaseReferenceInfo,
@@ -258,19 +260,7 @@ export function buildPosseReferenceEntries(
   records: Posse[],
   formulaContext?: PublicFormulaContext,
 ): DatabaseReferenceInfo<ArtifactDescriptionRecord>[] {
-  return records.map((record) =>
-    buildArtifactReferenceInfo(
-      {
-        id: record.id,
-        kind: 'posse',
-        displayName: record.name,
-        descriptionTemplate: record.descriptionTemplate ?? '',
-        descriptionArgs: record.descriptionArgs ?? {},
-      },
-      `Posse · ${getRealmLabel(record.realm)}`,
-      formulaContext,
-    ),
-  )
+  return records.map((record) => buildDatabasePosseReferenceInfo(record, formulaContext))
 }
 
 function buildCovenantReferenceEntries(
@@ -392,18 +382,25 @@ export function buildGlobalDatabaseReferenceLayer({
     ...relicInfos,
   ])
 
-  for (const record of referencedDerivedSkills) {
-    referenceInfos.add(
-      buildDatabaseDerivedSkillReferenceInfo(record, formulaContext),
-      getDatabaseDerivedSkillAliases(record),
-    )
+  // Same-name mechanics win untyped lookup, but typed references still need the
+  // card in the ID index. Filtering it out entirely defeats explicit references.
+  for (const record of derivedSkills) {
+    const info = buildDatabaseDerivedSkillReferenceInfo(record, formulaContext)
+    if (overlayNameSet.has(record.displayName.toLowerCase())) {
+      addDatabaseReferenceInfoById(referenceInfos.referenceInfoById, info)
+    } else {
+      referenceInfos.add(info, getDatabaseDerivedSkillAliases(record))
+    }
   }
 
-  referenceInfos.addMany(
-    referencedAwakenerSkills.map((record) =>
-      buildAwakenerSkillReferenceInfo(record, formulaContext),
-    ),
-  )
+  for (const record of awakenerSkills) {
+    const info = buildAwakenerSkillReferenceInfo(record, formulaContext)
+    if (overlayNameSet.has(record.displayName.toLowerCase())) {
+      addDatabaseReferenceInfoById(referenceInfos.referenceInfoById, info)
+    } else {
+      referenceInfos.add(info)
+    }
+  }
 
   for (const overlay of overlays) {
     referenceInfos.add(

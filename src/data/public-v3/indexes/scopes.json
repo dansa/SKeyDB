@@ -23,7 +23,7 @@
       "idPrefix": "relic",
       "capabilities": ["catalog", "detailRecord", "search", "snapshot"],
       "searchable": true,
-      "recordCount": 307
+      "recordCount": 310
     },
     {
       "scope": "orisons",
@@ -63,7 +63,7 @@
       "idPrefix": "derived",
       "capabilities": ["catalog", "detailRecord", "snapshot"],
       "searchable": false,
-      "recordCount": 213
+      "recordCount": 215
     },
     {
       "scope": "talents",
@@ -87,7 +87,7 @@
       "idPrefix": "overlay",
       "capabilities": ["catalog", "detailRecord", "snapshot"],
       "searchable": false,
-      "recordCount": 162
+      "recordCount": 165
     },
     {
       "scope": "awakener-builds",
@@ -121,7 +121,7 @@
       "idPrefix": "relic",
       "capabilities": ["catalog", "detailRecord", "search", "snapshot"],
       "searchable": true,
-      "recordCount": 307
+      "recordCount": 310
     },
     "orisons": {
       "scope": "orisons",
@@ -161,7 +161,7 @@
       "idPrefix": "derived",
       "capabilities": ["catalog", "detailRecord", "snapshot"],
       "searchable": false,
-      "recordCount": 213
+      "recordCount": 215
     },
     "talents": {
       "scope": "talents",
@@ -185,7 +185,7 @@
       "idPrefix": "overlay",
       "capabilities": ["catalog", "detailRecord", "snapshot"],
       "searchable": false,
-      "recordCount": 162
+      "recordCount": 165
     },
     "awakener-builds": {
       "scope": "awakener-builds",

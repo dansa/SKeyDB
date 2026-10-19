@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0329",
+  "name": "Ceremonial Spur",
+  "route": {
+    "slug": "ceremonial-spur",
+    "canonicalPath": "/database/relics/ceremonial-spur"
+  },
+  "assets": {
+    "icon": "asset-relic-0329-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0583",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "At turn start and after releasing Exalt, gain 1 stack of {Sprint}. After every 2 Posses unleashed, convert {Sprint} into {Rush Headlong}. When {Rush Headlong} reaches 16 stacks for the first time, remove {Rush Headlong} and gain {Charge unto Glory}.",
+  "descriptionArgs": {},
+  "lore": "A symbol of knighthood, gilded in gold and bestowed by the king. Yet as a mere squire, he was granted only a pair of silver spurs. As for the gilded promise... that hope was severed long ago.",
+  "variants": [
+    {
+      "id": "relic-variant-0583",
+      "name": "Ceremonial Spur",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "At turn start and after releasing Exalt, gain 1 stack of {Sprint}. After every 2 Posses unleashed, convert {Sprint} into {Rush Headlong}. When {Rush Headlong} reaches 16 stacks for the first time, remove {Rush Headlong} and gain {Charge unto Glory}.",
+      "descriptionArgs": {},
+      "lore": "A symbol of knighthood, gilded in gold and bestowed by the king. Yet as a mere squire, he was granted only a pair of silver spurs. As for the gilded promise... that hope was severed long ago."
+    }
+  ]
+}

@@ -70,7 +70,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "Ramona's first appearance on campus caused an uproar.\nAt Mythag University, where Awakeners wander the halls and oddities are everywhere, silver hair and mismatched eyes were hardly worth a second look. What made Ramona the talk of the school was that she was the professor's daughter.\nEveryone crowded outside the mathematics department office, hoping for a glimpse of the young Miss Dexter. There were so many of them that the professor finally had to call on Miss Lotan before the crowd grudgingly broke up.\nOnce Ramona was a little older and the professor was finally willing to let her roam the campus on her own, the students Lotan had chased off got their chance to talk to her after all.\n\"What is Lady Dexter like? I'm afraid no such person exists yet. I'm an orphan. My father was kind enough to take me in.\"\nTo be rid of them, the little girl stated the facts without flinching, then strolled off while they stood there feeling guilty."
       },
       {
@@ -146,7 +146,7 @@
         },
         {
           "id": "voice-6391",
-          "title": "Enlighten: Florish",
+          "title": "Enlighten: Flourish",
           "unlockCondition": "Unlocks at Enlighten Level 15",
           "content": "Let's go. We have a world to save."
         },

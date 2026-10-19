@@ -70,7 +70,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "Until the whole truth came out, no one had ever suspected that Doll was the one behind that string of appalling disasters.\nInside Mythag and out on the Dissolution front, she had always been the mainstay, the lamp at the top of the tower—the one thing everyone believed would never move.\nAs one star after another in humanity's night sky was broken and scattered by Dissolution, that unwavering lamp was cruelly snuffed out as well, and became a hand in the shadows, working with the same darkness it had once held back.\nTornadoes, floods, great earthquakes... crude murder was far too inefficient for a genius's plans. With her intellect not diminished by a single degree, she remade the Silver Technology she had once been so proud of into lethal instruments for \"moving the world,\" and sent one gift of ruin after another into places Mythag's eyes could not reach.\nBy the time she was captured, her corroded brain could no longer control the doll's body with any precision. The face that had once been calm as still water was full of twisted, uncanny expression, as though meeting her eyes would be enough to drop a person into madness.\nWithout ever agreeing on it, everyone chose to ignore her occasional blurred muttering, even though it may truly have given away the truth of the world.\nBecause what happened to her had proven once again that human beings, in the end, cannot live without meaning."
       },
       {
@@ -146,7 +146,7 @@
         },
         {
           "id": "voice-6163",
-          "title": "Enlighten: Florish",
+          "title": "Enlighten: Flourish",
           "unlockCondition": "Unlocks at Enlighten Level 15",
           "content": "Curious what I saw at the universe's beginning? Sure, I can tell you. I saw nothing."
         },

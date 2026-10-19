@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 3,
+  "kind": "overlay",
+  "id": "overlay.global.charge-unto-glory",
+  "name": "Charge unto Glory",
+  "route": {
+    "slug": "charge-unto-glory",
+    "canonicalPath": "/database/overlays/charge-unto-glory"
+  },
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "\"Defense\" Shield +64%, and gain Temporary {STR} equal to 32% of current Permanent {STR}.",
+  "descriptionArgs": {}
+}

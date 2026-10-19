@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.event-cauldron",
+  "name": "Cauldron",
+  "route": {
+    "slug": "cauldron",
+    "canonicalPath": "/database/derived-skills/cauldron"
+  },
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
+  "descriptionTemplate": "{Exhaust} cards to put them into the {derived:derived.global.event-cauldron|Cauldron}. When 3 cards are put into the {derived:derived.global.event-cauldron|Cauldron}, it transforms into a {derived:derived.global.event-potion|Potion}.",
+  "descriptionArgs": {},
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    }
+  ]
+}

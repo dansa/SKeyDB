@@ -213,7 +213,7 @@ describe('description-args', () => {
         },
       }),
     ).toBe(
-      'Lv1: 51.8% ATK = 73 (45% ATK × 115% from Damage Amplification)\nLv2: 62.1% ATK = 87 (54% ATK × 115% from Damage Amplification)',
+      'Lv1: 51.75% ATK = 73 (45% ATK × 115% from Damage Amplification)\nLv2: 62.1% ATK = 87 (54% ATK × 115% from Damage Amplification)',
     )
   })
 
@@ -377,7 +377,7 @@ describe('description-args', () => {
       },
     })
 
-    expect(rendered).toContain('Gain 40.7% {DEF} Shield.')
+    expect(rendered).toContain('Gain 40.72% {DEF} Shield.')
     expect(rendered).toContain('Inflict 77.7% {ATK} stacks of {Poison} on all enemies.')
   })
 

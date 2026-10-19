@@ -70,7 +70,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Affinity Level 6",
+        "unlockCondition": "Affinity Level 3",
         "content": "No one could point to the exact moment the \"salon\" wove itself into the upper crust of Londinium.\n\nIn this mysterious salon, one won the chance to have a master paint their portrait; another was granted a private supper with the Prime Minister; and yet another even received a promise from the Queen herself.\n\nThe host, the venue, the time—all remain a mystery. People only know that everyone can obtain what they desire most in the salon.\n\nYet none can say what it takes to please the hostess and earn an invitation.\n\nEven Lord Dexter, famous for his social charm, was flatly turned away.\n\n\"Our apologies, sir. The hostess currently prefers the company of artists.\"\n\n\"The nobility? Please await a future invitation.\""
       },
       {
@@ -146,7 +146,7 @@
         },
         {
           "id": "voice-5513",
-          "title": "Enlighten: Florish",
+          "title": "Enlighten: Flourish",
           "unlockCondition": "Unlocks at Enlighten Level 15",
           "content": "My salon is the soil, the garden, where intoxicating beauty and power will flourish..."
         },

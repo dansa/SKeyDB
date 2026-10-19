@@ -10,7 +10,7 @@
   "derivedFromId": "derived.global.spiritual-evolution",
   "cardFamily": "buff",
   "cardTypes": ["buff"],
-  "descriptionTemplate": "All Awakeners' next Strike takes effect 1 additional time.",
+  "descriptionTemplate": "All Awakeners' next \"Strike\" takes effect 1 additional time.",
   "descriptionArgs": {},
   "cardKeywords": [
     {

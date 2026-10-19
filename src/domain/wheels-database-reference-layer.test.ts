@@ -7,6 +7,8 @@ import {
   resolveDatabaseReferenceInfoById,
   resolveDatabaseReferenceInfoByKindAndName,
 } from './database-reference-info'
+import {parseDatabaseRichDescription} from './database-rich-text'
+import {hydrateGlobalDatabaseReferenceInfo} from './global-database-reference-layer'
 import {buildWheelDatabaseReferenceLayer} from './wheels-database-reference-layer'
 import type {WheelFullRecord} from './wheels-full'
 
@@ -80,6 +82,37 @@ function buildWheelVariantDerivedSkillRecord(
 }
 
 describe('wheels-database-reference-layer', () => {
+  it('opens the shared Primordial Memory pool and all eight Posses from Insect Taxidermy', async () => {
+    const layer = buildWheelDatabaseReferenceLayer({activeWheelId: 'wheel-0183'})
+    const insect = resolveDatabaseReferenceInfoById(layer, 'derived.global.insect-taxidermy')
+    const group = resolveDatabaseReferenceInfo(layer, 'Primordial Memory')
+    expect(group).toMatchObject({
+      id: 'derived.lotan-cetarchon.primordial-memory',
+      kind: 'derived-skill',
+    })
+    if (!insect || !group) throw new Error('Missing Taxidermy or Memory group')
+    const hydratedInsect = await hydrateGlobalDatabaseReferenceInfo(insect)
+    expect(
+      parseDatabaseRichDescription({record: hydratedInsect.record, referenceLayer: layer}),
+    ).toContainEqual({
+      type: 'skill',
+      name: 'Primordial Memory',
+    })
+    const hydratedGroup = await hydrateGlobalDatabaseReferenceInfo(group)
+    const record = hydratedGroup.record as DerivedSkillRecord
+    expect(record.nodeKind).toBe('group')
+    expect(record.childPosseIds).toHaveLength(8)
+    for (const id of record.childPosseIds ?? []) {
+      const child = resolveDatabaseReferenceInfoById(layer, id)
+      expect(child).toMatchObject({id, kind: 'posse'})
+      if (!child) throw new Error(`Missing group child ${id}`)
+      expect((await hydrateGlobalDatabaseReferenceInfo(child)).description.length).toBeGreaterThan(
+        0,
+      )
+    }
+    expect(resolveDatabaseReferenceInfo(layer, 'Primordial Memory: Fury')).toBeNull()
+  })
+
   it('resolves overlay aliases through the neutral reference contract with shared labels', () => {
     const referenceLayer = buildWheelDatabaseReferenceLayer({
       activeWheelId: 'wheel-0001',

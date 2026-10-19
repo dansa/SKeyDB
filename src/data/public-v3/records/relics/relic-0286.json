@@ -33,7 +33,7 @@
       "inputs": ["accountLevel", "ownedPosseCount"]
     }
   },
-  "lore": "Dexter's mansion has many collections. Before it was broken, the Tiny Music Box was Miss Dexter's favorite toy.\nAs time passed, when Miss Dexter found it again, its gears were loose, the music off-key, but it still kept spinning.",
+  "lore": "Dexter's mansion has many collections. Before it was broken, the little music box was Miss Dexter's favorite toy.\nAs time passed, when Miss Dexter found it again, its gears were loose, the music off-key, but it still kept spinning.",
   "variants": [
     {
       "id": "relic-variant-0508",
@@ -60,7 +60,7 @@
           "inputs": ["accountLevel", "ownedPosseCount"]
         }
       },
-      "lore": "Dexter's mansion has many collections. Before it was broken, the Tiny Music Box was Miss Dexter's favorite toy.\nAs time passed, when Miss Dexter found it again, its gears were loose, the music off-key, but it still kept spinning."
+      "lore": "Dexter's mansion has many collections. Before it was broken, the little music box was Miss Dexter's favorite toy.\nAs time passed, when Miss Dexter found it again, its gears were loose, the music off-key, but it still kept spinning."
     },
     {
       "id": "relic-variant-0509",
@@ -86,7 +86,7 @@
           "inputs": ["accountLevel", "ownedPosseCount"]
         }
       },
-      "lore": "Dexter's mansion has many collections. Before it was broken, the Tiny Music Box was Miss Dexter's favorite toy.\nAs time passed, when Miss Dexter found it again, its gears were loose, the music off-key, but it still kept spinning."
+      "lore": "Dexter's mansion has many collections. Before it was broken, the little music box was Miss Dexter's favorite toy.\nAs time passed, when Miss Dexter found it again, its gears were loose, the music off-key, but it still kept spinning."
     },
     {
       "id": "relic-variant-0507",
@@ -106,7 +106,7 @@
           "inputs": ["accountLevel", "ownedPosseCount"]
         }
       },
-      "lore": "Dexter's mansion has many collections. Before it was broken, the Tiny Music Box was Miss Dexter's favorite toy.\nAs time passed, when Miss Dexter found it again, its gears were loose, the music off-key, but it still kept spinning."
+      "lore": "Dexter's mansion has many collections. Before it was broken, the little music box was Miss Dexter's favorite toy.\nAs time passed, when Miss Dexter found it again, its gears were loose, the music off-key, but it still kept spinning."
     }
   ]
 }

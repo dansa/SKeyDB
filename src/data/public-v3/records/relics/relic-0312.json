@@ -18,7 +18,7 @@
   "aliases": [],
   "descriptionTemplate": "Each time you reset the deck, add 2 {derived:Barbed Trident} and 1 {Parasol} to your hand.",
   "descriptionArgs": {},
-  "lore": "It was meant to carry refinement, not death.",
+  "lore": "It was meant to carry elegance, not death.",
   "variants": [
     {
       "id": "relic-variant-0564",
@@ -30,7 +30,7 @@
       "rarity": "N",
       "descriptionTemplate": "Each time you reset the deck, add 2 {derived:Barbed Trident} and 1 {Parasol} to your hand.",
       "descriptionArgs": {},
-      "lore": "It was meant to carry refinement, not death."
+      "lore": "It was meant to carry elegance, not death."
     }
   ]
 }

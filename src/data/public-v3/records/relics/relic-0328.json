@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0328",
+  "name": "Sheriff Badge",
+  "route": {
+    "slug": "sheriff-badge",
+    "canonicalPath": "/database/relics/sheriff-badge"
+  },
+  "assets": {
+    "icon": "asset-relic-0328-icon"
+  },
+  "relicType": "Event",
+  "categories": ["EVENT"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0582",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "Hand Limit +1. At battle start, add 1 {derived:derived.global.event-cauldron|Cauldron} to your hand. At turn start, if you hold a {derived:derived.global.event-cauldron|Cauldron}, you may {Exhaust} 1 card from your hand and put it into the {derived:derived.global.event-cauldron|Cauldron}. Once the brewing conditions are met, the {derived:derived.global.event-cauldron|Cauldron} transforms into a {derived:derived.global.event-potion|Potion}.",
+  "descriptionArgs": {},
+  "lore": "It may take many more centuries for anyone to figure out: why a story set in a midnight forest under a blood moon—with Witches and Seers—still needs to hold an election for a Sheriff.",
+  "variants": [
+    {
+      "id": "relic-variant-0582",
+      "name": "Sheriff Badge",
+      "label": "Event - Special",
+      "variantType": "EVENT",
+      "tier": "Special",
+      "category": "EVENT",
+      "rarity": "SSR",
+      "descriptionTemplate": "Hand Limit +1. At battle start, add 1 {derived:derived.global.event-cauldron|Cauldron} to your hand. At turn start, if you hold a {derived:derived.global.event-cauldron|Cauldron}, you may {Exhaust} 1 card from your hand and put it into the {derived:derived.global.event-cauldron|Cauldron}. Once the brewing conditions are met, the {derived:derived.global.event-cauldron|Cauldron} transforms into a {derived:derived.global.event-potion|Potion}.",
+      "descriptionArgs": {},
+      "lore": "It may take many more centuries for anyone to figure out: why a story set in a midnight forest under a blood moon—with Witches and Seers—still needs to hold an election for a Sheriff."
+    }
+  ]
+}

@@ -35,6 +35,7 @@
     }
   ],
   "cost": "2",
+  "lore": "The Seer's temple is stacked floor-to-ceiling with ancient parchment scrolls. Magic, covenants, the secrets of the universe—all the hits.\nBut Vivian mostly reads the ones she smuggled in herself. The ones full of tabletop game rules.\nThe Seer doesn't get it. Who enjoys reading rulebooks the size of tombstones? Who runs the numbers turn after turn, hurls imaginary fireballs, and hoards gold that was never real? And when the game ends, what does the winner get? Nothing. Zero. Not even a participation prize.\nVivian, on the other hand, does get it. But Vivian won't ever share the secret, because the fun of winning only ever belongs to one side of the table. Meanwhile, eternity in the temple rolls on. One more game, one more day.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.vivian.once-in-a-life-potion.skill.vivian.parchment-scroll",

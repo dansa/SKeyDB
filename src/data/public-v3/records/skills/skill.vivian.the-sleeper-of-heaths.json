@@ -33,29 +33,17 @@
   },
   "cardKeywords": [],
   "cost": "150",
+  "lore": "In the very end, when night fell once more and Vivian opened her eyes in the newborn swamp, she finally learned the name of that being—the source of her power. Their name is @1@2, the Sleeper of Heaths. They are as indolent as she is, as inexplicably worshipped as she is, and just as desperate for eternal peace and quiet.",
   "upgrades": [
     {
-      "id": "upgrade.enlighten.vivian.unclean-toad-god.skill.vivian.the-sleeper-of-heaths",
-      "operation": "replace_description",
-      "upgraderId": "enlighten.vivian.unclean-toad-god",
-      "upgraderType": "enlighten",
-      "upgraderSlot": "E2",
-      "ownerAwakenerId": "awakener-0062",
-      "ownerAwakenerName": "Vivian",
-      "patch": {
-        "descriptionTemplate": "Recover [Heal:Arg1] HP, with a 5% chance to increase the amount recovered by 50%. This chance increases by 1% for every 1% Crit. Rate Vivian has. Gain [Power:Arg2] {STR} and Temporary {STR} equal to [Arg3]% of Permanent {STR}. {Quality Nap}.\n{overlay:Unclean Toad God}"
-      }
-    },
-    {
       "id": "upgrade.enlighten.vivian.pact-of-the-temple.skill.vivian.the-sleeper-of-heaths",
-      "operation": "mixed",
+      "operation": "override_args",
       "upgraderId": "enlighten.vivian.pact-of-the-temple",
       "upgraderType": "enlighten",
       "upgraderSlot": "E3",
       "ownerAwakenerId": "awakener-0062",
       "ownerAwakenerName": "Vivian",
       "patch": {
-        "descriptionTemplate": "Recover [Heal:Arg1] HP, with a 5% chance to increase the amount recovered by 50%. This chance increases by 1% for every 1% Crit. Rate Vivian has. Gain [Power:Arg2] {STR} and Temporary {STR} equal to [Arg3]% of Permanent {STR}. {Quality Nap}.\n{overlay:Unclean Toad God}",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

@@ -70,7 +70,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Affinity Level 4",
+        "unlockCondition": "Affinity Level 3",
         "content": "...\n\nExperiment Date: @2, A.F.@1\nExperiment Objective: Observe and record mutational responses of a Dissolution patient following tissue and organ grafting.\n\nExperiment Steps: @3 @4\nThe experiment was conducted on the subject using tissues and organs sourced from her deceased brother, in order to observe the rejection response between first-degree relatives. The poor wretch was shot dead while evading police capture. @3 experiment was highly successful; the wound turned red and sprouted tentacles... with blood spurting out like liquid rubies.\n\n@3 @3\nThe subject demonstrated remarkable endurance, refusing morphine injections.\n\nPost-experiment, her bloodlust intensified, and her temperament became... indescribable, not a type I am adept at handling.\n\n—Excerpt from Herbert's <Italic:Dissolution Experiment Records, Group4, No. @1>"
       },
       {
@@ -83,7 +83,7 @@
         "kind": "story",
         "title": "Story: III",
         "unlockCondition": "Affinity Level 7",
-        "content": "@1, A.F.@2\nDear Lord Cavendish,\n\nPlease forgive me. I took the liberty of asking Butler Frey to bring me ink and paper. I am struggling to maintain my last shred of sanity and dignity as I write this letter. Since I fell ill with this horrible disease, I haven’t been able to see Mother, Bobby, or you. Missing you all is enough to drive me crazy.\n\nI have been locked in this basement for... 353 days? I don't know. Maybe 326 days.\n\nIt's freezing here, and everything smells like it's rotting. My wounds are oozing black slime, and the rats have gnawed them beyond recognition. But it's okay. Pain is a good thing; it keeps my mind clear.\n\n\"An evil vampire,\" \"a disgrace to the family\"... locking me away was undoubtedly a wise decision. My soul has long been controlled by the devil. As I write this letter, I have just drained the blood of a deceased homeless man. Butler Frey said you had people find him on the street. Although the blood tasted a bit spoiled, I'm still glad to know that you care about me.\n\nAlso... could you give me a blanket? I have no clothes to cover myself now, and winter in Londinium is just too cold.\n\nEven now, I still really miss the time when we were kids, spending our holidays together at Whelton House.\n\nYour sincere sister,\nLeigh\n—Excerpt from <Italic: The Cansington Vampire Incident—Case Summary: Evidence C-601>"
+        "content": "@1, A.F.@2\nDear Lord Cavendish,\n\nPlease forgive me. I took the liberty of asking Butler Frey to bring me ink and paper. I am struggling to maintain my last shred of sanity and dignity as I write this letter. Since I fell ill with this horrible disease, I haven't been able to see Mother, Bobby, or you. Missing you all is enough to drive me crazy.\n\nI have been locked in this basement for... 353 days? I don't know. Maybe 326 days.\n\nIt's freezing here, and everything smells like it's rotting. My wounds are oozing black slime, and the rats have gnawed them beyond recognition. But it's okay. Pain is a good thing; it keeps my mind clear.\n\n\"An evil vampire,\" \"a disgrace to the family\"... locking me away was undoubtedly a wise decision. My soul has long been controlled by the devil. As I write this letter, I have just drained the blood of a deceased homeless man. Butler Frey said you had people find him on the street. Although the blood tasted a bit spoiled, I'm still glad to know that you care about me.\n\nAlso... could you give me a blanket? I have no clothes to cover myself now, and winter in Londinium is just too cold.\n\nEven now, I still really miss the time when we were kids, spending our holidays together at Whelton House.\n\nYour sincere sister,\nLeigh\n—Excerpt from <Italic: The Cansington Vampire Incident—Case Summary: Evidence C-601>"
       },
       {
         "kind": "story",
@@ -146,7 +146,7 @@
         },
         {
           "id": "voice-5245",
-          "title": "Enlighten: Florish",
+          "title": "Enlighten: Flourish",
           "unlockCondition": "Unlocks at Enlighten Level 15",
           "content": "To express my gratitude... I will construct a hidden altar for you in the depths of my anguish."
         },

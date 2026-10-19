@@ -27,7 +27,7 @@
       "value": "1"
     }
   },
-  "lore": "The record contains 70 Mason prime numbers.",
+  "lore": "The record contains seventy Mason prime numbers.",
   "variants": [
     {
       "id": "relic-variant-0380",
@@ -48,7 +48,7 @@
           "value": "1"
         }
       },
-      "lore": "The record contains 70 Mason prime numbers."
+      "lore": "The record contains seventy Mason prime numbers."
     }
   ]
 }

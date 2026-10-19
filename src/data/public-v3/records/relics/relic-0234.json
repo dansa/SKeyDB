@@ -43,7 +43,7 @@
       "value": "3"
     }
   },
-  "lore": "A sacred part.\nEven though it has separated from the body, its footprints have spread across the world.",
+  "lore": "A part of the sacred.\nEven though it has separated from the body, its footprints have spread across the world.",
   "variants": [
     {
       "id": "relic-variant-0396",
@@ -80,7 +80,7 @@
           "value": "3"
         }
       },
-      "lore": "A sacred part.\nEven though it has separated from the body, its footprints have spread across the world."
+      "lore": "A part of the sacred.\nEven though it has separated from the body, its footprints have spread across the world."
     },
     {
       "id": "relic-variant-0393",
@@ -91,7 +91,7 @@
       "category": "FADED_LEGACY",
       "descriptionTemplate": "Every 4 turns, double the Active and {Tentacle DMG} all enemies receive in that turn. However, after releasing Exalt in that turn, seal all Awakeners for 1 turn.",
       "descriptionArgs": {},
-      "lore": "A sacred part.\nEven though it has separated from the body, its footprints have spread across the world."
+      "lore": "A part of the sacred.\nEven though it has separated from the body, its footprints have spread across the world."
     },
     {
       "id": "relic-variant-0395",
@@ -102,7 +102,7 @@
       "category": "FADED_LEGACY",
       "descriptionTemplate": "Every 2 turns, double the Active and {Tentacle DMG} all enemies receive in that turn. For each Exalt used in that turn, randomly dispel 1 debuff.",
       "descriptionArgs": {},
-      "lore": "A sacred part.\nEven though it has separated from the body, its footprints have spread across the world."
+      "lore": "A part of the sacred.\nEven though it has separated from the body, its footprints have spread across the world."
     },
     {
       "id": "relic-variant-0394",

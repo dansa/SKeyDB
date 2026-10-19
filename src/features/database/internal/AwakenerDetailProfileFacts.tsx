@@ -1,6 +1,7 @@
 import type {ReactNode} from 'react'
 
 import type {AwakenerProfile} from '@/domain/awakeners-full'
+import {GameLoreMarkupText} from '@/ui/game-content/GameLoreMarkupText'
 
 import {scaledTypographyStyle} from './font-scale'
 
@@ -83,7 +84,13 @@ export function AwakenerDetailProfileFacts({
             className={`flex items-baseline justify-between gap-3 text-[11px] leading-4 ${compact && fact.metadata ? 'col-span-2' : ''} ${fact.separated ? 'mt-2 border-t border-slate-600/30 pt-2' : ''}`}
           >
             <dt className={`text-slate-500 ${fact.metadata ? 'shrink-0' : ''}`}>{fact.label}</dt>
-            <dd className='text-right font-medium text-slate-200'>{fact.value}</dd>
+            <dd className='text-right font-medium text-slate-200'>
+              {typeof fact.value === 'string' ? (
+                <GameLoreMarkupText text={fact.value} />
+              ) : (
+                fact.value
+              )}
+            </dd>
           </div>
         ))}
       </dl>

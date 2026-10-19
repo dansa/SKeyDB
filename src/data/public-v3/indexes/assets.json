@@ -8060,6 +8060,57 @@
         ]
       }
     },
+    "asset-relic-0327-icon": {
+      "id": "asset-relic-0327-icon",
+      "slot": "icon",
+      "kind": "relic",
+      "ownerId": "relic-0327",
+      "assetId": "Icon_Creation_Unique_C20",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/relics/Icon_Creation_Unique_C20.webp",
+        "candidates": [
+          "src/assets/relics/Icon_Creation_Unique_C20.webp",
+          "src/assets/relics/Icon_Creation_Unique_C20.png",
+          "src/assets/relics/portraits/Icon_Creation_Unique_C20.webp",
+          "src/assets/relics/portraits/Icon_Creation_Unique_C20.png"
+        ]
+      }
+    },
+    "asset-relic-0328-icon": {
+      "id": "asset-relic-0328-icon",
+      "slot": "icon",
+      "kind": "relic",
+      "ownerId": "relic-0328",
+      "assetId": "Icon_Creation_185",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/relics/Icon_Creation_185.webp",
+        "candidates": [
+          "src/assets/relics/Icon_Creation_185.webp",
+          "src/assets/relics/Icon_Creation_185.png",
+          "src/assets/relics/portraits/Icon_Creation_185.webp",
+          "src/assets/relics/portraits/Icon_Creation_185.png"
+        ]
+      }
+    },
+    "asset-relic-0329-icon": {
+      "id": "asset-relic-0329-icon",
+      "slot": "icon",
+      "kind": "relic",
+      "ownerId": "relic-0329",
+      "assetId": "Icon_Creation_184",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/relics/Icon_Creation_184.webp",
+        "candidates": [
+          "src/assets/relics/Icon_Creation_184.webp",
+          "src/assets/relics/Icon_Creation_184.png",
+          "src/assets/relics/portraits/Icon_Creation_184.webp",
+          "src/assets/relics/portraits/Icon_Creation_184.png"
+        ]
+      }
+    },
     "asset-orison-0001-icon": {
       "id": "asset-orison-0001-icon",
       "slot": "icon",
@@ -13921,6 +13972,15 @@
     },
     "relic-0326": {
       "icon": "asset-relic-0326-icon"
+    },
+    "relic-0327": {
+      "icon": "asset-relic-0327-icon"
+    },
+    "relic-0328": {
+      "icon": "asset-relic-0328-icon"
+    },
+    "relic-0329": {
+      "icon": "asset-relic-0329-icon"
     },
     "orison-0001": {
       "icon": "asset-orison-0001-icon"

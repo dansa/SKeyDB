@@ -34,7 +34,7 @@
     }
   ],
   "cost": "2",
-  "lore": "The pitch-black goo drags her into the Abyss. Stars are born here, light dies here. There is no time, no Life.\nA voice comes from afar, radiating black light.\nIt says: You will forever become different, for you have traversed the fairy's Passage.\nShe shall wander here for a long time.",
+  "lore": "The pitch-black goo drags her into the Abyss. Stars are born here, light dies here. There is no time, no living being.\nA voice comes from afar, radiating black light.\nIt says: You will forever become different, for you have traversed the fairy's Passage.\nShe shall wander here for a long time.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.jenkins.from-the-shrouded-mist.skill.jenkins.spatial-fold",

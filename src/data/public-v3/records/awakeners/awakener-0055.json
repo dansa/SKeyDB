@@ -70,7 +70,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "The North Atlantic whirlpool Moskstraumen was first observed in AF 1■■. Over the following centuries, it steadily grew in size. By AF 29■, Moskstraumen had evolved into a massive whirlpool roughly 260–300 feet (80–90 meters) in diameter, with currents stretching about 5 miles (8 kilometers) wide.\n\nBeyond the powerful suction of the currents and devastating effects (claiming both marine life and fishing vessels in the vicinity), a greater threat lurked beneath Moskstraumen—a D-Rift. After prolonged observation and research conducted by Academy members, it was confirmed that the formation of Moskstraumen was directly linked to the D-Rift beneath it. In 1898, a formal operation was launched to purge it.\n\nWithin the D-Rift, the Academy recovered vast quantities of biological remains and shipwreck debris, along with a Silver Core later designated O-1841.\n\n—Excerpt from <Italic:The Moskstraumen Incident Records>"
       },
       {
@@ -146,7 +146,7 @@
         },
         {
           "id": "voice-129672",
-          "title": "Enlighten: Florish",
+          "title": "Enlighten: Flourish",
           "unlockCondition": "Unlocks at Enlighten Level 15",
           "content": "Whirlpool! Strong! Good!"
         },

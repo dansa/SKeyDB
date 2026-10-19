@@ -70,7 +70,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "When Erica tried to pull the records on Lily Oswood, she returned eighty-one error alerts. Lily was forgotten by the world once; her birth certificate and her medical files have all rotted into a handful of black silt.\nWe can still observe the shape of her Silvercore with specialized instruments: fine and curling, like several strands of hair twisted together—more precisely, like an infant's downy hair.\nOne point deserves particular attention. Lily always shows an unusual attachment to her Linker. Presenting yourself as her \"mother,\" rather than as a \"companion\" or a \"master,\" will likely bring you close to her much faster."
       },
       {
@@ -152,7 +152,7 @@
         },
         {
           "id": "voice-5682",
-          "title": "Enlighten: Florish",
+          "title": "Enlighten: Flourish",
           "unlockCondition": "Unlocks at Enlighten Level 15",
           "content": "A warm and fuzzy feeling in my chest... Lily, Lily is so happy, the tears are...\nMommy, let's celebrate together."
         },
@@ -378,6 +378,12 @@
           ]
         },
         {
+          "id": "traphase-127017",
+          "title": "Chat: About Xu",
+          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
+          "content": "Lily. Likes mother."
+        },
+        {
           "id": "traphase-100182",
           "title": "Thinking",
           "unlockCondition": "Unlock after triggering this dialogue in Traphase",
@@ -406,12 +412,6 @@
           "title": "Death",
           "unlockCondition": "Unlock after triggering this dialogue in Traphase",
           "content": "Lily... can't stand up again..."
-        },
-        {
-          "id": "traphase-127017",
-          "title": "Chat: About Xu",
-          "unlockCondition": "Unlock after triggering this dialogue in Traphase",
-          "content": "Lily. Likes mother."
         }
       ]
     }

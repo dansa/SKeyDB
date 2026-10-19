@@ -65,7 +65,7 @@ export function RichScalingSegment({
 
   const idx = Math.max(0, Math.min(skillLevel - 1, segment.values.length - 1))
   const value = segment.values[idx]
-  const displayValue = fmtNum(value)
+  const displayValue = fmtNum(value, true)
   const computed = computeRichScalingStatValue(value, segment.suffix, segment.stat, stats)
   const hoverText = buildRichScalingHover(segment, stats)
 

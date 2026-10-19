@@ -35,7 +35,7 @@
       "suffix": "%"
     }
   },
-  "lore": "A sacred part.\nEven when separated from the body, its warmth can still be felt.",
+  "lore": "A part of the sacred.\nEven when separated from the body, its warmth can still be felt.",
   "variants": [
     {
       "id": "relic-variant-0458",
@@ -64,7 +64,7 @@
           "suffix": "%"
         }
       },
-      "lore": "A sacred part.\nEven when separated from the body, its warmth can still be felt."
+      "lore": "A part of the sacred.\nEven when separated from the body, its warmth can still be felt."
     },
     {
       "id": "relic-variant-0457",
@@ -97,7 +97,7 @@
           "inputs": ["accountLevel", "ownedPosseCount"]
         }
       },
-      "lore": "A sacred part.\nEven when separated from the body, its warmth can still be felt."
+      "lore": "A part of the sacred.\nEven when separated from the body, its warmth can still be felt."
     }
   ]
 }

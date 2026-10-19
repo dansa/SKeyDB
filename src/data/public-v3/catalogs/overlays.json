@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "overlays",
   "kind": "overlay",
-  "recordCount": 162,
+  "recordCount": 165,
   "records": [
     {
       "kind": "overlay",
@@ -473,6 +473,17 @@
         "canonicalPath": "/database/overlays/chaos"
       },
       "overlayType": "realm",
+      "aliases": []
+    },
+    {
+      "kind": "overlay",
+      "id": "overlay.global.charge-unto-glory",
+      "name": "Charge unto Glory",
+      "route": {
+        "slug": "charge-unto-glory",
+        "canonicalPath": "/database/overlays/charge-unto-glory"
+      },
+      "overlayType": "mechanic",
       "aliases": []
     },
     {
@@ -1140,6 +1151,17 @@
     },
     {
       "kind": "overlay",
+      "id": "overlay.global.rush-headlong",
+      "name": "Rush Headlong",
+      "route": {
+        "slug": "rush-headlong",
+        "canonicalPath": "/database/overlays/rush-headlong"
+      },
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "kind": "overlay",
       "id": "overlay.global.sacrifice",
       "name": "Sacrifice",
       "route": {
@@ -1218,6 +1240,17 @@
         "canonicalPath": "/database/overlays/singularity-ultra"
       },
       "overlayType": "realm",
+      "aliases": []
+    },
+    {
+      "kind": "overlay",
+      "id": "overlay.global.sprint",
+      "name": "Sprint",
+      "route": {
+        "slug": "sprint",
+        "canonicalPath": "/database/overlays/sprint"
+      },
+      "overlayType": "mechanic",
       "aliases": []
     },
     {

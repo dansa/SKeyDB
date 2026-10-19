@@ -65,7 +65,7 @@
         "kind": "introduction",
         "title": "Basic Information",
         "unlockCondition": "Awakener Level 1",
-        "content": "Let’s dance! Dance a merry dance, dance a wild dance! Laugh along with her, and stoke the atmosphere to fever pitch.\n\nAnd then—it's time for the star to take the stage.\n\nThere, where the spotlights converge, the mad magician has already slipped her hand into her top hat. As for what she will pull from that endless void—be it a cascade of colorful ribbons, a flock of white doves taking flight, or the razor-sharp claws of some dreadful monster... I'm afraid only she can tell."
+        "content": "Let's dance! Dance a merry dance, dance a wild dance! Laugh along with her, and stoke the atmosphere to fever pitch.\n\nAnd then—it's time for the star to take the stage.\n\nThere, where the spotlights converge, the mad magician has already slipped her hand into her top hat. As for what she will pull from that endless void—be it a cascade of colorful ribbons, a flock of white doves taking flight, or the razor-sharp claws of some dreadful monster... I'm afraid only she can tell."
       },
       {
         "kind": "story",
@@ -77,7 +77,7 @@
         "kind": "story",
         "title": "Story: II",
         "unlockCondition": "Affinity Level 5",
-        "content": "\"Tired of the mundane parks? Bored with dull animal exhibitions? Then come to Casiah's Magical Carnival! For kids who love animals, there are tenor-singing lions, ballet-dancing flamingos, acrobatic elephants, and the world's one and only donkey tamer! For couples looking to rekindle the spark, try our unique Live-Horse Carousel for a rare romantic experience! And for the brave souls who crave genuine thrills in their lives, we dare you to challenge the Mirror Maze, hand-designed by the carnival's very own mistress! If you manage to take away those 41 mischievous visitors who never came out, you can win great prizes!\n\nBesides these exclusive entertainment facilities, Magician Casiah will usher you into a spectacular world of revelry, featuring sawing-in-half illusions, human vanishings, extreme escapes, and more magic! Lucky audience members may even be invited on stage to experience Master Casiah's exquisitely refined cutting techniques up close and personal. Guaranteed to shatter your perception of reality and render your ordinary daily life utterly flavorless! And best of all? Every last bit of it is absolutely free—FREE! Your joy is all the reward Master Casiah could ever ask for!\n\nTo all at the Mythag—Master Casiah will be waiting for you this weekend on the open ground behind the cafeteria. Don't you dare miss it!\n\nNote: Once entering the carnival, attendees must fully experience it; mid-way exits are not allowed. Those with low stress tolerance or fragile mental and cardiac conditions should enter with extreme caution.\n\nThe carnival is not responsible for any symptoms such as loss of appetite, missing limbs, lost eyes, or abdominal ruptures that occur afterward.\"\n\n—<Italic:Grand Opening: Master Casiah’s Magical Carnival!>"
+        "content": "\"Tired of the mundane parks? Bored with dull animal exhibitions? Then come to Casiah's Magical Carnival! For kids who love animals, there are tenor-singing lions, ballet-dancing flamingos, acrobatic elephants, and the world's one and only donkey tamer! For couples looking to rekindle the spark, try our unique Live-Horse Carousel for a rare romantic experience! And for the brave souls who crave genuine thrills in their lives, we dare you to challenge the Mirror Maze, hand-designed by the carnival's very own mistress! If you manage to take away those 41 mischievous visitors who never came out, you can win great prizes!\n\nBesides these exclusive entertainment facilities, Magician Casiah will usher you into a spectacular world of revelry, featuring sawing-in-half illusions, human vanishings, extreme escapes, and more magic! Lucky audience members may even be invited on stage to experience Master Casiah's exquisitely refined cutting techniques up close and personal. Guaranteed to shatter your perception of reality and render your ordinary daily life utterly flavorless! And best of all? Every last bit of it is absolutely free—FREE! Your joy is all the reward Master Casiah could ever ask for!\n\nTo all at the Mythag—Master Casiah will be waiting for you this weekend on the open ground behind the cafeteria. Don't you dare miss it!\n\nNote: Once entering the carnival, attendees must fully experience it; mid-way exits are not allowed. Those with low stress tolerance or fragile mental and cardiac conditions should enter with extreme caution.\n\nThe carnival is not responsible for any symptoms such as loss of appetite, missing limbs, lost eyes, or abdominal ruptures that occur afterward.\"\n\n—<Italic:Grand Opening: Master Casiah's Magical Carnival!>"
       },
       {
         "kind": "story",
@@ -146,7 +146,7 @@
         },
         {
           "id": "voice-5583",
-          "title": "Enlighten: Florish",
+          "title": "Enlighten: Flourish",
           "unlockCondition": "Unlocks at Enlighten Level 15",
           "content": "Hehe, do you want to see a universe being destroyed? Oh, it's too late to back out now!"
         },

@@ -70,7 +70,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "I don't believe Robert put a gun in his mouth. No. I don't believe it.\nHe was decorated for valor. He closed murder cases nobody else could crack. He was a veteran agent with an iron will. And he was getting married soon—the two of them loved each other. So there has to be something behind this. Someone killed him and dressed it up as a suicide.\nWhoever did it, I will find them, and I will make them pay. I owe him that as his brother, and as an agent.\n...\nThe scene gave me nothing, so I came back to our hometown—the last place Robert went before he died. After asking around, I learned he had gone up into the mountains.\nAs for why, I suspect it has to do with the local custom: every family's firstborn is taken into the mountains by their parents for the coming-of-age rite.\nOur parents moved away when we were still children, so Robert never went through it. I think the weight of starting a family of his own woke some old sense of obligation in him.\nEither way, I'm going up there. I set out the moment I finish writing this.\n...\nThere is a vast structure cut into the mountain. I can't tell what age it belongs to. I can't tell anything about it. All I know is that the rituals here have never once stopped. The severed limbs, the pupae—ugh. I can't write any more.\n...\nThese pupae... no. No. That isn't my grandmother, my grandfather, the people my family came from... I can't have a monster's blood in me. Aaah—\n...\n...The monsters at the ritual have found me. They mean to make me one of them!\n...\nIf anyone finds this, kill me. Now, right now...@2\n...\nPraise be to great @2, hssss @2... praise the blind and idiot @4... hss hss hss... @1 hssss...\n—Excerpted, with omissions, from the diary of the late Agent @3"
       },
       {
@@ -146,7 +146,7 @@
         },
         {
           "id": "voice-81150",
-          "title": "Enlighten: Florish",
+          "title": "Enlighten: Flourish",
           "unlockCondition": "Unlocks at Enlighten Level 15",
           "content": "Congratulations, you have been healed. Yes, those hallucinations and illusions are normal; they are proof of your recovery."
         },

@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "derived-skills",
   "kind": "derivedSkill",
-  "recordCount": 213,
+  "recordCount": 215,
   "records": [
     {
       "kind": "derivedSkill",
@@ -1254,6 +1254,29 @@
       },
       "cardFamily": "buff",
       "cardTypes": ["buff"]
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.global.event-cauldron",
+      "name": "Cauldron",
+      "route": {
+        "slug": "cauldron",
+        "canonicalPath": "/database/derived-skills/cauldron"
+      },
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.global.event-potion",
+      "name": "Potion",
+      "route": {
+        "slug": "potion",
+        "canonicalPath": "/database/derived-skills/potion"
+      },
+      "cardFamily": "buff",
+      "cardTypes": ["buff"],
+      "derivedFromId": "derived.global.event-cauldron"
     },
     {
       "kind": "derivedSkill",

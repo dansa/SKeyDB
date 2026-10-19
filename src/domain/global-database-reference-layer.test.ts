@@ -1,7 +1,10 @@
 import {describe, expect, it, vi} from 'vitest'
 
+import {loadPublicRecord} from '@/data-access/public-data/recordRepository'
+
 import {
   resolveDatabaseReferenceInfo,
+  resolveDatabaseReferenceInfoById,
   resolveDatabaseReferenceInfoByKindAndName,
 } from './database-reference-info'
 import {
@@ -40,6 +43,112 @@ function getSegmentText(segment: RichSegment): string {
 }
 
 describe('hydrateGlobalDatabaseReferenceInfo', () => {
+  it.each([
+    ['derived.daffodil.thousand-mirage-effect-vulnerable', 'Vulnerable', 'orison'],
+    ['derived.daffodil.thousand-mirage-effect-weakness', 'Weakness', 'orison'],
+    ['derived.doll-inferno.illusions-end', "Illusion's End", 'overlay'],
+    ['derived.xu.betroth', 'Betroth', 'overlay'],
+    ['derived.xu.enthrall', 'Enthrall', 'overlay'],
+  ])(
+    'retains explicit card lookup for %s without changing untyped lookup',
+    (id, name, defaultKind) => {
+      const layer = buildGlobalDatabaseReferenceLayer()
+      expect(resolveDatabaseReferenceInfoById(layer, id)).toMatchObject({id, kind: 'derived-skill'})
+      expect(resolveDatabaseReferenceInfoByKindAndName(layer, 'derived-skill', name)?.id).toBe(id)
+      expect(resolveDatabaseReferenceInfo(layer, name)?.kind).toBe(defaultKind)
+    },
+  )
+
+  it('keeps Cocoon of Revival Devour separate from the Caro mechanic', async () => {
+    const layer = buildGlobalDatabaseReferenceLayer()
+    const cocoon = resolveDatabaseReferenceInfoById(layer, 'derived.global.cocoon-of-revival')
+    expect(cocoon).not.toBeNull()
+    if (!cocoon) throw new Error('Missing Cocoon of Revival')
+    const hydrated = await hydrateGlobalDatabaseReferenceInfo(cocoon)
+    const segments = parseDatabaseRichDescription({
+      text: hydrated.description,
+      record: hydrated.record,
+      referenceLayer: layer,
+    })
+    expect(segments).toContainEqual(
+      expect.objectContaining({
+        type: 'skill',
+        name: 'Devour',
+        referenceKind: 'derived-skill',
+      }),
+    )
+    const devour = resolveDatabaseReferenceInfoByKindAndName(layer, 'derived-skill', 'Devour')
+    expect(devour).toMatchObject({id: 'derived.global.devour-card', kind: 'derived-skill'})
+    if (!devour) throw new Error('Missing Devour choice card')
+    expect((await hydrateGlobalDatabaseReferenceInfo(devour)).description).toContain(
+      'Restore 30% Max HP',
+    )
+    expect(resolveDatabaseReferenceInfo(layer, 'Devour')?.kind).toBe('overlay')
+    expect(resolveDatabaseReferenceInfoById(layer, 'derived.global.devour-card')).toBe(devour)
+    expect(parseDatabaseRichDescription({text: '{Devour}', referenceLayer: layer})).toEqual([
+      {type: 'mechanic', name: 'Devour'},
+    ])
+  })
+
+  it('does not link Vivian potion-type prose to the event Potion card', async () => {
+    const layer = buildGlobalDatabaseReferenceLayer()
+    const potions = await loadPublicRecord('overlays', 'overlay.vivian.potions')
+    expect(potions).not.toBeNull()
+    const templates = [
+      potions?.descriptionTemplate,
+      ...((potions?.upgrades ?? []) as {patch: {descriptionTemplate?: string}}[]).map(
+        (upgrade) => upgrade.patch.descriptionTemplate,
+      ),
+    ]
+    for (const text of templates) {
+      expect(text).toContain('type of Potion concocted')
+      const segments = parseDatabaseRichDescription({text: String(text), referenceLayer: layer})
+      expect(segments).not.toContainEqual(expect.objectContaining({type: 'skill', name: 'Potion'}))
+    }
+    const badge = await loadPublicRecord('relics', 'relic-0328')
+    expect(
+      parseDatabaseRichDescription({
+        text: String(badge?.descriptionTemplate),
+        referenceLayer: layer,
+      }),
+    ).toContainEqual({
+      type: 'skill',
+      name: 'Potion',
+      referenceKind: 'derived-skill',
+      referenceId: 'derived.global.event-potion',
+    })
+  })
+
+  it('keeps the event and Vivian combat Cauldrons distinct through exact relic references', async () => {
+    const layer = buildGlobalDatabaseReferenceLayer()
+    const image = await loadPublicRecord('relics', 'relic-0327')
+    const badge = await loadPublicRecord('relics', 'relic-0328')
+    expect(image).toMatchObject({ownerAwakenerId: 'awakener-0062'})
+    for (const [record, targetId] of [
+      [image, 'derived.vivian.cauldron'],
+      [badge, 'derived.global.event-cauldron'],
+    ] as const) {
+      expect(record).not.toBeNull()
+      const segments = parseDatabaseRichDescription({
+        text: String(record?.descriptionTemplate),
+        referenceLayer: layer,
+      })
+      expect(segments).toContainEqual({
+        type: 'skill',
+        name: 'Cauldron',
+        referenceKind: 'derived-skill',
+        referenceId: targetId,
+      })
+      const reference = resolveDatabaseReferenceInfoById(layer, targetId)
+      expect(reference).toMatchObject({name: 'Cauldron', kind: 'derived-skill'})
+      if (!reference) throw new Error(`Missing Cauldron reference: ${targetId}`)
+      const hydrated = await hydrateGlobalDatabaseReferenceInfo(reference)
+      expect(hydrated.description).toContain(
+        targetId === 'derived.vivian.cauldron' ? 'countdown' : 'When 3 cards',
+      )
+    }
+  })
+
   it('resolves event relic braces to the stack mechanic and generated card', async () => {
     const layer = buildGlobalDatabaseReferenceLayer()
     const flame = resolveDatabaseReferenceInfoByKindAndName(layer, 'overlay', 'Blackened Flame')
@@ -501,8 +610,12 @@ describe('buildGlobalDatabaseReferenceLayer', () => {
         id: 'overlay.test.counter',
       }),
     )
-    expect(referenceLayer.referenceInfoById.get('skill.test.counter')).toBeUndefined()
-    expect(referenceLayer.referenceInfoById.get('derived.test.counter')).toBeUndefined()
+    expect(referenceLayer.referenceInfoById.get('skill.test.counter')?.kind).toBe('skill')
+    expect(referenceLayer.referenceInfoById.get('derived.test.counter')?.kind).toBe('derived-skill')
+    expect(
+      resolveDatabaseReferenceInfoByKindAndName(referenceLayer, 'derived-skill', 'Counter')?.id,
+    ).toBe('derived.test.counter')
+    expect(referenceLayer.cardNames.has('Counter')).toBe(false)
   })
 
   it('indexes derived skill aliases for global artifact descriptions', () => {

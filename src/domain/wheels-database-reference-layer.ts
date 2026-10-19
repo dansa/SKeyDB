@@ -1,10 +1,12 @@
 import {getAwakenerOverlays} from './awakener-overlays'
 import type {AwakenerOverlayRecord, DerivedSkillRecord} from './awakener-source-schema'
 import {
+  addDatabaseReferenceInfoById,
   buildAccessibleDatabaseOverlays,
   buildDatabaseDerivedSkillReferenceInfo,
   buildDatabaseOverlayLookup,
   buildDatabaseOverlayReferenceInfo,
+  buildDatabasePosseReferenceInfo,
   DatabaseReferenceLookupAccumulator,
   getDatabaseDerivedSkillAliases,
   usesWheelRefinementScaling,
@@ -13,6 +15,7 @@ import {
 } from './database-reference-layer'
 import {getDerivedSkills} from './derived-skills'
 import {resolveDescribedRecord, type WheelDatabaseDescriptionRecord} from './description-records'
+import {getPosses, type Posse} from './posses'
 import type {PublicFormulaContext} from './public-formula-context'
 import {getRealmLabel} from './realms'
 import {getWheelsFull, type WheelFullRecord} from './wheels-full'
@@ -95,6 +98,7 @@ export function buildWheelReferenceInfoEntries({
 interface BuildWheelDatabaseReferenceLayerOptions extends BuildWheelReferenceInfoEntriesOptions {
   derivedSkills?: DerivedSkillRecord[]
   overlays?: AwakenerOverlayRecord[]
+  posses?: Posse[]
 }
 
 export function buildWheelDatabaseReferenceLayer({
@@ -103,6 +107,7 @@ export function buildWheelDatabaseReferenceLayer({
   derivedSkills = getDerivedSkills(),
   formulaContext,
   overlays = getAwakenerOverlays(),
+  posses = getPosses(),
   wheelRecords = getWheelsFull(),
 }: BuildWheelDatabaseReferenceLayerOptions = {}): ResolvedDatabaseReferenceLayer {
   const referenceInfos = new DatabaseReferenceLookupAccumulator()
@@ -116,7 +121,7 @@ export function buildWheelDatabaseReferenceLayer({
   const accessibleOverlays = buildAccessibleDatabaseOverlays(activeWheel?.ownerAwakenerId, overlays)
   const overlayByName = buildDatabaseOverlayLookup(accessibleOverlays)
   const globalDerivedSkillInfos = derivedSkills
-    .filter((record) => record.ownerAwakenerId === undefined)
+    .filter((record) => record.ownerAwakenerId === undefined || record.nodeKind === 'group')
     .map((record) =>
       buildDatabaseDerivedSkillReferenceInfo(record, formulaContext, {
         rank: activeWheelId && usesWheelRefinementScaling(record) ? activeDescriptionRank : 1,
@@ -135,6 +140,31 @@ export function buildWheelDatabaseReferenceLayer({
 
   for (const info of globalDerivedSkillInfos) {
     referenceInfos.add(info, getDatabaseDerivedSkillAliases(info.record))
+  }
+
+  // Groups may reuse owner-scoped cards or generated Posses. Keep their children
+  // addressable without adding unrelated owner-specific cards to name lookup.
+  const childIds = new Set(
+    globalDerivedSkillInfos.flatMap(({record}) => [
+      ...record.childDerivedSkillIds,
+      ...(record.childPosseIds ?? []),
+    ]),
+  )
+  for (const record of derivedSkills) {
+    if (childIds.has(record.id)) {
+      addDatabaseReferenceInfoById(
+        referenceInfos.referenceInfoById,
+        buildDatabaseDerivedSkillReferenceInfo(record, formulaContext),
+      )
+    }
+  }
+  for (const record of posses) {
+    if (childIds.has(record.id)) {
+      addDatabaseReferenceInfoById(
+        referenceInfos.referenceInfoById,
+        buildDatabasePosseReferenceInfo(record, formulaContext),
+      )
+    }
   }
 
   return {

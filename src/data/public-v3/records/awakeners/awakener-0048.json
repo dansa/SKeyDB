@@ -70,7 +70,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Affinity Level 5",
+        "unlockCondition": "Affinity Level 3",
         "content": "The flood that swept across the world washed away the treasures of civilization, but it also cleared the dust from history's pages.\n\nWhen the waters finally receded, fragments of a forgotten past surfaced among the ruins of ancient Morsul.\n\nThe \"Tree\" stood at the Karage River's source, weeping crimson sap that flowed downstream to nurture civilizations.\n\nThe \"Tree\" was undying, ever-verdant through the ages.\n\nUltimately, modern historians concluded that the \"Tree\" had no physical form; rather, It was a metaphor for ancient civilization, a sacred, incorporeal symbol.\n\nIn every unseen corner of the world, its seeds have quietly taken root."
       },
       {
@@ -146,7 +146,7 @@
         },
         {
           "id": "voice-6058",
-          "title": "Enlighten: Florish",
+          "title": "Enlighten: Flourish",
           "unlockCondition": "Unlocks at Enlighten Level 15",
           "content": "For all that you have given me, your love has already become one with mine..."
         },
@@ -271,19 +271,19 @@
         {
           "id": "voice-50902",
           "title": "Chat: About the Keeper - 3",
-          "unlockCondition": "Unlocks after completing Main Story Chapter 7",
+          "unlockCondition": "Clear Main Story Chapter 7",
           "content": "Come closer. Embrace me. Taste me... Never forget me."
         },
         {
           "id": "voice-50907",
           "title": "Chat: About Aram",
-          "unlockCondition": "Unlocks after completing Main Story Chapter 7",
+          "unlockCondition": "Clear Main Story Chapter 7",
           "content": "They carried my blood, my lineage, becoming the flourishing waters of Remouahe... Now, my dear, you must see my legacy endure."
         },
         {
           "id": "voice-50899",
           "title": "Chat: About The Mother Tree",
-          "unlockCondition": "Unlocks after completing Main Story Chapter 7",
+          "unlockCondition": "Clear Main Story Chapter 7",
           "content": "I am the Mother Tree. The Mother Tree is me. Her sap flows in my veins, her will whispers in my mind..."
         },
         {
@@ -299,13 +299,13 @@
         {
           "id": "voice-50900",
           "title": "Chat: About Keygrave",
-          "unlockCondition": "Unlocks after completing Main Story Chapter 7",
+          "unlockCondition": "Clear Main Story Chapter 7",
           "content": "I glimpsed your tombstone in Keygrave's shadows... Will my mummified flesh rest here too, one day? No? What a pity."
         },
         {
           "id": "voice-50909",
           "title": "Chat: About Offsprings",
-          "unlockCondition": "Unlocks after completing Main Story Chapter 7",
+          "unlockCondition": "Clear Main Story Chapter 7",
           "content": "Those with the flowing tree's blood are my children—you, who've swallowed its seeds are of course included."
         },
         {

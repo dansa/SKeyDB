@@ -2056,6 +2056,11 @@
         "value": "awakener-0061",
         "label": "Ogier: Oathbound",
         "order": 60
+      },
+      {
+        "value": "awakener-0062",
+        "label": "Vivian",
+        "order": 61
       }
     ]
   },

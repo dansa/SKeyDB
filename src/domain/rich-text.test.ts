@@ -288,6 +288,22 @@ describe('parseRichDescription', () => {
     ])
   })
 
+  it.each(['derived', 'derived-skill'])(
+    'parses %s references with exact identity and the original display name',
+    (type) => {
+      expect(
+        parseRichDescription(`{${type}:derived.global.event-cauldron|Cauldron}`, EMPTY_CARDS),
+      ).toEqual([
+        {
+          type: 'skill',
+          name: 'Cauldron',
+          referenceKind: 'derived-skill',
+          referenceId: 'derived.global.event-cauldron',
+        },
+      ])
+    },
+  )
+
   it('parses typed Orison and Relic tokens as explicit family references', () => {
     const result = parseRichDescription(
       '{orison:Insight} and {relic:Malignant Child}.',
