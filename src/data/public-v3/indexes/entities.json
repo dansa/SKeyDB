@@ -2889,6 +2889,24 @@
         "canonicalPath": "/database/derived-skills/endless-combustion"
       }
     },
+    "derived.global.event-cauldron": {
+      "kind": "derivedSkill",
+      "id": "derived.global.event-cauldron",
+      "name": "Cauldron",
+      "route": {
+        "slug": "cauldron",
+        "canonicalPath": "/database/derived-skills/cauldron"
+      }
+    },
+    "derived.global.event-potion": {
+      "kind": "derivedSkill",
+      "id": "derived.global.event-potion",
+      "name": "Potion",
+      "route": {
+        "slug": "potion",
+        "canonicalPath": "/database/derived-skills/potion"
+      }
+    },
     "derived.global.fall-into-night": {
       "kind": "derivedSkill",
       "id": "derived.global.fall-into-night",
@@ -8617,6 +8635,16 @@
       },
       "overlayType": "realm"
     },
+    "overlay.global.charge-unto-glory": {
+      "kind": "overlay",
+      "id": "overlay.global.charge-unto-glory",
+      "name": "Charge unto Glory",
+      "route": {
+        "slug": "charge-unto-glory",
+        "canonicalPath": "/database/overlays/charge-unto-glory"
+      },
+      "overlayType": "mechanic"
+    },
     "overlay.global.corrosion": {
       "kind": "overlay",
       "id": "overlay.global.corrosion",
@@ -9193,6 +9221,16 @@
       },
       "overlayType": "mechanic"
     },
+    "overlay.global.rush-headlong": {
+      "kind": "overlay",
+      "id": "overlay.global.rush-headlong",
+      "name": "Rush Headlong",
+      "route": {
+        "slug": "rush-headlong",
+        "canonicalPath": "/database/overlays/rush-headlong"
+      },
+      "overlayType": "mechanic"
+    },
     "overlay.global.sacrifice": {
       "kind": "overlay",
       "id": "overlay.global.sacrifice",
@@ -9264,6 +9302,16 @@
         "canonicalPath": "/database/overlays/singularity-ultra"
       },
       "overlayType": "realm"
+    },
+    "overlay.global.sprint": {
+      "kind": "overlay",
+      "id": "overlay.global.sprint",
+      "name": "Sprint",
+      "route": {
+        "slug": "sprint",
+        "canonicalPath": "/database/overlays/sprint"
+      },
+      "overlayType": "mechanic"
     },
     "overlay.global.stagnation": {
       "kind": "overlay",
@@ -15295,6 +15343,47 @@
       "rarity": "SSR",
       "ownerAwakenerId": "awakener-0061",
       "ownerAwakenerName": "Ogier: Oathbound"
+    },
+    "relic-0327": {
+      "kind": "relic",
+      "id": "relic-0327",
+      "name": "Dimensional Image: Vivian",
+      "route": {
+        "slug": "dimensional-image-vivian",
+        "canonicalPath": "/database/relics/dimensional-image-vivian"
+      },
+      "assets": {
+        "icon": "asset-relic-0327-icon"
+      },
+      "rarity": "SSR",
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian"
+    },
+    "relic-0328": {
+      "kind": "relic",
+      "id": "relic-0328",
+      "name": "Sheriff Badge",
+      "route": {
+        "slug": "sheriff-badge",
+        "canonicalPath": "/database/relics/sheriff-badge"
+      },
+      "assets": {
+        "icon": "asset-relic-0328-icon"
+      },
+      "rarity": "SSR"
+    },
+    "relic-0329": {
+      "kind": "relic",
+      "id": "relic-0329",
+      "name": "Ceremonial Spur",
+      "route": {
+        "slug": "ceremonial-spur",
+        "canonicalPath": "/database/relics/ceremonial-spur"
+      },
+      "assets": {
+        "icon": "asset-relic-0329-icon"
+      },
+      "rarity": "SSR"
     },
     "skill.24.aberrant-vivisection": {
       "kind": "skill",
@@ -26194,6 +26283,8 @@
       "derived.global.echoes-of-the-past",
       "derived.global.embryo",
       "derived.global.endless-combustion",
+      "derived.global.event-cauldron",
+      "derived.global.event-potion",
       "derived.global.fall-into-night",
       "derived.global.falling-upward",
       "derived.global.fleeting-beauty",
@@ -26692,6 +26783,7 @@
       "overlay.global.burn",
       "overlay.global.caro",
       "overlay.global.chaos",
+      "overlay.global.charge-unto-glory",
       "overlay.global.corrosion",
       "overlay.global.counter",
       "overlay.global.crimson-furnace",
@@ -26746,12 +26838,14 @@
       "overlay.global.resonance",
       "overlay.global.retain",
       "overlay.global.rouse",
+      "overlay.global.rush-headlong",
       "overlay.global.sacrifice",
       "overlay.global.sealed",
       "overlay.global.singularity-annihilation",
       "overlay.global.singularity-beacon",
       "overlay.global.singularity-prism",
       "overlay.global.singularity-ultra",
+      "overlay.global.sprint",
       "overlay.global.stagnation",
       "overlay.global.steal",
       "overlay.global.stellar-protection",
@@ -27196,7 +27290,10 @@
       "relic-0323",
       "relic-0324",
       "relic-0325",
-      "relic-0326"
+      "relic-0326",
+      "relic-0327",
+      "relic-0328",
+      "relic-0329"
     ],
     "skills": [
       "skill.24.aberrant-vivisection",

@@ -384,6 +384,17 @@ function parseTypedReferenceToken(token: string):
     return {type: 'overlay', name: payload}
   }
 
+  if (type === 'derived' || type === 'derived-skill') {
+    const separator = payload.indexOf('|')
+    if (separator > 0 && separator < payload.length - 1) {
+      const referenceId = payload.slice(0, separator).trim()
+      const name = payload.slice(separator + 1).trim()
+      if (/^derived\.[a-z0-9-]+\.[a-z0-9-]+$/.test(referenceId) && name) {
+        return {type: 'reference', name, referenceKind: 'derived-skill', referenceId}
+      }
+    }
+  }
+
   if (type === 'orison' || type === 'relic') {
     const separator = payload.indexOf('|')
     if (separator > 0 && separator < payload.length - 1) {

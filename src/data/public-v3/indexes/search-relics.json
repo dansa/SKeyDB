@@ -6351,6 +6351,59 @@
         "variantTiers": ["Unique"],
         "owner": "awakener-0061"
       }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0327",
+      "name": "Dimensional Image: Vivian",
+      "aliases": [],
+      "tokens": ["dimensional", "dimensional image", "dimensional image vivian", "image", "ssr", "unique", "vivian"],
+      "fields": {
+        "name": ["Dimensional Image: Vivian", "dimensional-image-vivian"],
+        "owner": ["Vivian"],
+        "facet": ["SSR", "Dimensional Image", "DIMENSIONAL_IMAGE", "Unique"]
+      },
+      "facets": {
+        "rarity": "SSR",
+        "relicType": "Dimensional Image",
+        "categories": ["DIMENSIONAL_IMAGE"],
+        "variantTiers": ["Unique"],
+        "owner": "awakener-0062"
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0328",
+      "name": "Sheriff Badge",
+      "aliases": [],
+      "tokens": ["badge", "event", "sheriff", "sheriff badge", "special", "ssr"],
+      "fields": {
+        "name": ["Sheriff Badge", "sheriff-badge"],
+        "facet": ["SSR", "Event", "Special"]
+      },
+      "facets": {
+        "rarity": "SSR",
+        "relicType": "Event",
+        "categories": ["EVENT"],
+        "variantTiers": ["Special"]
+      }
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0329",
+      "name": "Ceremonial Spur",
+      "aliases": [],
+      "tokens": ["ceremonial", "ceremonial spur", "event", "special", "spur", "ssr"],
+      "fields": {
+        "name": ["Ceremonial Spur", "ceremonial-spur"],
+        "facet": ["SSR", "Event", "Special"]
+      },
+      "facets": {
+        "rarity": "SSR",
+        "relicType": "Event",
+        "categories": ["EVENT"],
+        "variantTiers": ["Special"]
+      }
     }
   ]
 }

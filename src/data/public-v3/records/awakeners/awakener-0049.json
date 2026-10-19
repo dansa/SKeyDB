@@ -70,7 +70,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "In the \"P-063 Opera House @2 Event,\" a metal box was discovered in a corner of the burnt backstage, and the Silver inside was recovered.\n\nThe current instruments at Mythag University are unable to identify the material of the box. After consulting @2 documents and analyzing its decorative engravings, Professor Doll concluded that the box might originate from an extinct civilization that perished in an explosion centuries ago.\n\nThe Silver remains quiet and unremarkable while inside the box but emits a continuous humming sound when removed. Professor Doll suspects that the metal box functions as a signal blocker, preventing special frequency signals from resonating with the Silver.\n\nThe model of the resonating Silver has also been identified."
       },
       {
@@ -146,7 +146,7 @@
         },
         {
           "id": "voice-6477",
-          "title": "Enlighten: Florish",
+          "title": "Enlighten: Flourish",
           "unlockCondition": "Unlocks at Enlighten Level 15",
           "content": "It has been a long time since I felt this way. I will take the stage in perfect form and deliver a song that embraces the whole cosmos just for you."
         },

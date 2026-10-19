@@ -3437,6 +3437,7 @@
       "availabilityType": "LIMITED_ASTRAL_REIGN",
       "releaseDate": "2026-10-19",
       "faction": "TBD",
+      "gender": "Female",
       "primaryScalingBase": 20,
       "defaultPrimaryStatBonusLevel": 10,
       "baseStatsLv1": {

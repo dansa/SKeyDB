@@ -69,7 +69,7 @@ export function computeRichScalingStatRange(
 
 export function formatRichScalingRange(segment: ScalingSegment): string {
   if (segment.values.length <= 1) {
-    return `${fmtNum(segment.values[0] ?? 0)}${segment.suffix}`
+    return `${fmtNum(segment.values[0] ?? 0, true)}${segment.suffix}`
   }
 
   const step = (segment.values[1] ?? 0) - (segment.values[0] ?? 0)
@@ -85,17 +85,17 @@ export function formatRichScalingRange(segment: ScalingSegment): string {
 
   if (isEvenlySpaced) {
     const sign = step > 0 ? '+' : ''
-    return `${fmtNum(segment.values[0] ?? 0)}${segment.suffix} (${sign}${fmtNum(step)}${segment.suffix}/Lv)`
+    return `${fmtNum(segment.values[0] ?? 0, true)}${segment.suffix} (${sign}${fmtNum(step, true)}${segment.suffix}/Lv)`
   }
 
-  return `${segment.values.map((value) => fmtNum(value)).join('/')}${segment.suffix}`
+  return `${segment.values.map((value) => fmtNum(value, true)).join('/')}${segment.suffix}`
 }
 
 export function buildRichScalingHover(segment: ScalingSegment, stats: FullStats | null): string {
   return segment.values
     .map((value, index) => {
       const base = formatHoverDisplayText(
-        `Lv${String(index + 1)}: ${fmtNum(value)}${segment.suffix}${segment.stat ? ` {${segment.stat}}` : ''}`,
+        `Lv${String(index + 1)}: ${fmtNum(value, true)}${segment.suffix}${segment.stat ? ` {${segment.stat}}` : ''}`,
       )
       const computed = computeRichScalingStatValue(value, segment.suffix, segment.stat, stats)
       return computed === null ? base : `${base} = ${String(computed)}`

@@ -11,7 +11,7 @@
   "nodeKind": "group",
   "rootSkillId": "talent.lotan-cetarchon.primordial-breath",
   "childPosseIds": ["posse-0054", "posse-0055", "posse-0056", "posse-0057", "posse-0058", "posse-0059", "posse-0060", "posse-0061"],
-  "descriptionTemplate": "Primordia: Dual Recurrence and Primordia: Triad {Revelation} can {Discover} these eight generated Posse effects.",
+  "descriptionTemplate": "Primordia: Dual Recurrence and Primordia: Triad Revelation can {Discover} these eight generated Posse effects.",
   "descriptionArgs": {},
   "cardKeywords": [],
   "aliases": ["Primordial Memories"],

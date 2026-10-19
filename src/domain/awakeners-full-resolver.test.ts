@@ -301,6 +301,39 @@ function buildOverlayRecords(): AwakenerOverlayRecord[] {
 }
 
 describe('awakeners-full-resolver', () => {
+  it.each([null, 'E1', 'E2', 'E3'] as const)(
+    'retains Quality Nap on both Vivian Skills at %s',
+    async (selectedEnlightenSlot) => {
+      const vivian = await loadPublicAwakenerDetailById('awakener-0062')
+      if (!vivian) throw new Error('Missing public V3 Vivian record')
+      const {record} = resolveAwakenerFullRecord(vivian, {selectedEnlightenSlot})
+      const cards = [
+        record.cards.C1,
+        record.cards.C2,
+        record.cards.C3,
+        record.cards.C4,
+        record.cards.C5,
+      ]
+      for (const id of ['skill.vivian.soup-rains-from-above', 'skill.vivian.whatevers-at-hand']) {
+        const card = cards.find((entry) => entry.id === id)
+        expect(card?.descriptionTemplate.match(/\{overlay:Quality Nap\}/g)).toHaveLength(1)
+      }
+    },
+  )
+
+  it('does not present the shared E2 basic-card passive as an Exalt change', async () => {
+    const vivian = await loadPublicAwakenerDetailById('awakener-0062')
+    if (!vivian) throw new Error('Missing public V3 Vivian record')
+    const before = resolveAwakenerFullRecord(vivian, {selectedEnlightenSlot: 'E1'}).record.cards
+      .Exalt
+    const e2 = resolveAwakenerFullRecord(vivian, {selectedEnlightenSlot: 'E2'}).record.cards.Exalt
+    const e3 = resolveAwakenerFullRecord(vivian, {selectedEnlightenSlot: 'E3'}).record.cards.Exalt
+    expect(e2.descriptionTemplate).toBe(before.descriptionTemplate)
+    expect(e2.descriptionArgs).toEqual(before.descriptionArgs)
+    expect(e3.descriptionTemplate).not.toContain('Unclean Toad God')
+    expect(e3.descriptionArgs).not.toEqual(before.descriptionArgs)
+  })
+
   it('shows Vivian basic-card draw references only from E2 without changing their args', async () => {
     const vivian = await loadPublicAwakenerDetailById('awakener-0062')
     if (!vivian) throw new Error('Missing public V3 Vivian record')
@@ -358,7 +391,7 @@ describe('awakeners-full-resolver', () => {
       value: '1100',
       substatBonus: {substat: 'CritRate', multiplier: '5', mode: 'additive'},
     })
-    expect(resolved.record.cards.Exalt.descriptionTemplate).toContain('Unclean Toad God')
+    expect(resolved.record.cards.Exalt.descriptionTemplate).not.toContain('Unclean Toad God')
     expect(resolved.overlayOverridesById['overlay.vivian.potions'].descriptionTemplate).toContain(
       '10%',
     )

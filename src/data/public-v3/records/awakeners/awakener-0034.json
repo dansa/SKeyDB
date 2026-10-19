@@ -70,7 +70,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "In the summer of 3@2 A.F., stories of a sea monster began going around Niugini Island.\nFishermen claimed they had sighted a cephalopod some five stories tall in the coastal waters. Deep red all over, with black concentric rings along its tentacles.\nWhen the rumor reached me, Johansen and I were verifying a suspected Dissolution Phenomenon in the Medan region. The next day he had a ship ready for Niugini Island. I am writing this report in the middle of the Amirante Ocean.\nDay three of the voyage: dead fish across the surface in great drifts—mackerel, flounder, dolphins. I swear there was a pregnant sperm whale among them. The old hands all say overbreeding starves the water of oxygen and that is what kills them, but I can't shake the feeling that we are missing something...\nDay eight: my seasickness is far worse, and the nausea is bad enough that I can hardly eat. We were close to Niugini Island, but Johansen insisted we turn back @3... I don't understand it, but I have chosen to trust him.\n—Bell Columbus, \"Internship Report, Summer of 3@2 A.F.\""
       },
       {
@@ -196,13 +196,13 @@
         },
         {
           "id": "voice-5320",
-          "title": "Enlighten: Florish",
+          "title": "Enlighten: Flourish",
           "unlockCondition": "Unlocks at Enlighten Level 15",
           "content": "Welcome to my final Enlightenment Ceremony! All of this was meticulously designed by me. Of course, you contributed... a tiny bit."
         },
         {
           "id": "voice-117792",
-          "title": "Enlighten: Florish",
+          "title": "Enlighten: Flourish",
           "unlockCondition": "Unlocks at Enlighten Level 15",
           "content": "Hahaha! Mine, all mine! All of Mythag's candies belong to me! What are you waiting for? Follow me, the great Candy Witch! We're going to conquer every candy shop in Londinium right now!"
         },
@@ -337,7 +337,7 @@
         {
           "id": "voice-36683",
           "title": "Chat: About Mythag II",
-          "unlockCondition": "Unlocked after completing Main Story Chapter 6",
+          "unlockCondition": "Clear Main Story Chapter 6",
           "content": "Everyone at this school seems so busy, but...\nThere's a quiet peace here I've never known.\nWorking together toward the same goal... Hmph, I suppose it's not entirely awful."
         },
         {
@@ -358,13 +358,13 @@
         {
           "id": "voice-36685",
           "title": "Chat: About the Keeper II",
-          "unlockCondition": "Unlocked after completing Main Story Chapter 6",
+          "unlockCondition": "Clear Main Story Chapter 6",
           "content": "Thank you... H-Huh? Why am I saying that? Well, obviously! It's for everything you did for me at sea...\nWait, why are you laughing?! You just want to see me flustered!"
         },
         {
           "id": "voice-36684",
           "title": "Chat: About the Keeper III",
-          "unlockCondition": "Unlocked after completing Main Story Chapter 6",
+          "unlockCondition": "Clear Main Story Chapter 6",
           "content": "The bed is too hard, the weather too cold, the tea tastes like dirty rinse water... I have a thousand reasons to despise this place. \nHowever, since you're here, I suppose I can tolerate it. Reluctantly."
         },
         {
@@ -376,7 +376,7 @@
         {
           "id": "voice-36686",
           "title": "Chat: About Miryam II",
-          "unlockCondition": "Unlocked after completing Main Story Chapter 6",
+          "unlockCondition": "Clear Main Story Chapter 6",
           "content": "I once believed there was some sort of familial bond between us...\nBut now, after everything, I realize those fleeting warm moments were just my wishful thinking.\nWhat you do with her is your business, just keep her away from me."
         },
         {
@@ -388,13 +388,13 @@
         {
           "id": "voice-36679",
           "title": "Chat: About Caecus",
-          "unlockCondition": "Unlocked after completing Main Story Chapter 6",
+          "unlockCondition": "Clear Main Story Chapter 6",
           "content": "He joined the cult while I was asleep, so I have no connection to him.\nI heard he came willingly, wanting to abandon his human form to become a full Seafarer... Hmph, another fool blinded by power."
         },
         {
           "id": "voice-36680",
           "title": "Chat: About Goliath",
-          "unlockCondition": "Unlocked after completing Main Story Chapter 6",
+          "unlockCondition": "Clear Main Story Chapter 6",
           "content": "Goliath was never a loyal pet. I cannot understand why Miryam values him so much... If he wasn't chained, he would have run off and betrayed her immediately."
         },
         {
@@ -405,19 +405,19 @@
         {
           "id": "voice-36682",
           "title": "Chat: About the \"Ghost Ship\"",
-          "unlockCondition": "Unlocked after completing Main Story Chapter 6",
+          "unlockCondition": "Clear Main Story Chapter 6",
           "content": "Celeste's off-key sea shanty, the captain's signature smoked fish stew, blankets stiff and fishy from the sea breeze... Though tense and dangerous, I will never forget those months in exile at sea."
         },
         {
           "id": "voice-36681",
           "title": "Chat: About Seafarers",
-          "unlockCondition": "Unlocked after completing Main Story Chapter 6",
+          "unlockCondition": "Clear Main Story Chapter 6",
           "content": "Seafarers are not born this way. To blend in, they live their first half just like humans...\nYou'd better watch out—your favorite cake shop owner might be one of them!"
         },
         {
           "id": "voice-36687",
           "title": "Chat: About \"Awakeners\"",
-          "unlockCondition": "Unlocked after completing Main Story Chapter 6",
+          "unlockCondition": "Clear Main Story Chapter 6",
           "content": "How peculiar... This feeling is so strange.\nMy heart has stopped, yet my body is still warm... Hey, come here and touch my hand. Tell me this isn't some trick."
         }
       ],

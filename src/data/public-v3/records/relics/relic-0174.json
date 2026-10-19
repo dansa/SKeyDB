@@ -23,7 +23,7 @@
       "value": "10"
     }
   },
-  "lore": "The day of transformation will be your doom.",
+  "lore": "The day of its transformation will be your doom.",
   "variants": [
     {
       "id": "relic-variant-0268",
@@ -40,7 +40,7 @@
           "value": "10"
         }
       },
-      "lore": "The day of transformation will be your doom."
+      "lore": "The day of its transformation will be your doom."
     },
     {
       "id": "relic-variant-0269",
@@ -56,7 +56,7 @@
           "value": "20"
         }
       },
-      "lore": "The day of transformation will be your doom."
+      "lore": "The day of its transformation will be your doom."
     },
     {
       "id": "relic-variant-0267",
@@ -68,7 +68,7 @@
       "rarity": "SSR",
       "descriptionTemplate": "Whenever an Awakener has {Devour} once, other Awakeners gain 10 Aliemus.",
       "descriptionArgs": {},
-      "lore": "The day of transformation will be your doom."
+      "lore": "The day of its transformation will be your doom."
     },
     {
       "id": "relic-variant-0270",
@@ -85,7 +85,7 @@
           "value": "10"
         }
       },
-      "lore": "The day of transformation will be your doom."
+      "lore": "The day of its transformation will be your doom."
     },
     {
       "id": "relic-variant-0271",
@@ -101,7 +101,7 @@
           "value": "20"
         }
       },
-      "lore": "The day of transformation will be your doom."
+      "lore": "The day of its transformation will be your doom."
     }
   ]
 }

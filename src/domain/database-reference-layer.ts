@@ -9,8 +9,14 @@ import {
   getCanonicalCardClassificationLabels,
 } from './card-classification'
 import {buildCardKeywordFooterText} from './card-keywords'
-import {resolveDescribedRecord, type DescribedRecord} from './description-records'
+import {
+  resolveDescribedRecord,
+  type DescribedRecord,
+  type PosseDatabaseDescriptionRecord,
+} from './description-records'
+import type {Posse} from './posses'
 import type {PublicFormulaContext} from './public-formula-context'
+import {getRealmLabel} from './realms'
 
 export interface DatabaseInfluenceBadge {
   kind: 'enlighten' | 'talent'
@@ -56,6 +62,33 @@ export interface DatabaseReferenceLayer {
 }
 
 export type ResolvedDatabaseReferenceLayer = DatabaseReferenceLayer
+
+export function buildDatabasePosseReferenceInfo(
+  source: Posse,
+  formulaContext?: PublicFormulaContext,
+): DatabaseReferenceInfo<PosseDatabaseDescriptionRecord> {
+  const record: PosseDatabaseDescriptionRecord = {
+    id: source.id,
+    kind: 'posse',
+    displayName: source.name,
+    descriptionTemplate: source.descriptionTemplate ?? '',
+    descriptionArgs: source.descriptionArgs ?? {},
+  }
+  const resolved = resolveDescribedRecord(record, {formulaContext}, {formulaContext})
+  return {
+    kind: 'posse',
+    id: source.id,
+    name: source.name,
+    label: `Posse · ${getRealmLabel(source.realm)}`,
+    record,
+    description: resolved.description,
+    descriptionRank: undefined,
+    descriptionMaxRank: undefined,
+    influencingEnlightenSlots: [],
+    influencingTalentIds: [],
+    influenceBadges: [],
+  }
+}
 
 export function normalizeDatabaseReferenceName(name: string): string {
   return name.trim().toLowerCase()

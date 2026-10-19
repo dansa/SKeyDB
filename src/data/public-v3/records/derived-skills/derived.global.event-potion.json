@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.event-potion",
+  "name": "Potion",
+  "route": {
+    "slug": "potion",
+    "canonicalPath": "/database/derived-skills/potion"
+  },
+  "derivedFromId": "derived.global.event-cauldron",
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
+  "descriptionTemplate": "Gains different effects based on the types of cards {Exhausted} into the {derived:derived.global.event-cauldron|Cauldron}. Certain combinations of card types have additional hidden effects.\nUpon play, generate 1 {derived:derived.global.event-cauldron|Cauldron} and add it to your hand",
+  "descriptionArgs": {},
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    },
+    {
+      "id": "mechanic.exhaust"
+    }
+  ],
+  "cost": "1"
+}

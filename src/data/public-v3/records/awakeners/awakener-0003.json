@@ -70,7 +70,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "According to the \"Cataclysm Event Record III,\" the Keeper brought back this piece of Silver Core from the Londinium Orphanage. Accompanying the Silver Core was a tiny, patch-covered teddy bear.\n\nThis Silver weighs about 2.1 grams, is slender and smooth, resembling a teardrop. Those who come into direct contact with the Silver will fall into a Stasis State, maintaining the posture of touching the Silver until Awakened by someone else. To prevent accidental contact, Researcher Doll kept this Silver in a closed glass orb and replaced the teddy bear's eyes.\n\n\"It looks as if it has been crying every day.\""
       },
       {
@@ -146,7 +146,7 @@
         },
         {
           "id": "voice-6062",
-          "title": "Enlighten: Florish",
+          "title": "Enlighten: Flourish",
           "unlockCondition": "Unlocks at Enlighten Level 15",
           "content": "I... I understand your intention. Though I'm still clumsy, I will fight for you with all I have!"
         },

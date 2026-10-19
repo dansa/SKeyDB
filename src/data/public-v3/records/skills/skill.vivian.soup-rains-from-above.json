@@ -11,7 +11,7 @@
   "slot": "Skill1",
   "cardFamily": "command",
   "cardTypes": ["skill"],
-  "descriptionTemplate": "Inflict [Corrosion:Arg1] (+[Arg2]% of {STR}) {Corrosion} on all enemies. {Turn Unique}: {derived:Cauldron} countdown -1.\n{overlay:Quality Nap}",
+  "descriptionTemplate": "Inflict [Corrosion:Arg1] (+[Arg2]% of {STR}) {Corrosion} on all enemies. {Turn Unique}: {derived:derived.vivian.cauldron|Cauldron} countdown -1.\n{overlay:Quality Nap}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -27,6 +27,7 @@
   },
   "cardKeywords": [],
   "cost": "2",
+  "lore": "Rule one of Vivian's deal with the Seer: They must handle the \"minor nuisances\" for her. In practice, that means a shelf of bargain-bin potions: dirt cheap, grab-and-go, good enough to vaporize any pixie whose magic stats aren't worth the ink. Brewed in bulk, parked in the cauldron, ready for emergencies.\n\"Let's deal with it fast. I need my nap time. Yaawnnn...\"",
   "upgrades": [
     {
       "id": "upgrade.enlighten.vivian.heir-to-the-throne.skill.vivian.soup-rains-from-above",

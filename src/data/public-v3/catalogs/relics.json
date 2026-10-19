@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "relics",
   "kind": "relic",
-  "recordCount": 307,
+  "recordCount": 310,
   "records": [
     {
       "kind": "relic",
@@ -8673,6 +8673,83 @@
         {
           "category": "DIMENSIONAL_IMAGE",
           "tier": "Unique"
+        }
+      ]
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0327",
+      "name": "Dimensional Image: Vivian",
+      "route": {
+        "slug": "dimensional-image-vivian",
+        "canonicalPath": "/database/relics/dimensional-image-vivian"
+      },
+      "assets": {
+        "icon": "asset-relic-0327-icon"
+      },
+      "rarity": "SSR",
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "relicType": "Dimensional Image",
+      "categories": ["DIMENSIONAL_IMAGE"],
+      "variantCount": 1,
+      "defaultVariantId": "relic-variant-0581",
+      "aliases": [],
+      "variantTiers": ["Unique"],
+      "variantCategoryTiers": [
+        {
+          "category": "DIMENSIONAL_IMAGE",
+          "tier": "Unique"
+        }
+      ]
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0328",
+      "name": "Sheriff Badge",
+      "route": {
+        "slug": "sheriff-badge",
+        "canonicalPath": "/database/relics/sheriff-badge"
+      },
+      "assets": {
+        "icon": "asset-relic-0328-icon"
+      },
+      "rarity": "SSR",
+      "relicType": "Event",
+      "categories": ["EVENT"],
+      "variantCount": 1,
+      "defaultVariantId": "relic-variant-0582",
+      "aliases": [],
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
+        }
+      ]
+    },
+    {
+      "kind": "relic",
+      "id": "relic-0329",
+      "name": "Ceremonial Spur",
+      "route": {
+        "slug": "ceremonial-spur",
+        "canonicalPath": "/database/relics/ceremonial-spur"
+      },
+      "assets": {
+        "icon": "asset-relic-0329-icon"
+      },
+      "rarity": "SSR",
+      "relicType": "Event",
+      "categories": ["EVENT"],
+      "variantCount": 1,
+      "defaultVariantId": "relic-variant-0583",
+      "aliases": [],
+      "variantTiers": ["Special"],
+      "variantCategoryTiers": [
+        {
+          "category": "EVENT",
+          "tier": "Special"
         }
       ]
     }

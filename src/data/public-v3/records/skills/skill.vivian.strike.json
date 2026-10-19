@@ -26,6 +26,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "Bad news. Anyone foolish enough to disturb Vivian's dreams must be ready to face the pent-up fury of a witch's lifetime—an inescapable doomsday judgment known as \"waking up on the wrong side of the bed.\"",
   "upgrades": [
     {
       "id": "upgrade.enlighten.vivian.unclean-toad-god.skill.vivian.strike",

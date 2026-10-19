@@ -1261,12 +1261,6 @@
         "id": "relic-0085"
       }
     ],
-    "cauldron": [
-      {
-        "kind": "derivedSkill",
-        "id": "derived.vivian.cauldron"
-      }
-    ],
     "ceaseless warlust": [
       {
         "kind": "enlighten",
@@ -1307,6 +1301,12 @@
       {
         "kind": "enlighten",
         "id": "enlighten.pickman.centered-composition"
+      }
+    ],
+    "ceremonial spur": [
+      {
+        "kind": "relic",
+        "id": "relic-0329"
       }
     ],
     "cetarchon": [
@@ -1373,6 +1373,12 @@
       {
         "kind": "skill",
         "id": "skill.vortice.charge"
+      }
+    ],
+    "charge unto glory": [
+      {
+        "kind": "overlay",
+        "id": "overlay.global.charge-unto-glory"
       }
     ],
     "chromaphage": [
@@ -2639,6 +2645,12 @@
       {
         "kind": "relic",
         "id": "relic-0051"
+      }
+    ],
+    "dimensional image vivian": [
+      {
+        "kind": "relic",
+        "id": "relic-0327"
       }
     ],
     "dimensional image vortice": [
@@ -6655,6 +6667,12 @@
         "id": "skill.casiah.poof"
       }
     ],
+    "potion": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.event-potion"
+      }
+    ],
     "potions": [
       {
         "kind": "overlay",
@@ -7537,6 +7555,12 @@
         "id": "enlighten.goliath.rule-by-the-strongest"
       }
     ],
+    "rush headlong": [
+      {
+        "kind": "overlay",
+        "id": "overlay.global.rush-headlong"
+      }
+    ],
     "rusted saw": [
       {
         "kind": "relic",
@@ -7895,6 +7919,12 @@
       {
         "kind": "wheel",
         "id": "wheel-0106"
+      }
+    ],
+    "sheriff badge": [
+      {
+        "kind": "relic",
+        "id": "relic-0328"
       }
     ],
     "shifting straitjacket": [
@@ -8405,6 +8435,12 @@
       {
         "kind": "posse",
         "id": "posse-0026"
+      }
+    ],
+    "sprint": [
+      {
+        "kind": "overlay",
+        "id": "overlay.global.sprint"
       }
     ],
     "sprouting bud": [
@@ -10217,6 +10253,16 @@
       {
         "kind": "orison",
         "id": "orison-0016"
+      }
+    ],
+    "cauldron": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.event-cauldron"
+      },
+      {
+        "kind": "derivedSkill",
+        "id": "derived.vivian.cauldron"
       }
     ],
     "certain gain": [

@@ -11,7 +11,7 @@
   "slot": "Skill2",
   "cardFamily": "command",
   "cardTypes": ["skill"],
-  "descriptionTemplate": "Choose 1 other Awakener to gain [Energy:Arg1] Aliemus. {Turn Unique}: {Concoct} once. {overlay:Potions} {derived:Cauldron}\n{overlay:Quality Nap}",
+  "descriptionTemplate": "Choose 1 other Awakener to gain [Energy:Arg1] Aliemus. {Turn Unique}: {Concoct} once. {overlay:Potions} {derived:derived.vivian.cauldron|Cauldron}\n{overlay:Quality Nap}",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",
@@ -20,6 +20,7 @@
   },
   "cardKeywords": [],
   "cost": "1",
+  "lore": "\"What's the number one rule of picking potion ingredients?\"\n\"Nope, not the newest meta recipe. Not the premium-grade mats. Not even measuring properly.\"\n\"It's proximity.\"\n\"Same effect? Then grab whatever's closest. Fewest cabinet doors. Fewest corks. That's the whole system.\"\nAs for how she knows it'll still work? That part lives somewhere in Vivian's galaxy-brain talent for magic.\nDon't ask her to explain it. She can't.",
   "upgrades": [
     {
       "id": "upgrade.enlighten.vivian.heir-to-the-throne.skill.vivian.whatevers-at-hand",
@@ -30,7 +31,7 @@
       "ownerAwakenerId": "awakener-0062",
       "ownerAwakenerName": "Vivian",
       "patch": {
-        "descriptionTemplate": "Choose 1 other Awakener to gain [Energy:Arg1] Aliemus, and increase their Temp. Crit. Rate by [Arg2]%. {Turn Unique}: {Concoct} once. {overlay:Potions} {derived:Cauldron} {overlay:Boiling Anger}",
+        "descriptionTemplate": "Choose 1 other Awakener to gain [Energy:Arg1] Aliemus, and increase their Temp. Crit. Rate by [Arg2]%. {Turn Unique}: {Concoct} once. {overlay:Potions} {derived:derived.vivian.cauldron|Cauldron} {overlay:Boiling Anger}\n{overlay:Quality Nap}",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",
@@ -58,7 +59,7 @@
       "ownerAwakenerId": "awakener-0062",
       "ownerAwakenerName": "Vivian",
       "patch": {
-        "descriptionTemplate": "Choose 1 other Awakener to gain [Energy:Arg1] Aliemus, and increase their Temp. Crit. Rate by [Arg2]%. {Turn Unique}: {Concoct} once. {overlay:Potions} {derived:Cauldron} {overlay:Boiling Anger}",
+        "descriptionTemplate": "Choose 1 other Awakener to gain [Energy:Arg1] Aliemus, and increase their Temp. Crit. Rate by [Arg2]%. {Turn Unique}: {Concoct} once. {overlay:Potions} {derived:derived.vivian.cauldron|Cauldron} {overlay:Boiling Anger}\n{overlay:Quality Nap}",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

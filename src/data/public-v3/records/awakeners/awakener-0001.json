@@ -83,7 +83,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "Awakener ID: MA-C06\nDanger Level: A\nSpecial Containment Procedures: MA-C06 is currently housed in Awakener Observation Room 7 with dim lighting. Fearing mind control by @3, MA-C06 refuses to sleep, only provided with a chair.\n\nDue to good behavior and friendly attitude, MA-C06 is allowed to use the greenhouse and explore parts of the campus with an Investigator escort.\n\n—\"Awakener Containment FileMA-C06\""
       },
       {
@@ -159,7 +159,7 @@
         },
         {
           "id": "voice-4925",
-          "title": "Enlighten: Florish",
+          "title": "Enlighten: Flourish",
           "unlockCondition": "Unlocks at Enlighten Level 15",
           "content": "We're...ready. Please give the order, Keeper."
         },
@@ -206,13 +206,13 @@
         {
           "id": "voice-6290",
           "title": "Chat: About Jenkin",
-          "unlockCondition": "Unlocks after clearing Main Story Chapter 2",
+          "unlockCondition": "Clear Main Story Chapter 2",
           "content": "Excuse me... Have you seen my sister, Jenkin? She's a girl who carries a mouse and can be quite fierce... I couldn't possibly mistake her."
         },
         {
           "id": "voice-6695",
           "title": "Chat: About Herbert",
-          "unlockCondition": "Unlocks after clearing Main Story Chapter 2",
+          "unlockCondition": "Clear Main Story Chapter 2",
           "content": "Although Herbert is a terrifying person, his cats are very gentle... No, to be precise, there are two cats, right?"
         },
         {

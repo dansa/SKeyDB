@@ -70,7 +70,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "It is a souvenir Professor Dexter brought back from a trip to the Febvre coast.\nFebvre has a mild, humid sea climate, and the century-old Sevada Sanatorium sits right on the shore; every year, countless travelers choose to spend their holidays there.\nInside this glass bottle, water-stained and tangled with seaweed, lies a little clear powder. It is not a message in a bottle from some shipwreck, nor one of the local sand trinkets. Professor Dexter noticed it at once: the bottle holds Silvercore powder—in other words, a will lodged inside it.\nHe says he bought it from a local fisherman, who told him, evasively, about the strange things that had been happening lately. A few days earlier, heading out at dawn, the fisherman ran into an odd swarm of fish. It was neither spawning season nor wintering season, and still the shoal gathered in one place and would not leave. When he hauled the heavy net up, he found a strange bottle in it. He thought it a curiosity, and at the same time felt faintly uneasy, as if the thing might curse him with bad luck. For days afterward, not a single fish could be caught in those waters."
       },
       {
@@ -146,7 +146,7 @@
         },
         {
           "id": "voice-6364",
-          "title": "Enlighten: Florish",
+          "title": "Enlighten: Flourish",
           "unlockCondition": "Unlocks at Enlighten Level 15",
           "content": "Next time, let us go see the sea together. Febvre is fine; I can be your guide. Or anywhere else, even to the ends of the earth—I want to go with you."
         },

@@ -4,6 +4,7 @@ import {
   createOrdinalMacroPattern,
   createPluralMacroPattern,
   extractDescriptionArgToken,
+  normalizeDescriptionArgChannel,
 } from './description-token-grammar'
 import {
   evaluatePublicFormulaExpression,
@@ -23,12 +24,14 @@ const PLURAL_MACRO_PATTERN = createPluralMacroPattern('g')
 const ORDINAL_MACRO_PATTERN = createOrdinalMacroPattern('g')
 
 export interface DescriptionArgResolveContext {
+  channel?: string | null
   rank?: number
   stats?: Partial<FullStats> | null
   formulaContext?: PublicFormulaContext
 }
 
 export interface DescriptionArgProgressionContext {
+  channel?: string | null
   rank?: number
   maxRank?: number
   stats?: Partial<FullStats> | null
@@ -256,10 +259,15 @@ function inferSuffix(arg: PublicDescriptionArg): string {
   return arg.suffix ?? getSubstatBonus(arg)?.suffix ?? ''
 }
 
-function formatResolvedValue(value: number, suffix: string, stat: string | null): string {
+function formatResolvedValue(
+  value: number,
+  suffix: string,
+  stat: string | null,
+  channel?: string | null,
+): string {
   const suffixHasInlineStat = /\{(ATK|DEF|CON)\}/.test(suffix)
   const statSuffix = stat && !suffixHasInlineStat ? ` {${stat}}` : ''
-  return `${fmtNum(value)}${suffix}${statSuffix}`
+  return `${fmtNum(value, channel === 'Float' || suffix.includes('%'))}${suffix}${statSuffix}`
 }
 
 function formatLiteralValue(rawValue: string, suffix: string, stat: string | null): string {
@@ -298,7 +306,8 @@ function formatHoverEffectMultiplier(value: number): {
   }
 }
 
-function formatHoverComputedValue(value: number, suffix: string): string {
+function formatHoverComputedValue(value: number, suffix: string, channel?: string): string {
+  if (channel === 'Float') return `${fmtNum(value, true)}${suffix}`
   return `${formatHoverFormulaNumber(value)}${suffix}`
 }
 
@@ -320,7 +329,8 @@ function hasAstralReignResearchBonus(
   )
 }
 
-function formatScaledFormulaResultText(value: number, suffix: string): string {
+function formatScaledFormulaResultText(value: number, suffix: string, channel?: string): string {
+  if (channel === 'Float') return `${fmtNum(value, true)}${suffix}`
   return formatHoverComputedValue(ceilDisplayValue(value), suffix)
 }
 
@@ -353,8 +363,8 @@ function buildScaledComputedFormulaHover(
     return formatHoverDisplayText(
       [
         breakdown.title,
-        `Base (Account Lv ${String(breakdown.accountLevel)}): ${baseFormulaText} = ${formatScaledFormulaResultText(baseResultValue, resolved.suffix)}`,
-        `Astral Reign: ${String(breakdown.ownedPosseCount)} Posses add +${String(breakdown.ownedPosseCount)}% to Research → ${formatScaledFormulaResultText(astralResultValue, resolved.suffix)}`,
+        `Base (Account Lv ${String(breakdown.accountLevel)}): ${baseFormulaText} = ${formatScaledFormulaResultText(baseResultValue, resolved.suffix, arg.channel)}`,
+        `Astral Reign: ${String(breakdown.ownedPosseCount)} Posses add +${String(breakdown.ownedPosseCount)}% to Research → ${formatScaledFormulaResultText(astralResultValue, resolved.suffix, arg.channel)}`,
       ].join('\n'),
     )
   }
@@ -375,7 +385,7 @@ function buildScaledComputedFormulaHover(
       `${formulaTerms.join(' × ')} = ${
         resolved.totalValue === null
           ? resolved.formattedTotalValue
-          : formatScaledFormulaResultText(resolved.totalValue, resolved.suffix)
+          : formatScaledFormulaResultText(resolved.totalValue, resolved.suffix, arg.channel)
       }`,
     ].join('\n'),
   )
@@ -442,8 +452,8 @@ function buildWheelEnlightenFormulaHover(
 
   const suffix = inferSuffix(arg)
   const tier = Math.max(0, Math.floor(formulaContext.wheelRefinementLevel))
-  const baseValue = formatHoverComputedValue(arg.baseValue, suffix)
-  const perTierValue = formatHoverComputedValue(arg.perLevel, suffix)
+  const baseValue = formatHoverComputedValue(arg.baseValue, suffix, arg.channel)
+  const perTierValue = formatHoverComputedValue(arg.perLevel, suffix, arg.channel)
 
   return formatHoverDisplayText(
     [
@@ -466,8 +476,11 @@ function buildRealmMasteryFormulaHover(
   const realmMasteryFinal =
     typeof resolvedContext.realmMasteryFinal === 'number' ? resolvedContext.realmMasteryFinal : 0
   const suffix = inferSuffix(arg)
-  const baseValue = formatHoverComputedValue(arg.baseValue, suffix)
-  const perPointValue = `${formatHoverFormulaFactor(arg.perPoint)}${suffix}`
+  const baseValue = formatHoverComputedValue(arg.baseValue, suffix, arg.channel)
+  const perPointValue =
+    arg.channel === 'Float'
+      ? `${fmtNum(arg.perPoint, true)}${suffix}`
+      : `${formatHoverFormulaFactor(arg.perPoint)}${suffix}`
   const realmMasteryText = formatHoverFormulaNumber(realmMasteryFinal)
 
   return formatHoverDisplayText(
@@ -580,6 +593,7 @@ function shouldCeilDisplayedTotalValue(
   arg: PublicDescriptionArg,
   baseValue: number | null,
 ): boolean {
+  if (arg.channel === 'Float') return false
   const substatBonus = getSubstatBonus(arg)
   if (!substatBonus && arg.kind === 'computed' && arg.formulaKey === 'scaled') {
     return true
@@ -634,6 +648,7 @@ function formatDescriptionArgTotalValue(
           shouldCeilDisplayedTotalValue(arg, baseValue) ? ceilDisplayValue(totalValue) : totalValue,
           suffix,
           stat,
+          arg.channel,
         )
 
   if (
@@ -683,9 +698,12 @@ function formatDescriptionArgTotalValue(
     return primaryValue
   }
   const astralValue = formatResolvedValue(
-    arg.formulaKey === 'scaled' ? ceilDisplayValue(astralResultValue) : astralResultValue,
+    shouldCeilDisplayedTotalValue(arg, baseValue)
+      ? ceilDisplayValue(astralResultValue)
+      : astralResultValue,
     suffix,
     stat,
+    arg.channel,
   )
 
   return astralValue === primaryValue ? primaryValue : `${primaryValue} (${astralValue})`
@@ -695,6 +713,7 @@ export function resolveDescriptionArg(
   arg: PublicDescriptionArg,
   context: DescriptionArgResolveContext = {},
 ): ResolvedDescriptionArg {
+  arg = {...arg, channel: context.channel ?? arg.channel}
   const rank = clampRank(context.rank ?? 1)
   const rawBaseValue = resolveRawBaseValue(arg, rank, context.formulaContext)
   const resolved = !isComputedArg(arg) || rawBaseValue !== '—'
@@ -711,7 +730,8 @@ export function resolveDescriptionArg(
       : baseValue + substatBonusValue
   const suffix = inferSuffix(arg)
   const stat = inferStat(arg, suffix)
-  const formattedBaseValue = baseValue === null ? '' : formatResolvedValue(baseValue, suffix, stat)
+  const formattedBaseValue =
+    baseValue === null ? '' : formatResolvedValue(baseValue, suffix, stat, arg.channel)
   const formattedTotalValue = formatDescriptionArgTotalValue(
     arg,
     rawBaseValue,
@@ -744,10 +764,26 @@ export function resolveDescriptionArg(
 export function resolveDescriptionArgs(
   descriptionArgs: Record<string, PublicDescriptionArg>,
   context: DescriptionArgResolveContext = {},
+  descriptionTemplate = '',
 ): Record<string, ResolvedDescriptionArg> {
   return Object.fromEntries(
-    Object.entries(descriptionArgs).map(([key, arg]) => [key, resolveDescriptionArg(arg, context)]),
+    Object.entries(descriptionArgs).map(([key, arg]) => [
+      key,
+      resolveDescriptionArg(arg, {
+        ...context,
+        channel: getDescriptionArgChannel(descriptionTemplate, key) ?? context.channel,
+      }),
+    ]),
   )
+}
+
+export function getDescriptionArgChannel(template: string, key: string): string | null {
+  for (const match of template.matchAll(ARG_TOKEN_PATTERN)) {
+    if (match.groups?.argKey === key && match.groups.channel) {
+      return normalizeDescriptionArgChannel(match.groups.channel)
+    }
+  }
+  return null
 }
 
 export function getDescriptionArgKeysInTemplateOrder(
@@ -785,6 +821,7 @@ export function getDescriptionArgProgression(
   const maxRank = clampMaxRank(arg, context.maxRank)
   return Array.from({length: maxRank}, (_, index) =>
     resolveDescriptionArg(arg, {
+      channel: context.channel,
       rank: index + 1,
       stats: context.stats,
       formulaContext: context.formulaContext,
@@ -796,12 +833,15 @@ export function formatDescriptionArgProgression(
   arg: PublicDescriptionArg,
   context: DescriptionArgProgressionContext = {},
 ): string {
+  arg = {...arg, channel: context.channel ?? arg.channel}
   const progression = getDescriptionArgProgression(arg, context)
   const suffix = inferSuffix(arg)
   const stat = inferStat(arg, suffix)
   const suffixHasInlineStat = /\{(ATK|DEF|CON)\}/.test(suffix)
   const statSuffix = stat && !suffixHasInlineStat ? ` {${stat}}` : ''
   const numericProgression = progression.map((entry) => entry.totalValue)
+  const formatNumber = (value: number) =>
+    fmtNum(value, arg.channel === 'Float' || suffix.includes('%'))
 
   if (numericProgression.some((value) => value === null)) {
     const formattedValues = progression.map((entry) => entry.formattedTotalValue)
@@ -812,7 +852,7 @@ export function formatDescriptionArgProgression(
   }
 
   if (numericProgression.length <= 1) {
-    return `${fmtNum(numericProgression[0] ?? 0)}${suffix}${statSuffix}`
+    return progression[0]?.formattedTotalValue ?? ''
   }
 
   const step = (numericProgression[1] ?? 0) - (numericProgression[0] ?? 0)
@@ -828,10 +868,10 @@ export function formatDescriptionArgProgression(
 
   if (isEvenlySpaced) {
     const sign = step > 0 ? '+' : ''
-    return `${fmtNum(numericProgression[0] ?? 0)}${suffix} (${sign}${fmtNum(step)}${suffix}/Lv)${statSuffix}`
+    return `${formatNumber(numericProgression[0] ?? 0)}${suffix} (${sign}${formatNumber(step)}${suffix}/Lv)${statSuffix}`
   }
 
-  return `${numericProgression.map((value) => fmtNum(value ?? 0)).join('/')}${suffix}${statSuffix}`
+  return `${numericProgression.map((value) => formatNumber(value ?? 0)).join('/')}${suffix}${statSuffix}`
 }
 
 function buildDescriptionArgFormula(
@@ -912,6 +952,7 @@ export function buildDescriptionArgHover(
   arg: PublicDescriptionArg,
   context: DescriptionArgProgressionContext = {},
 ): string {
+  arg = {...arg, channel: context.channel ?? arg.channel}
   if (!hasDescriptionArgInteractiveHover(arg)) {
     return ''
   }
@@ -977,7 +1018,7 @@ export function buildDescriptionArgHover(
             ? ` (${formatHoverDisplayText(entry.formattedBaseValue)} × ${fmtNum(100 + entry.substatSourceValue * (tryParseNumericValue(arg.substatBonus.multiplier) ?? 0))}% from ${formatSubstatLabel(arg.substatBonus.substat)})`
             : entry.substatBonusMode === 'additive_factor' && entry.substatSourceValue !== null
               ? ` (${formatHoverDisplayText(entry.formattedBaseValue)} × ${fmtNum((tryParseNumericValue(arg.substatBonus.baseMultiplier ?? '') ?? 1) + (entry.substatSourceValue * (tryParseNumericValue(arg.substatBonus.multiplier) ?? 0)) / 100)} from ${formatSubstatLabel(arg.substatBonus.substat)})`
-              : ` (${formatHoverDisplayText(entry.formattedBaseValue)} + ${formatHoverDisplayText(formatResolvedValue(entry.substatBonusValue, entry.suffix, entry.stat))} from ${formatSubstatLabel(arg.substatBonus.substat)})`
+              : ` (${formatHoverDisplayText(entry.formattedBaseValue)} + ${formatHoverDisplayText(formatResolvedValue(entry.substatBonusValue, entry.suffix, entry.stat, arg.channel))} from ${formatSubstatLabel(arg.substatBonus.substat)})`
           : ''
       const computed = entry.absoluteValue === null ? '' : ` = ${String(entry.absoluteValue)}`
       return `${base}${computed}${breakdown}`
@@ -1030,7 +1071,10 @@ export function resolveDescriptionTemplate(
       continue
     }
 
-    const resolved = resolveDescriptionArg(arg, context)
+    const resolved = resolveDescriptionArg(arg, {
+      ...context,
+      channel: normalizeDescriptionArgChannel(match.groups?.channel) ?? context.channel,
+    })
     if (!resolved.resolved) {
       result += fullMatch
       cursor = index + fullMatch.length

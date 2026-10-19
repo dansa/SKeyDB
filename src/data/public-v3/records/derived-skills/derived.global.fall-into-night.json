@@ -9,7 +9,7 @@
   },
   "cardFamily": "buff",
   "cardTypes": ["buff"],
-  "descriptionTemplate": "The wielder gains [Arg1] Fixed Aliemus. After playing, transforms into {Spiritual Evolution} and returns to hand.",
+  "descriptionTemplate": "The wielder gains [Arg1] Fixed Aliemus. After playing, it transforms into {Spiritual Evolution} and returns to hand.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "scaling",

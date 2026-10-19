@@ -39,8 +39,8 @@ export function RichDescriptionArgSegment({
   stats: FullStats | null
   variant: RichSegmentRendererVariant
 }) {
-  const resolved = resolveDescriptionArg(arg, {rank, stats, formulaContext})
-  const hoverText = buildDescriptionArgHover(arg, {rank, maxRank, stats, formulaContext})
+  const resolved = resolveDescriptionArg(arg, {rank, stats, formulaContext, channel})
+  const hoverText = buildDescriptionArgHover(arg, {rank, maxRank, stats, formulaContext, channel})
   const isInteractive = hasDescriptionArgInteractiveHover(arg)
   const formulaText = resolved.formattedTotalValue.replaceAll('{', '').replaceAll('}', '')
   const scalingClass =

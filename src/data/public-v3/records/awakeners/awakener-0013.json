@@ -70,7 +70,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "Doll is indispensable to Mythag University, and to the field at large.\nOf all the Awakeners in the school's care, she has neither the steadiest Gnosis Index nor the greatest strength in a fight, but she is without question the calmest and most rational of them.\nFor Awakeners who were once human, the first stretch after \"coming back\" usually brings confusion, panic, and mania. Doll seems to have skipped that adjustment entirely.\nOn her second day awake she was back in the laboratory, and within a year she had compiled a technical manual that brought together outer-realm knowledge and human learning.\nThese days Doll spends half her time advancing Silvercore Technology and the other half \"cleaning up after idiot students.\"\n—Incidentally, under the influence of a higher-dimensional presence, Doll wrote that Technical Manual in some unknown language. The translation is proceeding in an orderly fashion, in whatever spare time she has."
       },
       {
@@ -146,7 +146,7 @@
         },
         {
           "id": "voice-5354",
-          "title": "Enlighten: Florish",
+          "title": "Enlighten: Flourish",
           "unlockCondition": "Unlocks at Enlighten Level 15",
           "content": "This body can barely contain this Power, but it's not yet time to switch puppets. Why are you merely standing there? Assist me with this leg; adjustments are required."
         },

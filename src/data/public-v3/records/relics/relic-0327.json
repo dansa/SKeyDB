@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 3,
+  "kind": "relic",
+  "id": "relic-0327",
+  "name": "Dimensional Image: Vivian",
+  "route": {
+    "slug": "dimensional-image-vivian",
+    "canonicalPath": "/database/relics/dimensional-image-vivian"
+  },
+  "assets": {
+    "icon": "asset-relic-0327-icon"
+  },
+  "relicType": "Dimensional Image",
+  "categories": ["DIMENSIONAL_IMAGE"],
+  "variantCount": 1,
+  "defaultVariantId": "relic-variant-0581",
+  "ownerAwakenerId": "awakener-0062",
+  "ownerAwakenerName": "Vivian",
+  "rarity": "SSR",
+  "aliases": [],
+  "descriptionTemplate": "At turn start, Vivian gains [Arg1] Aliemus. The {Concoct} limit is increased from 3 to 5. At battle start, {Concoct} once and reduce the {derived:derived.vivian.cauldron|Cauldron} countdown by 3.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "15"
+    }
+  },
+  "variants": [
+    {
+      "id": "relic-variant-0581",
+      "name": "Dimensional Image: Vivian",
+      "label": "Dimensional Image",
+      "variantType": "DIMENSIONAL_IMAGE",
+      "tier": "Unique",
+      "category": "DIMENSIONAL_IMAGE",
+      "ownerAwakenerId": "awakener-0062",
+      "ownerAwakenerName": "Vivian",
+      "rarity": "SSR",
+      "descriptionTemplate": "At turn start, Vivian gains [Arg1] Aliemus. The {Concoct} limit is increased from 3 to 5. At battle start, {Concoct} once and reduce the {derived:derived.vivian.cauldron|Cauldron} countdown by 3.",
+      "descriptionArgs": {
+        "Arg1": {
+          "kind": "fixed",
+          "value": "15"
+        }
+      }
+    }
+  ]
+}

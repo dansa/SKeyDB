@@ -18,8 +18,8 @@
       "values": ["25", "30", "35", "40", "45", "50"]
     },
     "DescArg1": {
-      "kind": "scaling",
-      "values": ["25", "30", "35", "40", "45", "50"]
+      "kind": "fixed",
+      "value": "5"
     },
     "StateArg1": {
       "kind": "scaling",

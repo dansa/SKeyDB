@@ -146,7 +146,7 @@
         },
         {
           "id": "voice-123802",
-          "title": "Enlighten: Florish",
+          "title": "Enlighten: Flourish",
           "unlockCondition": "Unlocks at Enlighten Level 15",
           "content": "You know, it doesn't seem so bad to stay here for a while. I'll remember everything that happens here, write it down, and share it with them back home. How about the title <Italic:Mouchette's Otherworld Adventure>? It has a nice ring to it, right?"
         },
@@ -213,19 +213,19 @@
         {
           "id": "voice-123805",
           "title": "Chat: About Karen",
-          "unlockCondition": "Unlock after acquiring Awakener \"Karen\"",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Karen\"",
           "content": "A maid? I've been one too. I should find time to show her my vacuum cleaner moves in battle!"
         },
         {
           "id": "voice-123803",
           "title": "Chat: About Murphy",
-          "unlockCondition": "Unlock after acquiring Awakener \"Murphy\"",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Murphy\"",
           "content": "I admit she's quite cute... Yeah, she's adorable when chasing and fighting those campus strays."
         },
         {
           "id": "voice-123797",
           "title": "Chat: About Salvador",
-          "unlockCondition": "Unlock after acquiring Awakener \"Salvador\"",
+          "unlockCondition": "Unlocks after acquiring Awakener \"Salvador\"",
           "content": "Sacrificing yourself for other people? What a stupid idea. It's infuriating. No one has the right to ask that of anyone, not even a god."
         }
       ],

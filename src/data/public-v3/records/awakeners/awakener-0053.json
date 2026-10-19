@@ -71,7 +71,7 @@
         "kind": "story",
         "title": "Story: I",
         "unlockCondition": "Affinity Level 3",
-        "content": "Time: @1@2, A.F. 299\nLocation: Lab UG-C03, @2@1, @4, Londinium.\n\nParticipants: @1, @2, @4, @3\nTest Subject: W\nSubject Profile:\nThe subject's biological form is that of an adult human female, born on June 18, A.F. 280; origin unknown. While en route to her studies at @2 University, the original host succumbed to an illness and passed away. Subsequently, the extraterrestrial spiritual entity known as @1 occupied and reanimated the vessel, resuming the host's former life.\n\n@1 possesses the abilities of spiritual migration and replacement and can visually perceive Dissolution. Although human bodies cannot perceive Dissolution, the inherent abilities of @1’s species allowed the subject to perceive its presence on a spiritual level. Therefore, when the subject first observed Dissolution 2 years and 8 months ago, she attempted spiritual migration to avoid further degradation.\n\nWhile @1 retains the capacity to perceive Dissolution, the subject remains unable to sever its influence, and all attempts at spiritual migration have failed. After multiple futile attempts, the subject proactively contacted @3 University, requesting to be converted into an Awakener, which directly led to this experiment.\n\n—Excerpt from <Italic:Experiment Record: The Feasibility of In-Vivo Silver Core Extraction>"
+        "content": "Time: @1@2, A.F. 299\nLocation: Lab UG-C03, @2@1, @4, Londinium.\n\nParticipants: @1, @2, @4, @3\nTest Subject: W\nSubject Profile:\nThe subject's biological form is that of an adult human female, born on June 18, A.F. 280; origin unknown. While en route to her studies at @2 University, the original host succumbed to an illness and passed away. Subsequently, the extraterrestrial spiritual entity known as @1 occupied and reanimated the vessel, resuming the host's former life.\n\n@1 possesses the abilities of spiritual migration and replacement and can visually perceive Dissolution. Although human bodies cannot perceive Dissolution, the inherent abilities of @1's species allowed the subject to perceive its presence on a spiritual level. Therefore, when the subject first observed Dissolution 2 years and 8 months ago, she attempted spiritual migration to avoid further degradation.\n\nWhile @1 retains the capacity to perceive Dissolution, the subject remains unable to sever its influence, and all attempts at spiritual migration have failed. After multiple futile attempts, the subject proactively contacted @3 University, requesting to be converted into an Awakener, which directly led to this experiment.\n\n—Excerpt from <Italic:Experiment Record: The Feasibility of In-Vivo Silver Core Extraction>"
       },
       {
         "kind": "story",
@@ -146,7 +146,7 @@
         },
         {
           "id": "voice-5821",
-          "title": "Enlighten: Florish",
+          "title": "Enlighten: Flourish",
           "unlockCondition": "Unlocks at Enlighten Level 15",
           "content": "I... I can't bear heavy responsibilities. I can only chase the light. So, please, don't stop shining..."
         },

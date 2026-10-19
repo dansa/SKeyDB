@@ -78,7 +78,7 @@
         "kind": "story",
         "title": "Story: II",
         "unlockCondition": "Affinity Level 5",
-        "content": "Some Awakeners struggle to adapt to their new vessels and lives, while others embrace the change, pivoting eagerly into their second life.\n\nTulu belongs to neither category. Never has any Awakener displayed such blatant, naked indifference toward the modern world.\n\nHis aptitude is peerless; perhaps he has already peered through the veil of current crises and global shifts. Yet, he prefers to lose himself in the depths of sleep.\n\nDespite having no desire for fame, he has become a figure of renown among both humans and Awakeners at the university. Researchers scrutinize his every move, churning out paper after paper on his behavior. The Departments of Archaeology and Astronomy frequently send invitations to academic symposia, almost always requesting him by name.\n\nTulu's influence among his fellow Awakeners is equally profound: Murphy grows sullen at the mere sight of him; Goliath seems perpetually locked in a silent, private rivalry with him; and Miriam treats his every word as divine law.\n\nTo all of this, he maintains a singular lack of affect—harboring no expectations, making no demands. He grants the occasional request only as the whim strikes him; otherwise, he remains unreachable."
+        "content": "Some Awakeners struggle to adapt to their new vessels and lives, while others embrace the change, pivoting eagerly into their second life.\n\nTulu belongs to neither category. Never has any Awakener displayed such blatant, naked indifference toward the modern world.\n\nHis aptitude is peerless; perhaps he has already peered through the veil of current crises and global shifts. Yet, he prefers to lose himself in the depths of sleep.\n\nDespite having no desire for fame, he has become a figure of renown among both humans and Awakeners at the university. Researchers scrutinize his every move, churning out paper after paper on his behavior. The Departments of Archaeology and Astronomy frequently send invitations to academic symposia, almost always requesting him by name.\n\nTulu's influence among his fellow Awakeners is equally profound: Murphy grows sullen at the mere sight of him; Goliath seems perpetually locked in a silent, private rivalry with him; and Miryam treats his every word as divine law.\n\nTo all of this, he maintains a singular lack of affect—harboring no expectations, making no demands. He grants the occasional request only as the whim strikes him; otherwise, he remains unreachable."
       },
       {
         "kind": "story",
@@ -147,7 +147,7 @@
         },
         {
           "id": "voice-5211",
-          "title": "Enlighten: Florish",
+          "title": "Enlighten: Flourish",
           "unlockCondition": "Unlocks at Enlighten Level 15",
           "content": "I see your resolve. Before returning to the void, This One shall bear witness to mankind's heir defying fate. But now... rest is required."
         },

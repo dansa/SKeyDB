@@ -3717,6 +3717,7 @@
         "corrosion",
         "divine",
         "divine realm",
+        "female",
         "limited",
         "limited astral reign",
         "realm",
@@ -3734,7 +3735,7 @@
         "name": ["Vivian"],
         "alias": ["vivian"],
         "tag": ["str-up", "corrosion", "divine-realm", "STR Up", "strength up", "Divine Realm", "alt realm"],
-        "facet": ["CHAOS", "SSR", "CHORUS", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "TBD"]
+        "facet": ["CHAOS", "SSR", "CHORUS", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "TBD", "Female"]
       },
       "facets": {
         "realm": "CHAOS",
@@ -3742,6 +3743,7 @@
         "type": "CHORUS",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "TBD",
+        "gender": "Female",
         "tags": ["corrosion", "divine-realm", "str-up"]
       }
     }

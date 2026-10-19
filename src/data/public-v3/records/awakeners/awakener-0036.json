@@ -70,7 +70,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "A.F. 3@2, a D-phenomenon occurred in coastal towns of the Agló Republic, spreading outward in a spiral from the port, affecting an area hundreds of meters wide and causing @1 deaths.\n\nInvestigations traced the phenomenon back to a fishing boat that set out on A.F. 3@2 @1 @1@1, catching a silver-patterned cod-like creature.\n\nThe creature's soft body ruptured when cut by a sharp tool, releasing fluid laden with shell fragments and other residues. Upon reaching the port, shell-like growths had appeared among the catch but were ignored until a fisherman perceived himself as a shell, twisting his body and ending up hospitalized. Only then was the event reported.\n\nMythag personnel later located the source of the phenomenon at @4 cannery, removed it, and secured Silver O-36.\n\n—<Italic:\"Awakening System Silver Acquisition Report: O-36\">"
       },
       {
@@ -146,7 +146,7 @@
         },
         {
           "id": "voice-6387",
-          "title": "Enlighten: Florish",
+          "title": "Enlighten: Flourish",
           "unlockCondition": "Unlocks at Enlighten Level 15",
           "content": "Reparation complete! An unknown adventure, a mysterious world, here I come!"
         },
@@ -402,7 +402,7 @@
           "id": "traphase-100140",
           "title": "Fatal Blow",
           "unlockCondition": "Unlock after triggering this dialogue in Traphase",
-          "content": "The Nautilus, full speed ahead!"
+          "content": "Phantom, full speed ahead!"
         },
         {
           "id": "traphase-99821",

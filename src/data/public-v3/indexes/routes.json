@@ -1428,6 +1428,12 @@
         "canonicalSlug": "celestial-astrolabe",
         "canonicalPath": "/database/relics/celestial-astrolabe"
       },
+      "ceremonial-spur": {
+        "kind": "relic",
+        "id": "relic-0329",
+        "canonicalSlug": "ceremonial-spur",
+        "canonicalPath": "/database/relics/ceremonial-spur"
+      },
       "ceylon-tea": {
         "kind": "relic",
         "id": "relic-0087",
@@ -2160,6 +2166,12 @@
         "canonicalSlug": "dimensional-image-uvhash",
         "canonicalPath": "/database/relics/dimensional-image-uvhash"
       },
+      "dimensional-image-vivian": {
+        "kind": "relic",
+        "id": "relic-0327",
+        "canonicalSlug": "dimensional-image-vivian",
+        "canonicalPath": "/database/relics/dimensional-image-vivian"
+      },
       "dimensional-image-vortice": {
         "kind": "relic",
         "id": "relic-0055",
@@ -2873,6 +2885,12 @@
         "id": "relic-0266",
         "canonicalSlug": "shapeshifters-invitation",
         "canonicalPath": "/database/relics/shapeshifters-invitation"
+      },
+      "sheriff-badge": {
+        "kind": "relic",
+        "id": "relic-0328",
+        "canonicalSlug": "sheriff-badge",
+        "canonicalPath": "/database/relics/sheriff-badge"
       },
       "shifting-straitjacket": {
         "kind": "relic",
@@ -6574,6 +6592,12 @@
         "canonicalSlug": "onyx-plume",
         "canonicalPath": "/database/awakeners/castor/derived-skills/onyx-plume"
       },
+      "cauldron": {
+        "kind": "derivedSkill",
+        "id": "derived.global.event-cauldron",
+        "canonicalSlug": "cauldron",
+        "canonicalPath": "/database/derived-skills/cauldron"
+      },
       "clementine/conversion-phobic-fixation": {
         "kind": "derivedSkill",
         "id": "derived.clementine.phobic-fixation",
@@ -7287,6 +7311,12 @@
         "id": "derived.pontos.vex-gaunt",
         "canonicalSlug": "vex-gaunt",
         "canonicalPath": "/database/awakeners/pontos/derived-skills/vex-gaunt"
+      },
+      "potion": {
+        "kind": "derivedSkill",
+        "id": "derived.global.event-potion",
+        "canonicalSlug": "potion",
+        "canonicalPath": "/database/derived-skills/potion"
       },
       "prion-virus": {
         "kind": "derivedSkill",
@@ -11074,6 +11104,12 @@
         "canonicalSlug": "chaos",
         "canonicalPath": "/database/overlays/chaos"
       },
+      "charge-unto-glory": {
+        "kind": "overlay",
+        "id": "overlay.global.charge-unto-glory",
+        "canonicalSlug": "charge-unto-glory",
+        "canonicalPath": "/database/overlays/charge-unto-glory"
+      },
       "clementine/phobic-fixation": {
         "kind": "overlay",
         "id": "overlay.clementine.phobic-fixation",
@@ -11638,6 +11674,12 @@
         "canonicalSlug": "rouse",
         "canonicalPath": "/database/overlays/rouse"
       },
+      "rush-headlong": {
+        "kind": "overlay",
+        "id": "overlay.global.rush-headlong",
+        "canonicalSlug": "rush-headlong",
+        "canonicalPath": "/database/overlays/rush-headlong"
+      },
       "ryker/certain-gain": {
         "kind": "overlay",
         "id": "overlay.ryker.certain-gain",
@@ -11697,6 +11739,12 @@
         "id": "overlay.global.singularity-ultra",
         "canonicalSlug": "singularity-ultra",
         "canonicalPath": "/database/overlays/singularity-ultra"
+      },
+      "sprint": {
+        "kind": "overlay",
+        "id": "overlay.global.sprint",
+        "canonicalSlug": "sprint",
+        "canonicalPath": "/database/overlays/sprint"
       },
       "stagnation": {
         "kind": "overlay",

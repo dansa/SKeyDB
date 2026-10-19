@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 3,
+  "kind": "overlay",
+  "id": "overlay.global.rush-headlong",
+  "name": "Rush Headlong",
+  "route": {
+    "slug": "rush-headlong",
+    "canonicalPath": "/database/overlays/rush-headlong"
+  },
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "Each stack reduces all Awakeners' Shield generation and HP Recovery by 4% and grants all Awakeners 4 Aliemus at turn start. Max 16 stacks.",
+  "descriptionArgs": {}
+}

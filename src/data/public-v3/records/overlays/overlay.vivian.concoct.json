@@ -11,7 +11,7 @@
   "ownerAwakenerId": "awakener-0062",
   "aliases": [],
   "textColor": "misc",
-  "descriptionTemplate": "Each {Concoct} increases the {Cauldron} countdown by 3.\nEach {Cauldron} can be Concocted up to [DescArg1] times ([DescArg2]/[DescArg1]).\nIf there is no {Cauldron} in hand: generate 1 {Cauldron} and select 1 type of Potion to make.\nIf a {Cauldron} is already in hand: instead, all of the Potion's effects are increased by 100%, and gain +1 {Boiling Anger} stack.",
+  "descriptionTemplate": "Each {Concoct} increases the \"Cauldron\" countdown by 3.\nEach \"Cauldron\" can be Concocted up to [DescArg1] times ([DescArg2]/[DescArg1]).\nIf there is no Cauldron in hand: generate 1 Cauldron and select 1 type of Potion to make.\nIf a Cauldron is already in hand: instead, all of the Potion's effects are increased by 100%, and gain +1 {Boiling Anger} stack.",
   "descriptionArgs": {
     "DescArg1": {
       "kind": "fixed",

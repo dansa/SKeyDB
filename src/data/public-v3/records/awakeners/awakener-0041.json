@@ -70,7 +70,7 @@
       {
         "kind": "story",
         "title": "Story: I",
-        "unlockCondition": "Awakener Level 3",
+        "unlockCondition": "Affinity Level 3",
         "content": "Considering the potential relationship between Pollux's \"Sacred Heart\" and the Church of the Lightbearers' divine ritual, Mythag formed a research team to conduct a series of inspections and experiments on the heart.\nTo Pollux's dismay, the \"Sacred Heart\" had entirely replaced his original heart's function, becoming integrated into his body, making direct removal or replacement impossible.\nDuring observational experiments, researchers discovered that the \"Sacred Heart,\" which resembles a pupil, often exhibited subtle tremors and rotations independent of Pollux's will, much like a real eye.\nHowever, light source testing proved the \"Sacred Heart\" did not possess visual functions. Instead, the activity appeared to be sensitivity to other living beings or objects. In comparative trials with various items, proximity to items related to Dissolution and the Silver Core triggered the heart's activity more easily.\nIts activity was particularly pronounced near Dissoluted creatures and Awakeners. When Pollux actively used the \"Sacred Heart's\" power, the physical and chemical properties of ordinary items remained unchanged. However, when directed at Dissoluted items and creatures, a remarkable expansion of Dissolution occurred. Living organisms visibly in the early stages of Dissolution rapidly accelerated towards the late stages. The more severe the Dissolution originally suffered by the organisms, the faster this spread occurred.\nIn experiments with strict protective measures on Awakeners, the subjects reported a sense of approaching darkness and danger when faced with the \"Sacred Heart's\" power, prompting the experiment to be quickly halted.\nAfter a stern explanation from the school, Pollux promised not to use the power against Awakeners. Due to Pollux's cooperation and excellent self-control, Mythag did not impose mandatory controlling items on him, but instead arranged regular health checks and power training.\nApparently, after hearing of the experimental results, Awakener Winkle almost fainted from screaming before posted notices prohibiting Pollux from approaching on the doors of her laboratory and dormitory. The school repeatedly tried to persuade her to no avail, and Pollux graciously stated that he would respect Winkle's wishes."
       },
       {
@@ -146,7 +146,7 @@
         },
         {
           "id": "voice-95092",
-          "title": "Enlighten: Florish",
+          "title": "Enlighten: Flourish",
           "unlockCondition": "Unlocks at Enlighten Level 15",
           "content": "Please illuminate me, my guiding light! By your light, I have now seen all that must be seen... I shall use this cursed form to purify all that has passed, and let all that is to come bask in your radiance!"
         },
