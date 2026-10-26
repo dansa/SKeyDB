@@ -1,0 +1,2276 @@
+{
+  "schemaVersion": 3,
+  "scope": "dzone-season",
+  "recordCount": 1,
+  "records": [
+    {
+      "id": "dzone-0072",
+      "period": 72,
+      "name": "Dissoluted Abyss",
+      "start": "2026-10-26T01:00:00Z",
+      "end": "2026-11-09T00:59:58Z",
+      "stageEffect": "Astral Reign",
+      "waves": [
+        {
+          "id": "wave-1",
+          "name": "Zone 1",
+          "initialRelicIds": ["relic-0084", "relic-0180"],
+          "initialRelicVariantIds": ["relic-variant-0105", "relic-variant-0284"],
+          "monsterIds": [
+            "dzone-monster-0089",
+            "dzone-monster-0091",
+            "dzone-monster-0123",
+            "dzone-monster-0131",
+            "dzone-monster-0084",
+            "dzone-monster-0066",
+            "dzone-monster-0164",
+            "dzone-monster-0146",
+            "dzone-monster-0016"
+          ],
+          "alerts": [
+            {
+              "id": "alert-1",
+              "name": "Threat Level C",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0089",
+                  "level": 41,
+                  "hp": 22317,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0091",
+                  "level": 41,
+                  "hp": 18919,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0123",
+                  "level": 38,
+                  "hp": 924,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0131",
+                  "level": 38,
+                  "hp": 932,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0084",
+                  "level": 38,
+                  "hp": 1267,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0066",
+                  "level": 38,
+                  "hp": 1265,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0164",
+                  "level": 38,
+                  "hp": 1615,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0146",
+                  "level": 38,
+                  "hp": 1318,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0016",
+                  "level": 38,
+                  "hp": 1307,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-2",
+              "name": "Threat Level B",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0089",
+                  "level": 55,
+                  "hp": 67510,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0091",
+                  "level": 55,
+                  "hp": 57231,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0123",
+                  "level": 52,
+                  "hp": 2908,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0131",
+                  "level": 52,
+                  "hp": 2933,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0084",
+                  "level": 52,
+                  "hp": 3988,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0066",
+                  "level": 52,
+                  "hp": 3979,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0164",
+                  "level": 52,
+                  "hp": 5081,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0146",
+                  "level": 52,
+                  "hp": 4148,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0016",
+                  "level": 52,
+                  "hp": 4114,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-3",
+              "name": "Threat Level A",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0089",
+                  "level": 65,
+                  "hp": 170527,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0091",
+                  "level": 65,
+                  "hp": 144563,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0123",
+                  "level": 62,
+                  "hp": 8604,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0131",
+                  "level": 62,
+                  "hp": 8680,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0084",
+                  "level": 62,
+                  "hp": 11801,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0066",
+                  "level": 62,
+                  "hp": 11775,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0164",
+                  "level": 62,
+                  "hp": 15036,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0146",
+                  "level": 62,
+                  "hp": 12275,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0016",
+                  "level": 62,
+                  "hp": 12174,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-4",
+              "name": "Threat Level S",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0089",
+                  "level": 75,
+                  "hp": 417355,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0091",
+                  "level": 75,
+                  "hp": 353811,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0123",
+                  "level": 72,
+                  "hp": 21744,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0131",
+                  "level": 72,
+                  "hp": 21936,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0084",
+                  "level": 72,
+                  "hp": 29824,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0066",
+                  "level": 72,
+                  "hp": 29760,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0164",
+                  "level": 72,
+                  "hp": 38000,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0146",
+                  "level": 72,
+                  "hp": 31024,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0016",
+                  "level": 72,
+                  "hp": 30768,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-5",
+              "name": "Threat Level SS",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0089",
+                  "level": 85,
+                  "hp": 1021052,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0091",
+                  "level": 85,
+                  "hp": 865591,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0123",
+                  "level": 82,
+                  "hp": 55016,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0131",
+                  "level": 82,
+                  "hp": 55502,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0084",
+                  "level": 82,
+                  "hp": 75460,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0066",
+                  "level": 82,
+                  "hp": 75298,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0164",
+                  "level": 82,
+                  "hp": 96146,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0146",
+                  "level": 82,
+                  "hp": 78496,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0016",
+                  "level": 82,
+                  "hp": 77848,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-6",
+              "name": "Threat Level SSS",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0089",
+                  "level": 94,
+                  "hp": 2505968,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0091",
+                  "level": 94,
+                  "hp": 2038678,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0123",
+                  "level": 91,
+                  "hp": 131891,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0131",
+                  "level": 91,
+                  "hp": 132852,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0084",
+                  "level": 91,
+                  "hp": 176938,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0066",
+                  "level": 91,
+                  "hp": 173977,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0164",
+                  "level": 91,
+                  "hp": 226424,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0146",
+                  "level": 91,
+                  "hp": 188882,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0016",
+                  "level": 91,
+                  "hp": 187601,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-7",
+              "name": "▼",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0089",
+                  "level": 99,
+                  "hp": 6284985,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0091",
+                  "level": 99,
+                  "hp": 4615058,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0123",
+                  "level": 96,
+                  "hp": 318316,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0131",
+                  "level": 96,
+                  "hp": 319428,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0084",
+                  "level": 96,
+                  "hp": 403580,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0066",
+                  "level": 96,
+                  "hp": 381216,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0164",
+                  "level": 96,
+                  "hp": 522388,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0146",
+                  "level": 96,
+                  "hp": 460010,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0016",
+                  "level": 96,
+                  "hp": 458528,
+                  "hpBars": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "wave-2",
+          "name": "Zone 2",
+          "initialRelicIds": ["relic-0086", "relic-0084"],
+          "initialRelicVariantIds": ["relic-variant-0109", "relic-variant-0105"],
+          "monsterIds": [
+            "dzone-monster-0111",
+            "dzone-monster-0343",
+            "dzone-monster-0190",
+            "dzone-monster-0123",
+            "dzone-monster-0039",
+            "dzone-monster-0189",
+            "dzone-monster-0122",
+            "dzone-monster-0041",
+            "dzone-monster-0042",
+            "dzone-monster-0044",
+            "dzone-monster-0037"
+          ],
+          "alerts": [
+            {
+              "id": "alert-1",
+              "name": "Threat Level C",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0111",
+                  "level": 44,
+                  "hp": 31185,
+                  "hpBars": 2,
+                  "hpBarValues": [31185, 46778],
+                  "effectiveHp": 77963,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 31185,
+                      "kind": "base",
+                      "maxHp": 31185
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 46778,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 46778,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0343",
+                  "level": 43,
+                  "hp": 16246,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0190",
+                  "level": 41,
+                  "hp": 788,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0123",
+                  "level": 41,
+                  "hp": 1121,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0039",
+                  "level": 41,
+                  "hp": 557,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0189",
+                  "level": 41,
+                  "hp": 672,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0122",
+                  "level": 41,
+                  "hp": 974,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0041",
+                  "level": 41,
+                  "hp": 464,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0042",
+                  "level": 42,
+                  "hp": 11599,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0044",
+                  "level": 42,
+                  "hp": 15466,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0037",
+                  "level": 41,
+                  "hp": 928,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-2",
+              "name": "Threat Level B",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0111",
+                  "level": 57,
+                  "hp": 88338,
+                  "hpBars": 2,
+                  "hpBarValues": [88338, 132507],
+                  "effectiveHp": 220845,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 88338,
+                      "kind": "base",
+                      "maxHp": 88338
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 132507,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 132507,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0343",
+                  "level": 56,
+                  "hp": 45078,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0190",
+                  "level": 54,
+                  "hp": 2530,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0123",
+                  "level": 54,
+                  "hp": 3601,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0039",
+                  "level": 54,
+                  "hp": 1789,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0189",
+                  "level": 54,
+                  "hp": 2159,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0122",
+                  "level": 54,
+                  "hp": 3130,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0041",
+                  "level": 54,
+                  "hp": 1491,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0042",
+                  "level": 55,
+                  "hp": 31785,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0044",
+                  "level": 55,
+                  "hp": 42380,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0037",
+                  "level": 54,
+                  "hp": 2981,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-3",
+              "name": "Threat Level A",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0111",
+                  "level": 67,
+                  "hp": 222320,
+                  "hpBars": 2,
+                  "hpBarValues": [222320, 333480],
+                  "effectiveHp": 555800,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 222320,
+                      "kind": "base",
+                      "maxHp": 222320
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 333480,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 333480,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0343",
+                  "level": 66,
+                  "hp": 108657,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0190",
+                  "level": 64,
+                  "hp": 7109,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0123",
+                  "level": 64,
+                  "hp": 10117,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0039",
+                  "level": 64,
+                  "hp": 5025,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0189",
+                  "level": 64,
+                  "hp": 6067,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0122",
+                  "level": 64,
+                  "hp": 8793,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0041",
+                  "level": 64,
+                  "hp": 4188,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0042",
+                  "level": 65,
+                  "hp": 83777,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0044",
+                  "level": 65,
+                  "hp": 111703,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0037",
+                  "level": 64,
+                  "hp": 8375,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-4",
+              "name": "Threat Level S",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0111",
+                  "level": 77,
+                  "hp": 572369,
+                  "hpBars": 2,
+                  "hpBarValues": [572369, 858554],
+                  "effectiveHp": 1430923,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 572369,
+                      "kind": "base",
+                      "maxHp": 572369
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 858554,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 858554,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0343",
+                  "level": 76,
+                  "hp": 274924,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0190",
+                  "level": 74,
+                  "hp": 18959,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0123",
+                  "level": 74,
+                  "hp": 26979,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0039",
+                  "level": 74,
+                  "hp": 13400,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0189",
+                  "level": 74,
+                  "hp": 16180,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0122",
+                  "level": 74,
+                  "hp": 23450,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0041",
+                  "level": 74,
+                  "hp": 11167,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0042",
+                  "level": 75,
+                  "hp": 212128,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0044",
+                  "level": 75,
+                  "hp": 282837,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0037",
+                  "level": 74,
+                  "hp": 22334,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-5",
+              "name": "Threat Level SS",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0111",
+                  "level": 87,
+                  "hp": 1378432,
+                  "hpBars": 2,
+                  "hpBarValues": [1378432, 2067648],
+                  "effectiveHp": 3446080,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 1378432,
+                      "kind": "base",
+                      "maxHp": 1378432
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 2067648,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 2067648,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0343",
+                  "level": 86,
+                  "hp": 671155,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0190",
+                  "level": 84,
+                  "hp": 46886,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0123",
+                  "level": 84,
+                  "hp": 66720,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0039",
+                  "level": 84,
+                  "hp": 33139,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0189",
+                  "level": 84,
+                  "hp": 40012,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0122",
+                  "level": 84,
+                  "hp": 57993,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0041",
+                  "level": 84,
+                  "hp": 27616,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0042",
+                  "level": 85,
+                  "hp": 515687,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0044",
+                  "level": 85,
+                  "hp": 687582,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0037",
+                  "level": 84,
+                  "hp": 55232,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-6",
+              "name": "Threat Level SSS",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0111",
+                  "level": 95,
+                  "hp": 3209929,
+                  "hpBars": 2,
+                  "hpBarValues": [3209929, 4814894],
+                  "effectiveHp": 8024823,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 3209929,
+                      "kind": "base",
+                      "maxHp": 3209929
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 4814894,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 4814894,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0343",
+                  "level": 94,
+                  "hp": 1592307,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0190",
+                  "level": 92,
+                  "hp": 114035,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0123",
+                  "level": 92,
+                  "hp": 161434,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0039",
+                  "level": 92,
+                  "hp": 76700,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0189",
+                  "level": 92,
+                  "hp": 105594,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0122",
+                  "level": 92,
+                  "hp": 134224,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0041",
+                  "level": 92,
+                  "hp": 63917,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0042",
+                  "level": 93,
+                  "hp": 1196655,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0044",
+                  "level": 93,
+                  "hp": 1595539,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0037",
+                  "level": 92,
+                  "hp": 127833,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-7",
+              "name": "▼",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0111",
+                  "level": 100,
+                  "hp": 7253648,
+                  "hpBars": 2,
+                  "hpBarValues": [7253648, 10880472],
+                  "effectiveHp": 18134120,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 7253648,
+                      "kind": "base",
+                      "maxHp": 7253648
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 10880472,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 10880472,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0343",
+                  "level": 99,
+                  "hp": 3715156,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0190",
+                  "level": 97,
+                  "hp": 273804,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0123",
+                  "level": 97,
+                  "hp": 385390,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0039",
+                  "level": 97,
+                  "hp": 173857,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0189",
+                  "level": 97,
+                  "hp": 275396,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0122",
+                  "level": 97,
+                  "hp": 304249,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0041",
+                  "level": 97,
+                  "hp": 144881,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0042",
+                  "level": 98,
+                  "hp": 2707667,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0044",
+                  "level": 98,
+                  "hp": 3610222,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0037",
+                  "level": 97,
+                  "hp": 289761,
+                  "hpBars": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "wave-3",
+          "name": "Zone 3",
+          "initialRelicIds": ["relic-0287", "relic-0084"],
+          "initialRelicVariantIds": ["relic-variant-0511", "relic-variant-0105"],
+          "monsterIds": ["dzone-monster-0300"],
+          "alerts": [
+            {
+              "id": "alert-1",
+              "name": "Threat Level C",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0300",
+                  "level": 47,
+                  "hp": 31437,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-2",
+              "name": "Threat Level B",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0300",
+                  "level": 59,
+                  "hp": 101612,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-3",
+              "name": "Threat Level A",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0300",
+                  "level": 69,
+                  "hp": 269199,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-4",
+              "name": "Threat Level S",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0300",
+                  "level": 79,
+                  "hp": 703508,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-5",
+              "name": "Threat Level SS",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0300",
+                  "level": 89,
+                  "hp": 1746722,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-6",
+              "name": "Threat Level SSS",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0300",
+                  "level": 96,
+                  "hp": 4080534,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-7",
+              "name": "▼",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0300",
+                  "level": 101,
+                  "hp": 9304720,
+                  "hpBars": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "wave-4",
+          "name": "Zone 4",
+          "initialRelicIds": ["relic-0232", "relic-0084"],
+          "initialRelicVariantIds": ["relic-variant-0391", "relic-variant-0105"],
+          "monsterIds": ["dzone-monster-0059", "dzone-monster-0060", "dzone-monster-0058", "dzone-monster-0051", "dzone-monster-0343"],
+          "alerts": [
+            {
+              "id": "alert-1",
+              "name": "Threat Level C",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0059",
+                  "level": 50,
+                  "hp": 2238,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0060",
+                  "level": 50,
+                  "hp": 2014,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0058",
+                  "level": 50,
+                  "hp": 1790,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0051",
+                  "level": 49,
+                  "hp": 19182,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0343",
+                  "level": 49,
+                  "hp": 16943,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-2",
+              "name": "Threat Level B",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0059",
+                  "level": 61,
+                  "hp": 6327,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0060",
+                  "level": 61,
+                  "hp": 5694,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0058",
+                  "level": 61,
+                  "hp": 5062,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0051",
+                  "level": 60,
+                  "hp": 68956,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0343",
+                  "level": 60,
+                  "hp": 60907,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-3",
+              "name": "Threat Level A",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0059",
+                  "level": 71,
+                  "hp": 17014,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0060",
+                  "level": 71,
+                  "hp": 15313,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0058",
+                  "level": 71,
+                  "hp": 13611,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0051",
+                  "level": 70,
+                  "hp": 189723,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0343",
+                  "level": 70,
+                  "hp": 167577,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-4",
+              "name": "Threat Level S",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0059",
+                  "level": 81,
+                  "hp": 42421,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0060",
+                  "level": 81,
+                  "hp": 38179,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0058",
+                  "level": 81,
+                  "hp": 33937,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0051",
+                  "level": 80,
+                  "hp": 466952,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0343",
+                  "level": 80,
+                  "hp": 412445,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-5",
+              "name": "Threat Level SS",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0059",
+                  "level": 91,
+                  "hp": 99667,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0060",
+                  "level": 91,
+                  "hp": 89701,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0058",
+                  "level": 91,
+                  "hp": 79734,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0051",
+                  "level": 90,
+                  "hp": 1113530,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0343",
+                  "level": 90,
+                  "hp": 983550,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-6",
+              "name": "Threat Level SSS",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0059",
+                  "level": 97,
+                  "hp": 221668,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0060",
+                  "level": 97,
+                  "hp": 199501,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0058",
+                  "level": 97,
+                  "hp": 177334,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0051",
+                  "level": 96,
+                  "hp": 2469571,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0343",
+                  "level": 96,
+                  "hp": 2265628,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-7",
+              "name": "▼",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0059",
+                  "level": 102,
+                  "hp": 500937,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0060",
+                  "level": 102,
+                  "hp": 450843,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0058",
+                  "level": 102,
+                  "hp": 400750,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0051",
+                  "level": 101,
+                  "hp": 5592381,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0343",
+                  "level": 101,
+                  "hp": 5247187,
+                  "hpBars": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "wave-5",
+          "name": "Zone 5",
+          "initialRelicIds": ["relic-0084", "relic-0186"],
+          "initialRelicVariantIds": ["relic-variant-0105", "relic-variant-0296"],
+          "monsterIds": [
+            "dzone-monster-0263",
+            "dzone-monster-0195",
+            "dzone-monster-0192",
+            "dzone-monster-0189",
+            "dzone-monster-0088",
+            "dzone-monster-0084",
+            "dzone-monster-0190",
+            "dzone-monster-0123",
+            "dzone-monster-0131",
+            "dzone-monster-0181",
+            "dzone-monster-0072",
+            "dzone-monster-0025",
+            "dzone-monster-0172",
+            "dzone-monster-0162"
+          ],
+          "alerts": [
+            {
+              "id": "alert-1",
+              "name": "Threat Level C",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0263",
+                  "level": 53,
+                  "hp": 41466,
+                  "hpBars": 2,
+                  "hpBarValues": [41466, 62199],
+                  "effectiveHp": 103665,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 41466,
+                      "kind": "base",
+                      "maxHp": 41466
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 62199,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 62199,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0195",
+                  "level": 52,
+                  "hp": 17038,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0192",
+                  "level": 52,
+                  "hp": 14419,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0189",
+                  "level": 50,
+                  "hp": 1120,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0088",
+                  "level": 50,
+                  "hp": 1943,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0084",
+                  "level": 50,
+                  "hp": 2560,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0190",
+                  "level": 50,
+                  "hp": 1312,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0123",
+                  "level": 50,
+                  "hp": 1867,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0131",
+                  "level": 50,
+                  "hp": 1883,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0181",
+                  "level": 50,
+                  "hp": 2554,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0072",
+                  "level": 51,
+                  "hp": 15716,
+                  "hpBars": 1,
+                  "name": "Lightbearer Follower",
+                  "descriptionTemplate": "Ordinary follower of the Church of the Lightbearers. Blindly worships the destruction proclaimed in their doctrine.",
+                  "assetName": "Portrait_Small_Monster_S0402",
+                  "badges": [],
+                  "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0016"]
+                },
+                {
+                  "monsterId": "dzone-monster-0025",
+                  "level": 50,
+                  "hp": 1673,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0172",
+                  "level": 51,
+                  "hp": 13875,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0162",
+                  "level": 50,
+                  "hp": 3456,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-2",
+              "name": "Threat Level B",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0263",
+                  "level": 63,
+                  "hp": 117132,
+                  "hpBars": 2,
+                  "hpBarValues": [117132, 175698],
+                  "effectiveHp": 292830,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 117132,
+                      "kind": "base",
+                      "maxHp": 117132
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 175698,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 175698,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0195",
+                  "level": 62,
+                  "hp": 46015,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0192",
+                  "level": 62,
+                  "hp": 38941,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0189",
+                  "level": 60,
+                  "hp": 4045,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0088",
+                  "level": 60,
+                  "hp": 7023,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0084",
+                  "level": 60,
+                  "hp": 9252,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0190",
+                  "level": 60,
+                  "hp": 4740,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0123",
+                  "level": 60,
+                  "hp": 6745,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0131",
+                  "level": 60,
+                  "hp": 6805,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0181",
+                  "level": 60,
+                  "hp": 9232,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0072",
+                  "level": 61,
+                  "hp": 46374,
+                  "hpBars": 1,
+                  "name": "Lightbearer Follower",
+                  "descriptionTemplate": "Ordinary follower of the Church of the Lightbearers. Blindly worships the destruction proclaimed in their doctrine.",
+                  "assetName": "Portrait_Small_Monster_S0402",
+                  "badges": [],
+                  "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0016"]
+                },
+                {
+                  "monsterId": "dzone-monster-0025",
+                  "level": 60,
+                  "hp": 6047,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0172",
+                  "level": 61,
+                  "hp": 40940,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0162",
+                  "level": 60,
+                  "hp": 12490,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-3",
+              "name": "Threat Level A",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0263",
+                  "level": 73,
+                  "hp": 296548,
+                  "hpBars": 2,
+                  "hpBarValues": [296548, 444822],
+                  "effectiveHp": 741370,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 296548,
+                      "kind": "base",
+                      "maxHp": 296548
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 444822,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 444822,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0195",
+                  "level": 72,
+                  "hp": 114703,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0192",
+                  "level": 72,
+                  "hp": 97069,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0189",
+                  "level": 70,
+                  "hp": 10353,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0088",
+                  "level": 70,
+                  "hp": 17974,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0084",
+                  "level": 70,
+                  "hp": 23677,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0190",
+                  "level": 70,
+                  "hp": 12131,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0123",
+                  "level": 70,
+                  "hp": 17263,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0131",
+                  "level": 70,
+                  "hp": 17415,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0181",
+                  "level": 70,
+                  "hp": 23626,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0072",
+                  "level": 71,
+                  "hp": 115617,
+                  "hpBars": 1,
+                  "name": "Lightbearer Follower",
+                  "descriptionTemplate": "Ordinary follower of the Church of the Lightbearers. Blindly worships the destruction proclaimed in their doctrine.",
+                  "assetName": "Portrait_Small_Monster_S0402",
+                  "badges": [],
+                  "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0016"]
+                },
+                {
+                  "monsterId": "dzone-monster-0025",
+                  "level": 70,
+                  "hp": 15475,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0172",
+                  "level": 71,
+                  "hp": 102070,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0162",
+                  "level": 70,
+                  "hp": 31965,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-4",
+              "name": "Threat Level S",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0263",
+                  "level": 83,
+                  "hp": 699269,
+                  "hpBars": 2,
+                  "hpBarValues": [699269, 1048904],
+                  "effectiveHp": 1748173,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 699269,
+                      "kind": "base",
+                      "maxHp": 699269
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 1048904,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 1048904,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0195",
+                  "level": 82,
+                  "hp": 263268,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0192",
+                  "level": 82,
+                  "hp": 222794,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0189",
+                  "level": 80,
+                  "hp": 24584,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0088",
+                  "level": 80,
+                  "hp": 42682,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0084",
+                  "level": 80,
+                  "hp": 56226,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0190",
+                  "level": 80,
+                  "hp": 28807,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0123",
+                  "level": 80,
+                  "hp": 40993,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0131",
+                  "level": 80,
+                  "hp": 41355,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0181",
+                  "level": 80,
+                  "hp": 56105,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0072",
+                  "level": 81,
+                  "hp": 264456,
+                  "hpBars": 1,
+                  "name": "Lightbearer Follower",
+                  "descriptionTemplate": "Ordinary follower of the Church of the Lightbearers. Blindly worships the destruction proclaimed in their doctrine.",
+                  "assetName": "Portrait_Small_Monster_S0402",
+                  "badges": [],
+                  "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0016"]
+                },
+                {
+                  "monsterId": "dzone-monster-0025",
+                  "level": 80,
+                  "hp": 36747,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0172",
+                  "level": 81,
+                  "hp": 233469,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0162",
+                  "level": 80,
+                  "hp": 75907,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-5",
+              "name": "Threat Level SS",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0263",
+                  "level": 93,
+                  "hp": 1625955,
+                  "hpBars": 2,
+                  "hpBarValues": [1625955, 2438933],
+                  "effectiveHp": 4064888,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 1625955,
+                      "kind": "base",
+                      "maxHp": 1625955
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 2438933,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 2438933,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0195",
+                  "level": 92,
+                  "hp": 631593,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0192",
+                  "level": 92,
+                  "hp": 534493,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0189",
+                  "level": 90,
+                  "hp": 58941,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0088",
+                  "level": 90,
+                  "hp": 102332,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0084",
+                  "level": 90,
+                  "hp": 134804,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0190",
+                  "level": 90,
+                  "hp": 69066,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0123",
+                  "level": 90,
+                  "hp": 98283,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0131",
+                  "level": 90,
+                  "hp": 99150,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0181",
+                  "level": 90,
+                  "hp": 134515,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0072",
+                  "level": 91,
+                  "hp": 634223,
+                  "hpBars": 1,
+                  "name": "Lightbearer Follower",
+                  "descriptionTemplate": "Ordinary follower of the Church of the Lightbearers. Blindly worships the destruction proclaimed in their doctrine.",
+                  "assetName": "Portrait_Small_Monster_S0402",
+                  "badges": [],
+                  "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0016"]
+                },
+                {
+                  "monsterId": "dzone-monster-0025",
+                  "level": 90,
+                  "hp": 88104,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0172",
+                  "level": 91,
+                  "hp": 559910,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0162",
+                  "level": 90,
+                  "hp": 181992,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-6",
+              "name": "Threat Level SSS",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0263",
+                  "level": 98,
+                  "hp": 3956207,
+                  "hpBars": 2,
+                  "hpBarValues": [3956207, 5934311],
+                  "effectiveHp": 9890518,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 3956207,
+                      "kind": "base",
+                      "maxHp": 3956207
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 5934311,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 5934311,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0195",
+                  "level": 97,
+                  "hp": 1480346,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0192",
+                  "level": 97,
+                  "hp": 1483803,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0189",
+                  "level": 95,
+                  "hp": 167507,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0088",
+                  "level": 95,
+                  "hp": 247447,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0084",
+                  "level": 95,
+                  "hp": 310970,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0190",
+                  "level": 95,
+                  "hp": 172038,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0123",
+                  "level": 95,
+                  "hp": 242713,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0131",
+                  "level": 95,
+                  "hp": 243727,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0181",
+                  "level": 95,
+                  "hp": 296023,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0072",
+                  "level": 96,
+                  "hp": 1455274,
+                  "hpBars": 1,
+                  "name": "Lightbearer Follower",
+                  "descriptionTemplate": "Ordinary follower of the Church of the Lightbearers. Blindly worships the destruction proclaimed in their doctrine.",
+                  "assetName": "Portrait_Small_Monster_S0402",
+                  "badges": [],
+                  "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0016"]
+                },
+                {
+                  "monsterId": "dzone-monster-0025",
+                  "level": 95,
+                  "hp": 224423,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0172",
+                  "level": 96,
+                  "hp": 1407875,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0162",
+                  "level": 95,
+                  "hp": 433696,
+                  "hpBars": 1
+                }
+              ]
+            },
+            {
+              "id": "alert-7",
+              "name": "▼",
+              "monsters": [
+                {
+                  "monsterId": "dzone-monster-0263",
+                  "level": 103,
+                  "hp": 9181395,
+                  "hpBars": 2,
+                  "hpBarValues": [9181395, 13772093],
+                  "effectiveHp": 22953488,
+                  "hpBarPhases": [
+                    {
+                      "bar": 1,
+                      "hp": 9181395,
+                      "kind": "base",
+                      "maxHp": 9181395
+                    },
+                    {
+                      "bar": 2,
+                      "hp": 13772093,
+                      "kind": "maxHpMultiplier",
+                      "maxHp": 13772093,
+                      "maxHpMultiplier": 1.5
+                    }
+                  ],
+                  "hpBarSource": "beforeDeathCommandHp"
+                },
+                {
+                  "monsterId": "dzone-monster-0195",
+                  "level": 102,
+                  "hp": 3385464,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0192",
+                  "level": 102,
+                  "hp": 3654247,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0189",
+                  "level": 100,
+                  "hp": 416629,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0088",
+                  "level": 100,
+                  "hp": 575076,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0084",
+                  "level": 100,
+                  "hp": 706298,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0190",
+                  "level": 100,
+                  "hp": 405330,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0123",
+                  "level": 100,
+                  "hp": 569609,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0131",
+                  "level": 100,
+                  "hp": 570781,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0181",
+                  "level": 100,
+                  "hp": 655972,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0072",
+                  "level": 101,
+                  "hp": 3287165,
+                  "hpBars": 1,
+                  "name": "Lightbearer Follower",
+                  "descriptionTemplate": "Ordinary follower of the Church of the Lightbearers. Blindly worships the destruction proclaimed in their doctrine.",
+                  "assetName": "Portrait_Small_Monster_S0402",
+                  "badges": [],
+                  "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0016"]
+                },
+                {
+                  "monsterId": "dzone-monster-0025",
+                  "level": 100,
+                  "hp": 534021,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0172",
+                  "level": 101,
+                  "hp": 3321987,
+                  "hpBars": 1
+                },
+                {
+                  "monsterId": "dzone-monster-0162",
+                  "level": 100,
+                  "hp": 1000950,
+                  "hpBars": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "scope": "monsters",
-  "recordCount": 337,
+  "recordCount": 338,
   "records": [
     {
       "id": "dzone-monster-0264",
@@ -1961,6 +1961,14 @@
       "descriptionTemplate": "Offering all in worship to their god—their will unshaken, their faith unbroken.",
       "assetName": "Portrait_Small_Monster_S2C0304",
       "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0343",
+      "name": "Personal Butler",
+      "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0013", "enemy-characteristic-0006"],
+      "descriptionTemplate": "A servant who alters its form to align with the \"Divine Mother's\" will, sacrificing all for her.",
+      "assetName": "Portrait_Small_Monster_S2C0402",
+      "badges": ["Elite"]
     },
     {
       "id": "dzone-monster-0137",

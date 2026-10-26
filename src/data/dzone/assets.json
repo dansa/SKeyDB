@@ -3356,6 +3356,18 @@
         "candidates": ["src/assets/monster-preview/Portrait_Small_Monster_S2C0304.webp", "src/assets/monster-preview/Portrait_Small_Monster_S2C0304.png"]
       }
     },
+    "asset-dzone-monster-0343-preview": {
+      "id": "asset-dzone-monster-0343-preview",
+      "slot": "preview",
+      "kind": "dzoneMonster",
+      "ownerId": "dzone-monster-0343",
+      "assetName": "Portrait_Small_Monster_S2C0402",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/monster-preview/Portrait_Small_Monster_S2C0402.webp",
+        "candidates": ["src/assets/monster-preview/Portrait_Small_Monster_S2C0402.webp", "src/assets/monster-preview/Portrait_Small_Monster_S2C0402.png"]
+      }
+    },
     "asset-dzone-monster-0137-preview": {
       "id": "asset-dzone-monster-0137-preview",
       "slot": "preview",
@@ -5109,6 +5121,9 @@
     },
     "dzone-monster-0061": {
       "preview": "asset-dzone-monster-0061-preview"
+    },
+    "dzone-monster-0343": {
+      "preview": "asset-dzone-monster-0343-preview"
     },
     "dzone-monster-0137": {
       "preview": "asset-dzone-monster-0137-preview"
