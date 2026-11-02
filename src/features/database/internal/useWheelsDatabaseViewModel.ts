@@ -20,7 +20,9 @@ function applyFilters(
   >,
 ): Wheel[] {
   let result = wheels
-  if (browseState.availabilityFilter !== 'ALL') {
+  if (browseState.availabilityFilter === 'WELFARE') {
+    result = result.filter((wheel) => wheel.hasShopSource ?? wheel.availabilityType === 'WELFARE')
+  } else if (browseState.availabilityFilter !== 'ALL') {
     result = result.filter((wheel) =>
       browseState.availabilityFilter === 'LIMITED'
         ? wheel.availabilityType === 'LIMITED_FADED_LEGACY' ||

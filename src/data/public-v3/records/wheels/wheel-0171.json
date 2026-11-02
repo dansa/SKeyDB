@@ -11,6 +11,7 @@
     "icon": "asset-wheel-0171-icon"
   },
   "availabilityType": "LIMITED_ASTRAL_REIGN",
+  "hasShopSource": false,
   "acquisitionSource": "Astral Reign signature Wheel; featured in certain limited Wheel banners.",
   "rarity": "SSR",
   "realm": "AEQUOR",

@@ -19,6 +19,7 @@ const publicV3WheelCatalogRecordSchema = z
     id: z.string().regex(/^wheel-\d{4}$/),
     name: nonEmptyStringSchema,
     availabilityType: z.enum(WHEEL_AVAILABILITY_TYPES).optional(),
+    hasShopSource: z.boolean().optional(),
     rarity: z.enum(['SSR', 'SR', 'R', 'N']),
     realm: z.enum(['AEQUOR', 'CARO', 'CHAOS', 'ULTRA', 'NEUTRAL', 'OTHER']),
     ownerAwakenerId: z
@@ -33,6 +34,7 @@ const publicV3WheelCatalogRecordSchema = z
 
 export interface Wheel {
   availabilityType?: WheelAvailabilityType
+  hasShopSource?: boolean
   id: string
   assetId: string
   name: string
@@ -59,6 +61,7 @@ const parsedWheels: Wheel[] = getPublicWheelCatalogRecords().map((record) => {
     assetId: getWheelPublicAssetId(wheel.id),
     name: wheel.name,
     availabilityType: wheel.availabilityType,
+    hasShopSource: wheel.hasShopSource,
     rarity: wheel.rarity,
     realm: wheel.realm === 'OTHER' ? 'NEUTRAL' : wheel.realm,
     awakener: wheel.ownerAwakenerName?.toLowerCase() ?? '',

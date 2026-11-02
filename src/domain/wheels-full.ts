@@ -15,6 +15,7 @@ import {buildWheelMainstatSeriesKey, type WheelMainstatKey} from './wheel-mainst
 
 export interface WheelFullRecord {
   availabilityType?: WheelAvailabilityType
+  hasShopSource?: boolean
   acquisitionSource?: string
   id: string
   assetId: string
@@ -35,6 +36,7 @@ export interface WheelFullRecord {
 
 const publicWheelRecordSchema = z.object({
   availabilityType: z.enum(WHEEL_AVAILABILITY_TYPES).optional(),
+  hasShopSource: z.boolean().optional(),
   acquisitionSource: z.string().optional(),
   id: z.string(),
   name: z.string(),

@@ -11,6 +11,7 @@
     "icon": "asset-wheel-0097-icon"
   },
   "availabilityType": "EVENT",
+  "hasShopSource": true,
   "acquisitionSource": "Event reward Wheel. Also available from the Lightless exchange shop.",
   "rarity": "SR",
   "realm": "NEUTRAL",

@@ -11,6 +11,7 @@
     "icon": "asset-wheel-0044-icon"
   },
   "availabilityType": "EVENT",
+  "hasShopSource": true,
   "acquisitionSource": "Event reward Wheel. Also available from the Purchase Silver exchange shop.",
   "rarity": "SSR",
   "realm": "NEUTRAL",

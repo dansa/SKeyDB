@@ -69,6 +69,7 @@ type PublicV3AwakenerRecord = PublicRecord & {
 type PublicV3WheelRecord = PublicRecord & {
   acquisitionSource?: string
   availabilityType?: WheelFullRecord['availabilityType']
+  hasShopSource?: boolean
   aliases?: string[]
   descriptionArgs: WheelFullRecord['descriptionArgs']
   descriptionTemplate: string
@@ -146,6 +147,7 @@ const publicWheelDetailSchema: z.ZodType<PublicV3WheelRecord> = z.looseObject({
   kind: z.literal('wheel'),
   acquisitionSource: z.string().optional(),
   availabilityType: z.enum(WHEEL_AVAILABILITY_TYPES).optional(),
+  hasShopSource: z.boolean().optional(),
   id: z.string(),
   aliases: z.array(z.string()).optional(),
   descriptionArgs: publicDescriptionArgsSchema,
