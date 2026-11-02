@@ -30,7 +30,7 @@
       "inputs": ["accountLevel", "ownedPosseCount"]
     }
   },
-  "lore": "It is not a demon, but it indeed conveys whispers from beyond the mortal realm.",
+  "lore": "It is not a demon, but It indeed conveys whispers from beyond the mortal realm.",
   "variants": [
     {
       "id": "relic-variant-0387",
@@ -54,7 +54,7 @@
           "inputs": ["accountLevel", "ownedPosseCount"]
         }
       },
-      "lore": "It is not a demon, but it indeed conveys whispers from beyond the mortal realm."
+      "lore": "It is not a demon, but It indeed conveys whispers from beyond the mortal realm."
     },
     {
       "id": "relic-variant-0388",
@@ -77,7 +77,7 @@
           "inputs": ["accountLevel", "ownedPosseCount"]
         }
       },
-      "lore": "It is not a demon, but it indeed conveys whispers from beyond the mortal realm."
+      "lore": "It is not a demon, but It indeed conveys whispers from beyond the mortal realm."
     },
     {
       "id": "relic-variant-0386",
@@ -89,7 +89,7 @@
       "rarity": "SSR",
       "descriptionTemplate": "Each time you release an Exalt, gain 1 {Toxic Infusion}. If you have 3 {Toxic Infusion} in your hand, synthesize into a {Toxic Outbreak} that triggers {Poison}.",
       "descriptionArgs": {},
-      "lore": "It is not a demon, but it indeed conveys whispers from beyond the mortal realm."
+      "lore": "It is not a demon, but It indeed conveys whispers from beyond the mortal realm."
     }
   ]
 }

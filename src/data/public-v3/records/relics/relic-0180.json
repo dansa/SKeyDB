@@ -31,7 +31,7 @@
       "inputs": ["accountLevel", "ownedPosseCount"]
     }
   },
-  "lore": "Unsanctioned Piety",
+  "lore": "Unsanctioned piety.",
   "variants": [
     {
       "id": "relic-variant-0283",
@@ -56,7 +56,7 @@
           "inputs": ["accountLevel", "ownedPosseCount"]
         }
       },
-      "lore": "Unsanctioned Piety"
+      "lore": "Unsanctioned piety."
     },
     {
       "id": "relic-variant-0284",
@@ -80,7 +80,7 @@
           "inputs": ["accountLevel", "ownedPosseCount"]
         }
       },
-      "lore": "Unsanctioned Piety"
+      "lore": "Unsanctioned piety."
     },
     {
       "id": "relic-variant-0282",
@@ -92,7 +92,7 @@
       "rarity": "SSR",
       "descriptionTemplate": "Deal 20% more DMG to enemies with debuffs, and gain 20 Aliemus upon killing them.",
       "descriptionArgs": {},
-      "lore": "Unsanctioned Piety"
+      "lore": "Unsanctioned piety."
     },
     {
       "id": "relic-variant-0281",
@@ -104,7 +104,7 @@
       "rarity": "SSR",
       "descriptionTemplate": "Deal 50% more DMG to enemies with debuffs, and gain 100 Aliemus upon killing them.",
       "descriptionArgs": {},
-      "lore": "Unsanctioned Piety"
+      "lore": "Unsanctioned piety."
     }
   ]
 }

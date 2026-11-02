@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0017",
   "slot": "OverExalt",
-  "descriptionTemplate": "Hand Limit +2. At turn end, choose 1 card to {Retain} and reduce its Arithmetica Cost by 1 for 3 turns.",
+  "descriptionTemplate": "Hand Limit +2. At turn end, choose 1 card in hand to {Retain} and reduce its Arithmetica Cost by 1 for 3 turns.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Faros"
 }

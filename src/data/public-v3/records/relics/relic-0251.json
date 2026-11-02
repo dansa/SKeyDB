@@ -28,7 +28,7 @@
       "value": "1"
     }
   },
-  "lore": "Your most thoughtful toilet companion.",
+  "lore": "The ultimate companion for your time on the toilet.",
   "variants": [
     {
       "id": "relic-variant-0424",
@@ -50,7 +50,7 @@
           "value": "1"
         }
       },
-      "lore": "Your most thoughtful toilet companion."
+      "lore": "The ultimate companion for your time on the toilet."
     },
     {
       "id": "relic-variant-0425",
@@ -71,7 +71,7 @@
           "value": "2"
         }
       },
-      "lore": "Your most thoughtful toilet companion."
+      "lore": "The ultimate companion for your time on the toilet."
     },
     {
       "id": "relic-variant-0423",
@@ -99,7 +99,7 @@
           "inputs": ["accountLevel", "ownedPosseCount"]
         }
       },
-      "lore": "Your most thoughtful toilet companion."
+      "lore": "The ultimate companion for your time on the toilet."
     }
   ]
 }

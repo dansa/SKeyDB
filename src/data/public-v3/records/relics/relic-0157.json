@@ -15,7 +15,7 @@
   "variantCount": 4,
   "defaultVariantId": "relic-variant-0228",
   "aliases": ["Blessed: Eerie Hook", "Sinful: Eerie Hook"],
-  "descriptionTemplate": "When you play 4 Command Cards belonging to different Awakeners within a single turn, increase the Final DMG dealt by all Awakeners this turn by [Arg1]%, and lose [Arg2] Aliemus. This can only be triggered once per turn.",
+  "descriptionTemplate": "When you play 4 Command Cards from different Awakeners in a single turn, increase all Awakeners' Final DMG dealt this turn by [Arg1]%, and lose [Arg2] Aliemus. This effect can only trigger once per turn.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -27,7 +27,7 @@
       "value": "5"
     }
   },
-  "lore": "Species that are difficult to identify.",
+  "lore": "A species that is difficult to identify.",
   "variants": [
     {
       "id": "relic-variant-0228",
@@ -36,7 +36,7 @@
       "variantType": "STANDARD",
       "tier": "Cursed",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "When you play 4 Command Cards belonging to different Awakeners within a single turn, increase the Final DMG dealt by all Awakeners this turn by [Arg1]%, and lose [Arg2] Aliemus. This can only be triggered once per turn.",
+      "descriptionTemplate": "When you play 4 Command Cards from different Awakeners in a single turn, increase all Awakeners' Final DMG dealt this turn by [Arg1]%, and lose [Arg2] Aliemus. This effect can only trigger once per turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -48,7 +48,7 @@
           "value": "5"
         }
       },
-      "lore": "Species that are difficult to identify."
+      "lore": "A species that is difficult to identify."
     },
     {
       "id": "relic-variant-0225",
@@ -57,9 +57,9 @@
       "variantType": "STANDARD",
       "tier": "Cursed",
       "category": "FADED_LEGACY",
-      "descriptionTemplate": "Crit. Rate increased by 50%, but when the battle starts, make self {Fragile} for 3 turns.",
+      "descriptionTemplate": "Crit. Rate increased by 50%, but when the battle begins, {Fragile} self for 3 turns.",
       "descriptionArgs": {},
-      "lore": "Species that are difficult to identify."
+      "lore": "A species that is difficult to identify."
     },
     {
       "id": "relic-variant-0227",
@@ -79,7 +79,7 @@
       "variantType": "SINFUL",
       "tier": "Sinful",
       "category": "FADED_LEGACY",
-      "descriptionTemplate": "Crit. Rate and Crit. DMG increased by 50%, at turn start, {Fragile} affects self for 1 turn.",
+      "descriptionTemplate": "Crit. Rate and Crit. DMG increased by 50%. At turn start, {Fragile} affects self for 1 turn.",
       "descriptionArgs": {},
       "lore": "Claws Twisted by Desire."
     }

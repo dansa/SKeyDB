@@ -24,7 +24,7 @@
       "suffix": "%"
     }
   },
-  "lore": "Rebirth from self-mutilation",
+  "lore": "Rebirth from self-mutilation.",
   "variants": [
     {
       "id": "relic-variant-0460",
@@ -42,7 +42,7 @@
           "suffix": "%"
         }
       },
-      "lore": "Rebirth from self-mutilation"
+      "lore": "Rebirth from self-mutilation."
     },
     {
       "id": "relic-variant-0461",
@@ -59,7 +59,7 @@
           "suffix": "%"
         }
       },
-      "lore": "Rebirth from self-mutilation"
+      "lore": "Rebirth from self-mutilation."
     },
     {
       "id": "relic-variant-0459",
@@ -84,7 +84,7 @@
           "suffix": "%"
         }
       },
-      "lore": "Rebirth from self-mutilation"
+      "lore": "Rebirth from self-mutilation."
     }
   ]
 }

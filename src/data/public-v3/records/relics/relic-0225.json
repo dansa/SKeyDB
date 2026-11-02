@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0372",
   "rarity": "N",
   "aliases": ["Neurotoxin+"],
-  "descriptionTemplate": "At battle start, Inflict [Arg1] {Poison} to all enemies, with double effect in Boss Battles.",
+  "descriptionTemplate": "At battle start, inflict [Arg1] {Poison} to all enemies; the effect is doubled in Boss Battles.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
@@ -26,7 +26,7 @@
       "inputs": ["accountLevel", "ownedPosseCount"]
     }
   },
-  "lore": "Extract, Refine.",
+  "lore": "Extract, refine.",
   "variants": [
     {
       "id": "relic-variant-0372",
@@ -36,7 +36,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "At battle start, Inflict [Arg1] {Poison} to all enemies, with double effect in Boss Battles.",
+      "descriptionTemplate": "At battle start, inflict [Arg1] {Poison} to all enemies; the effect is doubled in Boss Battles.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -46,7 +46,7 @@
           "inputs": ["accountLevel", "ownedPosseCount"]
         }
       },
-      "lore": "Extract, Refine."
+      "lore": "Extract, refine."
     },
     {
       "id": "relic-variant-0373",
@@ -55,7 +55,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "At battle start, Inflict [Arg1] {Poison} to all enemies, with double effect in Boss Battles.",
+      "descriptionTemplate": "At battle start, inflict [Arg1] {Poison} to all enemies; the effect is doubled in Boss Battles.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -65,7 +65,7 @@
           "inputs": ["accountLevel", "ownedPosseCount"]
         }
       },
-      "lore": "Extract, Refine."
+      "lore": "Extract, refine."
     },
     {
       "id": "relic-variant-0371",
@@ -85,7 +85,7 @@
           "inputs": ["accountLevel", "ownedPosseCount"]
         }
       },
-      "lore": "Extract, Refine."
+      "lore": "Extract, refine."
     }
   ]
 }

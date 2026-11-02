@@ -445,7 +445,7 @@
       "ownedTalents": ["talent.faros.homesick", "talent.faros.madness-omen", "talent.faros.soulforge-aptitude", "talent.faros.gnostic-potential"],
       "ownedEnlightens": [
         "enlighten.faros.congealed-ambergris",
-        "enlighten.faros.flickering-candle",
+        "enlighten.faros.faint-candlelight",
         "enlighten.faros.jagged-shore",
         "enlighten.faros.light-of-the-lost",
         "enlighten.faros.to-the-radiant-shore"
@@ -886,7 +886,7 @@
         "skill.murphy.delusions-heir",
         "skill.murphy.divine-maidens-birth",
         "skill.murphy.made-into-being",
-        "skill.murphy.oath-of-liberation",
+        "skill.murphy.oath-of-freedom",
         "skill.murphy.strike",
         "skill.murphy.vortex-reversed"
       ],
@@ -895,7 +895,7 @@
         "enlighten.murphy.defiant-providence",
         "enlighten.murphy.emancipating-touch",
         "enlighten.murphy.inextricable-bloodline",
-        "enlighten.murphy.oath-of-liberation",
+        "enlighten.murphy.oath-of-freedom",
         "enlighten.murphy.silent-defiance"
       ],
       "awakenerBuilds": ["awakener-build-0034"]
@@ -1164,7 +1164,7 @@
         "enlighten.salvador.book-of-genesis",
         "enlighten.salvador.divine-proxy",
         "enlighten.salvador.rite-of-creation",
-        "enlighten.salvador.salvations-hand"
+        "enlighten.salvador.salvation-bestowal"
       ],
       "awakenerBuilds": ["awakener-build-0044"]
     },
@@ -1362,8 +1362,8 @@
         "enlighten.wanda.black-stone-decree",
         "enlighten.wanda.lakeborne-dweller",
         "enlighten.wanda.lost-dreams-guide",
-        "enlighten.wanda.the-revelation",
-        "enlighten.wanda.venus-and-fur"
+        "enlighten.wanda.salvations-hand",
+        "enlighten.wanda.the-revelation"
       ],
       "ownedOverlays": ["overlay.wanda.dreamlure", "overlay.wanda.murmurs"],
       "awakenerBuilds": ["awakener-build-0052"]
@@ -2044,7 +2044,7 @@
     "enlighten.faint.ever-barren-rainbow": {},
     "enlighten.faint.withering-hymn": {},
     "enlighten.faros.congealed-ambergris": {},
-    "enlighten.faros.flickering-candle": {},
+    "enlighten.faros.faint-candlelight": {},
     "enlighten.faros.jagged-shore": {},
     "enlighten.faros.light-of-the-lost": {},
     "enlighten.faros.to-the-radiant-shore": {},
@@ -2131,7 +2131,7 @@
     "enlighten.murphy.defiant-providence": {},
     "enlighten.murphy.emancipating-touch": {},
     "enlighten.murphy.inextricable-bloodline": {},
-    "enlighten.murphy.oath-of-liberation": {},
+    "enlighten.murphy.oath-of-freedom": {},
     "enlighten.murphy.silent-defiance": {},
     "enlighten.nautila.absent-cogwheel": {},
     "enlighten.nautila.ace-mechanist": {},
@@ -2192,7 +2192,7 @@
     "enlighten.salvador.book-of-genesis": {},
     "enlighten.salvador.divine-proxy": {},
     "enlighten.salvador.rite-of-creation": {},
-    "enlighten.salvador.salvations-hand": {},
+    "enlighten.salvador.salvation-bestowal": {},
     "enlighten.sanga.artistic-dionysia": {},
     "enlighten.sanga.kneel-before-beauty": {},
     "enlighten.sanga.melodic-sculpting": {},
@@ -2246,8 +2246,8 @@
     "enlighten.wanda.black-stone-decree": {},
     "enlighten.wanda.lakeborne-dweller": {},
     "enlighten.wanda.lost-dreams-guide": {},
+    "enlighten.wanda.salvations-hand": {},
     "enlighten.wanda.the-revelation": {},
-    "enlighten.wanda.venus-and-fur": {},
     "enlighten.winkle.dread-of-the-darkness": {},
     "enlighten.winkle.forsaken-homeland": {},
     "enlighten.winkle.rebirth-through-death": {},
@@ -3077,7 +3077,7 @@
     "skill.murphy.delusions-heir": {},
     "skill.murphy.divine-maidens-birth": {},
     "skill.murphy.made-into-being": {},
-    "skill.murphy.oath-of-liberation": {},
+    "skill.murphy.oath-of-freedom": {},
     "skill.murphy.strike": {},
     "skill.murphy.vortex-reversed": {},
     "skill.nautila.defense": {},
@@ -4652,7 +4652,7 @@
     "enlighten.faros.congealed-ambergris": {
       "ownerAwakenerId": "awakener-0017"
     },
-    "enlighten.faros.flickering-candle": {
+    "enlighten.faros.faint-candlelight": {
       "ownerAwakenerId": "awakener-0017"
     },
     "enlighten.faros.jagged-shore": {
@@ -4913,7 +4913,7 @@
     "enlighten.murphy.inextricable-bloodline": {
       "ownerAwakenerId": "awakener-0034"
     },
-    "enlighten.murphy.oath-of-liberation": {
+    "enlighten.murphy.oath-of-freedom": {
       "ownerAwakenerId": "awakener-0034"
     },
     "enlighten.murphy.silent-defiance": {
@@ -5096,7 +5096,7 @@
     "enlighten.salvador.rite-of-creation": {
       "ownerAwakenerId": "awakener-0044"
     },
-    "enlighten.salvador.salvations-hand": {
+    "enlighten.salvador.salvation-bestowal": {
       "ownerAwakenerId": "awakener-0044"
     },
     "enlighten.sanga.artistic-dionysia": {
@@ -5258,10 +5258,10 @@
     "enlighten.wanda.lost-dreams-guide": {
       "ownerAwakenerId": "awakener-0052"
     },
-    "enlighten.wanda.the-revelation": {
+    "enlighten.wanda.salvations-hand": {
       "ownerAwakenerId": "awakener-0052"
     },
-    "enlighten.wanda.venus-and-fur": {
+    "enlighten.wanda.the-revelation": {
       "ownerAwakenerId": "awakener-0052"
     },
     "enlighten.winkle.dread-of-the-darkness": {
@@ -6989,7 +6989,7 @@
     "skill.murphy.made-into-being": {
       "ownerAwakenerId": "awakener-0034"
     },
-    "skill.murphy.oath-of-liberation": {
+    "skill.murphy.oath-of-freedom": {
       "ownerAwakenerId": "awakener-0034"
     },
     "skill.murphy.strike": {

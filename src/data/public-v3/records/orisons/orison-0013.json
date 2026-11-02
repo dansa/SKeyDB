@@ -15,7 +15,7 @@
   "defaultVariantId": "orison-variant-0025",
   "realm": "ULTRA",
   "aliases": [],
-  "descriptionTemplate": "When played, add [Arg1] copy of it to a Temporary {overlay:Ultra Space} slot.",
+  "descriptionTemplate": "When played, add [Arg1] {plural:[Arg1]|copy|copies} of it to Temporary {overlay:Ultra Space} slots.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -27,7 +27,7 @@
       "id": "orison-variant-0025",
       "name": "Warp",
       "tier": "Common",
-      "descriptionTemplate": "When played, add [Arg1] copy of it to a Temporary {overlay:Ultra Space} slot.",
+      "descriptionTemplate": "When played, add [Arg1] {plural:[Arg1]|copy|copies} of it to Temporary {overlay:Ultra Space} slots.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0312",
   "rarity": "SSR",
   "aliases": [],
-  "descriptionTemplate": "After releasing an Exalt, draw 1 card. If HP is below 25%, draw an additional card.",
+  "descriptionTemplate": "After releasing Exalt, draw 1 card. If HP is below 25%, draw an additional card.",
   "descriptionArgs": {},
   "lore": "Please read with caution.",
   "variants": [
@@ -28,7 +28,7 @@
       "tier": "Gold",
       "category": "FADED_LEGACY",
       "rarity": "SSR",
-      "descriptionTemplate": "After releasing an Exalt, draw 1 card. If HP is below 25%, draw an additional card.",
+      "descriptionTemplate": "After releasing Exalt, draw 1 card. If HP is below 25%, draw an additional card.",
       "descriptionArgs": {},
       "lore": "Please read with caution."
     }

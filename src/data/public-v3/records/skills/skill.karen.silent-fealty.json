@@ -36,7 +36,7 @@
     }
   ],
   "cost": "0",
-  "lore": "As she was about to be swallowed by silence, she seemed to see a drowned maid.\nThe maid's skin was pale, like a decayed water lily floating in the lake, with wounds on her neck extending along bluish veins into the unseen distance.\n\"Look at your cat's eye necklace,\" the corpse said, \"It's all turned to ash. Turned to ash...\"",
+  "lore": "As she was about to be swallowed by silence, she seemed to see a drowned maid.\nThe maid's skin was pale, like a decayed water lily floating in the lake, with wounds on her neck extending along bluish veins into the unseen distance.\n\"Look at your cat's eye necklace,\" the corpse said,\"It's all turned to ash. Turned to ash...\"",
   "upgrades": [
     {
       "id": "upgrade.enlighten.karen.maids-decree.skill.karen.silent-fealty",

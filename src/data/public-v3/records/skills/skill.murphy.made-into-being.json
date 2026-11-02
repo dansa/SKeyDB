@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "kind": "skill",
   "id": "skill.murphy.made-into-being",
-  "name": "Made Into Being",
+  "name": "Made into Being",
   "route": {
     "slug": "made-into-being",
     "canonicalPath": "/database/awakeners/murphy/skills/made-into-being"

@@ -18,7 +18,7 @@
   "aliases": ["Divine Oracle+"],
   "descriptionTemplate": "For each Roused Awakener, increase Realm Mastery by 35. After playing {Rouse}, randomly gain 2 Command Cards of that Awakener and attach {Exhaust}.",
   "descriptionArgs": {},
-  "lore": "He said, \"Do not be afraid.\"",
+  "lore": "He said,\"Do not be afraid.\"",
   "variants": [
     {
       "id": "relic-variant-0215",
@@ -30,7 +30,7 @@
       "rarity": "SSR",
       "descriptionTemplate": "For each Roused Awakener, increase Realm Mastery by 35. After playing {Rouse}, randomly gain 2 Command Cards of that Awakener and attach {Exhaust}.",
       "descriptionArgs": {},
-      "lore": "He said, \"Do not be afraid.\""
+      "lore": "He said,\"Do not be afraid.\""
     },
     {
       "id": "relic-variant-0214",
@@ -42,7 +42,7 @@
       "rarity": "SSR",
       "descriptionTemplate": "{Rouse} all Awakeners. After playing {Rouse}, randomly gain 2 Command Cards of that Awakener with {Exhaust} and {Fleeting}.",
       "descriptionArgs": {},
-      "lore": "He said, \"Do not be afraid.\""
+      "lore": "He said,\"Do not be afraid.\""
     }
   ]
 }

@@ -33,7 +33,7 @@
       "inputs": ["accountLevel", "ownedPosseCount"]
     }
   },
-  "lore": "Grant your wish.",
+  "lore": "It grants your wish.",
   "variants": [
     {
       "id": "relic-variant-0410",
@@ -60,7 +60,7 @@
           "inputs": ["accountLevel", "ownedPosseCount"]
         }
       },
-      "lore": "Grant your wish."
+      "lore": "It grants your wish."
     },
     {
       "id": "relic-variant-0411",
@@ -86,7 +86,7 @@
           "inputs": ["accountLevel", "ownedPosseCount"]
         }
       },
-      "lore": "Grant your wish."
+      "lore": "It grants your wish."
     },
     {
       "id": "relic-variant-0409",
@@ -98,7 +98,7 @@
       "rarity": "SSR",
       "descriptionTemplate": "Draw 1 card at the start of your turn, and you may choose to keep 1 card in your hand at the end of your turn.",
       "descriptionArgs": {},
-      "lore": "Grants your wish."
+      "lore": "It grants your wish."
     }
   ]
 }

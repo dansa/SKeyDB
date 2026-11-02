@@ -41,9 +41,9 @@
   "lore": "Beneath the Church lies a concealed space.\n\nThe bishop kneels before the Tablet, chanting the secret words passed down from the dawn of creation.\n\nRunes forgotten by time emit a responsive glow, manifesting a massive phantom at the bishop's will, bestowing \"Bless\" upon those bathed in its light.",
   "upgrades": [
     {
-      "id": "upgrade.enlighten.salvador.salvations-hand.skill.salvador.he-who-protects",
+      "id": "upgrade.enlighten.salvador.salvation-bestowal.skill.salvador.he-who-protects",
       "operation": "mixed",
-      "upgraderId": "enlighten.salvador.salvations-hand",
+      "upgraderId": "enlighten.salvador.salvation-bestowal",
       "upgraderType": "enlighten",
       "upgraderSlot": "E3",
       "ownerAwakenerId": "awakener-0044",

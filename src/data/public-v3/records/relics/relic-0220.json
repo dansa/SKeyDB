@@ -66,7 +66,7 @@
       "tier": "Silver",
       "category": "FADED_LEGACY",
       "rarity": "N",
-      "descriptionTemplate": "The first time a Command Card you played enters the Discard Pile each turn, shuffle a Temporary copy of it with Arithmetica Cost reduced by 1 into the Draw Pile.",
+      "descriptionTemplate": "When a Command Card you first played each turn enters the Discard Pile, shuffle a Temporary copy of it with its Arithmetica Cost reduced by 1 into the Draw Pile.",
       "descriptionArgs": {},
       "lore": "His voice faded into the wind."
     }

@@ -12,7 +12,7 @@
   "rootSkillId": "skill.ramona-timeworn.predetermined-strike",
   "cardFamily": "command",
   "cardTypes": ["skill"],
-  "descriptionTemplate": "Obtain 3 Arithmetica.",
+  "descriptionTemplate": "Gain 3 Arithmetica.",
   "descriptionArgs": {},
   "cardKeywords": [],
   "ownerAwakenerName": "Ramona: Timeworn"

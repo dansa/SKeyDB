@@ -10,7 +10,8 @@
   "overlayType": "mechanic",
   "ownerAwakenerId": "awakener-0022",
   "aliases": [],
-  "descriptionTemplate": "When played, takes effect 2 times and changes to {Crescendo}",
+  "textColor": "damage",
+  "descriptionTemplate": "Upon playing, take effect +1 time and transform into {Crescendo}.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Hameln",
   "upgrades": [
@@ -23,7 +24,7 @@
       "ownerAwakenerId": "awakener-0022",
       "ownerAwakenerName": "Hameln",
       "patch": {
-        "descriptionTemplate": "Arithmetica Cost -2, takes effect 2 times, then changes to {Crescendo}"
+        "descriptionTemplate": "Arithmetica Cost -2. Upon playing, take effect +1 time and transform into {Crescendo}."
       }
     }
   ]

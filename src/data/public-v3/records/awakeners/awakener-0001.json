@@ -90,7 +90,7 @@
         "kind": "story",
         "title": "Story: II",
         "unlockCondition": "Affinity Level 5",
-        "content": "Mythag uses the silver extracted from the bodies of the deceased to create the Awakener.\n\nThe Sculptors' Association induce the formation of silver from living bodies and refine it into the Awakener.\n\nThese are two entirely different ideologies. The latter, while having an extremely high ceiling, clearly violates ethical standards, thus becoming a taboo Research that persists despite prohibitions.\n\nAfter the Wax Museum incident, 24 was brought back to Mythag. She spent a long time in the campus observation rooms and research labs, necessitating personal supervision whenever she went out.\n\nUndoubtedly, this is an extremely uncontrollable living Awakener. During the subsequent observation period of half a year, 24's body continuously split into many personalities.\n\nShe suddenly found herself with unfamiliar friends and enemies, bought many strange items, and even learned to speak Chinese without realizing it.\n\nHer life is never short of \"surprises\".\n\n\"24 is a discrete function composed of a series of isolated points,\" Doll commented, \"Do not believe every word she says.\""
+        "content": "Mythag uses the silver extracted from the bodies of the deceased to create the Awakener.\n\nThe Sculptors' Association induce the formation of silver from living bodies and refine it into the Awakener.\n\nThese are two entirely different ideologies. The latter, while having an extremely high ceiling, clearly violates ethical standards, thus becoming a taboo Research that persists despite prohibitions.\n\nAfter the Wax Museum incident, 24 was brought back to Mythag. She spent a long time in the campus observation rooms and research labs, necessitating personal supervision whenever she went out.\n\nUndoubtedly, this is an extremely uncontrollable living Awakener. During the subsequent observation period of half a year, 24's body continuously split into many personalities.\n\nShe suddenly found herself with unfamiliar friends and enemies, bought many strange items, and even learned to speak Chinese without realizing it.\n\nHer life is never short of \"surprises\".\n\n\"24 is a discrete function composed of a series of isolated points,\" Doll commented,\"Do not believe every word she says.\""
       },
       {
         "kind": "story",
@@ -102,7 +102,7 @@
         "kind": "story",
         "title": "Story: IV",
         "unlockCondition": "Affinity Level 9",
-        "content": "On a snowy day that November, 24 fell ill.\n\nAfter a week of grueling work, she came down with a severe fever and lay in bed for days on end.\n\nIn her daze, she seemed to hear little mice whimpering near her ears. After an unknown stretch of time, someone was standing at her bedside.\n\nShe recognized those eyes—it was the child from the sewer. Covered in mud, the child held out a grimy little pill to 24.\n\n\"For you. Take it,\" the child said bluntly, her voice surprisingly pleasant—so it turned out she was a girl.\n\n24 looked at the scrapes on her elbow and face but did not ask where the pill had come from. She simply held the girl's hand tightly.\n\nThe girl mumbled awkwardly, then said in a cool tone, \"I won't leave. I'll go once you're better.\"\n\nEven when I'm better—don't leave.\n\n24 answered silently, in her heart.\n\nThe first snow of winter fell over Londinium for an entire week. On the day it finally stopped, 24 was very happy—because not only had her fever broken, but she had also gained a sister."
+        "content": "On a snowy day that November, 24 fell ill.\n\nAfter a week of grueling work, she came down with a severe fever and lay in bed for days on end.\n\nIn her daze, she seemed to hear little mice whimpering near her ears. After an unknown stretch of time, someone was standing at her bedside.\n\nShe recognized those eyes—it was the child from the sewer. Covered in mud, the child held out a grimy little pill to 24.\n\n\"For you. Take it,\" the child said bluntly, her voice surprisingly pleasant—so it turned out she was a girl.\n\n24 looked at the scrapes on her elbow and face but did not ask where the pill had come from. She simply held the girl's hand tightly.\n\nThe girl mumbled awkwardly, then said in a cool tone,\"I won't leave. I'll go once you're better.\"\n\nEven when I'm better—don't leave.\n\n24 answered silently, in her heart.\n\nThe first snow of winter fell over Londinium for an entire week. On the day it finally stopped, 24 was very happy—because not only had her fever broken, but she had also gained a sister."
       }
     ],
     "voiceLines": {
@@ -110,7 +110,7 @@
         {
           "id": "voice-6516",
           "title": "Awaken",
-          "content": "My name, uh, I can't remember. Oh, right, \"24,\" that's what they call me... No! Stop! Don't come out! You can't, not now..."
+          "content": "My name, uh, I can't remember. Oh, right,\"24,\" that's what they call me... No! Stop! Don't come out! You can't, not now..."
         },
         {
           "id": "voice-5751",
@@ -245,7 +245,7 @@
         {
           "id": "voice-6297",
           "title": "Investigation Begins",
-          "content": "Although I am a pacifist, \"they\" clearly think otherwise..."
+          "content": "Although I am a pacifist,\"they\" clearly think otherwise..."
         },
         {
           "id": "voice-6529",

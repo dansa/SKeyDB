@@ -40,7 +40,7 @@
       "tier": "Special",
       "category": "EVENT",
       "rarity": "SSR",
-      "descriptionTemplate": "At battle start, all Awakeners gain 50 Aliemus. Draw 2 {Echoes of Lost Shadows} into hand.",
+      "descriptionTemplate": "At battle start, all Awakeners gain 50 Aliemus. Put 2 copies of {Echoes of Lost Shadows} into hand.",
       "descriptionArgs": {},
       "lore": "Anticipate or dread the moment it chimes."
     },

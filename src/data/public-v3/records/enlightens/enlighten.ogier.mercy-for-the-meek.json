@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0038",
   "slot": "E2",
-  "descriptionTemplate": "{Seven Arts and Virtues} increases Shield and Temp. {STR} by 20%. If the character is in a {Fragile} state, {Seven Arts and Virtues} grants an additional 33% shield.",
+  "descriptionTemplate": "{Seven Arts and Virtues} increases Shield and Temp. {STR} by 20%. If the character is in a {Fragile} state,{Seven Arts and Virtues} grants an additional 33% shield.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Ogier"
 }

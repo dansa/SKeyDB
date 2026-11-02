@@ -64,7 +64,7 @@
       {
         "kind": "introduction",
         "title": "Basic Information",
-        "unlockCondition": "Awakener has reached level 1",
+        "unlockCondition": "Awakener Level 1",
         "content": "Strictly speaking, she does not belong to this world on the brink of collapse, but she appreciates it.\n\nShe admires the magnificent spectacle of this world burning, appreciates the suffering and breakdown of these humans in despair.\n\nFaith is dead, society has come to a halt, morals have crumbled, and nature no longer needs to disguise itself as a boring \"normal person\" —\nshe can finally unleash the beast within her and reveal her true self, becoming her authentic self."
       },
       {
@@ -187,7 +187,7 @@
         },
         {
           "id": "voice-123787",
-          "title": "Chat: About the Crisis",
+          "title": "Chat: About Dissolution",
           "content": "I know as much about Dissolution as I do about the Mist Disaster back home—nothing, that is. But that's precisely what makes them so fascinating, right?"
         },
         {

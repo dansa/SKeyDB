@@ -77,7 +77,7 @@
         "kind": "story",
         "title": "Story: II",
         "unlockCondition": "Affinity Level 5",
-        "content": "Vivian's laboratory in Mythag has moved several times.\n\nAt first, Mythag built it \"to the standards of a princess's palace,\" as an exact life-size replica of the home she had lived in during her former life.\n\nHowever, that enormously expensive laboratory was flattened by a single potion explosion. The cause was that Vivian had been feeling lazy while mixing her ingredients and had asked the Seer to prepare the raw materials.\n\nClearly, it was too much to ask of a Seer who was, give or take, an amphibian, to tell apart \"blood-red wood with a regular spiral grain\" and \"orange-red wood with a fine, hair-like grain,\" or \"cyan potion with a flowing shimmer\" and \"jade potion with a scaly sheen,\" or \"white combustible metal\" and \"silver mutable metal,“ especially when none of them were moving.\n\nIn any case, Vivian's laboratories got smaller, and smaller, and smaller, until they were so small that if she fell asleep slumped over the workbench, she might kick over a cauldron by accident.\n\nYes, that is exactly how the last lab accident happened.\n\nBut Vivian always quietly tidied up the disaster, then started on the day's potions as if nothing had happened.\n\nAfter all, if you never cause other people any trouble, it's much easier to refuse the trouble they try to cause you. This is one of Vivian's guiding principles in life."
+        "content": "Vivian's laboratory in Mythag has moved several times.\n\nAt first, Mythag built it \"to the standards of a princess's palace,\" as an exact life-size replica of the home she had lived in during her former life.\n\nHowever, that enormously expensive laboratory was flattened by a single potion explosion. The cause was that Vivian had been feeling lazy while mixing her ingredients and had asked the Seer to prepare the raw materials.\n\nClearly, it was too much to ask of a Seer who was, give or take, an amphibian, to tell apart \"blood-red wood with a regular spiral grain\" and \"orange-red wood with a fine, hair-like grain,\" or \"cyan potion with a flowing shimmer\" and \"jade potion with a scaly sheen,\" or \"white combustible metal\" and \"silver mutable metal,\" especially when none of them were moving.\n\nIn any case, Vivian's laboratories got smaller, and smaller, and smaller, until they were so small that if she fell asleep slumped over the workbench, she might kick over a cauldron by accident.\n\nYes, that is exactly how the last lab accident happened.\n\nBut Vivian always quietly tidied up the disaster, then started on the day's potions as if nothing had happened.\n\nAfter all, if you never cause other people any trouble, it's much easier to refuse the trouble they try to cause you. This is one of Vivian's guiding principles in life."
       },
       {
         "kind": "story",
@@ -187,7 +187,7 @@
         },
         {
           "id": "voice-154151",
-          "title": "Chat: About the Disaster",
+          "title": "Chat: About Dissolution",
           "content": "Dissolution... I used it to protect the last of my subjects, but it was also what brought my countrty down. A pity. Of all the knowledge They poured into me, not one page contained a way to prevent something like that."
         },
         {

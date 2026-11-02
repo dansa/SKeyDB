@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0571",
   "rarity": "N",
   "aliases": [],
-  "descriptionTemplate": "At turn end, if there is no shield, gain 1 stack of {Barrier} that immunes one instance of DMG. This effect only triggers once per battle.",
+  "descriptionTemplate": "At turn end, if there is no shield, gain 1 stack of {Barrier} that grants immunity to one instance of DMG. This effect only triggers once per battle.",
   "descriptionArgs": {},
   "lore": "Its effect is not going to last forever.",
   "variants": [
@@ -28,7 +28,7 @@
       "tier": "Silver",
       "category": "EVENT",
       "rarity": "N",
-      "descriptionTemplate": "At turn end, if there is no shield, gain 1 stack of {Barrier} that immunes one instance of DMG. This effect only triggers once per battle.",
+      "descriptionTemplate": "At turn end, if there is no shield, gain 1 stack of {Barrier} that grants immunity to one instance of DMG. This effect only triggers once per battle.",
       "descriptionArgs": {},
       "lore": "Its effect is not going to last forever."
     }

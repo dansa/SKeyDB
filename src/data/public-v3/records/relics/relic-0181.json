@@ -26,7 +26,7 @@
       "inputs": ["accountLevel", "ownedPosseCount"]
     }
   },
-  "lore": "An elegant and mysterious black short-haired cat, said to be revered as a deity in a distant desert kingdom. The name of that deity has now been lost to time.\nWorshipped, revered, forgotten—perhaps this is the fate of all gods.",
+  "lore": "An elegant and mysterious black short-haired cat, said to be revered as a deity in a distant desert kingdom. The name of that deity has now been lost to time.\nWorshipped, revered, then forgotten—perhaps this is the fate of all gods.",
   "variants": [
     {
       "id": "relic-variant-0286",
@@ -46,7 +46,7 @@
           "inputs": ["accountLevel", "ownedPosseCount"]
         }
       },
-      "lore": "An elegant and mysterious black short-haired cat, said to be revered as a deity in a distant desert kingdom. The name of that deity has now been lost to time.\nWorshipped, revered, forgotten—perhaps this is the fate of all gods."
+      "lore": "An elegant and mysterious black short-haired cat, said to be revered as a deity in a distant desert kingdom. The name of that deity has now been lost to time.\nWorshipped, revered, then forgotten—perhaps this is the fate of all gods."
     },
     {
       "id": "relic-variant-0287",
@@ -65,7 +65,7 @@
           "inputs": ["accountLevel", "ownedPosseCount"]
         }
       },
-      "lore": "An elegant and mysterious black short-haired cat, said to be revered as a deity in a distant desert kingdom. The name of that deity has now been lost to time.\nWorshipped, revered, forgotten—perhaps this is the fate of all gods."
+      "lore": "An elegant and mysterious black short-haired cat, said to be revered as a deity in a distant desert kingdom. The name of that deity has now been lost to time.\nWorshipped, revered, then forgotten—perhaps this is the fate of all gods."
     },
     {
       "id": "relic-variant-0285",
@@ -85,7 +85,7 @@
           "inputs": ["accountLevel", "ownedPosseCount"]
         }
       },
-      "lore": "An elegant and mysterious black short-haired cat, said to be revered as a deity in a distant desert kingdom. The name of that deity has now been lost to time.\nWorshipped, revered, forgotten—perhaps this is the fate of all gods."
+      "lore": "An elegant and mysterious black short-haired cat, said to be revered as a deity in a distant desert kingdom. The name of that deity has now been lost to time.\nWorshipped, revered, then forgotten—perhaps this is the fate of all gods."
     }
   ]
 }

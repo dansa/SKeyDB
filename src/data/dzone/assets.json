@@ -1127,21 +1127,6 @@
         ]
       }
     },
-    "asset-dzone-monster-0110-preview": {
-      "id": "asset-dzone-monster-0110-preview",
-      "slot": "preview",
-      "kind": "dzoneMonster",
-      "ownerId": "dzone-monster-0110",
-      "assetName": "Portrait_Minihead_EnemyAwaker_D07_AF",
-      "availability": {
-        "status": "available",
-        "path": "src/assets/monster-preview/Portrait_Minihead_EnemyAwaker_D07_AF.webp",
-        "candidates": [
-          "src/assets/monster-preview/Portrait_Minihead_EnemyAwaker_D07_AF.webp",
-          "src/assets/monster-preview/Portrait_Minihead_EnemyAwaker_D07_AF.png"
-        ]
-      }
-    },
     "asset-dzone-monster-0171-preview": {
       "id": "asset-dzone-monster-0171-preview",
       "slot": "preview",
@@ -1433,6 +1418,21 @@
         "candidates": [
           "src/assets/monster-preview/Portrait_Minihead_EnemyAwaker_C01_AF.webp",
           "src/assets/monster-preview/Portrait_Minihead_EnemyAwaker_C01_AF.png"
+        ]
+      }
+    },
+    "asset-dzone-monster-0110-preview": {
+      "id": "asset-dzone-monster-0110-preview",
+      "slot": "preview",
+      "kind": "dzoneMonster",
+      "ownerId": "dzone-monster-0110",
+      "assetName": "Portrait_Minihead_EnemyAwaker_D07_AF",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/monster-preview/Portrait_Minihead_EnemyAwaker_D07_AF.webp",
+        "candidates": [
+          "src/assets/monster-preview/Portrait_Minihead_EnemyAwaker_D07_AF.webp",
+          "src/assets/monster-preview/Portrait_Minihead_EnemyAwaker_D07_AF.png"
         ]
       }
     },
@@ -4594,9 +4594,6 @@
     "dzone-monster-0085": {
       "preview": "asset-dzone-monster-0085-preview"
     },
-    "dzone-monster-0110": {
-      "preview": "asset-dzone-monster-0110-preview"
-    },
     "dzone-monster-0171": {
       "preview": "asset-dzone-monster-0171-preview"
     },
@@ -4659,6 +4656,9 @@
     },
     "dzone-monster-0309": {
       "preview": "asset-dzone-monster-0309-preview"
+    },
+    "dzone-monster-0110": {
+      "preview": "asset-dzone-monster-0110-preview"
     },
     "dzone-monster-0142": {
       "preview": "asset-dzone-monster-0142-preview"

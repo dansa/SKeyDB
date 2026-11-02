@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0023",
   "family": "passive",
-  "descriptionTemplate": "For every 1% DMG Amplification attribute Helot has, {Surviving Impasse} increases the DMG Helot deals in this turn by 0.3%.",
+  "descriptionTemplate": "For every 1% DMG Amplification attribute Helot has,{Surviving Impasse} increases the DMG Helot deals in this turn by 0.3%.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Helot"
 }

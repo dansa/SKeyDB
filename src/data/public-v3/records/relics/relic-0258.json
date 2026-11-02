@@ -24,7 +24,7 @@
       "suffix": "%"
     }
   },
-  "lore": "The dissection doctor spends his life never seeing a beautiful woman, only bags of bones, inflamed nerves, muscles, and tissues caused by diseases.",
+  "lore": "The dissection doctor spends his life never seeing a beautiful woman, only bags of bones, inflamed nerves, muscles, and tissues damaged by diseases.",
   "variants": [
     {
       "id": "relic-variant-0444",
@@ -42,7 +42,7 @@
           "suffix": "%"
         }
       },
-      "lore": "The dissection doctor spends his life never seeing a beautiful woman, only bags of bones, inflamed nerves, muscles, and tissues caused by diseases."
+      "lore": "The dissection doctor spends his life never seeing a beautiful woman, only bags of bones, inflamed nerves, muscles, and tissues damaged by diseases."
     },
     {
       "id": "relic-variant-0445",
@@ -59,7 +59,7 @@
           "suffix": "%"
         }
       },
-      "lore": "The dissection doctor spends his life never seeing a beautiful woman, only bags of bones, inflamed nerves, muscles, and tissues caused by diseases."
+      "lore": "The dissection doctor spends his life never seeing a beautiful woman, only bags of bones, inflamed nerves, muscles, and tissues damaged by diseases."
     },
     {
       "id": "relic-variant-0443",
@@ -71,7 +71,7 @@
       "rarity": "N",
       "descriptionTemplate": "Every time you lose HP, {Embryo Fusion}+10. The effect is doubled if your HP is below 50%.",
       "descriptionArgs": {},
-      "lore": "The dissection doctor spends his life never seeing a beautiful woman, only bags of bones, inflamed nerves, muscles, and tissues caused by diseases."
+      "lore": "The dissection doctor spends his life never seeing a beautiful woman, only bags of bones, inflamed nerves, muscles, and tissues damaged by diseases."
     },
     {
       "id": "relic-variant-0446",
@@ -89,7 +89,7 @@
           "suffix": "%"
         }
       },
-      "lore": "The dissection doctor spends his life never seeing a beautiful woman, only bags of bones, inflamed nerves, muscles, and tissues caused by diseases."
+      "lore": "The dissection doctor spends his life never seeing a beautiful woman, only bags of bones, inflamed nerves, muscles, and tissues damaged by diseases."
     },
     {
       "id": "relic-variant-0447",
@@ -106,7 +106,7 @@
           "suffix": "%"
         }
       },
-      "lore": "The dissection doctor spends his life never seeing a beautiful woman, only bags of bones, inflamed nerves, muscles, and tissues caused by diseases."
+      "lore": "The dissection doctor spends his life never seeing a beautiful woman, only bags of bones, inflamed nerves, muscles, and tissues damaged by diseases."
     }
   ]
 }

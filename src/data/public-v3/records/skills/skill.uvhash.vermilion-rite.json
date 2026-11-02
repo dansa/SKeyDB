@@ -40,7 +40,7 @@
       "ownerAwakenerId": "awakener-0051",
       "ownerAwakenerName": "Uvhash",
       "patch": {
-        "descriptionTemplate": "Uvhash gains [Energy:Arg1] Aliemus. {Rouse}: Uvhash is immune to {Sealed}, Crit. Rate and Crit. DMG +[Arg2]%, {Hymn of Blood and Sand} Final DMG +[Arg5]%, with the effect doubled when HP is below 25%.",
+        "descriptionTemplate": "Uvhash gains [Energy:Arg1] Aliemus. {Rouse}: Uvhash is immune to {Sealed}, Crit. Rate and Crit. DMG +[Arg2]%,{Hymn of Blood and Sand} Final DMG +[Arg5]%, with the effect doubled when HP is below 25%.",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

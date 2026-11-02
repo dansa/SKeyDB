@@ -57,7 +57,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "At battle start, Tentacle Limit +[Arg1], gain [Arg2] Tentacles.",
+      "descriptionTemplate": "At battle start, Tentacle Limit +[Arg1], gain [Arg2] {plural:[Arg2]|Tentacle|Tentacles}",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

@@ -30,9 +30,9 @@
   "lore": "It is the land of the gods, a utopia, Elysian, and Faros' home.\nThat great city-state has been lost, leaving behind only mud, wetlands, and moss-covered stones.",
   "upgrades": [
     {
-      "id": "upgrade.enlighten.faros.flickering-candle.skill.faros.lost-city-of-lemuria",
+      "id": "upgrade.enlighten.faros.faint-candlelight.skill.faros.lost-city-of-lemuria",
       "operation": "replace_description",
-      "upgraderId": "enlighten.faros.flickering-candle",
+      "upgraderId": "enlighten.faros.faint-candlelight",
       "upgraderType": "enlighten",
       "upgraderSlot": "E3",
       "ownerAwakenerId": "awakener-0017",
