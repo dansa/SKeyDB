@@ -50,7 +50,7 @@
       "id": "orison-variant-0014",
       "name": "Adv. Echo",
       "tier": "Advanced",
-      "descriptionTemplate": "When played, takes effect [Arg1] additional {plural:[Arg1]|time|times}, and you receive [Arg2] Black Sigils. (This Orison also affixed {Exhaust} and {Innate} to the card.)",
+      "descriptionTemplate": "The engraved card gains {Exhaust} and {Innate}. When played, takes effect [Arg1] additional {plural:[Arg1]|time|times}, and you receive [Arg2] Black Sigils.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

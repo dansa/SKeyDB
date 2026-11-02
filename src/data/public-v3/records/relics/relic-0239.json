@@ -87,7 +87,7 @@
       "tier": "Silver",
       "category": "FADED_LEGACY",
       "rarity": "N",
-      "descriptionTemplate": "When causing HP Recovery, also grant [Arg1] Shield. After the start of the {ordinal:3rd} turn, gain [Arg2] {Alert}.",
+      "descriptionTemplate": "When causing HP Recovery, also gain [Arg1] Shield. After the start of the {ordinal:3rd} turn, gain [Arg2] {Alert}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

@@ -18,7 +18,7 @@
   "ownerAwakenerName": "Celeste",
   "rarity": "SSR",
   "aliases": [],
-  "descriptionTemplate": "At turn start, Celeste gains [Arg1] Aliemus. Before turn end, for each Command Card of Celeste in hand, 1 Tentacle attacks an enemy and restores [Heal:Arg2] HP.",
+  "descriptionTemplate": "At turn start, Celeste gains [Arg1] Aliemus. Before the turn ends, for each Command Card of Celeste in hand, 1 Tentacle attacks an enemy and restores [Heal:Arg2] HP.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -43,7 +43,7 @@
       "ownerAwakenerId": "awakener-0009",
       "ownerAwakenerName": "Celeste",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Celeste gains [Arg1] Aliemus. Before turn end, for each Command Card of Celeste in hand, 1 Tentacle attacks an enemy and restores [Heal:Arg2] HP.",
+      "descriptionTemplate": "At turn start, Celeste gains [Arg1] Aliemus. Before the turn ends, for each Command Card of Celeste in hand, 1 Tentacle attacks an enemy and restores [Heal:Arg2] HP.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

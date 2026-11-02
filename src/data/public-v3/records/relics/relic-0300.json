@@ -30,7 +30,7 @@
       "value": "3"
     }
   },
-  "lore": "Ding, ding, the child is crying;\nDing, ding, the child is screaming.\nDing, ding, the child is wailing;\nDing, ding, it's hungry, you know.",
+  "lore": "Ding-a-ling, ding-a-ling, the baby is weeping;\nDing-a-ling, ding-a-ling, the infant is shrieking.\nDing-a-ling, ding-a-ling, the child is wailing;\nDing-a-ling, ding-a-ling, it hungers, you see.",
   "variants": [
     {
       "id": "relic-variant-0540",
@@ -54,7 +54,7 @@
           "value": "3"
         }
       },
-      "lore": "Ding, ding, the child is crying;\nDing, ding, the child is screaming.\nDing, ding, the child is wailing;\nDing, ding, it's hungry, you know."
+      "lore": "Ding-a-ling, ding-a-ling, the baby is weeping;\nDing-a-ling, ding-a-ling, the infant is shrieking.\nDing-a-ling, ding-a-ling, the child is wailing;\nDing-a-ling, ding-a-ling, it hungers, you see."
     }
   ]
 }

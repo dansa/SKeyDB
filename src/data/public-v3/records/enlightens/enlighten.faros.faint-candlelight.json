@@ -1,11 +1,11 @@
 {
   "schemaVersion": 3,
   "kind": "enlighten",
-  "id": "enlighten.faros.flickering-candle",
-  "name": "Flickering Candle",
+  "id": "enlighten.faros.faint-candlelight",
+  "name": "Faint Candlelight",
   "route": {
-    "slug": "flickering-candle",
-    "canonicalPath": "/database/awakeners/faros/enlightens/flickering-candle"
+    "slug": "faint-candlelight",
+    "canonicalPath": "/database/awakeners/faros/enlightens/faint-candlelight"
   },
   "ownerAwakenerId": "awakener-0017",
   "slot": "E3",

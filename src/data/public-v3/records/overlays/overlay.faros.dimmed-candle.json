@@ -14,7 +14,7 @@
   "ownerAwakenerId": "awakener-0017",
   "aliases": [],
   "iconId": "IconS_Buff_045",
-  "descriptionTemplate": "At turn end, for each card in hand, inflict 3% {Poison} on all enemies and gain 3 Aliemus.",
+  "descriptionTemplate": "At turn end, for each card in hand, trigger 3% {Poison} on all enemies and gain 3 Aliemus.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Faros"
 }

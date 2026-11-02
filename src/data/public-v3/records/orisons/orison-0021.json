@@ -14,14 +14,14 @@
   "variantCount": 2,
   "defaultVariantId": "orison-variant-0040",
   "aliases": [],
-  "descriptionTemplate": "Play to gain 3 additional Base Copies of {Retain} and {Exhaust}, effective only once per battle.",
+  "descriptionTemplate": "After playing, gain 3 Base Copies with {Retain} and {Exhaust} attached. Takes effect once per battle.",
   "descriptionArgs": {},
   "variants": [
     {
       "id": "orison-variant-0040",
       "name": "Lex Genis",
       "tier": "Advanced",
-      "descriptionTemplate": "Play to gain 3 additional Base Copies of {Retain} and {Exhaust}, effective only once per battle.",
+      "descriptionTemplate": "After playing, gain 3 Base Copies with {Retain} and {Exhaust} attached. Takes effect once per battle.",
       "descriptionArgs": {},
       "orisonType": "SPECIAL",
       "assets": {

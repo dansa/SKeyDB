@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0369",
   "rarity": "N",
   "aliases": ["Nettle Vest+"],
-  "descriptionTemplate": "Gain [Arg1] {Counter} at the start of battle, effects are doubled in Boss Battles.",
+  "descriptionTemplate": "Gain [Arg1] {Counter} at the start of battle. Effects are doubled in Boss Battles.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
@@ -36,7 +36,7 @@
       "tier": "Silver",
       "category": "ASTRAL_REIGN",
       "rarity": "N",
-      "descriptionTemplate": "Gain [Arg1] {Counter} at the start of battle, effects are doubled in Boss Battles.",
+      "descriptionTemplate": "Gain [Arg1] {Counter} at the start of battle. Effects are doubled in Boss Battles.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",
@@ -55,7 +55,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "Gain [Arg1] {Counter} at the start of battle, effects are doubled in Boss Battles.",
+      "descriptionTemplate": "Gain [Arg1] {Counter} at the start of battle. Effects are doubled in Boss Battles.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

@@ -26,7 +26,7 @@
       "inputs": ["accountLevel", "ownedPosseCount"]
     }
   },
-  "lore": "A hint of fresh red seeps through.",
+  "lore": "A hint of fresh crimson seeps through.",
   "variants": [
     {
       "id": "relic-variant-0192",
@@ -46,7 +46,7 @@
           "inputs": ["accountLevel", "ownedPosseCount"]
         }
       },
-      "lore": "A hint of fresh red seeps through."
+      "lore": "A hint of fresh crimson seeps through."
     },
     {
       "id": "relic-variant-0193",
@@ -65,7 +65,7 @@
           "inputs": ["accountLevel", "ownedPosseCount"]
         }
       },
-      "lore": "A hint of fresh red seeps through."
+      "lore": "A hint of fresh crimson seeps through."
     },
     {
       "id": "relic-variant-0191",
@@ -85,7 +85,7 @@
           "inputs": ["accountLevel", "ownedPosseCount"]
         }
       },
-      "lore": "A hint of fresh red seeps through."
+      "lore": "A hint of fresh crimson seeps through."
     }
   ]
 }

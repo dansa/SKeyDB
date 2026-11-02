@@ -12,7 +12,7 @@
   "rootSkillId": "skill.ramona-timeworn.predetermined-strike",
   "cardFamily": "command",
   "cardTypes": ["skill"],
-  "descriptionTemplate": "Deal double DMG and additionally gain 600% Keyflare Regen equal to Ramona's Silver Key Keyflare, but {Exhaust} after play.",
+  "descriptionTemplate": "Deal double DMG and additionally gain 600% Keyflare equal to Ramona: Timeworn's Keyflare Regen, but {Exhaust} after play.",
   "descriptionArgs": {},
   "cardKeywords": [],
   "ownerAwakenerName": "Ramona: Timeworn"

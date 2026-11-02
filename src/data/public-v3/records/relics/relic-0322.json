@@ -18,7 +18,7 @@
   "aliases": [],
   "descriptionTemplate": "If the number of cards played last turn is less than or equal to 4, the first card played this turn takes effect twice.",
   "descriptionArgs": {},
-  "lore": "Introduce Phantasm.",
+  "lore": "Deep into the dreams.",
   "variants": [
     {
       "id": "relic-variant-0575",
@@ -30,7 +30,7 @@
       "rarity": "SSR",
       "descriptionTemplate": "If the number of cards played last turn is less than or equal to 4, the first card played this turn takes effect twice.",
       "descriptionArgs": {},
-      "lore": "Introduce Phantasm."
+      "lore": "Deep into the dreams."
     }
   ]
 }

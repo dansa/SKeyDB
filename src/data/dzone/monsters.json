@@ -651,14 +651,6 @@
       "badges": ["Boss"]
     },
     {
-      "id": "dzone-monster-0110",
-      "name": "\"Scuttler\"",
-      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008", "enemy-characteristic-0014"],
-      "descriptionTemplate": "She is elusive, intimately familiar with every alley in the East District; she is the \"Scuttler\".",
-      "assetName": "Portrait_Minihead_EnemyAwaker_D07_AF",
-      "badges": ["Boss"]
-    },
-    {
       "id": "dzone-monster-0171",
       "name": "\"Sea Cave Special\"",
       "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0018", "enemy-characteristic-0012"],
@@ -823,6 +815,14 @@
       "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008"],
       "descriptionTemplate": "A phantom drawn from your memories. You know it is not real.",
       "assetName": "Portrait_Minihead_EnemyAwaker_C01_AF",
+      "badges": ["Boss"]
+    },
+    {
+      "id": "dzone-monster-0110",
+      "name": "\"The Scuttler\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0008", "enemy-characteristic-0014"],
+      "descriptionTemplate": "She is elusive, intimately familiar with every alley in the East District; she is the \"Scuttler\".",
+      "assetName": "Portrait_Minihead_EnemyAwaker_D07_AF",
       "badges": ["Boss"]
     },
     {

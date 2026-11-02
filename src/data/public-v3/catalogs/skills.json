@@ -3586,7 +3586,7 @@
     {
       "kind": "skill",
       "id": "skill.murphy.made-into-being",
-      "name": "Made Into Being",
+      "name": "Made into Being",
       "route": {
         "slug": "made-into-being",
         "canonicalPath": "/database/awakeners/murphy/skills/made-into-being"
@@ -3599,11 +3599,11 @@
     },
     {
       "kind": "skill",
-      "id": "skill.murphy.oath-of-liberation",
-      "name": "Oath of Liberation",
+      "id": "skill.murphy.oath-of-freedom",
+      "name": "Oath of Freedom",
       "route": {
-        "slug": "oath-of-liberation",
-        "canonicalPath": "/database/awakeners/murphy/skills/oath-of-liberation"
+        "slug": "oath-of-freedom",
+        "canonicalPath": "/database/awakeners/murphy/skills/oath-of-freedom"
       },
       "cardFamily": "exalt",
       "cardTypes": ["over_exalt"],

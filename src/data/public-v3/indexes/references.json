@@ -73,6 +73,12 @@
         "id": "posse-0027"
       }
     ],
+    "a knights vow": [
+      {
+        "kind": "wheel",
+        "id": "wheel-0017"
+      }
+    ],
     "a mouses wisdom": [
       {
         "kind": "posse",
@@ -3397,6 +3403,12 @@
         "id": "awakener-build-0016"
       }
     ],
+    "faint candlelight": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.faros.faint-candlelight"
+      }
+    ],
     "fainted": [
       {
         "kind": "overlay",
@@ -3653,12 +3665,6 @@
       {
         "kind": "derivedSkill",
         "id": "derived.global.flicker-of-humanity"
-      }
-    ],
-    "flickering candle": [
-      {
-        "kind": "enlighten",
-        "id": "enlighten.faros.flickering-candle"
       }
     ],
     "flowing rill": [
@@ -4271,12 +4277,6 @@
       {
         "kind": "skill",
         "id": "skill.salvador.he-who-protects"
-      }
-    ],
-    "heart of a knight": [
-      {
-        "kind": "wheel",
-        "id": "wheel-0017"
       }
     ],
     "heart of mutation": [
@@ -7681,10 +7681,16 @@
         "id": "awakener-build-0044"
       }
     ],
+    "salvation bestowal": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.salvador.salvation-bestowal"
+      }
+    ],
     "salvations hand": [
       {
         "kind": "enlighten",
-        "id": "enlighten.salvador.salvations-hand"
+        "id": "enlighten.wanda.salvations-hand"
       }
     ],
     "salvific limb": [
@@ -9703,12 +9709,6 @@
         "id": "skill.helot.vengeance-upon-thee"
       }
     ],
-    "venus and fur": [
-      {
-        "kind": "enlighten",
-        "id": "enlighten.wanda.venus-and-fur"
-      }
-    ],
     "verdant spark": [
       {
         "kind": "enlighten",
@@ -11447,14 +11447,14 @@
         "id": "skill.lotan-cetarchon.night-of-whalefall"
       }
     ],
-    "oath of liberation": [
+    "oath of freedom": [
       {
         "kind": "enlighten",
-        "id": "enlighten.murphy.oath-of-liberation"
+        "id": "enlighten.murphy.oath-of-freedom"
       },
       {
         "kind": "skill",
-        "id": "skill.murphy.oath-of-liberation"
+        "id": "skill.murphy.oath-of-freedom"
       }
     ],
     "oath to tomorrow": [

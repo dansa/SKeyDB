@@ -2,10 +2,10 @@
   "schemaVersion": 3,
   "kind": "wheel",
   "id": "wheel-0017",
-  "name": "Heart of a Knight",
+  "name": "A Knight's Vow",
   "route": {
-    "slug": "heart-of-a-knight",
-    "canonicalPath": "/database/wheels/heart-of-a-knight"
+    "slug": "a-knights-vow",
+    "canonicalPath": "/database/wheels/a-knights-vow"
   },
   "assets": {
     "icon": "asset-wheel-0017-icon"

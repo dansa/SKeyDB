@@ -24,7 +24,7 @@
       "suffix": "%"
     }
   },
-  "lore": "Not suitable for cutting live tissue.",
+  "lore": "Not suitable for sectioning live tissue.",
   "variants": [
     {
       "id": "relic-variant-0449",
@@ -42,7 +42,7 @@
           "suffix": "%"
         }
       },
-      "lore": "Not suitable for cutting live tissue."
+      "lore": "Not suitable for sectioning live tissue."
     },
     {
       "id": "relic-variant-0450",
@@ -51,7 +51,7 @@
       "variantType": "STANDARD",
       "tier": "Gold",
       "category": "ASTRAL_REIGN",
-      "descriptionTemplate": "\"Strike\" additionally deals DMG equal to [Arg1]% of the Awakener's ATK 2 more times, triggering up to 3 times per turn.",
+      "descriptionTemplate": "\"Strike\" additionally deals 2 more instances of DMG equal to [Arg1]% of the Awakener's ATK, triggering up to 3 times per turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",
@@ -59,7 +59,7 @@
           "suffix": "%"
         }
       },
-      "lore": "Not suitable for cutting live tissue."
+      "lore": "Not suitable for sectioning live tissue."
     },
     {
       "id": "relic-variant-0448",
@@ -79,7 +79,7 @@
           "inputs": ["accountLevel", "ownedPosseCount"]
         }
       },
-      "lore": "Not suitable for cutting live tissue."
+      "lore": "Not suitable for sectioning live tissue."
     }
   ]
 }

@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0332",
   "rarity": "SR",
   "aliases": ["Bespoke Lucky Windcoat"],
-  "descriptionTemplate": "All Awakeners' Crit. Rate +10%. The random effects of Ryker and dice cannot be the lowest value.",
+  "descriptionTemplate": "All Awakeners' Crit. Rate +10%. The random effects of Ryker and the dice cannot be the lowest value.",
   "descriptionArgs": {},
   "lore": "It will raise a thick barrier to keep out the winds, rains, and misfortunes.",
   "variants": [
@@ -29,7 +29,7 @@
       "category": "OTHER",
       "mechanicOwner": "Ryker",
       "rarity": "SR",
-      "descriptionTemplate": "All Awakeners' Crit. Rate +10%. The random effects of Ryker and dice cannot be the lowest value.",
+      "descriptionTemplate": "All Awakeners' Crit. Rate +10%. The random effects of Ryker and the dice cannot be the lowest value.",
       "descriptionArgs": {},
       "lore": "It will raise a thick barrier to keep out the winds, rains, and misfortunes."
     },

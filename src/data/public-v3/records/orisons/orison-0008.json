@@ -14,7 +14,7 @@
   "variantCount": 2,
   "defaultVariantId": "orison-variant-0015",
   "aliases": [],
-  "descriptionTemplate": "At the start of each battle, shuffle [Arg1] basic copy of the engraved card into the Draw Pile. Both the engraved card and the copy it creates have {Retain}.",
+  "descriptionTemplate": "At the start of each battle, shuffle [Arg1] basic copies of the engraved card into the Draw Pile. Both the engraved card and the copies it creates have {Retain}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -26,7 +26,7 @@
       "id": "orison-variant-0015",
       "name": "Mirror",
       "tier": "Common",
-      "descriptionTemplate": "At the start of each battle, shuffle [Arg1] basic copy of the engraved card into the Draw Pile. Both the engraved card and the copy it creates have {Retain}.",
+      "descriptionTemplate": "At the start of each battle, shuffle [Arg1] basic copies of the engraved card into the Draw Pile. Both the engraved card and the copies it creates have {Retain}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

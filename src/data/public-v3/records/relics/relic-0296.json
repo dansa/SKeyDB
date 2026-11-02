@@ -66,7 +66,7 @@
       "tier": "Gold",
       "category": "FADED_LEGACY",
       "rarity": "SSR",
-      "descriptionTemplate": "After Exalt, the corresponding Awakener gains 10 Aliemus and [Arg1] Shield.",
+      "descriptionTemplate": "After releasing Exalt, the corresponding Awakener gains 10 Aliemus and [Arg1] Shield.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

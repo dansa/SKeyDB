@@ -24,7 +24,7 @@
       "suffix": "%"
     }
   },
-  "lore": "One, Two, Three, Four, Five.",
+  "lore": "One, two, three, four, five.",
   "variants": [
     {
       "id": "relic-variant-0095",
@@ -42,7 +42,7 @@
           "suffix": "%"
         }
       },
-      "lore": "One, Two, Three, Four, Five."
+      "lore": "One, two, three, four, five."
     },
     {
       "id": "relic-variant-0096",
@@ -59,7 +59,7 @@
           "suffix": "%"
         }
       },
-      "lore": "One, Two, Three, Four, Five."
+      "lore": "One, two, three, four, five."
     },
     {
       "id": "relic-variant-0094",
@@ -86,7 +86,7 @@
           "inputs": ["accountLevel", "ownedPosseCount"]
         }
       },
-      "lore": "One, Two, Three, Four, Five."
+      "lore": "One, two, three, four, five."
     },
     {
       "id": "relic-variant-0097",
@@ -104,7 +104,7 @@
           "suffix": "%"
         }
       },
-      "lore": "One, Two, Three, Four, Five."
+      "lore": "One, two, three, four, five."
     },
     {
       "id": "relic-variant-0098",
@@ -121,7 +121,7 @@
           "suffix": "%"
         }
       },
-      "lore": "One, Two, Three, Four, Five."
+      "lore": "One, two, three, four, five."
     }
   ]
 }

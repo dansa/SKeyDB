@@ -382,6 +382,12 @@
         "canonicalSlug": "35mm-magic",
         "canonicalPath": "/database/wheels/35mm-magic"
       },
+      "a-knights-vow": {
+        "kind": "wheel",
+        "id": "wheel-0017",
+        "canonicalSlug": "a-knights-vow",
+        "canonicalPath": "/database/wheels/a-knights-vow"
+      },
       "aberrant-devour": {
         "kind": "wheel",
         "id": "wheel-0020",
@@ -735,12 +741,6 @@
         "id": "wheel-0038",
         "canonicalSlug": "happy-magic-show",
         "canonicalPath": "/database/wheels/happy-magic-show"
-      },
-      "heart-of-a-knight": {
-        "kind": "wheel",
-        "id": "wheel-0017",
-        "canonicalSlug": "heart-of-a-knight",
-        "canonicalPath": "/database/wheels/heart-of-a-knight"
       },
       "heart-of-silver": {
         "kind": "wheel",
@@ -5330,11 +5330,11 @@
         "canonicalSlug": "made-into-being",
         "canonicalPath": "/database/awakeners/murphy/skills/made-into-being"
       },
-      "murphy/oath-of-liberation": {
+      "murphy/oath-of-freedom": {
         "kind": "skill",
-        "id": "skill.murphy.oath-of-liberation",
-        "canonicalSlug": "oath-of-liberation",
-        "canonicalPath": "/database/awakeners/murphy/skills/oath-of-liberation"
+        "id": "skill.murphy.oath-of-freedom",
+        "canonicalSlug": "oath-of-freedom",
+        "canonicalPath": "/database/awakeners/murphy/skills/oath-of-freedom"
       },
       "murphy/strike": {
         "kind": "skill",
@@ -9674,11 +9674,11 @@
         "canonicalSlug": "congealed-ambergris",
         "canonicalPath": "/database/awakeners/faros/enlightens/congealed-ambergris"
       },
-      "faros/flickering-candle": {
+      "faros/faint-candlelight": {
         "kind": "enlighten",
-        "id": "enlighten.faros.flickering-candle",
-        "canonicalSlug": "flickering-candle",
-        "canonicalPath": "/database/awakeners/faros/enlightens/flickering-candle"
+        "id": "enlighten.faros.faint-candlelight",
+        "canonicalSlug": "faint-candlelight",
+        "canonicalPath": "/database/awakeners/faros/enlightens/faint-candlelight"
       },
       "faros/jagged-shore": {
         "kind": "enlighten",
@@ -10196,11 +10196,11 @@
         "canonicalSlug": "inextricable-bloodline",
         "canonicalPath": "/database/awakeners/murphy/enlightens/inextricable-bloodline"
       },
-      "murphy/oath-of-liberation": {
+      "murphy/oath-of-freedom": {
         "kind": "enlighten",
-        "id": "enlighten.murphy.oath-of-liberation",
-        "canonicalSlug": "oath-of-liberation",
-        "canonicalPath": "/database/awakeners/murphy/enlightens/oath-of-liberation"
+        "id": "enlighten.murphy.oath-of-freedom",
+        "canonicalSlug": "oath-of-freedom",
+        "canonicalPath": "/database/awakeners/murphy/enlightens/oath-of-freedom"
       },
       "murphy/silent-defiance": {
         "kind": "enlighten",
@@ -10562,11 +10562,11 @@
         "canonicalSlug": "rite-of-creation",
         "canonicalPath": "/database/awakeners/salvador/enlightens/rite-of-creation"
       },
-      "salvador/salvations-hand": {
+      "salvador/salvation-bestowal": {
         "kind": "enlighten",
-        "id": "enlighten.salvador.salvations-hand",
-        "canonicalSlug": "salvations-hand",
-        "canonicalPath": "/database/awakeners/salvador/enlightens/salvations-hand"
+        "id": "enlighten.salvador.salvation-bestowal",
+        "canonicalSlug": "salvation-bestowal",
+        "canonicalPath": "/database/awakeners/salvador/enlightens/salvation-bestowal"
       },
       "sanga/artistic-dionysia": {
         "kind": "enlighten",
@@ -10886,17 +10886,17 @@
         "canonicalSlug": "lost-dreams-guide",
         "canonicalPath": "/database/awakeners/wanda/enlightens/lost-dreams-guide"
       },
+      "wanda/salvations-hand": {
+        "kind": "enlighten",
+        "id": "enlighten.wanda.salvations-hand",
+        "canonicalSlug": "salvations-hand",
+        "canonicalPath": "/database/awakeners/wanda/enlightens/salvations-hand"
+      },
       "wanda/the-revelation": {
         "kind": "enlighten",
         "id": "enlighten.wanda.the-revelation",
         "canonicalSlug": "the-revelation",
         "canonicalPath": "/database/awakeners/wanda/enlightens/the-revelation"
-      },
-      "wanda/venus-and-fur": {
-        "kind": "enlighten",
-        "id": "enlighten.wanda.venus-and-fur",
-        "canonicalSlug": "venus-and-fur",
-        "canonicalPath": "/database/awakeners/wanda/enlightens/venus-and-fur"
       },
       "winkle/dread-of-the-darkness": {
         "kind": "enlighten",
@@ -12292,7 +12292,14 @@
   },
   "redirects": {
     "awakeners": {},
-    "wheels": {},
+    "wheels": {
+      "heart-of-a-knight": {
+        "kind": "wheel",
+        "id": "wheel-0017",
+        "canonicalSlug": "a-knights-vow",
+        "canonicalPath": "/database/wheels/a-knights-vow"
+      }
+    },
     "relics": {
       "argent-return-birth": {
         "kind": "relic",
@@ -12498,10 +12505,42 @@
         "canonicalPath": "/database/posses/primordial-memory-fury"
       }
     },
-    "skills": {},
+    "skills": {
+      "murphy/oath-of-liberation": {
+        "kind": "skill",
+        "id": "skill.murphy.oath-of-freedom",
+        "canonicalSlug": "oath-of-freedom",
+        "canonicalPath": "/database/awakeners/murphy/skills/oath-of-freedom"
+      }
+    },
     "derived-skills": {},
     "talents": {},
-    "enlightens": {},
+    "enlightens": {
+      "faros/flickering-candle": {
+        "kind": "enlighten",
+        "id": "enlighten.faros.faint-candlelight",
+        "canonicalSlug": "faint-candlelight",
+        "canonicalPath": "/database/awakeners/faros/enlightens/faint-candlelight"
+      },
+      "murphy/oath-of-liberation": {
+        "kind": "enlighten",
+        "id": "enlighten.murphy.oath-of-freedom",
+        "canonicalSlug": "oath-of-freedom",
+        "canonicalPath": "/database/awakeners/murphy/enlightens/oath-of-freedom"
+      },
+      "salvador/salvations-hand": {
+        "kind": "enlighten",
+        "id": "enlighten.salvador.salvation-bestowal",
+        "canonicalSlug": "salvation-bestowal",
+        "canonicalPath": "/database/awakeners/salvador/enlightens/salvation-bestowal"
+      },
+      "wanda/venus-and-fur": {
+        "kind": "enlighten",
+        "id": "enlighten.wanda.salvations-hand",
+        "canonicalSlug": "salvations-hand",
+        "canonicalPath": "/database/awakeners/wanda/enlightens/salvations-hand"
+      }
+    },
     "overlays": {},
     "awakener-builds": {}
   }

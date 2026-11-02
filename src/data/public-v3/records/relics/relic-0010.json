@@ -18,7 +18,7 @@
   "ownerAwakenerName": "Clementine",
   "rarity": "SSR",
   "aliases": [],
-  "descriptionTemplate": "At the start of turn, Clementine gains [Arg1] Aliemus. Clementine's Command Cards' DMG dealt, Shield Generation, HP Recovery, Aliemus Generation, and Keyflare Generation effects increase by 1.",
+  "descriptionTemplate": "At turn start, Clementine gains [Arg1] Aliemus. The number of times Clementine's Command Cards deal DMG, generate Shield, recover HP, gain Aliemus, and gain Keyflare +1.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -36,7 +36,7 @@
       "ownerAwakenerId": "awakener-0010",
       "ownerAwakenerName": "Clementine",
       "rarity": "SSR",
-      "descriptionTemplate": "At the start of turn, Clementine gains [Arg1] Aliemus. Clementine's Command Cards' DMG dealt, Shield Generation, HP Recovery, Aliemus Generation, and Keyflare Generation effects increase by 1.",
+      "descriptionTemplate": "At turn start, Clementine gains [Arg1] Aliemus. The number of times Clementine's Command Cards deal DMG, generate Shield, recover HP, gain Aliemus, and gain Keyflare +1.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

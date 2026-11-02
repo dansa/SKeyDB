@@ -1617,6 +1617,7 @@
       "ownerAwakenerId": "awakener-0022",
       "ownerAwakenerName": "Hameln",
       "overlayType": "mechanic",
+      "textColor": "damage",
       "aliases": []
     },
     {

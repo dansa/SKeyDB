@@ -1,11 +1,11 @@
 {
   "schemaVersion": 3,
   "kind": "enlighten",
-  "id": "enlighten.salvador.salvations-hand",
-  "name": "Salvation's Hand",
+  "id": "enlighten.salvador.salvation-bestowal",
+  "name": "Salvation Bestowal",
   "route": {
-    "slug": "salvations-hand",
-    "canonicalPath": "/database/awakeners/salvador/enlightens/salvations-hand"
+    "slug": "salvation-bestowal",
+    "canonicalPath": "/database/awakeners/salvador/enlightens/salvation-bestowal"
   },
   "ownerAwakenerId": "awakener-0044",
   "slot": "E3",

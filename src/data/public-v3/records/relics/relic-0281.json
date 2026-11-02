@@ -93,7 +93,7 @@
       "variantType": "BLESSED",
       "tier": "Blessed",
       "category": "FADED_LEGACY",
-      "descriptionTemplate": "For each Active DMG dealt, restore [Arg1] HP and Inflict [Arg2] {plural:[Arg2]|stack|stacks} of {Bleed} to the target.",
+      "descriptionTemplate": "For each instance of Active DMG dealt, restore [Arg1] HP and apply [Arg2] {plural:[Arg2]|stack|stacks} of {Bleed} to the target.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

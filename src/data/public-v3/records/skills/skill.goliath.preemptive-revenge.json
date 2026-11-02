@@ -47,7 +47,7 @@
       "ownerAwakenerId": "awakener-0021",
       "ownerAwakenerName": "Goliath",
       "patch": {
-        "descriptionTemplate": "Goliath gains [Energy:Arg1] Aliemus. {Rouse}: Gain 1 Tentacle. When Goliath deals DMG, gain [Power:Arg2] {STR} and [TentaclePower:Arg3] {Tentacle DMG}. While in {Raging Waves} stance, Goliath's Command Cards gain an additional [Arg4]% {STR} Bonus.",
+        "descriptionTemplate": "Goliath gains [Energy:Arg1] Aliemus. {Rouse}: Gain 1 Tentacle. When Goliath deals DMG, gain [Power:Arg2] {STR} and [TentaclePower:Arg3] {Tentacle DMG}. While in {Raging Waves} stance, Goliath gains an additional [Arg4]% {STR} Bonus.",
         "descriptionArgs": {
           "Arg1": {
             "kind": "scaling",

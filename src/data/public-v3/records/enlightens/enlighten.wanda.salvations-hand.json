@@ -1,11 +1,11 @@
 {
   "schemaVersion": 3,
   "kind": "enlighten",
-  "id": "enlighten.wanda.venus-and-fur",
-  "name": "Venus and Fur",
+  "id": "enlighten.wanda.salvations-hand",
+  "name": "Salvation's Hand",
   "route": {
-    "slug": "venus-and-fur",
-    "canonicalPath": "/database/awakeners/wanda/enlightens/venus-and-fur"
+    "slug": "salvations-hand",
+    "canonicalPath": "/database/awakeners/wanda/enlightens/salvations-hand"
   },
   "ownerAwakenerId": "awakener-0052",
   "slot": "E3",

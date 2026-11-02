@@ -38,7 +38,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "Tentacle Limit +2. After triggering Exalt, {Tentacle DMG} +[Arg1]. When Exalt is triggered 3 times in a turn, activate all Tentacles once.",
+      "descriptionTemplate": "Tentacle Limit +2. After releasing Exalt, {Tentacle DMG} +[Arg1]. If Exalt is released 3 times in a turn, activate all Tentacles once.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

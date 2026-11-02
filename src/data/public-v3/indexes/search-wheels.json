@@ -636,16 +636,14 @@
     {
       "kind": "wheel",
       "id": "wheel-0017",
-      "name": "Heart of a Knight",
+      "name": "A Knight's Vow",
       "aliases": [],
       "tokens": [
         "a",
+        "a knights vow",
         "chaos",
         "generation",
-        "heart",
-        "heart of a knight",
-        "knight",
-        "of",
+        "knights",
         "ogier",
         "shield",
         "shield generation",
@@ -654,10 +652,11 @@
         "str up",
         "strength",
         "strength up",
-        "up"
+        "up",
+        "vow"
       ],
       "fields": {
-        "name": ["Heart of a Knight", "heart-of-a-knight"],
+        "name": ["A Knight's Vow", "a-knights-vow"],
         "owner": ["Ogier"],
         "tag": ["str-up", "shield", "STR Up", "strength up", "shield generation"],
         "facet": ["CHAOS", "SSR"]

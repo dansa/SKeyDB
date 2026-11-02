@@ -67,7 +67,7 @@
       "variantType": "BLESSED",
       "tier": "Blessed",
       "category": "FADED_LEGACY",
-      "descriptionTemplate": "Upon picking it up, permanently Gain [Arg1] {STR}. Whenever Active or {Tentacle DMG} is dealt, heal for [Arg2] HP, with a maximum of 6 triggers per turn.",
+      "descriptionTemplate": "Gain [Arg1] {STR} permanently after picking it up. Whenever Active or {Tentacle DMG} is dealt, heal [Arg2] HP, with a maximum of 6 triggers per turn.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

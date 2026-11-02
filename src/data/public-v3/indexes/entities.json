@@ -5332,13 +5332,13 @@
       "ownerAwakenerName": "Faros",
       "slot": "E2"
     },
-    "enlighten.faros.flickering-candle": {
+    "enlighten.faros.faint-candlelight": {
       "kind": "enlighten",
-      "id": "enlighten.faros.flickering-candle",
-      "name": "Flickering Candle",
+      "id": "enlighten.faros.faint-candlelight",
+      "name": "Faint Candlelight",
       "route": {
-        "slug": "flickering-candle",
-        "canonicalPath": "/database/awakeners/faros/enlightens/flickering-candle"
+        "slug": "faint-candlelight",
+        "canonicalPath": "/database/awakeners/faros/enlightens/faint-candlelight"
       },
       "ownerAwakenerId": "awakener-0017",
       "ownerAwakenerName": "Faros",
@@ -6376,13 +6376,13 @@
       "ownerAwakenerName": "Murphy",
       "slot": "E2"
     },
-    "enlighten.murphy.oath-of-liberation": {
+    "enlighten.murphy.oath-of-freedom": {
       "kind": "enlighten",
-      "id": "enlighten.murphy.oath-of-liberation",
-      "name": "Oath of Liberation",
+      "id": "enlighten.murphy.oath-of-freedom",
+      "name": "Oath of Freedom",
       "route": {
-        "slug": "oath-of-liberation",
-        "canonicalPath": "/database/awakeners/murphy/enlightens/oath-of-liberation"
+        "slug": "oath-of-freedom",
+        "canonicalPath": "/database/awakeners/murphy/enlightens/oath-of-freedom"
       },
       "ownerAwakenerId": "awakener-0034",
       "ownerAwakenerName": "Murphy",
@@ -7108,13 +7108,13 @@
       "ownerAwakenerName": "Salvador",
       "slot": "OverExalt"
     },
-    "enlighten.salvador.salvations-hand": {
+    "enlighten.salvador.salvation-bestowal": {
       "kind": "enlighten",
-      "id": "enlighten.salvador.salvations-hand",
-      "name": "Salvation's Hand",
+      "id": "enlighten.salvador.salvation-bestowal",
+      "name": "Salvation Bestowal",
       "route": {
-        "slug": "salvations-hand",
-        "canonicalPath": "/database/awakeners/salvador/enlightens/salvations-hand"
+        "slug": "salvation-bestowal",
+        "canonicalPath": "/database/awakeners/salvador/enlightens/salvation-bestowal"
       },
       "ownerAwakenerId": "awakener-0044",
       "ownerAwakenerName": "Salvador",
@@ -7756,6 +7756,18 @@
       "ownerAwakenerName": "Wanda",
       "slot": "OverExalt"
     },
+    "enlighten.wanda.salvations-hand": {
+      "kind": "enlighten",
+      "id": "enlighten.wanda.salvations-hand",
+      "name": "Salvation's Hand",
+      "route": {
+        "slug": "salvations-hand",
+        "canonicalPath": "/database/awakeners/wanda/enlightens/salvations-hand"
+      },
+      "ownerAwakenerId": "awakener-0052",
+      "ownerAwakenerName": "Wanda",
+      "slot": "E3"
+    },
     "enlighten.wanda.the-revelation": {
       "kind": "enlighten",
       "id": "enlighten.wanda.the-revelation",
@@ -7767,18 +7779,6 @@
       "ownerAwakenerId": "awakener-0052",
       "ownerAwakenerName": "Wanda",
       "slot": "E1"
-    },
-    "enlighten.wanda.venus-and-fur": {
-      "kind": "enlighten",
-      "id": "enlighten.wanda.venus-and-fur",
-      "name": "Venus and Fur",
-      "route": {
-        "slug": "venus-and-fur",
-        "canonicalPath": "/database/awakeners/wanda/enlightens/venus-and-fur"
-      },
-      "ownerAwakenerId": "awakener-0052",
-      "ownerAwakenerName": "Wanda",
-      "slot": "E3"
     },
     "enlighten.winkle.dread-of-the-darkness": {
       "kind": "enlighten",
@@ -18448,7 +18448,7 @@
     "skill.murphy.made-into-being": {
       "kind": "skill",
       "id": "skill.murphy.made-into-being",
-      "name": "Made Into Being",
+      "name": "Made into Being",
       "route": {
         "slug": "made-into-being",
         "canonicalPath": "/database/awakeners/murphy/skills/made-into-being"
@@ -18457,13 +18457,13 @@
       "ownerAwakenerName": "Murphy",
       "slot": "Rouse"
     },
-    "skill.murphy.oath-of-liberation": {
+    "skill.murphy.oath-of-freedom": {
       "kind": "skill",
-      "id": "skill.murphy.oath-of-liberation",
-      "name": "Oath of Liberation",
+      "id": "skill.murphy.oath-of-freedom",
+      "name": "Oath of Freedom",
       "route": {
-        "slug": "oath-of-liberation",
-        "canonicalPath": "/database/awakeners/murphy/skills/oath-of-liberation"
+        "slug": "oath-of-freedom",
+        "canonicalPath": "/database/awakeners/murphy/skills/oath-of-freedom"
       },
       "ownerAwakenerId": "awakener-0034",
       "ownerAwakenerName": "Murphy",
@@ -23896,10 +23896,10 @@
     "wheel-0017": {
       "kind": "wheel",
       "id": "wheel-0017",
-      "name": "Heart of a Knight",
+      "name": "A Knight's Vow",
       "route": {
-        "slug": "heart-of-a-knight",
-        "canonicalPath": "/database/wheels/heart-of-a-knight"
+        "slug": "a-knights-vow",
+        "canonicalPath": "/database/wheels/a-knights-vow"
       },
       "assets": {
         "icon": "asset-wheel-0017-icon"
@@ -26509,7 +26509,7 @@
       "enlighten.faint.ever-barren-rainbow",
       "enlighten.faint.withering-hymn",
       "enlighten.faros.congealed-ambergris",
-      "enlighten.faros.flickering-candle",
+      "enlighten.faros.faint-candlelight",
       "enlighten.faros.jagged-shore",
       "enlighten.faros.light-of-the-lost",
       "enlighten.faros.to-the-radiant-shore",
@@ -26596,7 +26596,7 @@
       "enlighten.murphy.defiant-providence",
       "enlighten.murphy.emancipating-touch",
       "enlighten.murphy.inextricable-bloodline",
-      "enlighten.murphy.oath-of-liberation",
+      "enlighten.murphy.oath-of-freedom",
       "enlighten.murphy.silent-defiance",
       "enlighten.nautila.absent-cogwheel",
       "enlighten.nautila.ace-mechanist",
@@ -26657,7 +26657,7 @@
       "enlighten.salvador.book-of-genesis",
       "enlighten.salvador.divine-proxy",
       "enlighten.salvador.rite-of-creation",
-      "enlighten.salvador.salvations-hand",
+      "enlighten.salvador.salvation-bestowal",
       "enlighten.sanga.artistic-dionysia",
       "enlighten.sanga.kneel-before-beauty",
       "enlighten.sanga.melodic-sculpting",
@@ -26711,8 +26711,8 @@
       "enlighten.wanda.black-stone-decree",
       "enlighten.wanda.lakeborne-dweller",
       "enlighten.wanda.lost-dreams-guide",
+      "enlighten.wanda.salvations-hand",
       "enlighten.wanda.the-revelation",
-      "enlighten.wanda.venus-and-fur",
       "enlighten.winkle.dread-of-the-darkness",
       "enlighten.winkle.forsaken-homeland",
       "enlighten.winkle.rebirth-through-death",
@@ -27552,7 +27552,7 @@
       "skill.murphy.delusions-heir",
       "skill.murphy.divine-maidens-birth",
       "skill.murphy.made-into-being",
-      "skill.murphy.oath-of-liberation",
+      "skill.murphy.oath-of-freedom",
       "skill.murphy.strike",
       "skill.murphy.vortex-reversed",
       "skill.nautila.defense",

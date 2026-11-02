@@ -27,7 +27,7 @@
       "value": "100"
     }
   },
-  "lore": "Quantified longing.",
+  "lore": "Quantified nostalgia.",
   "variants": [
     {
       "id": "relic-variant-0245",
@@ -48,7 +48,7 @@
           "value": "100"
         }
       },
-      "lore": "Quantified longing."
+      "lore": "Quantified nostalgia."
     },
     {
       "id": "relic-variant-0246",
@@ -68,7 +68,7 @@
           "value": "200"
         }
       },
-      "lore": "Quantified longing."
+      "lore": "Quantified nostalgia."
     },
     {
       "id": "relic-variant-0244",
@@ -80,7 +80,7 @@
       "rarity": "N",
       "descriptionTemplate": "Whenever a Buff Card, Symptom Card, or State Card is played, the Awakener with the lowest Aliemus gains 10 Aliemus.",
       "descriptionArgs": {},
-      "lore": "Quantified longing."
+      "lore": "Quantified nostalgia."
     }
   ]
 }

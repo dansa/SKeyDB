@@ -18,7 +18,7 @@
   "ownerAwakenerName": "Karen",
   "rarity": "SSR",
   "aliases": [],
-  "descriptionTemplate": "At turn start, Karen gains [Arg1] Aliemus. Playing {Silent Fealty} will return double the {Exhausted} Arithmetica, with a cooldown of [Arg2] {plural:[Arg2]|turn|turns}.",
+  "descriptionTemplate": "At turn start, Karen gains [Arg1] Aliemus. Playing {Silent Fealty} will return double the consumed Arithmetica, with a cooldown of [Arg2] {plural:[Arg2]|turn|turns}.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "fixed",
@@ -40,7 +40,7 @@
       "ownerAwakenerId": "awakener-0026",
       "ownerAwakenerName": "Karen",
       "rarity": "SSR",
-      "descriptionTemplate": "At turn start, Karen gains [Arg1] Aliemus. Playing {Silent Fealty} will return double the {Exhausted} Arithmetica, with a cooldown of [Arg2] {plural:[Arg2]|turn|turns}.",
+      "descriptionTemplate": "At turn start, Karen gains [Arg1] Aliemus. Playing {Silent Fealty} will return double the consumed Arithmetica, with a cooldown of [Arg2] {plural:[Arg2]|turn|turns}.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "fixed",

@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0494",
   "rarity": "SSR",
   "aliases": [],
-  "descriptionTemplate": "When picked up, choose a card of an Awakener to reduce its Arithmetica Cost by 1, treating it as \"Strike\".",
+  "descriptionTemplate": "When picked up, choose a card of an Awakener to reduce its Arithmetica Cost by 1 and treat it as \"Strike\".",
   "descriptionArgs": {},
   "lore": "Laugh to your heart's content!",
   "variants": [
@@ -28,7 +28,7 @@
       "tier": "Gold",
       "category": "FADED_LEGACY",
       "rarity": "SSR",
-      "descriptionTemplate": "When picked up, choose a card of an Awakener to reduce its Arithmetica Cost by 1, treating it as \"Strike\".",
+      "descriptionTemplate": "When picked up, choose a card of an Awakener to reduce its Arithmetica Cost by 1 and treat it as \"Strike\".",
       "descriptionArgs": {},
       "lore": "Laugh to your heart's content!"
     }

@@ -23,7 +23,7 @@
       "value": "5"
     }
   },
-  "lore": "Portable Hope",
+  "lore": "Portable hope.",
   "variants": [
     {
       "id": "relic-variant-0413",
@@ -40,7 +40,7 @@
           "value": "5"
         }
       },
-      "lore": "Portable Hope"
+      "lore": "Portable hope."
     },
     {
       "id": "relic-variant-0414",
@@ -56,7 +56,7 @@
           "value": "10"
         }
       },
-      "lore": "Portable Hope"
+      "lore": "Portable hope."
     },
     {
       "id": "relic-variant-0412",
@@ -66,7 +66,7 @@
       "tier": "Gold",
       "category": "FADED_LEGACY",
       "rarity": "SSR",
-      "descriptionTemplate": "After the turn ends, all Awakeners gain 5 Aliemus. For each remaining Arithmetica, all Awakeners gain an additional 3 Aliemus.",
+      "descriptionTemplate": "At turn end, all Awakeners gain 5 Aliemus. For every remaining Arithmetica, all Awakeners gain an additional 3 Aliemus.",
       "descriptionArgs": {},
       "lore": "Portable hope."
     }

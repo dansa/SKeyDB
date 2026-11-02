@@ -35,7 +35,7 @@
       "inputs": ["accountLevel", "ownedPosseCount"]
     }
   },
-  "lore": "He didn't wait for the rescue.",
+  "lore": "He died before the rescue arrived.",
   "variants": [
     {
       "id": "relic-variant-0481",
@@ -64,7 +64,7 @@
           "inputs": ["accountLevel", "ownedPosseCount"]
         }
       },
-      "lore": "He didn't wait for the rescue."
+      "lore": "He died before the rescue arrived."
     }
   ]
 }

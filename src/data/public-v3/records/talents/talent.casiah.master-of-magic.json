@@ -9,7 +9,7 @@
   },
   "ownerAwakenerId": "awakener-0007",
   "family": "passive",
-  "descriptionTemplate": "For every 1 Realm Mastery provided by Casiah and her equipped Wheel of Destiny & Covenant, {Magic Carnival} increases all of Casiah's Base DMG by 0.2%.",
+  "descriptionTemplate": "For every 1 Realm Mastery provided by Casiah and her equipped Wheel of Destiny & Covenant,{Magic Carnival} increases all of Casiah's Base DMG by 0.2%.",
   "descriptionArgs": {},
   "ownerAwakenerName": "Casiah"
 }
