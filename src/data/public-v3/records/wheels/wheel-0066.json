@@ -10,6 +10,8 @@
   "assets": {
     "icon": "asset-wheel-0066-icon"
   },
+  "availabilityType": "PERMANENT",
+  "acquisitionSource": "Included in the permanent Wheel summon pool.",
   "rarity": "R",
   "realm": "NEUTRAL",
   "mainstatKey": "DEATH_RESISTANCE",

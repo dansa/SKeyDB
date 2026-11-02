@@ -10,6 +10,8 @@
   "assets": {
     "icon": "asset-wheel-0109-icon"
   },
+  "availabilityType": "EVENT",
+  "acquisitionSource": "Event reward Wheel.",
   "rarity": "SR",
   "realm": "NEUTRAL",
   "mainstatKey": "CRIT_DMG",

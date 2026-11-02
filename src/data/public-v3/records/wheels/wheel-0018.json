@@ -10,6 +10,8 @@
   "assets": {
     "icon": "asset-wheel-0018-icon"
   },
+  "availabilityType": "WELFARE",
+  "acquisitionSource": "Available from the Lightless exchange shop.",
   "rarity": "SSR",
   "realm": "CHAOS",
   "mainstatKey": "CRIT_DMG",

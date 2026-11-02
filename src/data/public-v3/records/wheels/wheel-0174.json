@@ -10,6 +10,8 @@
   "assets": {
     "icon": "asset-wheel-0174-icon"
   },
+  "availabilityType": "EVENT",
+  "acquisitionSource": "Event reward Wheel.",
   "rarity": "SSR",
   "realm": "NEUTRAL",
   "mainstatKey": "REALM_MASTERY",

@@ -10,6 +10,8 @@
   "assets": {
     "icon": "asset-wheel-0006-icon"
   },
+  "availabilityType": "LIMITED_FADED_LEGACY",
+  "acquisitionSource": "Faded Legacy signature Wheel; featured in certain limited Wheel banners. Also included in the permanent Wheel summon pool.",
   "rarity": "SSR",
   "realm": "CARO",
   "mainstatKey": "DMG_AMP",

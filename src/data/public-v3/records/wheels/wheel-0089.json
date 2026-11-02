@@ -10,6 +10,8 @@
   "assets": {
     "icon": "asset-wheel-0089-icon"
   },
+  "availabilityType": "PERMANENT",
+  "acquisitionSource": "Included in the permanent Wheel summon pool.",
   "rarity": "SR",
   "realm": "NEUTRAL",
   "mainstatKey": "REALM_MASTERY",

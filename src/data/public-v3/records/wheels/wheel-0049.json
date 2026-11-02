@@ -10,6 +10,8 @@
   "assets": {
     "icon": "asset-wheel-0049-icon"
   },
+  "availabilityType": "EVENT",
+  "acquisitionSource": "Commemorative event mail reward.",
   "rarity": "N",
   "realm": "NEUTRAL",
   "mainstatKey": "KEYFLARE_REGEN",

@@ -10,6 +10,8 @@
   "assets": {
     "icon": "asset-wheel-0125-icon"
   },
+  "availabilityType": "EVENT",
+  "acquisitionSource": "Event reward Wheel. Also available from the Sediment exchange shop.",
   "rarity": "SSR",
   "realm": "NEUTRAL",
   "mainstatKey": "ALIEMUS_REGEN",

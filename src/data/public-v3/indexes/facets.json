@@ -2843,6 +2843,38 @@
         "order": 1000
       }
     ],
+    "availabilityType": [
+      {
+        "value": "PERMANENT",
+        "label": "Permanent",
+        "order": 0
+      },
+      {
+        "value": "WELFARE",
+        "label": "Welfare",
+        "order": 10
+      },
+      {
+        "value": "LIMITED_FADED_LEGACY",
+        "label": "Limited: Faded Legacy",
+        "order": 20
+      },
+      {
+        "value": "LIMITED_ASTRAL_REIGN",
+        "label": "Limited: Astral Reign",
+        "order": 30
+      },
+      {
+        "value": "EVENT",
+        "label": "Event",
+        "order": 40
+      },
+      {
+        "value": "BATTLE_PASS",
+        "label": "Battle Pass",
+        "order": 50
+      }
+    ],
     "owner": [
       {
         "value": "awakener-0001",

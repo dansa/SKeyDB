@@ -10,6 +10,8 @@
   "assets": {
     "icon": "asset-wheel-0042-icon"
   },
+  "availabilityType": "LIMITED_ASTRAL_REIGN",
+  "acquisitionSource": "Astral Reign signature Wheel; featured in certain limited Wheel banners.",
   "rarity": "SSR",
   "realm": "ULTRA",
   "mainstatKey": "CRIT_RATE",
