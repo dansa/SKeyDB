@@ -217,6 +217,8 @@ describe('public-detail-record-adapters', () => {
     await expect(loadPublicWheelDetailById('wheel-0102')).resolves.toMatchObject({
       id: 'wheel-0102',
       name: 'Slumber Beneath the Glacier',
+      availabilityType: 'EVENT',
+      acquisitionSource: expect.stringContaining('Lightless'),
       assetId: 'Weapon_Full_SR26',
       aliases: ['Slumber Beneath the Glacier'],
       awakener: 'Murphy',

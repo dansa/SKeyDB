@@ -10,6 +10,8 @@
   "assets": {
     "icon": "asset-wheel-0003-icon"
   },
+  "availabilityType": "WELFARE",
+  "acquisitionSource": "Available from the D-Jewel exchange shop.",
   "rarity": "SSR",
   "realm": "CARO",
   "mainstatKey": "KEYFLARE_REGEN",

@@ -10,9 +10,12 @@ import {
   publicDescriptionArgsSchema,
   type PublicDescriptionArg,
 } from './public-description-args.schema'
+import {WHEEL_AVAILABILITY_TYPES, type WheelAvailabilityType} from './wheel-availability'
 import {buildWheelMainstatSeriesKey, type WheelMainstatKey} from './wheel-mainstat-scaling'
 
 export interface WheelFullRecord {
+  availabilityType?: WheelAvailabilityType
+  acquisitionSource?: string
   id: string
   assetId: string
   name: string
@@ -31,6 +34,8 @@ export interface WheelFullRecord {
 }
 
 const publicWheelRecordSchema = z.object({
+  availabilityType: z.enum(WHEEL_AVAILABILITY_TYPES).optional(),
+  acquisitionSource: z.string().optional(),
   id: z.string(),
   name: z.string(),
   rarity: z.enum(['SSR', 'SR', 'R', 'N']),

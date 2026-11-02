@@ -41,6 +41,7 @@ import {
   type PublicV3SkillRecord,
   type PublicV3TalentRecord,
 } from './public-v3-awakener-record-adapters'
+import {WHEEL_AVAILABILITY_TYPES} from './wheel-availability'
 import {
   buildWheelMainstatSeriesKey,
   WHEEL_MAINSTAT_KEYS,
@@ -66,6 +67,8 @@ type PublicV3AwakenerRecord = PublicRecord & {
   type?: string
 }
 type PublicV3WheelRecord = PublicRecord & {
+  acquisitionSource?: string
+  availabilityType?: WheelFullRecord['availabilityType']
   aliases?: string[]
   descriptionArgs: WheelFullRecord['descriptionArgs']
   descriptionTemplate: string
@@ -141,6 +144,8 @@ const publicAwakenerDetailSchema: z.ZodType<PublicV3AwakenerRecord> = z.looseObj
 const publicWheelDetailSchema: z.ZodType<PublicV3WheelRecord> = z.looseObject({
   ...publicRecordBaseShape,
   kind: z.literal('wheel'),
+  acquisitionSource: z.string().optional(),
+  availabilityType: z.enum(WHEEL_AVAILABILITY_TYPES).optional(),
   id: z.string(),
   aliases: z.array(z.string()).optional(),
   descriptionArgs: publicDescriptionArgsSchema,

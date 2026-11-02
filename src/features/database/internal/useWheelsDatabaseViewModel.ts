@@ -14,9 +14,20 @@ import {searchWheelResults} from '@/domain/wheels-search'
 
 function applyFilters(
   wheels: Wheel[],
-  browseState: Pick<WheelsDatabaseBrowseState, 'realmFilter' | 'rarityFilter' | 'mainstatFilter'>,
+  browseState: Pick<
+    WheelsDatabaseBrowseState,
+    'realmFilter' | 'rarityFilter' | 'mainstatFilter' | 'availabilityFilter'
+  >,
 ): Wheel[] {
   let result = wheels
+  if (browseState.availabilityFilter !== 'ALL') {
+    result = result.filter((wheel) =>
+      browseState.availabilityFilter === 'LIMITED'
+        ? wheel.availabilityType === 'LIMITED_FADED_LEGACY' ||
+          wheel.availabilityType === 'LIMITED_ASTRAL_REIGN'
+        : wheel.availabilityType === browseState.availabilityFilter,
+    )
+  }
   if (browseState.realmFilter !== 'ALL') {
     result = result.filter((wheel) => wheel.realm === browseState.realmFilter)
   }
@@ -50,7 +61,15 @@ export function useWheelsDatabaseViewModel(
   allWheels: Wheel[],
   browseState: WheelsDatabaseBrowseState,
 ) {
-  const {mainstatFilter, query, rarityFilter, realmFilter, sortDirection, sortKey} = browseState
+  const {
+    availabilityFilter,
+    mainstatFilter,
+    query,
+    rarityFilter,
+    realmFilter,
+    sortDirection,
+    sortKey,
+  } = browseState
   const wheelIndexById = useMemo(
     () => new Map(allWheels.toSorted(compareWheelsForUi).map((wheel, index) => [wheel.id, index])),
     [allWheels],
@@ -66,7 +85,7 @@ export function useWheelsDatabaseViewModel(
     const relevanceByWheelId = getSearchRelevanceByEntityId(searchResults, query)
     const filtered = applyFilters(
       searchResults.map((result) => result.entity),
-      {mainstatFilter, rarityFilter, realmFilter},
+      {availabilityFilter, mainstatFilter, rarityFilter, realmFilter},
     )
     return filtered.toSorted((left, right) => {
       const relevanceResult = compareSearchRelevance(left, right, relevanceByWheelId)
@@ -87,6 +106,7 @@ export function useWheelsDatabaseViewModel(
     })
   }, [
     allWheels,
+    availabilityFilter,
     mainstatFilter,
     query,
     rarityFilter,

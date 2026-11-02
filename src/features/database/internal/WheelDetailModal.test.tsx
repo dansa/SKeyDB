@@ -76,6 +76,23 @@ function setModalViewport(width: number) {
 }
 
 describe('WheelDetailModal', () => {
+  it('shows the source category and acquisition note using the shared detail section', () => {
+    render(
+      <WheelDetailModal
+        wheel={makeWheel({availabilityType: 'BATTLE_PASS'})}
+        fullData={makeWheelFullRecord({
+          acquisitionSource:
+            'Paid battle-pass selector reward. Additional copies from the Sediment exchange shop after obtaining this Wheel.',
+        })}
+        onClose={vi.fn()}
+      />,
+    )
+    expect(screen.getByText('Battle Pass')).toBeInTheDocument()
+    expect(screen.getByRole('heading', {name: 'How to Obtain'})).toBeInTheDocument()
+    expect(
+      screen.getByText(/Additional copies from the Sediment exchange shop/),
+    ).toBeInTheDocument()
+  })
   beforeEach(() => {
     setModalViewport(1024)
     mockGetWheelAssetById.mockReset()

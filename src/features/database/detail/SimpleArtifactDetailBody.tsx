@@ -26,6 +26,7 @@ import {
 } from '@/features/database/internal/text-styles'
 import {WheelLoreText} from '@/features/database/internal/WheelLoreText'
 
+import {DatabaseAcquisitionSection} from './DatabaseAcquisitionSection'
 import {OwnerAwakenerMetaLink} from './OwnerAwakenerMetaLink'
 import {PreReleaseDataNotice} from './PreReleaseDataNotice'
 
@@ -63,7 +64,6 @@ export function SimpleArtifactDetailBody({
   referenceLayer,
   showTagIcons,
 }: SimpleArtifactDetailBodyProps) {
-  const trimmedAcquisitionSource = acquisitionSource?.trim()
   return (
     <>
       <div className='shrink-0 border-b border-slate-800/75 pr-20 pb-5'>
@@ -114,22 +114,7 @@ export function SimpleArtifactDetailBody({
           </section>
         ))}
 
-        {trimmedAcquisitionSource ? (
-          <section className='mt-5'>
-            <h4
-              className={DATABASE_DETAIL_SECTION_HEADING_CLASS}
-              style={getDatabaseDetailSectionHeadingStyle()}
-            >
-              How to Obtain
-            </h4>
-            <p
-              className={`mt-3 max-w-[68ch] ${DATABASE_DETAIL_BODY_CLASS}`}
-              style={getDatabaseDetailBodyStyle()}
-            >
-              {trimmedAcquisitionSource}
-            </p>
-          </section>
-        ) : null}
+        <DatabaseAcquisitionSection source={acquisitionSource} />
 
         {lore ? (
           <section className='mt-5 border-t border-slate-800/80 pt-4'>

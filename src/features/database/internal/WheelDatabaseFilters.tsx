@@ -4,6 +4,9 @@ import {wheelMainstatFilterOptions, type WheelMainstatFilter} from '@/domain/whe
 import {
   WHEELS_DATABASE_RARITY_FILTER_IDS,
   WHEELS_DATABASE_REALM_FILTER_IDS,
+  WHEELS_DATABASE_AVAILABILITY_FILTER_IDS,
+  getWheelAvailabilityFilterLabel,
+  type WheelsDatabaseAvailabilityFilterId,
   type WheelsDatabaseRarityFilterId,
   type WheelsDatabaseRealmFilterId,
 } from '@/domain/wheels-database-browse-state'
@@ -14,6 +17,8 @@ import {CatalogMobileFilterGroup, CatalogRealmFilterRow} from './DatabaseChipPri
 import {useMobileDatabaseFilters} from './useMobileDatabaseFilters'
 
 interface WheelDatabaseFiltersProps {
+  availabilityFilter: WheelsDatabaseAvailabilityFilterId
+  onAvailabilityFilterChange: (filter: WheelsDatabaseAvailabilityFilterId) => void
   query: string
   realmFilter: WheelsDatabaseRealmFilterId
   rarityFilter: WheelsDatabaseRarityFilterId
@@ -26,6 +31,11 @@ interface WheelDatabaseFiltersProps {
 }
 
 const REALM_FILTERS = WHEELS_DATABASE_REALM_FILTER_IDS.slice(1)
+const availabilityFilterTabs = WHEELS_DATABASE_AVAILABILITY_FILTER_IDS.map((id) => ({
+  id,
+  label: getWheelAvailabilityFilterLabel(id),
+  summaryLabel: getWheelAvailabilityFilterLabel(id),
+}))
 
 const rarityFilterTabs = WHEELS_DATABASE_RARITY_FILTER_IDS.map((id) => ({
   id,
@@ -34,6 +44,8 @@ const rarityFilterTabs = WHEELS_DATABASE_RARITY_FILTER_IDS.map((id) => ({
 }))
 
 export function WheelDatabaseFilters({
+  availabilityFilter,
+  onAvailabilityFilterChange,
   mainstatFilter,
   onMainstatFilterChange,
   onQueryChange,
@@ -44,7 +56,9 @@ export function WheelDatabaseFilters({
   realmFilter,
   searchInputRef,
 }: WheelDatabaseFiltersProps) {
-  const [openMobileFilter, setOpenMobileFilter] = useState<'rarity' | 'mainstat' | null>(null)
+  const [openMobileFilter, setOpenMobileFilter] = useState<
+    'rarity' | 'mainstat' | 'availability' | null
+  >(null)
   const isMobileFilters = useMobileDatabaseFilters()
   const mainstatFilterTabs = wheelMainstatFilterOptions.map((entry) => ({
     id: entry.id,
@@ -72,6 +86,17 @@ export function WheelDatabaseFilters({
 
           <CatalogMobileFilterGroup
             groups={[
+              {
+                activeId: availabilityFilter,
+                defaultId: 'ALL',
+                key: 'availability',
+                label: 'Source',
+                toggleClassName: 'col-span-2',
+                onChange: (next) => {
+                  onAvailabilityFilterChange(next as WheelsDatabaseAvailabilityFilterId)
+                },
+                options: availabilityFilterTabs,
+              },
               {
                 activeId: rarityFilter,
                 defaultId: 'ALL',
@@ -122,6 +147,13 @@ export function WheelDatabaseFilters({
             label='Main stat'
             onChange={onMainstatFilterChange}
             options={mainstatFilterTabs}
+          />
+          <ChipFilterRow
+            activeId={availabilityFilter}
+            defaultId='ALL'
+            label='Source'
+            onChange={onAvailabilityFilterChange}
+            options={availabilityFilterTabs}
           />
         </div>
       )}
