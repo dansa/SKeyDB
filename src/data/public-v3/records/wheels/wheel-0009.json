@@ -11,6 +11,7 @@
     "icon": "asset-wheel-0009-icon"
   },
   "availabilityType": "PERMANENT",
+  "hasShopSource": false,
   "acquisitionSource": "Included in the permanent Wheel summon pool.",
   "rarity": "SSR",
   "realm": "CARO",

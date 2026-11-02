@@ -11,6 +11,7 @@
     "icon": "asset-wheel-0027-icon"
   },
   "availabilityType": "LIMITED_FADED_LEGACY",
+  "hasShopSource": false,
   "acquisitionSource": "Faded Legacy signature Wheel; featured in certain limited Wheel banners. Also included in the permanent Wheel summon pool.",
   "rarity": "SSR",
   "realm": "CHAOS",

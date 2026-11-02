@@ -11,6 +11,7 @@
     "icon": "asset-wheel-0182-icon"
   },
   "availabilityType": "EVENT",
+  "hasShopSource": false,
   "acquisitionSource": "Event reward Wheel.",
   "rarity": "SR",
   "realm": "NEUTRAL",

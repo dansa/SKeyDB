@@ -219,6 +219,7 @@ describe('public-detail-record-adapters', () => {
       name: 'Slumber Beneath the Glacier',
       availabilityType: 'EVENT',
       acquisitionSource: expect.stringContaining('Lightless'),
+      hasShopSource: true,
       assetId: 'Weapon_Full_SR26',
       aliases: ['Slumber Beneath the Glacier'],
       awakener: 'Murphy',

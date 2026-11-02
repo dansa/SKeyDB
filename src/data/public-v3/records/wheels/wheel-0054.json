@@ -11,6 +11,7 @@
     "icon": "asset-wheel-0054-icon"
   },
   "availabilityType": "WELFARE",
+  "hasShopSource": true,
   "acquisitionSource": "Available from the D-Jewel exchange shop.",
   "rarity": "SSR",
   "realm": "AEQUOR",

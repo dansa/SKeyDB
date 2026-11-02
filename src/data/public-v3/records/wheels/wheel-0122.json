@@ -11,6 +11,7 @@
     "icon": "asset-wheel-0122-icon"
   },
   "availabilityType": "BATTLE_PASS",
+  "hasShopSource": true,
   "acquisitionSource": "Paid battle-pass selector reward. Additional copies from the Sediment exchange shop after obtaining this Wheel.",
   "rarity": "SSR",
   "realm": "NEUTRAL",
