@@ -30,6 +30,7 @@ export function WheelsBrowse({
     controller,
   )
   const activeFilterChips = buildWheelActiveFilterChips(browseState, {
+    setAvailabilityFilter: browseState.setAvailabilityFilter,
     clearQuery: browseState.clearQuery,
     setRealmFilter: browseState.setRealmFilter,
     setRarityFilter: browseState.setRarityFilter,
@@ -45,6 +46,8 @@ export function WheelsBrowse({
   const filters = useMemo(
     () => (
       <WheelDatabaseFilters
+        availabilityFilter={browseState.availabilityFilter}
+        onAvailabilityFilterChange={browseState.setAvailabilityFilter}
         mainstatFilter={browseState.mainstatFilter}
         onMainstatFilterChange={browseState.setMainstatFilter}
         onQueryChange={browseState.setQuery}
@@ -57,6 +60,8 @@ export function WheelsBrowse({
       />
     ),
     [
+      browseState.availabilityFilter,
+      browseState.setAvailabilityFilter,
       browseState.mainstatFilter,
       browseState.query,
       browseState.rarityFilter,

@@ -36,6 +36,7 @@ import type {
   WheelsDatabaseRarityFilterId,
   WheelsDatabaseRealmFilterId,
 } from '@/domain/wheels-database-browse-state'
+import {getWheelAvailabilityFilterLabel} from '@/domain/wheels-database-browse-state'
 import type {ActiveFilterChip} from '@/ui/filters/ActiveFilterChips'
 
 interface AwakenerActiveFilterActions {
@@ -60,6 +61,7 @@ interface CovenantActiveFilterActions {
 }
 
 interface WheelActiveFilterActions {
+  setAvailabilityFilter: (next: WheelsDatabaseBrowseState['availabilityFilter']) => void
   clearQuery: () => void
   setRealmFilter: (next: WheelsDatabaseRealmFilterId) => void
   setRarityFilter: (next: WheelsDatabaseRarityFilterId) => void
@@ -231,11 +233,21 @@ export function buildCovenantActiveFilterChips(
 export function buildWheelActiveFilterChips(
   state: Pick<
     WheelsDatabaseBrowseState,
-    'query' | 'realmFilter' | 'rarityFilter' | 'mainstatFilter'
+    'query' | 'realmFilter' | 'rarityFilter' | 'mainstatFilter' | 'availabilityFilter'
   >,
   actions: WheelActiveFilterActions,
 ): ActiveFilterChip[] {
   const chips: ActiveFilterChip[] = []
+
+  if (state.availabilityFilter !== 'ALL') {
+    chips.push({
+      key: 'availability',
+      label: getWheelAvailabilityFilterLabel(state.availabilityFilter),
+      onClear: () => {
+        actions.setAvailabilityFilter('ALL')
+      },
+    })
+  }
 
   const trimmedQuery = state.query.trim()
   if (trimmedQuery.length > 0) {

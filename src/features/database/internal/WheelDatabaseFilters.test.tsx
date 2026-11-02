@@ -7,6 +7,8 @@ import {WheelDatabaseFilters} from './WheelDatabaseFilters'
 
 describe('WheelDatabaseFilters', () => {
   const defaultProps = {
+    availabilityFilter: 'ALL' as const,
+    onAvailabilityFilterChange: vi.fn(),
     mainstatFilter: 'ALL' as const,
     onMainstatFilterChange: vi.fn(),
     onQueryChange: vi.fn(),
@@ -25,6 +27,19 @@ describe('WheelDatabaseFilters', () => {
       'placeholder',
       'Name, owner, realm, rarity, or effect',
     )
+  })
+
+  it('toggles an active source filter back to all', () => {
+    const onAvailabilityFilterChange = vi.fn()
+    render(
+      <WheelDatabaseFilters
+        {...defaultProps}
+        availabilityFilter='BATTLE_PASS'
+        onAvailabilityFilterChange={onAvailabilityFilterChange}
+      />,
+    )
+    fireEvent.click(screen.getByRole('button', {name: 'Battle Pass'}))
+    expect(onAvailabilityFilterChange).toHaveBeenCalledWith('ALL')
   })
 
   it('toggles active exclusive wheel filters back to all', () => {

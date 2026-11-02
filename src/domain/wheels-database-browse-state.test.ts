@@ -15,6 +15,7 @@ describe('wheels-database-browse-state', () => {
     )
 
     expect(state).toEqual({
+      availabilityFilter: 'ALL',
       query: 'merciful',
       realmFilter: 'CARO',
       rarityFilter: 'N',
@@ -41,6 +42,22 @@ describe('wheels-database-browse-state', () => {
       'merciful',
     )
     expect(parseWheelsDatabaseBrowseState(new URLSearchParams('q=%20%20%20')).query).toBe('')
+  })
+
+  it('round-trips source filters and removes the default without dropping other params', () => {
+    const params = patchWheelsDatabaseBrowseState(new URLSearchParams('foo=bar&rarity=SSR'), {
+      availabilityFilter: 'BATTLE_PASS',
+    })
+    expect(params.get('availability')).toBe('BATTLE_PASS')
+    expect(parseWheelsDatabaseBrowseState(params).availabilityFilter).toBe('BATTLE_PASS')
+    const cleared = patchWheelsDatabaseBrowseState(params, {availabilityFilter: 'ALL'})
+    expect(cleared.has('availability')).toBe(false)
+    expect(cleared.get('rarity')).toBe('SSR')
+    expect(cleared.get('foo')).toBe('bar')
+    expect(
+      parseWheelsDatabaseBrowseState(new URLSearchParams('availability=made-up'))
+        .availabilityFilter,
+    ).toBe('ALL')
   })
 
   it('patches wheel browse params while preserving unrelated query values', () => {

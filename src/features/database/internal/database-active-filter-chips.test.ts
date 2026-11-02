@@ -3,7 +3,33 @@ import {describe, expect, it, vi} from 'vitest'
 import {
   buildPosseActiveFilterChips,
   buildRelicActiveFilterChips,
+  buildWheelActiveFilterChips,
 } from './database-active-filter-chips'
+
+describe('wheel active filter chips', () => {
+  it('clears the source independently of the other filters', () => {
+    const setAvailabilityFilter = vi.fn()
+    const chips = buildWheelActiveFilterChips(
+      {
+        query: '',
+        realmFilter: 'ALL',
+        rarityFilter: 'SSR',
+        mainstatFilter: 'ALL',
+        availabilityFilter: 'BATTLE_PASS',
+      },
+      {
+        clearQuery: vi.fn(),
+        setRealmFilter: vi.fn(),
+        setRarityFilter: vi.fn(),
+        setMainstatFilter: vi.fn(),
+        setAvailabilityFilter,
+      },
+    )
+    expect(chips.map((chip) => chip.label)).toEqual(['Battle Pass', 'SSR'])
+    chips.find((chip) => chip.key === 'availability')?.onClear()
+    expect(setAvailabilityFilter).toHaveBeenCalledWith('ALL')
+  })
+})
 
 describe('relic active filter chips', () => {
   it('builds query, category, and tier chips with clear actions', () => {

@@ -7,6 +7,7 @@ import {
 import {getPublicWheelCatalogRecords} from '@/data-access/public-data/catalogScopes/wheelsCatalog'
 
 import {getMainstatByKey, WHEEL_MAINSTAT_KEYS, type WheelMainstatKey} from './mainstats'
+import {WHEEL_AVAILABILITY_TYPES, type WheelAvailabilityType} from './wheel-availability'
 
 export type WheelRarity = 'SSR' | 'SR' | 'R' | 'N'
 export type WheelRealm = 'AEQUOR' | 'CARO' | 'CHAOS' | 'ULTRA' | 'NEUTRAL'
@@ -17,6 +18,7 @@ const publicV3WheelCatalogRecordSchema = z
   .object({
     id: z.string().regex(/^wheel-\d{4}$/),
     name: nonEmptyStringSchema,
+    availabilityType: z.enum(WHEEL_AVAILABILITY_TYPES).optional(),
     rarity: z.enum(['SSR', 'SR', 'R', 'N']),
     realm: z.enum(['AEQUOR', 'CARO', 'CHAOS', 'ULTRA', 'NEUTRAL', 'OTHER']),
     ownerAwakenerId: z
@@ -30,6 +32,7 @@ const publicV3WheelCatalogRecordSchema = z
   .loose()
 
 export interface Wheel {
+  availabilityType?: WheelAvailabilityType
   id: string
   assetId: string
   name: string
@@ -55,6 +58,7 @@ const parsedWheels: Wheel[] = getPublicWheelCatalogRecords().map((record) => {
     id: wheel.id,
     assetId: getWheelPublicAssetId(wheel.id),
     name: wheel.name,
+    availabilityType: wheel.availabilityType,
     rarity: wheel.rarity,
     realm: wheel.realm === 'OTHER' ? 'NEUTRAL' : wheel.realm,
     awakener: wheel.ownerAwakenerName?.toLowerCase() ?? '',

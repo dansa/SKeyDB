@@ -1,3 +1,4 @@
+import {AVAILABILITY_LABELS, COMMON_AVAILABILITY_FILTER_IDS} from '@/domain/availability-filters'
 import {
   AWAKENER_SCALING_SUBSTAT_FILTER_ROLE_IDS,
   type AwakenerScalingSubstatFilter,
@@ -25,33 +26,13 @@ export const DATABASE_TYPE_FILTER_IDS = ['ALL', 'ASSAULT', 'WARDEN', 'CHORUS'] a
 export type TypeFilterId = (typeof DATABASE_TYPE_FILTER_IDS)[number]
 export const DATABASE_GENDER_FILTER_IDS = ['ALL', 'Female', 'Male'] as const
 export type GenderFilterId = (typeof DATABASE_GENDER_FILTER_IDS)[number]
-export const DATABASE_AVAILABILITY_FILTER_IDS = [
-  'ALL',
-  'PERMANENT',
-  'WELFARE',
-  'LIMITED',
-  'LIMITED_FADED_LEGACY',
-  'LIMITED_ASTRAL_REIGN',
-] as const
+export const DATABASE_AVAILABILITY_FILTER_IDS = COMMON_AVAILABILITY_FILTER_IDS
 export type AvailabilityFilterId = (typeof DATABASE_AVAILABILITY_FILTER_IDS)[number]
 export const DATABASE_GAMEPLAY_FACTION_FILTER_IDS = ['Lemurian'] as const
 export type GameplayFactionFilterId = (typeof DATABASE_GAMEPLAY_FACTION_FILTER_IDS)[number]
 
 export function getAvailabilityFilterLabel(id: AvailabilityFilterId): string {
-  switch (id) {
-    case 'ALL':
-      return 'All'
-    case 'PERMANENT':
-      return 'Permanent'
-    case 'WELFARE':
-      return 'Welfare'
-    case 'LIMITED':
-      return 'Limited'
-    case 'LIMITED_FADED_LEGACY':
-      return 'Faded Legacy'
-    case 'LIMITED_ASTRAL_REIGN':
-      return 'Astral Reign'
-  }
+  return AVAILABILITY_LABELS[id]
 }
 
 export function formatAwakenerAvailabilityLabel(value: string | undefined): string | undefined {

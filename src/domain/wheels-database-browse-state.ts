@@ -1,3 +1,4 @@
+import {AVAILABILITY_LABELS, COMMON_AVAILABILITY_FILTER_IDS} from '@/domain/availability-filters'
 import {
   normalizeBrowseQuery,
   parseEnumSearchParam,
@@ -6,6 +7,18 @@ import {
 } from '@/domain/browse-state-search-params'
 import type {CollectionSortDirection} from '@/domain/collection-sorting'
 import {wheelMainstatFilterOptions, type WheelMainstatFilter} from '@/domain/wheel-mainstat-filters'
+
+export const WHEELS_DATABASE_AVAILABILITY_FILTER_IDS = [
+  ...COMMON_AVAILABILITY_FILTER_IDS,
+  'EVENT',
+  'BATTLE_PASS',
+] as const
+export type WheelsDatabaseAvailabilityFilterId =
+  (typeof WHEELS_DATABASE_AVAILABILITY_FILTER_IDS)[number]
+
+export function getWheelAvailabilityFilterLabel(id: WheelsDatabaseAvailabilityFilterId): string {
+  return AVAILABILITY_LABELS[id]
+}
 
 export const WHEELS_DATABASE_REALM_FILTER_IDS = [
   'ALL',
@@ -24,6 +37,7 @@ export const WHEELS_DATABASE_SORT_OPTIONS = ['ALPHABETICAL', 'RARITY', 'MAINSTAT
 export type WheelsDatabaseSortKey = (typeof WHEELS_DATABASE_SORT_OPTIONS)[number]
 
 export interface WheelsDatabaseBrowseState {
+  availabilityFilter: WheelsDatabaseAvailabilityFilterId
   query: string
   realmFilter: WheelsDatabaseRealmFilterId
   rarityFilter: WheelsDatabaseRarityFilterId
@@ -33,6 +47,7 @@ export interface WheelsDatabaseBrowseState {
 }
 
 export const WHEELS_DATABASE_BROWSE_DEFAULTS: WheelsDatabaseBrowseState = {
+  availabilityFilter: 'ALL',
   query: '',
   realmFilter: 'ALL',
   rarityFilter: 'ALL',
@@ -69,6 +84,11 @@ export function parseWheelsDatabaseBrowseState(
   )
 
   return {
+    availabilityFilter: parseEnumSearchParam(
+      searchParams.get('availability'),
+      WHEELS_DATABASE_AVAILABILITY_FILTER_IDS,
+      WHEELS_DATABASE_BROWSE_DEFAULTS.availabilityFilter,
+    ),
     query: normalizeBrowseQuery(searchParams.get('q')),
     realmFilter: parseEnumSearchParam(
       searchParams.get('realm'),
@@ -100,6 +120,11 @@ export function patchWheelsDatabaseBrowseState(
     patch,
     parseWheelsDatabaseBrowseState,
     (nextParams, patchedState) => {
+      setSearchParam(
+        nextParams,
+        'availability',
+        patchedState.availabilityFilter === 'ALL' ? undefined : patchedState.availabilityFilter,
+      )
       setSearchParam(nextParams, 'q', normalizeBrowseQuery(patchedState.query))
       setSearchParam(
         nextParams,

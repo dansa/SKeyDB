@@ -5,9 +5,11 @@ import {getMainstatByKey, getMainstatIcon} from '@/domain/mainstats'
 import {isPreReleaseAwakenerId} from '@/domain/pre-release'
 import type {PublicFormulaContext} from '@/domain/public-formula-context'
 import {getRealmAccent, getRealmLabel} from '@/domain/realms'
+import {WHEEL_AVAILABILITY_LABELS} from '@/domain/wheel-availability'
 import {buildWheelMainstatHover} from '@/domain/wheel-mainstat-scaling'
 import type {Wheel} from '@/domain/wheels'
 import type {WheelFullRecord} from '@/domain/wheels-full'
+import {DatabaseAcquisitionSection} from '@/features/database/detail/DatabaseAcquisitionSection'
 import {OwnerAwakenerMetaLink} from '@/features/database/detail/OwnerAwakenerMetaLink'
 import {PreReleaseDataNotice} from '@/features/database/detail/PreReleaseDataNotice'
 
@@ -96,6 +98,12 @@ export function WheelDetailContent({
                 ownerAwakenerId={ownerAwakenerId}
                 ownerAwakenerName={ownerName}
               />
+              {wheel.availabilityType ? (
+                <>
+                  <span className={DATABASE_DETAIL_META_SEPARATOR_CLASS}>•</span>
+                  <span>{WHEEL_AVAILABILITY_LABELS[wheel.availabilityType]}</span>
+                </>
+              ) : null}
             </p>
             <DatabaseDetailTagStrip
               className='mt-1.5 max-w-xl'
@@ -159,6 +167,8 @@ export function WheelDetailContent({
             />
           </p>
         </section>
+
+        <DatabaseAcquisitionSection source={fullData.acquisitionSource} />
 
         {lore ? (
           <section className='mt-5 border-t border-slate-800/80 pt-4'>

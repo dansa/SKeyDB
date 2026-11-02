@@ -12,6 +12,7 @@ import {
   parseWheelsDatabaseBrowseState,
   patchWheelsDatabaseBrowseState,
   type WheelsDatabaseBrowseState,
+  type WheelsDatabaseAvailabilityFilterId,
   type WheelsDatabaseRarityFilterId,
   type WheelsDatabaseRealmFilterId,
   type WheelsDatabaseSortKey,
@@ -43,13 +44,28 @@ export function useWheelsDatabaseBrowseState() {
         includeSortParams: options?.includeSortParams ?? hasWheelsSortSearchParams(searchParams),
       }),
   })
-  const {mainstatFilter, query, rarityFilter, realmFilter, sortDirection, sortKey} = browseState
+  const {
+    availabilityFilter,
+    mainstatFilter,
+    query,
+    rarityFilter,
+    realmFilter,
+    sortDirection,
+    sortKey,
+  } = browseState
   const {setQuery, appendSearchCharacter, removeSearchCharacter, clearQuery} =
     useBrowseQueryActions(query, commitBrowseState)
 
   const setRealmFilter = useCallback(
     (next: WheelsDatabaseRealmFilterId) => {
       commitBrowseState({realmFilter: next}, 'push')
+    },
+    [commitBrowseState],
+  )
+
+  const setAvailabilityFilter = useCallback(
+    (next: WheelsDatabaseAvailabilityFilterId) => {
+      commitBrowseState({availabilityFilter: next}, 'push')
     },
     [commitBrowseState],
   )
@@ -108,6 +124,7 @@ export function useWheelsDatabaseBrowseState() {
     commitBrowseState(
       {
         query: '',
+        availabilityFilter: 'ALL',
         realmFilter: 'ALL',
         rarityFilter: 'ALL',
         mainstatFilter: 'ALL',
@@ -117,6 +134,8 @@ export function useWheelsDatabaseBrowseState() {
   }, [commitBrowseState])
 
   return {
+    availabilityFilter,
+    setAvailabilityFilter,
     query,
     realmFilter,
     rarityFilter,
