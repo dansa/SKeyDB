@@ -6988,6 +6988,18 @@
         "canonicalSlug": "blades-dominion",
         "canonicalPath": "/database/awakeners/goliath/derived-skills/blades-dominion"
       },
+      "goliath/blades-dominion-normal": {
+        "kind": "derivedSkill",
+        "id": "derived.goliath.blades-dominion-normal",
+        "canonicalSlug": "blades-dominion-normal",
+        "canonicalPath": "/database/awakeners/goliath/derived-skills/blades-dominion-normal"
+      },
+      "goliath/blades-dominion-over-exalt": {
+        "kind": "derivedSkill",
+        "id": "derived.goliath.blades-dominion-over-exalt",
+        "canonicalSlug": "blades-dominion-over-exalt",
+        "canonicalPath": "/database/awakeners/goliath/derived-skills/blades-dominion-over-exalt"
+      },
       "goliath/dormancy": {
         "kind": "derivedSkill",
         "id": "derived.goliath.dormancy",

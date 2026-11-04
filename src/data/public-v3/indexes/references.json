@@ -829,6 +829,18 @@
         "id": "derived.goliath.blades-dominion"
       }
     ],
+    "blades dominion normal": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.goliath.blades-dominion-normal"
+      }
+    ],
+    "blades dominion over exalt": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.goliath.blades-dominion-over-exalt"
+      }
+    ],
     "blank recollection": [
       {
         "kind": "enlighten",

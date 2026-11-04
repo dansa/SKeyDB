@@ -555,7 +555,13 @@
         "skill.goliath.preemptive-revenge",
         "skill.goliath.strike"
       ],
-      "ownedDerivedSkills": ["derived.goliath.blades-dominion", "derived.goliath.dormancy", "derived.goliath.usurp"],
+      "ownedDerivedSkills": [
+        "derived.goliath.blades-dominion",
+        "derived.goliath.blades-dominion-normal",
+        "derived.goliath.blades-dominion-over-exalt",
+        "derived.goliath.dormancy",
+        "derived.goliath.usurp"
+      ],
       "ownedTalents": ["talent.goliath.madness-omen", "talent.goliath.soulforge-aptitude", "talent.goliath.gnostic-potential"],
       "ownedEnlightens": [
         "enlighten.goliath.ascent-of-the-tyrant",
@@ -1882,6 +1888,8 @@
     "derived.global.unyielding-will-beta": {},
     "derived.global.vernal-message": {},
     "derived.goliath.blades-dominion": {},
+    "derived.goliath.blades-dominion-normal": {},
+    "derived.goliath.blades-dominion-over-exalt": {},
     "derived.goliath.dormancy": {},
     "derived.goliath.usurp": {},
     "derived.hameln.ascending-scale": {},
@@ -4164,6 +4172,12 @@
     "derived.global.unyielding-will-beta": {},
     "derived.global.vernal-message": {},
     "derived.goliath.blades-dominion": {
+      "ownerAwakenerId": "awakener-0021"
+    },
+    "derived.goliath.blades-dominion-normal": {
+      "ownerAwakenerId": "awakener-0021"
+    },
+    "derived.goliath.blades-dominion-over-exalt": {
       "ownerAwakenerId": "awakener-0021"
     },
     "derived.goliath.dormancy": {

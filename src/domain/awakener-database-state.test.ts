@@ -15,6 +15,27 @@ import {hydrateGlobalDatabaseReferenceInfo} from './global-database-reference-la
 import {loadPublicAwakenerDetailById} from './public-detail-record-adapters'
 
 describe('awakener-database-state', () => {
+  it('keeps Goliath generated-card variants independent of Enlighten controls', async () => {
+    const goliath = await loadPublicAwakenerDetailById(21)
+    const thais = await loadPublicAwakenerDetailById(48)
+    if (!goliath || !thais) throw new Error('Missing public awakener fixtures')
+
+    expect(getAwakenerDatabaseControls(goliath).enlightenOptions).toEqual([
+      {value: null, label: 'E0'},
+      {value: 'E1', label: 'E1'},
+      {value: 'E2', label: 'E2'},
+      {value: 'E3', label: 'E3'},
+      {value: 'AbsoluteAxiom', label: 'AA'},
+    ])
+    expect(
+      normalizeAwakenerDatabaseSelectionForRecord(goliath, {
+        selectedEnlightenSlot: 'OverExalt',
+      }).selectedEnlightenSlot,
+    ).toBe('E3')
+    expect(goliath.enlightens.OverExalt).toBeUndefined()
+    expect(thais.enlightens.OverExalt).toBeUndefined()
+  })
+
   it('normalizes and clamps database selection inputs', () => {
     expect(
       normalizeAwakenerDatabaseSelection({

@@ -272,7 +272,7 @@ export function PopoverTrailPanel({
       aria-label='Database reference details'
       className={`database-scrollbar fixed z-[950] m-0 overflow-y-auto border-0 bg-transparent p-0 text-inherit ${
         isMobile
-          ? 'inset-x-3 bottom-3 max-h-[min(72vh,34rem)]'
+          ? 'inset-x-3 bottom-3 max-h-[min(72vh,34rem)] w-[calc(100%-24px)]'
           : 'max-h-[calc(100vh-24px)] w-[min(22rem,calc(100vw-24px))]'
       }`}
       data-detail-result-navigation-boundary=''

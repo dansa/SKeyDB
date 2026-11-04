@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "derived-skills",
   "kind": "derivedSkill",
-  "recordCount": 215,
+  "recordCount": 217,
   "records": [
     {
       "kind": "derivedSkill",
@@ -1957,6 +1957,21 @@
         "slug": "blades-dominion",
         "canonicalPath": "/database/awakeners/goliath/derived-skills/blades-dominion"
       },
+      "ownerAwakenerId": "awakener-0021",
+      "ownerAwakenerName": "Goliath",
+      "nodeKind": "group",
+      "derivedFromId": "skill.goliath.abyssal-depths-power",
+      "rootSkillId": "skill.goliath.abyssal-depths-power",
+      "childDerivedSkillIds": ["derived.goliath.blades-dominion-normal", "derived.goliath.blades-dominion-over-exalt"]
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.goliath.blades-dominion-normal",
+      "name": "Blade's Dominion (Normal)",
+      "route": {
+        "slug": "blades-dominion-normal",
+        "canonicalPath": "/database/awakeners/goliath/derived-skills/blades-dominion-normal"
+      },
       "cardFamily": "command",
       "cardTypes": ["derived"],
       "ownerAwakenerId": "awakener-0021",
@@ -1964,6 +1979,22 @@
       "countsAs": ["strike"],
       "derivedFromId": "skill.goliath.abyssal-depths-power",
       "rootSkillId": "skill.goliath.abyssal-depths-power"
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.goliath.blades-dominion-over-exalt",
+      "name": "Blade's Dominion (Over-Exalt)",
+      "route": {
+        "slug": "blades-dominion-over-exalt",
+        "canonicalPath": "/database/awakeners/goliath/derived-skills/blades-dominion-over-exalt"
+      },
+      "cardFamily": "command",
+      "cardTypes": ["derived"],
+      "ownerAwakenerId": "awakener-0021",
+      "ownerAwakenerName": "Goliath",
+      "countsAs": ["strike"],
+      "derivedFromId": "skill.goliath.giants-grip",
+      "rootSkillId": "skill.goliath.giants-grip"
     },
     {
       "kind": "derivedSkill",
