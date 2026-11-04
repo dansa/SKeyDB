@@ -130,6 +130,11 @@ const MANIFEST: StorageMigrationManifestEntry[] = [
     validate: (raw) => BOOLEAN_STORAGE_VALUES.has(raw),
   },
   {
+    key: 'skeydb.builder.unusedFirst.v1',
+    category: 'preference',
+    validate: (raw) => BOOLEAN_STORAGE_VALUES.has(raw),
+  },
+  {
     key: 'skeydb.builder.teamPreviewMode.v1',
     category: 'preference',
     validate: (raw) => BUILDER_TEAM_PREVIEW_MODES.has(raw),

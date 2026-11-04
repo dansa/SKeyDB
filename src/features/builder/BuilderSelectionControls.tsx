@@ -4,7 +4,7 @@ import {FaChevronDown, FaChevronRight} from 'react-icons/fa6'
 
 import {Button} from '@/components/ui/Button'
 import {CollectionSortControls} from '@/components/ui/CollectionSortControls'
-import {OwnedTogglePill} from '@/components/ui/OwnedTogglePill'
+import {TogglePill} from '@/components/ui/TogglePill'
 import type {AwakenerSortKey, CollectionSortDirection} from '@/domain/collection-sorting'
 
 import type {PickerTab} from './types'
@@ -18,6 +18,7 @@ interface BuilderSelectionControlsProps {
   awakenerSortGroupByRealm: boolean
   displayUnowned: boolean
   sinkUnownedToBottom: boolean
+  unusedFirst: boolean
   allowDupes: boolean
   promoteRecommendedGear: boolean
   promoteMatchingWheelMainstats: boolean
@@ -26,6 +27,7 @@ interface BuilderSelectionControlsProps {
   onAwakenerSortGroupByRealmChange: (nextGroupByRealm: boolean) => void
   onDisplayUnownedChange: (displayUnowned: boolean) => void
   onSinkUnownedToBottomChange: (sinkUnownedToBottom: boolean) => void
+  onUnusedFirstChange: (unusedFirst: boolean) => void
   onAllowDupesChange: (allowDupes: boolean) => void
   onPromoteRecommendedGearChange: (promoteRecommendedGear: boolean) => void
   onPromoteMatchingWheelMainstatsChange: (promoteMatchingWheelMainstats: boolean) => void
@@ -38,6 +40,7 @@ export function BuilderSelectionControls({
   awakenerSortGroupByRealm,
   displayUnowned,
   sinkUnownedToBottom,
+  unusedFirst,
   allowDupes,
   promoteRecommendedGear,
   promoteMatchingWheelMainstats,
@@ -46,6 +49,7 @@ export function BuilderSelectionControls({
   onAwakenerSortGroupByRealmChange,
   onDisplayUnownedChange,
   onSinkUnownedToBottomChange,
+  onUnusedFirstChange,
   onAllowDupesChange,
   onPromoteRecommendedGearChange,
   onPromoteMatchingWheelMainstatsChange,
@@ -114,56 +118,66 @@ export function BuilderSelectionControls({
         ) : null}
         <div className='flex items-center justify-between gap-3 text-xs text-slate-300'>
           <span>Display Unowned</span>
-          <OwnedTogglePill
+          <TogglePill
+            ariaLabel='Display unowned'
+            checked={displayUnowned}
             className='ownership-pill-builder'
             offLabel='Off'
             onLabel='On'
-            onToggle={() => {
-              onDisplayUnownedChange(!displayUnowned)
-            }}
-            owned={displayUnowned}
+            onChange={onDisplayUnownedChange}
             variant='flat'
           />
         </div>
         {displayUnowned ? (
           <div className='flex items-center justify-between gap-3 pl-3 text-xs text-slate-300'>
             <span>Move Unowned to Bottom</span>
-            <OwnedTogglePill
+            <TogglePill
+              ariaLabel='Move unowned to bottom'
+              checked={sinkUnownedToBottom}
               className='ownership-pill-builder'
               offLabel='Off'
               onLabel='On'
-              onToggle={() => {
-                onSinkUnownedToBottomChange(!sinkUnownedToBottom)
-              }}
-              owned={sinkUnownedToBottom}
+              onChange={onSinkUnownedToBottomChange}
+              variant='flat'
+            />
+          </div>
+        ) : null}
+        {pickerTab !== 'covenants' ? (
+          <div className='flex items-center justify-between gap-3 text-xs text-slate-300'>
+            <span>Unused First</span>
+            <TogglePill
+              ariaLabel='Unused first'
+              checked={unusedFirst}
+              className='ownership-pill-builder'
+              offLabel='Off'
+              onLabel='On'
+              onChange={onUnusedFirstChange}
               variant='flat'
             />
           </div>
         ) : null}
         <div className='flex items-center justify-between gap-3 text-xs text-slate-300'>
           <span>Allow Dupes</span>
-          <OwnedTogglePill
+          <TogglePill
+            ariaLabel='Allow dupes'
+            checked={allowDupes}
             className='ownership-pill-builder'
             offLabel='Off'
             onLabel='On'
-            onToggle={() => {
-              onAllowDupesChange(!allowDupes)
-            }}
-            owned={allowDupes}
+            onChange={onAllowDupesChange}
             variant='flat'
           />
         </div>
         {pickerTab === 'wheels' || pickerTab === 'covenants' ? (
           <div className='flex items-center justify-between gap-3 text-xs text-slate-300'>
             <span>Promote Recommendations</span>
-            <OwnedTogglePill
+            <TogglePill
+              ariaLabel='Promote recommendations'
+              checked={promoteRecommendedGear}
               className='ownership-pill-builder'
               offLabel='Off'
               onLabel='On'
-              onToggle={() => {
-                onPromoteRecommendedGearChange(!promoteRecommendedGear)
-              }}
-              owned={promoteRecommendedGear}
+              onChange={onPromoteRecommendedGearChange}
               variant='flat'
             />
           </div>
@@ -171,14 +185,13 @@ export function BuilderSelectionControls({
         {pickerTab === 'wheels' && promoteRecommendedGear ? (
           <div className='flex items-center justify-between gap-3 pl-3 text-xs text-slate-300'>
             <span>Promote Mainstat Matches</span>
-            <OwnedTogglePill
+            <TogglePill
+              ariaLabel='Promote mainstat matches'
+              checked={promoteMatchingWheelMainstats}
               className='ownership-pill-builder'
               offLabel='Off'
               onLabel='On'
-              onToggle={() => {
-                onPromoteMatchingWheelMainstatsChange(!promoteMatchingWheelMainstats)
-              }}
-              owned={promoteMatchingWheelMainstats}
+              onChange={onPromoteMatchingWheelMainstatsChange}
               variant='flat'
             />
           </div>

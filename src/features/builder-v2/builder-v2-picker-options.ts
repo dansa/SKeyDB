@@ -29,6 +29,7 @@ import {matchesWheelMainstat, type WheelMainstatFilter} from '@/domain/wheel-mai
 import {getWheelMainstatLabel, type Wheel} from '@/domain/wheels'
 import {searchWheels} from '@/domain/wheels-search'
 
+import {orderBuilderPickerItems} from '../builder/picker-priority'
 import {getTeamRealmSet} from '../builder/team-state'
 import type {Team, TeamSlot, WheelUsageLocation} from '../builder/types'
 import type {
@@ -47,6 +48,7 @@ export interface CreateBuilderV2AwakenerOptionsInput {
   filter: BuilderV2AwakenerFilter
   displayUnowned: boolean
   sinkUnownedToBottom: boolean
+  unusedFirst?: boolean
   allowDuplicateAwakenerIdentities: boolean
   sortKey: AwakenerSortKey
   sortDirection: CollectionSortDirection
@@ -66,6 +68,7 @@ export interface CreateBuilderV2WheelOptionsInput {
   mainstatFilter: WheelMainstatFilter
   displayUnowned: boolean
   sinkUnownedToBottom: boolean
+  unusedFirst?: boolean
   promoteRecommendedGear: boolean
   promoteMatchingWheelMainstats: boolean
   sortKey: WheelCollectionSortKey
@@ -93,6 +96,7 @@ export interface CreateBuilderV2PosseOptionsInput {
   allowDuplicateAwakenerIdentities: boolean
   displayUnowned: boolean
   sinkUnownedToBottom: boolean
+  unusedFirst?: boolean
   promoteRecommendedGear: boolean
   recommendedPosseIds: ReadonlySet<string>
   usedPosseByTeamOrder: ReadonlyMap<string, number>
@@ -144,9 +148,13 @@ export function createBuilderV2AwakenerOptions(
       groupByRealm: input.sortGroupByRealm,
     })
   })
-  const visible = input.sinkUnownedToBottom
-    ? sinkUnownedToEnd(sorted, (awakener) => input.isAwakenerOwnedByName(awakener.name))
-    : sorted
+  const visible = orderBuilderPickerItems(sorted, {
+    sinkUnownedToBottom: input.sinkUnownedToBottom,
+    unusedFirst: input.unusedFirst ?? false,
+    isOwned: (awakener) => input.isAwakenerOwnedByName(awakener.name),
+    isUsed: (awakener) =>
+      input.usedAwakenerIdentityKeys.has(getAwakenerIdentityKeyById(awakener.id)),
+  })
   const teamRealmSet = getTeamRealmSet([...input.activeTeamSlots])
 
   return visible.map((awakener) => {
@@ -205,9 +213,12 @@ export function createBuilderV2WheelOptions(
         })
       : wheelFallbackCompare(left, right),
   )
-  const ordered = input.sinkUnownedToBottom
-    ? sinkUnownedToEnd(sorted, (wheel) => input.isWheelOwnedById(wheel.id))
-    : sorted
+  const ordered = orderBuilderPickerItems(sorted, {
+    sinkUnownedToBottom: input.sinkUnownedToBottom,
+    unusedFirst: input.unusedFirst ?? false,
+    isOwned: (wheel) => input.isWheelOwnedById(wheel.id),
+    isUsed: (wheel) => input.usedWheelIds.has(wheel.id),
+  })
 
   return ordered.map((wheel) => {
     const usedByTeam = input.usedWheelByTeamOrder.get(wheel.id)
@@ -287,9 +298,12 @@ export function createBuilderV2PosseOptions(
         return leftRecommended ? -1 : 1
       })
     : byOwnership
-  const ordered = input.sinkUnownedToBottom
-    ? sinkUnownedToEnd(sorted, (posse) => input.isPosseOwnedById(posse.id))
-    : sorted
+  const ordered = orderBuilderPickerItems(sorted, {
+    sinkUnownedToBottom: input.sinkUnownedToBottom,
+    unusedFirst: input.unusedFirst ?? false,
+    isOwned: (posse) => input.isPosseOwnedById(posse.id),
+    isUsed: (posse) => input.usedPosseByTeamOrder.has(posse.id),
+  })
 
   return ordered.map((posse) => {
     const usedTeamOrder = input.usedPosseByTeamOrder.get(posse.id)
@@ -371,10 +385,11 @@ function createSortableAwakenerEntry(
   ownedAwakenerLevelByName: ReadonlyMap<string, number | null>,
   awakenerLevelByName: ReadonlyMap<string, number>,
 ) {
+  // Ownership priority belongs to the explicit picker toggle, not the collection comparator.
   return {
     label: formatAwakenerNameForUi(awakener.name),
     index: awakener.numericId ?? Number.MAX_SAFE_INTEGER,
-    owned: (ownedAwakenerLevelByName.get(awakener.name) ?? null) !== null,
+    owned: true,
     enlighten: ownedAwakenerLevelByName.get(awakener.name) ?? 0,
     level: awakenerLevelByName.get(awakener.name) ?? 60,
     rarity: awakener.rarity,
@@ -387,10 +402,11 @@ function createSortableWheelEntry(
   wheel: Wheel,
   ownedWheelLevelById: ReadonlyMap<string, number | null>,
 ) {
+  // Keep collection sorting neutral here; the shared picker pass handles ownership.
   return {
     label: wheel.name,
     index: Number.parseInt(wheel.id.replace(/\D+/g, ''), 10) || Number.MAX_SAFE_INTEGER,
-    owned: (ownedWheelLevelById.get(wheel.id) ?? null) !== null,
+    owned: true,
     enlighten: ownedWheelLevelById.get(wheel.id) ?? 0,
     rarity: wheel.rarity,
     realm: wheel.realm,
@@ -454,18 +470,4 @@ function getWheelRecommendationChipLabel(tier: AwakenerBuildWheelTier | null): s
     default:
       return null
   }
-}
-
-function sinkUnownedToEnd<TEntity>(
-  entries: readonly TEntity[],
-  isOwned: (entry: TEntity) => boolean,
-): TEntity[] {
-  return entries.toSorted((left, right) => {
-    const leftOwned = isOwned(left)
-    const rightOwned = isOwned(right)
-    if (leftOwned === rightOwned) {
-      return 0
-    }
-    return leftOwned ? -1 : 1
-  })
 }

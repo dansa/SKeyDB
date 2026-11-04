@@ -15,6 +15,7 @@ import {
   COLLECTION_OWNERSHIP_KEY,
   saveCollectionOwnership,
 } from '@/features/collection/collectionMigrations'
+import {collectionOwnershipStore} from '@/stores/collectionOwnershipStore'
 
 import {
   BUILDER_PERSISTENCE_KEY,
@@ -50,7 +51,74 @@ async function getPrimaryBuild(awakenerId: string) {
 }
 
 describe('useBuilderViewModel', () => {
+  it('does not secretly promote owned awakeners when ownership sinking is off', () => {
+    const {result} = renderHook(() =>
+      useBuilderViewModel({searchInputRef: createRef<HTMLInputElement>()}),
+    )
+    act(() => {
+      result.current.setAwakenerSortKey('ALPHABETICAL')
+      result.current.toggleAwakenerSortDirection()
+      result.current.setSinkUnownedToBottom(false)
+    })
+    const first = requireDefined(result.current.filteredAwakeners[0])
+    const last = requireDefined(result.current.filteredAwakeners.at(-1))
+    act(() => {
+      collectionOwnershipStore
+        .getState()
+        .updateOwnership((state) => ({...state, ownedAwakeners: {[last.id]: 0}}))
+    })
+    expect(result.current.filteredAwakeners[0]?.id).toBe(first.id)
+    act(() => {
+      result.current.setSinkUnownedToBottom(true)
+    })
+    expect(result.current.filteredAwakeners[0]?.id).toBe(last.id)
+  })
+
+  it('reorders all three pickers on assignment and removal, even with dupes allowed', () => {
+    const {result} = renderHook(() =>
+      useBuilderViewModel({searchInputRef: createRef<HTMLInputElement>()}),
+    )
+    const awakener = requireDefined(result.current.filteredAwakeners[0])
+    const wheel = requireDefined(result.current.filteredWheels[0])
+    const posse = requireDefined(result.current.filteredPosses[0])
+    act(() => {
+      result.current.setUnusedFirst(true)
+      result.current.setAllowDupes(true)
+      result.current.setTeams((teams) =>
+        teams.map((team, index) =>
+          index
+            ? team
+            : {
+                ...team,
+                posseId: posse.id,
+                slots: team.slots.map((slot, i) =>
+                  i ? slot : {...slot, awakenerId: awakener.id, wheels: [wheel.id, null]},
+                ),
+              },
+        ),
+      )
+    })
+    expect(result.current.filteredAwakeners.at(-1)?.id).toBe(awakener.id)
+    expect(result.current.filteredWheels.at(-1)?.id).toBe(wheel.id)
+    expect(result.current.filteredPosses.at(-1)?.id).toBe(posse.id)
+    act(() => {
+      result.current.setTeams((teams) =>
+        teams.map((team) => ({
+          ...team,
+          posseId: undefined,
+          slots: team.slots.map((slot) => ({...slot, awakenerId: undefined, wheels: [null, null]})),
+        })),
+      )
+    })
+    expect(result.current.filteredAwakeners[0]?.id).toBe(awakener.id)
+    expect(result.current.filteredWheels[0]?.id).toBe(wheel.id)
+    expect(result.current.filteredPosses[0]?.id).toBe(posse.id)
+  })
+
   beforeEach(() => {
+    window.localStorage.removeItem('skeydb.builder.unusedFirst.v1')
+    window.localStorage.removeItem('skeydb.builder.allowDupes.v1')
+    window.localStorage.removeItem('skeydb.builder.sinkUnownedToBottom.v1')
     window.localStorage.removeItem(BUILDER_PERSISTENCE_KEY)
     window.localStorage.removeItem(COLLECTION_OWNERSHIP_KEY)
     window.localStorage.removeItem(BUILDER_AWAKENER_SORT_GROUP_BY_REALM_KEY)
@@ -63,6 +131,9 @@ describe('useBuilderViewModel', () => {
   })
 
   afterEach(() => {
+    window.localStorage.removeItem('skeydb.builder.sinkUnownedToBottom.v1')
+    window.localStorage.removeItem('skeydb.builder.unusedFirst.v1')
+    window.localStorage.removeItem('skeydb.builder.allowDupes.v1')
     window.localStorage.removeItem(BUILDER_PERSISTENCE_KEY)
     window.localStorage.removeItem(COLLECTION_OWNERSHIP_KEY)
     window.localStorage.removeItem(BUILDER_AWAKENER_SORT_GROUP_BY_REALM_KEY)

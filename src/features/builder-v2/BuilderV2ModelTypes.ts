@@ -205,6 +205,7 @@ export interface BuilderV2PickerModel {
   toggleWheelSortDirection: () => void
   setDisplayUnowned: (nextDisplayUnowned: boolean) => void
   setSinkUnownedToBottom: (nextSinkUnownedToBottom: boolean) => void
+  setUnusedFirst: (unusedFirst: boolean) => void
   setAllowDupes: (nextAllowDupes: boolean) => void
   setPromoteRecommendedGear: (nextPromoteRecommendedGear: boolean) => void
   setPromoteMatchingWheelMainstats: (nextPromoteMatchingWheelMainstats: boolean) => void
@@ -222,6 +223,7 @@ export interface BuilderV2PickerPreferences {
   wheelSortDirection: CollectionSortDirection
   displayUnowned: boolean
   sinkUnownedToBottom: boolean
+  unusedFirst: boolean
   allowDupes: boolean
   promoteRecommendedGear: boolean
   promoteMatchingWheelMainstats: boolean

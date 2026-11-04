@@ -31,6 +31,38 @@ function createAssignedSlot(
 }
 
 describe('useBuilderV2Model', () => {
+  it('updates unused ordering across tabs and keeps usage with duplicates enabled', () => {
+    const {result} = renderHook(() => useBuilderV2Model())
+    act(() => {
+      result.current.picker.setUnusedFirst(true)
+      result.current.picker.setAllowDupes(true)
+      result.current.assignAwakener('awakener-0021')
+    })
+    act(() => {
+      result.current.assignWheelToSlot('wheel-0050', 'slot-1', 0)
+    })
+    act(() => {
+      result.current.assignPosse('posse-0033')
+    })
+    act(() => {
+      result.current.picker.setTab('awakeners')
+    })
+    expect(result.current.picker.awakeners.at(-1)?.id).toBe('awakener-0021')
+    act(() => {
+      result.current.picker.setTab('wheels')
+    })
+    expect(result.current.picker.wheels.at(-1)?.id).toBe('wheel-0050')
+    act(() => {
+      result.current.picker.setTab('posses')
+    })
+    expect(result.current.picker.posses.at(-1)?.id).toBe('posse-0033')
+    act(() => {
+      result.current.removeAwakener('slot-1')
+      result.current.picker.setTab('awakeners')
+    })
+    expect(result.current.picker.awakeners.find((a) => a.id === 'awakener-0021')?.inUse).toBe(false)
+  })
+
   it('initializes one active team with four slots', () => {
     const {result} = renderHook(() => useBuilderV2Model())
 

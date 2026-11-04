@@ -925,6 +925,13 @@ function BuilderV2PickerOptionsMenu({picker}: {picker: BuilderV2PickerModel}) {
             }}
           />
         ) : null}
+        {picker.tab !== 'covenants' ? (
+          <PickerToggle
+            checked={picker.preferences.unusedFirst}
+            label='Unused first'
+            onChange={picker.setUnusedFirst}
+          />
+        ) : null}
         <PickerToggle
           checked={picker.preferences.allowDupes}
           label='Allow dupes'

@@ -5,6 +5,17 @@ import './builder-page.integration-mocks'
 import {BuilderPage} from './BuilderPage'
 
 describe('BuilderPage selection behavior', () => {
+  it('exposes selected awakener and posse realm filters', () => {
+    render(<BuilderPage />)
+    expect(screen.getByRole('button', {name: 'All', pressed: true})).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', {name: 'Aequor', pressed: false}))
+    expect(screen.getByRole('button', {name: 'Aequor', pressed: true})).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('tab', {name: 'Posses'}))
+    expect(screen.getByRole('button', {name: 'All', pressed: true})).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', {name: 'Aequor', pressed: false}))
+    expect(screen.getByRole('button', {name: 'Aequor', pressed: true})).toBeInTheDocument()
+  })
+
   it('clears active selection when clicking outside picker zone', () => {
     render(<BuilderPage />)
 

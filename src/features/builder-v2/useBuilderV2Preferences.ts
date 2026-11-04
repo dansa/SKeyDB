@@ -9,6 +9,7 @@ import {
 import {getBrowserLocalStorage, safeStorageRead, safeStorageWrite} from '@/domain/storage'
 
 import type {TeamPreviewMode} from '../builder/types'
+import {useUnusedFirstPreference} from '../builder/useUnusedFirstPreference'
 
 const BUILDER_ALLOW_DUPES_KEY = 'skeydb.builder.allowDupes.v1'
 const BUILDER_AWAKENER_SORT_KEY_KEY = 'skeydb.builder.awakenerSortKey.v1'
@@ -25,6 +26,7 @@ const BUILDER_V2_TEAM_PREVIEW_MODE_KEY = 'skeydb.builderV2.teamPreviewMode.v1'
 
 export function useBuilderV2Preferences() {
   const storage = useMemo(() => getBrowserLocalStorage(), [])
+  const {unusedFirst, setUnusedFirst} = useUnusedFirstPreference(storage)
   const [allowDuplicateAwakenerIdentities, setAllowDuplicateAwakenerIdentities] = useState(
     () => safeStorageRead(storage, BUILDER_ALLOW_DUPES_KEY) === '1',
   )
@@ -129,6 +131,8 @@ export function useBuilderV2Preferences() {
   }, [storage, teamPreviewMode])
 
   return {
+    unusedFirst,
+    setUnusedFirst,
     allowDuplicateAwakenerIdentities,
     setAllowDuplicateAwakenerIdentities,
     displayUnowned,
