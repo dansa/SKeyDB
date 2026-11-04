@@ -301,6 +301,35 @@ function buildOverlayRecords(): AwakenerOverlayRecord[] {
 }
 
 describe('awakeners-full-resolver', () => {
+  it.each([null, 'E1', 'E2', 'E3', 'AbsoluteAxiom'] as const)(
+    'keeps both Goliath generated-card variants inspectable at %s',
+    async (selectedEnlightenSlot) => {
+      const goliath = await loadPublicAwakenerDetailById('awakener-0021')
+      if (!goliath) throw new Error('Missing Goliath')
+      const {record} = resolveAwakenerFullRecord(goliath, {selectedEnlightenSlot})
+      const group = record.derivedSkills.find(
+        (entry) => entry.id === 'derived.goliath.blades-dominion',
+      )
+      expect(group?.nodeKind).toBe('group')
+      expect(group?.childDerivedSkillIds).toEqual([
+        'derived.goliath.blades-dominion-normal',
+        'derived.goliath.blades-dominion-over-exalt',
+      ])
+      for (const [suffix, cost, values] of [
+        ['normal', '2', ['40', '48', '56', '64', '72', '80']],
+        ['over-exalt', '0', ['200', '240', '280', '320', '360', '400']],
+      ] as const) {
+        const card = record.derivedSkills.find(
+          (entry) => entry.id === `derived.goliath.blades-dominion-${suffix}`,
+        )
+        expect(card?.descriptionArgs.Arg1).toMatchObject({kind: 'scaling', values, stat: 'ATK'})
+        expect(card?.descriptionArgs.Arg2).toMatchObject({kind: 'fixed', value: '3'})
+        expect(card?.cost).toBe(cost)
+        expect(card?.upgrades).toBeUndefined()
+      }
+    },
+  )
+
   it.each([null, 'E1', 'E2', 'E3'] as const)(
     'retains Quality Nap on both Vivian Skills at %s',
     async (selectedEnlightenSlot) => {

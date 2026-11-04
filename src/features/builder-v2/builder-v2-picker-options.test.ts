@@ -61,6 +61,66 @@ function createPosse(overrides: Partial<Posse> & Pick<Posse, 'id' | 'name'>): Po
 }
 
 describe('builder-v2 picker option queries', () => {
+  it.each([false, true])(
+    'lets the ownership toggle control awakener sorting (%s)',
+    (sinkUnownedToBottom) => {
+      const options = createBuilderV2AwakenerOptions({
+        allAwakeners: [
+          createAwakener({id: 'awakener-9001', name: 'A unowned'}),
+          createAwakener({id: 'awakener-9002', name: 'B owned'}),
+        ],
+        searchQuery: '',
+        filter: 'ALL',
+        displayUnowned: true,
+        sinkUnownedToBottom,
+        allowDuplicateAwakenerIdentities: false,
+        sortKey: 'ALPHABETICAL',
+        sortDirection: 'ASC',
+        sortGroupByRealm: false,
+        activeTeamSlots: [],
+        usedAwakenerIdentityKeys: new Set(),
+        usageAwakenerByIdentityKey: new Map(),
+        ownedAwakenerLevelByName: new Map([['B owned', 0]]),
+        awakenerLevelByName: new Map(),
+        isAwakenerOwnedByName: (name) => name === 'B owned',
+      })
+      expect(options.map((option) => option.id)).toEqual(
+        sinkUnownedToBottom
+          ? ['awakener-9002', 'awakener-9001']
+          : ['awakener-9001', 'awakener-9002'],
+      )
+    },
+  )
+
+  it.each([false, true])(
+    'lets the ownership toggle control wheel sorting (%s)',
+    (sinkUnownedToBottom) => {
+      const options = createBuilderV2WheelOptions({
+        allWheels: [
+          createWheel({id: 'wheel-9001', name: 'A unowned'}),
+          createWheel({id: 'wheel-9002', name: 'B owned'}),
+        ],
+        searchQuery: '',
+        rarityFilter: 'ALL',
+        mainstatFilter: 'ALL',
+        displayUnowned: true,
+        sinkUnownedToBottom,
+        promoteRecommendedGear: false,
+        promoteMatchingWheelMainstats: false,
+        sortKey: 'ALPHABETICAL',
+        sortDirection: 'ASC',
+        recommendationById: new Map(),
+        usedWheelIds: new Set(),
+        usedWheelByTeamOrder: new Map(),
+        ownedWheelLevelById: new Map([['wheel-9002', 0]]),
+        isWheelOwnedById: (id) => id === 'wheel-9002',
+      })
+      expect(options.map((option) => option.id)).toEqual(
+        sinkUnownedToBottom ? ['wheel-9002', 'wheel-9001'] : ['wheel-9001', 'wheel-9002'],
+      )
+    },
+  )
+
   it('keeps awakener ownership sinking and duplicate block labels stable', () => {
     const awakeners = [
       createAwakener({id: 'awakener-9001', name: 'Aster', numericId: 1}),

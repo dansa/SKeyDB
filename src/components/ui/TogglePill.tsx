@@ -22,6 +22,7 @@ export function TogglePill({
   return (
     <button
       aria-label={ariaLabel}
+      aria-pressed={checked}
       className={`ownership-pill ${variant === 'flat' ? 'ownership-pill-flat' : ''} ${className}`.trim()}
       data-checked={checked ? 'true' : 'false'}
       data-owned={checked ? 'true' : 'false'}

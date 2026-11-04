@@ -85,6 +85,8 @@ export function BuilderPage() {
     setDisplayUnowned,
     sinkUnownedToBottom,
     setSinkUnownedToBottom,
+    unusedFirst,
+    setUnusedFirst,
     allowDupes,
     setAllowDupes,
     promoteRecommendedGear,
@@ -690,6 +692,7 @@ export function BuilderPage() {
             teamRecommendedPosseIds={teamRecommendedPosseIds}
             displayUnowned={displayUnowned}
             sinkUnownedToBottom={sinkUnownedToBottom}
+            unusedFirst={unusedFirst}
             effectiveActiveTeamId={effectiveActiveTeamId}
             filteredAwakeners={filteredAwakeners}
             filteredCovenants={filteredCovenants}
@@ -702,6 +705,7 @@ export function BuilderPage() {
             ownedWheelLevelById={ownedWheelLevelById}
             onDisplayUnownedChange={setDisplayUnowned}
             onSinkUnownedToBottomChange={setSinkUnownedToBottom}
+            onUnusedFirstChange={setUnusedFirst}
             onAwakenerClick={handlePickerAwakenerClick}
             onOpenAwakenerDetail={openAwakenerDetailOverlay}
             onOpenWheelDetail={openPickerWheelDetailOverlay}

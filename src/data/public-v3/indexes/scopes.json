@@ -63,7 +63,7 @@
       "idPrefix": "derived",
       "capabilities": ["catalog", "detailRecord", "snapshot"],
       "searchable": false,
-      "recordCount": 215
+      "recordCount": 217
     },
     {
       "scope": "talents",
@@ -161,7 +161,7 @@
       "idPrefix": "derived",
       "capabilities": ["catalog", "detailRecord", "snapshot"],
       "searchable": false,
-      "recordCount": 215
+      "recordCount": 217
     },
     "talents": {
       "scope": "talents",

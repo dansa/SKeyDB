@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.goliath.blades-dominion-normal",
+  "name": "Blade's Dominion (Normal)",
+  "route": {
+    "slug": "blades-dominion-normal",
+    "canonicalPath": "/database/awakeners/goliath/derived-skills/blades-dominion-normal"
+  },
+  "ownerAwakenerId": "awakener-0021",
+  "derivedFromId": "skill.goliath.abyssal-depths-power",
+  "rootSkillId": "skill.goliath.abyssal-depths-power",
+  "cardFamily": "command",
+  "cardTypes": ["derived"],
+  "countsAs": ["strike"],
+  "descriptionTemplate": "Deal [Damage:Arg1] DMG to all enemies. {STR} has [Arg2] {plural:[Arg2]|time|times} the effect on {derived:Blade's Dominion}, this card counts as a \"Strike\".",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": ["40", "48", "56", "64", "72", "80"],
+      "stat": "ATK",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "fixed",
+      "value": "3"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.exhaust"
+    },
+    {
+      "id": "mechanic.retain"
+    },
+    {
+      "id": "mechanic.prepare",
+      "value": 1
+    }
+  ],
+  "cost": "2",
+  "ownerAwakenerName": "Goliath"
+}

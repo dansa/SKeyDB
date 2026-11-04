@@ -101,6 +101,7 @@ export function BuilderSelectionFilters({
         <div className='mt-2 grid grid-cols-5 gap-1'>
           {awakenerFilterTabs.map((filterTab) => (
             <button
+              aria-pressed={awakenerFilter === filterTab.id}
               className={getCompactFilterChipClassName(awakenerFilter === filterTab.id)}
               key={filterTab.id}
               onClick={() => {
@@ -118,6 +119,7 @@ export function BuilderSelectionFilters({
         <div className='mt-2 grid grid-cols-3 gap-1'>
           {posseFilterTabs.map((filterTab) => (
             <button
+              aria-pressed={posseFilter === filterTab.id}
               className={getCompactFilterChipClassName(posseFilter === filterTab.id)}
               key={filterTab.id}
               onClick={() => {

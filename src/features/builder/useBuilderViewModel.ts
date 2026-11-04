@@ -25,6 +25,7 @@ import {collectionOwnershipStore} from '@/stores/collectionOwnershipStore'
 import {createBuilderOwnershipProjection} from './builder-ownership-projection'
 import {loadBuilderDraft, saveBuilderDraft, type BuilderDraftPayload} from './builder-persistence'
 import {allAwakeners} from './constants'
+import {orderBuilderPickerItems} from './picker-priority'
 import {getPublicQuickLineupSession} from './quick-lineup'
 import {
   nextSelectionAfterCovenantRemoved,
@@ -52,19 +53,6 @@ interface UseBuilderViewModelOptions {
 }
 
 const BUILDER_AUTOSAVE_DEBOUNCE_MS = 300
-
-function sinkUnownedToEnd<T>(items: T[], isOwned: (item: T) => boolean): T[] {
-  const owned: T[] = []
-  const unowned: T[] = []
-  for (const item of items) {
-    if (isOwned(item)) {
-      owned.push(item)
-    } else {
-      unowned.push(item)
-    }
-  }
-  return [...owned, ...unowned]
-}
 
 function createDefaultBuilderState() {
   const teams = createInitialTeams()
@@ -178,6 +166,8 @@ export function useBuilderViewModel({searchInputRef}: UseBuilderViewModelOptions
     setDisplayUnowned,
     sinkUnownedToBottom,
     setSinkUnownedToBottom,
+    unusedFirst,
+    setUnusedFirst,
     allowDupes,
     setAllowDupes,
     promoteRecommendedGear,
@@ -253,6 +243,30 @@ export function useBuilderViewModel({searchInputRef}: UseBuilderViewModelOptions
     slotsById: activeTeamSlotById,
   })
 
+  const usedAwakenerByIdentityKey = useMemo(() => {
+    const identityMap = new Map<string, string>()
+    teams.forEach((team) => {
+      team.slots.forEach((slot) => {
+        if (!slot.awakenerId || slot.isSupport) return
+        const identityKey = getAwakenerIdentityKeyById(slot.awakenerId)
+        if (!identityMap.has(identityKey)) identityMap.set(identityKey, team.id)
+      })
+    })
+    return identityMap
+  }, [teams])
+  const usedAwakenerIdentityKeys = useMemo(
+    () => new Set(usedAwakenerByIdentityKey.keys()),
+    [usedAwakenerByIdentityKey],
+  )
+  const usedPosseByTeamOrder = useMemo(() => {
+    const posseMap = new Map<string, number>()
+    teams.forEach((team, index) => {
+      if (team.posseId && !posseMap.has(team.posseId)) posseMap.set(team.posseId, index)
+    })
+    return posseMap
+  }, [teams])
+  const usedWheelByTeamOrder = useMemo(() => buildUsedWheelByTeamOrder(teams), [teams])
+
   const searchedAwakeners = useMemo(
     () => searchAwakeners(pickerAwakeners, pickerSearchByTab.awakeners),
     [pickerAwakeners, pickerSearchByTab.awakeners],
@@ -268,12 +282,13 @@ export function useBuilderViewModel({searchInputRef}: UseBuilderViewModelOptions
       ? byRealm
       : byRealm.filter((awakener) => isAwakenerOwnedByName(awakener.name))
 
+    // Apply ownership only in the explicit picker priority pass below.
     const sorted = byOwnership.toSorted((left, right) =>
       compareAwakenersForCollectionSort(
         {
           label: formatAwakenerNameForUi(left.name),
           index: left.numericId ?? Number.MAX_SAFE_INTEGER,
-          owned: isAwakenerOwnedByName(left.name),
+          owned: true,
           enlighten: ownedAwakenerLevelByName.get(left.name) ?? 0,
           level: awakenerLevelByName.get(left.name) ?? 60,
           rarity: left.rarity,
@@ -283,7 +298,7 @@ export function useBuilderViewModel({searchInputRef}: UseBuilderViewModelOptions
         {
           label: formatAwakenerNameForUi(right.name),
           index: right.numericId ?? Number.MAX_SAFE_INTEGER,
-          owned: isAwakenerOwnedByName(right.name),
+          owned: true,
           enlighten: ownedAwakenerLevelByName.get(right.name) ?? 0,
           level: awakenerLevelByName.get(right.name) ?? 60,
           rarity: right.rarity,
@@ -297,15 +312,20 @@ export function useBuilderViewModel({searchInputRef}: UseBuilderViewModelOptions
         },
       ),
     )
-    return sinkUnownedToBottom
-      ? sinkUnownedToEnd(sorted, (awakener) => isAwakenerOwnedByName(awakener.name))
-      : sorted
+    return orderBuilderPickerItems(sorted, {
+      sinkUnownedToBottom,
+      unusedFirst,
+      isOwned: (awakener) => isAwakenerOwnedByName(awakener.name),
+      isUsed: (awakener) => usedAwakenerIdentityKeys.has(getAwakenerIdentityKeyById(awakener.id)),
+    })
   }, [
     awakenerFilter,
     searchedAwakeners,
     displayUnowned,
     sinkUnownedToBottom,
     isAwakenerOwnedByName,
+    unusedFirst,
+    usedAwakenerIdentityKeys,
     ownedAwakenerLevelByName,
     awakenerLevelByName,
     awakenerSortKey,
@@ -347,15 +367,20 @@ export function useBuilderViewModel({searchInputRef}: UseBuilderViewModelOptions
         })
       : result
 
-    return sinkUnownedToBottom
-      ? sinkUnownedToEnd(promoted, (posse) => isPosseOwnedById(posse.id))
-      : promoted
+    return orderBuilderPickerItems(promoted, {
+      sinkUnownedToBottom,
+      unusedFirst,
+      isOwned: (posse) => isPosseOwnedById(posse.id),
+      isUsed: (posse) => usedPosseByTeamOrder.has(posse.id),
+    })
   }, [
     posseFilter,
     searchedPosses,
     displayUnowned,
     sinkUnownedToBottom,
     isPosseOwnedById,
+    unusedFirst,
+    usedPosseByTeamOrder,
     promoteRecommendedGear,
     teamRecommendedPosseIds,
   ])
@@ -384,9 +409,12 @@ export function useBuilderViewModel({searchInputRef}: UseBuilderViewModelOptions
           })
         : compareWheelsForUi(left, right),
     )
-    return sinkUnownedToBottom
-      ? sinkUnownedToEnd(sorted, (wheel) => isWheelOwnedById(wheel.id))
-      : sorted
+    return orderBuilderPickerItems(sorted, {
+      sinkUnownedToBottom,
+      unusedFirst,
+      isOwned: (wheel) => isWheelOwnedById(wheel.id),
+      isUsed: (wheel) => usedWheelByTeamOrder.has(wheel.id),
+    })
   }, [
     pickerWheels,
     pickerSearchByTab.wheels,
@@ -395,6 +423,8 @@ export function useBuilderViewModel({searchInputRef}: UseBuilderViewModelOptions
     displayUnowned,
     sinkUnownedToBottom,
     isWheelOwnedById,
+    unusedFirst,
+    usedWheelByTeamOrder,
     promoteRecommendedGear,
     activeBuild,
     promoteMatchingWheelMainstats,
@@ -415,36 +445,6 @@ export function useBuilderViewModel({searchInputRef}: UseBuilderViewModelOptions
   }, [pickerCovenants, pickerSearchByTab.covenants, promoteRecommendedGear, activeBuild])
 
   const teamRealmSet = useMemo(() => getTeamRealmSet(teamSlots), [teamSlots])
-  const usedAwakenerByIdentityKey = useMemo(() => {
-    const identityMap = new Map<string, string>()
-    teams.forEach((team) => {
-      team.slots.forEach((slot) => {
-        if (!slot.awakenerId || slot.isSupport) {
-          return
-        }
-        const identityKey = getAwakenerIdentityKeyById(slot.awakenerId)
-        if (!identityMap.has(identityKey)) {
-          identityMap.set(identityKey, team.id)
-        }
-      })
-    })
-    return identityMap
-  }, [teams])
-  const usedAwakenerIdentityKeys = useMemo(
-    () => new Set(usedAwakenerByIdentityKey.keys()),
-    [usedAwakenerByIdentityKey],
-  )
-  const usedPosseByTeamOrder = useMemo(() => {
-    const posseMap = new Map<string, number>()
-    teams.forEach((team, index) => {
-      if (!team.posseId || posseMap.has(team.posseId)) {
-        return
-      }
-      posseMap.set(team.posseId, index)
-    })
-    return posseMap
-  }, [teams])
-  const usedWheelByTeamOrder = useMemo(() => buildUsedWheelByTeamOrder(teams), [teams])
   const hasSupportAwakener = useMemo(
     () => teams.some((team) => team.slots.some((slot) => slot.isSupport)),
     [teams],
@@ -640,6 +640,8 @@ export function useBuilderViewModel({searchInputRef}: UseBuilderViewModelOptions
     setDisplayUnowned,
     sinkUnownedToBottom,
     setSinkUnownedToBottom,
+    unusedFirst,
+    setUnusedFirst,
     allowDupes,
     setAllowDupes,
     promoteRecommendedGear,

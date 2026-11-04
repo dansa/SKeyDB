@@ -16,6 +16,7 @@ import type {
   WheelRarityFilter,
 } from './types'
 import {useGlobalPickerSearchCapture} from './useGlobalPickerSearchCapture'
+import {useUnusedFirstPreference} from './useUnusedFirstPreference'
 
 const BUILDER_AWAKENER_SORT_KEY_KEY = 'skeydb.builder.awakenerSortKey.v1'
 const BUILDER_AWAKENER_SORT_DIRECTION_KEY = 'skeydb.builder.awakenerSortDirection.v1'
@@ -34,6 +35,7 @@ interface UseBuilderPreferencesOptions {
 }
 
 export function useBuilderPreferences({searchInputRef, storage}: UseBuilderPreferencesOptions) {
+  const {unusedFirst, setUnusedFirst} = useUnusedFirstPreference(storage)
   const [pickerTab, setPickerTab] = useState<PickerTab>('awakeners')
   const [awakenerFilter, setAwakenerFilter] = useState<AwakenerFilter>('ALL')
   const [posseFilter, setPosseFilter] = useState<PosseFilter>('ALL')
@@ -194,6 +196,8 @@ export function useBuilderPreferences({searchInputRef, storage}: UseBuilderPrefe
   })
 
   return {
+    unusedFirst,
+    setUnusedFirst,
     pickerTab,
     setPickerTab,
     awakenerFilter,

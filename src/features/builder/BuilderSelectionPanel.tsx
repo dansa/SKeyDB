@@ -42,6 +42,7 @@ interface BuilderSelectionPanelProps {
   awakenerSortGroupByRealm: boolean
   displayUnowned: boolean
   sinkUnownedToBottom: boolean
+  unusedFirst: boolean
   allowDupes: boolean
   promoteRecommendedGear: boolean
   promoteMatchingWheelMainstats: boolean
@@ -74,6 +75,7 @@ interface BuilderSelectionPanelProps {
   onAwakenerSortGroupByRealmChange: (nextGroupByRealm: boolean) => void
   onDisplayUnownedChange: (displayUnowned: boolean) => void
   onSinkUnownedToBottomChange: (sinkUnownedToBottom: boolean) => void
+  onUnusedFirstChange: (unusedFirst: boolean) => void
   onAllowDupesChange: (allowDupes: boolean) => void
   onPromoteRecommendedGearChange: (promoteRecommendedGear: boolean) => void
   onPromoteMatchingWheelMainstatsChange: (promoteMatchingWheelMainstats: boolean) => void
@@ -101,6 +103,7 @@ export function BuilderSelectionPanel({
   awakenerSortGroupByRealm,
   displayUnowned,
   sinkUnownedToBottom,
+  unusedFirst,
   allowDupes,
   promoteRecommendedGear,
   promoteMatchingWheelMainstats,
@@ -133,6 +136,7 @@ export function BuilderSelectionPanel({
   onAwakenerSortGroupByRealmChange,
   onDisplayUnownedChange,
   onSinkUnownedToBottomChange,
+  onUnusedFirstChange,
   onAllowDupesChange,
   onPromoteRecommendedGearChange,
   onPromoteMatchingWheelMainstatsChange,
@@ -177,6 +181,7 @@ export function BuilderSelectionPanel({
           awakenerSortKey={awakenerSortKey}
           displayUnowned={displayUnowned}
           sinkUnownedToBottom={sinkUnownedToBottom}
+          unusedFirst={unusedFirst}
           promoteMatchingWheelMainstats={promoteMatchingWheelMainstats}
           promoteRecommendedGear={promoteRecommendedGear}
           onAllowDupesChange={onAllowDupesChange}
@@ -185,6 +190,7 @@ export function BuilderSelectionPanel({
           onAwakenerSortKeyChange={onAwakenerSortKeyChange}
           onDisplayUnownedChange={onDisplayUnownedChange}
           onSinkUnownedToBottomChange={onSinkUnownedToBottomChange}
+          onUnusedFirstChange={onUnusedFirstChange}
           onPromoteMatchingWheelMainstatsChange={onPromoteMatchingWheelMainstatsChange}
           onPromoteRecommendedGearChange={onPromoteRecommendedGearChange}
           pickerTab={pickerTab}

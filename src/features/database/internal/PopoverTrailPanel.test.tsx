@@ -24,6 +24,18 @@ afterEach(() => {
 })
 
 describe('PopoverTrailPanel', () => {
+  it('constrains mobile group previews to the viewport instead of their intrinsic width', () => {
+    Object.defineProperty(window, 'innerWidth', {configurable: true, value: 390})
+    render(
+      <PopoverTrailPanel anchorRect={makeRect()} itemCount={1} onCloseAll={vi.fn()}>
+        <p className='truncate'>A long generated-card preview that must not widen the dialog</p>
+      </PopoverTrailPanel>,
+    )
+    expect(screen.getByRole('dialog', {name: 'Database reference details'})).toHaveClass(
+      'w-[calc(100%-24px)]',
+    )
+  })
+
   it('coalesces viewport changes into one reposition per animation frame', () => {
     Object.defineProperty(window, 'innerWidth', {
       configurable: true,
