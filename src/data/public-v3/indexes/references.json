@@ -5473,12 +5473,6 @@
         "id": "skill.24.mediating-personalities"
       }
     ],
-    "melodic sculpting": [
-      {
-        "kind": "enlighten",
-        "id": "enlighten.sanga.melodic-sculpting"
-      }
-    ],
     "melody": [
       {
         "kind": "overlay",
@@ -7775,6 +7769,12 @@
       {
         "kind": "skill",
         "id": "skill.uvhash.screech-blood"
+      }
+    ],
+    "sculpted like a song": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.sanga.sculpted-like-a-song"
       }
     ],
     "sea of primordial essence": [
