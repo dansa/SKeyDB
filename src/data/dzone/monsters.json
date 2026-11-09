@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "scope": "monsters",
-  "recordCount": 338,
+  "recordCount": 340,
   "records": [
     {
       "id": "dzone-monster-0264",
@@ -262,6 +262,14 @@
       "descriptionTemplate": "Killing, chanting, sacrifice... For the Eternal Kingdom, they will offer everything.",
       "assetName": "Portrait_Small_Monster_C0502",
       "badges": ["Elite"]
+    },
+    {
+      "id": "dzone-monster-0344",
+      "name": "\"Fatebound\"",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0014", "enemy-characteristic-0006", "enemy-characteristic-0015"],
+      "descriptionTemplate": "Once a weaver of curtains and the closest confidante at Arachne's side. She may have once understood the Goddess of Fate's designs, but after eons in the Abyssal Prison, all that remains within this hollow shell is madness and hatred.",
+      "assetName": "Portrait_Small_Monster_S2C0502_BT",
+      "badges": ["Boss"]
     },
     {
       "id": "dzone-monster-0323",
@@ -1628,6 +1636,14 @@
       "characteristicIds": ["enemy-characteristic-0011", "enemy-characteristic-0014", "enemy-characteristic-0004", "enemy-characteristic-0006"],
       "descriptionTemplate": "A pursuing foot that tears through dimensional rifts, catching every reckless soul.",
       "assetName": "Portrait_Small_Monster_C0403"
+    },
+    {
+      "id": "dzone-monster-0345",
+      "name": "Immaculate Compassion",
+      "characteristicIds": ["enemy-characteristic-0001", "enemy-characteristic-0016"],
+      "descriptionTemplate": "Fear not, believer. All earthly suffering is but a step ascending to the kingdom of God.",
+      "assetName": "Portrait_Small_Monster_S2C0602_AT",
+      "badges": ["Boss"]
     },
     {
       "id": "dzone-monster-0188",
