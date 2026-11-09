@@ -1,11 +1,11 @@
 {
   "schemaVersion": 3,
   "kind": "enlighten",
-  "id": "enlighten.sanga.melodic-sculpting",
-  "name": "Melodic Sculpting",
+  "id": "enlighten.sanga.sculpted-like-a-song",
+  "name": "Sculpted Like a Song",
   "route": {
-    "slug": "melodic-sculpting",
-    "canonicalPath": "/database/awakeners/sanga/enlightens/melodic-sculpting"
+    "slug": "sculpted-like-a-song",
+    "canonicalPath": "/database/awakeners/sanga/enlightens/sculpted-like-a-song"
   },
   "ownerAwakenerId": "awakener-0045",
   "slot": "E1",

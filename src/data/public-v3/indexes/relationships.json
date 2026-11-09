@@ -1191,8 +1191,8 @@
       "ownedEnlightens": [
         "enlighten.sanga.artistic-dionysia",
         "enlighten.sanga.kneel-before-beauty",
-        "enlighten.sanga.melodic-sculpting",
         "enlighten.sanga.oblivion-takes-all",
+        "enlighten.sanga.sculpted-like-a-song",
         "enlighten.sanga.the-sea-of-corals"
       ],
       "awakenerBuilds": ["awakener-build-0045"]
@@ -2203,8 +2203,8 @@
     "enlighten.salvador.salvation-bestowal": {},
     "enlighten.sanga.artistic-dionysia": {},
     "enlighten.sanga.kneel-before-beauty": {},
-    "enlighten.sanga.melodic-sculpting": {},
     "enlighten.sanga.oblivion-takes-all": {},
+    "enlighten.sanga.sculpted-like-a-song": {},
     "enlighten.sanga.the-sea-of-corals": {},
     "enlighten.saya.here-my-one-last-gift": {},
     "enlighten.saya.ill-be-your-very-own-monster": {},
@@ -5119,10 +5119,10 @@
     "enlighten.sanga.kneel-before-beauty": {
       "ownerAwakenerId": "awakener-0045"
     },
-    "enlighten.sanga.melodic-sculpting": {
+    "enlighten.sanga.oblivion-takes-all": {
       "ownerAwakenerId": "awakener-0045"
     },
-    "enlighten.sanga.oblivion-takes-all": {
+    "enlighten.sanga.sculpted-like-a-song": {
       "ownerAwakenerId": "awakener-0045"
     },
     "enlighten.sanga.the-sea-of-corals": {

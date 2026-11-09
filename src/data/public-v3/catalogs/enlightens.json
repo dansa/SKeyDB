@@ -2970,18 +2970,6 @@
     },
     {
       "kind": "enlighten",
-      "id": "enlighten.sanga.melodic-sculpting",
-      "name": "Melodic Sculpting",
-      "route": {
-        "slug": "melodic-sculpting",
-        "canonicalPath": "/database/awakeners/sanga/enlightens/melodic-sculpting"
-      },
-      "ownerAwakenerId": "awakener-0045",
-      "ownerAwakenerName": "Sanga",
-      "slot": "E1"
-    },
-    {
-      "kind": "enlighten",
       "id": "enlighten.sanga.oblivion-takes-all",
       "name": "Oblivion Takes All",
       "route": {
@@ -2991,6 +2979,18 @@
       "ownerAwakenerId": "awakener-0045",
       "ownerAwakenerName": "Sanga",
       "slot": "AbsoluteAxiom"
+    },
+    {
+      "kind": "enlighten",
+      "id": "enlighten.sanga.sculpted-like-a-song",
+      "name": "Sculpted Like a Song",
+      "route": {
+        "slug": "sculpted-like-a-song",
+        "canonicalPath": "/database/awakeners/sanga/enlightens/sculpted-like-a-song"
+      },
+      "ownerAwakenerId": "awakener-0045",
+      "ownerAwakenerName": "Sanga",
+      "slot": "E1"
     },
     {
       "kind": "enlighten",

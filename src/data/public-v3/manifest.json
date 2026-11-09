@@ -1,10 +1,10 @@
 {
   "schemaVersion": 3,
-  "gameDataVersion": "compiled-sha256-c5e97dd77033c11f",
-  "generatedAt": "2026-11-04T10:05:11Z",
-  "buildId": "public-v3-sha256-66790ddc1bf8714f",
+  "gameDataVersion": "compiled-sha256-75d604136417c2f2",
+  "generatedAt": "2026-11-07T00:23:41Z",
+  "buildId": "public-v3-sha256-cdc16df3bb6e03ee",
   "build": {
-    "gameDataVersion": "compiled-sha256-c5e97dd77033c11f",
+    "gameDataVersion": "compiled-sha256-75d604136417c2f2",
     "recordCount": 2046,
     "scopes": [
       "awakeners",
@@ -134,8 +134,8 @@
       "sha256": "db078d20a1efead01a21d3ad4cd9aee5b3ebf92452fc0c5fa95167b8d2a44429"
     },
     "catalogs/enlightens.json": {
-      "bytes": 116387,
-      "sha256": "cd9e23d6363a4d5b014c5697abdea917aa7fb2421c5e3905fb66bc4e5124a6a7"
+      "bytes": 116399,
+      "sha256": "82e81fc8212a3c6ad11a5b3c5ab872faf09627676528f41bf0a997fb895394b4"
     },
     "catalogs/orisons.json": {
       "bytes": 10606,
@@ -178,24 +178,24 @@
       "sha256": "7770288696893ce871f757a6463709145a1e602b6f51394ca80525a98cd00ebf"
     },
     "indexes/entities.json": {
-      "bytes": 870737,
-      "sha256": "378487f982f68697374642ea4604684b1e1749b370e3fe6d0653ab7df0da3e80"
+      "bytes": 870755,
+      "sha256": "119559433606eac0bba00000c317c7cc335320f8ae34953899c2b9649bf14fcd"
     },
     "indexes/facets.json": {
       "bytes": 65191,
       "sha256": "81facd6bb8202d75126f4eb69f087f0e9236989cfc430110f3d576b44755eb5e"
     },
     "indexes/references.json": {
-      "bytes": 247711,
-      "sha256": "bf0ba14468632553dd8efa26d8786d16e63370af40c8ce17ebf1370452e02de1"
+      "bytes": 247717,
+      "sha256": "1a6d1409300a77878be01e8c56f8bf524e1295ecb0f86aaf91551fd0f3dc3682"
     },
     "indexes/relationships.json": {
-      "bytes": 278940,
-      "sha256": "f9c607b5ff355060e2bddd45055a1ccfc3dc15f4d58b0ad6606614773a13c325"
+      "bytes": 278949,
+      "sha256": "4e1d1aac64082cb7e9c5bacf9fe2a7be802291965bdb9ae93c585dd0d1166e8b"
     },
     "indexes/routes.json": {
-      "bytes": 469067,
-      "sha256": "167261f6db112dbbbcaef613d1c04607bbb1196fda3e8ac5a52e73d92686bb22"
+      "bytes": 469340,
+      "sha256": "f0a02370f1d4ad8f9e2b9d0e91733986d4e0320822cbbb7711d4915b52495d8a"
     },
     "indexes/scopes.json": {
       "bytes": 5354,
@@ -2645,13 +2645,13 @@
       "bytes": 699,
       "sha256": "2c14f57fa1df92973d18a02f768021fbb384df72f0d48263d420b5492b9b0e31"
     },
-    "records/enlightens/enlighten.sanga.melodic-sculpting.json": {
-      "bytes": 660,
-      "sha256": "f63b771bc713b639961a84112c1519269da3388659d11ed27ad3f6c860f62a84"
-    },
     "records/enlightens/enlighten.sanga.oblivion-takes-all.json": {
       "bytes": 546,
       "sha256": "7b447cb8cb1057d0a11df59a1fe60587261bcd0a8348102b8968272e2d2fe63f"
+    },
+    "records/enlightens/enlighten.sanga.sculpted-like-a-song.json": {
+      "bytes": 672,
+      "sha256": "c2b8b4dd92f643dc5b2c869bad8daef464247687966aade5dc0471eb8200df0f"
     },
     "records/enlightens/enlighten.sanga.the-sea-of-corals.json": {
       "bytes": 516,
@@ -3706,8 +3706,8 @@
       "sha256": "95cc85f5dc8486b99ad5dc724e730627b4b31e368d70f1d496a4bc6a925e0917"
     },
     "records/posses/posse-0014.json": {
-      "bytes": 1243,
-      "sha256": "b823a869b988522ee64cfa67ad8319d7e5da572845aea55567efd651a55fe9bb"
+      "bytes": 1246,
+      "sha256": "a31b43d7c1627b02cccb53d99b93ca0b1132d8540df663ae9a83aa43e3f3a036"
     },
     "records/posses/posse-0015.json": {
       "bytes": 1519,
@@ -6530,8 +6530,8 @@
       "sha256": "cbe8e896fa07b470c712f0c4c76fd6effa087ab8ac5e88ea45583b0afa986e28"
     },
     "records/skills/skill.sanga.opus-of-isolation.json": {
-      "bytes": 2037,
-      "sha256": "63c9e93d3ef8846acc1c838d791e1623b92b64c6587d4e44f581493b2fc4e82f"
+      "bytes": 2043,
+      "sha256": "1e663cd9deb976f62e7dc452e6cb68b6432d2630de9b508de4594793448f7155"
     },
     "records/skills/skill.sanga.realm-of-oblivion.json": {
       "bytes": 1919,

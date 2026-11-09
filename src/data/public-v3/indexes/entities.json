@@ -7167,18 +7167,6 @@
       "ownerAwakenerName": "Sanga",
       "slot": "E2"
     },
-    "enlighten.sanga.melodic-sculpting": {
-      "kind": "enlighten",
-      "id": "enlighten.sanga.melodic-sculpting",
-      "name": "Melodic Sculpting",
-      "route": {
-        "slug": "melodic-sculpting",
-        "canonicalPath": "/database/awakeners/sanga/enlightens/melodic-sculpting"
-      },
-      "ownerAwakenerId": "awakener-0045",
-      "ownerAwakenerName": "Sanga",
-      "slot": "E1"
-    },
     "enlighten.sanga.oblivion-takes-all": {
       "kind": "enlighten",
       "id": "enlighten.sanga.oblivion-takes-all",
@@ -7190,6 +7178,18 @@
       "ownerAwakenerId": "awakener-0045",
       "ownerAwakenerName": "Sanga",
       "slot": "AbsoluteAxiom"
+    },
+    "enlighten.sanga.sculpted-like-a-song": {
+      "kind": "enlighten",
+      "id": "enlighten.sanga.sculpted-like-a-song",
+      "name": "Sculpted Like a Song",
+      "route": {
+        "slug": "sculpted-like-a-song",
+        "canonicalPath": "/database/awakeners/sanga/enlightens/sculpted-like-a-song"
+      },
+      "ownerAwakenerId": "awakener-0045",
+      "ownerAwakenerName": "Sanga",
+      "slot": "E1"
     },
     "enlighten.sanga.the-sea-of-corals": {
       "kind": "enlighten",
@@ -26983,8 +26983,8 @@
       "enlighten.salvador.salvation-bestowal",
       "enlighten.sanga.artistic-dionysia",
       "enlighten.sanga.kneel-before-beauty",
-      "enlighten.sanga.melodic-sculpting",
       "enlighten.sanga.oblivion-takes-all",
+      "enlighten.sanga.sculpted-like-a-song",
       "enlighten.sanga.the-sea-of-corals",
       "enlighten.saya.here-my-one-last-gift",
       "enlighten.saya.ill-be-your-very-own-monster",
