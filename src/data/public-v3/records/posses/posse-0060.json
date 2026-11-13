@@ -16,16 +16,14 @@
   "classification": "PRIMORDIAL_MEMORY",
   "equippable": false,
   "collectible": false,
-  "descriptionTemplate": "Gain [Arg1] Shield.\nScaling guide: {Primordia Mastery Scaling}",
+  "descriptionTemplate": "Gain [Block:Arg1] Shield.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
-      "formulaKey": "primordiaPosseScaled",
+      "formulaKey": "scaled",
       "baseFormula": "esotericResearchDepth",
-      "rounding": "ceil",
       "multiplier": 0.1,
-      "inputs": ["accountLevel", "ownedPosseCount", "realmMasteryFinal", "primordiaAllChaosTeam"],
-      "scalingBucket": "utility"
+      "inputs": ["accountLevel", "ownedPosseCount"]
     }
   }
 }

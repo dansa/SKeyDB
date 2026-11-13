@@ -16,16 +16,14 @@
   "classification": "PRIMORDIAL_MEMORY",
   "equippable": false,
   "collectible": false,
-  "descriptionTemplate": "Restore [Arg1] HP\nScaling guide: {Primordia Mastery Scaling}",
+  "descriptionTemplate": "Restore [Heal:Arg1] HP",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
-      "formulaKey": "primordiaPosseScaled",
+      "formulaKey": "scaled",
       "baseFormula": "esotericResearchDepth",
-      "rounding": "ceil",
       "multiplier": 0.08,
-      "inputs": ["accountLevel", "ownedPosseCount", "realmMasteryFinal", "primordiaAllChaosTeam"],
-      "scalingBucket": "utility"
+      "inputs": ["accountLevel", "ownedPosseCount"]
     }
   }
 }

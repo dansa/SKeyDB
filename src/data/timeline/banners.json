@@ -462,5 +462,33 @@
     "startDate": "2026/11/02 09:00",
     "endDate": "2026/11/30 09:00",
     "featured": ["Paradoxical Realism", "Hymn of the Sovereign", "Grace Through Pain"]
+  },
+  {
+    "id": "banner-kaleido-recollections-faded-legacy-nov",
+    "title": "Kaleido Recollections: Faded Legacy",
+    "type": "combo",
+    "description": "Features limited Faded Legacy Awakeners and Wheels of Destiny. After two consecutive SSR rewards of the same kind, the next SSR is guaranteed to be the other kind.",
+    "startDate": "2026/11/16 09:00",
+    "endDate": "2026/11/30 09:00",
+    "derivedPool": {
+      "availabilityTypes": ["LIMITED_FADED_LEGACY"],
+      "slotCount": 4,
+      "awakenerSlots": 3,
+      "wheelSlots": 1
+    }
+  },
+  {
+    "id": "banner-kaleido-recollections-astral-reign-nov",
+    "title": "Kaleido Recollections: Astral Reign",
+    "type": "combo",
+    "description": "Features limited Astral Reign Awakeners and Wheels of Destiny. After two consecutive SSR rewards of the same kind, the next SSR is guaranteed to be the other kind.",
+    "startDate": "2026/11/16 09:00",
+    "endDate": "2026/11/30 09:00",
+    "derivedPool": {
+      "availabilityTypes": ["LIMITED_ASTRAL_REIGN"],
+      "slotCount": 4,
+      "awakenerSlots": 3,
+      "wheelSlots": 1
+    }
   }
 ]
