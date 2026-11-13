@@ -70,7 +70,9 @@ export function useDatabaseRouteNavigation({
           const locationState: unknown = location.state
           void navigate(nextLocation, {
             replace,
-            state: replace ? locationState : advanceDatabaseDetailHistory(locationState),
+            state: replace
+              ? locationState
+              : advanceDatabaseDetailHistory(locationState, location.pathname),
           })
         })
         .catch(() => undefined)

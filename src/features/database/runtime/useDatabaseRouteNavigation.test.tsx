@@ -64,7 +64,14 @@ describe('useDatabaseRouteNavigation', () => {
     expect(navigate).toHaveBeenCalledOnce()
     expect(navigate).toHaveBeenCalledWith(
       {pathname: secondTarget.pathname, search: secondTarget.search},
-      {replace: false, state: {from: 'database', __databaseDetailHistoryDepth: 1}},
+      {
+        replace: false,
+        state: {
+          from: 'database',
+          __databaseDetailHistoryDepth: 1,
+          __databaseDetailBoundary: '/database/wheels',
+        },
+      },
     )
 
     await act(async () => {

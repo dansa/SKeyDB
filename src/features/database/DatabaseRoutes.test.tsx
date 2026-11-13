@@ -9,6 +9,7 @@ import {afterEach, describe, expect, it, vi} from 'vitest'
 
 import {createMockPublicCatalog, createMockPublicDetailLoaders} from '@/test/publicCatalogFixtures'
 
+import {getDatabaseRouteBoundaryKey} from './detail/database-detail-history'
 import type {AwakenerLoreNavigation} from './internal/AwakenerDetailLore'
 import {clearDatabaseDetailRecordCacheForTests} from './internal/useDatabaseDetailRouteRecord'
 import {DatabaseRouteElements} from './routes'
@@ -405,6 +406,16 @@ async function renderDatabasePage(
     )
   }
 
+  function DatabaseRoutesWithBoundaryKey() {
+    const location = useLocation()
+    const state: unknown = location.state
+    return (
+      <Suspense key={getDatabaseRouteBoundaryKey(location.pathname, state)} fallback={null}>
+        <Routes>{DatabaseRouteElements}</Routes>
+      </Suspense>
+    )
+  }
+
   const initialEntries = Array.isArray(initialEntryOrEntries)
     ? initialEntryOrEntries
     : [initialEntryOrEntries]
@@ -414,9 +425,7 @@ async function renderDatabasePage(
   await act(async () => {
     renderResult = render(
       <MemoryRouter initialEntries={initialEntries} initialIndex={initialIndex}>
-        <Suspense fallback={null}>
-          <Routes>{DatabaseRouteElements}</Routes>
-        </Suspense>
+        <DatabaseRoutesWithBoundaryKey />
         <HistoryControls />
         <LocationProbe />
       </MemoryRouter>,
@@ -924,6 +933,20 @@ describe('DatabasePage', () => {
     expect(screen.getByTestId('location-search')).toHaveTextContent('?q=merciful&realm=CARO')
   })
 
+  it('closes a cross-entity deep-link visit across the app route boundary', async () => {
+    await renderDatabasePage(['/before-database', '/database/wheels/merciful-nurturing'], 1)
+    fireEvent.click(await screen.findByLabelText('Switch to alpha awakener detail'))
+    await findAwakenerDetailDialog(/alpha details/i)
+    fireEvent.click(screen.getByLabelText('Close detail'))
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path').textContent).toBe('/database')
+    })
+    fireEvent.click(screen.getByRole('button', {name: 'Go back in history'}))
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path').textContent).toBe('/before-database')
+    })
+  })
+
   it('keeps the original browse entry when modal navigation crosses entity routes', async () => {
     await renderDatabasePage(
       ['/before-database', '/database/wheels?q=merciful&mainstat=KEYFLARE_REGEN'],
@@ -994,6 +1017,7 @@ describe('DatabasePage', () => {
       expect(screen.getByTestId('location-path')).toHaveTextContent('/database/covenants'),
     )
     await waitFor(() => expect(screen.getByTestId('location-search')).toBeEmptyDOMElement())
+    await screen.findByRole('searchbox')
 
     fireEvent.keyDown(window, {key: 'o'})
 
