@@ -339,6 +339,11 @@ function getResultsSummary(expectedText: string) {
 }
 
 async function findAwakenerDetailDialog(name: RegExp) {
+  // Cold lazy imports can outlast waitFor's deadline on a busy runner. Settle
+  // the module chain and React updates before checking the loaded record UI.
+  await act(async () => {
+    await vi.dynamicImportSettled()
+  })
   // The loading shell has the same accessible name. Require a control from the
   // loaded modal so interaction tests also work when they run first.
   return waitFor(() => {
