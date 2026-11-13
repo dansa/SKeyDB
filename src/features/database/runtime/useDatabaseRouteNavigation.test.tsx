@@ -31,7 +31,13 @@ describe('useDatabaseRouteNavigation', () => {
       useDatabaseRouteNavigation({
         activeSearch: '?query=ritual',
         defaultAwakenerTab: 'upgrades',
-        locationState: {from: 'database'},
+        location: {
+          pathname: '/database/wheels',
+          search: '',
+          hash: '',
+          key: 'test',
+          state: {from: 'database'},
+        },
         navigate,
         onClose: vi.fn(),
         routeItem: null,
@@ -58,7 +64,7 @@ describe('useDatabaseRouteNavigation', () => {
     expect(navigate).toHaveBeenCalledOnce()
     expect(navigate).toHaveBeenCalledWith(
       {pathname: secondTarget.pathname, search: secondTarget.search},
-      {replace: true, state: {from: 'database'}},
+      {replace: false, state: {from: 'database'}},
     )
 
     await act(async () => {
@@ -101,7 +107,13 @@ describe('useDatabaseRouteNavigation', () => {
       useDatabaseRouteNavigation({
         activeSearch: '?tier=GOLD',
         defaultAwakenerTab: 'upgrades',
-        locationState: {from: 'database'},
+        location: {
+          pathname: '/database/wheels',
+          search: '',
+          hash: '',
+          key: 'test',
+          state: {from: 'database'},
+        },
         navigate,
         onClose: vi.fn(),
         routeItem,

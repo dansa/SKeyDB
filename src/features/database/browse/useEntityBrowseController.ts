@@ -6,7 +6,7 @@ import {buildDatabaseEntityBrowsePath, type DatabaseEntityId} from '@/domain/dat
 import {sanitizeDatabaseEntitySearch} from '@/domain/database-entity-search'
 import {
   createDatabaseDetailFromBrowseState,
-  getDatabaseDetailBrowseOrigin,
+  getDatabaseDetailHistoryDepth,
   type DatabaseDetailBrowseOrigin,
 } from '@/features/database/detail/database-detail-history'
 
@@ -120,8 +120,9 @@ export function useEntityBrowseController({
   }, [])
 
   const closeDetail = useCallback(() => {
-    if (getDatabaseDetailBrowseOrigin(locationState)) {
-      void navigate(-1)
+    const depth = getDatabaseDetailHistoryDepth(locationState)
+    if (depth) {
+      void navigate(-depth)
       return
     }
 

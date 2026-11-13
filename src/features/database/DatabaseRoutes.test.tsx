@@ -399,6 +399,15 @@ async function renderDatabasePage(
     )
   }
 
+  function HistoryForwardButton() {
+    const navigate = useNavigate()
+    return (
+      <button type='button' onClick={() => void navigate(1)}>
+        Go forward in history
+      </button>
+    )
+  }
+
   const initialEntries = Array.isArray(initialEntryOrEntries)
     ? initialEntryOrEntries
     : [initialEntryOrEntries]
@@ -412,6 +421,7 @@ async function renderDatabasePage(
           <Routes>{DatabaseRouteElements}</Routes>
         </Suspense>
         <HistoryBackButton />
+        <HistoryForwardButton />
         <LocationProbe />
       </MemoryRouter>,
     )
@@ -633,7 +643,7 @@ describe('DatabasePage', () => {
     expect(screen.getByText('Mock slider level 90')).toBeInTheDocument()
   })
 
-  it('replaces the active detail history entry when changing tabs', async () => {
+  it('restores the previous detail history entry when changing tabs', async () => {
     await renderDatabasePage(['/database', '/database/awakeners/alpha'], 1)
 
     expect(await findAwakenerDetailDialog(/alpha details/)).toBeInTheDocument()
@@ -648,11 +658,13 @@ describe('DatabasePage', () => {
       fireEvent.click(screen.getByRole('button', {name: 'Go back in history'}))
     })
 
-    await waitFor(() => expect(screen.getByTestId('location-path')).toHaveTextContent('/database'))
-    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path').textContent).toBe('/database/awakeners/alpha')
+    })
+    expect(await findAwakenerDetailDialog(/alpha details/)).toBeInTheDocument()
   })
 
-  it('replaces the active detail history entry when switching modal results', async () => {
+  it('restores the previous detail history entry when switching modal results', async () => {
     await renderDatabasePage(['/database', '/database/awakeners/alpha'], 1)
 
     expect(await findAwakenerDetailDialog(/alpha details/)).toBeInTheDocument()
@@ -670,8 +682,10 @@ describe('DatabasePage', () => {
       fireEvent.click(screen.getByRole('button', {name: 'Go back in history'}))
     })
 
-    await waitFor(() => expect(screen.getByTestId('location-path')).toHaveTextContent('/database'))
-    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path').textContent).toBe('/database/awakeners/alpha')
+    })
+    expect(await findAwakenerDetailDialog(/alpha details/)).toBeInTheDocument()
   })
 
   it('falls back to the database root when deep link slug is unknown', async () => {
@@ -1084,7 +1098,7 @@ describe('DatabasePage', () => {
     })
   })
 
-  it('replaces Lore navigation within the open modal and retains browse history', async () => {
+  it('replays Lore navigation before returning to the original browse entry', async () => {
     await renderDatabasePage('/database?q=Alpha')
     fireEvent.click(screen.getByLabelText('View details for Alpha'))
     await findAwakenerDetailDialog(/alpha details/i)
@@ -1108,6 +1122,18 @@ describe('DatabasePage', () => {
       )
     })
     fireEvent.click(screen.getByRole('button', {name: 'Go back in history', hidden: true}))
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path').textContent).toBe(
+        '/database/awakeners/alpha/lore/quotes/traphase',
+      )
+    })
+    fireEvent.click(screen.getByRole('button', {name: 'Go forward in history', hidden: true}))
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path').textContent).toBe(
+        '/database/awakeners/alpha/lore/skills',
+      )
+    })
+    fireEvent.click(screen.getByLabelText('Close detail'))
     await waitFor(() => {
       expect(screen.getByTestId('location-path').textContent).toBe('/database')
     })

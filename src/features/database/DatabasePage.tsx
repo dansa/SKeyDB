@@ -77,7 +77,7 @@ export function DatabasePage() {
   const detailCallbacks = useDatabaseRouteNavigation({
     activeSearch,
     defaultAwakenerTab,
-    locationState,
+    location,
     navigate,
     onClose: browseController.closeDetail,
     routeItem: routeDetailItem,
