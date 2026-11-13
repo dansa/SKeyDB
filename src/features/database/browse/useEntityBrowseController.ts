@@ -20,6 +20,7 @@ interface UseEntityBrowseControllerOptions {
   activeEntity: DatabaseEntityId
   browseOrigin: DatabaseDetailBrowseOrigin | null
   isDetailOpen: boolean
+  locationHash?: string
   locationPathname: string
   locationSearch: string
   locationState: unknown
@@ -39,6 +40,7 @@ function useActiveEntitySearchControls({
   activeEntity,
   browseOrigin,
   isDetailOpen,
+  locationHash,
   locationPathname,
   locationSearch,
   locationState,
@@ -62,12 +64,13 @@ function useActiveEntitySearchControls({
 
     void navigate(
       {
+        hash: locationHash,
         pathname: locationPathname,
         search: detailSearch,
       },
       {replace: true, state: locationState},
     )
-  }, [detailSearch, locationPathname, locationSearch, locationState, navigate])
+  }, [detailSearch, locationHash, locationPathname, locationSearch, locationState, navigate])
 
   return {
     activeSearch,
@@ -81,6 +84,7 @@ export function useEntityBrowseController({
   activeEntity,
   browseOrigin,
   isDetailOpen,
+  locationHash,
   locationPathname,
   locationSearch,
   locationState,
@@ -91,6 +95,7 @@ export function useEntityBrowseController({
     activeEntity,
     browseOrigin,
     isDetailOpen,
+    locationHash,
     locationPathname,
     locationSearch,
     locationState,
@@ -119,9 +124,23 @@ export function useEntityBrowseController({
     preloadDatabaseDetailShell(kind)
   }, [])
 
+  const pendingDeepLinkClose = useRef<{pathname: string; search: string} | null>(null)
+  useEffect(() => {
+    if (!pendingDeepLinkClose.current || getDatabaseDetailHistoryDepth(locationState)) return
+    const target = pendingDeepLinkClose.current
+    pendingDeepLinkClose.current = null
+    void navigate(target, {replace: true})
+  }, [locationPathname, locationSearch, locationState, navigate])
+
   const closeDetail = useCallback(() => {
     const depth = getDatabaseDetailHistoryDepth(locationState)
     if (depth) {
+      if (!browseOrigin) {
+        pendingDeepLinkClose.current = {
+          pathname: browsePath,
+          search: sanitizeDatabaseEntitySearch(activeEntity, activeSearch),
+        }
+      }
       void navigate(-depth)
       return
     }
@@ -133,7 +152,7 @@ export function useEntityBrowseController({
       },
       {replace: true},
     )
-  }, [activeEntity, activeSearch, browsePath, locationState, navigate])
+  }, [activeEntity, activeSearch, browseOrigin, browsePath, locationState, navigate])
 
   return {
     activeEntity,

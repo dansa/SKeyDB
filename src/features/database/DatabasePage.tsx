@@ -41,6 +41,7 @@ export function DatabasePage() {
     activeEntity,
     browseOrigin,
     isDetailOpen: parsedRoute.kind === 'detail',
+    locationHash: location.hash,
     locationPathname: location.pathname,
     locationSearch: location.search,
     locationState,
@@ -71,8 +72,19 @@ export function DatabasePage() {
     const {canonicalPath, routeItem} = routeResolution.resolution
     const pathname = routeItem ? canonicalPath : browsePath
     if (location.pathname === pathname) return
-    void navigate({pathname, search: activeSearch}, {replace: true, state: locationState})
-  }, [activeSearch, location.pathname, locationState, navigate, parsedRoute, routeResolution])
+    void navigate(
+      {pathname, search: activeSearch, hash: location.hash},
+      {replace: true, state: locationState},
+    )
+  }, [
+    activeSearch,
+    location.hash,
+    location.pathname,
+    locationState,
+    navigate,
+    parsedRoute,
+    routeResolution,
+  ])
 
   const detailCallbacks = useDatabaseRouteNavigation({
     activeSearch,

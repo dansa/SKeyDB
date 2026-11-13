@@ -378,33 +378,30 @@ async function renderDatabasePage(
     return (
       <>
         <div data-testid='location-path'>{location.pathname}</div>
+        <div data-testid='location-hash'>{location.hash}</div>
         <div data-testid='location-search'>{location.search}</div>
       </>
     )
   }
 
-  function HistoryBackButton() {
+  function HistoryControls() {
     const navigate = useNavigate()
 
     return (
-      <button
-        aria-label='Go back in history'
-        onClick={() => {
-          void navigate(-1)
-        }}
-        type='button'
-      >
-        Back
-      </button>
-    )
-  }
-
-  function HistoryForwardButton() {
-    const navigate = useNavigate()
-    return (
-      <button type='button' onClick={() => void navigate(1)}>
-        Go forward in history
-      </button>
+      <>
+        <button
+          aria-label='Go back in history'
+          onClick={() => {
+            void navigate(-1)
+          }}
+          type='button'
+        >
+          Back
+        </button>
+        <button type='button' onClick={() => void navigate(1)}>
+          Go forward in history
+        </button>
+      </>
     )
   }
 
@@ -420,8 +417,7 @@ async function renderDatabasePage(
         <Suspense fallback={null}>
           <Routes>{DatabaseRouteElements}</Routes>
         </Suspense>
-        <HistoryBackButton />
-        <HistoryForwardButton />
+        <HistoryControls />
         <LocationProbe />
       </MemoryRouter>,
     )
@@ -577,6 +573,31 @@ describe('DatabasePage', () => {
     await waitFor(() =>
       expect(screen.getByTestId('location-path')).toHaveTextContent('/before-database'),
     )
+  })
+
+  it('closes a navigated deep link without reopening it on Back', async () => {
+    await renderDatabasePage(['/before-database', '/database/awakeners/alpha'], 1)
+    await findAwakenerDetailDialog(/alpha details/)
+    fireEvent.click(screen.getByLabelText('Switch to lore tab'))
+    await waitFor(() =>
+      expect(screen.getByTestId('location-path')).toHaveTextContent(
+        '/database/awakeners/alpha/lore',
+      ),
+    )
+    fireEvent.click(screen.getByLabelText('Close detail'))
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path').textContent).toBe('/database')
+    })
+    fireEvent.click(screen.getByRole('button', {name: 'Go back in history'}))
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path').textContent).toBe('/before-database')
+    })
+  })
+
+  it('preserves the anchor during legacy and detail URL cleanup', async () => {
+    await renderDatabasePage('/database/awk/alpha?unknown=1#effect')
+    await findAwakenerDetailDialog(/alpha details/)
+    expect(screen.getByTestId('location-hash')).toHaveTextContent('#effect')
   })
 
   it('opens detail modal from deep-linked awakener route', async () => {

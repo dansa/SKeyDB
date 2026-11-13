@@ -15,8 +15,10 @@ export function LegacyAwakenerRouteRedirect() {
   return (
     <Navigate
       replace
+      state={location.state as unknown}
       to={{
         pathname: `/database/awakeners/${awakenerSlug ?? ''}${tabPath}`,
+        hash: location.hash,
         search: sanitizeDatabaseEntitySearch('awakeners', location.search),
       }}
     />

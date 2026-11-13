@@ -44,7 +44,7 @@ export function useDatabaseRouteNavigation({
       ref: EntityRef,
       state: DatabaseDetailNavigationState = {},
       options?: DatabaseDetailNavigationOptions,
-      replace = false,
+      historyMode: 'push' | 'replace' = 'push',
     ) => {
       const requestVersion = ++requestVersionRef.current
       void resolveDatabaseRuntimeDetailReference({
@@ -66,6 +66,7 @@ export function useDatabaseRouteNavigation({
             (options?.hash ?? '') === location.hash
           )
             return
+          const replace = historyMode === 'replace'
           const locationState: unknown = location.state
           void navigate(nextLocation, {
             replace,
@@ -83,7 +84,12 @@ export function useDatabaseRouteNavigation({
       select,
       updateState: (state, options) => {
         if (routeItem)
-          select({kind: routeItem.kind, id: routeItem.item.id}, state, options, !state.tab)
+          select(
+            {kind: routeItem.kind, id: routeItem.item.id},
+            state,
+            options,
+            state.tab ? 'push' : 'replace',
+          )
       },
     }
   }, [activeSearch, defaultAwakenerTab, location, navigate, onClose, routeItem])

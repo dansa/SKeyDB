@@ -681,6 +681,7 @@ function DbDetailAwakenerRouteModal({
     void navigate(
       {
         pathname: canonicalTabPath,
+        hash: routerLocation.hash,
         search: routerLocation.search,
       },
       {replace: true, state: routerLocationState},
@@ -689,6 +690,7 @@ function DbDetailAwakenerRouteModal({
     canonicalTabPath,
     navigate,
     record,
+    routerLocation.hash,
     routerLocation.pathname,
     routerLocation.search,
     routerLocationState,

@@ -57,15 +57,18 @@ export function getDatabaseDetailBrowseOrigin(state: unknown): DatabaseDetailBro
 }
 
 export function getDatabaseDetailHistoryDepth(state: unknown): number {
-  if (!isStateRecord(state) || !getDatabaseDetailBrowseOrigin(state)) return 0
+  if (!isStateRecord(state)) return 0
   const depth = state[DATABASE_DETAIL_HISTORY_DEPTH_KEY]
-  return typeof depth === 'number' && Number.isSafeInteger(depth) && depth > 0 ? depth : 1
+  return typeof depth === 'number' && Number.isSafeInteger(depth) && depth > 0
+    ? depth
+    : getDatabaseDetailBrowseOrigin(state)
+      ? 1
+      : 0
 }
 
 export function advanceDatabaseDetailHistory(state: unknown): unknown {
   const depth = getDatabaseDetailHistoryDepth(state)
-  if (!depth || !isStateRecord(state)) return state
-  return {...state, [DATABASE_DETAIL_HISTORY_DEPTH_KEY]: depth + 1}
+  return {...(isStateRecord(state) ? state : {}), [DATABASE_DETAIL_HISTORY_DEPTH_KEY]: depth + 1}
 }
 
 export function getDatabaseRouteBoundaryKey(pathname: string, state: unknown): string {
