@@ -142,7 +142,7 @@
           "id": "voice-6390",
           "title": "Enlighten: Elevate",
           "unlockCondition": "Unlocks at Enlighten Level 11",
-          "content": "Now, the line between me and the Awakener is even blurrier. Take good care of me, will you?"
+          "content": "Now the line between me and the Awakeners is even blurrier. Keep a close eye on me, will you?"
         },
         {
           "id": "voice-6391",
@@ -232,7 +232,7 @@
         {
           "id": "voice-6760",
           "title": "Investigation Begins",
-          "content": "Go! Issue the battle command!"
+          "content": "Let's go! Give the order!"
         },
         {
           "id": "voice-5128",
@@ -247,7 +247,7 @@
         {
           "id": "voice-6607",
           "title": "Strike: I",
-          "content": "It's now!"
+          "content": "Now!"
         },
         {
           "id": "voice-5961",

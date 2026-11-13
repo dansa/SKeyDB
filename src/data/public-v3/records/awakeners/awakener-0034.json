@@ -97,7 +97,7 @@
         {
           "id": "voice-5214",
           "title": "Awaken",
-          "content": "Ugh, isn't this annoying? Stop pestering me about that! ...Fine, do what you want. It's just a way to kill time, after all."
+          "content": "Ugh, which part of \"stop pestering me about that\" do you not understand? ...Fine. This lady wouldn't mind a little pastime."
         },
         {
           "id": "voice-117825",
@@ -162,7 +162,7 @@
           "id": "voice-5321",
           "title": "Enlighten: Reflect",
           "unlockCondition": "Unlocks at Enlighten Level 3",
-          "content": "The tables and chairs must have lace that suits my taste, and the potted plants must be red spider lilies... Now, hurry and get this prepared!"
+          "content": "The tables and chairs must be trimmed with lace that suits my taste, and the potted plants must be red spider plants... Now, hurry and get this prepared!"
         },
         {
           "id": "voice-117835",
@@ -269,7 +269,7 @@
         {
           "id": "voice-117814",
           "title": "Chat: Touch",
-          "content": "You want some of my candy? Hmph. I'm feeling generous, so I might bestow a piece upon you... if you beg nicely, that is."
+          "content": "You want some of my candy? Hmph. I'm feeling generous, so I might bestow a piece upon you... Go on, say \"Lady Witch\" nicely!"
         },
         {
           "id": "voice-117810",
@@ -455,7 +455,7 @@
         {
           "id": "voice-5131",
           "title": "Strike: I",
-          "content": "Be gone!"
+          "content": "Get away from me!"
         },
         {
           "id": "voice-117802",

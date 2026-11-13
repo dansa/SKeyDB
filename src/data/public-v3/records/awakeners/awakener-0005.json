@@ -136,7 +136,7 @@
           "id": "voice-6027",
           "title": "Enlighten: Insight",
           "unlockCondition": "Unlocks at Enlighten Level 7",
-          "content": "It's my turn to be the ghost this time! You only have 5 seconds to hide! 5, 4—"
+          "content": "My turn to be \"it\"! You only get 5 seconds to hide! 5, 4—"
         },
         {
           "id": "voice-6026",
@@ -287,7 +287,7 @@
         {
           "id": "voice-5241",
           "title": "Rouse",
-          "content": "How can I help you?"
+          "content": "Can Aurita help?"
         },
         {
           "id": "voice-5596",

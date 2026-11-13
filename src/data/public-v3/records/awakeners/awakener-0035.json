@@ -131,7 +131,7 @@
           "id": "voice-5477",
           "title": "Enlighten: Reflect",
           "unlockCondition": "Unlocks at Enlighten Level 3",
-          "content": "The Throne must be built from ancient blue stone mined from the ocean's abyss, and the altar should be coated with the blood of human sacrifices... Now go prepare!"
+          "content": "The Throne must be built from ancient bluestone mined from the abyss, and the altar coated with sacrificial blood... Now go and prepare it!"
         },
         {
           "id": "voice-5478",
@@ -173,7 +173,7 @@
           "id": "voice-5949",
           "title": "Affinity: IV",
           "unlockCondition": "Unlocks at Affinity Level 8",
-          "content": "Seeing how deferential you are, I shall grant you an answer. In the beginning, I was indeed reluctant. But I've come to understand: I am only living this extravagant life because of Him. Death is never the end. He will in turn rebirth me, and we shall gain eternal life through this morbid cycle..."
+          "content": "Seeing how deferential you are, I shall grant you an answer. In the beginning, I did struggle against it. But I have come to understand: everything I enjoy comes from Him. Death is not the end. He will give birth to me in turn, and through this morbid cycle we shall live forever..."
         },
         {
           "id": "voice-5948",
@@ -202,7 +202,7 @@
           "id": "voice-6369",
           "title": "Chat: About Tulu",
           "unlockCondition": "Unlocks after acquiring Awakener \"Tulu\"",
-          "content": "Is that boy the fragment of Him? Not bad. He certainly has a regal bearing."
+          "content": "So that boy is a fragment of Him? Not bad. He certainly has a regal bearing."
         },
         {
           "id": "voice-5492",
@@ -249,7 +249,7 @@
         {
           "id": "voice-5418",
           "title": "Strike: I",
-          "content": "Foolish!"
+          "content": "Fool!"
         },
         {
           "id": "voice-5415",
@@ -415,7 +415,7 @@
           "id": "traphase-120281",
           "title": "Fatal Blow",
           "unlockCondition": "Unlock after triggering this dialogue in Traphase",
-          "content": "Hmph. Insolent crudes."
+          "content": "Hmph. How insolent."
         },
         {
           "id": "traphase-120273",

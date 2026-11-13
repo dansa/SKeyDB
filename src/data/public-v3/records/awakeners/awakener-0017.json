@@ -155,7 +155,7 @@
           "id": "voice-5334",
           "title": "Affinity: I",
           "unlockCondition": "Unlocks at Affinity Level 2",
-          "content": "Would you like heading out to sea with me? Let me check the current map... 47°9' S, 126°43' W, we'll be going right there."
+          "content": "Wouldn't you like to go out to sea? Let me check the current charts... 47°9' S, 126°43' W. That's where we're going."
         },
         {
           "id": "voice-5332",
@@ -189,7 +189,7 @@
         {
           "id": "voice-5290",
           "title": "Chat: About Eternal Kingdom",
-          "content": "My homeland worships our God. Correspondingly, the King I follow is naturally a \"divine communicator.\""
+          "content": "My homeland worshipped a \"god.\" And so, naturally, the king I followed was one who could \"speak with the divine.\""
         },
         {
           "id": "voice-6703",

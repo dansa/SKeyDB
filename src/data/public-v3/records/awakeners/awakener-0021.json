@@ -108,7 +108,7 @@
         {
           "id": "voice-5067",
           "title": "Upgrade: II",
-          "content": "Time to give this a try. Hmph. How about cutting the throat of a few weaklings first?"
+          "content": "Time to test this on a few weaklings' throats."
         },
         {
           "id": "voice-5066",
@@ -173,7 +173,7 @@
           "id": "voice-5181",
           "title": "Affinity: IV",
           "unlockCondition": "Unlocks at Affinity Level 8",
-          "content": "Do you know the Albatross? They bravely confront the storms, but once banished to the ground, surrounded by mockery, those giant, drooping wings ironically become a pathetic hindrance. Anyway, this story means nothing... It just came to mind as I feel very relaxed to be with you—just casual chat."
+          "content": "You know the albatross? It never gives humans a second glance—it beats its great wings and meets the storm head-on. But cast it down to the ground, into a crowd of jeers, and those huge, drooping wings become a pitiful burden.\nThe story doesn't mean anything. I'm just at ease with you, so I'm talking."
         },
         {
           "id": "voice-5182",
@@ -190,7 +190,7 @@
           "id": "voice-5121",
           "title": "Chat: About Murphy",
           "unlockCondition": "Unlocks after acquiring Awakener \"Murphy\"",
-          "content": "Oh, our puppet princess is weeping again. Is the milk bottle not fitting, or is the lullaby not soothing enough?"
+          "content": "Oh, our puppet princess is weeping again. Is the bottle not to her liking, or is the lullaby not soothing enough?"
         },
         {
           "id": "voice-5629",
@@ -221,14 +221,14 @@
         {
           "id": "voice-5470",
           "title": "Chat: About the Keeper",
-          "content": "With such a frail body, it's too much to ask you to be my companion. You are simply too weak; you must intensify your training. Come, I'll take you to the academy's sports club and open your eyes."
+          "content": "With a body this frail, you're hardly fit to be my companion. Come—I'll take you to the academy's athletics club. Time you saw what real training looks like."
         }
       ],
       "battle": [
         {
           "id": "voice-5046",
           "title": "Investigation Begins",
-          "content": "The dice is cast. Now, finish this swiftly!"
+          "content": "The die is cast. Let's make this quick!"
         },
         {
           "id": "voice-5524",

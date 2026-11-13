@@ -107,12 +107,12 @@
         {
           "id": "voice-5668",
           "title": "Upgrade: II",
-          "content": "Good tools are half the success!"
+          "content": "Good tools are half the battle!"
         },
         {
           "id": "voice-5353",
           "title": "Upgrade: III",
-          "content": "Whether it's screws or nails, the more, the better!"
+          "content": "Screws? Nails? The more the better!"
         },
         {
           "id": "voice-5615",
@@ -148,7 +148,7 @@
           "id": "voice-6387",
           "title": "Enlighten: Flourish",
           "unlockCondition": "Unlocks at Enlighten Level 15",
-          "content": "Reparation complete! An unknown adventure, a mysterious world, here I come!"
+          "content": "Repairs complete! Unknown adventures, mysterious worlds—here I come!"
         },
         {
           "id": "voice-5419",
@@ -204,7 +204,7 @@
         {
           "id": "voice-6645",
           "title": "Chat: About Dissolution",
-          "content": "Dissolution... Uh, My brain capacity is limited and I can't comprehend such complex diseases... If you need any machinery repaired, come find me!"
+          "content": "Dissolution... ugh, my brain’s way too small for complicated diseases like that. But if anything mechanical needs fixing, come find me!"
         },
         {
           "id": "voice-4986",
@@ -214,7 +214,7 @@
         {
           "id": "voice-5503",
           "title": "Chat: What I Like",
-          "content": "Wrench, adjustable wrench, box-end wrench, flathead screwdriver, Phillips screwdriver, countersunk screw, pan head screw... If it can fix broken things, I like it."
+          "content": "Open-end wrench, adjustable wrench, box-end wrench, flathead screwdriver, Phillips screwdriver, countersunk screw, pan head screw... If it can fix broken things, I like it."
         },
         {
           "id": "voice-4956",
@@ -291,7 +291,7 @@
         {
           "id": "voice-5071",
           "title": "Exalt",
-          "content": "Whether it's forgetfulness or loss, this time we will definitely return!"
+          "content": "We may forget. We may lose our way... but this time we'll make it back, no matter what!"
         },
         {
           "id": "voice-54629",

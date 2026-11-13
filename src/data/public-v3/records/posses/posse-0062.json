@@ -21,12 +21,10 @@
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
-      "formulaKey": "primordiaPosseScaled",
+      "formulaKey": "scaled",
       "baseFormula": "esotericResearchDepth",
-      "rounding": "ceil",
       "multiplier": 0.104,
-      "inputs": ["accountLevel", "ownedPosseCount", "realmMasteryFinal", "primordiaAllChaosTeam"],
-      "scalingBucket": "utility"
+      "inputs": ["accountLevel", "ownedPosseCount"]
     },
     "Arg2": {
       "kind": "computed",

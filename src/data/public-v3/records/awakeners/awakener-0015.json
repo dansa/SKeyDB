@@ -112,7 +112,7 @@
         {
           "id": "voice-5186",
           "title": "Upgrade: III",
-          "content": "The mech's performance has been enhanced."
+          "content": "System performance enhanced."
         },
         {
           "id": "voice-5870",
@@ -172,7 +172,7 @@
           "id": "voice-4933",
           "title": "Affinity: IV",
           "unlockCondition": "Unlocks at Affinity Level 8",
-          "content": "Trust,\" \"Obedience,\" \"Slave,\" \"Affection,\" \"Respect\"... Reconstructing and learning language module. Please, Keeper, guide me."
+          "content": "\"Trust,\" \"Obedience,\" \"Slave,\" \"Affection,\" \"Respect\"... Reconstructing and learning language module. Please, Keeper, guide me."
         },
         {
           "id": "voice-4934",
@@ -257,7 +257,7 @@
         {
           "id": "voice-6282",
           "title": "Defense: I",
-          "content": "Alert."
+          "content": "On guard."
         },
         {
           "id": "voice-6283",
