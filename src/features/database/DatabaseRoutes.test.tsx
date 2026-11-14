@@ -9,6 +9,7 @@ import {afterEach, describe, expect, it, vi} from 'vitest'
 
 import {createMockPublicCatalog, createMockPublicDetailLoaders} from '@/test/publicCatalogFixtures'
 
+import {getDatabaseRouteBoundaryKey} from './detail/database-detail-history'
 import type {AwakenerLoreNavigation} from './internal/AwakenerDetailLore'
 import {clearDatabaseDetailRecordCacheForTests} from './internal/useDatabaseDetailRouteRecord'
 import {DatabaseRouteElements} from './routes'
@@ -378,24 +379,40 @@ async function renderDatabasePage(
     return (
       <>
         <div data-testid='location-path'>{location.pathname}</div>
+        <div data-testid='location-hash'>{location.hash}</div>
         <div data-testid='location-search'>{location.search}</div>
       </>
     )
   }
 
-  function HistoryBackButton() {
+  function HistoryControls() {
     const navigate = useNavigate()
 
     return (
-      <button
-        aria-label='Go back in history'
-        onClick={() => {
-          void navigate(-1)
-        }}
-        type='button'
-      >
-        Back
-      </button>
+      <>
+        <button
+          aria-label='Go back in history'
+          onClick={() => {
+            void navigate(-1)
+          }}
+          type='button'
+        >
+          Back
+        </button>
+        <button type='button' onClick={() => void navigate(1)}>
+          Go forward in history
+        </button>
+      </>
+    )
+  }
+
+  function DatabaseRoutesWithBoundaryKey() {
+    const location = useLocation()
+    const state: unknown = location.state
+    return (
+      <Suspense key={getDatabaseRouteBoundaryKey(location.pathname, state)} fallback={null}>
+        <Routes>{DatabaseRouteElements}</Routes>
+      </Suspense>
     )
   }
 
@@ -408,10 +425,8 @@ async function renderDatabasePage(
   await act(async () => {
     renderResult = render(
       <MemoryRouter initialEntries={initialEntries} initialIndex={initialIndex}>
-        <Suspense fallback={null}>
-          <Routes>{DatabaseRouteElements}</Routes>
-        </Suspense>
-        <HistoryBackButton />
+        <DatabaseRoutesWithBoundaryKey />
+        <HistoryControls />
         <LocationProbe />
       </MemoryRouter>,
     )
@@ -569,6 +584,31 @@ describe('DatabasePage', () => {
     )
   })
 
+  it('closes a navigated deep link without reopening it on Back', async () => {
+    await renderDatabasePage(['/before-database', '/database/awakeners/alpha'], 1)
+    await findAwakenerDetailDialog(/alpha details/)
+    fireEvent.click(screen.getByLabelText('Switch to lore tab'))
+    await waitFor(() =>
+      expect(screen.getByTestId('location-path')).toHaveTextContent(
+        '/database/awakeners/alpha/lore',
+      ),
+    )
+    fireEvent.click(screen.getByLabelText('Close detail'))
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path').textContent).toBe('/database')
+    })
+    fireEvent.click(screen.getByRole('button', {name: 'Go back in history'}))
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path').textContent).toBe('/before-database')
+    })
+  })
+
+  it('preserves the anchor during legacy and detail URL cleanup', async () => {
+    await renderDatabasePage('/database/awk/alpha?unknown=1#effect')
+    await findAwakenerDetailDialog(/alpha details/)
+    expect(screen.getByTestId('location-hash')).toHaveTextContent('#effect')
+  })
+
   it('opens detail modal from deep-linked awakener route', async () => {
     await renderDatabasePage('/database/awk/beta')
 
@@ -633,7 +673,7 @@ describe('DatabasePage', () => {
     expect(screen.getByText('Mock slider level 90')).toBeInTheDocument()
   })
 
-  it('replaces the active detail history entry when changing tabs', async () => {
+  it('restores the previous detail history entry when changing tabs', async () => {
     await renderDatabasePage(['/database', '/database/awakeners/alpha'], 1)
 
     expect(await findAwakenerDetailDialog(/alpha details/)).toBeInTheDocument()
@@ -648,11 +688,13 @@ describe('DatabasePage', () => {
       fireEvent.click(screen.getByRole('button', {name: 'Go back in history'}))
     })
 
-    await waitFor(() => expect(screen.getByTestId('location-path')).toHaveTextContent('/database'))
-    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path').textContent).toBe('/database/awakeners/alpha')
+    })
+    expect(await findAwakenerDetailDialog(/alpha details/)).toBeInTheDocument()
   })
 
-  it('replaces the active detail history entry when switching modal results', async () => {
+  it('restores the previous detail history entry when switching modal results', async () => {
     await renderDatabasePage(['/database', '/database/awakeners/alpha'], 1)
 
     expect(await findAwakenerDetailDialog(/alpha details/)).toBeInTheDocument()
@@ -670,8 +712,10 @@ describe('DatabasePage', () => {
       fireEvent.click(screen.getByRole('button', {name: 'Go back in history'}))
     })
 
-    await waitFor(() => expect(screen.getByTestId('location-path')).toHaveTextContent('/database'))
-    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path').textContent).toBe('/database/awakeners/alpha')
+    })
+    expect(await findAwakenerDetailDialog(/alpha details/)).toBeInTheDocument()
   })
 
   it('falls back to the database root when deep link slug is unknown', async () => {
@@ -889,6 +933,20 @@ describe('DatabasePage', () => {
     expect(screen.getByTestId('location-search')).toHaveTextContent('?q=merciful&realm=CARO')
   })
 
+  it('closes a cross-entity deep-link visit across the app route boundary', async () => {
+    await renderDatabasePage(['/before-database', '/database/wheels/merciful-nurturing'], 1)
+    fireEvent.click(await screen.findByLabelText('Switch to alpha awakener detail'))
+    await findAwakenerDetailDialog(/alpha details/i)
+    fireEvent.click(screen.getByLabelText('Close detail'))
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path').textContent).toBe('/database')
+    })
+    fireEvent.click(screen.getByRole('button', {name: 'Go back in history'}))
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path').textContent).toBe('/before-database')
+    })
+  })
+
   it('keeps the original browse entry when modal navigation crosses entity routes', async () => {
     await renderDatabasePage(
       ['/before-database', '/database/wheels?q=merciful&mainstat=KEYFLARE_REGEN'],
@@ -959,6 +1017,7 @@ describe('DatabasePage', () => {
       expect(screen.getByTestId('location-path')).toHaveTextContent('/database/covenants'),
     )
     await waitFor(() => expect(screen.getByTestId('location-search')).toBeEmptyDOMElement())
+    await screen.findByRole('searchbox')
 
     fireEvent.keyDown(window, {key: 'o'})
 
@@ -1084,7 +1143,7 @@ describe('DatabasePage', () => {
     })
   })
 
-  it('replaces Lore navigation within the open modal and retains browse history', async () => {
+  it('replays Lore navigation before returning to the original browse entry', async () => {
     await renderDatabasePage('/database?q=Alpha')
     fireEvent.click(screen.getByLabelText('View details for Alpha'))
     await findAwakenerDetailDialog(/alpha details/i)
@@ -1108,6 +1167,18 @@ describe('DatabasePage', () => {
       )
     })
     fireEvent.click(screen.getByRole('button', {name: 'Go back in history', hidden: true}))
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path').textContent).toBe(
+        '/database/awakeners/alpha/lore/quotes/traphase',
+      )
+    })
+    fireEvent.click(screen.getByRole('button', {name: 'Go forward in history', hidden: true}))
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path').textContent).toBe(
+        '/database/awakeners/alpha/lore/skills',
+      )
+    })
+    fireEvent.click(screen.getByLabelText('Close detail'))
     await waitFor(() => {
       expect(screen.getByTestId('location-path').textContent).toBe('/database')
     })

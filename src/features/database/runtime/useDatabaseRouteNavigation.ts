@@ -1,9 +1,10 @@
 import {useEffect, useMemo, useRef} from 'react'
 
-import type {NavigateFunction} from 'react-router'
+import type {Location, NavigateFunction} from 'react-router'
 
 import type {DatabaseAwakenerTab} from '@/domain/database-paths'
 import type {EntityRef} from '@/domain/entities/types'
+import {advanceDatabaseDetailHistory} from '@/features/database/detail/database-detail-history'
 import type {
   DatabaseDetailNavigationOptions,
   DatabaseDetailNavigationPort,
@@ -17,14 +18,14 @@ import {primeDatabaseRouteResolution} from './useDatabaseRouteResolution'
 export function useDatabaseRouteNavigation({
   activeSearch,
   defaultAwakenerTab,
-  locationState,
+  location,
   navigate,
   onClose,
   routeItem,
 }: {
   activeSearch: string
   defaultAwakenerTab: DatabaseAwakenerTab
-  locationState: unknown
+  location: Location
   navigate: NavigateFunction
   onClose: () => void
   routeItem: DatabaseDetailRouteItem | null
@@ -35,7 +36,7 @@ export function useDatabaseRouteNavigation({
     () => () => {
       requestVersionRef.current += 1
     },
-    [activeSearch, defaultAwakenerTab, locationState, navigate, onClose, routeItem],
+    [activeSearch, defaultAwakenerTab, location, navigate, onClose, routeItem],
   )
 
   return useMemo(() => {
@@ -43,6 +44,7 @@ export function useDatabaseRouteNavigation({
       ref: EntityRef,
       state: DatabaseDetailNavigationState = {},
       options?: DatabaseDetailNavigationOptions,
+      historyMode: 'push' | 'replace' = 'push',
     ) => {
       const requestVersion = ++requestVersionRef.current
       void resolveDatabaseRuntimeDetailReference({
@@ -58,7 +60,20 @@ export function useDatabaseRouteNavigation({
             options?.hash === undefined
               ? {pathname: target.pathname, search: target.search}
               : {hash: options.hash, pathname: target.pathname, search: target.search}
-          void navigate(nextLocation, {replace: true, state: locationState})
+          if (
+            target.pathname === location.pathname &&
+            target.search === location.search &&
+            (options?.hash ?? '') === location.hash
+          )
+            return
+          const replace = historyMode === 'replace'
+          const locationState: unknown = location.state
+          void navigate(nextLocation, {
+            replace,
+            state: replace
+              ? locationState
+              : advanceDatabaseDetailHistory(locationState, location.pathname),
+          })
         })
         .catch(() => undefined)
     }
@@ -70,8 +85,14 @@ export function useDatabaseRouteNavigation({
       },
       select,
       updateState: (state, options) => {
-        if (routeItem) select({kind: routeItem.kind, id: routeItem.item.id}, state, options)
+        if (routeItem)
+          select(
+            {kind: routeItem.kind, id: routeItem.item.id},
+            state,
+            options,
+            state.tab ? 'push' : 'replace',
+          )
       },
     }
-  }, [activeSearch, defaultAwakenerTab, locationState, navigate, onClose, routeItem])
+  }, [activeSearch, defaultAwakenerTab, location, navigate, onClose, routeItem])
 }

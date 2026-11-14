@@ -1,27 +1,6 @@
-import {lazy} from 'react'
+import {Route} from 'react-router'
 
-import {Navigate, Route, useLocation, useParams} from 'react-router'
-
-import {sanitizeDatabaseEntitySearch} from '@/domain/database-entity-search'
-
-const DatabasePage = lazy(() =>
-  import('./DatabasePage').then((module) => ({default: module.DatabasePage})),
-)
-
-function LegacyAwakenerRouteRedirect() {
-  const location = useLocation()
-  const {awakenerSlug, tabSlug} = useParams()
-  const tabPath = tabSlug ? `/${tabSlug}` : ''
-  return (
-    <Navigate
-      replace
-      to={{
-        pathname: `/database/awakeners/${awakenerSlug ?? ''}${tabPath}`,
-        search: sanitizeDatabaseEntitySearch('awakeners', location.search),
-      }}
-    />
-  )
-}
+import {DatabasePage, LegacyAwakenerRouteRedirect} from './DatabaseRouteComponents'
 
 export const DatabaseRouteElements = (
   <>

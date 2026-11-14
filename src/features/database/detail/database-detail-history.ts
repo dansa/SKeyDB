@@ -6,6 +6,8 @@ import {
 } from '@/domain/database-entity-paths'
 
 const DATABASE_DETAIL_FROM_BROWSE_STATE_KEY = '__databaseDetailFromBrowse'
+const DATABASE_DETAIL_HISTORY_DEPTH_KEY = '__databaseDetailHistoryDepth'
+const DATABASE_DETAIL_BOUNDARY_KEY = '__databaseDetailBoundary'
 
 export interface DatabaseDetailBrowseOrigin {
   entity: DatabaseEntityId
@@ -28,6 +30,7 @@ export function createDatabaseDetailFromBrowseState(
   return {
     ...(isStateRecord(state) ? state : {}),
     [DATABASE_DETAIL_FROM_BROWSE_STATE_KEY]: origin,
+    [DATABASE_DETAIL_HISTORY_DEPTH_KEY]: 1,
   }
 }
 
@@ -54,7 +57,30 @@ export function getDatabaseDetailBrowseOrigin(state: unknown): DatabaseDetailBro
   }
 }
 
+export function getDatabaseDetailHistoryDepth(state: unknown): number {
+  if (!isStateRecord(state)) return 0
+  const depth = state[DATABASE_DETAIL_HISTORY_DEPTH_KEY]
+  return typeof depth === 'number' && Number.isSafeInteger(depth) && depth > 0
+    ? depth
+    : getDatabaseDetailBrowseOrigin(state)
+      ? 1
+      : 0
+}
+
+export function advanceDatabaseDetailHistory(state: unknown, pathname: string): unknown {
+  const depth = getDatabaseDetailHistoryDepth(state)
+  return {
+    ...(isStateRecord(state) ? state : {}),
+    [DATABASE_DETAIL_HISTORY_DEPTH_KEY]: depth + 1,
+    [DATABASE_DETAIL_BOUNDARY_KEY]: getDatabaseRouteBoundaryKey(pathname, state),
+  }
+}
+
 export function getDatabaseRouteBoundaryKey(pathname: string, state: unknown): string {
+  const detailBoundary = isStateRecord(state) ? state[DATABASE_DETAIL_BOUNDARY_KEY] : undefined
+  if (typeof detailBoundary === 'string' && getDatabaseDetailHistoryDepth(state) > 0) {
+    return detailBoundary
+  }
   return (
     getDatabaseDetailBrowseOrigin(state)?.pathname ??
     getDatabaseBrowsePathForLocation(pathname) ??
