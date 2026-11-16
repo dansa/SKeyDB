@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "derived-skills",
   "kind": "derivedSkill",
-  "recordCount": 217,
+  "recordCount": 218,
   "records": [
     {
       "kind": "derivedSkill",
@@ -1591,6 +1591,17 @@
       "route": {
         "slug": "mortal-sojourn",
         "canonicalPath": "/database/derived-skills/mortal-sojourn"
+      },
+      "cardFamily": "buff",
+      "cardTypes": ["buff"]
+    },
+    {
+      "kind": "derivedSkill",
+      "id": "derived.global.next-time-it-rains",
+      "name": "Next Time It Rains",
+      "route": {
+        "slug": "next-time-it-rains",
+        "canonicalPath": "/database/derived-skills/next-time-it-rains"
       },
       "cardFamily": "buff",
       "cardTypes": ["buff"]

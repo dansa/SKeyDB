@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 3,
+  "kind": "derivedSkill",
+  "id": "derived.global.next-time-it-rains",
+  "name": "Next Time It Rains",
+  "route": {
+    "slug": "next-time-it-rains",
+    "canonicalPath": "/database/derived-skills/next-time-it-rains"
+  },
+  "cardFamily": "buff",
+  "cardTypes": ["buff"],
+  "descriptionTemplate": "Draw 1 card. If you hold at least 5 Black Sigils, consume 5 Black Sigils and draw 2 additional cards.",
+  "descriptionArgs": {},
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    },
+    {
+      "id": "mechanic.exhaust"
+    }
+  ],
+  "cost": "0"
+}

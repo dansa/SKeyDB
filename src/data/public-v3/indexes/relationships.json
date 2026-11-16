@@ -1856,6 +1856,7 @@
     "derived.global.memories-unfinished-wax-sculpture": {},
     "derived.global.memories-utopian-veil": {},
     "derived.global.mortal-sojourn": {},
+    "derived.global.next-time-it-rains": {},
     "derived.global.one-way": {},
     "derived.global.palette": {},
     "derived.global.parasol": {},
@@ -3649,7 +3650,8 @@
     "wheel-0180": {},
     "wheel-0181": {},
     "wheel-0182": {},
-    "wheel-0183": {}
+    "wheel-0183": {},
+    "wheel-0184": {}
   },
   "reverse": {
     "awakener-0001": {},
@@ -4140,6 +4142,7 @@
     "derived.global.memories-unfinished-wax-sculpture": {},
     "derived.global.memories-utopian-veil": {},
     "derived.global.mortal-sojourn": {},
+    "derived.global.next-time-it-rains": {},
     "derived.global.one-way": {},
     "derived.global.palette": {},
     "derived.global.parasol": {},
@@ -8579,6 +8582,7 @@
     "wheel-0182": {
       "ownerAwakenerId": "awakener-0062"
     },
-    "wheel-0183": {}
+    "wheel-0183": {},
+    "wheel-0184": {}
   }
 }

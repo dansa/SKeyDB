@@ -2841,6 +2841,18 @@
         "candidates": ["src/assets/wheels/Weapon_Full_JP20.webp", "src/assets/wheels/Weapon_Full_JP20.png"]
       }
     },
+    "asset-wheel-0184-icon": {
+      "id": "asset-wheel-0184-icon",
+      "slot": "icon",
+      "kind": "wheel",
+      "ownerId": "wheel-0184",
+      "assetId": "Weapon_Full_JP13",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/wheels/Weapon_Full_JP13.webp",
+        "candidates": ["src/assets/wheels/Weapon_Full_JP13.webp", "src/assets/wheels/Weapon_Full_JP13.png"]
+      }
+    },
     "asset-relic-0001-icon": {
       "id": "asset-relic-0001-icon",
       "slot": "icon",
@@ -13051,6 +13063,9 @@
     },
     "wheel-0183": {
       "icon": "asset-wheel-0183-icon"
+    },
+    "wheel-0184": {
+      "icon": "asset-wheel-0184-icon"
     },
     "relic-0001": {
       "icon": "asset-relic-0001-icon"
