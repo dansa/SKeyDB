@@ -281,6 +281,7 @@ export const WHEEL_ID_V1_TO_CURRENT = {
   'wheel-0181': 'wheel-0181',
   'wheel-0182': 'wheel-0182',
   'wheel-0183': 'wheel-0183',
+  'wheel-0184': 'wheel-0184',
 } as const
 
 export const COVENANT_ID_V1_TO_CURRENT = {
