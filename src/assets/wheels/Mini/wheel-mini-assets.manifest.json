@@ -363,6 +363,12 @@
       "miniSha256": "a52640518db10c01317c59ed06b3d94c070d083bf00fff49792d4f4ec4e4a381"
     },
     {
+      "full": "Weapon_Full_JP13.webp",
+      "fullSha256": "1ca66beaed32a2d0bd5ba54540ae6dea1883ed6ffe9e8f360024af23a7634a10",
+      "mini": "Weapon_Mini_JP13.webp",
+      "miniSha256": "cf45477bd2dd4f0c96c48ea046152c1b021375748edb237cda47f59d0739e019"
+    },
+    {
       "full": "Weapon_Full_JP20.webp",
       "fullSha256": "a864b35a620cd959c891682786374b62fd8c95e6ed1772c3583896b512c75ccc",
       "mini": "Weapon_Mini_JP20.webp",

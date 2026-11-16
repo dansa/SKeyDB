@@ -916,6 +916,12 @@
         "canonicalSlug": "never-ending-performance",
         "canonicalPath": "/database/wheels/never-ending-performance"
       },
+      "next-time-it-rains": {
+        "kind": "wheel",
+        "id": "wheel-0184",
+        "canonicalSlug": "next-time-it-rains",
+        "canonicalPath": "/database/wheels/next-time-it-rains"
+      },
       "noblemans-staff": {
         "kind": "wheel",
         "id": "wheel-0088",
@@ -7269,6 +7275,12 @@
         "id": "derived.mouchette.dramatic-encounter",
         "canonicalSlug": "dramatic-encounter",
         "canonicalPath": "/database/awakeners/mouchette/derived-skills/dramatic-encounter"
+      },
+      "next-time-it-rains": {
+        "kind": "derivedSkill",
+        "id": "derived.global.next-time-it-rains",
+        "canonicalSlug": "next-time-it-rains",
+        "canonicalPath": "/database/derived-skills/next-time-it-rains"
       },
       "one-way": {
         "kind": "derivedSkill",

@@ -3159,6 +3159,15 @@
         "canonicalPath": "/database/derived-skills/mortal-sojourn"
       }
     },
+    "derived.global.next-time-it-rains": {
+      "kind": "derivedSkill",
+      "id": "derived.global.next-time-it-rains",
+      "name": "Next Time It Rains",
+      "route": {
+        "slug": "next-time-it-rains",
+        "canonicalPath": "/database/derived-skills/next-time-it-rains"
+      }
+    },
     "derived.global.one-way": {
       "kind": "derivedSkill",
       "id": "derived.global.one-way",
@@ -26368,6 +26377,23 @@
       "availabilityType": "EVENT",
       "hasShopSource": false,
       "mainstatKey": "CRIT_RATE"
+    },
+    "wheel-0184": {
+      "kind": "wheel",
+      "id": "wheel-0184",
+      "name": "Next Time It Rains",
+      "route": {
+        "slug": "next-time-it-rains",
+        "canonicalPath": "/database/wheels/next-time-it-rains"
+      },
+      "assets": {
+        "icon": "asset-wheel-0184-icon"
+      },
+      "realm": "NEUTRAL",
+      "rarity": "SSR",
+      "availabilityType": "EVENT",
+      "hasShopSource": false,
+      "mainstatKey": "REALM_MASTERY"
     }
   },
   "scopes": {
@@ -26634,6 +26660,7 @@
       "derived.global.memories-unfinished-wax-sculpture",
       "derived.global.memories-utopian-veil",
       "derived.global.mortal-sojourn",
+      "derived.global.next-time-it-rains",
       "derived.global.one-way",
       "derived.global.palette",
       "derived.global.parasol",
@@ -28439,7 +28466,8 @@
       "wheel-0180",
       "wheel-0181",
       "wheel-0182",
-      "wheel-0183"
+      "wheel-0183",
+      "wheel-0184"
     ]
   }
 }

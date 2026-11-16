@@ -5076,6 +5076,40 @@
         "mainstatKey": "CRIT_RATE",
         "availabilityType": "EVENT"
       }
+    },
+    {
+      "kind": "wheel",
+      "id": "wheel-0184",
+      "name": "Next Time It Rains",
+      "aliases": [],
+      "tokens": [
+        "draw",
+        "event",
+        "gain",
+        "generation",
+        "it",
+        "neutral",
+        "next",
+        "next time it rains",
+        "rains",
+        "sigil",
+        "sigil gain",
+        "sigil generation",
+        "ssr",
+        "time"
+      ],
+      "fields": {
+        "name": ["Next Time It Rains", "next-time-it-rains"],
+        "tag": ["draw", "sigil-gain", "Sigil Gain", "sigil generation"],
+        "facet": ["NEUTRAL", "SSR", "EVENT"]
+      },
+      "facets": {
+        "realm": "NEUTRAL",
+        "rarity": "SSR",
+        "mainstatKey": "REALM_MASTERY",
+        "availabilityType": "EVENT",
+        "tags": ["draw", "sigil-gain"]
+      }
     }
   ]
 }

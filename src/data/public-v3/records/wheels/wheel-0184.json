@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 3,
+  "kind": "wheel",
+  "id": "wheel-0184",
+  "name": "Next Time It Rains",
+  "route": {
+    "slug": "next-time-it-rains",
+    "canonicalPath": "/database/wheels/next-time-it-rains"
+  },
+  "assets": {
+    "icon": "asset-wheel-0184-icon"
+  },
+  "availabilityType": "EVENT",
+  "hasShopSource": false,
+  "acquisitionSource": "Event reward Wheel.",
+  "rarity": "SSR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "REALM_MASTERY",
+  "lineupToken": "zi",
+  "searchTags": ["Draw", "Sigil Gain"],
+  "descriptionTemplate": "{Team Unique}: After an exploration begins, gain [StateArg1] Black Sigils and generate 1 {derived:Next Time It Rains} to add to your deck.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": ["35", "40", "45", "50"]
+    }
+  },
+  "lore": "Mythag University Awakening Studies Department\nAwakener Off-Campus Activity Registration Archive No. ████\n\nActivity Category: Class B-█ (Non-Mission Accompanying Field Outing)\nApplication Basis: Mystia Treaty, Supplementary Provisions Art. ██ / University Charter §7.2\nApplicant: Keeper %player%\nAwakener Accompanied: Caecus\nTime: A.F. ███, █/█\nLocation: Royal Aquarium, Londinium\nLink Sync Rate: Stable throughout\nEmotional Fluctuation Grade: Class I (within normal range)\nPublic Exposure Risk: None\nCarried Items Review: Paper brochure ×1 (registered, no anomalies)\n\n—The following exceeds archival requirements. It consists of remarks the subject made unprompted on the return trip, retained here in full with the Awakener’s own consent.\n\n<Italic:(\"Leave it in. So you forgetful humans can’t come back later and pretend you never said it.\")>\n\n1. ...Four points, barely. Three for that whale skeleton... and one for the octopus that changed color. I’d assumed it would be a few tanks of herring and a couple of crabs missing their legs... it turned out to be rather large. Cross out what I just said. Don’t write it down.\n\n2. I did not press my face against the glass. You saw wrong! ...Fine. Perhaps I pressed it a little. Because it suddenly flushed purple-red... Uncle Ornn’s books say octopuses speak in color. It’s the tongue of the lesser sea-races, but it still beats your human yammering by a wide margin. What did it say? How should I know. I’m not an octopus!\n\n3. The workmanship on those fake corals is dreadful! Real coral looks nothing like that. It ought to be... it’s... In any case, it isn’t what the books describe. Don’t make that face. Someday I’ll take you to see the real ones, the finest coral in the deep. There’s no harm in looking at the fakes first.\n\n4. The brochure was forced on me. The human at the entrance was simply insufferable about it. Naturally I have no need for a human’s primer on marine life. I brought it back only to... to broaden Castor and his brother’s horizons.\n\n5. A tedious place like this, I... hmph. Seeing how pleased you were... next time it rains, it’s not like I can't come with you again.\n\nHandled by: Professor Sylvia ████ ✓\nReviewed and approved ／ Same-category applications hereafter granted\n\n\"Link stable. Subject’s mental health shows positive improvement relative to the previous assessment. Remarks section read. May be retained as is. —S\""
+}

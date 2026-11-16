@@ -1,11 +1,11 @@
 {
   "schemaVersion": 3,
-  "gameDataVersion": "compiled-sha256-4b8a33a761943995",
-  "generatedAt": "2026-11-13T13:00:43Z",
-  "buildId": "public-v3-sha256-633c87439efbbeab",
+  "gameDataVersion": "compiled-sha256-9d5298b3d9923f1e",
+  "generatedAt": "2026-11-16T02:44:38Z",
+  "buildId": "public-v3-sha256-3b1964571cd421b3",
   "build": {
-    "gameDataVersion": "compiled-sha256-4b8a33a761943995",
-    "recordCount": 2046,
+    "gameDataVersion": "compiled-sha256-9d5298b3d9923f1e",
+    "recordCount": 2048,
     "scopes": [
       "awakeners",
       "wheels",
@@ -32,7 +32,7 @@
       "kind": "wheel",
       "catalog": "catalogs/wheels.json",
       "recordPattern": "records/wheels/{id}.json",
-      "count": 149
+      "count": 150
     },
     "relics": {
       "kind": "relic",
@@ -68,7 +68,7 @@
       "kind": "derivedSkill",
       "catalog": "catalogs/derived-skills.json",
       "recordPattern": "records/derived-skills/{id}.json",
-      "count": 217
+      "count": 218
     },
     "talents": {
       "kind": "talent",
@@ -130,8 +130,8 @@
       "sha256": "5832835009dc99e350259267c602e122062a9fa735d52df61c7d2794d7bdfe7b"
     },
     "catalogs/derived-skills.json": {
-      "bytes": 101213,
-      "sha256": "db078d20a1efead01a21d3ad4cd9aee5b3ebf92452fc0c5fa95167b8d2a44429"
+      "bytes": 101532,
+      "sha256": "1b6601f59e34370871c4f1ca74aafbd31d13f032fee51a6113e03c12c9264d3e"
     },
     "catalogs/enlightens.json": {
       "bytes": 116399,
@@ -162,44 +162,44 @@
       "sha256": "b6df67094951767a328341731c7cbfd08dfac386dba61239c916deb79d269658"
     },
     "catalogs/wheels.json": {
-      "bytes": 83390,
-      "sha256": "29f8bf719573dc70fbfffb6706a9e9bfd005e73f967fd7a1d504d0995a76f8a7"
+      "bytes": 83904,
+      "sha256": "dae7d987a18496cb9fcd9974e0782282ee15390e0de437eba60c669526e4d0ce"
     },
     "indexes/assets.json": {
-      "bytes": 491249,
-      "sha256": "0d89494a49df5bfb14e7fee19fc6545a5643c50061ef63bfc02353165e855718"
+      "bytes": 491732,
+      "sha256": "55a8adf1f7042b494862f30927e6a5bfb0a0907de2ca0588d860896c2b5afb2a"
     },
     "indexes/builder-catalog.json": {
-      "bytes": 24317,
-      "sha256": "5c8c86fe5d3aa0401d9ba598ca4cb9d755e0f041e7ec7df7609223d54964ce9c"
+      "bytes": 24361,
+      "sha256": "0550d4a7d69d7b8631aaf47273cdd5ae45d2d4e6595b00f3846731af935fc27e"
     },
     "indexes/collection-catalog.json": {
-      "bytes": 31829,
-      "sha256": "7770288696893ce871f757a6463709145a1e602b6f51394ca80525a98cd00ebf"
+      "bytes": 31893,
+      "sha256": "aa6ba0c5a6376f4ed82d7aad2250828571538224e36f1d2be3e6ad5c467fcaa0"
     },
     "indexes/entities.json": {
-      "bytes": 870755,
-      "sha256": "119559433606eac0bba00000c317c7cc335320f8ae34953899c2b9649bf14fcd"
+      "bytes": 871574,
+      "sha256": "7276fccff7612098d67d17876caa73dcc6d906e075a560204031874d1b0d00a1"
     },
     "indexes/facets.json": {
       "bytes": 65191,
       "sha256": "81facd6bb8202d75126f4eb69f087f0e9236989cfc430110f3d576b44755eb5e"
     },
     "indexes/references.json": {
-      "bytes": 247717,
-      "sha256": "1a6d1409300a77878be01e8c56f8bf524e1295ecb0f86aaf91551fd0f3dc3682"
+      "bytes": 247919,
+      "sha256": "3945dea4e0050c622232c1affd6129243728a97707117583b0e87c7baa0acc09"
     },
     "indexes/relationships.json": {
-      "bytes": 278949,
-      "sha256": "4e1d1aac64082cb7e9c5bacf9fe2a7be802291965bdb9ae93c585dd0d1166e8b"
+      "bytes": 279083,
+      "sha256": "f0d6149161a3a1d50936e14b9bb6077aa36f7fb44e59eb748666595f4a7f2763"
     },
     "indexes/routes.json": {
-      "bytes": 469340,
-      "sha256": "f0a02370f1d4ad8f9e2b9d0e91733986d4e0320822cbbb7711d4915b52495d8a"
+      "bytes": 469782,
+      "sha256": "534519028233e01dfbe37a646e2a317f4486040408346bb37fd4db116132bea5"
     },
     "indexes/scopes.json": {
       "bytes": 5354,
-      "sha256": "8ed6a1f5d7ab9b3711a3878c7a954f33ead18991efde5ad48a4b46c3ebbab83e"
+      "sha256": "e55beb5501ec6e1c860d37632f553b4c3be5b5db311b5472c921171a3dabf2cc"
     },
     "indexes/search-awakeners.json": {
       "bytes": 89589,
@@ -223,11 +223,11 @@
     },
     "indexes/search-tags.json": {
       "bytes": 7284,
-      "sha256": "2c94ee4b354ba90bd37f0a3d4640d292578d1a63596fa9d0e4dc69f114cec968"
+      "sha256": "3f0325fae1ead2e31941ff39d7cb70102856423c6b024ff7e13b669d3ed18837"
     },
     "indexes/search-wheels.json": {
-      "bytes": 132941,
-      "sha256": "9b7337ebd0e6da62bfd99786721c69e54a9c753affa5f083e4aa48eda002a582"
+      "bytes": 133753,
+      "sha256": "80dc5bf0fa0ab6dd5b86e5f667b3cd42348dd5ae623a3635315e0783daa55047"
     },
     "metadata/gameplay-math.json": {
       "bytes": 9315,
@@ -1256,6 +1256,10 @@
     "records/derived-skills/derived.global.mortal-sojourn.json": {
       "bytes": 1026,
       "sha256": "bae0d40e1a8061162daf0653c8e8c0bed5c1b54fc7fa0e4c802afb664381795c"
+    },
+    "records/derived-skills/derived.global.next-time-it-rains.json": {
+      "bytes": 577,
+      "sha256": "7f965ed191eed303513f708a2877b893448d2088605deb45f4b9c7d98b209d04"
     },
     "records/derived-skills/derived.global.one-way.json": {
       "bytes": 484,
@@ -8416,6 +8420,10 @@
     "records/wheels/wheel-0183.json": {
       "bytes": 3715,
       "sha256": "6691bd9a9a57751422a370cc13a2df5c85726c352abbf0d3b5636b5ceda67ed9"
+    },
+    "records/wheels/wheel-0184.json": {
+      "bytes": 3317,
+      "sha256": "ea02e9653be5d9bcce1748c1da35066952e5a3ac8d51cad244b248d1c8522173"
     }
   }
 }

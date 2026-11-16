@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "wheels",
   "kind": "wheel",
-  "recordCount": 149,
+  "recordCount": 150,
   "records": [
     {
       "kind": "wheel",
@@ -3014,6 +3014,25 @@
       "hasShopSource": false,
       "mainstatKey": "CRIT_RATE",
       "lineupToken": "zf"
+    },
+    {
+      "kind": "wheel",
+      "id": "wheel-0184",
+      "name": "Next Time It Rains",
+      "route": {
+        "slug": "next-time-it-rains",
+        "canonicalPath": "/database/wheels/next-time-it-rains"
+      },
+      "assets": {
+        "icon": "asset-wheel-0184-icon"
+      },
+      "realm": "NEUTRAL",
+      "rarity": "SSR",
+      "availabilityType": "EVENT",
+      "hasShopSource": false,
+      "mainstatKey": "REALM_MASTERY",
+      "lineupToken": "zi",
+      "searchTags": ["Draw", "Sigil Gain"]
     }
   ]
 }

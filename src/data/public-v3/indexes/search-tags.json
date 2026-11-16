@@ -199,7 +199,7 @@
       "section": "archetype",
       "aliases": [],
       "order": 940,
-      "count": 36
+      "count": 37
     },
     {
       "id": "shield",
@@ -343,7 +343,7 @@
       "section": "archetype",
       "aliases": ["sigil generation"],
       "order": 1080,
-      "count": 7
+      "count": 8
     },
     {
       "id": "sigil-yield",

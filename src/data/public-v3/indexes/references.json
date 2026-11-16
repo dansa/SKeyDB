@@ -11449,6 +11449,16 @@
         "id": "skill.erica.multiple-calculations"
       }
     ],
+    "next time it rains": [
+      {
+        "kind": "derivedSkill",
+        "id": "derived.global.next-time-it-rains"
+      },
+      {
+        "kind": "wheel",
+        "id": "wheel-0184"
+      }
+    ],
     "night of whalefall": [
       {
         "kind": "enlighten",

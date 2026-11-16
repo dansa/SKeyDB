@@ -15,7 +15,7 @@
       "idPrefix": "wheel",
       "capabilities": ["catalog", "detailRecord", "search", "snapshot"],
       "searchable": true,
-      "recordCount": 149
+      "recordCount": 150
     },
     {
       "scope": "relics",
@@ -63,7 +63,7 @@
       "idPrefix": "derived",
       "capabilities": ["catalog", "detailRecord", "snapshot"],
       "searchable": false,
-      "recordCount": 217
+      "recordCount": 218
     },
     {
       "scope": "talents",
@@ -113,7 +113,7 @@
       "idPrefix": "wheel",
       "capabilities": ["catalog", "detailRecord", "search", "snapshot"],
       "searchable": true,
-      "recordCount": 149
+      "recordCount": 150
     },
     "relics": {
       "scope": "relics",
@@ -161,7 +161,7 @@
       "idPrefix": "derived",
       "capabilities": ["catalog", "detailRecord", "snapshot"],
       "searchable": false,
-      "recordCount": 217
+      "recordCount": 218
     },
     "talents": {
       "scope": "talents",
