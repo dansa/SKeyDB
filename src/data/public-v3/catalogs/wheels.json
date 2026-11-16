@@ -3032,7 +3032,7 @@
       "hasShopSource": false,
       "mainstatKey": "REALM_MASTERY",
       "lineupToken": "zi",
-      "searchTags": ["Sigil Gain"]
+      "searchTags": ["Draw", "Sigil Gain"]
     }
   ]
 }

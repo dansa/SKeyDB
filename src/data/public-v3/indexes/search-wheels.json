@@ -5083,6 +5083,7 @@
       "name": "Next Time It Rains",
       "aliases": [],
       "tokens": [
+        "draw",
         "event",
         "gain",
         "generation",
@@ -5099,7 +5100,7 @@
       ],
       "fields": {
         "name": ["Next Time It Rains", "next-time-it-rains"],
-        "tag": ["sigil-gain", "Sigil Gain", "sigil generation"],
+        "tag": ["draw", "sigil-gain", "Sigil Gain", "sigil generation"],
         "facet": ["NEUTRAL", "SSR", "EVENT"]
       },
       "facets": {
@@ -5107,7 +5108,7 @@
         "rarity": "SSR",
         "mainstatKey": "REALM_MASTERY",
         "availabilityType": "EVENT",
-        "tags": ["sigil-gain"]
+        "tags": ["draw", "sigil-gain"]
       }
     }
   ]
