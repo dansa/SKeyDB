@@ -28,6 +28,6 @@ describe('timeline pricing display helpers', () => {
         'usd-estimate',
       ),
     ).toBe('Spend up to ~$350 to claim rewards. Each gift box costs ~$29.')
-    expect(formatTimelinePrice('USD 29.99', 'usd-estimate')).toBe('$30')
+    expect(formatTimelinePrice('USD 29.99', 'usd-estimate')).toBe('$29.99')
   })
 })

@@ -35,6 +35,15 @@ Array of event objects. Each event appears as a card in the Events section.
 | `customArt` | string | no | Custom art URL or path. Overrides `featured` art if both are set. Use for skins, special promo art, raid art, etc. Non-URL values like `"TBD"` are ignored. Paths starting with `/events/` are resolved against `src/assets/events/*` (bundled), e.g. `/events/arachne.png` |
 | `pricing` | string | no | Displays a silver pricing badge, e.g. `"960 Silver Prime"`, `"$24.99"` |
 | `artAlign` | string | no | Overrides the default art positioning. Accepts any CSS `object-position` value. See [Art Alignment](#art-alignment) below |
+| `rewards` | array | no | Reward groups with a nonempty `items` array of `{name, amount?}`. Optional fields: `title`, `note`, `layout` (`list`, `days`, or `tiles`), `price`, `summaryCount`, and `claims` (`{label, items}` rows). |
+| `missions` | array | no | Rows of `{label, standard, premium?}`. Each track is an array of reward items. Use `premium` only for additional paid rewards. |
+| `artVariants` | object | no | Both `card` (square) and `detail` (wide) must resolve to bundled `/events/` assets. `customArt` remains the fallback. |
+| `related` | array | no | Existing event or banner IDs. IDs must be unique across both files. |
+
+For free/paid tracks, set the individual group prices explicitly (for example, `Free` and `1680 Silver Prime`). Leave the entry price for the card summary. Use `summaryCount` to keep long lists compact and `claims` for dated claims, not mission rewards.
+
+Keep event-only currencies out of reward totals. For random shops, separate capped stock from repeatable draws. Use the original event artwork where available and record its source when adding new crops.
+
 
 ### Event Categories
 
@@ -42,12 +51,12 @@ Array of event objects. Each event appears as a card in the Events section.
 |----------|-------------|---------|
 | `story` | Amber | Story events and story reruns |
 | `raid` | Red | Raid and competitive PvE events |
-| `battlepass` | Violet | Battle pass events |
+| `battlepass` | Green | Battle pass events |
 | `gameplay-event` | Amber | General gameplay events |
 | `d-tide` | Red | Rotating D-Tide events; ended entries are hidden from the archive |
-| `curriculum` | Violet | Seasonal task-track passes; ended entries are hidden from the archive |
+| `curriculum` | Green | Seasonal task-track passes; ended entries are hidden from the archive |
 | `login` | Teal | Daily login bonus events; ended entries are hidden from the archive |
-| `skin` | Violet | Outfit / skin releases |
+| `skin` | Rose | Outfit / skin releases |
 | `wheel-event` | Blue | Wheel acquisition events (gacha for wheels) |
 | `anniversary` | Teal | Anniversary events |
 | `milestone` | Gold | Milestone events and rewards |
@@ -95,7 +104,9 @@ Note: double quotes inside strings must be escaped with `\"` — this is a JSON 
   "startDate": "2026/03/09 09:00",
   "endDate": "2026/03/23 09:00",
   "pinned": true,
-  "featured": "Vortice"
+  "featured": "Vortice",
+  "rewards": [{"title": "Missions", "items": [{"name": "Pure Core", "amount": "×10"}]}],
+  "related": ["banner-arcane-tides"]
 }
 ```
 
@@ -119,10 +130,14 @@ Array of banner objects. Each banner appears as a card in the Banners section wi
 | `pinned` | boolean | no | Pinned banners sort to the top |
 | `featured` | array | no | List of featured units. See [Featured Units](#featured-units) |
 | `poolSlots` | array | no | Rotating pool slots. See [Pool Slots](#pool-slots) |
+| `dailySchedule` | array | for `daily` | One row per game day, ordered and consecutive: `{day, featured, offBanner?}`. |
+| `rateUpGroups` | array | no | Separate featured banners: `{kind, options: [{title, rateUp, offBanner?}], sharedOffBanner?}`. Use a shared pool only when it applies to every option. |
+| `rulesProfile` | string | no | Use a verified rules profile only when that specific run follows it. See the banner schema for the accepted profile IDs. |
 | `derivedPool` | object | no | Database-derived pool configuration. Use `slots` for independently filtered bucket slots |
 | `linkedPresentation` | string | no | Linked-slot artwork mode: `expanded` (default, side by side), `alternating` (one labeled column alternating owner and wheel), or `paired` (one labeled column with a 60/40 owner-and-wheel split) |
 | `customArt` | string | no | Full-card banner art URL or path. Overrides featured/pool artwork when present. Paths starting with `/banners/` are resolved against `src/assets/banners/*`. |
 | `preliminary` | boolean | no | Marks dates, pools, or banner details as provisional. If `tags` is omitted, adds `Preliminary` beside the type label |
+| `related` | array | no | IDs of related events or banners |
 
 Derived pools include only Awakeners released on or before the banner's opening
 day in the game's UTC+8 calendar, together with their matching SSR wheels. Later
@@ -309,6 +324,7 @@ bottom 40%; both advance as one candidate pair.
   "description": "Featured rate-up. [Review on Discord](https://discord.gg/example)",
   "startDate": "2026/03/05 18:00",
   "endDate": "2026/03/19 11:59",
-  "featured": ["Tawil", "Miryam", "Caecus"]
+  "featured": ["Tawil", "Miryam", "Caecus"],
+  "related": ["event-story-vortice"]
 }
 ```

@@ -74,6 +74,10 @@
   color: oklch(77% 0.062 68 / 0.88);
 }
 
+.timeline-event-meta--green {
+  color: oklch(78% 0.08 135 / 0.88);
+}
+
 .timeline-event-meta--orange {
   color: oklch(77% 0.076 55 / 0.88);
 }
@@ -84,6 +88,10 @@
 
 .timeline-event-meta--red {
   color: oklch(76% 0.078 28 / 0.88);
+}
+
+.timeline-event-meta--rose {
+  color: oklch(77% 0.075 350 / 0.88);
 }
 
 .timeline-event-meta--slate {

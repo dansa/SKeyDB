@@ -2,10 +2,43 @@ import {act, fireEvent, render, screen} from '@testing-library/react'
 import {MemoryRouter} from 'react-router'
 import {vi} from 'vitest'
 
+import {BannerArtwork} from './BannerArtwork'
 import {BannerCard} from './BannerCard'
 import {CYCLE_INTERVAL_MS} from './usePoolCycling'
 
 describe('BannerCard', () => {
+  it('preserves the five-slot drawer inset by default and allows other views to remove it', () => {
+    const poolSlots = Array.from({length: 5}, (_, index) => ({
+      pool: [{name: `Slot ${String(index)}`, kind: 'placeholder' as const}],
+    }))
+    const card = render(
+      <MemoryRouter>
+        <BannerCard
+          banner={{
+            id: 'five-slot',
+            title: 'Five Slots',
+            type: 'selector',
+            startDate: '2026-03-09T00:00:00Z',
+            endDate: '2026-03-12T00:00:00Z',
+            poolSlots,
+          }}
+          now={new Date('2026-03-10T00:00:00Z')}
+        />
+      </MemoryRouter>,
+    )
+    expect(
+      card.container.querySelector<HTMLElement>('[style*="grid-template-columns"]')?.style.right,
+    ).toBe('1.75rem')
+    const stage = render(
+      <MemoryRouter>
+        <BannerArtwork poolSlots={poolSlots} reserveDrawerInset={false} title='Five Slots' />
+      </MemoryRouter>,
+    )
+    expect(
+      stage.container.querySelector<HTMLElement>('[style*="grid-template-columns"]')?.style.right,
+    ).toBe('0px')
+  })
+
   it('shows ended relative text for ended banners', () => {
     render(
       <MemoryRouter>
@@ -77,7 +110,7 @@ describe('BannerCard', () => {
       </MemoryRouter>,
     )
 
-    expect(screen.getAllByText('$30')).toHaveLength(2)
+    expect(screen.getAllByText('$29.99')).toHaveLength(2)
   })
 
   it('renders scaffolded combo pool slots for banners waiting on final unit lists', () => {

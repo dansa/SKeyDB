@@ -38,6 +38,9 @@ const CollectionPage = lazy(() =>
 const TimelinePage = lazy(() =>
   import('./pages/TimelinePage').then((module) => ({default: module.TimelinePage})),
 )
+const TimelineNextPage = lazy(() =>
+  import('./pages/TimelineNextPage').then((module) => ({default: module.TimelineNextPage})),
+)
 const DZonePage = lazy(() =>
   import('./pages/DZonePage').then((module) => ({default: module.DZonePage})),
 )
@@ -369,6 +372,7 @@ function App() {
               <Route element={<HomePage />} path='/' />
               {DatabaseRouteElements}
               <Route element={<TimelinePage />} path='/timeline' />
+              <Route element={<TimelineNextPage />} path='/timeline-next' />
               <Route element={<DZonePage />} path='/d-zone' />
               <Route element={<DZoneHistoryPage />} path='/d-zone/history' />
               <Route

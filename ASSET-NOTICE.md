@@ -8,6 +8,10 @@ Those materials are not licensed by SKeyDB, even if they appear in this reposito
 
 Reusers must obtain their own permission or legal basis before using game-owned or third-party materials.
 
+## Timeline Art
+
+Timeline gallery crops and extracted reward sprites added under `src/assets/events/` come from the Morimens Windows client (event and Gallery art, item textures, and avatar portraits). The square card and wide detail crops are adaptations of those game-owned assets, not separately licensed by SKeyDB. This attribution does not assert additional reuse permission.
+
 ## HuijiWiki-Sourced Material
 
 Some asset/source material has been sourced from Morimens HuijiWiki community pages:

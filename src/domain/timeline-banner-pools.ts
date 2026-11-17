@@ -8,7 +8,7 @@ export type FeaturedInput =
   | string
   | {
       name: string
-      kind?: 'awakener' | 'wheel' | 'wheel-auto' | 'placeholder'
+      kind?: BannerFeaturedUnit['kind']
       customArt?: string
       realmId?: string
       detailLink?: boolean

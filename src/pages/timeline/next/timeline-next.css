@@ -1,0 +1,122 @@
+.timeline-next-stage {
+  position: sticky;
+  top: calc(var(--site-header-height) + 0.75rem);
+  max-height: calc(100dvh - var(--site-header-height) - 1.5rem);
+  overflow: hidden;
+}
+
+.timeline-next-stage-scroll {
+  max-height: calc(100dvh - var(--site-header-height) - 1.5rem);
+  overflow-y: auto;
+}
+
+.timeline-next-row[data-selected='true'] {
+  background-image: linear-gradient(180deg, rgba(45, 37, 29, 0.45), rgba(15, 21, 31, 0.95));
+}
+
+.timeline-next-description {
+  text-wrap: wrap;
+}
+
+.timeline-next-filter-toggle {
+  grid-template-columns: repeat(3, minmax(3.85rem, 1fr));
+}
+
+.timeline-next-season {
+  position: relative;
+  isolation: isolate;
+}
+
+.timeline-next-season::before {
+  position: absolute;
+  z-index: -1;
+  inset: -1.5rem;
+  background: radial-gradient(
+    ellipse closest-side at 65% 50%,
+    color-mix(in srgb, var(--timeline-season-realm) 9%, transparent),
+    transparent 100%
+  );
+  content: '';
+  pointer-events: none;
+}
+
+.timeline-next-season-emblem::before {
+  position: absolute;
+  inset: -1.5rem;
+  background: radial-gradient(
+    circle at 51% 49.8%,
+    color-mix(in srgb, var(--timeline-season-realm) 35%, transparent),
+    transparent 70%
+  );
+  content: '';
+  pointer-events: none;
+}
+
+.timeline-next-agenda {
+  padding-top: 0.3rem;
+}
+
+.timeline-next-agenda-node {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  border-top: 1px solid var(--ui-border-subtle);
+  padding: 0.8rem 0.75rem 0 0;
+}
+
+.timeline-next-agenda-node::before {
+  position: absolute;
+  top: -0.22rem;
+  left: 0.1rem;
+  width: 0.38rem;
+  height: 0.38rem;
+  background: var(--ui-accent-gold);
+  content: '';
+  transform: rotate(45deg);
+}
+
+.timeline-next-agenda-node:focus-visible {
+  outline: 2px solid var(--ui-focus-ring-soft);
+  outline-offset: -2px;
+}
+
+.timeline-next-agenda-now {
+  flex: 0 0 4rem;
+}
+
+.timeline-next-fade {
+  animation: timeline-next-fade var(--ui-motion-duration-fast) var(--ui-motion-ease) both;
+}
+
+.timeline-next-sheet[open] {
+  animation: timeline-next-slide var(--ui-motion-duration-emphasis) var(--ui-motion-ease) both;
+}
+
+.timeline-next-sheet::backdrop {
+  background: rgb(2 6 14 / 0.78);
+}
+
+@keyframes timeline-next-fade {
+  from {
+    opacity: 0.65;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes timeline-next-slide {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline-next-fade,
+  .timeline-next-sheet[open] {
+    animation: none;
+  }
+}

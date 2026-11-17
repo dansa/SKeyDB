@@ -7,9 +7,206 @@ import {
   resolveTimelineBannerDerivedPool,
   resolveTimelineBannerPoolSlots,
 } from './timeline-banner-pools'
-import {loadTimelineBanners, timelineBanners, timelineEvents} from './timeline-data'
+import {
+  loadTimelineBanners,
+  loadTimelineEvents,
+  timelineBanners,
+  timelineEvents,
+  validateTimelineLinks,
+} from './timeline-data'
 
 describe('timeline data loading', () => {
+  it('keeps the November Kaleido pools and shared milestones tied to that run', () => {
+    const event = timelineEvents.find(({id}) => id === 'event-constellated-memories')
+    expect(event?.missions).toEqual([
+      ...[50, 100, 150].map((n) => ({
+        label: `${String(n)} total awakenings`,
+        standard: [{name: 'Gnosis Primer', amount: '×1'}],
+      })),
+      {label: '250 total awakenings', standard: [{name: 'Refined Gnosis Primer', amount: '×1'}]},
+    ])
+    expect(
+      event?.related?.map((id) =>
+        timelineBanners
+          .find((banner) => banner.id === id)
+          ?.poolSlots?.map((slot) => slot.pool.length),
+      ),
+    ).toEqual([
+      [15, 15],
+      [19, 19],
+    ])
+  })
+  it('rejects duplicate IDs and unresolved cross-links', () => {
+    expect(() => {
+      validateTimelineLinks([{id: 'a'}, {id: 'a'}])
+    }).toThrow(/Duplicate timeline ID/)
+    expect(() => {
+      validateTimelineLinks([{id: 'a', related: ['missing']}])
+    }).toThrow(/missing ID/)
+    expect(() => {
+      validateTimelineLinks([{id: 'a', related: ['b']}, {id: 'b'}])
+    }).not.toThrow()
+  })
+
+  it('rejects an event when an explicit artwork variant is missing', () => {
+    expect(() =>
+      loadTimelineEvents([
+        {
+          id: 'event-test',
+          title: 'Test event',
+          startDate: '2026/03/09 09:00',
+          endDate: '2026/03/12 09:00',
+          artVariants: {
+            card: '/events/not-present.webp',
+            detail: '/events/aquamarine-dream-detail.webp',
+          },
+        },
+      ]),
+    ).toThrow(/missing bundled card or detail art/)
+  })
+  it('loads all sixteen anniversary login claims, verified Archives and separate capture logs', () => {
+    const stars = timelineEvents.find(({id}) => id === 'event-campaign-half-anniversary')
+    expect(stars?.rewards?.[0]?.layout).toBe('days')
+    expect(stars?.rewards?.[0]?.items).toEqual(
+      Array.from({length: 16}, () => ({name: 'To the Stars', amount: '×1'})),
+    )
+    const rendezvous = timelineEvents.find(({id}) => id === 'event-dreamy-rendezvous')
+    expect(rendezvous?.pricing).toBe('3980 Silver Prime')
+    expect(rendezvous?.missions?.at(-1)).toMatchObject({
+      standard: expect.arrayContaining([{name: 'Saya', amount: '×1'}]),
+      premium: expect.arrayContaining([
+        {name: 'Soul Rewind Core', amount: '×1'},
+        {name: 'Fate Rewind Core', amount: '×1'},
+      ]),
+    })
+    const meowch = timelineEvents.find(({id}) => id === 'event-meowch-obliged')
+    expect(meowch?.rewards?.map(({title}) => title)).toEqual([
+      'Personal Capture Log',
+      'Campus Capture Log',
+    ])
+    expect(meowch?.missions).toHaveLength(10)
+    expect(meowch?.missions?.at(-1)?.label).toBe('Campus: 1,000,000 total captures')
+    for (const event of [stars, rendezvous, meowch]) {
+      expect(event?.artVariants).toEqual({
+        card: expect.stringContaining('-card.webp'),
+        detail: expect.stringContaining('-detail.webp'),
+      })
+    }
+  })
+  it.each([
+    ['24', 'Crimson Kaede', '980 Silver Prime', 9],
+    ['wanda', 'With Spikenard and Myrrh', 'Free', 6],
+    ['hameln', 'Ouvertüre Universell', 'Free', 6],
+    ['rerun-candy-snatcher', 'Candy Snatcher', '480-1980 Silver Prime', 0],
+  ])('loads verified skin rewards and art for %s', (id, skin, price, missions) => {
+    const entry = timelineEvents.find(({id: eventId}) => eventId === `event-skin-${id}`)
+    expect(entry?.pricing).toBe(price)
+    expect(entry?.missions ?? []).toHaveLength(missions)
+    expect(entry?.rewards?.flatMap(({items}) => items)).toContainEqual({name: skin, amount: '×1'})
+    expect(entry?.artVariants).toEqual({
+      card: expect.stringContaining('-card.webp'),
+      detail: expect.stringContaining('-detail.webp'),
+    })
+    if (id === '24') {
+      expect(entry?.missions?.at(-1)).toMatchObject({
+        label: 'Log in for 15 days',
+        premium: expect.arrayContaining([{name: skin, amount: '×1'}]),
+      })
+    }
+  })
+  it.each([
+    ['event-preorder-arachne', '"Moirae Weaver" avatar', 'April 20', 'May 17'],
+    ['event-preorder-unfading-memories', '"Bon Appetite" avatar', 'May 30', 'Jun 26'],
+    ['event-preorder-myriad-wishcraft', '"Trickery in Motion" avatar', 'August 24', 'Sep 20'],
+    ['event-preorder-witchs-nocturnal-operation', '"Do Not Knock" avatar', 'October 19', 'Nov 15'],
+  ])(
+    'preserves the verified preorder dates, avatar and rewards for %s',
+    (id, avatar, early, last) => {
+      const entry = timelineEvents.find((event) => event.id === id)
+      expect(entry?.pricing).toBe('1980 Silver Prime')
+      const [free, paid, bonus] = entry?.rewards ?? []
+      expect(free.items).toEqual([{name: 'Silver', amount: '×100'}])
+      expect(paid.claims).toHaveLength(7)
+      expect(paid.claims?.at(0)?.label).toBe('On purchase')
+      expect(paid.claims?.at(-1)?.label).toBe(last)
+      expect(paid.items).toContainEqual({name: 'Luminous Core', amount: '×30'})
+      expect(bonus.note).toContain(early)
+      expect(bonus.items).toContainEqual({name: avatar, amount: '×1'})
+      expect(entry?.artVariants).toEqual({
+        card: expect.stringContaining('-card.webp'),
+        detail: expect.stringContaining('-detail.webp'),
+      })
+    },
+  )
+  it.each([
+    ['event-wheel-ryker', 980, 25, 25],
+    ['event-wheel-private-afternoon', 980, 25, 25],
+    ['event-wheel-blossom-court', 980, 25, 25],
+    ['event-wheel-dreaming-of-wonderland', 1680, 30, 60],
+    ['event-wheel-falling-upward', 1680, 30, 60],
+    ['event-wheel-soul-synchronization', 1680, 30, 60],
+    ['event-wheel-darker-than-darkness', 1680, 30, 60],
+    ['event-wheel-imagos-clinic', 1680, 30, 60],
+  ])('loads both verified Archive tracks for %s', (id, price, pure, luminous) => {
+    const event = timelineEvents.find((entry) => entry.id === id)
+    expect(event?.pricing).toBe(`${String(price)} Silver Prime`)
+    expect(event?.missions).toHaveLength(8)
+    for (const [track, core, total] of [
+      ['standard', 'Pure Core', pure],
+      ['premium', 'Luminous Core', luminous],
+    ] as const) {
+      const items = event?.missions?.flatMap((mission) => mission[track] ?? []) ?? []
+      expect(
+        items
+          .filter(({name}) => name === core)
+          .reduce((sum, item) => sum + Number(item.amount?.slice(1)), 0),
+      ).toBe(total)
+      expect(
+        items
+          .filter(({name}) => name === event?.featured?.[0]?.name)
+          .reduce((sum, item) => sum + Number(item.amount?.slice(1)), 0),
+      ).toBe(track === 'standard' ? 4 : 12)
+    }
+    expect(event?.artVariants).toEqual({
+      card: expect.stringContaining('-card.webp'),
+      detail: expect.stringContaining('-detail.webp'),
+    })
+  })
+  it('resolves both bundled Curriculum artwork variants', () => {
+    const event = timelineEvents.find(({id}) => id === 'event-curriculum-season-40')
+    expect(event?.artVariants).toEqual({
+      card: expect.stringContaining('curriculum-card.webp'),
+      detail: expect.stringContaining('curriculum-detail.webp'),
+    })
+  })
+
+  it('preserves reward groups and related IDs and rejects empty reward items', () => {
+    const event = {
+      id: 'event-test',
+      title: 'Test',
+      startDate: '2026/03/09 09:00',
+      endDate: '2026/03/12 09:00',
+      rewards: [{title: 'Login', layout: 'days', items: [{name: 'Core', amount: '×1'}]}],
+      related: ['banner-test'],
+    }
+    expect(loadTimelineEvents([event])[0]).toMatchObject({
+      rewards: event.rewards,
+      related: event.related,
+    })
+    expect(() => loadTimelineEvents([{...event, rewards: [{items: []}]}])).toThrow()
+    expect(
+      loadTimelineBanners([
+        {
+          id: 'banner-test',
+          title: 'Test',
+          type: 'limited',
+          startDate: event.startDate,
+          endDate: event.endDate,
+          related: ['event-test'],
+        },
+      ])[0].related,
+    ).toEqual(['event-test'])
+  })
   it('links the landed Vivian content and resolves the new event artwork', () => {
     const banner = timelineBanners.find((entry) => entry.id === 'banner-vivian')
     expect(banner?.featured).toEqual([
@@ -71,7 +268,16 @@ describe('timeline data loading', () => {
     )
     const preorder = timelineEvents.find((event) => event.id === 'event-preorder-arachne')
 
-    expect(splitEvent?.featured?.map((unit) => unit.name)).toEqual(['Agrippa', 'Uvhash'])
+    expect(splitEvent?.featured).toMatchObject([
+      {name: 'Agrippa', kind: 'awakener'},
+      {name: 'Uvhash', kind: 'awakener'},
+      {name: 'Voracious Resolve', kind: 'posse'},
+    ])
+    expect(splitEvent?.rewards?.[0]?.items.map((item) => item.name)).toEqual([
+      'Silver',
+      'Aetheric Shard',
+      'Dreamshard',
+    ])
     expect(preorder?.featured?.[0]).toMatchObject({name: 'Arachne', detailLink: false})
   })
 
@@ -109,13 +315,22 @@ describe('timeline data loading', () => {
       endDate: '2026-06-29T01:00:00.000Z',
       startDate: '2026-05-18T01:00:00.000Z',
     })
-    expect(meowch?.description).toContain('Entry closes June 15')
+    expect(meowch?.description).toContain('New entries closed June 15')
+    expect(meowch?.description).toContain('14 days after reaching that goal')
     expect(giftBoxes).toMatchObject({
       category: 'bundle',
       pricing: '688-2688 Silver Prime',
       title: 'New Arrivals Gift Boxes',
     })
-    expect(giftBoxes?.description).toContain('1280 Silver Prime')
+    expect(giftBoxes?.endDate).toBe('2026-06-29T01:00:00.000Z')
+    expect(
+      giftBoxes?.rewards?.map(({title, price, summaryCount}) => [title, price, summaryCount]),
+    ).toEqual([
+      ['Ode in Embers', '1280 Silver Prime', undefined],
+      ['Celestial Accord', '1280 Silver Prime', undefined],
+      ['Summer Fireworks', '688 Silver Prime', 3],
+      ['Summer Matsuri', '2688 Silver Prime', 3],
+    ])
     expect(preorder).toMatchObject({
       category: 'preorder',
       pricing: '1980 Silver Prime',
@@ -159,13 +374,42 @@ describe('timeline data loading', () => {
     expect(collabSideStory).toMatchObject({
       category: 'story',
       endDate: '2026-08-24T01:00:00.000Z',
-      pricing: 'Free',
+      pricing: 'Free during event',
       startDate: '2026-05-30T01:00:00.000Z',
       title: 'Forgotten Seed of Love',
+      featured: [{name: 'For the New World', kind: 'posse'}],
     })
     expect(collabSideStory?.customArt).toContain('forgotten-seed')
     expect(collabSideStory?.description).toContain('Permanent Multiverse Link side story')
     expect(collabBanner?.preliminary).toBeUndefined()
+  })
+
+  it('keeps anniversary milestone thresholds and rewards in order', () => {
+    const dreamy = timelineEvents.find((event) => event.id === 'event-dreamy-offering')
+    const stream = timelineEvents.find((event) => event.id === 'event-stream-of-infatuation')
+    expect(dreamy?.rewards?.map((tier) => [tier.title, tier.items[0]?.amount])).toEqual([
+      ['100 Awakens', '×100'],
+      ['250 Awakens', '×200'],
+      ['500 Awakens', '×300'],
+      ['1,000 Awakens', '×400'],
+    ])
+    expect(
+      stream?.rewards?.map((tier) => [tier.title, tier.items.map((item) => item.name)]),
+    ).toEqual([
+      [
+        '5,000 Silver Prime extracted',
+        ['Ultra Mapping: Astral Reign', 'Ultra Prophecy: Astral Reign'],
+      ],
+      ['10,000 Silver Prime extracted', ['Caro Birth: Astral Reign', 'Caro Whisper: Astral Reign']],
+      [
+        '20,000 Silver Prime extracted',
+        ['Aequor Mystery: Astral Reign', 'Aequor Codex: Astral Reign'],
+      ],
+      [
+        '30,000 Silver Prime extracted',
+        ['Chaos Echo: Astral Reign', 'Chaos Experiment: Astral Reign', 'Sprout of Love'],
+      ],
+    ])
   })
 
   it('enables database details for the current Lotan and Falling Upward timeline entries', () => {
@@ -186,6 +430,17 @@ describe('timeline data loading', () => {
     ])
     expect(lotanEvent?.featured).toMatchObject([
       {kind: 'awakener', name: 'Lotan: Cetarchon', detailLink: undefined},
+      {kind: 'wheel', name: 'Undying Hungerbone'},
+      {kind: 'posse', name: 'Cetus-Devouring Storm'},
+    ])
+    expect(lotanEvent?.rewards?.slice(0, 2).map((group) => group.items[0])).toEqual([
+      {name: 'Undying Hungerbone', amount: '×6'},
+      {name: 'Undying Hungerbone', amount: '×10'},
+    ])
+    const helot = timelineEvents.find((event) => event.id === 'event-story-rerun-helot-catena')
+    expect(helot?.rewards?.slice(0, 2).map((group) => group.items[0])).toEqual([
+      {name: 'Til the Snow Melts', amount: '×7'},
+      {name: 'Til the Snow Melts', amount: '×9'},
     ])
     expect(fallingUpwardEvent?.featured).toMatchObject([
       {kind: 'wheel', name: 'Falling Upward', detailLink: undefined},
@@ -205,92 +460,74 @@ describe('timeline data loading', () => {
     ])
     expect(carabooEvent?.featured).toMatchObject([
       {kind: 'awakener', name: 'Caraboo', detailLink: undefined, realmId: undefined},
+      {kind: 'wheel', name: 'Serene Truth'},
+    ])
+    expect(carabooEvent?.rewards?.slice(0, 2).map((group) => group.items[0])).toEqual([
+      {name: 'Serene Truth', amount: '×7'},
+      {name: 'Serene Truth', amount: '×9'},
+    ])
+    const suns = timelineEvents.find(
+      (event) => event.id === 'event-story-rerun-a-million-suns-descend',
+    )
+    expect(suns?.rewards?.slice(0, 4).map((group) => group.items[0])).toEqual([
+      {name: 'Impending Sun', amount: '×7'},
+      {name: 'Impending Sun', amount: '×3'},
+      {name: 'Impending Sun', amount: '×3'},
+      {name: 'Impending Sun', amount: '×3'},
     ])
     expect(soulSynchronizationEvent?.featured).toMatchObject([
       {kind: 'wheel', name: 'Soul Synchronization', detailLink: undefined},
     ])
   })
 
-  it('derives Stars in Full Bloom premium pools by limited SSR awakener type', () => {
-    const assault = timelineBanners.find(
-      (banner) => banner.id === 'banner-stars-in-full-bloom-assault',
-    )
-    const warden = timelineBanners.find(
-      (banner) => banner.id === 'banner-stars-in-full-bloom-warden',
-    )
-    const chorus = timelineBanners.find(
-      (banner) => banner.id === 'banner-stars-in-full-bloom-chorus',
-    )
-
-    expect([assault, warden, chorus].map((banner) => banner?.title)).toEqual([
-      'Stars in Full Bloom',
-      'Stars in Full Bloom',
-      'Stars in Full Bloom',
-    ])
-    expect(assault).toMatchObject({
-      customTags: ['Assault'],
-      pricing: 'USD 29.99',
-      type: 'premium',
-    })
-    expect(warden).toMatchObject({
-      customTags: ['Warden'],
-      pricing: 'USD 29.99',
-      type: 'premium',
-    })
-    expect(chorus).toMatchObject({
-      customTags: ['Chorus'],
-      pricing: 'USD 29.99',
-      type: 'premium',
-    })
-
-    expect(assault?.poolSlots?.[0]?.pool.map((unit) => unit.name)).toEqual([
-      '24',
-      'Daffodil',
-      'Doresain',
-      'Kathigu-Ra',
-      'Mouchette',
-      'Pollux',
-      'Sorel',
-      'Tulu',
-      'Vortice',
-    ])
-    expect(assault?.poolSlots?.[2]?.pool.map((unit) => unit.name)).toEqual([
-      'By Rose Alone',
-      'Kiss of Repose',
-      'Aberrant Devour',
-      'Amber-Tinted Death',
-      'Doomsday Rampage',
-      'Treasured Rarity',
-      'Twisted Knight Ballad',
-      'Hymn of the Sovereign',
-      'The Faraway Eden',
-    ])
-    expect(warden?.poolSlots?.[0]?.pool).toHaveLength(6)
-    expect(warden?.poolSlots?.[2]?.pool).toHaveLength(6)
-    expect(chorus?.poolSlots?.[0]?.pool).toHaveLength(11)
-    expect(chorus?.poolSlots?.[2]?.pool).toHaveLength(11)
-    expect(assault?.poolSlots).toHaveLength(4)
-    expect(assault?.poolSlots?.[1]?.pool).toEqual(assault?.poolSlots?.[0]?.pool)
-    expect(assault?.poolSlots?.[3]?.pool).toEqual(assault?.poolSlots?.[2]?.pool)
+  it('loads the announced Stars in Full Bloom pools including Genesis entries', () => {
+    for (const [role, count] of [
+      ['assault', 10],
+      ['warden', 6],
+      ['chorus', 12],
+    ] as const) {
+      const banner = timelineBanners.find(({id}) => id === `banner-stars-in-full-bloom-${role}`)
+      expect(banner).toMatchObject({
+        type: 'premium',
+        pricing: 'USD 29.99',
+        rulesProfile: 'triple-soiree',
+      })
+      expect(banner?.poolSlots?.map(({label, pool}) => [label, pool.length])).toEqual([
+        ['Awakeners', count],
+        ['Wheels', count],
+      ])
+    }
+    expect(
+      timelineBanners
+        .find(({id}) => id === 'banner-stars-in-full-bloom-assault')
+        ?.poolSlots?.[0]?.pool.map(({name}) => name),
+    ).toContain('Helot: Catena')
   })
 
-  it('derives Kaleido Recollections pools from limited availability groups', () => {
-    const faded = timelineBanners.find((banner) => banner.id === 'banner-moonless-guide')
+  it('loads the May Kaleido SSR pools with their limited Genesis entries', () => {
+    const faded = timelineBanners.find(({id}) => id === 'banner-moonless-guide')
     const astral = timelineBanners.find(
-      (banner) => banner.id === 'banner-kaleido-recollections-astral-reign',
+      ({id}) => id === 'banner-kaleido-recollections-astral-reign',
     )
 
-    expect(faded?.poolSlots).toHaveLength(4)
-    expect(faded?.poolSlots?.slice(0, 3).map((slot) => slot.pool.length)).toEqual([14, 14, 14])
-    expect(faded?.poolSlots?.[3]?.pool).toHaveLength(14)
-    expect(faded?.poolSlots?.[0]?.pool.map((unit) => unit.name)).toContain('Tulu')
-    expect(faded?.poolSlots?.[3]?.pool.map((unit) => unit.name)).toContain('Hymn of the Sovereign')
-
-    expect(astral?.poolSlots).toHaveLength(4)
-    expect(astral?.poolSlots?.slice(0, 3).map((slot) => slot.pool.length)).toEqual([11, 11, 11])
-    expect(astral?.poolSlots?.[3]?.pool).toHaveLength(11)
-    expect(astral?.poolSlots?.[0]?.pool.map((unit) => unit.name)).toContain('Arachne')
-    expect(astral?.poolSlots?.[3]?.pool.map((unit) => unit.name)).toContain('Eternal Weave')
+    for (const [banner, count] of [
+      [faded, 15],
+      [astral, 13],
+    ] as const) {
+      expect(banner?.rulesProfile).toBe('kaleido')
+      expect(banner?.poolSlots?.map(({label, pool}) => [label, pool.length])).toEqual([
+        ['Awakeners', count],
+        ['Wheels', count],
+      ])
+    }
+    expect(faded?.poolSlots?.[0]?.pool.map(({name}) => name)).toContain('Helot: Catena')
+    expect(faded?.poolSlots?.[1]?.pool.map(({name}) => name)).toContain('Drowning in Crimson')
+    expect(astral?.poolSlots?.[0]?.pool.map(({name}) => name)).toEqual(
+      expect.arrayContaining(['Doll: Inferno', 'Murphy: Fauxborn']),
+    )
+    expect(astral?.poolSlots?.[1]?.pool.map(({name}) => name)).toEqual(
+      expect.arrayContaining(['Manikin of Oblivion', 'Uteri Somnia']),
+    )
   })
 
   it('loads Echoing Wishes as a daily limited awakener and wheel schedule', () => {
@@ -304,6 +541,20 @@ describe('timeline data loading', () => {
     expect(rawEchoingWishes?.derivedPool).toBeUndefined()
     expect(echoingWishes?.poolSlots).toBeUndefined()
     expect(echoingWishes?.dailySchedule).toHaveLength(28)
+    expect(echoingWishes?.rulesProfile).toBe('oathbound-oracle')
+    for (const {featured, offBanner} of echoingWishes?.dailySchedule ?? []) {
+      expect(featured.map(({kind}) => kind)).toEqual(['awakener', 'wheel'])
+      expect(offBanner).toHaveLength(5)
+      expect(offBanner?.every(({kind}) => kind === 'awakener')).toBe(true)
+      expect(offBanner?.some(({name}) => name === featured[0]?.name)).toBe(false)
+    }
+    expect(echoingWishes?.dailySchedule?.[0]?.offBanner?.map(({name}) => name)).toEqual([
+      'Goliath',
+      'Faros',
+      'Caecus',
+      'Sanga',
+      'Celeste',
+    ])
     expect(echoingWishes?.dailySchedule?.[0]?.featured.map((unit) => unit.name)).toEqual([
       'Tulu',
       'Hymn of the Sovereign',
@@ -546,6 +797,32 @@ describe('timeline data loading', () => {
     const banner = timelineBanners.find((entry) => entry.id === 'banner-stars-cradled-close')
 
     expect(banner?.linkedPresentation).toBe('paired')
+    expect(banner?.rulesProfile).toBe('myriad-self-select')
+    expect(banner?.poolSlots?.map(({label, pool}) => [label, pool.map(({name}) => name)])).toEqual([
+      ['Assault', ['Lotan: Cetarchon', 'Mouchette', 'Kathigu-Ra', 'Vortice', 'Doresain', 'Pollux']],
+      ['Warden', ['Pontos', 'Corposant', 'Castor']],
+      [
+        'Chorus',
+        ['Doll: Inferno', 'Murphy: Fauxborn', 'Saya', 'Xu', 'Pickman', 'Arachne', 'Clementine'],
+      ],
+      ['Male', ['Pontos', 'Doresain', 'Pickman', 'Pollux', 'Castor']],
+      [
+        'Female',
+        [
+          'Lotan: Cetarchon',
+          'Mouchette',
+          'Kathigu-Ra',
+          'Doll: Inferno',
+          'Vortice',
+          'Murphy: Fauxborn',
+          'Corposant',
+          'Saya',
+          'Xu',
+          'Arachne',
+          'Clementine',
+        ],
+      ],
+    ])
     expect(banner?.poolSlots).toHaveLength(5)
     expect(banner?.poolSlots?.map((slot) => slot.label)).toEqual([
       'Assault',
@@ -560,30 +837,22 @@ describe('timeline data loading', () => {
     ).toBe(false)
   })
 
-  it('loads Lightward Reminiscence banners as two Faded Legacy awakener and three wheel slots', () => {
-    const banners = timelineBanners.filter((entry) =>
-      entry.id.startsWith('banner-lightward-reminiscence-'),
-    )
-
-    expect(banners).toHaveLength(3)
-    for (const banner of banners) {
-      expect(banner.preliminary).toBeUndefined()
-      expect(banner.poolSlots).toHaveLength(5)
-      expect(banner.poolSlots?.map((slot) => slot.pool[0]?.kind)).toEqual([
-        'awakener',
-        'awakener',
-        'wheel',
-        'wheel',
-        'wheel',
+  it('loads Lightward Reminiscence from its actual class pools', () => {
+    for (const [role, count] of [
+      ['assault', 5],
+      ['warden', 4],
+      ['chorus', 6],
+    ] as const) {
+      const banner = timelineBanners.find(({id}) => id === `banner-lightward-reminiscence-${role}`)
+      expect(banner).toMatchObject({
+        type: 'premium',
+        pricing: '980 Silver Prime',
+        rulesProfile: 'fated-soiree',
+      })
+      expect(banner?.poolSlots?.map(({label, pool}) => [label, pool.length])).toEqual([
+        ['Awakeners', count],
+        ['Wheels', count],
       ])
-      expect(banner.poolSlots?.[0]?.pool).toEqual(banner.poolSlots?.[1]?.pool)
-      expect(banner.poolSlots?.[2]?.pool).toEqual(banner.poolSlots?.[3]?.pool)
-      expect(banner.poolSlots?.[3]?.pool).toEqual(banner.poolSlots?.[4]?.pool)
-      expect(
-        banner.poolSlots
-          ?.flatMap((slot) => slot.pool)
-          .some((unit) => ['Dreaming of Wonderland', 'Falling Upward'].includes(unit.name)),
-      ).toBe(false)
     }
   })
 
@@ -704,7 +973,24 @@ describe('timeline data loading', () => {
       startDate: '2026-06-15T01:00:00.000Z',
       title: 'Invisible Symphony',
     })
-    expect(rerunEvent?.featured?.map((unit) => unit.name)).toEqual(['Hameln'])
+    expect(rerunEvent?.featured?.map((unit) => unit.name)).toEqual([
+      'Hameln',
+      'Never-Ending Performance',
+    ])
+    expect(rerunEvent?.rewards?.slice(0, 2).map((group) => group.items[0])).toEqual([
+      {name: 'Never-Ending Performance', amount: '×10'},
+      {name: 'Never-Ending Performance', amount: '×6'},
+    ])
+    const pontos = timelineEvents.find((event) => event.id === 'event-story-pontos')
+    expect(pontos?.featured).toContainEqual(
+      expect.objectContaining({name: 'The Hollow One', kind: 'posse'}),
+    )
+    expect(pontos?.rewards?.slice(0, 4).map((group) => group.items[0])).toEqual([
+      {name: 'The Errant Compass', amount: '×7'},
+      {name: 'The Errant Compass', amount: '×3'},
+      {name: 'The Errant Compass', amount: '×3'},
+      {name: 'The Errant Compass', amount: '×3'},
+    ])
     expect(triune?.featured?.map((unit) => unit.name)).toEqual(['Hameln', 'Murphy', 'Clementine'])
     expect(sylvan?.featured?.map((unit) => unit.name)).toEqual([
       'Eternal Requiem',
@@ -761,6 +1047,21 @@ describe('timeline data loading', () => {
       category: 'gameplay-event',
       rerun: true,
       title: 'Mirrored Prisoner',
+    })
+    expect(rerun?.rewards?.slice(0, 4).map((group) => group.items[0])).toEqual([
+      {name: 'Lone Feather', amount: '×7'},
+      {name: 'Lone Feather', amount: '×3'},
+      {name: 'Lone Feather', amount: '×3'},
+      {name: 'Lone Feather', amount: '×3'},
+    ])
+    const glory = timelineEvents.find((event) => event.id === 'event-story-ogier-oathbound')
+    expect(glory?.rewards?.slice(0, 2).map((group) => group.items[0])).toEqual([
+      {name: 'Shadowed by the Past', amount: '×10'},
+      {name: 'Shadowed by the Past', amount: '×6'},
+    ])
+    expect(rerun?.featured?.at(-1)).toMatchObject({
+      name: 'Derision of Destiny',
+      kind: 'posse',
     })
   })
 })

@@ -1,6 +1,6 @@
 export interface BannerFeaturedUnit {
   name: string
-  kind: 'awakener' | 'wheel' | 'wheel-auto' | 'placeholder'
+  kind: 'awakener' | 'wheel' | 'wheel-auto' | 'posse' | 'placeholder'
   customArt?: string
   realmId?: string
   detailLink?: boolean
@@ -17,6 +17,28 @@ export type BannerLinkedPresentation = 'expanded' | 'alternating' | 'paired'
 export interface BannerDailyScheduleEntry {
   day: number
   featured: BannerFeaturedUnit[]
+  offBanner?: BannerFeaturedUnit[]
+}
+
+export interface TimelineRewardItem {
+  name: string
+  amount?: string
+}
+
+export interface TimelineMissionReward {
+  label: string
+  standard: TimelineRewardItem[]
+  premium?: TimelineRewardItem[]
+}
+
+export interface TimelineRewardGroup {
+  title?: string
+  price?: string
+  summaryCount?: number
+  note?: string
+  layout?: 'list' | 'days' | 'tiles'
+  items: TimelineRewardItem[]
+  claims?: {label: string; items: TimelineRewardItem[]}[]
 }
 
 export const BANNER_TYPES = [
@@ -35,7 +57,24 @@ export type BannerType = (typeof BANNER_TYPES)[number]
 export const BANNER_TAGS = [...BANNER_TYPES, 'collab', 'preliminary'] as const
 export type BannerTag = (typeof BANNER_TAGS)[number]
 
+export interface BannerRateUpGroup {
+  kind: 'awakener' | 'wheel'
+  options: {title: string; rateUp: string; offBanner?: string[]}[]
+  sharedOffBanner?: string[]
+}
+
+export const BANNER_RULE_PROFILES = [
+  'myriad-self-select',
+  'oathbound-oracle',
+  'kaleido',
+  'fated-soiree',
+  'triple-soiree',
+] as const
+export type BannerRuleProfile = (typeof BANNER_RULE_PROFILES)[number]
+
 export interface BannerEntry {
+  rulesProfile?: BannerRuleProfile
+  rateUpGroups?: BannerRateUpGroup[]
   id: string
   title: string
   type: BannerType
@@ -50,6 +89,7 @@ export interface BannerEntry {
   customTags?: string[]
   pinned?: boolean
   pricing?: string
+  related?: string[]
   startDate: string
   endDate: string
 }
@@ -85,17 +125,17 @@ export interface EventCategoryMetadata {
 export const EVENT_CATEGORY_METADATA: Record<EventCategory, EventCategoryMetadata> = {
   story: {label: 'Story', priority: 10, docsBadgeColor: 'Amber'},
   raid: {label: 'Raid', priority: 30, docsBadgeColor: 'Red'},
-  battlepass: {label: 'Battlepass', priority: 120, docsBadgeColor: 'Violet'},
-  'gameplay-event': {label: 'Event', priority: 20, docsBadgeColor: 'Amber'},
+  battlepass: {label: 'Battlepass', priority: 120, docsBadgeColor: 'Green'},
+  'gameplay-event': {label: 'Gameplay Event', priority: 20, docsBadgeColor: 'Amber'},
   'd-tide': {label: 'D-Tide', priority: 40, docsBadgeColor: 'Red', hideEndedFromArchive: true},
   curriculum: {
     label: 'Curriculum',
     priority: 60,
-    docsBadgeColor: 'Violet',
+    docsBadgeColor: 'Green',
     hideEndedFromArchive: true,
   },
   login: {label: 'Login', priority: 100, docsBadgeColor: 'Teal', hideEndedFromArchive: true},
-  skin: {label: 'Skin', priority: 50, docsBadgeColor: 'Violet'},
+  skin: {label: 'Skin', priority: 50, docsBadgeColor: 'Rose'},
   'wheel-event': {label: 'Wheel', priority: 70, docsBadgeColor: 'Blue'},
   anniversary: {label: 'Anniversary', priority: 80, docsBadgeColor: 'Teal'},
   milestone: {label: 'Milestone', priority: 90, docsBadgeColor: 'Gold'},
@@ -124,6 +164,10 @@ export interface EventEntry {
   pricing?: string
   rerun?: boolean
   artAlign?: string
+  artVariants?: {card?: string; detail?: string}
+  rewards?: TimelineRewardGroup[]
+  missions?: TimelineMissionReward[]
+  related?: string[]
 }
 
 const eventCategorySet = new Set<EventCategory>(EVENT_CATEGORIES)

@@ -5,7 +5,6 @@ import {
   EVENT_CATEGORY_METADATA,
   getTimelineCountdownDisplay,
   getTimelineStatus,
-  type BannerFeaturedUnit,
   type EventCategory,
   type EventEntry,
 } from '@/domain/timeline'
@@ -13,40 +12,16 @@ import {formatTimelinePrice, type TimelinePriceDisplayMode} from '@/domain/timel
 
 import {EventDescriptionPreview, EventDescriptionShelf} from './EventDescription'
 import {TimelineDateDisplay} from './TimelineDateDisplay'
-import {resolveTimelineFeaturedAsset} from './timelineDetailResolution'
+import {
+  CATEGORY_TONE,
+  resolveEventArt,
+  type EventArt,
+  type EventDetailTarget,
+  type EventMetaTone,
+} from './timelineEventHelpers'
 import {useEventDescriptionOverflow} from './useEventDescriptionOverflow'
 
-type EventMetaTone =
-  | 'amber'
-  | 'blue'
-  | 'champagne'
-  | 'gold'
-  | 'orange'
-  | 'price'
-  | 'red'
-  | 'slate'
-  | 'teal'
-  | 'violet'
 type EventMetaRole = 'awakener' | 'price' | 'rerun' | 'wheel'
-
-const CATEGORY_TONE: Record<EventCategory, EventMetaTone> = {
-  story: 'amber',
-  raid: 'red',
-  battlepass: 'violet',
-  'gameplay-event': 'amber',
-  'd-tide': 'red',
-  curriculum: 'violet',
-  login: 'teal',
-  skin: 'violet',
-  'wheel-event': 'blue',
-  anniversary: 'teal',
-  milestone: 'gold',
-  preorder: 'orange',
-  bundle: 'champagne',
-  maintenance: 'slate',
-  collab: 'violet',
-  other: 'amber',
-}
 
 const ROLE_TONE: Record<EventMetaRole, EventMetaTone> = {
   awakener: 'amber',
@@ -84,9 +59,11 @@ function getEventMetaToneClass(tone: EventMetaTone, isEnded: boolean): string {
     blue: 'timeline-event-meta--blue',
     champagne: 'timeline-event-meta--champagne',
     gold: 'timeline-event-meta--gold',
+    green: 'timeline-event-meta--green',
     orange: 'timeline-event-meta--orange',
     price: 'timeline-event-meta--price',
     red: 'timeline-event-meta--red',
+    rose: 'timeline-event-meta--rose',
     slate: 'timeline-event-meta--slate',
     teal: 'timeline-event-meta--teal',
     violet: 'timeline-event-meta--violet',
@@ -97,46 +74,6 @@ function getEventMetaToneClass(tone: EventMetaTone, isEnded: boolean): string {
 
 function getEventTargetTone(kind: EntityRef['kind']): EventMetaTone {
   return kind === 'wheel' ? ROLE_TONE.wheel : ROLE_TONE.awakener
-}
-
-interface EventArt {
-  url: string | undefined
-  isWheel: boolean
-  artAlign?: string
-  detailTargets: EventDetailTarget[]
-}
-
-interface EventDetailTarget {
-  label: string
-  ref: EntityRef
-}
-
-function resolveEventArt(
-  featured: BannerFeaturedUnit[] | undefined,
-  customArt: string | undefined,
-  artAlign?: string,
-): EventArt | null {
-  const assets = featured?.map((unit) => resolveTimelineFeaturedAsset(unit)) ?? []
-  const detailTargets = assets.flatMap((asset) =>
-    asset.detailRef ? [{label: asset.label, ref: asset.detailRef}] : [],
-  )
-
-  if (customArt) {
-    return {url: customArt, isWheel: false, artAlign, detailTargets}
-  }
-
-  if (assets.length === 0) {
-    return null
-  }
-
-  const primaryAsset = assets[0]
-
-  return {
-    url: primaryAsset.url,
-    isWheel: primaryAsset.isWheel,
-    artAlign,
-    detailTargets,
-  }
 }
 
 function EventArtSlice({art, isEnded}: {art: EventArt; isEnded: boolean}) {

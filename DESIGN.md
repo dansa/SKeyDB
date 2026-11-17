@@ -128,7 +128,7 @@ The palette is a restrained night archive: blue-slate structure, amber-gold atte
 
 - **Info Blue** (`info-blue`): Timeline and metadata tone for wheel or information categories.
 - **Success Teal** (`success-teal`): Timeline and metadata tone for login, availability, or positive status categories.
-- **Violet Meta** (`violet-meta`): Timeline and metadata tone for rerun, battlepass, skin, or similar classification.
+- **Violet Meta** (`violet-meta`): Timeline and metadata tone for rerun, collab, or similar classification.
 
 ### Tertiary
 

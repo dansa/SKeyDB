@@ -24,7 +24,9 @@ export function getTimelineDZoneSummary(events: EventEntry[], now: Date) {
     artSrc: event?.customArt ?? latestDzoneEventArt,
     countdown: getTimelineCountdownDisplay(season.start, season.end, now),
     emblemSrc: getDzoneRealmBadgeAsset(season.realm),
+    endDate: season.end,
     name: getDzoneSeasonSummaryDisplayName(season),
     note: currentSeason ? undefined : 'Current D-Zone data pending',
+    realm: season.realm,
   }
 }

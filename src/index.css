@@ -363,6 +363,15 @@ body,
   background: var(--bg-night);
 }
 
+.ui-inset-frame::after {
+  position: absolute;
+  inset: 4px;
+  z-index: 2;
+  border: 1px solid oklch(95% 0.035 84 / 0.1);
+  content: '';
+  pointer-events: none;
+}
+
 #root {
   isolation: isolate;
 }

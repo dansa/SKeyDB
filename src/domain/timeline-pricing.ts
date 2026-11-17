@@ -71,7 +71,7 @@ export function formatTimelinePrice(
 
   const usdMatch = /^USD\s*(\d+(?:\.\d+)?)$/i.exec(price.trim())
   if (usdMatch) {
-    return formatUsdCents(Math.round(Number(usdMatch[1]) * 100))
+    return '$' + Number(usdMatch[1]).toFixed(2)
   }
 
   return price.replace(

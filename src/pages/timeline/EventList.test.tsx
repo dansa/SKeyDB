@@ -280,13 +280,16 @@ describe('EventList', () => {
 
       expect(mainTag).toHaveClass('timeline-event-meta-segment')
       expect(mainTag?.className).toMatch(
-        /timeline-event-meta--(?:amber|blue|champagne|gold|orange|red|slate|teal|violet)/,
+        /timeline-event-meta--(?:amber|blue|champagne|gold|green|orange|red|rose|slate|teal|violet)/,
       )
       expect(mainTag).not.toHaveClass('timeline-event-meta--ended')
     })
 
     expect(screen.getByText('980 Silver Prime')).toHaveClass('timeline-event-meta--price')
     expect(screen.getByText('Rerun')).toHaveClass('timeline-event-meta--violet')
+    expect(screen.getByText('Skin')).toHaveClass('timeline-event-meta--rose')
+    expect(screen.getByText('Curriculum')).toHaveClass('timeline-event-meta--green')
+    expect(screen.getByText('Battlepass')).toHaveClass('timeline-event-meta--green')
   })
 
   it('renders one detail target per featured entity for split events', () => {
