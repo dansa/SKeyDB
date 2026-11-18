@@ -1,9 +1,8 @@
 import {describe, expect, it, vi} from 'vitest'
 
 import type {DzoneSeasonSummary} from '@/domain/dzone'
-import type {EventEntry} from '@/domain/timeline'
 
-import {getTimelineDZoneSummary, selectTimelineDZoneEvent} from './timelineDZoneSummary'
+import {getTimelineDZoneSummary} from './timelineDZoneSummary'
 
 const CURRENT_DZONE: DzoneSeasonSummary = {
   id: 'dzone-0101',
@@ -43,79 +42,29 @@ vi.mock('@/pages/d-zone/d-zone-realm-assets', () => ({
     realm ? `/realm-badge-${realm.toLowerCase()}.webp` : undefined,
 }))
 
-vi.mock('@/assets/events/dtide-aequor.webp', () => ({
-  default: '/assets/dtide-aequor.webp',
-}))
-
 describe('timeline D-Zone summary', () => {
-  it('uses the current D-Zone season for masthead name and countdown', () => {
-    const summary = getTimelineDZoneSummary(
-      [
-        {
-          id: 'event-dtide',
-          title: 'Regional D-Effect Zone',
-          category: 'd-tide',
-          description: 'Current Realm relic: Aequor Ring.',
-          startDate: '2026-03-09T00:00:00.000Z',
-          endDate: '2026-03-12T00:00:00.000Z',
-          customArt: '/events/dtide-aequor.webp',
-        },
-      ],
-      new Date('2026-03-10T00:00:00.000Z'),
-    )
+  it('uses the current D-Zone season for the masthead and agenda', () => {
+    const summary = getTimelineDZoneSummary(new Date('2026-03-10T00:00:00.000Z'))
 
     expect(summary).toMatchObject({
-      artSrc: '/events/dtide-aequor.webp',
       emblemSrc: '/realm-badge-caro.webp',
       name: 'caro ring',
+      startDate: CURRENT_DZONE.start,
+      endDate: CURRENT_DZONE.end,
     })
     expect(summary.note).toBeUndefined()
     expect(summary.countdown?.text).toBe('Ends in 2d 0h')
   })
 
-  it('ignores ended D-Zone event copy and falls back to the latest season with old art', () => {
-    const summary = getTimelineDZoneSummary(
-      [
-        {
-          id: 'event-dtide',
-          title: 'Regional D-Effect Zone',
-          category: 'd-tide',
-          description: 'Current Realm relic: Aequor Ring.',
-          startDate: '2026-03-01T00:00:00.000Z',
-          endDate: '2026-03-02T00:00:00.000Z',
-          customArt: '/events/dtide-aequor.webp',
-        },
-      ],
-      new Date('2026-03-21T00:00:00.000Z'),
-    )
+  it('falls back to the latest season and explains when current data is pending', () => {
+    const summary = getTimelineDZoneSummary(new Date('2026-03-21T00:00:00.000Z'))
 
-    expect(summary.artSrc).toBe('/events/dtide-aequor.webp')
-    expect(summary.emblemSrc).toBe('/realm-badge-ultra.webp')
-    expect(summary.name).toBe('ultra ring')
-    expect(summary.note).toBe('Current D-Zone data pending')
+    expect(summary).toMatchObject({
+      emblemSrc: '/realm-badge-ultra.webp',
+      name: 'ultra ring',
+      note: 'Current D-Zone data pending',
+      endDate: LATEST_DZONE.end,
+    })
     expect(summary.countdown?.text).toBe('Ended 1 day ago')
-  })
-
-  it('falls back to bundled D-Zone art when no timeline event carries art', () => {
-    const summary = getTimelineDZoneSummary([], new Date('2026-03-21T00:00:00.000Z'))
-
-    expect(summary.artSrc).toBe('/assets/dtide-aequor.webp')
-    expect(summary.name).toBe('ultra ring')
-    expect(summary.note).toBe('Current D-Zone data pending')
-    expect(summary.countdown?.text).toBe('Ended 1 day ago')
-  })
-
-  it('does not select ended D-Zone event entries', () => {
-    const events: EventEntry[] = [
-      {
-        id: 'event-dtide',
-        title: 'Regional D-Effect Zone',
-        category: 'd-tide',
-        startDate: '2026-03-01T00:00:00.000Z',
-        endDate: '2026-03-02T00:00:00.000Z',
-      },
-    ]
-
-    expect(selectTimelineDZoneEvent(events, new Date('2026-03-03T00:00:00.000Z'))).toBeUndefined()
   })
 })

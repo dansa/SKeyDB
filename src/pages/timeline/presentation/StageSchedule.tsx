@@ -9,8 +9,8 @@ import {
 } from '@/domain/timeline'
 
 import {StageRoster} from './StageRoster'
-import {getInitialBannerRotation} from './timelineNextModel'
-import {resolveTimelineThumbnail} from './timelineNextThumbnails'
+import {getInitialBannerRotation} from './timelinePageModel'
+import {resolveTimelineThumbnail} from './timelineThumbnails'
 
 const dayMs = 86_400_000
 const stepClass =

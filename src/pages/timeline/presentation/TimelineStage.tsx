@@ -28,7 +28,7 @@ import {
   getPoolGroups,
   isBanner,
   type TimelineEntry,
-} from './timelineNextModel'
+} from './timelinePageModel'
 
 export const STAGE_TITLE_ID = 'timeline-stage-title'
 
@@ -108,12 +108,12 @@ function StageBar({
   return (
     <div className='sticky top-0 z-20 h-0'>
       <div
-        className='timeline-next-stage-bar absolute inset-x-0 top-0 flex min-h-14 items-center gap-3 px-3 py-1.5'
+        className='timeline-stage-bar absolute inset-x-0 top-0 flex min-h-14 items-center gap-3 px-3 py-1.5'
         data-condensed={condensed}
       >
         <div
           aria-hidden
-          className='timeline-next-stage-bar-title flex min-w-0 flex-1 items-center gap-3 pl-2'
+          className='timeline-stage-bar-title flex min-w-0 flex-1 items-center gap-3 pl-2'
         >
           <span className='ui-title min-w-0 flex-1 truncate text-base text-amber-50'>
             {entry.title}
@@ -180,7 +180,7 @@ function StageContent({
       ? [profile.rules]
       : []
   return (
-    <div className='timeline-next-fade'>
+    <div className='timeline-fade'>
       <StageBar condensed={condensed} entry={entry} now={now} onClose={onClose} />
       <div
         className={`relative overflow-hidden bg-slate-950 ${banner ? 'aspect-video' : 'aspect-[5/2]'}`}
@@ -276,10 +276,10 @@ function StageContent({
           ) : null}
         </div>
         {descriptions.length ? (
-          <div className='timeline-next-description space-y-2 border-t border-slate-700/40 pt-4'>
+          <div className='timeline-description space-y-2 border-t border-slate-700/40 pt-4'>
             {descriptions.map((text, index) => (
               <p
-                className={`timeline-next-prose ${index === 0 ? 'font-medium text-[var(--ui-text-main)]' : 'text-slate-300'}`}
+                className={`timeline-prose ${index === 0 ? 'font-medium text-[var(--ui-text-main)]' : 'text-slate-300'}`}
                 key={`${String(index)}:${text}`}
               >
                 <TimelineRichText priceMode={priceMode} text={text} />

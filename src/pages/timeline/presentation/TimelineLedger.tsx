@@ -14,7 +14,7 @@ import {BannerArtwork} from '../BannerArtwork'
 import {BannerMetadataList} from '../bannerMetadata'
 import {CATEGORY_TONE, resolveEventArt} from '../timelineEventHelpers'
 import {TimelineRichText} from '../TimelineRichText'
-import {getBannerArtworkSlots, getDisplayBanner, type TimelineEntry} from './timelineNextModel'
+import {getBannerArtworkSlots, getDisplayBanner, type TimelineEntry} from './timelinePageModel'
 
 export function EventArt({
   className = '',
@@ -208,7 +208,7 @@ export function EventRow({
     <li className={`relative ${ROW_SCROLL_MARGIN}`} data-entry-id={event.id}>
       <button
         aria-current={selected ? 'true' : undefined}
-        className={`timeline-next-row relative flex min-h-20 w-full overflow-hidden rounded-[2px] border bg-[linear-gradient(180deg,rgba(15,23,42,0.78),rgba(10,16,28,0.88))] text-left transition-colors duration-[var(--ui-motion-duration-fast)] hover:border-amber-200/30 focus-visible:ring-2 focus-visible:ring-amber-200/50 focus-visible:outline-none motion-reduce:transition-none ${selected ? 'ui-inset-frame border-amber-300/55' : 'border-slate-700/40'}`}
+        className={`timeline-row relative flex min-h-20 w-full overflow-hidden rounded-[2px] border bg-[linear-gradient(180deg,rgba(15,23,42,0.78),rgba(10,16,28,0.88))] text-left transition-colors duration-[var(--ui-motion-duration-fast)] hover:border-amber-200/30 focus-visible:ring-2 focus-visible:ring-amber-200/50 focus-visible:outline-none motion-reduce:transition-none ${selected ? 'ui-inset-frame border-amber-300/55' : 'border-slate-700/40'}`}
         data-selected={selected}
         onClick={() => {
           onSelect(event.id)

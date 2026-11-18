@@ -3,7 +3,7 @@ import {Link} from 'react-router'
 
 import {formatTimelineDisplayDate} from '@/domain/timeline'
 
-import type {TimelineAgendaGroup, TimelineAgendaMoment} from './timelineNextModel'
+import type {TimelineAgendaGroup, TimelineAgendaMoment} from './timelinePageModel'
 
 const momentTime = new Intl.DateTimeFormat('en-US', {
   hour: 'numeric',
@@ -137,10 +137,10 @@ function DesktopAgenda({groups, now, onSelect}: AgendaProps) {
   return (
     <div
       aria-label='Upcoming timeline moments'
-      className='timeline-next-agenda mt-5 hidden pb-1 md:flex'
+      className='timeline-agenda mt-5 hidden pb-1 md:flex'
       role='region'
     >
-      <div className='timeline-next-agenda-node timeline-next-agenda-now'>
+      <div className='timeline-agenda-node timeline-agenda-now'>
         <span className='text-xs font-semibold text-slate-300'>Now</span>
       </div>
       {groups.slice(0, 4).map((group) => {
@@ -165,7 +165,7 @@ function DesktopAgenda({groups, now, onSelect}: AgendaProps) {
             ) : null}
           </>
         )
-        const className = 'timeline-next-agenda-node min-w-0 text-left'
+        const className = 'timeline-agenda-node min-w-0 text-left'
         const major = patch ? 'true' : undefined
         if (!moment)
           return (

@@ -1,4 +1,3 @@
-import type {EntityRef} from '@/domain/entities/types'
 import type {BannerFeaturedUnit, EventCategory} from '@/domain/timeline'
 
 import {resolveTimelineFeaturedAsset} from './timelineDetailResolution'
@@ -36,16 +35,10 @@ export const CATEGORY_TONE: Record<EventCategory, EventMetaTone> = {
   other: 'amber',
 }
 
-export interface EventArt {
+interface EventArt {
   url: string | undefined
   isWheel: boolean
   artAlign?: string
-  detailTargets: EventDetailTarget[]
-}
-
-export interface EventDetailTarget {
-  label: string
-  ref: EntityRef
 }
 
 export function resolveEventArt(
@@ -53,12 +46,9 @@ export function resolveEventArt(
   customArt: string | undefined,
   artAlign?: string,
 ): EventArt | null {
-  const assets = featured?.map((unit) => resolveTimelineFeaturedAsset(unit)) ?? []
-  const detailTargets = assets.flatMap((asset) =>
-    asset.detailRef ? [{label: asset.label, ref: asset.detailRef}] : [],
-  )
-  if (customArt) return {url: customArt, isWheel: false, artAlign, detailTargets}
-  if (assets.length === 0) return null
-  const primaryAsset = assets[0]
-  return {url: primaryAsset.url, isWheel: primaryAsset.isWheel, artAlign, detailTargets}
+  if (customArt) return {url: customArt, isWheel: false, artAlign}
+  const primary = featured?.[0]
+  if (!primary) return null
+  const {url, isWheel} = resolveTimelineFeaturedAsset(primary)
+  return {url, isWheel, artAlign}
 }

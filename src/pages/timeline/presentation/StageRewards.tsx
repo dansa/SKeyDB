@@ -72,10 +72,7 @@ function ItemWell({icon, size}: {icon?: string; size: 'sm' | 'md'}) {
   const well = size === 'sm' ? 'size-7' : 'size-12'
   if (!icon) return size === 'sm' ? <span aria-hidden className={`${well} shrink-0`} /> : null
   return (
-    <span
-      aria-hidden
-      className={`timeline-next-item-well grid shrink-0 place-items-center ${well}`}
-    >
+    <span aria-hidden className={`timeline-item-well grid shrink-0 place-items-center ${well}`}>
       <img alt='' className={`${size === 'sm' ? 'size-5' : 'size-10'} object-contain`} src={icon} />
     </span>
   )
@@ -87,7 +84,7 @@ function RewardLine({item, highlight = false}: {item: TimelineRewardItem; highli
     <RewardPreview
       item={item}
       {...preview(art)}
-      className={`timeline-next-item flex w-full min-w-0 items-center text-left text-xs text-slate-200 hover:text-amber-100 focus-visible:outline-2 focus-visible:outline-amber-200 ${highlight ? 'min-h-14 gap-3 py-1.5' : 'min-h-10 gap-2.5 py-1 lg:min-h-9'}`}
+      className={`timeline-item flex w-full min-w-0 items-center text-left text-xs text-slate-200 hover:text-amber-100 focus-visible:outline-2 focus-visible:outline-amber-200 ${highlight ? 'min-h-14 gap-3 py-1.5' : 'min-h-10 gap-2.5 py-1 lg:min-h-9'}`}
     >
       <ItemWell icon={art?.icon} size={highlight ? 'md' : 'sm'} />
       <span className={`min-w-0 break-words ${highlight ? 'text-sm font-semibold' : ''}`}>
@@ -114,9 +111,9 @@ function RewardItems({items}: {items: TimelineRewardItem[]}) {
                 <RewardPreview
                   item={item}
                   {...preview(art)}
-                  className='timeline-next-item flex w-full min-w-0 flex-col items-stretch gap-1.5 text-left text-slate-200 hover:text-amber-100 focus-visible:outline-2 focus-visible:outline-amber-200'
+                  className='timeline-item flex w-full min-w-0 flex-col items-stretch gap-1.5 text-left text-slate-200 hover:text-amber-100 focus-visible:outline-2 focus-visible:outline-amber-200'
                 >
-                  <span className='timeline-next-item-well relative grid aspect-square w-full place-items-center p-1.5'>
+                  <span className='timeline-item-well relative grid aspect-square w-full place-items-center p-1.5'>
                     {art?.icon ? (
                       <img alt='' className='size-full object-contain' src={art.icon} />
                     ) : null}
@@ -174,7 +171,7 @@ function LoginCalendar({items}: {items: TimelineRewardItem[]}) {
             item={item}
             {...preview(art)}
             label={`Day ${String(day + 1)}: ${item.name} ${item.amount ?? ''}${bonus ? ', bonus day' : ''}`.trim()}
-            className='timeline-next-day flex min-h-[4.5rem] min-w-0 flex-col items-center justify-between gap-1 px-0.5 pt-1 pb-1.5 text-center focus-visible:outline-2 focus-visible:outline-amber-200'
+            className='timeline-day flex min-h-[4.5rem] min-w-0 flex-col items-center justify-between gap-1 px-0.5 pt-1 pb-1.5 text-center focus-visible:outline-2 focus-visible:outline-amber-200'
             key={day}
             notable={bonus}
           >

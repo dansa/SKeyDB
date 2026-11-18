@@ -1,7 +1,13 @@
 import {useState} from 'react'
 
 import {act, fireEvent, render, screen, waitFor, within} from '@testing-library/react'
-import {MemoryRouter, useNavigate, useSearchParams} from 'react-router'
+import {
+  createMemoryRouter,
+  MemoryRouter,
+  RouterProvider,
+  useNavigate,
+  useSearchParams,
+} from 'react-router'
 import {afterEach, vi} from 'vitest'
 
 import App from './App'
@@ -220,6 +226,23 @@ describe('App shell', () => {
     await waitFor(() => {
       expect(screen.getByTestId('timeline-price-mode')).toHaveTextContent('usd-estimate')
     })
+  })
+
+  it('replaces the timeline preview URL while keeping the deep link and prior history', async () => {
+    const search = '?view=banners&item=featured-banner'
+    const hash = '#ended-banners'
+    const router = createMemoryRouter([{path: '*', element: <App />}], {
+      initialEntries: ['/d-zone', `/timeline-next${search}${hash}`],
+    })
+    render(<RouterProvider router={router} />)
+
+    expect(await screen.findByRole('heading', {name: /events page/i})).toBeInTheDocument()
+    expect(router.state.location).toMatchObject({pathname: '/timeline', search, hash})
+    await act(async () => router.navigate(-1))
+    expect(await screen.findByRole('heading', {name: 'D-Effect Zone'})).toBeInTheDocument()
+    await act(async () => router.navigate(1))
+    expect(await screen.findByRole('heading', {name: /events page/i})).toBeInTheDocument()
+    expect(router.state.location).toMatchObject({pathname: '/timeline', search, hash})
   })
 
   it('uses separate desktop and mobile navigation surfaces', () => {

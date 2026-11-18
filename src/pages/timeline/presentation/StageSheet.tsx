@@ -34,7 +34,7 @@ export function StageSheet({
   return createPortal(
     <dialog
       aria-label={title}
-      className='timeline-next-sheet ui-inset-frame fixed inset-x-0 top-auto bottom-0 m-0 max-h-[88dvh] w-screen max-w-none overflow-hidden rounded-t-[2px] border border-slate-700/60 bg-slate-950 p-0 text-inherit focus:outline-none'
+      className='timeline-sheet ui-inset-frame fixed inset-x-0 top-auto bottom-0 m-0 max-h-[88dvh] w-screen max-w-none overflow-hidden rounded-t-[2px] border border-slate-700/60 bg-slate-950 p-0 text-inherit focus:outline-none'
       onCancel={(event) => {
         event.preventDefault()
         onClose()

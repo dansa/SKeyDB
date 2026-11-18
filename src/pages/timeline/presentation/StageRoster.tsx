@@ -3,7 +3,7 @@ import {useState} from 'react'
 import type {EntityRef} from '@/domain/entities/types'
 import type {BannerFeaturedUnit} from '@/domain/timeline'
 
-import {resolveTimelineThumbnail} from './timelineNextThumbnails'
+import {resolveTimelineThumbnail} from './timelineThumbnails'
 
 export function StageRoster({
   units,

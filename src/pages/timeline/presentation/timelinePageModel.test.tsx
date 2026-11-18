@@ -7,8 +7,8 @@ import {timelineBanners} from '@/domain/timeline-data'
 
 import {resolveTimelineFeaturedAsset} from '../timelineDetailResolution'
 import {TimelineAgenda} from './TimelineAgenda'
-import {getDisplayBanner, getTimelineAgendaGroups} from './timelineNextModel'
-import {resolveTimelineThumbnail} from './timelineNextThumbnails'
+import {getDisplayBanner, getTimelineAgendaGroups} from './timelinePageModel'
+import {resolveTimelineThumbnail} from './timelineThumbnails'
 
 it.each(['feb', 'mar', 'apr', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov'])(
   'resolves the three separate Triune and Sylvan pools for %s',

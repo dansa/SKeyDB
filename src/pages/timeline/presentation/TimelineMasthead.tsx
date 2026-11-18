@@ -8,7 +8,7 @@ import type {TimelineContentFilter} from '@/domain/timeline-routing'
 
 import type {getTimelineDZoneSummary} from '../timelineDZoneSummary'
 import {TimelineAgenda} from './TimelineAgenda'
-import type {TimelineAgendaGroup} from './timelineNextModel'
+import type {TimelineAgendaGroup} from './timelinePageModel'
 
 const FILTERS: {id: TimelineContentFilter; label: string}[] = [
   {id: 'all', label: 'All'},
@@ -51,7 +51,7 @@ function Segmented<T extends string>({
   return (
     <div
       aria-label={label}
-      className={`timeline-next-segmented ${quiet ? 'timeline-next-segmented--quiet' : ''}`}
+      className={`timeline-segmented ${quiet ? 'timeline-segmented--quiet' : ''}`}
       role='group'
     >
       {options.map((option) => (
@@ -84,17 +84,17 @@ function DZoneSeal({now, summary}: {now: Date; summary: DZoneSummary}) {
   return (
     <Link
       aria-label={['D-Zone', summary.name, countdown, summary.note].filter(Boolean).join(', ')}
-      className='timeline-next-season group'
+      className='timeline-season group'
       style={style}
       title={summary.countdown?.title}
       to='/d-zone'
     >
-      <span aria-hidden className='timeline-next-season-ring'>
+      <span aria-hidden className='timeline-season-ring'>
         <svg viewBox='0 0 68 68'>
-          <circle className='timeline-next-season-track' cx='34' cy='34' r={RING_RADIUS} />
+          <circle className='timeline-season-track' cx='34' cy='34' r={RING_RADIUS} />
           {live ? (
             <circle
-              className='timeline-next-season-progress'
+              className='timeline-season-progress'
               cx='34'
               cy='34'
               r={RING_RADIUS}
@@ -106,7 +106,7 @@ function DZoneSeal({now, summary}: {now: Date; summary: DZoneSummary}) {
         {summary.emblemSrc ? <img alt='' src={summary.emblemSrc} /> : null}
       </span>
       <span className='min-w-0'>
-        <span className='timeline-next-season-label block text-[0.64rem] font-extrabold tracking-[0.12em] uppercase'>
+        <span className='timeline-season-label block text-[0.64rem] font-extrabold tracking-[0.12em] uppercase'>
           D-Zone season
         </span>
         <span className='ui-title mt-0.5 block text-[1.12rem] leading-tight text-slate-100 group-hover:text-amber-50 group-focus-visible:text-amber-50'>
