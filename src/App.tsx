@@ -369,16 +369,6 @@ function App() {
               <Route element={<HomePage />} path='/' />
               {DatabaseRouteElements}
               <Route element={<TimelinePage />} path='/timeline' />
-              <Route
-                element={
-                  <Navigate
-                    replace
-                    state={locationState}
-                    to={{pathname: '/timeline', search, hash: location.hash}}
-                  />
-                }
-                path='/timeline-next'
-              />
               <Route element={<DZonePage />} path='/d-zone' />
               <Route element={<DZoneHistoryPage />} path='/d-zone/history' />
               <Route
