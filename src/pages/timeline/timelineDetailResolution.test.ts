@@ -12,7 +12,7 @@ import {
 
 describe('timelineDetailResolution', () => {
   it('resolves the archived Pontos banner from the current signature wheel record', () => {
-    const banner = timelineBanners.find((entry) => entry.id === 'banner-pontos')
+    const banner = timelineBanners.find((entry) => entry.id === 'pontos-duo-260629')
     const featuredWheel = banner?.featured?.[1]
     expect(featuredWheel).toMatchObject({name: 'Pontos', kind: 'wheel-auto'})
     if (!featuredWheel) throw new Error('Missing Pontos signature wheel')

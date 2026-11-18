@@ -10,14 +10,14 @@ import {TimelineAgenda} from './TimelineAgenda'
 import {getDisplayBanner, getTimelineAgendaGroups} from './timelinePageModel'
 import {resolveTimelineThumbnail} from './timelineThumbnails'
 
-it.each(['feb', 'mar', 'apr', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov'])(
+it.each(['260223', '260323', '260406', '260615', '260713', '260810', '260907', '261005', '261102'])(
   'resolves the three separate Triune and Sylvan pools for %s',
-  (month) => {
+  (runDate) => {
     for (const [family, kind] of [
       ['triune-verdant', 'awakener'],
       ['sylvan-omen', 'wheel'],
     ] as const) {
-      const entry = timelineBanners.find(({id}) => id === `banner-${family}-${month}`)
+      const entry = timelineBanners.find(({id}) => id === `${family}-${runDate}`)
       const group = entry?.rateUpGroups?.[0]
       expect(group?.kind).toBe(kind)
       expect(group?.options).toHaveLength(3)
@@ -39,15 +39,15 @@ it.each(['feb', 'mar', 'apr', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov'])(
 )
 
 it.each([
-  'vortice',
-  'arachne',
-  'saya-no-uta-collab',
-  'pontos',
-  'lotan-cetarchon',
-  'caraboo',
-  'ogier-oathbound',
+  'vortice-duo-260309',
+  'arachne-duo-260420',
+  'saya-collab-260530',
+  'pontos-duo-260629',
+  'lotan-duo-260727',
+  'caraboo-duo-260824',
+  'ogier-duo-260921',
 ])('resolves both SSR pools for the historical %s pair', (id) => {
-  const groups = timelineBanners.find((entry) => entry.id === `banner-${id}`)?.rateUpGroups ?? []
+  const groups = timelineBanners.find((entry) => entry.id === id)?.rateUpGroups ?? []
   expect(groups.map(({kind}) => kind)).toEqual(['awakener', 'wheel'])
   for (const {kind, options, sharedOffBanner} of groups) {
     expect(options).toHaveLength(1)

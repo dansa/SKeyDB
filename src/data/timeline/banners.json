@@ -1,6 +1,6 @@
 [
   {
-    "id": "banner-vortice",
+    "id": "vortice-duo-260309",
     "title": "Maelstrom of Woe / Forsaken Isle",
     "type": "awaken",
     "description": "Featured rate-up banners for Vortice and her SSR Wheel 'The Faraway Eden'.",
@@ -42,7 +42,7 @@
     ]
   },
   {
-    "id": "banner-triune-verdant-feb",
+    "id": "triune-verdant-260223",
     "title": "Triune Verdant",
     "type": "rerun",
     "description": "Three rerun banners, featuring the awakeners 24, Horla and Pickman.",
@@ -72,7 +72,7 @@
     ]
   },
   {
-    "id": "banner-sylvan-omen-feb",
+    "id": "sylvan-omen-260223",
     "title": "Sylvan Omen",
     "type": "rerun",
     "description": "Three rerun banners, featuring the Wheels Aberrant Devour, The Last Verse and Paradoxical Realism.",
@@ -121,7 +121,7 @@
     ]
   },
   {
-    "id": "banner-triune-verdant-mar",
+    "id": "triune-verdant-260323",
     "title": "Triune Verdant",
     "type": "rerun",
     "description": "Three rerun banners, featuring the awakeners Wanda, Salvador and Kathigu-ra.",
@@ -151,7 +151,7 @@
     ]
   },
   {
-    "id": "banner-sylvan-omen-mar",
+    "id": "sylvan-omen-260323",
     "title": "Sylvan Omen",
     "type": "rerun",
     "description": "Three rerun banners, featuring the Wheels Queen's Edict, Tablet of Scriptures, Amber-Tinted Death",
@@ -200,7 +200,7 @@
     ]
   },
   {
-    "id": "banner-triune-verdant-apr",
+    "id": "triune-verdant-260406",
     "title": "Triune Verdant",
     "type": "rerun",
     "description": "Three rerun banners, featuring the awakeners Tulu, Sorel and Doll: Inferno.",
@@ -230,7 +230,7 @@
     ]
   },
   {
-    "id": "banner-sylvan-omen-apr",
+    "id": "sylvan-omen-260406",
     "title": "Sylvan Omen",
     "type": "rerun",
     "description": "Three rerun banners, featuring the Wheels Hymn of the Sovereign, By Rose Alone and Manikin of Oblivion.",
@@ -279,7 +279,7 @@
     ]
   },
   {
-    "id": "banner-arachne",
+    "id": "arachne-duo-260420",
     "title": "Fata Texunt / Sempiternal Web",
     "type": "awaken",
     "description": "Featured rate-up banners for Arachne and her SSR Wheel 'Eternal Weave'.",
@@ -321,7 +321,7 @@
     ]
   },
   {
-    "id": "banner-moonless-guide",
+    "id": "kaleido-fl-260505",
     "title": "Kaleido Recollections: Faded Legacy",
     "type": "combo",
     "description": "Limited Faded Legacy Awakeners and Wheels.",
@@ -462,7 +462,7 @@
     ]
   },
   {
-    "id": "banner-saya-no-uta-collab",
+    "id": "saya-collab-260530",
     "title": "Sprout of Liebestod / Alien Crypsela",
     "type": "awaken",
     "tags": ["awaken", "collab"],
@@ -508,7 +508,7 @@
     ]
   },
   {
-    "id": "banner-echoing-wishes",
+    "id": "echoing-wishes-260518",
     "title": "Echoing Wishes",
     "type": "daily",
     "description": "A different rate-up Awakener and Wheel each day.",
@@ -1499,7 +1499,7 @@
     "rulesProfile": "oathbound-oracle"
   },
   {
-    "id": "banner-kaleido-recollections-astral-reign",
+    "id": "kaleido-ar-260518",
     "title": "Kaleido Recollections: Astral Reign",
     "type": "combo",
     "description": "Limited Astral Reign Awakeners and Wheels.",
@@ -1624,7 +1624,7 @@
     ]
   },
   {
-    "id": "banner-stars-in-full-bloom-assault",
+    "id": "stars-bloom-assault-260530",
     "title": "Stars in Full Bloom",
     "type": "premium",
     "customTags": ["Assault"],
@@ -1727,7 +1727,7 @@
     ]
   },
   {
-    "id": "banner-stars-in-full-bloom-warden",
+    "id": "stars-bloom-warden-260530",
     "title": "Stars in Full Bloom",
     "type": "premium",
     "customTags": ["Warden"],
@@ -1798,7 +1798,7 @@
     ]
   },
   {
-    "id": "banner-stars-in-full-bloom-chorus",
+    "id": "stars-bloom-chorus-260530",
     "title": "Stars in Full Bloom",
     "type": "premium",
     "customTags": ["Chorus"],
@@ -1917,7 +1917,7 @@
     ]
   },
   {
-    "id": "banner-triune-verdant-jun",
+    "id": "triune-verdant-260615",
     "title": "Triune Verdant",
     "type": "rerun",
     "description": "Three rerun banners, featuring the awakeners Hameln, Murphy and Clementine.",
@@ -1947,7 +1947,7 @@
     ]
   },
   {
-    "id": "banner-sylvan-omen-jun",
+    "id": "sylvan-omen-260615",
     "title": "Sylvan Omen",
     "type": "rerun",
     "tags": ["rerun", "wheel"],
@@ -1997,7 +1997,7 @@
     ]
   },
   {
-    "id": "banner-pontos",
+    "id": "pontos-duo-260629",
     "title": "Lord of the Deep / The Abyssal Oubliette",
     "type": "awaken",
     "description": "Featured rate-up banners for Pontos and his signature SSR Wheel.",
@@ -2039,7 +2039,7 @@
     ]
   },
   {
-    "id": "banner-triune-verdant-jul",
+    "id": "triune-verdant-260713",
     "title": "Triune Verdant",
     "type": "rerun",
     "description": "Three rerun banners, featuring the awakeners Helot: Catena, Corposant and Pollux.",
@@ -2069,7 +2069,7 @@
     ]
   },
   {
-    "id": "banner-sylvan-omen-jul",
+    "id": "sylvan-omen-260713",
     "title": "Sylvan Omen",
     "type": "rerun",
     "tags": ["rerun", "wheel"],
@@ -2119,7 +2119,7 @@
     ]
   },
   {
-    "id": "banner-lotan-cetarchon",
+    "id": "lotan-duo-260727",
     "title": "Astral Reaver / Leviathan's Descent",
     "type": "awaken",
     "description": "Featured rate-up banners for Lotan: Cetarchon and her SSR Wheel 'Cetus Occasus'.",
@@ -2170,7 +2170,7 @@
     ]
   },
   {
-    "id": "banner-triune-verdant-aug",
+    "id": "triune-verdant-260810",
     "title": "Triune Verdant",
     "type": "rerun",
     "description": "Three rerun banners, featuring the awakeners Horla, Doresain and Mouchette.",
@@ -2200,7 +2200,7 @@
     ]
   },
   {
-    "id": "banner-sylvan-omen-aug",
+    "id": "sylvan-omen-260810",
     "title": "Sylvan Omen",
     "type": "rerun",
     "tags": ["rerun", "wheel"],
@@ -2250,7 +2250,7 @@
     ]
   },
   {
-    "id": "banner-caraboo",
+    "id": "caraboo-duo-260824",
     "title": "Saccharine Facade / Whispers in Sugarfrost",
     "type": "awaken",
     "description": "Featured rate-up banners for Caraboo and her SSR Wheel \"Honeyed Deceit\".",
@@ -2303,7 +2303,7 @@
     ]
   },
   {
-    "id": "banner-lightward-reminiscence-assault",
+    "id": "lightward-assault-260824",
     "title": "Lightward Reminiscence",
     "type": "premium",
     "customTags": ["Assault"],
@@ -2366,7 +2366,7 @@
     ]
   },
   {
-    "id": "banner-lightward-reminiscence-warden",
+    "id": "lightward-warden-260824",
     "title": "Lightward Reminiscence",
     "type": "premium",
     "customTags": ["Warden"],
@@ -2421,7 +2421,7 @@
     ]
   },
   {
-    "id": "banner-lightward-reminiscence-chorus",
+    "id": "lightward-chorus-260824",
     "title": "Lightward Reminiscence",
     "type": "premium",
     "customTags": ["Chorus"],
@@ -2492,7 +2492,7 @@
     ]
   },
   {
-    "id": "banner-stars-cradled-close",
+    "id": "stars-cradled-260824",
     "title": "Stars Cradled Close",
     "type": "selector",
     "description": "Five picks shape the SSR pool.\nChoose a different Awakener for each category. Once selected, your picks are locked for the event. Only those five Awakeners and their five recommended Wheels can drop as SSRs.",
@@ -2662,7 +2662,7 @@
     ]
   },
   {
-    "id": "banner-triune-verdant-sep",
+    "id": "triune-verdant-260907",
     "title": "Triune Verdant",
     "type": "rerun",
     "description": "Three rerun banners featuring Kathigu-Ra, Daffodil and Murphy: Fauxborn.",
@@ -2692,7 +2692,7 @@
     ]
   },
   {
-    "id": "banner-sylvan-omen-sep",
+    "id": "sylvan-omen-260907",
     "title": "Sylvan Omen",
     "type": "rerun",
     "tags": ["rerun", "wheel"],
@@ -2742,7 +2742,7 @@
     ]
   },
   {
-    "id": "banner-ogier-oathbound",
+    "id": "ogier-duo-260921",
     "title": "Sin-Bound Glory / Sullied White",
     "type": "awaken",
     "description": "Featured rate-up banners for Ogier: Oathbound and his SSR Wheel \"Ever Sunward\".",
@@ -2787,7 +2787,7 @@
     ]
   },
   {
-    "id": "banner-triune-verdant-oct",
+    "id": "triune-verdant-261005",
     "title": "Triune Verdant",
     "type": "rerun",
     "description": "Three rerun banners featuring Castor, Miryam and Xu.",
@@ -2817,7 +2817,7 @@
     ]
   },
   {
-    "id": "banner-sylvan-omen-oct",
+    "id": "sylvan-omen-261005",
     "title": "Sylvan Omen",
     "type": "rerun",
     "tags": ["rerun", "wheel"],
@@ -2867,7 +2867,7 @@
     ]
   },
   {
-    "id": "banner-vivian",
+    "id": "vivian-duo-261019",
     "title": "Indolent Sorceress / Putrefying Irrigation",
     "type": "awaken",
     "description": "Separate rate-up Awakenings for Vivian and The Seer’s Riddle.",
@@ -2930,7 +2930,7 @@
     ]
   },
   {
-    "id": "banner-triune-verdant-nov",
+    "id": "triune-verdant-261102",
     "title": "Triune Verdant",
     "type": "rerun",
     "description": "Three rerun banners featuring Pickman, Tulu and Lily.",
@@ -2960,7 +2960,7 @@
     ]
   },
   {
-    "id": "banner-sylvan-omen-nov",
+    "id": "sylvan-omen-261102",
     "title": "Sylvan Omen",
     "type": "rerun",
     "tags": ["rerun", "wheel"],
@@ -3010,13 +3010,13 @@
     ]
   },
   {
-    "id": "banner-kaleido-recollections-faded-legacy-nov",
+    "id": "kaleido-fl-261116",
     "title": "Kaleido Recollections: Faded Legacy",
     "type": "combo",
     "description": "Limited Faded Legacy Awakeners and Wheels.",
     "startDate": "2026/11/16 09:00",
     "endDate": "2026/11/30 09:00",
-    "related": ["event-constellated-memories"],
+    "related": ["constellated-memories-261116"],
     "rulesProfile": "kaleido",
     "poolSlots": [
       {
@@ -3152,13 +3152,13 @@
     ]
   },
   {
-    "id": "banner-kaleido-recollections-astral-reign-nov",
+    "id": "kaleido-ar-261116",
     "title": "Kaleido Recollections: Astral Reign",
     "type": "combo",
     "description": "Limited Astral Reign Awakeners and Wheels.",
     "startDate": "2026/11/16 09:00",
     "endDate": "2026/11/30 09:00",
-    "related": ["event-constellated-memories"],
+    "related": ["constellated-memories-261116"],
     "rulesProfile": "kaleido",
     "poolSlots": [
       {

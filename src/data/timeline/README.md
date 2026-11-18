@@ -2,6 +2,14 @@
 
 This folder contains the JSON data files that power the Timeline page. Edit these files to add, remove, or update events and banners.
 
+## Run IDs
+
+Each event and banner run has one lowercase `series-YYMMDD` ID, shared by `/timeline?item=...` and `related` links. Use a short series key consistently across reruns (for example, `mythag-gifts`, `curriculum`, `kaleido-fl`, or `kaleido-ar`). The date is the first day of that run in the game's UTC+8 calendar, not the date the entry was added.
+
+Generate a new ID from the website repo with `npm run timeline:id -- pickman-canvas 2027/11/02`. The command prints the ID without editing the data and checks both timeline files for collisions. If separate runs share a series and start day, add a meaningful qualifier to the series key before generating the ID. Backfills work the same way as new runs. Once published, keep the ID fixed even if the title or scheduled start is corrected.
+
+The Tools schedule report supplies source dates and pool evidence; adding or updating a website timeline entry is still a reviewed edit. Use the printed ID in the new record and its `related` links. The script tests check ID format, uniqueness, and related targets across both files.
+
 ## Date Format
 
 All dates use the game's announcement format: **`YYYY/MM/DD HH:MM`** in **UTC+8** (Hong Kong / server time).
@@ -23,7 +31,7 @@ Array of event objects. Each event appears as a card in the Events section.
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `id` | string | **yes** | Unique identifier. Convention: `event-{category}-{short-name}` |
+| `id` | string | **yes** | Unique `series-YYMMDD` run ID; see [Run IDs](#run-ids) |
 | `title` | string | **yes** | Display title |
 | `category` | string | no | Determines the colored badge. See [Event Categories](#event-categories) below |
 | `description` | string | no | Short description text. Supports shared timeline rich text; see [Descriptions](#descriptions) |
@@ -98,7 +106,7 @@ Note: double quotes inside strings must be escaped with `\"` — this is a JSON 
 
 ```json
 {
-  "id": "event-story-vortice",
+  "id": "moskstraumen-260309",
   "title": "Call of the Moskstraumen",
   "category": "gameplay-event",
   "description": "Gameplay and story event featuring *Vortice*.\nObtain SR-Wheel and more.",
@@ -107,7 +115,7 @@ Note: double quotes inside strings must be escaped with `\"` — this is a JSON 
   "pinned": true,
   "featured": "Vortice",
   "rewards": [{"title": "Missions", "items": [{"name": "Pure Core", "amount": "×10"}]}],
-  "related": ["banner-arcane-tides"]
+  "related": ["vortice-duo-260309"]
 }
 ```
 
@@ -138,7 +146,7 @@ Array of banner objects. Each banner appears as a card in the Banners section wi
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `id` | string | **yes** | Unique identifier. Convention: `banner-{short-name}` |
+| `id` | string | **yes** | Unique `series-YYMMDD` run ID; see [Run IDs](#run-ids) |
 | `title` | string | **yes** | Display title |
 | `type` | string | **yes** | Determines the type badge. See [Banner Types](#banner-types) below |
 | `tags` | array | no | Optional display tags when one label is not enough, e.g. `["limited", "collab", "preliminary"]`. Falls back to `type` when omitted. |
@@ -338,13 +346,12 @@ bottom 40%; both advance as one candidate pair.
 
 ```json
 {
-  "id": "banner-arcane-tides",
+  "id": "arcane-tides-260305",
   "title": "Awaken — Arcane Tides",
   "type": "awaken",
   "description": "Featured rate-up. [Review on Discord](https://discord.gg/example)",
   "startDate": "2026/03/05 18:00",
   "endDate": "2026/03/19 11:59",
-  "featured": ["Tawil", "Miryam", "Caecus"],
-  "related": ["event-story-vortice"]
+  "featured": ["Tawil", "Miryam", "Caecus"]
 }
 ```

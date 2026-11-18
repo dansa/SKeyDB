@@ -1,6 +1,6 @@
 [
   {
-    "id": "event-story-vortice",
+    "id": "moskstraumen-260309",
     "title": "Call of the Moskstraumen",
     "category": "gameplay-event",
     "description": "SR Wheel copies and a limited Vortice avatar.\nClear Vortice and the Sea and complete achievements. Vortice's Hoard drew five rewards for 750 matching Conches.\nGameplay ended Apr 6; shop and achievement claims stayed open until Apr 13. Clear No More the Shore for the Drowned Innocence Posse.",
@@ -94,7 +94,7 @@
     ]
   },
   {
-    "id": "event-curriculum-03",
+    "id": "curriculum-260301",
     "title": "Curriculum Honor",
     "category": "curriculum",
     "description": "Advanced: 680 Silver Prime. Premium: 1,280 Silver Prime.\n Complete daily and weekly tasks.\n Free track: basic rewards. Advanced Topics: SSR Wheel selector, Silver and Luminous Cores. Premium includes Advanced rewards and adds limited cosmetics and other extras.",
@@ -104,7 +104,7 @@
     "pricing": "680-1280 Silver Prime"
   },
   {
-    "id": "event-wheel-ryker",
+    "id": "lucky-winner-260309",
     "title": "Lucky Winner",
     "category": "wheel-event",
     "description": "Earn 4 free copies of Stakes of Wisdom.\nPremium Archives adds 12 more copies.",
@@ -323,7 +323,7 @@
     ]
   },
   {
-    "id": "event-skin-24",
+    "id": "crimson-heartwood-260223",
     "title": "Crimson Heartwood",
     "category": "skin",
     "description": "Crimson Kaede outfit for 24.\nThe outfit unlocks on the 15th login with Premium Archives.",
@@ -557,7 +557,7 @@
     ]
   },
   {
-    "id": "event-preorder-arachne",
+    "id": "conjugated-fates-260406",
     "title": "Conjugated Fates",
     "category": "preorder",
     "description": "100 free Silver and seven paid gift packs.",
@@ -742,7 +742,7 @@
     ]
   },
   {
-    "id": "event-login-march",
+    "id": "mythag-gifts-260309",
     "title": "Gifts from Mythag",
     "category": "login",
     "description": "10 Luminous Cores across the first 7 logins, with more rewards throughout the 28-day event.",
@@ -751,7 +751,7 @@
     "customArt": "/events/gifts-from-mythag.webp"
   },
   {
-    "id": "event-story-rerun-wanda",
+    "id": "feast-of-flames-260323",
     "title": "Feast of Flames",
     "category": "gameplay-event",
     "description": "SR Wheel copies and a limited Wanda avatar.\nClear City in the Lake and complete achievements. Wanda's Treasure Vault offered fixed-price rewards across three shops.\nGameplay ended Apr 20; shop and achievement claims stayed open until Apr 27. Clear the Feast of Flames Psyche Deepdive for the Feast of Decay Posse. On the rerun, repeat avatars converted to one Formless One's Invitation; extra Hearts of Hedonism converted to 5,000 Rose Scrip each.",
@@ -942,7 +942,7 @@
     "rerun": true
   },
   {
-    "id": "phase-reversal",
+    "id": "phase-reversal-260316",
     "title": "Phase Reversal",
     "category": "gameplay-event",
     "description": "Traphase milestones with an exclusive avatar and 10 emotes.\nRound Wonders counted Magic Acorns earned through Traphase achievements. Clearing My Turn: Outlander's Visit unlocked the 100–900 tiers; clearing Cosmos Reforged unlocked the 1,000–6,000 tiers. All core rewards were available at 3,600 Acorns; later tiers awarded Rose Scrip only.\nClear My Turn to earn the Tavern's Opening Posse. The story was free to unlock during the event and costs 3 Reality Verge afterward if not already unlocked.",
@@ -1048,7 +1048,7 @@
     "rerun": true
   },
   {
-    "id": "event-story-tulu",
+    "id": "sovereigns-return-260406",
     "title": "The Sovereign's Return",
     "category": "gameplay-event",
     "description": "SR Wheel copies and a limited Tulu avatar.\nClear Gaze of the Deep Sea and complete achievements for event currency. Abyssborn Epiphany sold fixed rewards. Gameplay ended May 4; the shops and achievement claims stayed open until May 11.\nClear Day of Coronation to earn the Blessing of the Stars Posse. Repeat avatar rewards converted to one Formless One's Invitation.",
@@ -1238,7 +1238,7 @@
     "rerun": true
   },
   {
-    "id": "event-login-april",
+    "id": "mythag-gifts-260420",
     "title": "Gifts from Mythag",
     "category": "login",
     "description": "10 Luminous Cores across the first 7 logins, with more rewards throughout the 28-day event.",
@@ -1247,7 +1247,7 @@
     "customArt": "/events/gifts-from-mythag.webp"
   },
   {
-    "id": "event-curriculum-04",
+    "id": "curriculum-260420",
     "title": "Curriculum Honor",
     "category": "curriculum",
     "description": "Advanced: 680 Silver Prime. Premium: 1,280 Silver Prime.\n Complete daily and weekly tasks.\n Free track: basic rewards. Advanced Topics: SSR Wheel selector, Silver and Luminous Cores. Premium includes Advanced rewards and adds limited cosmetics and other extras.",
@@ -1257,7 +1257,7 @@
     "pricing": "680-1280 Silver Prime"
   },
   {
-    "id": "event-skin-wanda",
+    "id": "spikenard-myrrh-260406",
     "title": "With Spikenard And Myrrh",
     "category": "skin",
     "description": "Free Wanda outfit.\nComplete all five missions to unlock the skin. After the event, it costs 680 Silver Prime in Garment Ordering.",
@@ -1347,7 +1347,7 @@
     ]
   },
   {
-    "id": "event-story-arachne",
+    "id": "bound-weaver-260420",
     "title": "Bound Weaver",
     "category": "gameplay-event",
     "description": "SR Wheel copies and a limited Arachne avatar.\nClear The Puppet's Stage and complete achievements. Theater Souvenirs drew five rewards for 750 A-Reserve Tickets.\nGameplay ended May 18; shop and achievement claims stayed open until May 25. Unspent tickets converted to 40 Rose Scrip each.",
@@ -1436,7 +1436,7 @@
     ]
   },
   {
-    "id": "event-wheel-private-afternoon",
+    "id": "heure-du-the-260420",
     "title": "L'Heure du Thé",
     "category": "wheel-event",
     "description": "Earn 4 free copies of Private Afternoon.\nPremium Archives adds 12 more copies.",
@@ -1656,7 +1656,7 @@
     ]
   },
   {
-    "id": "event-story-rerun-great-conquering",
+    "id": "great-conquering-260504",
     "title": "The Great Conquering",
     "category": "gameplay-event",
     "description": "Fixed-price rewards from Offer Tribute.\nClear Divine Predation and complete achievements. Gameplay ended May 18; the shop and achievement claims stayed open until May 25.\nClear Culinary Dominion to earn the Voracious Resolve Posse. The Dreamscape was free to unlock during the event and costs 7 Reality Verge afterward if not already unlocked.",
@@ -1823,7 +1823,7 @@
     "rerun": true
   },
   {
-    "id": "event-campaign-half-anniversary",
+    "id": "to-the-stars-260518",
     "title": "To the Stars",
     "category": "anniversary",
     "description": "Free commemorative SSR Wheel.\nEach of your first 16 logins awards one copy. Login days don’t have to be consecutive.",
@@ -1914,7 +1914,7 @@
     ]
   },
   {
-    "id": "event-dreamy-rendezvous",
+    "id": "dreamy-rendezvous-260518",
     "title": "Dreamy Rendezvous",
     "category": "anniversary",
     "description": "Free Saya and anniversary rewards.\nComplete all three missions to unlock Saya. Premium Archives adds rewards for the same missions, including both Rewind Cores for completing them all.",
@@ -2083,7 +2083,7 @@
     ]
   },
   {
-    "id": "event-meowch-obliged",
+    "id": "meowch-obliged-260518",
     "title": "Meowch Obliged!",
     "category": "anniversary",
     "description": "Seven stages with personal and campus rewards.\nOne stage unlocks each day. Each needs a Support Keeper and can be retried. New entries closed Jun 15. If the campus reached one million captures by then, the event ended Jun 29; otherwise it ended 14 days after reaching that goal.",
@@ -2272,7 +2272,7 @@
     ]
   },
   {
-    "id": "event-wheel-blossom-court",
+    "id": "blossom-court-260518",
     "title": "Blossom Court",
     "category": "wheel-event",
     "description": "Earn 4 free copies of Sakura Reveries.\nPremium Archives adds 12 more copies.",
@@ -2492,7 +2492,7 @@
     ]
   },
   {
-    "id": "event-curated-gift-boxes",
+    "id": "new-arrivals-boxes-260518",
     "title": "New Arrivals Gift Boxes",
     "category": "bundle",
     "description": "Four limited-time shop bundles: two avatar boxes and two customizable material packs.",
@@ -2668,7 +2668,7 @@
     ]
   },
   {
-    "id": "event-dreamy-offering",
+    "id": "dreamy-offering-260518",
     "title": "Dreamy Offering",
     "category": "milestone",
     "description": "Up to 1,000 Dreamsparks from Awakening milestones.",
@@ -2719,7 +2719,7 @@
     ]
   },
   {
-    "id": "event-login-season-33",
+    "id": "mythag-gifts-260518",
     "title": "Gifts from Mythag",
     "category": "login",
     "description": "10 Luminous Cores across the first 7 logins, with more rewards throughout the 28-day event.",
@@ -2728,7 +2728,7 @@
     "customArt": "/events/gifts-from-mythag.webp"
   },
   {
-    "id": "event-curriculum-season-33",
+    "id": "curriculum-260518",
     "title": "Curriculum Honor",
     "category": "curriculum",
     "description": "Earn limited avatars and Traphase emotes. Complete daily and weekly tasks.\n Limited avatars: Saya, Doll: Inferno and Caecus. Traphase emotes: Nautila, Goliath and Karen.",
@@ -2737,7 +2737,7 @@
     "customArt": "/events/curriculum.webp"
   },
   {
-    "id": "event-preorder-unfading-memories",
+    "id": "unfading-memories-260518",
     "title": "Unfading Memories",
     "category": "preorder",
     "description": "100 free Silver and seven paid gift packs.",
@@ -2921,7 +2921,7 @@
     ]
   },
   {
-    "id": "event-stream-of-infatuation",
+    "id": "stream-infatuation-260518",
     "title": "Stream of Infatuation",
     "category": "milestone",
     "description": "Astral Reign selectors and an avatar frame from Prime Extraction.\nMilestones counted paid Silver Prime obtained through Prime Extraction, not Silver Prime spent. Bonus Silver Prime from extraction did not count.",
@@ -2992,7 +2992,7 @@
     ]
   },
   {
-    "id": "event-skin-hameln",
+    "id": "ouverture-260615",
     "title": "Ouvertüre Universell",
     "category": "skin",
     "description": "Free Hameln outfit.\nComplete all five missions to unlock the skin. After the event, it costs 680 Silver Prime in Garment Ordering.",
@@ -3082,7 +3082,7 @@
     ]
   },
   {
-    "id": "event-login-season-34",
+    "id": "mythag-gifts-260615",
     "title": "Gifts from Mythag",
     "category": "login",
     "description": "10 Luminous Cores across the first 7 logins, with more rewards throughout the 14-day event.",
@@ -3091,7 +3091,7 @@
     "customArt": "/events/gifts-from-mythag.webp"
   },
   {
-    "id": "event-curriculum-season-34",
+    "id": "curriculum-260615",
     "title": "Curriculum Honor",
     "category": "curriculum",
     "description": "Earn doubled EXP and pay less for Premium Topics. Complete daily and weekly tasks.\n Limited avatars: Thais, Pharos and Ryker. Traphase emotes: Uvhash, Aurita and Jenkin.",
@@ -3100,7 +3100,7 @@
     "customArt": "/events/curriculum.webp"
   },
   {
-    "id": "event-story-rerun-invisible-symphony",
+    "id": "invisible-symphony-260615",
     "title": "Invisible Symphony",
     "category": "gameplay-event",
     "description": "SR Wheel copies and a limited Hameln avatar.\nClear Roaring Machines and complete achievements. Somnus Citadel sold fixed rewards for Aria's Peak. Gameplay ended Jul 13; the shop and achievements were available through Jul 20. Leftover currency converted to 40 Rose Scrip each.",
@@ -3264,7 +3264,7 @@
     "rerun": true
   },
   {
-    "id": "event-story-saya",
+    "id": "inverted-rebirth-260530",
     "title": "Inverted Rebirth",
     "category": "gameplay-event",
     "description": "SR Wheel copies and a limited Saya avatar.\nClear Dark Chamber Notes and complete achievements. Dandelion Garden drew five rewards for 750 matching Scale Dust.\nGameplay ended Aug 24; shop and achievement claims stayed open until Aug 31. Clear Forgotten Seed of Love for the For the New World Posse.",
@@ -3358,7 +3358,7 @@
     "pinned": true
   },
   {
-    "id": "event-story-forgotten-seed-of-love",
+    "id": "seed-of-love-260530",
     "title": "Forgotten Seed of Love",
     "category": "story",
     "description": "Permanent Multiverse Link side story. Clear it to earn the For the New World Posse.\nPart 1 opened May 30 and Part 2 on Jun 6. Free to unlock through Aug 24; if not already unlocked, it costs 3 Reality Verge afterward. Progress carries over.",
@@ -3378,7 +3378,7 @@
     "pricing": "Free during event"
   },
   {
-    "id": "event-wheel-dreaming-of-wonderland",
+    "id": "wonderland-diary-260629",
     "title": "Wonderland Diary",
     "category": "wheel-event",
     "description": "Earn 4 free copies of Dreaming of Wonderland.\nPremium Archives adds 12 more copies.",
@@ -3597,7 +3597,7 @@
     ]
   },
   {
-    "id": "event-login-season-35",
+    "id": "mythag-gifts-260629",
     "title": "Gifts from Mythag",
     "category": "login",
     "description": "10 Luminous Cores across the first 7 logins, with more rewards throughout the 28-day event.",
@@ -3606,7 +3606,7 @@
     "customArt": "/events/gifts-from-mythag.webp"
   },
   {
-    "id": "event-curriculum-season-35",
+    "id": "curriculum-260629",
     "title": "Curriculum Honor",
     "category": "curriculum",
     "description": "Advanced: 680 Silver Prime. Premium: 1,280 Silver Prime.\n Complete daily and weekly tasks.\n Free track: basic rewards. Advanced Topics: SSR Wheel selector, Silver and Luminous Cores. Premium includes Advanced rewards and adds limited cosmetics and other extras.",
@@ -3616,7 +3616,7 @@
     "pricing": "680-1280 Silver Prime"
   },
   {
-    "id": "event-story-pontos",
+    "id": "ebwynnos-260629",
     "title": "Ebwynnos Evermore",
     "category": "gameplay-event",
     "description": "SR Wheel copies and a limited Pontos avatar.\nClear The High House Hunt and complete achievements. Hunting Grounds sold fixed rewards across three shops. Gameplay ended Jul 27; the shops and achievement claims stayed open until Aug 3.\nClear the Ebwynnos Evermore Psyche Deepdive to earn The Hollow One Posse. It was free to unlock during the event and costs 3 Reality Verge afterward if not already unlocked.",
@@ -3806,7 +3806,7 @@
     "pinned": true
   },
   {
-    "id": "event-story-rerun-summer-under-black-sun",
+    "id": "black-sun-260706",
     "title": "Summer under Black Sun",
     "category": "gameplay-event",
     "description": "Seven cumulative logins for 10 Luminous Cores and a limited avatar.\nSummer Fiesta awarded the Volleyball \"Champion\" avatar on the seventh login. See You in Neverland was free to unlock during the event; if missed, it costs 7 Reality Verge afterward. Clearing it awards the Beachside Memento Posse.",
@@ -3841,7 +3841,7 @@
     "rerun": true
   },
   {
-    "id": "event-story-rerun-helot-catena",
+    "id": "til-snow-melts-260713",
     "title": "Til the Snow Melts",
     "category": "gameplay-event",
     "description": "SR Wheel copies and a limited Helot: Catena avatar.\nClear Beast Ambition and complete achievements. Mountain Maw drew five rewards for 750 matching Buds.\nGameplay ended Aug 10; shop and achievement claims stayed open until Aug 17. Clear Elworth's Returnee for The Mountains' Resolve Posse.",
@@ -3934,7 +3934,7 @@
     "rerun": true
   },
   {
-    "id": "event-story-lotan-cetarchon",
+    "id": "cetus-falls-260727",
     "title": "Till the Cetus Falls",
     "category": "gameplay-event",
     "description": "SR Wheel copies and a limited Lotan: Cetarchon avatar.\nClear Greed and Bloodlust and complete achievements. Arena Altar sold fixed rewards for Crimson Sacrifice. Gameplay ended Aug 24; the shop and achievement claims stayed open until Aug 31.\nClear the Till the Cetus Falls Psyche Deepdive to earn the Cetus-Devouring Storm Posse. It was free to unlock during the event and costs 3 Reality Verge afterward if not already unlocked.",
@@ -4102,7 +4102,7 @@
     "pinned": true
   },
   {
-    "id": "event-wheel-falling-upward",
+    "id": "witness-to-all-260727",
     "title": "Witness to All",
     "category": "wheel-event",
     "description": "Earn 4 free copies of Falling Upward.\nPremium Archives adds 12 more copies.",
@@ -4322,7 +4322,7 @@
     ]
   },
   {
-    "id": "event-login-season-36",
+    "id": "mythag-gifts-260727",
     "title": "Gifts from Mythag",
     "category": "login",
     "description": "10 Luminous Cores across the first 7 logins, with more rewards throughout the 28-day event.",
@@ -4331,7 +4331,7 @@
     "customArt": "/events/gifts-from-mythag.webp"
   },
   {
-    "id": "event-curriculum-season-36",
+    "id": "curriculum-260727",
     "title": "Curriculum Honor",
     "category": "curriculum",
     "description": "Advanced: 680 Silver Prime. Premium: 1,280 Silver Prime.\n Complete daily and weekly tasks.\n Free track: basic rewards. Advanced Topics: SSR Wheel selector, Silver and Luminous Cores. Premium includes Advanced rewards and adds limited cosmetics and other extras.",
@@ -4341,7 +4341,7 @@
     "pricing": "680-1280 Silver Prime"
   },
   {
-    "id": "event-story-rerun-if-life-was-as-usual",
+    "id": "life-as-usual-260803",
     "title": "If Life Was As Usual",
     "category": "gameplay-event",
     "description": "Fixed-price rewards from the Student Union Building.\nClear New Thing Under the Sun and complete achievements. Gameplay ended Aug 17; the shop and achievement claims stayed open until Aug 24.\nClear See You, Neverland to earn the A Fleeting Dream Posse. The Dreamscape was free to unlock during the event and costs 7 Reality Verge afterward if not already unlocked.",
@@ -4500,7 +4500,7 @@
     "rerun": true
   },
   {
-    "id": "event-preorder-myriad-wishcraft",
+    "id": "myriad-wishcraft-260810",
     "title": "Myriad Wishcraft",
     "category": "preorder",
     "description": "100 free Silver and seven paid gift packs.",
@@ -4684,7 +4684,7 @@
     ]
   },
   {
-    "id": "event-story-rerun-before-spring-fades",
+    "id": "before-spring-fades-260810",
     "title": "Before Spring Fades",
     "category": "gameplay-event",
     "description": "SR Wheel copies and a limited Horla avatar.\nClear Garden Memories and complete achievements. Colette's Flowerhouse drew five rewards for 750 matching Poems.\nGameplay ended Sep 7; shop and achievement claims stayed open until Sep 14. Unspent Poems converted to 40 Rose Scrip each. Clear Rose Habitat for the Spring's Verse Posse.",
@@ -4777,7 +4777,7 @@
     "rerun": true
   },
   {
-    "id": "event-story-caraboo",
+    "id": "new-moon-snow-260824",
     "title": "New Moon and Deep Snow",
     "category": "gameplay-event",
     "description": "SR Wheel copies and a limited Caraboo avatar.\nClear Umapati's Treasures and complete achievements. Fairy's Rituals drew five rewards for 750 matching Apples.\nGameplay ended Sep 21; shop and achievement claims stayed open until Sep 28.",
@@ -4867,7 +4867,7 @@
     "pinned": true
   },
   {
-    "id": "event-wheel-soul-synchronization",
+    "id": "after-school-260824",
     "title": "After School Hours",
     "category": "wheel-event",
     "description": "Earn 4 free copies of Soul Synchronization.\nPremium Archives adds 12 more copies.",
@@ -5087,7 +5087,7 @@
     ]
   },
   {
-    "id": "event-login-season-37",
+    "id": "mythag-gifts-260824",
     "title": "Gifts from Mythag",
     "category": "login",
     "description": "10 Luminous Cores across the first 7 logins, with more rewards throughout the 28-day event.",
@@ -5096,7 +5096,7 @@
     "customArt": "/events/gifts-from-mythag.webp"
   },
   {
-    "id": "event-curriculum-season-37",
+    "id": "curriculum-260824",
     "title": "Curriculum Honor",
     "category": "curriculum",
     "description": "Advanced: 680 Silver Prime. Premium: 1,280 Silver Prime.\n Complete daily and weekly tasks.\n Free track: basic rewards. Advanced Topics: SSR Wheel selector, Silver and Luminous Cores. Premium includes Advanced rewards and adds limited cosmetics and other extras.",
@@ -5106,7 +5106,7 @@
     "pricing": "680-1280 Silver Prime"
   },
   {
-    "id": "event-story-rerun-a-million-suns-descend",
+    "id": "million-suns-260907",
     "title": "A Million Suns Descend",
     "category": "gameplay-event",
     "description": "SR Wheel copies and a limited Kathigu-Ra avatar.\nClear Hunt of the Charred and complete achievements. A Hidden Base sold fixed rewards across three shops. Gameplay ended Oct 5; the shops and achievement claims stayed open until Oct 12.\nClear Everburning Vex to earn the Undying Sun Posse. The Psyche Deepdive was free to unlock during the event and costs 3 Reality Verge afterward if not already unlocked.",
@@ -5296,7 +5296,7 @@
     "rerun": true
   },
   {
-    "id": "event-story-ogier-oathbound",
+    "id": "should-glory-fade-260921",
     "title": "Should Glory Fade",
     "category": "gameplay-event",
     "description": "SR Wheel copies and a limited Ogier: Oathbound avatar.\nClear Quest for the Grail and complete achievements. Peddler's Pack sold fixed rewards for Medals of Old. Gameplay ended Oct 19; the shop and achievement claims stayed open until Oct 26. Unspent medals converted to 40 Rose Scrip each.",
@@ -5460,7 +5460,7 @@
     "pinned": true
   },
   {
-    "id": "event-wheel-darker-than-darkness",
+    "id": "born-in-darkness-260921",
     "title": "Born in Darkness",
     "category": "wheel-event",
     "description": "Earn 4 free copies of Darker than Darkness.\nPremium Archives adds 12 more copies.",
@@ -5680,7 +5680,7 @@
     ]
   },
   {
-    "id": "event-login-season-38",
+    "id": "mythag-gifts-260921",
     "title": "Gifts from Mythag",
     "category": "login",
     "description": "10 Luminous Cores across the first 7 logins, with more rewards throughout the 28-day event.",
@@ -5689,7 +5689,7 @@
     "customArt": "/events/gifts-from-mythag.webp"
   },
   {
-    "id": "event-curriculum-season-38",
+    "id": "curriculum-260921",
     "title": "Curriculum Honor",
     "category": "curriculum",
     "description": "Advanced: 680 Silver Prime. Premium: 1,280 Silver Prime.\n Complete daily and weekly tasks.\n Free track: basic rewards. Advanced Topics: SSR Wheel selector, Silver and Luminous Cores. Premium includes Advanced rewards and adds limited cosmetics and other extras.",
@@ -5699,7 +5699,7 @@
     "pricing": "680-1280 Silver Prime"
   },
   {
-    "id": "event-preorder-witchs-nocturnal-operation",
+    "id": "sneaky-witch-261012",
     "title": "Sneaky Witch O'Clock",
     "category": "preorder",
     "description": "100 free Silver and seven paid gift packs.",
@@ -5883,7 +5883,7 @@
     ]
   },
   {
-    "id": "event-story-rerun-mirrored-prisoner",
+    "id": "mirrored-prisoner-261005",
     "title": "Mirrored Prisoner",
     "category": "gameplay-event",
     "description": "SR Wheel copies and a limited Castor avatar.\nClear Skybound Spirit and complete achievements. Thirst for Knowledge sold fixed rewards across three electives. Gameplay ended Nov 2; the shops and achievement claims stayed open until Nov 9.\nClear Beyond the Skies: Part I to earn the Derision of Destiny Posse. The Dreamscape was free to unlock during the event and costs 7 Reality Verge afterward if not already unlocked.",
@@ -6073,7 +6073,7 @@
     "rerun": true
   },
   {
-    "id": "event-story-vivian",
+    "id": "then-there-were-none-261019",
     "title": "And Then There Were None",
     "category": "gameplay-event",
     "description": "SR Wheel copies and a limited Vivian avatar.\nClear event stages and complete achievements. The cauldron drew five rewards for 750 matching Toad Tokens.\nGameplay ended Nov 16; shop and achievement claims stay open until Nov 23. Clear Princess Diary for the Nightborn Evil Posse.",
@@ -6167,7 +6167,7 @@
     "pinned": true
   },
   {
-    "id": "event-wheel-imagos-clinic",
+    "id": "soul-anatomist-261019",
     "title": "Soul Anatomist",
     "category": "wheel-event",
     "description": "Earn 4 free copies of Imago's Clinic.\nPremium Archives adds 12 more copies.",
@@ -6387,7 +6387,7 @@
     ]
   },
   {
-    "id": "event-login-season-39",
+    "id": "mythag-gifts-261019",
     "title": "Gifts from Mythag",
     "category": "login",
     "description": "10 Luminous Cores across the first 7 logins, with more rewards throughout the 28-day event.",
@@ -6396,7 +6396,7 @@
     "customArt": "/events/gifts-from-mythag.webp"
   },
   {
-    "id": "event-curriculum-season-39",
+    "id": "curriculum-261019",
     "title": "Curriculum Honor",
     "category": "curriculum",
     "description": "Advanced: 680 Silver Prime. Premium: 1,280 Silver Prime.\n Complete daily and weekly tasks.\n Free track: basic rewards. Advanced Topics: SSR Wheel selector, Silver and Luminous Cores. Premium includes Advanced rewards and adds limited cosmetics and other extras.",
@@ -6406,7 +6406,7 @@
     "pricing": "680-1280 Silver Prime"
   },
   {
-    "id": "event-story-rerun-dark-side-of-the-canvas",
+    "id": "pickman-canvas-261102",
     "title": "Dark Side of the Canvas",
     "category": "gameplay-event",
     "description": "SR Wheel copies and a limited Pickman avatar.\nClear Bizarre Sketch and complete achievements. Each draw at Pickman's Studio gives five rewards for 750 of the matching paint.\nClear Ghastly Canvas for the Void Hues Posse. Progress carries over; if you miss the free unlock, it costs 3 Reality Verge afterward.",
@@ -6505,7 +6505,7 @@
     ]
   },
   {
-    "id": "event-skin-rerun-candy-snatcher",
+    "id": "no-candy-no-tricks-261019",
     "title": "No Candy, No Tricks",
     "category": "skin",
     "description": "Murphy’s 4☆ outfit rerun.\nThe first draw is free. Candy Snatcher can first drop on draw 5 (480 Silver Prime total). By draw 10 (1,980 Silver Prime total), all prizes are obtained. Prizes don’t repeat; existing owners get a Rebirth Core instead of the skin.",
@@ -6560,7 +6560,7 @@
     ]
   },
   {
-    "id": "event-constellated-memories",
+    "id": "constellated-memories-261116",
     "title": "Constellated Memories",
     "category": "milestone",
     "description": "Five free pulls daily.\nChoose either Kaleido Recollections banner for your free daily Awaken ×5. The free pull is shared, and awakenings on either banner count toward the same milestones.",
@@ -6624,10 +6624,10 @@
         ]
       }
     ],
-    "related": ["banner-kaleido-recollections-faded-legacy-nov", "banner-kaleido-recollections-astral-reign-nov"]
+    "related": ["kaleido-fl-261116", "kaleido-ar-261116"]
   },
   {
-    "id": "event-preorder-homecoming-stars",
+    "id": "homecoming-stars-261121",
     "title": "Homecoming Stars",
     "category": "preorder",
     "description": "100 free Silver and seven paid gift packs.",
@@ -6811,7 +6811,7 @@
     ]
   },
   {
-    "id": "event-skin-cuckoo-at-seven",
+    "id": "cuckoo-at-seven-261116",
     "title": "Cuckoo at Seven",
     "category": "skin",
     "description": "Free Lily outfit.\nComplete all five missions to unlock the skin. After the event, it costs 680 Silver Prime in Garment Ordering.",
@@ -6898,7 +6898,7 @@
     ]
   },
   {
-    "id": "event-wheel-aquamarine-dream",
+    "id": "aquamarine-dream-261116",
     "title": "Aquamarine Dream",
     "category": "wheel-event",
     "description": "Earn 4 free copies of Next Time It Rains.\nStandard missions also award 30 Pure Cores. Premium adds 12 copies and 60 Luminous Cores.",
@@ -7119,7 +7119,7 @@
     ]
   },
   {
-    "id": "event-login-season-40",
+    "id": "mythag-gifts-261116",
     "title": "Gifts from Mythag",
     "category": "login",
     "description": "Daily login rewards.\nThe first seven logins earn 10 Luminous Cores in total. Login days don't have to be consecutive.",
@@ -7196,7 +7196,7 @@
     ]
   },
   {
-    "id": "event-curriculum-season-40",
+    "id": "curriculum-261116",
     "title": "Curriculum Honor",
     "category": "curriculum",
     "description": "Battle pass with double Topic EXP.\nComplete daily and weekly tasks to earn Topic EXP and unlock rewards as you level up. Basic Topics is free. Advanced Topics unlocks extra level rewards, including an SSR Wheel selector. Premium includes Advanced and adds exclusive cosmetics and an immediate 20-level boost.",

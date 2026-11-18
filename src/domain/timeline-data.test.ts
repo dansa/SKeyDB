@@ -30,7 +30,7 @@ describe('timeline data loading', () => {
     expect(() => loadTimelineEvents([{...event, keyDates: [{label: '', date: 'bad'}]}])).toThrow()
   })
   it('keeps the November Kaleido pools and shared milestones tied to that run', () => {
-    const event = timelineEvents.find(({id}) => id === 'event-constellated-memories')
+    const event = timelineEvents.find(({id}) => id === 'constellated-memories-261116')
     expect(event?.missions).toEqual([
       ...[50, 100, 150].map((n) => ({
         label: `${String(n)} total awakenings`,
@@ -78,12 +78,12 @@ describe('timeline data loading', () => {
     ).toThrow(/missing bundled card or detail art/)
   })
   it('loads all sixteen anniversary login claims, verified Archives and separate capture logs', () => {
-    const stars = timelineEvents.find(({id}) => id === 'event-campaign-half-anniversary')
+    const stars = timelineEvents.find(({id}) => id === 'to-the-stars-260518')
     expect(stars?.rewards?.[0]?.layout).toBe('days')
     expect(stars?.rewards?.[0]?.items).toEqual(
       Array.from({length: 16}, () => ({name: 'To the Stars', amount: '×1'})),
     )
-    const rendezvous = timelineEvents.find(({id}) => id === 'event-dreamy-rendezvous')
+    const rendezvous = timelineEvents.find(({id}) => id === 'dreamy-rendezvous-260518')
     expect(rendezvous?.pricing).toBe('3980 Silver Prime')
     expect(rendezvous?.missions?.at(-1)).toMatchObject({
       standard: expect.arrayContaining([{name: 'Saya', amount: '×1'}]),
@@ -92,7 +92,7 @@ describe('timeline data loading', () => {
         {name: 'Fate Rewind Core', amount: '×1'},
       ]),
     })
-    const meowch = timelineEvents.find(({id}) => id === 'event-meowch-obliged')
+    const meowch = timelineEvents.find(({id}) => id === 'meowch-obliged-260518')
     expect(meowch?.rewards?.map(({title}) => title)).toEqual([
       'Personal Capture Log',
       'Campus Capture Log',
@@ -107,12 +107,12 @@ describe('timeline data loading', () => {
     }
   })
   it.each([
-    ['24', 'Crimson Kaede', '980 Silver Prime', 9],
-    ['wanda', 'With Spikenard and Myrrh', 'Free', 6],
-    ['hameln', 'Ouvertüre Universell', 'Free', 6],
-    ['rerun-candy-snatcher', 'Candy Snatcher', '480-1980 Silver Prime', 0],
+    ['crimson-heartwood-260223', 'Crimson Kaede', '980 Silver Prime', 9],
+    ['spikenard-myrrh-260406', 'With Spikenard and Myrrh', 'Free', 6],
+    ['ouverture-260615', 'Ouvertüre Universell', 'Free', 6],
+    ['no-candy-no-tricks-261019', 'Candy Snatcher', '480-1980 Silver Prime', 0],
   ])('loads verified skin rewards and art for %s', (id, skin, price, missions) => {
-    const entry = timelineEvents.find(({id: eventId}) => eventId === `event-skin-${id}`)
+    const entry = timelineEvents.find(({id: eventId}) => eventId === id)
     expect(entry?.pricing).toBe(price)
     expect(entry?.missions ?? []).toHaveLength(missions)
     expect(entry?.rewards?.flatMap(({items}) => items)).toContainEqual({name: skin, amount: '×1'})
@@ -120,7 +120,7 @@ describe('timeline data loading', () => {
       card: expect.stringContaining('-card.webp'),
       detail: expect.stringContaining('-detail.webp'),
     })
-    if (id === '24') {
+    if (id === 'crimson-heartwood-260223') {
       expect(entry?.title).toBe('Crimson Heartwood')
       expect(entry?.endDate).toBe('2026-03-23T01:00:00.000Z')
       expect(entry?.missions?.at(-1)).toMatchObject({
@@ -131,7 +131,7 @@ describe('timeline data loading', () => {
   })
   it.each([
     [
-      'event-preorder-arachne',
+      'conjugated-fates-260406',
       'Conjugated Fates',
       '"Moirae Weaver" avatar',
       '2026-04-20',
@@ -139,7 +139,7 @@ describe('timeline data loading', () => {
       null,
     ],
     [
-      'event-preorder-unfading-memories',
+      'unfading-memories-260518',
       'Unfading Memories',
       '"Bon Appetite" avatar',
       '2026-05-30',
@@ -147,7 +147,7 @@ describe('timeline data loading', () => {
       '2026-07-06',
     ],
     [
-      'event-preorder-myriad-wishcraft',
+      'myriad-wishcraft-260810',
       'Myriad Wishcraft',
       '"Trickery in Motion" avatar',
       '2026-08-24',
@@ -155,7 +155,7 @@ describe('timeline data loading', () => {
       '2026-09-28',
     ],
     [
-      'event-preorder-witchs-nocturnal-operation',
+      'sneaky-witch-261012',
       "Sneaky Witch O'Clock",
       '"Do Not Knock" avatar',
       '2026-10-19',
@@ -186,15 +186,15 @@ describe('timeline data loading', () => {
     },
   )
   it.each([
-    ['event-wheel-ryker', 980, 25, 25],
-    ['event-wheel-private-afternoon', 980, 25, 25],
-    ['event-wheel-blossom-court', 980, 25, 25],
-    ['event-wheel-dreaming-of-wonderland', 1680, 30, 60],
-    ['event-wheel-falling-upward', 1680, 30, 60],
-    ['event-wheel-soul-synchronization', 1680, 30, 60],
-    ['event-wheel-darker-than-darkness', 1680, 30, 60],
-    ['event-wheel-imagos-clinic', 1680, 30, 60],
-    ['event-wheel-aquamarine-dream', 1680, 30, 60],
+    ['lucky-winner-260309', 980, 25, 25],
+    ['heure-du-the-260420', 980, 25, 25],
+    ['blossom-court-260518', 980, 25, 25],
+    ['wonderland-diary-260629', 1680, 30, 60],
+    ['witness-to-all-260727', 1680, 30, 60],
+    ['after-school-260824', 1680, 30, 60],
+    ['born-in-darkness-260921', 1680, 30, 60],
+    ['soul-anatomist-261019', 1680, 30, 60],
+    ['aquamarine-dream-261116', 1680, 30, 60],
   ])('loads both verified Archive tracks for %s', (id, price, pure, luminous) => {
     const event = timelineEvents.find((entry) => entry.id === id)
     expect(event?.pricing).toBe(`${String(price)} Silver Prime`)
@@ -225,7 +225,7 @@ describe('timeline data loading', () => {
     })
   })
   it('resolves both bundled Curriculum artwork variants', () => {
-    const event = timelineEvents.find(({id}) => id === 'event-curriculum-season-40')
+    const event = timelineEvents.find(({id}) => id === 'curriculum-261116')
     expect(event?.artVariants).toEqual({
       card: expect.stringContaining('curriculum-card.webp'),
       detail: expect.stringContaining('curriculum-detail.webp'),
@@ -260,13 +260,13 @@ describe('timeline data loading', () => {
     ).toEqual(['event-test'])
   })
   it('links the landed Vivian content and resolves the new event artwork', () => {
-    const banner = timelineBanners.find((entry) => entry.id === 'banner-vivian')
+    const banner = timelineBanners.find((entry) => entry.id === 'vivian-duo-261019')
     expect(banner?.featured).toEqual([
       expect.objectContaining({name: 'Vivian', realmId: 'CHAOS', detailLink: undefined}),
       expect.objectContaining({name: "The Seer's Riddle", detailLink: undefined}),
     ])
 
-    const story = timelineEvents.find((entry) => entry.id === 'event-story-vivian')
+    const story = timelineEvents.find((entry) => entry.id === 'then-there-were-none-261019')
     expect(story?.featured?.[0]).toMatchObject({
       name: 'Vivian',
       realmId: 'CHAOS',
@@ -274,15 +274,14 @@ describe('timeline data loading', () => {
     })
     expect(story?.customArt).toContain('and-then-there-were-none')
 
-    const clinic = timelineEvents.find((entry) => entry.id === 'event-wheel-imagos-clinic')
+    const clinic = timelineEvents.find((entry) => entry.id === 'soul-anatomist-261019')
     expect(clinic?.featured?.[0]).toMatchObject({
       name: "Imago's Clinic",
       detailLink: undefined,
     })
     expect(clinic?.customArt).toContain('soul-anatomist')
     expect(
-      timelineEvents.find((entry) => entry.id === 'event-story-rerun-dark-side-of-the-canvas')
-        ?.customArt,
+      timelineEvents.find((entry) => entry.id === 'pickman-canvas-261102')?.customArt,
     ).toContain('dark-side-of-the-canvas')
   })
 
@@ -315,10 +314,8 @@ describe('timeline data loading', () => {
   })
 
   it('loads split event featured entries and opt-out detail links', () => {
-    const splitEvent = timelineEvents.find(
-      (event) => event.id === 'event-story-rerun-great-conquering',
-    )
-    const preorder = timelineEvents.find((event) => event.id === 'event-preorder-arachne')
+    const splitEvent = timelineEvents.find((event) => event.id === 'great-conquering-260504')
+    const preorder = timelineEvents.find((event) => event.id === 'conjugated-fates-260406')
 
     expect(splitEvent?.featured).toMatchObject([
       {name: 'Agrippa', kind: 'awakener'},
@@ -334,22 +331,16 @@ describe('timeline data loading', () => {
   })
 
   it('loads anniversary and collab timeline surfaces', () => {
-    const anniversaryLogin = timelineEvents.find(
-      (event) => event.id === 'event-campaign-half-anniversary',
-    )
-    const dreamyRendezvous = timelineEvents.find((event) => event.id === 'event-dreamy-rendezvous')
-    const meowch = timelineEvents.find((event) => event.id === 'event-meowch-obliged')
-    const giftBoxes = timelineEvents.find((event) => event.id === 'event-curated-gift-boxes')
-    const preorder = timelineEvents.find((event) => event.id === 'event-preorder-unfading-memories')
-    const season33Login = timelineEvents.find((event) => event.id === 'event-login-season-33')
-    const season34Curriculum = timelineEvents.find(
-      (event) => event.id === 'event-curriculum-season-34',
-    )
-    const collabEvent = timelineEvents.find((event) => event.id === 'event-story-saya')
-    const collabSideStory = timelineEvents.find(
-      (event) => event.id === 'event-story-forgotten-seed-of-love',
-    )
-    const collabBanner = timelineBanners.find((banner) => banner.id === 'banner-saya-no-uta-collab')
+    const anniversaryLogin = timelineEvents.find((event) => event.id === 'to-the-stars-260518')
+    const dreamyRendezvous = timelineEvents.find((event) => event.id === 'dreamy-rendezvous-260518')
+    const meowch = timelineEvents.find((event) => event.id === 'meowch-obliged-260518')
+    const giftBoxes = timelineEvents.find((event) => event.id === 'new-arrivals-boxes-260518')
+    const preorder = timelineEvents.find((event) => event.id === 'unfading-memories-260518')
+    const season33Login = timelineEvents.find((event) => event.id === 'mythag-gifts-260518')
+    const season34Curriculum = timelineEvents.find((event) => event.id === 'curriculum-260615')
+    const collabEvent = timelineEvents.find((event) => event.id === 'inverted-rebirth-260530')
+    const collabSideStory = timelineEvents.find((event) => event.id === 'seed-of-love-260530')
+    const collabBanner = timelineBanners.find((banner) => banner.id === 'saya-collab-260530')
 
     expect(anniversaryLogin).toMatchObject({
       category: 'anniversary',
@@ -442,8 +433,8 @@ describe('timeline data loading', () => {
   })
 
   it('keeps anniversary milestone thresholds and rewards in order', () => {
-    const dreamy = timelineEvents.find((event) => event.id === 'event-dreamy-offering')
-    const stream = timelineEvents.find((event) => event.id === 'event-stream-of-infatuation')
+    const dreamy = timelineEvents.find((event) => event.id === 'dreamy-offering-260518')
+    const stream = timelineEvents.find((event) => event.id === 'stream-infatuation-260518')
     expect(dreamy?.missions?.map((tier) => [tier.label, tier.standard[0]?.amount])).toEqual([
       ['100 Awakens', '×100'],
       ['250 Awakens', '×200'],
@@ -470,11 +461,9 @@ describe('timeline data loading', () => {
   })
 
   it('enables database details for the current Lotan and Falling Upward timeline entries', () => {
-    const lotanBanner = timelineBanners.find((banner) => banner.id === 'banner-lotan-cetarchon')
-    const lotanEvent = timelineEvents.find((event) => event.id === 'event-story-lotan-cetarchon')
-    const fallingUpwardEvent = timelineEvents.find(
-      (event) => event.id === 'event-wheel-falling-upward',
-    )
+    const lotanBanner = timelineBanners.find((banner) => banner.id === 'lotan-duo-260727')
+    const lotanEvent = timelineEvents.find((event) => event.id === 'cetus-falls-260727')
+    const fallingUpwardEvent = timelineEvents.find((event) => event.id === 'witness-to-all-260727')
 
     expect(lotanBanner?.featured).toMatchObject([
       {
@@ -494,7 +483,7 @@ describe('timeline data loading', () => {
       {name: 'Undying Hungerbone', amount: '×6'},
       {name: 'Undying Hungerbone', amount: '×10'},
     ])
-    const helot = timelineEvents.find((event) => event.id === 'event-story-rerun-helot-catena')
+    const helot = timelineEvents.find((event) => event.id === 'til-snow-melts-260713')
     expect(helot?.rewards?.slice(0, 2).map((group) => group.items[0])).toEqual([
       {name: 'Til the Snow Melts', amount: '×7'},
       {name: 'Til the Snow Melts', amount: '×9'},
@@ -505,10 +494,10 @@ describe('timeline data loading', () => {
   })
 
   it('enables released Caraboo timeline details without prerelease realm overrides', () => {
-    const carabooBanner = timelineBanners.find((banner) => banner.id === 'banner-caraboo')
-    const carabooEvent = timelineEvents.find((event) => event.id === 'event-story-caraboo')
+    const carabooBanner = timelineBanners.find((banner) => banner.id === 'caraboo-duo-260824')
+    const carabooEvent = timelineEvents.find((event) => event.id === 'new-moon-snow-260824')
     const soulSynchronizationEvent = timelineEvents.find(
-      (event) => event.id === 'event-wheel-soul-synchronization',
+      (event) => event.id === 'after-school-260824',
     )
 
     expect(carabooBanner?.featured).toMatchObject([
@@ -523,9 +512,7 @@ describe('timeline data loading', () => {
       {name: 'Serene Truth', amount: '×7'},
       {name: 'Serene Truth', amount: '×9'},
     ])
-    const suns = timelineEvents.find(
-      (event) => event.id === 'event-story-rerun-a-million-suns-descend',
-    )
+    const suns = timelineEvents.find((event) => event.id === 'million-suns-260907')
     expect(suns?.rewards?.slice(0, 4).map((group) => group.items[0])).toEqual([
       {name: 'Impending Sun', amount: '×7'},
       {name: 'Impending Sun', amount: '×3'},
@@ -543,7 +530,7 @@ describe('timeline data loading', () => {
       ['warden', 6],
       ['chorus', 12],
     ] as const) {
-      const banner = timelineBanners.find(({id}) => id === `banner-stars-in-full-bloom-${role}`)
+      const banner = timelineBanners.find(({id}) => id === `stars-bloom-${role}-260530`)
       expect(banner).toMatchObject({
         type: 'premium',
         pricing: 'USD 29.99',
@@ -556,16 +543,14 @@ describe('timeline data loading', () => {
     }
     expect(
       timelineBanners
-        .find(({id}) => id === 'banner-stars-in-full-bloom-assault')
+        .find(({id}) => id === 'stars-bloom-assault-260530')
         ?.poolSlots?.[0]?.pool.map(({name}) => name),
     ).toContain('Helot: Catena')
   })
 
   it('loads the May Kaleido SSR pools with their limited Genesis entries', () => {
-    const faded = timelineBanners.find(({id}) => id === 'banner-moonless-guide')
-    const astral = timelineBanners.find(
-      ({id}) => id === 'banner-kaleido-recollections-astral-reign',
-    )
+    const faded = timelineBanners.find(({id}) => id === 'kaleido-fl-260505')
+    const astral = timelineBanners.find(({id}) => id === 'kaleido-ar-260518')
 
     for (const [banner, count] of [
       [faded, 15],
@@ -588,8 +573,8 @@ describe('timeline data loading', () => {
   })
 
   it('loads Echoing Wishes as a daily limited awakener and wheel schedule', () => {
-    const echoingWishes = timelineBanners.find((banner) => banner.id === 'banner-echoing-wishes')
-    const rawEchoingWishes = rawBanners.find((banner) => banner.id === 'banner-echoing-wishes')
+    const echoingWishes = timelineBanners.find((banner) => banner.id === 'echoing-wishes-260518')
+    const rawEchoingWishes = rawBanners.find((banner) => banner.id === 'echoing-wishes-260518')
 
     expect(echoingWishes).toMatchObject({
       tags: undefined,
@@ -851,7 +836,7 @@ describe('timeline data loading', () => {
   })
 
   it('loads the five linked Stars Cradled Close buckets without expanding their data slots', () => {
-    const banner = timelineBanners.find((entry) => entry.id === 'banner-stars-cradled-close')
+    const banner = timelineBanners.find((entry) => entry.id === 'stars-cradled-260824')
 
     expect(banner?.linkedPresentation).toBe('paired')
     expect(banner?.rulesProfile).toBe('myriad-self-select')
@@ -900,7 +885,7 @@ describe('timeline data loading', () => {
       ['warden', 4],
       ['chorus', 6],
     ] as const) {
-      const banner = timelineBanners.find(({id}) => id === `banner-lightward-reminiscence-${role}`)
+      const banner = timelineBanners.find(({id}) => id === `lightward-${role}-260824`)
       expect(banner).toMatchObject({
         type: 'premium',
         pricing: '980 Silver Prime',
@@ -1007,12 +992,10 @@ describe('timeline data loading', () => {
   })
 
   it('loads Song of Perennial Wandering Hameln rerun teasers', () => {
-    const skin = timelineEvents.find((event) => event.id === 'event-skin-hameln')
-    const rerunEvent = timelineEvents.find(
-      (event) => event.id === 'event-story-rerun-invisible-symphony',
-    )
-    const triune = timelineBanners.find((banner) => banner.id === 'banner-triune-verdant-jun')
-    const sylvan = timelineBanners.find((banner) => banner.id === 'banner-sylvan-omen-jun')
+    const skin = timelineEvents.find((event) => event.id === 'ouverture-260615')
+    const rerunEvent = timelineEvents.find((event) => event.id === 'invisible-symphony-260615')
+    const triune = timelineBanners.find((banner) => banner.id === 'triune-verdant-260615')
+    const sylvan = timelineBanners.find((banner) => banner.id === 'sylvan-omen-260615')
 
     expect(skin).toMatchObject({
       category: 'skin',
@@ -1038,7 +1021,7 @@ describe('timeline data loading', () => {
       {name: 'Never-Ending Performance', amount: '×10'},
       {name: 'Never-Ending Performance', amount: '×6'},
     ])
-    const pontos = timelineEvents.find((event) => event.id === 'event-story-pontos')
+    const pontos = timelineEvents.find((event) => event.id === 'ebwynnos-260629')
     expect(pontos?.featured).toContainEqual(
       expect.objectContaining({name: 'The Hollow One', kind: 'posse'}),
     )
@@ -1058,15 +1041,13 @@ describe('timeline data loading', () => {
   })
 
   it('loads the patch 2.6.1 banners and event cycles', () => {
-    const ogier = timelineBanners.find((banner) => banner.id === 'banner-ogier-oathbound')
-    const triune = timelineBanners.find((banner) => banner.id === 'banner-triune-verdant-oct')
-    const sylvan = timelineBanners.find((banner) => banner.id === 'banner-sylvan-omen-oct')
-    const gameplay = timelineEvents.find((event) => event.id === 'event-story-ogier-oathbound')
-    const archives = timelineEvents.find((event) => event.id === 'event-wheel-darker-than-darkness')
-    const preorder = timelineEvents.find(
-      (event) => event.id === 'event-preorder-witchs-nocturnal-operation',
-    )
-    const rerun = timelineEvents.find((event) => event.id === 'event-story-rerun-mirrored-prisoner')
+    const ogier = timelineBanners.find((banner) => banner.id === 'ogier-duo-260921')
+    const triune = timelineBanners.find((banner) => banner.id === 'triune-verdant-261005')
+    const sylvan = timelineBanners.find((banner) => banner.id === 'sylvan-omen-261005')
+    const gameplay = timelineEvents.find((event) => event.id === 'should-glory-fade-260921')
+    const archives = timelineEvents.find((event) => event.id === 'born-in-darkness-260921')
+    const preorder = timelineEvents.find((event) => event.id === 'sneaky-witch-261012')
+    const rerun = timelineEvents.find((event) => event.id === 'mirrored-prisoner-261005')
 
     expect(ogier).toMatchObject({
       endDate: '2026-10-19T01:00:00.000Z',
@@ -1111,7 +1092,7 @@ describe('timeline data loading', () => {
       {name: 'Lone Feather', amount: '×3'},
       {name: 'Lone Feather', amount: '×3'},
     ])
-    const glory = timelineEvents.find((event) => event.id === 'event-story-ogier-oathbound')
+    const glory = timelineEvents.find((event) => event.id === 'should-glory-fade-260921')
     expect(glory?.rewards?.slice(0, 2).map((group) => group.items[0])).toEqual([
       {name: 'Shadowed by the Past', amount: '×10'},
       {name: 'Shadowed by the Past', amount: '×6'},
