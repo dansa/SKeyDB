@@ -104,7 +104,7 @@ describe('timeline agenda grouping', () => {
         event('other-start', 12, 16),
       ],
       banners: [banner('active-banner', 9, 12)],
-      season: {name: 'Ultra Ring', endDate: date(12, 15)},
+      resetDate: date(12, 15),
     })
     expect(groups).toHaveLength(2)
     expect(groups[0].moments).toMatchObject([{title: 'upcoming', action: 'start', kind: 'event'}])
@@ -115,7 +115,7 @@ describe('timeline agenda grouping', () => {
       'banner',
       'season',
     ])
-    expect(groups[1].moments.filter((moment) => moment.action === 'end')).toHaveLength(4)
+    expect(groups[1].moments.filter((moment) => moment.action === 'end')).toHaveLength(3)
     const onSelect = vi.fn()
     render(
       <MemoryRouter>
@@ -128,6 +128,16 @@ describe('timeline agenda grouping', () => {
     ).toBeInTheDocument()
     fireEvent.click(desktop.getByRole('button', {name: /upcoming starts/}))
     expect(onSelect).toHaveBeenCalledWith('upcoming')
+    const grouped = desktop.getByRole('button', {name: /2 events.*D-Zone reset/})
+    expect(grouped).toHaveAttribute('aria-expanded', 'false')
+    fireEvent.click(grouped)
+    expect(grouped).toHaveAttribute('aria-expanded', 'true')
+    const reset = desktop.getByRole('link', {name: /D-Zone reset/})
+    expect(reset.querySelector('time')).toHaveAttribute('datetime', date(12, 15))
+    fireEvent.click(desktop.getByRole('button', {name: /active-2 ends/}))
+    expect(onSelect).toHaveBeenCalledWith('active-2')
+    fireEvent.click(grouped)
+    expect(desktop.queryByRole('link', {name: /D-Zone reset/})).not.toBeInTheDocument()
   })
 
   it('respects the filter and keeps every future day available to the mobile agenda', () => {
@@ -160,34 +170,20 @@ describe('timeline agenda grouping', () => {
     ])
   })
 
-  it('shows a verified open claim on an ended event in the mobile agenda', () => {
-    const claim = date(15)
+  it('keeps claim deadlines in event details only', () => {
     const ended = {
       ...event('ended', 1, 8),
-      keyDates: [
-        {kind: 'claim' as const, label: 'Claims until', date: claim},
-        {kind: 'claim' as const, label: 'Expired claims', date: date(9)},
-        {label: 'Not a claim', date: date(16)},
-      ],
+      keyDates: [{label: 'Claims until', date: date(15)}],
     }
-    const groups = getTimelineAgendaGroups({now, filter: 'events', events: [ended], banners: []})
-    expect(groups).toHaveLength(1)
-    expect(groups[0].moments).toMatchObject([{id: 'ended', action: 'claim', at: claim}])
-    const onSelect = vi.fn()
-    const {container} = render(
-      <MemoryRouter>
-        <TimelineAgenda groups={groups} now={now} onSelect={onSelect} />
-      </MemoryRouter>,
-    )
-    const disclosure = container.querySelector('details')
-    const summary = disclosure?.querySelector('summary')
-    if (!disclosure || !summary) throw new Error('Mobile agenda not found')
-    expect(summary).toHaveTextContent('Next: Mar 15')
-    fireEvent.click(summary)
-    const row = within(disclosure).getByRole('button', {name: /^Claims close: ended/})
-    expect(row.querySelector('time')).toHaveAttribute('datetime', claim)
-    fireEvent.click(row)
-    expect(onSelect).toHaveBeenCalledWith('ended')
+    const groups = getTimelineAgendaGroups({
+      now,
+      filter: 'events',
+      events: [ended, event('active', 9, 12)],
+      banners: [],
+    })
+    expect(groups.flatMap((group) => group.moments)).toMatchObject([
+      {id: 'active', action: 'end', at: date(12)},
+    ])
   })
 
   it('headlines a major update on its day, even with nothing else scheduled', () => {
@@ -215,9 +211,9 @@ describe('timeline agenda grouping', () => {
       </MemoryRouter>,
     )
     const desktop = within(screen.getByRole('region', {name: 'Upcoming timeline moments'}))
-    const major = desktop.getByText('Anniversary')
+    const major = desktop.getByRole('button', {name: /Anniversary.*active-1 ends/})
     expect(major.closest('[data-major]')).toHaveTextContent('active-1 ends')
-    expect(major.closest('button')).toBeNull()
+    expect(desktop.getByText('Later update').closest('button')).toBeNull()
   })
 
   it('keeps a future season independent of the content filter and renders its link', () => {
@@ -226,7 +222,7 @@ describe('timeline agenda grouping', () => {
       filter: 'banners',
       events: [],
       banners: [],
-      season: {name: 'Ultra Ring', endDate: date(11)},
+      resetDate: date(11),
     })
     render(
       <MemoryRouter>
@@ -234,14 +230,16 @@ describe('timeline agenda grouping', () => {
       </MemoryRouter>,
     )
     const desktop = within(screen.getByRole('region', {name: 'Upcoming timeline moments'}))
-    expect(desktop.getByRole('link', {name: /D-Zone reset/})).toHaveAttribute('href', '/d-zone')
+    const reset = desktop.getByRole('link', {name: /D-Zone reset/})
+    expect(reset).toHaveAttribute('href', '/d-zone')
+    expect(reset.querySelector('time')).toHaveAttribute('datetime', date(11))
     expect(
       getTimelineAgendaGroups({
         now,
         filter: 'all',
         events: [],
         banners: [],
-        season: {name: 'Old', endDate: date(9)},
+        resetDate: date(9),
       }),
     ).toEqual([])
   })

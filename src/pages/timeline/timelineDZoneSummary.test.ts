@@ -21,14 +21,17 @@ const LATEST_DZONE: DzoneSeasonSummary = {
   period: 102,
   name: 'Latest Test Zone',
   start: '2026-03-13T00:00:00.000Z',
-  end: '2026-03-20T00:00:00.000Z',
+  end: '2026-03-20T00:59:58.000Z',
   realm: 'ULTRA',
   seasonPath: 'seasons/dzone0102.json',
 }
 
 vi.mock('@/domain/dzone', () => ({
   getCurrentDzoneSeasonSummary: (now: Date) =>
-    now < new Date(CURRENT_DZONE.end) ? CURRENT_DZONE : undefined,
+    [CURRENT_DZONE, LATEST_DZONE].find(
+      (season) => new Date(season.start) <= now && now <= new Date(season.end),
+    ),
+  getDzoneSeasonSummaries: () => [CURRENT_DZONE, LATEST_DZONE],
   getLatestDzoneSeasonSummary: () => LATEST_DZONE,
 }))
 
@@ -49,22 +52,27 @@ describe('timeline D-Zone summary', () => {
     expect(summary).toMatchObject({
       emblemSrc: '/realm-badge-caro.webp',
       name: 'caro ring',
-      startDate: CURRENT_DZONE.start,
-      endDate: CURRENT_DZONE.end,
+      resetDate: LATEST_DZONE.start,
     })
     expect(summary.note).toBeUndefined()
-    expect(summary.countdown?.text).toBe('Ends in 2d 0h')
+    expect(summary.countdown?.text).toBe('Ends in 3d 0h')
+  })
+
+  it('uses the next minute boundary when the next season is not available', () => {
+    const summary = getTimelineDZoneSummary(new Date('2026-03-19T01:00:00.000Z'))
+    expect(summary.resetDate).toBe('2026-03-20T01:00:00.000Z')
+    expect(summary.countdown?.text).toBe('Ends in 1d 0h')
   })
 
   it('falls back to the latest season and explains when current data is pending', () => {
-    const summary = getTimelineDZoneSummary(new Date('2026-03-21T00:00:00.000Z'))
+    const summary = getTimelineDZoneSummary(new Date('2026-03-21T01:00:00.000Z'))
 
     expect(summary).toMatchObject({
       emblemSrc: '/realm-badge-ultra.webp',
       name: 'ultra ring',
       note: 'Current D-Zone data pending',
-      endDate: LATEST_DZONE.end,
     })
     expect(summary.countdown?.text).toBe('Ended 1 day ago')
+    expect(summary.resetDate).toBeUndefined()
   })
 })

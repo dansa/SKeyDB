@@ -74,7 +74,7 @@ function Segmented<T extends string>({
 
 function DZoneSeal({now, summary}: {now: Date; summary: DZoneSummary}) {
   const start = new Date(summary.startDate).getTime()
-  const end = summary.endDate ? new Date(summary.endDate).getTime() : start
+  const end = summary.resetDate ? new Date(summary.resetDate).getTime() : start
   const live = !summary.note && end > start && now.getTime() < end
   const progress = live ? Math.min(1, Math.max(0, (now.getTime() - start) / (end - start))) : 0
   const countdown = summary.countdown?.text.replace(/^Ends in/, 'Resets in')

@@ -7,7 +7,7 @@ import {
   type ReactNode,
 } from 'react'
 
-import {useLocation, useNavigate} from 'react-router'
+import {NavigationType, useLocation, useNavigate, useNavigationType} from 'react-router'
 
 import type {EntityRef} from '@/domain/entities/types'
 import {
@@ -123,6 +123,7 @@ export function TimelinePage() {
   )
   const location = useLocation()
   const navigate = useNavigate()
+  const navigationType = useNavigationType()
   const searchParams = new URLSearchParams(location.search)
   const pendingClose = useRef<string>(undefined)
   const locationState: unknown = location.state
@@ -133,6 +134,8 @@ export function TimelinePage() {
   const targetSection = parseTimelineSectionId(searchParams.get('section')) ?? hashSection
   const requestedId = searchParams.get('item')
   const pendingFocus = useRef<string>(undefined)
+  const focusWasInStage = useRef(false)
+  const previousStageId = useRef<string>(undefined)
   const pendingReveal = useRef<string | undefined>(
     targetSection ? undefined : (requestedId ?? undefined),
   )
@@ -166,15 +169,41 @@ export function TimelinePage() {
     filter,
     now,
     patches: timelinePatches,
-    season: dZoneSummary.endDate
-      ? {name: dZoneSummary.name, endDate: dZoneSummary.endDate}
-      : undefined,
+    resetDate: dZoneSummary.resetDate,
   })
 
   useLayoutEffect(() => {
+    function trackFocus(event: FocusEvent) {
+      focusWasInStage.current =
+        event.target instanceof Element && Boolean(event.target.closest('[data-stage-scroll]'))
+    }
+    function clearOutsideFocus(event: PointerEvent) {
+      if (event.target instanceof Element && !event.target.closest('[data-stage-scroll]'))
+        focusWasInStage.current = false
+    }
+    document.addEventListener('focusin', trackFocus)
+    document.addEventListener('pointerdown', clearOutsideFocus)
+    return () => {
+      document.removeEventListener('focusin', trackFocus)
+      document.removeEventListener('pointerdown', clearOutsideFocus)
+    }
+  }, [])
+
+  useLayoutEffect(() => {
     const id = selected?.id
-    if (!id) return
-    if (pendingFocus.current === id) {
+    const priorId = previousStageId.current
+    previousStageId.current = id
+    if (!id) {
+      focusWasInStage.current = false
+      return
+    }
+    const lostFocusOnHistory =
+      navigationType === NavigationType.Pop &&
+      priorId !== undefined &&
+      priorId !== id &&
+      focusWasInStage.current &&
+      document.activeElement === document.body
+    if (pendingFocus.current === id || lostFocusOnHistory) {
       pendingFocus.current = undefined
       focusStageTitle()
     }
@@ -186,7 +215,7 @@ export function TimelinePage() {
       )
       if (typeof row?.scrollIntoView === 'function') row.scrollIntoView({block: 'nearest'})
     }
-  }, [selected?.id, desktop])
+  }, [selected?.id, desktop, navigationType])
 
   useLayoutEffect(() => {
     if (!pendingClose.current || pendingClose.current === location.key) return

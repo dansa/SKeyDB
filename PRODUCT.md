@@ -88,7 +88,7 @@ These are the newer guidelines established by Timeline and D-zone. Use them as t
 - Realm color is a local aura or tint, not a global palette reset. It can tint masthead art, D-zone headers, card borders, and emblem glow.
 - Shape is sharp and game-adjacent. Product panels and chips use 2-3 px corners. Rounded pills are local to older builder or collection controls until redesigned.
 - Shadows are restrained and structural. Prefer inset hairlines, tonal layering, and hover lift over heavy elevation.
-- Text on artwork may use translucent dark overlays and backdrop blur when it needs legibility. The Timeline banner card is the reference: a soft 2 px blur for the static title plaque, and a stronger 10 px blur plus dark gradient for the details drawer. This is a text-on-art tool, not a general panel material.
+- Text on artwork may use a translucent dark overlay when needed for legibility. Timeline banner titles and detail copy sit on solid dark surfaces next to the artwork, so they do not need that treatment.
 
 ### Typography
 

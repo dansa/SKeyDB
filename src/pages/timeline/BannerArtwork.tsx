@@ -531,14 +531,12 @@ function PoolMontageArtwork({
   onOpenDetail,
   presentation,
   poolSlots,
-  reserveDrawerInset,
   visualSlots,
 }: {
   loading: 'eager' | 'lazy'
   onOpenDetail?: (ref: EntityRef) => void
   presentation: BannerLinkedPresentation
   poolSlots: BannerPoolSlot[]
-  reserveDrawerInset: boolean
   visualSlots: ResolvedVisualSlot[]
 }) {
   const {assetsReady, rootRef} = usePoolMontagePreload(visualSlots)
@@ -563,12 +561,9 @@ function PoolMontageArtwork({
 
   return (
     <div
-      className='absolute inset-y-0 left-0 grid bg-slate-950'
+      className='absolute inset-0 grid bg-slate-950'
       ref={rootRef}
-      style={{
-        gridTemplateColumns: getPoolGridTemplate(visualSlots.length),
-        right: reserveDrawerInset && visualSlots.length >= 5 ? '1.75rem' : 0,
-      }}
+      style={{gridTemplateColumns: getPoolGridTemplate(visualSlots.length)}}
     >
       {assetsReady
         ? visualSlots.map((vs, index) => (
@@ -635,7 +630,6 @@ interface BannerArtworkProps {
   loading?: 'eager' | 'lazy'
   linkedPresentation?: BannerLinkedPresentation
   poolSlots?: BannerPoolSlot[]
-  reserveDrawerInset?: boolean
   title: string
   onOpenDetail?: (ref: EntityRef) => void
 }
@@ -646,7 +640,6 @@ export function BannerArtwork({
   loading = 'lazy',
   linkedPresentation = 'expanded',
   poolSlots,
-  reserveDrawerInset = true,
   title,
   onOpenDetail,
 }: BannerArtworkProps) {
@@ -673,7 +666,6 @@ export function BannerArtwork({
         onOpenDetail={onOpenDetail}
         presentation={linkedPresentation}
         poolSlots={effectivePoolSlots}
-        reserveDrawerInset={reserveDrawerInset}
         visualSlots={visualSlots}
       />
     )

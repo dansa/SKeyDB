@@ -15,7 +15,7 @@ export type TimelineEntry = EventEntry | BannerEntry
 
 export interface TimelineAgendaMoment {
   at: string
-  action: 'start' | 'end' | 'claim'
+  action: 'start' | 'end'
   kind: 'event' | 'banner' | 'season'
   title: string
   id?: string
@@ -33,14 +33,14 @@ export function getTimelineAgendaGroups({
   filter,
   now,
   patches = [],
-  season,
+  resetDate,
 }: {
   banners: BannerEntry[]
   events: EventEntry[]
   filter: TimelineContentFilter
   now: Date
   patches?: TimelinePatch[]
-  season?: {name: string; endDate: string}
+  resetDate?: string
 }): TimelineAgendaGroup[] {
   const moments: TimelineAgendaMoment[] = []
   const entries: TimelineEntry[] = [
@@ -49,19 +49,6 @@ export function getTimelineAgendaGroups({
   ]
   for (const entry of entries) {
     const banner = isBanner(entry)
-    if (!banner) {
-      for (const keyDate of entry.keyDates ?? []) {
-        if (keyDate.kind === 'claim') {
-          moments.push({
-            action: 'claim',
-            at: keyDate.date,
-            id: entry.id,
-            kind: 'event',
-            title: entry.title,
-          })
-        }
-      }
-    }
     const status = getTimelineStatus(entry.startDate, entry.endDate, now)
     if (status === 'ended') continue
     moments.push({
@@ -72,7 +59,8 @@ export function getTimelineAgendaGroups({
       title: entry.title,
     })
   }
-  if (season) moments.push({action: 'end', at: season.endDate, kind: 'season', title: season.name})
+  if (resetDate)
+    moments.push({action: 'start', at: resetDate, kind: 'season', title: 'D-Zone reset'})
   const groups = new Map<string, TimelineAgendaGroup>()
   const dayKey = (date: Date) =>
     `${String(date.getFullYear())}-${String(date.getMonth())}-${String(date.getDate())}`

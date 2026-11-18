@@ -180,7 +180,7 @@ export interface EventEntry {
   artVariants?: {card?: string; detail?: string}
   rewards?: TimelineRewardGroup[]
   missions?: TimelineMissionReward[]
-  keyDates?: {label: string; date: string; kind?: 'claim'}[]
+  keyDates?: {label: string; date: string}[]
   related?: string[]
 }
 

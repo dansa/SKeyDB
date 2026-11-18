@@ -22,10 +22,10 @@ describe('timeline data loading', () => {
       title: 'Key date',
       startDate: '2026/11/01 09:00',
       endDate: '2026/11/30 09:00',
-      keyDates: [{label: 'Claims until', kind: 'claim', date: '2026/12/07 09:00'}],
+      keyDates: [{label: 'Claims until', date: '2026/12/07 09:00'}],
     }
     expect(loadTimelineEvents([event])[0].keyDates).toEqual([
-      {label: 'Claims until', kind: 'claim', date: '2026-12-07T01:00:00.000Z'},
+      {label: 'Claims until', date: '2026-12-07T01:00:00.000Z'},
     ])
     expect(() => loadTimelineEvents([{...event, keyDates: [{label: '', date: 'bad'}]}])).toThrow()
   })
@@ -176,9 +176,7 @@ describe('timeline data loading', () => {
       expect(paid.items).toContainEqual({name: 'Luminous Core', amount: '×30'})
       expect(entry?.keyDates).toEqual([
         {label: 'Early bonus until', date: `${early}T01:00:00.000Z`},
-        ...(claimsEnd
-          ? [{label: 'Claims until', kind: 'claim', date: `${claimsEnd}T01:00:00.000Z`}]
-          : []),
+        ...(claimsEnd ? [{label: 'Claims until', date: `${claimsEnd}T01:00:00.000Z`}] : []),
       ])
       expect(bonus.items).toContainEqual({name: avatar, amount: '×1'})
       expect(entry?.artVariants).toEqual({

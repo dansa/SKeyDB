@@ -275,7 +275,6 @@ export function BannerTile({
             featured={display.featured}
             linkedPresentation={display.linkedPresentation}
             poolSlots={getBannerArtworkSlots(display)}
-            reserveDrawerInset={false}
             title={display.title}
           />
         </div>

@@ -295,7 +295,6 @@ const eventInputSchema: z.ZodType<EventInput> = z.object({
       z.object({
         label: nonEmptyStringSchema,
         date: gameDateSchema,
-        kind: z.literal('claim').optional(),
       }),
     )
     .optional(),

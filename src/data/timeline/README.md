@@ -29,7 +29,7 @@ Array of event objects. Each event appears as a card in the Events section.
 | `description` | string | no | Short description text. Supports shared timeline rich text; see [Descriptions](#descriptions) |
 | `startDate` | string | **yes** | Start time in `YYYY/MM/DD HH:MM` UTC+8 |
 | `endDate` | string | **yes** | End time in `YYYY/MM/DD HH:MM` UTC+8 |
-| `keyDates` | array | no | Additional `{label, date, kind?}` facts, using the same date format as `endDate`. Set `kind: "claim"` for a verified claim deadline so it appears in the agenda even after the event ends. |
+| `keyDates` | array | no | Additional `{label, date}` facts shown in event details only, using the same date format as `endDate`. Use for verified claim and purchase deadlines. |
 | `pinned` | boolean | no | Pinned events sort to the top |
 | `preliminary` | boolean | no | Marks dates, rewards, or details as provisional and shows a `Preliminary` metadata label |
 | `featured` | string, object, or array | no | One or more featured awakeners or wheels. Uses the same item forms as banner [`featured`](#featured-units), including explicit kinds, custom art, and detail-link opt-outs |
@@ -150,7 +150,7 @@ Array of banner objects. Each banner appears as a card in the Banners section wi
 | `poolSlots` | array | no | Rotating pool slots. See [Pool Slots](#pool-slots) |
 | `dailySchedule` | array | for `daily` | One row per game day, ordered and consecutive: `{day, featured, offBanner?}`. |
 | `rateUpGroups` | array | no | Separate featured banners: `{kind, options: [{title, rateUp, offBanner?}], sharedOffBanner?}`. Use a shared pool only when it applies to every option. |
-| `rulesProfile` | string | no | Use a verified rules profile only when that specific run follows it. See the banner schema for the accepted profile IDs. |
+| `rulesProfile` | string | no | Supported profiles: `myriad-self-select`, `oathbound-oracle`, `kaleido`, `fated-soiree`, and `triple-soiree`. Use a profile only when that specific run follows it. The last two control paid banner artwork presentation. |
 | `derivedPool` | object | no | Database-derived pool configuration. Use `slots` for independently filtered bucket slots |
 | `linkedPresentation` | string | no | Linked-slot artwork mode: `expanded` (default, side by side), `alternating` (one labeled column alternating owner and wheel), or `paired` (one labeled column with a 60/40 owner-and-wheel split) |
 | `customArt` | string | no | Full-card banner art URL or path. Overrides featured/pool artwork when present. Paths starting with `/banners/` are resolved against `src/assets/banners/*`. |
@@ -176,6 +176,8 @@ This is a release-date cutoff, not a snapshot of historical database classificat
 | `selector` | Pick-your-own-rate-up banners |
 | `wheel` | Wheel-only banners |
 | `combo` | Combo banners (mixed character + wheel pools) |
+| `daily` | Banners with a day-by-day rotation and a `dailySchedule` |
+| `premium` | Paid-only banner runs |
 
 Display-only tags also support `collab` for collaboration banners and `preliminary` for provisional information.
 

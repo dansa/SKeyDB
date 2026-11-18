@@ -46,7 +46,6 @@ export function DZonePage() {
       {(dzonePopovers) => (
         <section className='d-zone-page -mt-4 md:-mt-5'>
           <SeasonMasthead
-            layout='page'
             summaryAlignment='center'
             summary={{
               ariaLabel: 'Current D-zone season',

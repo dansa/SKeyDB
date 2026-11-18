@@ -112,7 +112,7 @@ This system rejects generic SaaS cards, bare wiki pages, flashy game portals, pu
 - Serif names and season titles paired with dense sans controls and metadata.
 - Sharp 2-3 px product geometry, with rounded pills reserved for legacy surfaces until redesigned.
 - Art and realm color appear as contextual tints, not decoration.
-- Translucent blur is allowed for text on artwork, with soft blur for title plaques and stronger blur for body-copy drawers.
+- Translucent blur is allowed only where it improves text contrast on artwork.
 - Motion is short, stateful, and disabled for reduced-motion users.
 
 ## 2. Colors
@@ -195,7 +195,7 @@ SKeyDB is mostly flat at rest. Depth comes from tonal layering, hairline borders
 
 **The Flat Until Asked Rule.** Surfaces are flat unless hover, focus, expansion, or stacked artwork needs depth.
 
-**The Text-on-Art Blur Rule.** Blur is allowed when text sits on artwork and needs legibility. Use the least blur that solves the reading problem: soft plaque for titles, stronger drawer for body copy.
+**The Text-on-Art Blur Rule.** Blur is allowed when text sits on artwork and needs legibility. Use the least blur that solves the reading problem.
 
 **The No Decorative Glass Rule.** Blur may support text-on-art overlays and masthead/header readability. It is not a default panel material.
 
@@ -252,11 +252,11 @@ Do not extract a shared React primitive just because two pages contain a heading
 
 ### Timeline Cards
 
-Timeline event cards are compact rows with optional art slices, amber serif titles, taxonomy metadata, countdowns, and expandable descriptions. Banner cards are larger artwork cards with a quiet drawer and summary overlay. They are references for dense game data with art, not generic card grids.
+Timeline event rows and banner tiles show art, serif names, taxonomy, and countdowns. Both open the same detail view: a sticky inspector on desktop, or a bottom sheet on smaller screens. Artwork sits above the title and details; banner art is decorative and roster tiles open entity details. Grouped agenda dates expose their entries on demand; claims and purchase deadlines stay in event details.
 
 ### Artwork Text Overlays
 
-Text over artwork must carry its own legibility system. Static banner title plaques use a translucent dark surface, amber hairline, small shadow, and soft `backdrop-blur-[2px]`. Details drawers use a stronger dark gradient, border divider, side shadow, and `backdrop-blur-[10px]` because they carry body copy. Do not use these treatments away from artwork.
+Text over artwork needs a dedicated legibility treatment. Use a dark overlay or the least blur needed to separate text from the art. On Timeline, keep titles and body copy on the solid surfaces below the artwork.
 
 ### D-zone Inspector
 
@@ -271,7 +271,7 @@ The D-zone inspector is the current reference for complex product panels: one bo
 - **Do** use amber for active state, focus, current identity, and key headings.
 - **Do** keep product corners sharp at 2-3 px.
 - **Do** use Droid Serif only where it visually earns the game-texture role, then switch to sans for controls, metadata, descriptions, and data.
-- **Do** use soft or strong blur overlays when text sits on artwork and would otherwise lose contrast.
+- **Do** use the least blur needed when text sits on artwork and would otherwise lose contrast.
 - **Do** respect reduced motion and keep transitions in the 150-230 ms range.
 - **Do** preserve `/database` chip and card conventions until that surface is intentionally redesigned.
 
@@ -283,7 +283,7 @@ The D-zone inspector is the current reference for complex product panels: one bo
 - **Don't** use nested card stacks or wrap every page section in a decorative card.
 - **Don't** use purple-blue AI gradients, default glass panels, or decorative glow without state or content meaning.
 - **Don't** mix database chips, builder ownership pills, and Timeline selectors as if they were one interchangeable component.
-- **Don't** use Timeline banner blur treatments as ordinary panel styling away from artwork.
+- **Don't** use artwork overlays as ordinary panel styling away from artwork.
 - **Don't** spam Droid Serif across every label, control, or description.
 - **Don't** use a colored `border-left` or `border-right` thicker than 1 px as a card accent.
 - **Don't** use gradient text.

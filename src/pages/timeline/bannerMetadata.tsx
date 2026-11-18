@@ -16,7 +16,6 @@ interface BannerMetadataListProps {
   limit?: number
   priceClass?: string
   priceMode: TimelinePriceDisplayMode
-  renderWhenEmpty?: boolean
   showPrice?: boolean
   separatorClass: string
 }
@@ -31,7 +30,6 @@ export function BannerMetadataList({
   limit,
   priceClass,
   priceMode,
-  renderWhenEmpty = false,
   showPrice = true,
   separatorClass,
 }: BannerMetadataListProps) {
@@ -39,7 +37,7 @@ export function BannerMetadataList({
   const price = showPrice ? formatTimelinePrice(banner.pricing, priceMode) : undefined
   const keyedItems = getKeyedBannerMetadataItems(tags)
 
-  if (tags.length === 0 && !price && !renderWhenEmpty) return null
+  if (tags.length === 0 && !price) return null
 
   return (
     <div className={className}>

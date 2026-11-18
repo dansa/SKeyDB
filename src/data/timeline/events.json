@@ -2750,7 +2750,6 @@
       },
       {
         "label": "Claims until",
-        "kind": "claim",
         "date": "2026/07/06 09:00"
       }
     ],
@@ -4514,7 +4513,6 @@
       },
       {
         "label": "Claims until",
-        "kind": "claim",
         "date": "2026/09/28 09:00"
       }
     ],
@@ -5714,7 +5712,6 @@
       },
       {
         "label": "Claims until",
-        "kind": "claim",
         "date": "2026/11/23 09:00"
       }
     ],
@@ -6503,7 +6500,6 @@
     "keyDates": [
       {
         "label": "Claims until",
-        "kind": "claim",
         "date": "2026/12/07 09:00"
       }
     ]
@@ -6810,7 +6806,6 @@
       },
       {
         "label": "Claims until",
-        "kind": "claim",
         "date": "2027/01/11 09:00"
       }
     ]

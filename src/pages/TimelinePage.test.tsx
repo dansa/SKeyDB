@@ -110,22 +110,12 @@ vi.mock('./timeline/timelineDZoneSummary', () => ({
     name: 'Test season',
     realm: 'CARO',
     startDate: '2026-02-28T00:00:00Z',
-    endDate: '2026-03-14T00:00:00Z',
+    resetDate: '2026-03-14T00:00:00Z',
   }),
 }))
 vi.mock('./timeline/BannerArtwork', () => ({
-  BannerArtwork: ({
-    featured,
-    reserveDrawerInset,
-  }: {
-    featured?: {name: string}[]
-    reserveDrawerInset?: boolean
-  }) => (
-    <div
-      data-featured={featured?.map(({name}) => name).join(',')}
-      data-reserve-inset={String(reserveDrawerInset)}
-      data-testid='banner-artwork'
-    />
+  BannerArtwork: ({featured}: {featured?: {name: string}[]}) => (
+    <div data-featured={featured?.map(({name}) => name).join(',')} data-testid='banner-artwork' />
   ),
 }))
 vi.mock('@/features/database/detail/DeferredDatabaseDetailOverlayOutlet', () => ({
@@ -381,7 +371,6 @@ describe('TimelinePage', () => {
       .closest('article')
     if (!tile) throw new Error('Banner tile not found')
     const art = within(tile).getByTestId('banner-artwork')
-    expect(art).toHaveAttribute('data-reserve-inset', 'false')
     expect(art.parentElement).toHaveAttribute('inert')
     expect(art.parentElement).toHaveClass('pointer-events-none', 'isolate')
     expect(art.parentElement).not.toContainElement(
@@ -393,7 +382,7 @@ describe('TimelinePage', () => {
     ).toHaveLength(1)
     expect(screen.getByTestId('location')).toHaveTextContent('view=banners&item=banner-pool')
     const stage = within(screen.getByLabelText('Selected details'))
-    expect(stage.getByTestId('banner-artwork')).toHaveAttribute('data-reserve-inset', 'false')
+    expect(stage.getByTestId('banner-artwork').parentElement).toHaveAttribute('inert')
     expect(stage.getByRole('heading', {name: 'Pool'})).toBeInTheDocument()
     expect(
       screen.getByLabelText('Selected details').querySelector('.aspect-video'),
@@ -540,9 +529,12 @@ describe('TimelinePage', () => {
       }),
     )
     expect(screen.getByRole('dialog', {name: 'Pool Banner'})).toBeInTheDocument()
+    expect(screen.getByRole('heading', {name: 'Pool Banner', level: 2})).toHaveFocus()
     fireEvent.click(screen.getByRole('button', {name: 'History back'}))
     expect(screen.getByRole('dialog', {name: 'First Event'})).toBeInTheDocument()
+    expect(screen.getByRole('heading', {name: 'First Event', level: 2})).toHaveFocus()
     fireEvent.click(screen.getByRole('button', {name: 'History forward'}))
+    expect(screen.getByRole('heading', {name: 'Pool Banner', level: 2})).toHaveFocus()
     fireEvent.click(
       within(screen.getByRole('dialog', {name: 'Pool Banner'})).getByRole('button', {
         name: 'Close',

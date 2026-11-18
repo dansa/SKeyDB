@@ -192,7 +192,6 @@ function StageContent({
               featured={displayBanner.featured}
               linkedPresentation={displayBanner.linkedPresentation}
               poolSlots={getBannerArtworkSlots(displayBanner)}
-              reserveDrawerInset={false}
               title={displayBanner.title}
             />
           </div>
