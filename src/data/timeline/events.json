@@ -3,7 +3,7 @@
     "id": "moskstraumen-260309",
     "title": "Call of the Moskstraumen",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Vortice avatar.\nClear Vortice and the Sea and complete achievements. Vortice's Hoard drew five rewards for 750 matching Conches.\nGameplay ended Apr 6; shop and achievement claims stayed open until Apr 13. Clear No More the Shore for the Drowned Innocence Posse.",
+    "description": "SR Wheel copies and a limited Vortice avatar.\nClear Vortice and the Sea and complete achievements. Each draw at Vortice's Hoard gives five rewards for 750 matching Conches.\nGameplay ends Apr 6; shop and achievement claims stay open until Apr 13. Clear No More the Shore for the Drowned Innocence Posse.",
     "startDate": "2026/03/09 09:00",
     "endDate": "2026/04/06 09:00",
     "pinned": true,
@@ -754,7 +754,7 @@
     "id": "feast-of-flames-260323",
     "title": "Feast of Flames",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Wanda avatar.\nClear City in the Lake and complete achievements. Wanda's Treasure Vault offered fixed-price rewards across three shops.\nGameplay ended Apr 20; shop and achievement claims stayed open until Apr 27. Clear the Feast of Flames Psyche Deepdive for the Feast of Decay Posse. On the rerun, repeat avatars converted to one Formless One's Invitation; extra Hearts of Hedonism converted to 5,000 Rose Scrip each.",
+    "description": "SR Wheel copies and a limited Wanda avatar.\nClear City in the Lake and complete achievements. Wanda's Treasure Vault offers fixed-price rewards across three shops.\nGameplay ends Apr 20; shop and achievement claims stay open until Apr 27. Clear the Feast of Flames Psyche Deepdive for the Feast of Decay Posse. On the rerun, repeat avatars convert to one Formless One's Invitation; extra Hearts of Hedonism convert to 5,000 Rose Scrip each.",
     "startDate": "2026/03/23 09:00",
     "endDate": "2026/04/20 09:00",
     "featured": [
@@ -800,7 +800,7 @@
       },
       {
         "title": "Spine Spike Grip limited stock",
-        "note": "Limited stock. Each Wheel cost 2,500 Original Tibia. Each Core cost 1,250 Original Tibia.",
+        "note": "Limited stock. Each Wheel costs 2,500 Original Tibia. Each Core costs 1,250 Original Tibia.",
         "summaryCount": 3,
         "items": [
           {
@@ -831,7 +831,7 @@
       },
       {
         "title": "Guardian of Ruins limited stock",
-        "note": "Limited stock. Each Wheel cost 2,500 Tornoceras.",
+        "note": "Limited stock. Each Wheel costs 2,500 Tornoceras.",
         "summaryCount": 2,
         "items": [
           {
@@ -878,7 +878,7 @@
       },
       {
         "title": "Dark Bindings limited stock",
-        "note": "Limited stock. Each Wheel cost 2,500 Spiral Ruins.",
+        "note": "Limited stock. Each Wheel costs 2,500 Spiral Ruins.",
         "summaryCount": 2,
         "items": [
           {
@@ -945,7 +945,7 @@
     "id": "phase-reversal-260316",
     "title": "Phase Reversal",
     "category": "gameplay-event",
-    "description": "Traphase milestones with an exclusive avatar and 10 emotes.\nRound Wonders counted Magic Acorns earned through Traphase achievements. Clearing My Turn: Outlander's Visit unlocked the 100–900 tiers; clearing Cosmos Reforged unlocked the 1,000–6,000 tiers. All core rewards were available at 3,600 Acorns; later tiers awarded Rose Scrip only.\nClear My Turn to earn the Tavern's Opening Posse. The story was free to unlock during the event and costs 3 Reality Verge afterward if not already unlocked.",
+    "description": "Traphase milestones with an exclusive avatar and 10 emotes.\nRound Wonders tracks Magic Acorns from Traphase achievements. Clear My Turn: Outlander's Visit to unlock the 100–900 tiers and Cosmos Reforged to unlock the 1,000–6,000 tiers. All core rewards unlock by 3,600 Acorns; later tiers award only Rose Scrip.\nClear My Turn to earn the Tavern's Opening Posse. The story is free to unlock during the event and costs 3 Reality Verge afterward if not already unlocked.",
     "startDate": "2026/03/16 09:00",
     "endDate": "2026/03/30 09:00",
     "featured": [
@@ -962,7 +962,7 @@
     "rewards": [
       {
         "title": "Round Wonders cosmetics",
-        "note": "The My Turn: Cosmos Card avatar was the 3,600-Acorn reward.",
+        "note": "The My Turn: Cosmos Card avatar unlocks at 3,600 Acorns.",
         "items": [
           {
             "name": "My Turn: Cosmos Card",
@@ -1051,7 +1051,7 @@
     "id": "sovereigns-return-260406",
     "title": "The Sovereign's Return",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Tulu avatar.\nClear Gaze of the Deep Sea and complete achievements for event currency. Abyssborn Epiphany sold fixed rewards. Gameplay ended May 4; the shops and achievement claims stayed open until May 11.\nClear Day of Coronation to earn the Blessing of the Stars Posse. Repeat avatar rewards converted to one Formless One's Invitation.",
+    "description": "SR Wheel copies and a limited Tulu avatar.\nClear Gaze of the Deep Sea and complete achievements for event currency. Abyssborn Epiphany offers fixed-price rewards. Gameplay ends May 4; the shops and achievement claims stay open until May 11.\nClear Day of Coronation to earn the Blessing of the Stars Posse. Repeat avatar rewards convert to one Formless One's Invitation.",
     "startDate": "2026/04/06 09:00",
     "endDate": "2026/05/04 09:00",
     "customArt": "/events/sovereigns-return-detail.webp",
@@ -1101,7 +1101,7 @@
       },
       {
         "title": "Weary Abyss limited stock",
-        "note": "Each Wheel cost 2,500 Weary Thoughts. Each Core cost 1,250 Weary Thoughts.",
+        "note": "Each Wheel costs 2,500 Weary Thoughts. Each Core costs 1,250 Weary Thoughts.",
         "summaryCount": 3,
         "items": [
           {
@@ -1132,7 +1132,7 @@
       },
       {
         "title": "Forlorn Abyss limited stock",
-        "note": "Each Wheel cost 2,500 Sad Reflections.",
+        "note": "Each Wheel costs 2,500 Sad Reflections.",
         "summaryCount": 2,
         "items": [
           {
@@ -1179,7 +1179,7 @@
       },
       {
         "title": "Joyful Abyss limited stock",
-        "note": "Each Wheel cost 2,500 Joyful Musings.",
+        "note": "Each Wheel costs 2,500 Joyful Musings.",
         "summaryCount": 2,
         "items": [
           {
@@ -1226,7 +1226,7 @@
       },
       {
         "title": "Repeatable exchange",
-        "note": "No purchase limit. Leftover event currency was mailed at the same rate after the shop closed.",
+        "note": "No purchase limit. Leftover event currency is mailed at the same rate after the shop closes.",
         "items": [
           {
             "name": "Rose Scrip",
@@ -1350,7 +1350,7 @@
     "id": "bound-weaver-260420",
     "title": "Bound Weaver",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Arachne avatar.\nClear The Puppet's Stage and complete achievements. Theater Souvenirs drew five rewards for 750 A-Reserve Tickets.\nGameplay ended May 18; shop and achievement claims stayed open until May 25. Unspent tickets converted to 40 Rose Scrip each.",
+    "description": "SR Wheel copies and a limited Arachne avatar.\nClear The Puppet's Stage and complete achievements. Each draw at Theater Souvenirs gives five rewards for 750 A-Reserve Tickets.\nGameplay ends May 18; shop and achievement claims stay open until May 25. Unspent tickets convert to 40 Rose Scrip each.",
     "startDate": "2026/04/20 09:00",
     "endDate": "2026/05/18 09:00",
     "pinned": true,
@@ -1659,7 +1659,7 @@
     "id": "great-conquering-260504",
     "title": "The Great Conquering",
     "category": "gameplay-event",
-    "description": "Fixed-price rewards from Offer Tribute.\nClear Divine Predation and complete achievements. Gameplay ended May 18; the shop and achievement claims stayed open until May 25.\nClear Culinary Dominion to earn the Voracious Resolve Posse. The Dreamscape was free to unlock during the event and costs 7 Reality Verge afterward if not already unlocked.",
+    "description": "Fixed-price rewards from Offer Tribute.\nClear Divine Predation and complete achievements. Gameplay ends May 18; the shop and achievement claims stay open until May 25.\nClear Culinary Dominion to earn the Voracious Resolve Posse. The Dreamscape is free to unlock during the event and costs 7 Reality Verge afterward if not already unlocked.",
     "startDate": "2026/05/04 09:00",
     "endDate": "2026/05/18 09:00",
     "featured": [
@@ -2086,7 +2086,7 @@
     "id": "meowch-obliged-260518",
     "title": "Meowch Obliged!",
     "category": "anniversary",
-    "description": "Seven stages with personal and campus rewards.\nOne stage unlocks each day. Each needs a Support Keeper and can be retried. New entries closed Jun 15. If the campus reached one million captures by then, the event ended Jun 29; otherwise it ended 14 days after reaching that goal.",
+    "description": "Seven stages with personal and campus rewards.\nOne stage unlocks each day. Each needs a Support Keeper and can be retried. New entries close Jun 15. If the campus reaches one million captures by then, the event ends Jun 29. Otherwise, it ends 14 days after the campus reaches that goal.",
     "startDate": "2026/05/18 09:00",
     "endDate": "2026/06/29 09:00",
     "customArt": "/events/meowch-obliged.webp",
@@ -2924,7 +2924,7 @@
     "id": "stream-infatuation-260518",
     "title": "Stream of Infatuation",
     "category": "milestone",
-    "description": "Astral Reign selectors and an avatar frame from Prime Extraction.\nMilestones counted paid Silver Prime obtained through Prime Extraction, not Silver Prime spent. Bonus Silver Prime from extraction did not count.",
+    "description": "Astral Reign selectors and an avatar frame from Prime Extraction.\nMilestones count paid Silver Prime obtained through Prime Extraction, not Silver Prime spent. Bonus Silver Prime from extraction does not count.",
     "startDate": "2026/05/18 09:00",
     "endDate": "2026/06/29 09:00",
     "customArt": "/events/stream-of-infatuation.webp",
@@ -3103,7 +3103,7 @@
     "id": "invisible-symphony-260615",
     "title": "Invisible Symphony",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Hameln avatar.\nClear Roaring Machines and complete achievements. Somnus Citadel sold fixed rewards for Aria's Peak. Gameplay ended Jul 13; the shop and achievements were available through Jul 20. Leftover currency converted to 40 Rose Scrip each.",
+    "description": "SR Wheel copies and a limited Hameln avatar.\nClear Roaring Machines and complete achievements. Somnus Citadel offers fixed-price rewards for Aria's Peak. Gameplay ends Jul 13; the shop and achievements remain available through Jul 20. Leftover currency converts to 40 Rose Scrip each.",
     "startDate": "2026/06/15 09:00",
     "endDate": "2026/07/13 09:00",
     "featured": [
@@ -3149,7 +3149,7 @@
       },
       {
         "title": "Somnus Citadel limited stock",
-        "note": "Each Wheel cost 2,500 Aria's Peak. Each Core cost 1,250 Aria's Peak.",
+        "note": "Each Wheel costs 2,500 Aria's Peak. Each Core costs 1,250 Aria's Peak.",
         "summaryCount": 5,
         "items": [
           {
@@ -3267,7 +3267,7 @@
     "id": "inverted-rebirth-260530",
     "title": "Inverted Rebirth",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Saya avatar.\nClear Dark Chamber Notes and complete achievements. Dandelion Garden drew five rewards for 750 matching Scale Dust.\nGameplay ended Aug 24; shop and achievement claims stayed open until Aug 31. Clear Forgotten Seed of Love for the For the New World Posse.",
+    "description": "SR Wheel copies and a limited Saya avatar.\nClear Dark Chamber Notes and complete achievements. Each draw at Dandelion Garden gives five rewards for 750 matching Scale Dust.\nGameplay ends Aug 24; shop and achievement claims stay open until Aug 31. Clear Forgotten Seed of Love for the For the New World Posse.",
     "startDate": "2026/05/30 09:00",
     "endDate": "2026/08/24 09:00",
     "featured": [
@@ -3361,7 +3361,7 @@
     "id": "seed-of-love-260530",
     "title": "Forgotten Seed of Love",
     "category": "story",
-    "description": "Permanent Multiverse Link side story. Clear it to earn the For the New World Posse.\nPart 1 opened May 30 and Part 2 on Jun 6. Free to unlock through Aug 24; if not already unlocked, it costs 3 Reality Verge afterward. Progress carries over.",
+    "description": "Permanent Multiverse Link side story. Clear it to earn the For the New World Posse.\nPart 1 opens May 30 and Part 2 opens Jun 6. Free to unlock through Aug 24; if not already unlocked, it costs 3 Reality Verge afterward. Progress carries over.",
     "startDate": "2026/05/30 09:00",
     "endDate": "2026/08/24 09:00",
     "customArt": "/events/forgotten-seed.webp",
@@ -3619,7 +3619,7 @@
     "id": "ebwynnos-260629",
     "title": "Ebwynnos Evermore",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Pontos avatar.\nClear The High House Hunt and complete achievements. Hunting Grounds sold fixed rewards across three shops. Gameplay ended Jul 27; the shops and achievement claims stayed open until Aug 3.\nClear the Ebwynnos Evermore Psyche Deepdive to earn The Hollow One Posse. It was free to unlock during the event and costs 3 Reality Verge afterward if not already unlocked.",
+    "description": "SR Wheel copies and a limited Pontos avatar.\nClear The High House Hunt and complete achievements. Hunting Grounds offers fixed-price rewards across three shops. Gameplay ends Jul 27; the shops and achievement claims stay open until Aug 3.\nClear the Ebwynnos Evermore Psyche Deepdive to earn The Hollow One Posse. It is free to unlock during the event and costs 3 Reality Verge afterward if not already unlocked.",
     "startDate": "2026/06/29 09:00",
     "endDate": "2026/07/27 09:00",
     "featured": [
@@ -3669,7 +3669,7 @@
       },
       {
         "title": "Cold Iron limited stock",
-        "note": "Each Wheel cost 2,500 Fresh \"Prey\". Each Core cost 1,250 Fresh \"Prey\".",
+        "note": "Each Wheel costs 2,500 Fresh \"Prey\". Each Core costs 1,250 Fresh \"Prey\".",
         "summaryCount": 3,
         "items": [
           {
@@ -3700,7 +3700,7 @@
       },
       {
         "title": "Fire and Sulfur limited stock",
-        "note": "Each Wheel cost 2,500 Colossal \"Prey\".",
+        "note": "Each Wheel costs 2,500 Colossal \"Prey\".",
         "summaryCount": 2,
         "items": [
           {
@@ -3747,7 +3747,7 @@
       },
       {
         "title": "Sorcery limited stock",
-        "note": "Each Wheel cost 2,500 Primordial \"Prey\".",
+        "note": "Each Wheel costs 2,500 Primordial \"Prey\".",
         "summaryCount": 2,
         "items": [
           {
@@ -3809,7 +3809,7 @@
     "id": "black-sun-260706",
     "title": "Summer under Black Sun",
     "category": "gameplay-event",
-    "description": "Seven cumulative logins for 10 Luminous Cores and a limited avatar.\nSummer Fiesta awarded the Volleyball \"Champion\" avatar on the seventh login. See You in Neverland was free to unlock during the event; if missed, it costs 7 Reality Verge afterward. Clearing it awards the Beachside Memento Posse.",
+    "description": "Seven cumulative logins for 10 Luminous Cores and a limited avatar.\nSummer Fiesta awards the Volleyball \"Champion\" avatar on the seventh login. See You in Neverland is free to unlock during the event; if missed, it costs 7 Reality Verge afterward. Clearing it awards the Beachside Memento Posse.",
     "startDate": "2026/07/06 09:00",
     "endDate": "2026/07/20 09:00",
     "featured": [
@@ -3844,7 +3844,7 @@
     "id": "til-snow-melts-260713",
     "title": "Til the Snow Melts",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Helot: Catena avatar.\nClear Beast Ambition and complete achievements. Mountain Maw drew five rewards for 750 matching Buds.\nGameplay ended Aug 10; shop and achievement claims stayed open until Aug 17. Clear Elworth's Returnee for The Mountains' Resolve Posse.",
+    "description": "SR Wheel copies and a limited Helot: Catena avatar.\nClear Beast Ambition and complete achievements. Each draw at Mountain Maw gives five rewards for 750 matching Buds.\nGameplay ends Aug 10; shop and achievement claims stay open until Aug 17. Clear Elworth's Returnee for The Mountains' Resolve Posse.",
     "startDate": "2026/07/13 09:00",
     "endDate": "2026/08/10 09:00",
     "featured": [
@@ -3937,7 +3937,7 @@
     "id": "cetus-falls-260727",
     "title": "Till the Cetus Falls",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Lotan: Cetarchon avatar.\nClear Greed and Bloodlust and complete achievements. Arena Altar sold fixed rewards for Crimson Sacrifice. Gameplay ended Aug 24; the shop and achievement claims stayed open until Aug 31.\nClear the Till the Cetus Falls Psyche Deepdive to earn the Cetus-Devouring Storm Posse. It was free to unlock during the event and costs 3 Reality Verge afterward if not already unlocked.",
+    "description": "SR Wheel copies and a limited Lotan: Cetarchon avatar.\nClear Greed and Bloodlust and complete achievements. Arena Altar offers fixed-price rewards for Crimson Sacrifice. Gameplay ends Aug 24; the shop and achievement claims stay open until Aug 31.\nClear the Till the Cetus Falls Psyche Deepdive to earn the Cetus-Devouring Storm Posse. It is free to unlock during the event and costs 3 Reality Verge afterward if not already unlocked.",
     "startDate": "2026/07/27 09:00",
     "endDate": "2026/08/24 09:00",
     "featured": [
@@ -3987,7 +3987,7 @@
       },
       {
         "title": "Arena Altar limited stock",
-        "note": "Each Wheel cost 2,500 Crimson Sacrifice. Each Core cost 1,250.",
+        "note": "Each Wheel costs 2,500 Crimson Sacrifice. Each Core costs 1,250.",
         "summaryCount": 5,
         "items": [
           {
@@ -4090,7 +4090,7 @@
       },
       {
         "title": "Repeatable exchange",
-        "note": "No purchase limit. Leftover currency converted at the same rate after the shop closed.",
+        "note": "No purchase limit. Leftover currency converts at the same rate after the shop closes.",
         "items": [
           {
             "name": "Rose Scrip",
@@ -4344,7 +4344,7 @@
     "id": "life-as-usual-260803",
     "title": "If Life Was As Usual",
     "category": "gameplay-event",
-    "description": "Fixed-price rewards from the Student Union Building.\nClear New Thing Under the Sun and complete achievements. Gameplay ended Aug 17; the shop and achievement claims stayed open until Aug 24.\nClear See You, Neverland to earn the A Fleeting Dream Posse. The Dreamscape was free to unlock during the event and costs 7 Reality Verge afterward if not already unlocked.",
+    "description": "Fixed-price rewards from the Student Union Building.\nClear New Thing Under the Sun and complete achievements. Gameplay ends Aug 17; the shop and achievement claims stay open until Aug 24.\nClear See You, Neverland to earn the A Fleeting Dream Posse. The Dreamscape is free to unlock during the event and costs 7 Reality Verge afterward if not already unlocked.",
     "startDate": "2026/08/03 09:00",
     "endDate": "2026/08/17 09:00",
     "customArt": "/events/if-life-was-as-usual.webp",
@@ -4687,7 +4687,7 @@
     "id": "before-spring-fades-260810",
     "title": "Before Spring Fades",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Horla avatar.\nClear Garden Memories and complete achievements. Colette's Flowerhouse drew five rewards for 750 matching Poems.\nGameplay ended Sep 7; shop and achievement claims stayed open until Sep 14. Unspent Poems converted to 40 Rose Scrip each. Clear Rose Habitat for the Spring's Verse Posse.",
+    "description": "SR Wheel copies and a limited Horla avatar.\nClear Garden Memories and complete achievements. Each draw at Colette's Flowerhouse gives five rewards for 750 matching Poems.\nGameplay ends Sep 7; shop and achievement claims stay open until Sep 14. Unspent Poems convert to 40 Rose Scrip each. Clear Rose Habitat for the Spring's Verse Posse.",
     "startDate": "2026/08/10 09:00",
     "endDate": "2026/09/07 09:00",
     "featured": [
@@ -4780,7 +4780,7 @@
     "id": "new-moon-snow-260824",
     "title": "New Moon and Deep Snow",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Caraboo avatar.\nClear Umapati's Treasures and complete achievements. Fairy's Rituals drew five rewards for 750 matching Apples.\nGameplay ended Sep 21; shop and achievement claims stayed open until Sep 28.",
+    "description": "SR Wheel copies and a limited Caraboo avatar.\nClear Umapati's Treasures and complete achievements. Each draw at Fairy's Rituals gives five rewards for 750 matching Apples.\nGameplay ends Sep 21; shop and achievement claims stay open until Sep 28.",
     "startDate": "2026/08/24 09:00",
     "endDate": "2026/09/21 09:00",
     "featured": [
@@ -5109,7 +5109,7 @@
     "id": "million-suns-260907",
     "title": "A Million Suns Descend",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Kathigu-Ra avatar.\nClear Hunt of the Charred and complete achievements. A Hidden Base sold fixed rewards across three shops. Gameplay ended Oct 5; the shops and achievement claims stayed open until Oct 12.\nClear Everburning Vex to earn the Undying Sun Posse. The Psyche Deepdive was free to unlock during the event and costs 3 Reality Verge afterward if not already unlocked.",
+    "description": "SR Wheel copies and a limited Kathigu-Ra avatar.\nClear Hunt of the Charred and complete achievements. A Hidden Base offers fixed-price rewards across three shops. Gameplay ends Oct 5; the shops and achievement claims stay open until Oct 12.\nClear Everburning Vex to earn the Undying Sun Posse. The Psyche Deepdive is free to unlock during the event and costs 3 Reality Verge afterward if not already unlocked.",
     "startDate": "2026/09/07 09:00",
     "endDate": "2026/10/05 09:00",
     "featured": [
@@ -5159,7 +5159,7 @@
       },
       {
         "title": "Treasure Vault limited stock",
-        "note": "Each Wheel cost 2,500 \"Seal\" of Wealth. Each Core cost 1,250.",
+        "note": "Each Wheel costs 2,500 \"Seal\" of Wealth. Each Core costs 1,250.",
         "summaryCount": 3,
         "items": [
           {
@@ -5190,7 +5190,7 @@
       },
       {
         "title": "Commission Room limited stock",
-        "note": "Each Wheel cost 2,500 \"Seal\" of Death.",
+        "note": "Each Wheel costs 2,500 \"Seal\" of Death.",
         "summaryCount": 2,
         "items": [
           {
@@ -5237,7 +5237,7 @@
       },
       {
         "title": "War Camp limited stock",
-        "note": "Each Wheel cost 2,500 \"Seal\" of War.",
+        "note": "Each Wheel costs 2,500 \"Seal\" of War.",
         "summaryCount": 2,
         "items": [
           {
@@ -5299,7 +5299,7 @@
     "id": "should-glory-fade-260921",
     "title": "Should Glory Fade",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Ogier: Oathbound avatar.\nClear Quest for the Grail and complete achievements. Peddler's Pack sold fixed rewards for Medals of Old. Gameplay ended Oct 19; the shop and achievement claims stayed open until Oct 26. Unspent medals converted to 40 Rose Scrip each.",
+    "description": "SR Wheel copies and a limited Ogier: Oathbound avatar.\nClear Quest for the Grail and complete achievements. Peddler's Pack offers fixed-price rewards for Medals of Old. Gameplay ends Oct 19; the shop and achievement claims stay open until Oct 26. Unspent medals convert to 40 Rose Scrip each.",
     "startDate": "2026/09/21 09:00",
     "endDate": "2026/10/19 09:00",
     "featured": [
@@ -5345,7 +5345,7 @@
       },
       {
         "title": "Peddler's Pack limited stock",
-        "note": "Each Wheel cost 2,500 Medals of Old. Each Core cost 1,250.",
+        "note": "Each Wheel costs 2,500 Medals of Old. Each Core costs 1,250.",
         "summaryCount": 5,
         "items": [
           {
@@ -5886,7 +5886,7 @@
     "id": "mirrored-prisoner-261005",
     "title": "Mirrored Prisoner",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Castor avatar.\nClear Skybound Spirit and complete achievements. Thirst for Knowledge sold fixed rewards across three electives. Gameplay ended Nov 2; the shops and achievement claims stayed open until Nov 9.\nClear Beyond the Skies: Part I to earn the Derision of Destiny Posse. The Dreamscape was free to unlock during the event and costs 7 Reality Verge afterward if not already unlocked.",
+    "description": "SR Wheel copies and a limited Castor avatar.\nClear Skybound Spirit and complete achievements. Thirst for Knowledge offers fixed-price rewards across three electives. Gameplay ends Nov 2; the shops and achievement claims stay open until Nov 9.\nClear Beyond the Skies: Part I to earn the Derision of Destiny Posse. The Dreamscape is free to unlock during the event and costs 7 Reality Verge afterward if not already unlocked.",
     "startDate": "2026/10/05 09:00",
     "endDate": "2026/11/02 09:00",
     "featured": [
@@ -5936,7 +5936,7 @@
       },
       {
         "title": "General Elective limited stock",
-        "note": "Each Wheel cost 2,500 General Studies Textbooks. Each Core cost 1,250.",
+        "note": "Each Wheel costs 2,500 General Studies Textbooks. Each Core costs 1,250.",
         "summaryCount": 3,
         "items": [
           {
@@ -5967,7 +5967,7 @@
       },
       {
         "title": "Science Elective limited stock",
-        "note": "Each Wheel cost 2,500 Mathematics Textbooks.",
+        "note": "Each Wheel costs 2,500 Mathematics Textbooks.",
         "summaryCount": 2,
         "items": [
           {
@@ -6014,7 +6014,7 @@
       },
       {
         "title": "Literature Elective limited stock",
-        "note": "Each Wheel cost 2,500 Literature Textbooks.",
+        "note": "Each Wheel costs 2,500 Literature Textbooks.",
         "summaryCount": 2,
         "items": [
           {
@@ -6076,7 +6076,7 @@
     "id": "then-there-were-none-261019",
     "title": "And Then There Were None",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Vivian avatar.\nClear event stages and complete achievements. The cauldron drew five rewards for 750 matching Toad Tokens.\nGameplay ended Nov 16; shop and achievement claims stay open until Nov 23. Clear Princess Diary for the Nightborn Evil Posse.",
+    "description": "SR Wheel copies and a limited Vivian avatar.\nClear event stages and complete achievements. Each cauldron draw gives five rewards for 750 matching Toad Tokens.\nGameplay ends Nov 16; shop and achievement claims stay open until Nov 23. Clear Princess Diary for the Nightborn Evil Posse.",
     "startDate": "2026/10/19 09:00",
     "endDate": "2026/11/16 09:00",
     "featured": [

@@ -358,8 +358,8 @@ describe('timeline data loading', () => {
       endDate: '2026-06-29T01:00:00.000Z',
       startDate: '2026-05-18T01:00:00.000Z',
     })
-    expect(meowch?.description).toContain('New entries closed Jun 15')
-    expect(meowch?.description).toContain('14 days after reaching that goal')
+    expect(meowch?.description).toContain('New entries close Jun 15')
+    expect(meowch?.description).toContain('14 days after the campus reaches that goal')
     expect(giftBoxes).toMatchObject({
       category: 'bundle',
       pricing: '688-2688 Silver Prime',

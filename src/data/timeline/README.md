@@ -88,6 +88,8 @@ By default, character art uses `top` positioning (shows head/upper body) and whe
 
 ### Descriptions
 
+Write event and banner descriptions and reward notes as they would read during the run: use present tense for mechanics and scheduled deadlines. Leave that wording intact when a run moves into the archive; the timeline handles its ended status separately.
+
 Descriptions support `\n` for line breaks:
 ```json
 "description": "Line one.\nLine two.\nLine three."
