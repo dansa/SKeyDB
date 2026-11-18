@@ -117,6 +117,7 @@ export function Countdown({
   const countdown = getTimelineCountdown(entry.startDate, entry.endDate, now)
   const display = getTimelineCountdownDisplay(entry.startDate, entry.endDate, now)
   if (!countdown || !display) return null
+  const ended = countdown.label === 'Ended'
   const urgent = countdown.label === 'Ends in' && countdown.totalMs <= 72 * 60 * 60 * 1000
   const value =
     countdown.totalMs >= 0
@@ -126,11 +127,13 @@ export function Countdown({
       : display.text.replace(/^Ended\s*/, '') || 'today'
   return (
     <div title={display.title}>
-      <div className='text-[0.64rem] font-bold tracking-[0.12em] text-slate-400 uppercase'>
-        {countdown.label}
-      </div>
+      <div className='text-xs leading-tight font-semibold text-slate-400'>{countdown.label}</div>
       <div
-        className={`${large ? 'text-2xl' : 'text-base'} font-semibold whitespace-nowrap tabular-nums ${urgent ? 'text-[oklch(76%_0.078_28_/_0.88)]' : countdown.label === 'Ended' ? 'text-slate-400' : 'text-amber-50'}`}
+        className={`mt-0.5 leading-tight tabular-nums ${
+          ended
+            ? `${large ? 'text-base' : 'max-w-[12ch] text-sm'} font-medium text-slate-400`
+            : `${large ? 'text-[1.375rem]' : 'text-base'} font-semibold whitespace-nowrap ${urgent ? 'text-rose-300' : 'text-[var(--ui-text-main)]'}`
+        }`}
       >
         {value}
       </div>

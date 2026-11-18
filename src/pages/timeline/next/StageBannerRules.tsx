@@ -14,7 +14,7 @@ export function StageBannerRules({profiles}: {profiles: RuleProfile[]}) {
       <p className='pt-2 text-xs text-slate-400'>
         Only SSRs are listed. SR and R Wheels can also drop.
       </p>
-      <ul className='space-y-2 py-2 text-xs leading-relaxed text-slate-300'>
+      <ul className='timeline-next-prose space-y-2 py-2 text-slate-300 tabular-nums'>
         <li>
           SSR rate per pull: 3.03% base; 5.02% including guarantees. An SSR is guaranteed within 30
           pulls.
@@ -53,11 +53,11 @@ export function StageBannerRules({profiles}: {profiles: RuleProfile[]}) {
       {kinds.map((kind) => (
         <div key={kind}>
           {kinds.length > 1 ? (
-            <h4 className='mt-2 text-xs font-semibold text-slate-400'>
+            <h4 className='mt-2 text-sm font-semibold text-[var(--ui-text-main)]'>
               {kind === 'wheel' ? 'Wheel Awakening' : 'Character Awakening'}
             </h4>
           ) : null}
-          <ul className='space-y-2 py-2 text-xs leading-relaxed text-slate-300'>
+          <ul className='timeline-next-prose space-y-2 py-2 text-slate-300 tabular-nums'>
             <li>
               When an SSR drops, it has a {kind === 'wheel' ? '50%' : '33.33%'} chance to be the
               rate-up before the featured guarantee.

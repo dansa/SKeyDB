@@ -209,7 +209,7 @@ function StageContent({
             <EventMeta event={entry} now={now} priceMode={priceMode} showPrice={false} />
           ) : null}
           <h2
-            className='ui-title mt-2 scroll-mt-16 text-[1.55rem] leading-[1.08] text-balance text-amber-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-200/70'
+            className='ui-title mt-2 scroll-mt-16 text-[1.55rem] leading-[1.15] text-balance wrap-anywhere text-amber-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-200/70'
             id={STAGE_TITLE_ID}
             ref={heading}
             tabIndex={-1}
@@ -220,7 +220,7 @@ function StageContent({
         <div className='border-t border-slate-700/40 pt-4'>
           <div className='flex flex-wrap items-end justify-between gap-3'>
             <Countdown entry={entry} large now={now} />
-            <span className='pb-1 text-xs text-slate-400' title={date.title}>
+            <span className='pb-0.5 text-xs text-slate-400 tabular-nums' title={date.title}>
               {date.text}
             </span>
           </div>
@@ -276,14 +276,10 @@ function StageContent({
           ) : null}
         </div>
         {descriptions.length ? (
-          <div className='timeline-next-description border-t border-slate-700/40 pt-4'>
+          <div className='timeline-next-description space-y-2 border-t border-slate-700/40 pt-4'>
             {descriptions.map((text, index) => (
               <p
-                className={
-                  index === 0
-                    ? 'text-[0.92rem] font-medium text-slate-100'
-                    : 'mt-2 text-[0.86rem] leading-[1.5] text-slate-300'
-                }
+                className={`timeline-next-prose ${index === 0 ? 'font-medium text-[var(--ui-text-main)]' : 'text-slate-300'}`}
                 key={`${String(index)}:${text}`}
               >
                 <TimelineRichText priceMode={priceMode} text={text} />

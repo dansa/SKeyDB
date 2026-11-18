@@ -78,8 +78,11 @@
   background-image: linear-gradient(180deg, rgba(45, 37, 29, 0.45), rgba(15, 21, 31, 0.95));
 }
 
-.timeline-next-description p {
-  text-wrap: wrap;
+.timeline-next-prose {
+  max-inline-size: 65ch;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
 }
 
 .timeline-next-segmented {
@@ -92,11 +95,10 @@
 .timeline-next-segmented > button {
   min-height: 2.25rem;
   padding: 0 0.85rem;
-  color: var(--ui-control-text);
-  font-size: var(--ui-text-label);
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  color: var(--ui-text-muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.2;
   transition:
     color var(--ui-motion-duration-fast) var(--ui-motion-ease),
     background-color var(--ui-motion-duration-fast) var(--ui-motion-ease),
