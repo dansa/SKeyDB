@@ -36,7 +36,8 @@ export interface TimelineRewardGroup {
   price?: string
   summaryCount?: number
   note?: string
-  layout?: 'list' | 'days' | 'tiles'
+  layout?: 'days'
+  choiceCount?: number
   items: TimelineRewardItem[]
   claims?: {label: string; items: TimelineRewardItem[]}[]
 }
@@ -56,6 +57,18 @@ export type BannerType = (typeof BANNER_TYPES)[number]
 
 export const BANNER_TAGS = [...BANNER_TYPES, 'collab', 'preliminary'] as const
 export type BannerTag = (typeof BANNER_TAGS)[number]
+
+/** Major game updates worth calling out on the timeline; regular patches are not listed. */
+export const TIMELINE_PATCH_KINDS = ['anniversary', 'half-anniversary', 'collab'] as const
+export type TimelinePatchKind = (typeof TIMELINE_PATCH_KINDS)[number]
+
+export interface TimelinePatch {
+  id: string
+  title: string
+  kind: TimelinePatchKind
+  /** ISO timestamp the update goes live. */
+  date: string
+}
 
 export interface BannerRateUpGroup {
   kind: 'awakener' | 'wheel'
@@ -167,6 +180,7 @@ export interface EventEntry {
   artVariants?: {card?: string; detail?: string}
   rewards?: TimelineRewardGroup[]
   missions?: TimelineMissionReward[]
+  keyDates?: {label: string; date: string; kind?: 'claim'}[]
   related?: string[]
 }
 
@@ -235,7 +249,7 @@ function formatTimelineDate(dateStr: string): string {
   return TIMELINE_DATE_FORMATTER.format(new Date(dateStr))
 }
 
-function formatTimelineDisplayDate(dateStr: string, now?: Date): string {
+export function formatTimelineDisplayDate(dateStr: string, now?: Date): string {
   const date = new Date(dateStr)
   const reference = now ?? new Date()
   if (date.getUTCFullYear() === reference.getUTCFullYear()) {

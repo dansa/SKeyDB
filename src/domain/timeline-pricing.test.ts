@@ -3,9 +3,13 @@ import {describe, expect, it} from 'vitest'
 import {formatTimelinePrice} from './timeline-pricing'
 
 describe('timeline pricing display helpers', () => {
-  it('keeps authored prices in Silver Prime mode', () => {
-    expect(formatTimelinePrice('1980 Silver Prime', 'silver-prime')).toBe('1980 Silver Prime')
-    expect(formatTimelinePrice('USD 29.99', 'silver-prime')).toBe('USD 29.99')
+  it('formats prices in Silver Prime mode', () => {
+    expect(formatTimelinePrice('1980 Silver Prime', 'silver-prime')).toBe('1,980 Silver Prime')
+    expect(formatTimelinePrice('480-1980 Silver Prime', 'silver-prime')).toBe(
+      '480–1,980 Silver Prime',
+    )
+    expect(formatTimelinePrice('Free during event', 'silver-prime')).toBe('Free during event')
+    expect(formatTimelinePrice('USD 29.99', 'silver-prime')).toBe('$29.99')
   })
 
   it('formats Silver Prime prices as rounded estimated dollars', () => {

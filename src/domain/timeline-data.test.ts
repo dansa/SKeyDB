@@ -16,6 +16,19 @@ import {
 } from './timeline-data'
 
 describe('timeline data loading', () => {
+  it('validates and converts optional key dates', () => {
+    const event = {
+      id: 'key-date-test',
+      title: 'Key date',
+      startDate: '2026/11/01 09:00',
+      endDate: '2026/11/30 09:00',
+      keyDates: [{label: 'Claims until', kind: 'claim', date: '2026/12/07 09:00'}],
+    }
+    expect(loadTimelineEvents([event])[0].keyDates).toEqual([
+      {label: 'Claims until', kind: 'claim', date: '2026-12-07T01:00:00.000Z'},
+    ])
+    expect(() => loadTimelineEvents([{...event, keyDates: [{label: '', date: 'bad'}]}])).toThrow()
+  })
   it('keeps the November Kaleido pools and shared milestones tied to that run', () => {
     const event = timelineEvents.find(({id}) => id === 'event-constellated-memories')
     expect(event?.missions).toEqual([
@@ -108,6 +121,8 @@ describe('timeline data loading', () => {
       detail: expect.stringContaining('-detail.webp'),
     })
     if (id === '24') {
+      expect(entry?.title).toBe('Crimson Heartwood')
+      expect(entry?.endDate).toBe('2026-03-23T01:00:00.000Z')
       expect(entry?.missions?.at(-1)).toMatchObject({
         label: 'Log in for 15 days',
         premium: expect.arrayContaining([{name: skin, amount: '×1'}]),
@@ -115,14 +130,43 @@ describe('timeline data loading', () => {
     }
   })
   it.each([
-    ['event-preorder-arachne', '"Moirae Weaver" avatar', 'April 20', 'May 17'],
-    ['event-preorder-unfading-memories', '"Bon Appetite" avatar', 'May 30', 'Jun 26'],
-    ['event-preorder-myriad-wishcraft', '"Trickery in Motion" avatar', 'August 24', 'Sep 20'],
-    ['event-preorder-witchs-nocturnal-operation', '"Do Not Knock" avatar', 'October 19', 'Nov 15'],
+    [
+      'event-preorder-arachne',
+      'Conjugated Fates',
+      '"Moirae Weaver" avatar',
+      '2026-04-20',
+      'May 17',
+      null,
+    ],
+    [
+      'event-preorder-unfading-memories',
+      'Unfading Memories',
+      '"Bon Appetite" avatar',
+      '2026-05-30',
+      'Jun 26',
+      '2026-07-06',
+    ],
+    [
+      'event-preorder-myriad-wishcraft',
+      'Myriad Wishcraft',
+      '"Trickery in Motion" avatar',
+      '2026-08-24',
+      'Sep 20',
+      '2026-09-28',
+    ],
+    [
+      'event-preorder-witchs-nocturnal-operation',
+      "Sneaky Witch O'Clock",
+      '"Do Not Knock" avatar',
+      '2026-10-19',
+      'Nov 15',
+      '2026-11-23',
+    ],
   ])(
     'preserves the verified preorder dates, avatar and rewards for %s',
-    (id, avatar, early, last) => {
+    (id, title, avatar, early, last, claimsEnd) => {
       const entry = timelineEvents.find((event) => event.id === id)
+      expect(entry?.title).toBe(title)
       expect(entry?.pricing).toBe('1980 Silver Prime')
       const [free, paid, bonus] = entry?.rewards ?? []
       expect(free.items).toEqual([{name: 'Silver', amount: '×100'}])
@@ -130,7 +174,12 @@ describe('timeline data loading', () => {
       expect(paid.claims?.at(0)?.label).toBe('On purchase')
       expect(paid.claims?.at(-1)?.label).toBe(last)
       expect(paid.items).toContainEqual({name: 'Luminous Core', amount: '×30'})
-      expect(bonus.note).toContain(early)
+      expect(entry?.keyDates).toEqual([
+        {label: 'Early bonus until', date: `${early}T01:00:00.000Z`},
+        ...(claimsEnd
+          ? [{label: 'Claims until', kind: 'claim', date: `${claimsEnd}T01:00:00.000Z`}]
+          : []),
+      ])
       expect(bonus.items).toContainEqual({name: avatar, amount: '×1'})
       expect(entry?.artVariants).toEqual({
         card: expect.stringContaining('-card.webp'),
@@ -147,10 +196,15 @@ describe('timeline data loading', () => {
     ['event-wheel-soul-synchronization', 1680, 30, 60],
     ['event-wheel-darker-than-darkness', 1680, 30, 60],
     ['event-wheel-imagos-clinic', 1680, 30, 60],
+    ['event-wheel-aquamarine-dream', 1680, 30, 60],
   ])('loads both verified Archive tracks for %s', (id, price, pure, luminous) => {
     const event = timelineEvents.find((entry) => entry.id === id)
     expect(event?.pricing).toBe(`${String(price)} Silver Prime`)
     expect(event?.missions).toHaveLength(8)
+    expect(event?.rewards?.map(({title, items}) => [title, items[0]?.amount])).toEqual([
+      ['Standard Archives', '×4'],
+      ['Premium Archives adds', '×12'],
+    ])
     for (const [track, core, total] of [
       ['standard', 'Pure Core', pure],
       ['premium', 'Luminous Core', luminous],
@@ -315,7 +369,7 @@ describe('timeline data loading', () => {
       endDate: '2026-06-29T01:00:00.000Z',
       startDate: '2026-05-18T01:00:00.000Z',
     })
-    expect(meowch?.description).toContain('New entries closed June 15')
+    expect(meowch?.description).toContain('New entries closed Jun 15')
     expect(meowch?.description).toContain('14 days after reaching that goal')
     expect(giftBoxes).toMatchObject({
       category: 'bundle',
@@ -324,17 +378,22 @@ describe('timeline data loading', () => {
     })
     expect(giftBoxes?.endDate).toBe('2026-06-29T01:00:00.000Z')
     expect(
-      giftBoxes?.rewards?.map(({title, price, summaryCount}) => [title, price, summaryCount]),
+      giftBoxes?.rewards?.map(({title, price, summaryCount, choiceCount}) => [
+        title,
+        price,
+        summaryCount,
+        choiceCount,
+      ]),
     ).toEqual([
-      ['Ode in Embers', '1280 Silver Prime', undefined],
-      ['Celestial Accord', '1280 Silver Prime', undefined],
-      ['Summer Fireworks', '688 Silver Prime', 3],
-      ['Summer Matsuri', '2688 Silver Prime', 3],
+      ['Ode in Embers', '1280 Silver Prime', undefined, undefined],
+      ['Celestial Accord', '1280 Silver Prime', undefined, undefined],
+      ['Summer Fireworks', '688 Silver Prime', 3, 2],
+      ['Summer Matsuri', '2688 Silver Prime', 3, 3],
     ])
     expect(preorder).toMatchObject({
       category: 'preorder',
       pricing: '1980 Silver Prime',
-      title: 'Pre-order "Unfading Memories"',
+      title: 'Unfading Memories',
     })
     expect(season33Login).toMatchObject({
       category: 'login',
@@ -387,14 +446,14 @@ describe('timeline data loading', () => {
   it('keeps anniversary milestone thresholds and rewards in order', () => {
     const dreamy = timelineEvents.find((event) => event.id === 'event-dreamy-offering')
     const stream = timelineEvents.find((event) => event.id === 'event-stream-of-infatuation')
-    expect(dreamy?.rewards?.map((tier) => [tier.title, tier.items[0]?.amount])).toEqual([
+    expect(dreamy?.missions?.map((tier) => [tier.label, tier.standard[0]?.amount])).toEqual([
       ['100 Awakens', '×100'],
       ['250 Awakens', '×200'],
       ['500 Awakens', '×300'],
       ['1,000 Awakens', '×400'],
     ])
     expect(
-      stream?.rewards?.map((tier) => [tier.title, tier.items.map((item) => item.name)]),
+      stream?.missions?.map((tier) => [tier.label, tier.standard.map((item) => item.name)]),
     ).toEqual([
       [
         '5,000 Silver Prime extracted',
@@ -538,7 +597,7 @@ describe('timeline data loading', () => {
       tags: undefined,
       type: 'daily',
     })
-    expect(rawEchoingWishes?.derivedPool).toBeUndefined()
+    expect('derivedPool' in (rawEchoingWishes ?? {})).toBe(false)
     expect(echoingWishes?.poolSlots).toBeUndefined()
     expect(echoingWishes?.dailySchedule).toHaveLength(28)
     expect(echoingWishes?.rulesProfile).toBe('oathbound-oracle')
@@ -1033,7 +1092,7 @@ describe('timeline data loading', () => {
       category: 'wheel-event',
       customArt: expect.stringContaining('born-in-darkness'),
       pricing: '1680 Silver Prime',
-      title: 'Special Archives: Born in Darkness',
+      title: 'Born in Darkness',
     })
     expect(preorder).toMatchObject({
       category: 'preorder',

@@ -2,6 +2,7 @@ import {z} from 'zod'
 
 import rawBanners from '@/data/timeline/banners.json'
 import rawEvents from '@/data/timeline/events.json'
+import rawPatches from '@/data/timeline/patches.json'
 
 import {getAwakeners} from './awakeners'
 import {
@@ -11,8 +12,10 @@ import {
   EVENT_CATEGORIES,
   normalizeEventCategory,
   parseGameDate,
+  TIMELINE_PATCH_KINDS,
   type BannerEntry,
   type EventEntry,
+  type TimelinePatch,
 } from './timeline'
 import {
   resolveTimelineBannerDerivedPool,
@@ -118,7 +121,8 @@ const rewardGroupSchema = z.object({
   price: nonEmptyStringSchema.optional(),
   summaryCount: z.number().int().positive().optional(),
   note: z.string().optional(),
-  layout: z.enum(['list', 'days', 'tiles']).optional(),
+  layout: z.literal('days').optional(),
+  choiceCount: z.number().int().positive().optional(),
   items: z.array(rewardItemSchema).min(1),
   claims: z
     .array(z.object({label: nonEmptyStringSchema, items: z.array(rewardItemSchema).min(1)}))
@@ -286,6 +290,15 @@ const eventInputSchema: z.ZodType<EventInput> = z.object({
     .optional(),
   rewards: z.array(rewardGroupSchema).optional(),
   missions: z.array(missionRewardSchema).min(1).optional(),
+  keyDates: z
+    .array(
+      z.object({
+        label: nonEmptyStringSchema,
+        date: gameDateSchema,
+        kind: z.literal('claim').optional(),
+      }),
+    )
+    .optional(),
   related: z.array(nonEmptyStringSchema).optional(),
 })
 
@@ -306,6 +319,7 @@ interface EventInput {
   artVariants?: {card: string; detail: string}
   rewards?: EventEntry['rewards']
   missions?: EventEntry['missions']
+  keyDates?: EventEntry['keyDates']
   related?: string[]
 }
 
@@ -443,6 +457,7 @@ function loadEvent(raw: EventInput): EventEntry {
     artVariants,
     rewards: raw.rewards,
     missions: raw.missions,
+    keyDates: raw.keyDates?.map((keyDate) => ({...keyDate, date: parseGameDate(keyDate.date)})),
     related: raw.related,
   }
   if (raw.featured) {
@@ -457,6 +472,20 @@ export function loadTimelineBanners(input: unknown): BannerEntry[] {
 
 export function loadTimelineEvents(input: unknown): EventEntry[] {
   return z.array(eventInputSchema).parse(input).map(loadEvent)
+}
+
+const patchInputSchema = z.object({
+  id: nonEmptyStringSchema,
+  title: nonEmptyStringSchema,
+  kind: z.enum(TIMELINE_PATCH_KINDS),
+  date: gameDateSchema,
+})
+
+export function loadTimelinePatches(input: unknown): TimelinePatch[] {
+  return z
+    .array(patchInputSchema)
+    .parse(input)
+    .map((patch) => ({...patch, date: parseGameDate(patch.date)}))
 }
 
 export function validateTimelineLinks(entries: Pick<EventEntry, 'id' | 'related'>[]): void {
@@ -474,4 +503,5 @@ export function validateTimelineLinks(entries: Pick<EventEntry, 'id' | 'related'
 
 export const timelineBanners: BannerEntry[] = loadTimelineBanners(rawBanners)
 export const timelineEvents: EventEntry[] = loadTimelineEvents(rawEvents)
+export const timelinePatches: TimelinePatch[] = loadTimelinePatches(rawPatches)
 validateTimelineLinks([...timelineBanners, ...timelineEvents])

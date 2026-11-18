@@ -1,6 +1,7 @@
 import type {EntityRef} from '@/domain/entities/types'
 import type {BannerPoolSlot} from '@/domain/timeline'
 
+import {StageDisclosure} from './StageDisclosure'
 import {StageRoster} from './StageRoster'
 
 export function StageSelector({
@@ -17,10 +18,7 @@ export function StageSelector({
       </h3>
       <div className='divide-y divide-slate-700/40'>
         {slots.map(({label, pool, linked}) => (
-          <details key={label}>
-            <summary className='cursor-pointer py-3 text-sm font-semibold text-amber-100'>
-              {label} ({pool.length})
-            </summary>
+          <StageDisclosure key={label} label={`${label ?? ''} (${String(pool.length)})`}>
             <ul className='grid grid-cols-[repeat(auto-fill,minmax(min(9rem,100%),1fr))] gap-2 pb-3'>
               {pool.map((unit) => (
                 <li className='min-w-0 border border-slate-700/40 p-2' key={unit.name}>
@@ -32,7 +30,7 @@ export function StageSelector({
                 </li>
               ))}
             </ul>
-          </details>
+          </StageDisclosure>
         ))}
       </div>
     </section>

@@ -10,6 +10,7 @@ export function RewardPreview({
   label,
   className,
   children,
+  notable,
 }: {
   item: TimelineRewardItem
   image?: string
@@ -18,6 +19,7 @@ export function RewardPreview({
   label?: string
   className?: string
   children: ReactNode
+  notable?: boolean
 }) {
   const id = useId()
   const [open, setOpen] = useState(false)
@@ -34,13 +36,16 @@ export function RewardPreview({
       return
     }
     el.showPopover()
+    el.style.maxHeight = ''
     const rect = button.getBoundingClientRect()
     const {width, height} = el.getBoundingClientRect()
     el.style.left = `${String(Math.max(8, Math.min(rect.left, window.innerWidth - width - 8)))}px`
-    const below = rect.bottom + 4
-    const above = rect.top - height - 4
-    const top = below + height <= window.innerHeight - 8 ? below : above
-    el.style.top = `${String(Math.max(8, top))}px`
+    const below = window.innerHeight - rect.bottom - 12
+    const above = rect.top - 12
+    const placeBelow = below >= height || below >= above
+    const availableHeight = Math.max(0, placeBelow ? below : above)
+    el.style.maxHeight = `${String(availableHeight)}px`
+    el.style.top = `${String(placeBelow ? rect.bottom + 4 : rect.top - Math.min(height, availableHeight) - 4)}px`
   }
 
   useEffect(() => {
@@ -52,8 +57,19 @@ export function RewardPreview({
       panel.current.hidePopover()
     }
     window.addEventListener('keydown', onEscape, true)
+    function dismiss() {
+      if (panel.current?.matches(':popover-open')) panel.current.hidePopover()
+    }
+    function onScroll(event: Event) {
+      if (event.target === panel.current) return
+      dismiss()
+    }
+    window.addEventListener('scroll', onScroll, true)
+    window.addEventListener('resize', dismiss)
     return () => {
       window.removeEventListener('keydown', onEscape, true)
+      window.removeEventListener('scroll', onScroll, true)
+      window.removeEventListener('resize', dismiss)
     }
   }, [open])
 
@@ -63,6 +79,7 @@ export function RewardPreview({
         aria-controls={id}
         aria-label={label ?? name}
         className={`cursor-pointer ${className ?? ''}`}
+        data-notable={notable ? 'true' : undefined}
         onClick={(event) => {
           event.preventDefault()
           togglePreview()
@@ -75,7 +92,7 @@ export function RewardPreview({
       </button>
       <div
         aria-label={name}
-        className='fixed inset-auto m-0 max-w-[calc(100vw-1rem)] rounded-[2px] border border-amber-300/35 bg-slate-950 px-3 py-2 text-sm text-slate-200 shadow-lg'
+        className='fixed inset-auto m-0 max-w-[calc(100vw-1rem)] overflow-y-auto rounded-[2px] border border-amber-300/35 bg-slate-950 px-3 py-2 text-sm text-slate-200 shadow-lg'
         id={id}
         onToggle={() => {
           setOpen(panel.current?.matches(':popover-open') ?? false)
@@ -87,7 +104,7 @@ export function RewardPreview({
         {image ? (
           <img
             alt=''
-            className={`mx-auto mb-2 object-contain ${large ? 'size-28' : 'size-10'}`}
+            className={`mx-auto mb-2 object-contain ${large ? 'size-28' : 'size-16'}`}
             src={image}
           />
         ) : null}

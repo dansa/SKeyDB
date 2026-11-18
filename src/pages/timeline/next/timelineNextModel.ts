@@ -5,6 +5,7 @@ import {
   type BannerFeaturedUnit,
   type BannerPoolSlot,
   type EventEntry,
+  type TimelinePatch,
 } from '@/domain/timeline'
 import type {TimelineContentFilter} from '@/domain/timeline-routing'
 
@@ -14,7 +15,7 @@ export type TimelineEntry = EventEntry | BannerEntry
 
 export interface TimelineAgendaMoment {
   at: string
-  action: 'start' | 'end'
+  action: 'start' | 'end' | 'claim'
   kind: 'event' | 'banner' | 'season'
   title: string
   id?: string
@@ -23,6 +24,7 @@ export interface TimelineAgendaMoment {
 export interface TimelineAgendaGroup {
   date: Date
   moments: TimelineAgendaMoment[]
+  patch?: TimelinePatch
 }
 
 export function getTimelineAgendaGroups({
@@ -30,12 +32,14 @@ export function getTimelineAgendaGroups({
   events,
   filter,
   now,
+  patches = [],
   season,
 }: {
   banners: BannerEntry[]
   events: EventEntry[]
   filter: TimelineContentFilter
   now: Date
+  patches?: TimelinePatch[]
   season?: {name: string; endDate: string}
 }): TimelineAgendaGroup[] {
   const moments: TimelineAgendaMoment[] = []
@@ -44,44 +48,80 @@ export function getTimelineAgendaGroups({
     ...(filter === 'events' ? [] : banners),
   ]
   for (const entry of entries) {
+    const banner = isBanner(entry)
+    if (!banner) {
+      for (const keyDate of entry.keyDates ?? []) {
+        if (keyDate.kind === 'claim') {
+          moments.push({
+            action: 'claim',
+            at: keyDate.date,
+            id: entry.id,
+            kind: 'event',
+            title: entry.title,
+          })
+        }
+      }
+    }
     const status = getTimelineStatus(entry.startDate, entry.endDate, now)
     if (status === 'ended') continue
     moments.push({
       action: status === 'upcoming' ? 'start' : 'end',
       at: status === 'upcoming' ? entry.startDate : entry.endDate,
       id: entry.id,
-      kind: isBanner(entry) ? 'banner' : 'event',
+      kind: banner ? 'banner' : 'event',
       title: entry.title,
     })
   }
   if (season) moments.push({action: 'end', at: season.endDate, kind: 'season', title: season.name})
   const groups = new Map<string, TimelineAgendaGroup>()
+  const dayKey = (date: Date) =>
+    `${String(date.getFullYear())}-${String(date.getMonth())}-${String(date.getDate())}`
   for (const moment of moments
     .filter((item) => new Date(item.at).getTime() > now.getTime())
     .sort((a, b) => new Date(a.at).getTime() - new Date(b.at).getTime())) {
     const date = new Date(moment.at)
-    const key = `${String(date.getFullYear())}-${String(date.getMonth())}-${String(date.getDate())}`
+    const key = dayKey(date)
     const group = groups.get(key) ?? {date, moments: []}
     group.moments.push(moment)
     groups.set(key, group)
   }
-  return [...groups.values()].slice(0, 4)
+  for (const patch of patches) {
+    const date = new Date(patch.date)
+    if (date.getTime() <= now.getTime()) continue
+    const key = dayKey(date)
+    const existing = groups.get(key)
+    groups.set(key, {
+      date: existing && existing.date < date ? existing.date : date,
+      moments: existing?.moments ?? [],
+      patch,
+    })
+  }
+  return [...groups.values()].sort((a, b) => a.date.getTime() - b.date.getTime())
 }
 
 export function isBanner(entry: TimelineEntry): entry is BannerEntry {
   return 'type' in entry
 }
 
+export function getInitialBannerRotation(banner: BannerEntry, now: Date) {
+  return getTimelineStatus(banner.startDate, banner.endDate, now) === 'active'
+    ? (getBannerDailyScheduleEntry(banner, now) ?? banner.dailySchedule?.at(0))
+    : banner.dailySchedule?.at(0)
+}
+
 export function getDisplayBanner(banner: BannerEntry, now: Date): BannerEntry {
-  const daily = getBannerDailyScheduleEntry(banner, now)
+  const daily = getInitialBannerRotation(banner, now)
   return daily
     ? {
         ...banner,
-        customTags: [
-          ...(banner.customTags ?? []),
-          `Day ${String(daily.day)}`,
-          ...(daily.featured[0] ? [daily.featured[0].name] : []),
-        ],
+        customTags:
+          getTimelineStatus(banner.startDate, banner.endDate, now) === 'active'
+            ? [
+                ...(banner.customTags ?? []),
+                `Day ${String(daily.day)}`,
+                ...(daily.featured[0] ? [daily.featured[0].name] : []),
+              ]
+            : banner.customTags,
         featured: daily.featured,
         poolSlots: undefined,
       }

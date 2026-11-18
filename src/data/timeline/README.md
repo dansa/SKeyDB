@@ -29,13 +29,14 @@ Array of event objects. Each event appears as a card in the Events section.
 | `description` | string | no | Short description text. Supports shared timeline rich text; see [Descriptions](#descriptions) |
 | `startDate` | string | **yes** | Start time in `YYYY/MM/DD HH:MM` UTC+8 |
 | `endDate` | string | **yes** | End time in `YYYY/MM/DD HH:MM` UTC+8 |
+| `keyDates` | array | no | Additional `{label, date, kind?}` facts, using the same date format as `endDate`. Set `kind: "claim"` for a verified claim deadline so it appears in the agenda even after the event ends. |
 | `pinned` | boolean | no | Pinned events sort to the top |
 | `preliminary` | boolean | no | Marks dates, rewards, or details as provisional and shows a `Preliminary` metadata label |
 | `featured` | string, object, or array | no | One or more featured awakeners or wheels. Uses the same item forms as banner [`featured`](#featured-units), including explicit kinds, custom art, and detail-link opt-outs |
 | `customArt` | string | no | Custom art URL or path. Overrides `featured` art if both are set. Use for skins, special promo art, raid art, etc. Non-URL values like `"TBD"` are ignored. Paths starting with `/events/` are resolved against `src/assets/events/*` (bundled), e.g. `/events/arachne.png` |
 | `pricing` | string | no | Displays a silver pricing badge, e.g. `"960 Silver Prime"`, `"$24.99"` |
 | `artAlign` | string | no | Overrides the default art positioning. Accepts any CSS `object-position` value. See [Art Alignment](#art-alignment) below |
-| `rewards` | array | no | Reward groups with a nonempty `items` array of `{name, amount?}`. Optional fields: `title`, `note`, `layout` (`list`, `days`, or `tiles`), `price`, `summaryCount`, and `claims` (`{label, items}` rows). |
+| `rewards` | array | no | Reward groups with a nonempty `items` array of `{name, amount?}`. Optional fields: `title`, `note`, `layout` (`days`), `price`, `summaryCount`, `choiceCount` (number of picks from the items after `summaryCount`), and `claims` (`{label, items}` rows). |
 | `missions` | array | no | Rows of `{label, standard, premium?}`. Each track is an array of reward items. Use `premium` only for additional paid rewards. |
 | `artVariants` | object | no | Both `card` (square) and `detail` (wide) must resolve to bundled `/events/` assets. `customArt` remains the fallback. |
 | `related` | array | no | Existing event or banner IDs. IDs must be unique across both files. |
@@ -108,6 +109,23 @@ Note: double quotes inside strings must be escaped with `\"` — this is a JSON 
   "rewards": [{"title": "Missions", "items": [{"name": "Pure Core", "amount": "×10"}]}],
   "related": ["banner-arcane-tides"]
 }
+```
+
+---
+
+## patches.json
+
+Major game updates that get a named marker in the Timeline agenda. List only anniversaries, half-anniversaries and collabs; regular patches stay unlisted.
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `id` | string | **yes** | Unique identifier, e.g. `patch-anniversary-2026` |
+| `title` | string | **yes** | Name shown in the agenda, e.g. `Anniversary` |
+| `kind` | string | **yes** | `anniversary`, `half-anniversary` or `collab` |
+| `date` | string | **yes** | When the update goes live, in `YYYY/MM/DD HH:MM` UTC+8 |
+
+```json
+{"id": "patch-anniversary-2026", "title": "Anniversary", "kind": "anniversary", "date": "2026/11/30 09:00"}
 ```
 
 ---

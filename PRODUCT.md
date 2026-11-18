@@ -1,8 +1,10 @@
 # Product
 
-## Register
+<!-- impeccable:product-schema 1 -->
 
-product
+## Platform
+
+web
 
 ## Users
 
@@ -15,6 +17,27 @@ Less experienced players should still be able to understand the structure withou
 SKeyDB is an unofficial, non-commercial Morimens fan database and team planner. It turns scattered community knowledge into a practical product surface: database browsing, exact stats, timeline tracking, D-zone season inspection, collection tracking, and builder workflows.
 
 Success looks like a player finding the right information or completing a planning task without fighting the UI. The product should feel more curated and intentional than a wiki, but quieter and more task-focused than a game portal.
+
+## Positioning
+
+SKeyDB brings detailed Morimens reference data and roster-aware planning together. Players can look up character skills, card effects, and exact stats at a chosen level, track their collection, and build or share a lineup using supported in-game team codes.
+
+## Operating Context
+
+Looking up characters and skills in the Database is a common reason to visit. Players search for a specific entry, follow references between related entries, or keep several details in view while comparing options. The Builder and Collection support longer planning sessions. Players also consult the Timeline for current and upcoming events and banners, and D-zone for season details.
+
+## Evidence on Hand
+
+- [Public database records and indexes](src/data/public-v3/) contain the entity data used by the reference surfaces.
+- [Timeline event and banner data](src/data/timeline/) and [D-zone season data](src/data/dzone/) support schedule and season lookups.
+- The [project README](README.md) describes the current tools and game-code support. The [asset notice](ASSET-NOTICE.md) records attribution and reuse boundaries for game-owned material.
+
+## Product Principles
+
+1. Give reference and planning equal weight when making product decisions. Keep routine lookups quick and make deeper planning easy to reach.
+2. Use established Morimens terminology and make it easy to follow references between records.
+3. Make current and upcoming events easy to distinguish, with clear timing and access to the relevant details.
+4. Support detailed comparisons and filtering while keeping common tasks approachable for newer players.
 
 ## Brand Personality
 

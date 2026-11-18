@@ -8,11 +8,11 @@ import type {EntityRef} from '@/domain/entities/types'
 
 export type DbDetailEntityRef = EntityRef & {kind: DatabaseDetailKind}
 
-const dbDetailEntityKindSet = new Set<EntityRef['kind']>(
+const dbDetailEntityKindSet = new Set<string>(
   DATABASE_ENTITY_DEFINITIONS.map(({detailKind}) => detailKind),
 )
 
-export function isDbDetailEntityRef(ref: EntityRef): ref is DbDetailEntityRef {
+export function isDbDetailEntityRef(ref: {kind: string; id: string}): ref is DbDetailEntityRef {
   return dbDetailEntityKindSet.has(ref.kind)
 }
 
@@ -52,9 +52,12 @@ function toDetailRef(ref: EntityRef): DbDetailEntityRef | null {
  * Creates one isolated overlay branch. Reference frames can only be added through this
  * session, so they can never be attributed by their position in a process-wide stack.
  */
-export function createDatabaseDetailOverlaySession(): DatabaseDetailOverlaySession {
+export function createDatabaseDetailOverlaySession({
+  initialRef,
+  onCloseRoot,
+}: {initialRef?: DbDetailEntityRef; onCloseRoot?: () => void} = {}): DatabaseDetailOverlaySession {
   const store = createStore<DbDetailOverlayBranchStore>()((set) => ({
-    frames: [],
+    frames: initialRef ? [initialRef] : [],
     clear: () => {
       set({frames: []})
     },
@@ -76,7 +79,13 @@ export function createDatabaseDetailOverlaySession(): DatabaseDetailOverlaySessi
   }))
 
   return Object.freeze({
-    close: store.getState().close,
+    close: () => {
+      if (onCloseRoot && store.getState().frames.length === 1) {
+        onCloseRoot()
+      } else {
+        store.getState().close()
+      }
+    },
     dispose: store.getState().clear,
     followReference: store.getState().followReference,
     isOpen: () => store.getState().frames.length > 0,

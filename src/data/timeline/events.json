@@ -3,7 +3,7 @@
     "id": "event-story-vortice",
     "title": "Call of the Moskstraumen",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Vortice avatar.\nClear Vortice and the Sea and complete achievements. Vortice's Hoard drew five rewards for 750 matching Conches.\nGameplay ended April 6; shop and achievement claims stayed open until April 13 at 09:00 (UTC+8). Clear No More the Shore for the Drowned Innocence Posse.",
+    "description": "SR Wheel copies and a limited Vortice avatar.\nClear Vortice and the Sea and complete achievements. Vortice's Hoard drew five rewards for 750 matching Conches.\nGameplay ended Apr 6; shop and achievement claims stayed open until Apr 13. Clear No More the Shore for the Drowned Innocence Posse.",
     "startDate": "2026/03/09 09:00",
     "endDate": "2026/04/06 09:00",
     "pinned": true,
@@ -105,7 +105,7 @@
   },
   {
     "id": "event-wheel-ryker",
-    "title": "Wheel Event: Lucky Winner",
+    "title": "Lucky Winner",
     "category": "wheel-event",
     "description": "Earn 4 free copies of Stakes of Wisdom.\nPremium Archives adds 12 more copies.",
     "startDate": "2026/03/09 09:00",
@@ -137,12 +137,12 @@
         ]
       },
       {
-        "title": "Premium Archives",
+        "title": "Premium Archives adds",
         "price": "980 Silver Prime",
         "items": [
           {
             "name": "Stakes of Wisdom",
-            "amount": "+12"
+            "amount": "×12"
           },
           {
             "name": "Luminous Core",
@@ -324,9 +324,9 @@
   },
   {
     "id": "event-skin-24",
-    "title": "Skin: Crimson Heartwood",
+    "title": "Crimson Heartwood",
     "category": "skin",
-    "description": "Paid outfit for 24.\nUnlock the Premium track and log in on 15 days during the event to earn Crimson Kaede. The Standard track is free.",
+    "description": "Crimson Kaede outfit for 24.\nThe outfit unlocks on the 15th login with Premium Archives.",
     "startDate": "2026/02/23 09:00",
     "endDate": "2026/03/23 09:00",
     "featured": "24",
@@ -338,7 +338,7 @@
     },
     "rewards": [
       {
-        "title": "Standard",
+        "title": "Standard Archives",
         "price": "Free",
         "items": [
           {
@@ -352,7 +352,7 @@
         ]
       },
       {
-        "title": "Premium",
+        "title": "Premium Archives adds",
         "price": "980 Silver Prime",
         "items": [
           {
@@ -558,11 +558,17 @@
   },
   {
     "id": "event-preorder-arachne",
-    "title": "Pre-order \"Conjugated Fates\"",
+    "title": "Conjugated Fates",
     "category": "preorder",
-    "description": "Free Silver and paid preorder rewards.\nPaid rewards unlock on the dates below after purchase.",
+    "description": "100 free Silver and seven paid gift packs.",
     "startDate": "2026/04/06 09:00",
     "endDate": "2026/05/18 09:00",
+    "keyDates": [
+      {
+        "label": "Early bonus until",
+        "date": "2026/04/20 09:00"
+      }
+    ],
     "featured": {
       "name": "Arachne",
       "detailLink": false
@@ -575,7 +581,7 @@
     },
     "rewards": [
       {
-        "title": "Free reward",
+        "title": "First gift pack",
         "price": "Free",
         "items": [
           {
@@ -587,7 +593,7 @@
       {
         "title": "Paid Archives",
         "price": "1980 Silver Prime",
-        "layout": "tiles",
+        "note": "The Archives close the day after all eight packs are claimed.",
         "items": [
           {
             "name": "Luminous Core",
@@ -722,8 +728,6 @@
       },
       {
         "title": "Early purchase bonus",
-        "note": "Purchase before April 20 at 09:00 (UTC+8).",
-        "layout": "tiles",
         "items": [
           {
             "name": "\"Moirae Weaver\" avatar",
@@ -750,7 +754,7 @@
     "id": "event-story-rerun-wanda",
     "title": "Feast of Flames",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Wanda avatar.\nClear City in the Lake and complete achievements. Wanda's Treasure Vault offered fixed-price rewards across three shops.\nGameplay ended April 20; shop and achievement claims stayed open until April 27 at 09:00 (UTC+8). Clear the Feast of Flames Psyche Deepdive for the Feast of Decay Posse. On the rerun, repeat avatars converted to one Formless One's Invitation; extra Hearts of Hedonism converted to 5,000 Rose Scrip each.",
+    "description": "SR Wheel copies and a limited Wanda avatar.\nClear City in the Lake and complete achievements. Wanda's Treasure Vault offered fixed-price rewards across three shops.\nGameplay ended Apr 20; shop and achievement claims stayed open until Apr 27. Clear the Feast of Flames Psyche Deepdive for the Feast of Decay Posse. On the rerun, repeat avatars converted to one Formless One's Invitation; extra Hearts of Hedonism converted to 5,000 Rose Scrip each.",
     "startDate": "2026/03/23 09:00",
     "endDate": "2026/04/20 09:00",
     "featured": [
@@ -958,7 +962,6 @@
     "rewards": [
       {
         "title": "Round Wonders cosmetics",
-        "layout": "tiles",
         "note": "The My Turn: Cosmos Card avatar was the 3,600-Acorn reward.",
         "items": [
           {
@@ -1048,7 +1051,7 @@
     "id": "event-story-tulu",
     "title": "The Sovereign's Return",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Tulu avatar.\nClear Gaze of the Deep Sea and complete achievements for event currency. Abyssborn Epiphany sold fixed rewards. Gameplay ended May 4; the shops and achievement claims stayed open until May 11 at 09:00 (UTC+8).\nClear Day of Coronation to earn the Blessing of the Stars Posse. Repeat avatar rewards converted to one Formless One's Invitation.",
+    "description": "SR Wheel copies and a limited Tulu avatar.\nClear Gaze of the Deep Sea and complete achievements for event currency. Abyssborn Epiphany sold fixed rewards. Gameplay ended May 4; the shops and achievement claims stayed open until May 11.\nClear Day of Coronation to earn the Blessing of the Stars Posse. Repeat avatar rewards converted to one Formless One's Invitation.",
     "startDate": "2026/04/06 09:00",
     "endDate": "2026/05/04 09:00",
     "customArt": "/events/sovereigns-return-detail.webp",
@@ -1270,7 +1273,6 @@
     "rewards": [
       {
         "title": "Mission rewards",
-        "layout": "tiles",
         "items": [
           {
             "name": "With Spikenard and Myrrh",
@@ -1348,7 +1350,7 @@
     "id": "event-story-arachne",
     "title": "Bound Weaver",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Arachne avatar.\nClear The Puppet's Stage and complete achievements. Theater Souvenirs drew five rewards for 750 A-Reserve Tickets.\nGameplay ended May 18; shop and achievement claims stayed open until May 25 at 09:00 (UTC+8). Unspent tickets converted to 40 Rose Scrip each.",
+    "description": "SR Wheel copies and a limited Arachne avatar.\nClear The Puppet's Stage and complete achievements. Theater Souvenirs drew five rewards for 750 A-Reserve Tickets.\nGameplay ended May 18; shop and achievement claims stayed open until May 25. Unspent tickets converted to 40 Rose Scrip each.",
     "startDate": "2026/04/20 09:00",
     "endDate": "2026/05/18 09:00",
     "pinned": true,
@@ -1435,7 +1437,7 @@
   },
   {
     "id": "event-wheel-private-afternoon",
-    "title": "WoD Archives: L'Heure du Thé",
+    "title": "L'Heure du Thé",
     "category": "wheel-event",
     "description": "Earn 4 free copies of Private Afternoon.\nPremium Archives adds 12 more copies.",
     "startDate": "2026/04/20 09:00",
@@ -1468,12 +1470,12 @@
         ]
       },
       {
-        "title": "Premium Archives",
+        "title": "Premium Archives adds",
         "price": "980 Silver Prime",
         "items": [
           {
             "name": "Private Afternoon",
-            "amount": "+12"
+            "amount": "×12"
           },
           {
             "name": "Luminous Core",
@@ -1657,7 +1659,7 @@
     "id": "event-story-rerun-great-conquering",
     "title": "The Great Conquering",
     "category": "gameplay-event",
-    "description": "Fixed-price rewards from Offer Tribute.\nClear Divine Predation and complete achievements. Gameplay ended May 18; the shop and achievement claims stayed open until May 25 at 09:00 (UTC+8).\nClear Culinary Dominion to earn the Voracious Resolve Posse. The Dreamscape was free to unlock during the event and costs 7 Reality Verge afterward if not already unlocked.",
+    "description": "Fixed-price rewards from Offer Tribute.\nClear Divine Predation and complete achievements. Gameplay ended May 18; the shop and achievement claims stayed open until May 25.\nClear Culinary Dominion to earn the Voracious Resolve Posse. The Dreamscape was free to unlock during the event and costs 7 Reality Verge afterward if not already unlocked.",
     "startDate": "2026/05/04 09:00",
     "endDate": "2026/05/18 09:00",
     "featured": [
@@ -1935,7 +1937,6 @@
       {
         "title": "Standard Archives",
         "price": "Free",
-        "layout": "tiles",
         "items": [
           {
             "name": "Saya",
@@ -1948,9 +1949,8 @@
         ]
       },
       {
-        "title": "Premium Archives",
+        "title": "Premium Archives adds",
         "price": "3980 Silver Prime",
-        "layout": "tiles",
         "items": [
           {
             "name": "Ethereal Core",
@@ -2086,7 +2086,7 @@
     "id": "event-meowch-obliged",
     "title": "Meowch Obliged!",
     "category": "anniversary",
-    "description": "Seven stages with personal and campus rewards.\nOne stage unlocks each day. Each needs a Support Keeper and can be retried. New entries closed June 15 at 09:00 (UTC+8). If the campus reached one million captures by then, the event ended June 29; otherwise it ended 14 days after reaching that goal.",
+    "description": "Seven stages with personal and campus rewards.\nOne stage unlocks each day. Each needs a Support Keeper and can be retried. New entries closed Jun 15. If the campus reached one million captures by then, the event ended Jun 29; otherwise it ended 14 days after reaching that goal.",
     "startDate": "2026/05/18 09:00",
     "endDate": "2026/06/29 09:00",
     "customArt": "/events/meowch-obliged.webp",
@@ -2097,7 +2097,6 @@
     "rewards": [
       {
         "title": "Personal Capture Log",
-        "layout": "tiles",
         "items": [
           {
             "name": "Silver",
@@ -2115,7 +2114,6 @@
       },
       {
         "title": "Campus Capture Log",
-        "layout": "tiles",
         "items": [
           {
             "name": "Silver",
@@ -2275,7 +2273,7 @@
   },
   {
     "id": "event-wheel-blossom-court",
-    "title": "WoD Archives: Blossom Court",
+    "title": "Blossom Court",
     "category": "wheel-event",
     "description": "Earn 4 free copies of Sakura Reveries.\nPremium Archives adds 12 more copies.",
     "startDate": "2026/05/18 09:00",
@@ -2308,12 +2306,12 @@
         ]
       },
       {
-        "title": "Premium Archives",
+        "title": "Premium Archives adds",
         "price": "980 Silver Prime",
         "items": [
           {
             "name": "Sakura Reveries",
-            "amount": "+12"
+            "amount": "×12"
           },
           {
             "name": "Luminous Core",
@@ -2556,7 +2554,7 @@
       {
         "title": "Summer Fireworks",
         "price": "688 Silver Prime",
-        "note": "Up to 5 purchases. Each includes the three items below plus 2 choices from More rewards. You can pick the same option more than once.",
+        "note": "Up to 5 purchases. The same reward can be chosen more than once per purchase.",
         "summaryCount": 3,
         "items": [
           {
@@ -2607,12 +2605,13 @@
             "name": "Rose Scrip",
             "amount": "×4,500,000"
           }
-        ]
+        ],
+        "choiceCount": 2
       },
       {
         "title": "Summer Matsuri",
         "price": "2688 Silver Prime",
-        "note": "Up to 3 purchases. Each includes the three items below plus 3 choices from More rewards. You can pick the same option more than once.",
+        "note": "Up to 3 purchases. The same reward can be chosen more than once per purchase.",
         "summaryCount": 3,
         "items": [
           {
@@ -2663,7 +2662,8 @@
             "name": "Rose Scrip",
             "amount": "×13,500,000"
           }
-        ]
+        ],
+        "choiceCount": 3
       }
     ]
   },
@@ -2679,10 +2679,10 @@
       "card": "/events/dreamy-offering-card.webp",
       "detail": "/events/dreamy-offering-detail.webp"
     },
-    "rewards": [
+    "missions": [
       {
-        "title": "100 Awakens",
-        "items": [
+        "label": "100 Awakens",
+        "standard": [
           {
             "name": "Dreamspark",
             "amount": "×100"
@@ -2690,8 +2690,8 @@
         ]
       },
       {
-        "title": "250 Awakens",
-        "items": [
+        "label": "250 Awakens",
+        "standard": [
           {
             "name": "Dreamspark",
             "amount": "×200"
@@ -2699,8 +2699,8 @@
         ]
       },
       {
-        "title": "500 Awakens",
-        "items": [
+        "label": "500 Awakens",
+        "standard": [
           {
             "name": "Dreamspark",
             "amount": "×300"
@@ -2708,8 +2708,8 @@
         ]
       },
       {
-        "title": "1,000 Awakens",
-        "items": [
+        "label": "1,000 Awakens",
+        "standard": [
           {
             "name": "Dreamspark",
             "amount": "×400"
@@ -2738,11 +2738,22 @@
   },
   {
     "id": "event-preorder-unfading-memories",
-    "title": "Pre-order \"Unfading Memories\"",
+    "title": "Unfading Memories",
     "category": "preorder",
-    "description": "Free Silver and paid preorder rewards.\nPaid rewards unlock on the dates below after purchase.",
+    "description": "100 free Silver and seven paid gift packs.",
     "startDate": "2026/05/18 09:00",
     "endDate": "2026/06/29 09:00",
+    "keyDates": [
+      {
+        "label": "Early bonus until",
+        "date": "2026/05/30 09:00"
+      },
+      {
+        "label": "Claims until",
+        "kind": "claim",
+        "date": "2026/07/06 09:00"
+      }
+    ],
     "customArt": "/events/saya-collab.webp",
     "pricing": "1980 Silver Prime",
     "artVariants": {
@@ -2751,7 +2762,7 @@
     },
     "rewards": [
       {
-        "title": "Free reward",
+        "title": "First gift pack",
         "price": "Free",
         "items": [
           {
@@ -2763,7 +2774,6 @@
       {
         "title": "Paid Archives",
         "price": "1980 Silver Prime",
-        "layout": "tiles",
         "items": [
           {
             "name": "Luminous Core",
@@ -2894,13 +2904,10 @@
               }
             ]
           }
-        ],
-        "note": "Purchase by Jun 29; claim purchased rewards until Jul 6. Both cutoffs are at 09:00 (UTC+8)."
+        ]
       },
       {
         "title": "Early purchase bonus",
-        "note": "Purchase before May 30 at 09:00 (UTC+8).",
-        "layout": "tiles",
         "items": [
           {
             "name": "\"Bon Appetite\" avatar",
@@ -2926,10 +2933,10 @@
       "card": "/events/stream-of-infatuation-card.webp",
       "detail": "/events/stream-of-infatuation-detail.webp"
     },
-    "rewards": [
+    "missions": [
       {
-        "title": "5,000 Silver Prime extracted",
-        "items": [
+        "label": "5,000 Silver Prime extracted",
+        "standard": [
           {
             "name": "Ultra Mapping: Astral Reign",
             "amount": "×1"
@@ -2941,8 +2948,8 @@
         ]
       },
       {
-        "title": "10,000 Silver Prime extracted",
-        "items": [
+        "label": "10,000 Silver Prime extracted",
+        "standard": [
           {
             "name": "Caro Birth: Astral Reign",
             "amount": "×1"
@@ -2954,8 +2961,8 @@
         ]
       },
       {
-        "title": "20,000 Silver Prime extracted",
-        "items": [
+        "label": "20,000 Silver Prime extracted",
+        "standard": [
           {
             "name": "Aequor Mystery: Astral Reign",
             "amount": "×1"
@@ -2967,8 +2974,8 @@
         ]
       },
       {
-        "title": "30,000 Silver Prime extracted",
-        "items": [
+        "label": "30,000 Silver Prime extracted",
+        "standard": [
           {
             "name": "Chaos Echo: Astral Reign",
             "amount": "×1"
@@ -3002,7 +3009,6 @@
     "rewards": [
       {
         "title": "Mission rewards",
-        "layout": "tiles",
         "items": [
           {
             "name": "Ouvertüre Universell",
@@ -3098,7 +3104,7 @@
     "id": "event-story-rerun-invisible-symphony",
     "title": "Invisible Symphony",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Hameln avatar.\nClear Roaring Machines and complete achievements. Somnus Citadel sold fixed rewards for Aria's Peak. Gameplay ended July 13; the shop and achievements were available through July 20 at 09:00 (UTC+8). Leftover currency converted to 40 Rose Scrip each.",
+    "description": "SR Wheel copies and a limited Hameln avatar.\nClear Roaring Machines and complete achievements. Somnus Citadel sold fixed rewards for Aria's Peak. Gameplay ended Jul 13; the shop and achievements were available through Jul 20. Leftover currency converted to 40 Rose Scrip each.",
     "startDate": "2026/06/15 09:00",
     "endDate": "2026/07/13 09:00",
     "featured": [
@@ -3262,7 +3268,7 @@
     "id": "event-story-saya",
     "title": "Inverted Rebirth",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Saya avatar.\nClear Dark Chamber Notes and complete achievements. Dandelion Garden drew five rewards for 750 matching Scale Dust.\nGameplay ended August 24; shop and achievement claims stayed open until August 31 at 09:00 (UTC+8). Clear Forgotten Seed of Love for the For the New World Posse.",
+    "description": "SR Wheel copies and a limited Saya avatar.\nClear Dark Chamber Notes and complete achievements. Dandelion Garden drew five rewards for 750 matching Scale Dust.\nGameplay ended Aug 24; shop and achievement claims stayed open until Aug 31. Clear Forgotten Seed of Love for the For the New World Posse.",
     "startDate": "2026/05/30 09:00",
     "endDate": "2026/08/24 09:00",
     "featured": [
@@ -3356,7 +3362,7 @@
     "id": "event-story-forgotten-seed-of-love",
     "title": "Forgotten Seed of Love",
     "category": "story",
-    "description": "Permanent Multiverse Link side story. Clear it to earn the For the New World Posse.\nPart 1 opened May 30 and Part 2 on June 6. Free to unlock through August 24 at 09:00 (UTC+8); if not already unlocked, it costs 3 Reality Verge afterward. Progress carries over.",
+    "description": "Permanent Multiverse Link side story. Clear it to earn the For the New World Posse.\nPart 1 opened May 30 and Part 2 on Jun 6. Free to unlock through Aug 24; if not already unlocked, it costs 3 Reality Verge afterward. Progress carries over.",
     "startDate": "2026/05/30 09:00",
     "endDate": "2026/08/24 09:00",
     "customArt": "/events/forgotten-seed.webp",
@@ -3364,12 +3370,17 @@
       "card": "/events/forgotten-seed-card.webp",
       "detail": "/events/forgotten-seed-detail.webp"
     },
-    "featured": [{"name": "For the New World", "kind": "posse"}],
+    "featured": [
+      {
+        "name": "For the New World",
+        "kind": "posse"
+      }
+    ],
     "pricing": "Free during event"
   },
   {
     "id": "event-wheel-dreaming-of-wonderland",
-    "title": "WoD Archives: Wonderland Diary",
+    "title": "Wonderland Diary",
     "category": "wheel-event",
     "description": "Earn 4 free copies of Dreaming of Wonderland.\nPremium Archives adds 12 more copies.",
     "startDate": "2026/06/29 09:00",
@@ -3401,12 +3412,12 @@
         ]
       },
       {
-        "title": "Premium Archives",
+        "title": "Premium Archives adds",
         "price": "1680 Silver Prime",
         "items": [
           {
             "name": "Dreaming of Wonderland",
-            "amount": "+12"
+            "amount": "×12"
           },
           {
             "name": "Luminous Core",
@@ -3609,7 +3620,7 @@
     "id": "event-story-pontos",
     "title": "Ebwynnos Evermore",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Pontos avatar.\nClear The High House Hunt and complete achievements. Hunting Grounds sold fixed rewards across three shops. Gameplay ended July 27; the shops and achievement claims stayed open until August 3 at 09:00 (UTC+8).\nClear the Ebwynnos Evermore Psyche Deepdive to earn The Hollow One Posse. It was free to unlock during the event and costs 3 Reality Verge afterward if not already unlocked.",
+    "description": "SR Wheel copies and a limited Pontos avatar.\nClear The High House Hunt and complete achievements. Hunting Grounds sold fixed rewards across three shops. Gameplay ended Jul 27; the shops and achievement claims stayed open until Aug 3.\nClear the Ebwynnos Evermore Psyche Deepdive to earn The Hollow One Posse. It was free to unlock during the event and costs 3 Reality Verge afterward if not already unlocked.",
     "startDate": "2026/06/29 09:00",
     "endDate": "2026/07/27 09:00",
     "featured": [
@@ -3834,7 +3845,7 @@
     "id": "event-story-rerun-helot-catena",
     "title": "Til the Snow Melts",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Helot: Catena avatar.\nClear Beast Ambition and complete achievements. Mountain Maw drew five rewards for 750 matching Buds.\nGameplay ended August 10; shop and achievement claims stayed open until August 17 at 09:00 (UTC+8). Clear Elworth's Returnee for The Mountains' Resolve Posse.",
+    "description": "SR Wheel copies and a limited Helot: Catena avatar.\nClear Beast Ambition and complete achievements. Mountain Maw drew five rewards for 750 matching Buds.\nGameplay ended Aug 10; shop and achievement claims stayed open until Aug 17. Clear Elworth's Returnee for The Mountains' Resolve Posse.",
     "startDate": "2026/07/13 09:00",
     "endDate": "2026/08/10 09:00",
     "featured": [
@@ -3927,7 +3938,7 @@
     "id": "event-story-lotan-cetarchon",
     "title": "Till the Cetus Falls",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Lotan: Cetarchon avatar.\nClear Greed and Bloodlust and complete achievements. Arena Altar sold fixed rewards for Crimson Sacrifice. Gameplay ended August 24; the shop and achievement claims stayed open until August 31 at 09:00 (UTC+8).\nClear the Till the Cetus Falls Psyche Deepdive to earn the Cetus-Devouring Storm Posse. It was free to unlock during the event and costs 3 Reality Verge afterward if not already unlocked.",
+    "description": "SR Wheel copies and a limited Lotan: Cetarchon avatar.\nClear Greed and Bloodlust and complete achievements. Arena Altar sold fixed rewards for Crimson Sacrifice. Gameplay ended Aug 24; the shop and achievement claims stayed open until Aug 31.\nClear the Till the Cetus Falls Psyche Deepdive to earn the Cetus-Devouring Storm Posse. It was free to unlock during the event and costs 3 Reality Verge afterward if not already unlocked.",
     "startDate": "2026/07/27 09:00",
     "endDate": "2026/08/24 09:00",
     "featured": [
@@ -4093,7 +4104,7 @@
   },
   {
     "id": "event-wheel-falling-upward",
-    "title": "WoD Archives: Witness to All",
+    "title": "Witness to All",
     "category": "wheel-event",
     "description": "Earn 4 free copies of Falling Upward.\nPremium Archives adds 12 more copies.",
     "startDate": "2026/07/27 09:00",
@@ -4126,12 +4137,12 @@
         ]
       },
       {
-        "title": "Premium Archives",
+        "title": "Premium Archives adds",
         "price": "1680 Silver Prime",
         "items": [
           {
             "name": "Falling Upward",
-            "amount": "+12"
+            "amount": "×12"
           },
           {
             "name": "Luminous Core",
@@ -4334,7 +4345,7 @@
     "id": "event-story-rerun-if-life-was-as-usual",
     "title": "If Life Was As Usual",
     "category": "gameplay-event",
-    "description": "Fixed-price rewards from the Student Union Building.\nClear New Thing Under the Sun and complete achievements. Gameplay ended August 17; the shop and achievement claims stayed open until August 24 at 09:00 (UTC+8).\nClear See You, Neverland to earn the A Fleeting Dream Posse. The Dreamscape was free to unlock during the event and costs 7 Reality Verge afterward if not already unlocked.",
+    "description": "Fixed-price rewards from the Student Union Building.\nClear New Thing Under the Sun and complete achievements. Gameplay ended Aug 17; the shop and achievement claims stayed open until Aug 24.\nClear See You, Neverland to earn the A Fleeting Dream Posse. The Dreamscape was free to unlock during the event and costs 7 Reality Verge afterward if not already unlocked.",
     "startDate": "2026/08/03 09:00",
     "endDate": "2026/08/17 09:00",
     "customArt": "/events/if-life-was-as-usual.webp",
@@ -4491,11 +4502,22 @@
   },
   {
     "id": "event-preorder-myriad-wishcraft",
-    "title": "Pre-order Archives \"Myriad Wishcraft\"",
+    "title": "Myriad Wishcraft",
     "category": "preorder",
-    "description": "Free Silver and paid preorder rewards.\nPaid rewards unlock on the dates below after purchase.",
+    "description": "100 free Silver and seven paid gift packs.",
     "startDate": "2026/08/10 09:00",
     "endDate": "2026/09/21 09:00",
+    "keyDates": [
+      {
+        "label": "Early bonus until",
+        "date": "2026/08/24 09:00"
+      },
+      {
+        "label": "Claims until",
+        "kind": "claim",
+        "date": "2026/09/28 09:00"
+      }
+    ],
     "customArt": "/events/myriad-wishcraft.webp",
     "pricing": "1980 Silver Prime",
     "artVariants": {
@@ -4504,7 +4526,7 @@
     },
     "rewards": [
       {
-        "title": "Free reward",
+        "title": "First gift pack",
         "price": "Free",
         "items": [
           {
@@ -4516,7 +4538,6 @@
       {
         "title": "Paid Archives",
         "price": "1980 Silver Prime",
-        "layout": "tiles",
         "items": [
           {
             "name": "Luminous Core",
@@ -4647,13 +4668,10 @@
               }
             ]
           }
-        ],
-        "note": "Purchase by Sep 21; claim purchased rewards until Sep 28. Both cutoffs are at 09:00 (UTC+8)."
+        ]
       },
       {
         "title": "Early purchase bonus",
-        "note": "Purchase before August 24 at 09:00 (UTC+8).",
-        "layout": "tiles",
         "items": [
           {
             "name": "\"Trickery in Motion\" avatar",
@@ -4671,7 +4689,7 @@
     "id": "event-story-rerun-before-spring-fades",
     "title": "Before Spring Fades",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Horla avatar.\nClear Garden Memories and complete achievements. Colette's Flowerhouse drew five rewards for 750 matching Poems.\nGameplay ended September 7; shop and achievement claims stayed open until September 14 at 09:00 (UTC+8). Unspent Poems converted to 40 Rose Scrip each. Clear Rose Habitat for the Spring's Verse Posse.",
+    "description": "SR Wheel copies and a limited Horla avatar.\nClear Garden Memories and complete achievements. Colette's Flowerhouse drew five rewards for 750 matching Poems.\nGameplay ended Sep 7; shop and achievement claims stayed open until Sep 14. Unspent Poems converted to 40 Rose Scrip each. Clear Rose Habitat for the Spring's Verse Posse.",
     "startDate": "2026/08/10 09:00",
     "endDate": "2026/09/07 09:00",
     "featured": [
@@ -4764,7 +4782,7 @@
     "id": "event-story-caraboo",
     "title": "New Moon and Deep Snow",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Caraboo avatar.\nClear Umapati's Treasures and complete achievements. Fairy's Rituals drew five rewards for 750 matching Apples.\nGameplay ended September 21; shop and achievement claims stayed open until September 28 at 09:00 (UTC+8).",
+    "description": "SR Wheel copies and a limited Caraboo avatar.\nClear Umapati's Treasures and complete achievements. Fairy's Rituals drew five rewards for 750 matching Apples.\nGameplay ended Sep 21; shop and achievement claims stayed open until Sep 28.",
     "startDate": "2026/08/24 09:00",
     "endDate": "2026/09/21 09:00",
     "featured": [
@@ -4852,7 +4870,7 @@
   },
   {
     "id": "event-wheel-soul-synchronization",
-    "title": "WoD Archives: After School Hours",
+    "title": "After School Hours",
     "category": "wheel-event",
     "description": "Earn 4 free copies of Soul Synchronization.\nPremium Archives adds 12 more copies.",
     "startDate": "2026/08/24 09:00",
@@ -4885,12 +4903,12 @@
         ]
       },
       {
-        "title": "Premium Archives",
+        "title": "Premium Archives adds",
         "price": "1680 Silver Prime",
         "items": [
           {
             "name": "Soul Synchronization",
-            "amount": "+12"
+            "amount": "×12"
           },
           {
             "name": "Luminous Core",
@@ -5093,7 +5111,7 @@
     "id": "event-story-rerun-a-million-suns-descend",
     "title": "A Million Suns Descend",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Kathigu-Ra avatar.\nClear Hunt of the Charred and complete achievements. A Hidden Base sold fixed rewards across three shops. Gameplay ended October 5; the shops and achievement claims stayed open until October 12 at 09:00 (UTC+8).\nClear Everburning Vex to earn the Undying Sun Posse. The Psyche Deepdive was free to unlock during the event and costs 3 Reality Verge afterward if not already unlocked.",
+    "description": "SR Wheel copies and a limited Kathigu-Ra avatar.\nClear Hunt of the Charred and complete achievements. A Hidden Base sold fixed rewards across three shops. Gameplay ended Oct 5; the shops and achievement claims stayed open until Oct 12.\nClear Everburning Vex to earn the Undying Sun Posse. The Psyche Deepdive was free to unlock during the event and costs 3 Reality Verge afterward if not already unlocked.",
     "startDate": "2026/09/07 09:00",
     "endDate": "2026/10/05 09:00",
     "featured": [
@@ -5283,7 +5301,7 @@
     "id": "event-story-ogier-oathbound",
     "title": "Should Glory Fade",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Ogier: Oathbound avatar.\nClear Quest for the Grail and complete achievements. Peddler's Pack sold fixed rewards for Medals of Old. Gameplay ended October 19; the shop and achievement claims stayed open until October 26 at 09:00 (UTC+8). Unspent medals converted to 40 Rose Scrip each.",
+    "description": "SR Wheel copies and a limited Ogier: Oathbound avatar.\nClear Quest for the Grail and complete achievements. Peddler's Pack sold fixed rewards for Medals of Old. Gameplay ended Oct 19; the shop and achievement claims stayed open until Oct 26. Unspent medals converted to 40 Rose Scrip each.",
     "startDate": "2026/09/21 09:00",
     "endDate": "2026/10/19 09:00",
     "featured": [
@@ -5445,7 +5463,7 @@
   },
   {
     "id": "event-wheel-darker-than-darkness",
-    "title": "Special Archives: Born in Darkness",
+    "title": "Born in Darkness",
     "category": "wheel-event",
     "description": "Earn 4 free copies of Darker than Darkness.\nPremium Archives adds 12 more copies.",
     "startDate": "2026/09/21 09:00",
@@ -5478,12 +5496,12 @@
         ]
       },
       {
-        "title": "Premium Archives",
+        "title": "Premium Archives adds",
         "price": "1680 Silver Prime",
         "items": [
           {
             "name": "Darker than Darkness",
-            "amount": "+12"
+            "amount": "×12"
           },
           {
             "name": "Luminous Core",
@@ -5684,11 +5702,22 @@
   },
   {
     "id": "event-preorder-witchs-nocturnal-operation",
-    "title": "Pre-order Archives \"Witch's Nocturnal Operation\"",
+    "title": "Sneaky Witch O'Clock",
     "category": "preorder",
-    "description": "Free Silver and paid preorder rewards.\nPaid rewards unlock on the dates below after purchase.",
+    "description": "100 free Silver and seven paid gift packs.",
     "startDate": "2026/10/12 09:00",
     "endDate": "2026/11/16 09:00",
+    "keyDates": [
+      {
+        "label": "Early bonus until",
+        "date": "2026/10/19 09:00"
+      },
+      {
+        "label": "Claims until",
+        "kind": "claim",
+        "date": "2026/11/23 09:00"
+      }
+    ],
     "customArt": "/events/witchs-nocturnal-operation.webp",
     "pricing": "1980 Silver Prime",
     "artVariants": {
@@ -5697,7 +5726,7 @@
     },
     "rewards": [
       {
-        "title": "Free reward",
+        "title": "First gift pack",
         "price": "Free",
         "items": [
           {
@@ -5709,7 +5738,6 @@
       {
         "title": "Paid Archives",
         "price": "1980 Silver Prime",
-        "layout": "tiles",
         "items": [
           {
             "name": "Luminous Core",
@@ -5840,13 +5868,10 @@
               }
             ]
           }
-        ],
-        "note": "Purchase by Nov 16; claim purchased rewards until Nov 23. Both cutoffs are at 09:00 (UTC+8)."
+        ]
       },
       {
         "title": "Early purchase bonus",
-        "note": "Purchase before October 19 at 09:00 (UTC+8).",
-        "layout": "tiles",
         "items": [
           {
             "name": "\"Do Not Knock\" avatar",
@@ -5864,7 +5889,7 @@
     "id": "event-story-rerun-mirrored-prisoner",
     "title": "Mirrored Prisoner",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Castor avatar.\nClear Skybound Spirit and complete achievements. Thirst for Knowledge sold fixed rewards across three electives. Gameplay ended November 2; the shops and achievement claims stayed open until November 9 at 09:00 (UTC+8).\nClear Beyond the Skies: Part I to earn the Derision of Destiny Posse. The Dreamscape was free to unlock during the event and costs 7 Reality Verge afterward if not already unlocked.",
+    "description": "SR Wheel copies and a limited Castor avatar.\nClear Skybound Spirit and complete achievements. Thirst for Knowledge sold fixed rewards across three electives. Gameplay ended Nov 2; the shops and achievement claims stayed open until Nov 9.\nClear Beyond the Skies: Part I to earn the Derision of Destiny Posse. The Dreamscape was free to unlock during the event and costs 7 Reality Verge afterward if not already unlocked.",
     "startDate": "2026/10/05 09:00",
     "endDate": "2026/11/02 09:00",
     "featured": [
@@ -6054,7 +6079,7 @@
     "id": "event-story-vivian",
     "title": "And Then There Were None",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Vivian avatar.\nClear event stages and complete achievements. The cauldron drew five rewards for 750 matching Toad Tokens.\nGameplay ended November 16; shop and achievement claims stay open until November 23 at 09:00 (UTC+8). Clear Princess Diary for the Nightborn Evil Posse.",
+    "description": "SR Wheel copies and a limited Vivian avatar.\nClear event stages and complete achievements. The cauldron drew five rewards for 750 matching Toad Tokens.\nGameplay ended Nov 16; shop and achievement claims stay open until Nov 23. Clear Princess Diary for the Nightborn Evil Posse.",
     "startDate": "2026/10/19 09:00",
     "endDate": "2026/11/16 09:00",
     "featured": [
@@ -6146,7 +6171,7 @@
   },
   {
     "id": "event-wheel-imagos-clinic",
-    "title": "Special Archives: Soul Anatomist",
+    "title": "Soul Anatomist",
     "category": "wheel-event",
     "description": "Earn 4 free copies of Imago's Clinic.\nPremium Archives adds 12 more copies.",
     "startDate": "2026/10/19 09:00",
@@ -6179,12 +6204,12 @@
         ]
       },
       {
-        "title": "Premium Archives",
+        "title": "Premium Archives adds",
         "price": "1680 Silver Prime",
         "items": [
           {
             "name": "Imago's Clinic",
-            "amount": "+12"
+            "amount": "×12"
           },
           {
             "name": "Luminous Core",
@@ -6387,7 +6412,7 @@
     "id": "event-story-rerun-dark-side-of-the-canvas",
     "title": "Dark Side of the Canvas",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Pickman avatar.\nClear Bizarre Sketch and complete achievements. Each draw at Pickman's Studio gives five rewards for 750 of the matching paint.\nGameplay ends November 30; shop and achievement claims stay open until December 7 at 09:00 (UTC+8). Clear Ghastly Canvas for the Void Hues Posse. Progress carries over; if you miss the free unlock, it costs 3 Reality Verge afterward.",
+    "description": "SR Wheel copies and a limited Pickman avatar.\nClear Bizarre Sketch and complete achievements. Each draw at Pickman's Studio gives five rewards for 750 of the matching paint.\nClear Ghastly Canvas for the Void Hues Posse. Progress carries over; if you miss the free unlock, it costs 3 Reality Verge afterward.",
     "startDate": "2026/11/02 09:00",
     "endDate": "2026/11/30 09:00",
     "featured": [
@@ -6474,6 +6499,13 @@
           }
         ]
       }
+    ],
+    "keyDates": [
+      {
+        "label": "Claims until",
+        "kind": "claim",
+        "date": "2026/12/07 09:00"
+      }
     ]
   },
   {
@@ -6494,7 +6526,6 @@
     "rewards": [
       {
         "title": "Full draw rewards",
-        "layout": "tiles",
         "items": [
           {
             "name": "Candy Snatcher",
@@ -6540,56 +6571,117 @@
     "startDate": "2026/11/16 09:00",
     "endDate": "2026/11/30 09:00",
     "customArt": "/events/constellated-memories.webp",
-    "artVariants": {"card": "/events/constellated-memories-card.webp", "detail": "/events/constellated-memories-detail.webp"},
+    "artVariants": {
+      "card": "/events/constellated-memories-card.webp",
+      "detail": "/events/constellated-memories-detail.webp"
+    },
     "rewards": [
       {
         "title": "Milestone rewards",
-        "layout": "tiles",
         "items": [
-          {"name": "Gnosis Primer", "amount": "×3"},
-          {"name": "Refined Gnosis Primer", "amount": "×1"}
+          {
+            "name": "Gnosis Primer",
+            "amount": "×3"
+          },
+          {
+            "name": "Refined Gnosis Primer",
+            "amount": "×1"
+          }
         ]
       }
     ],
     "missions": [
-      {"label": "50 total awakenings", "standard": [{"name": "Gnosis Primer", "amount": "×1"}]},
-      {"label": "100 total awakenings", "standard": [{"name": "Gnosis Primer", "amount": "×1"}]},
-      {"label": "150 total awakenings", "standard": [{"name": "Gnosis Primer", "amount": "×1"}]},
+      {
+        "label": "50 total awakenings",
+        "standard": [
+          {
+            "name": "Gnosis Primer",
+            "amount": "×1"
+          }
+        ]
+      },
+      {
+        "label": "100 total awakenings",
+        "standard": [
+          {
+            "name": "Gnosis Primer",
+            "amount": "×1"
+          }
+        ]
+      },
+      {
+        "label": "150 total awakenings",
+        "standard": [
+          {
+            "name": "Gnosis Primer",
+            "amount": "×1"
+          }
+        ]
+      },
       {
         "label": "250 total awakenings",
-        "standard": [{"name": "Refined Gnosis Primer", "amount": "×1"}]
+        "standard": [
+          {
+            "name": "Refined Gnosis Primer",
+            "amount": "×1"
+          }
+        ]
       }
     ],
     "related": ["banner-kaleido-recollections-faded-legacy-nov", "banner-kaleido-recollections-astral-reign-nov"]
   },
   {
     "id": "event-preorder-homecoming-stars",
-    "title": "Pre-order Archives \"Homecoming Stars\"",
+    "title": "Homecoming Stars",
     "category": "preorder",
-    "description": "Claim 100 Silver for free. Unlock seven more rewards with the paid Archives.\nPaid rewards total 30 Luminous Cores, 20,000 Silver, 1 Prototype Horizon, 1 Timeloop Copy, 25 Dreamsparks and 100 Dreamshards.\nPurchase before November 30 at 09:00 (UTC+8) for the Weight of the Crown avatar and 10 Formless One's Invitations. Purchased rewards can be claimed until January 11 at 09:00 (UTC+8).",
+    "description": "100 free Silver and seven paid gift packs.",
     "startDate": "2026/11/21 09:00",
     "endDate": "2027/01/04 09:00",
     "customArt": "/events/homecoming-stars.webp",
-    "artVariants": {"card": "/events/homecoming-stars-card.webp", "detail": "/events/homecoming-stars-detail.webp"},
+    "artVariants": {
+      "card": "/events/homecoming-stars-card.webp",
+      "detail": "/events/homecoming-stars-detail.webp"
+    },
     "pricing": "1980 Silver Prime",
     "rewards": [
       {
-        "title": "Free reward",
+        "title": "First gift pack",
         "price": "Free",
-        "items": [{"name": "Silver", "amount": "×100"}]
+        "items": [
+          {
+            "name": "Silver",
+            "amount": "×100"
+          }
+        ]
       },
       {
         "title": "Paid Archives",
         "price": "1980 Silver Prime",
-        "note": "Purchase by Jan 4; claim purchased rewards until Jan 11. Both cutoffs are at 09:00 (UTC+8).",
-        "layout": "tiles",
         "items": [
-          {"name": "Luminous Core", "amount": "×30"},
-          {"name": "Silver", "amount": "×20,000"},
-          {"name": "Prototype Horizon", "amount": "×1"},
-          {"name": "Timeloop Copy", "amount": "×1"},
-          {"name": "Dreamspark", "amount": "×25"},
-          {"name": "Dreamshard", "amount": "×100"}
+          {
+            "name": "Luminous Core",
+            "amount": "×30"
+          },
+          {
+            "name": "Silver",
+            "amount": "×20,000"
+          },
+          {
+            "name": "Prototype Horizon",
+            "amount": "×1"
+          },
+          {
+            "name": "Timeloop Copy",
+            "amount": "×1"
+          },
+          {
+            "name": "Dreamspark",
+            "amount": "×25"
+          },
+          {
+            "name": "Dreamshard",
+            "amount": "×100"
+          }
         ],
         "claims": [
           {
@@ -6699,12 +6791,27 @@
       },
       {
         "title": "Early purchase bonus",
-        "note": "Purchase before November 30, 09:00 (UTC+8).",
-        "layout": "tiles",
         "items": [
-          {"name": "\"Weight of the Crown\" avatar", "amount": "×1"},
-          {"name": "Formless One's Invitation", "amount": "×10"}
+          {
+            "name": "\"Weight of the Crown\" avatar",
+            "amount": "×1"
+          },
+          {
+            "name": "Formless One's Invitation",
+            "amount": "×10"
+          }
         ]
+      }
+    ],
+    "keyDates": [
+      {
+        "label": "Early bonus until",
+        "date": "2026/11/30 09:00"
+      },
+      {
+        "label": "Claims until",
+        "kind": "claim",
+        "date": "2027/01/11 09:00"
       }
     ]
   },
@@ -6717,51 +6824,102 @@
     "endDate": "2026/11/30 09:00",
     "featured": "Lily",
     "customArt": "/events/cuckoo-at-seven.webp",
-    "artVariants": {"card": "/events/cuckoo-at-seven-card.webp", "detail": "/events/cuckoo-at-seven-detail.webp"},
+    "artVariants": {
+      "card": "/events/cuckoo-at-seven-card.webp",
+      "detail": "/events/cuckoo-at-seven-detail.webp"
+    },
     "rewards": [
       {
         "title": "Mission rewards",
-        "layout": "tiles",
-        "items": [{"name": "Cuckoo at Seven"}, {"name": "Pure Core", "amount": "×10"}]
+        "items": [
+          {
+            "name": "Cuckoo at Seven"
+          },
+          {
+            "name": "Pure Core",
+            "amount": "×10"
+          }
+        ]
       }
     ],
     "missions": [
       {
         "label": "Log in for 1 day",
-        "standard": [{"name": "Pure Core", "amount": "×1"}]
+        "standard": [
+          {
+            "name": "Pure Core",
+            "amount": "×1"
+          }
+        ]
       },
       {
         "label": "Complete 20 Assignments",
-        "standard": [{"name": "Pure Core", "amount": "×1"}]
+        "standard": [
+          {
+            "name": "Pure Core",
+            "amount": "×1"
+          }
+        ]
       },
       {
         "label": "Spend 1,800 Menophin",
-        "standard": [{"name": "Pure Core", "amount": "×2"}]
+        "standard": [
+          {
+            "name": "Pure Core",
+            "amount": "×2"
+          }
+        ]
       },
       {
         "label": "Clear Lily's trial stage once",
-        "standard": [{"name": "Pure Core", "amount": "×2"}]
+        "standard": [
+          {
+            "name": "Pure Core",
+            "amount": "×2"
+          }
+        ]
       },
       {
         "label": "Reach 1,000 Refined Active Ions",
-        "standard": [{"name": "Pure Core", "amount": "×2"}]
+        "standard": [
+          {
+            "name": "Pure Core",
+            "amount": "×2"
+          }
+        ]
       },
       {
         "label": "Complete all five missions",
-        "standard": [{"name": "Cuckoo at Seven"}, {"name": "Pure Core", "amount": "×2"}]
+        "standard": [
+          {
+            "name": "Cuckoo at Seven"
+          },
+          {
+            "name": "Pure Core",
+            "amount": "×2"
+          }
+        ]
       }
     ]
   },
   {
     "id": "event-wheel-aquamarine-dream",
-    "title": "Special Archives: Aquamarine Dream",
+    "title": "Aquamarine Dream",
     "category": "wheel-event",
     "description": "Earn 4 free copies of Next Time It Rains.\nStandard missions also award 30 Pure Cores. Premium adds 12 copies and 60 Luminous Cores.",
     "startDate": "2026/11/16 09:00",
     "endDate": "2026/11/30 09:00",
-    "featured": [{"name": "Next Time It Rains", "kind": "wheel"}],
+    "featured": [
+      {
+        "name": "Next Time It Rains",
+        "kind": "wheel"
+      }
+    ],
     "customArt": "/events/aquamarine-dream.webp",
-    "artVariants": {"card": "/events/aquamarine-dream-card.webp", "detail": "/events/aquamarine-dream-detail.webp"},
+    "artVariants": {
+      "card": "/events/aquamarine-dream-card.webp",
+      "detail": "/events/aquamarine-dream-detail.webp"
+    },
     "artAlign": "50% 26%",
     "pricing": "1680 Silver Prime",
     "missions": [
@@ -6939,17 +7097,28 @@
         "title": "Standard Archives",
         "price": "Free",
         "items": [
-          {"name": "Next Time It Rains", "amount": "×4"},
-          {"name": "Pure Core", "amount": "×30"}
+          {
+            "name": "Next Time It Rains",
+            "amount": "×4"
+          },
+          {
+            "name": "Pure Core",
+            "amount": "×30"
+          }
         ]
       },
       {
-        "title": "Premium Archives",
+        "title": "Premium Archives adds",
         "price": "1680 Silver Prime",
-        "note": "Requires the paid track.",
         "items": [
-          {"name": "Next Time It Rains", "amount": "+12"},
-          {"name": "Luminous Core", "amount": "×60"}
+          {
+            "name": "Next Time It Rains",
+            "amount": "×12"
+          },
+          {
+            "name": "Luminous Core",
+            "amount": "×60"
+          }
         ]
       }
     ]
@@ -6962,26 +7131,71 @@
     "startDate": "2026/11/16 09:00",
     "endDate": "2026/11/30 09:00",
     "customArt": "/events/gifts-from-mythag.webp",
-    "artVariants": {"card": "/events/gifts-from-mythag-card.webp", "detail": "/events/gifts-from-mythag-detail.webp"},
+    "artVariants": {
+      "card": "/events/gifts-from-mythag-card.webp",
+      "detail": "/events/gifts-from-mythag-detail.webp"
+    },
     "rewards": [
       {
         "title": "Daily login",
         "layout": "days",
         "items": [
-          {"name": "Luminous Core", "amount": "×1"},
-          {"name": "Luminous Core", "amount": "×1"},
-          {"name": "Luminous Core", "amount": "×2"},
-          {"name": "Luminous Core", "amount": "×1"},
-          {"name": "Luminous Core", "amount": "×1"},
-          {"name": "Luminous Core", "amount": "×1"},
-          {"name": "Luminous Core", "amount": "×3"},
-          {"name": "Rose Scrip", "amount": "×5,000"},
-          {"name": "Rose Scrip", "amount": "×5,000"},
-          {"name": "Rose Scrip", "amount": "×5,000"},
-          {"name": "Rose Scrip", "amount": "×5,000"},
-          {"name": "Rose Scrip", "amount": "×5,000"},
-          {"name": "Rose Scrip", "amount": "×5,000"},
-          {"name": "Investigation Badge", "amount": "×500"}
+          {
+            "name": "Luminous Core",
+            "amount": "×1"
+          },
+          {
+            "name": "Luminous Core",
+            "amount": "×1"
+          },
+          {
+            "name": "Luminous Core",
+            "amount": "×2"
+          },
+          {
+            "name": "Luminous Core",
+            "amount": "×1"
+          },
+          {
+            "name": "Luminous Core",
+            "amount": "×1"
+          },
+          {
+            "name": "Luminous Core",
+            "amount": "×1"
+          },
+          {
+            "name": "Luminous Core",
+            "amount": "×3"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×5,000"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×5,000"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×5,000"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×5,000"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×5,000"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×5,000"
+          },
+          {
+            "name": "Investigation Badge",
+            "amount": "×500"
+          }
         ]
       }
     ]
@@ -7000,15 +7214,22 @@
     },
     "pricing": "680-980 Silver Prime",
     "featured": [
-      {"name": "Spring in Yakutsk", "kind": "wheel"},
-      {"name": "Sunfall", "kind": "wheel"},
-      {"name": "Birth of a Soul", "kind": "wheel"}
+      {
+        "name": "Spring in Yakutsk",
+        "kind": "wheel"
+      },
+      {
+        "name": "Sunfall",
+        "kind": "wheel"
+      },
+      {
+        "name": "Birth of a Soul",
+        "kind": "wheel"
+      }
     ],
     "rewards": [
       {
         "title": "Basic Topics",
-        "note": "Free",
-        "layout": "tiles",
         "items": [
           {
             "name": "Pure Core",
@@ -7030,13 +7251,13 @@
             "name": "Remembrance Quill",
             "amount": "×100"
           }
-        ]
+        ],
+        "price": "Free"
       },
       {
-        "title": "Advanced Topics adds",
+        "title": "Advanced adds",
         "price": "680 Silver Prime",
-        "note": "680 Silver on purchase, separate from the level rewards below.",
-        "layout": "tiles",
+        "note": "Also grants 680 Silver on purchase.",
         "items": [
           {
             "name": "Curriculum Honor selector box",
@@ -7073,10 +7294,9 @@
         ]
       },
       {
-        "title": "Premium Topics adds",
+        "title": "Premium adds",
         "price": "980 Silver Prime",
-        "note": "Includes Advanced Topics once. Grants 1,070 Silver total and +20 Topic Levels on purchase.",
-        "layout": "tiles",
+        "note": "Includes Advanced Topics. Grants 1,070 Silver in total and +20 Topic Levels on purchase.",
         "items": [
           {
             "name": "Collector's Stamp: Caecus",

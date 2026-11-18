@@ -1,43 +1,53 @@
-import {useState} from 'react'
-
 import {FaChevronLeft, FaChevronRight} from 'react-icons/fa6'
 
 import type {EntityRef} from '@/domain/entities/types'
-import {getBannerDailyScheduleEntry, getTimelineStatus, type BannerEntry} from '@/domain/timeline'
+import {
+  formatTimelineDisplayDate,
+  getTimelineStatus,
+  type BannerDailyScheduleEntry,
+  type BannerEntry,
+} from '@/domain/timeline'
 
 import {StageRoster} from './StageRoster'
+import {getInitialBannerRotation} from './timelineNextModel'
 import {resolveTimelineThumbnail} from './timelineNextThumbnails'
 
 const dayMs = 86_400_000
+const stepClass =
+  'ui-compact-control grid min-h-10 cursor-pointer place-items-center disabled:cursor-default disabled:opacity-40'
 
 export function StageSchedule({
   banner,
   now,
   onOpenDetail,
+  onSelectDay,
+  selected,
 }: {
   banner: BannerEntry
   now: Date
   onOpenDetail: (ref: EntityRef) => void
+  onSelectDay: (day: number) => void
+  selected: BannerDailyScheduleEntry
 }) {
   const schedule = banner.dailySchedule ?? []
-  const [pickedDay, setPickedDay] = useState<number>()
+  if (!schedule.length) return null
   const activeDay =
     getTimelineStatus(banner.startDate, banner.endDate, now) === 'active'
-      ? getBannerDailyScheduleEntry(banner, now)?.day
+      ? getInitialBannerRotation(banner, now)?.day
       : undefined
-  const selected = schedule.find(({day}) => day === (pickedDay ?? activeDay)) ?? schedule.at(0)
-  if (!selected) return null
   const start = new Date(banner.startDate).getTime()
   return (
     <section className='space-y-3 border-t border-slate-700/40 pt-4'>
-      <h3 className='text-[0.65rem] font-extrabold text-slate-400 uppercase'>Schedule</h3>
+      <h3 className='text-[0.65rem] font-extrabold tracking-[0.12em] text-slate-400 uppercase'>
+        Schedule
+      </h3>
       <div className='grid grid-cols-[2.5rem_minmax(0,1fr)_2.5rem] items-stretch gap-2'>
         <button
           aria-label='Previous day'
-          className='grid min-h-10 cursor-pointer place-items-center border border-slate-700/60 text-slate-200 disabled:cursor-default disabled:opacity-40'
+          className={stepClass}
           disabled={selected.day === schedule[0].day}
           onClick={() => {
-            setPickedDay(selected.day - 1)
+            onSelectDay(selected.day - 1)
           }}
           type='button'
         >
@@ -45,16 +55,16 @@ export function StageSchedule({
         </button>
         <select
           aria-label='Rotation day'
-          className='min-w-0 border border-slate-700/60 bg-slate-950 px-2 text-xs text-slate-200'
+          className='ui-compact-control ui-compact-control--field min-w-0 text-xs'
           value={selected.day}
           onChange={(event) => {
-            setPickedDay(Number(event.target.value))
+            onSelectDay(Number(event.target.value))
           }}
         >
           {schedule.map(({day, featured}) => {
             const date = new Date(start + (day - 1) * dayMs)
             const lead = featured[0] ? resolveTimelineThumbnail(featured[0]).asset.label : undefined
-            const label = date.toLocaleDateString(undefined, {month: 'short', day: 'numeric'})
+            const label = formatTimelineDisplayDate(date.toISOString(), now)
             return (
               <option key={day} value={day}>
                 Day {day} · {label}
@@ -66,10 +76,10 @@ export function StageSchedule({
         </select>
         <button
           aria-label='Next day'
-          className='grid min-h-10 cursor-pointer place-items-center border border-slate-700/60 text-slate-200 disabled:cursor-default disabled:opacity-40'
+          className={stepClass}
           disabled={selected.day === schedule.at(-1)?.day}
           onClick={() => {
-            setPickedDay(selected.day + 1)
+            onSelectDay(selected.day + 1)
           }}
           type='button'
         >

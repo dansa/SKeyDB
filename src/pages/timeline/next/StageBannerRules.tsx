@@ -1,16 +1,16 @@
-export function StageBannerRules({
-  profile,
-}: {
-  profile: 'awakener' | 'wheel' | 'kaleido' | 'oathbound-oracle' | 'myriad-self-select'
-}) {
-  const wheel = profile === 'wheel'
-  const selector = profile === 'myriad-self-select'
-  const mixed = profile === 'kaleido' || selector
+import {StageDisclosure} from './StageDisclosure'
+
+type RuleProfile = 'awakener' | 'wheel' | 'kaleido' | 'oathbound-oracle' | 'myriad-self-select'
+
+export function StageBannerRules({profiles}: {profiles: RuleProfile[]}) {
+  const mixed = profiles.includes('kaleido') || profiles.includes('myriad-self-select')
+  const selector = profiles.includes('myriad-self-select')
+  const daily = profiles.includes('oathbound-oracle')
+  const kinds = profiles.filter(
+    (profile): profile is 'awakener' | 'wheel' => profile === 'awakener' || profile === 'wheel',
+  )
   return (
-    <details>
-      <summary className='cursor-pointer py-2 text-sm font-semibold text-amber-100'>
-        Rules &amp; Rates
-      </summary>
+    <StageDisclosure label='Rules & Rates'>
       <p className='pt-2 text-xs text-slate-400'>
         Only SSRs are listed. SR and R Wheels can also drop.
       </p>
@@ -34,7 +34,7 @@ export function StageBannerRules({
             </li>
             <li>A discounted daily single costs 60 Silver Prime and gives 60 Silver as a bonus.</li>
           </>
-        ) : profile === 'oathbound-oracle' ? (
+        ) : daily ? (
           <>
             <li>
               Before guarantees, an SSR has a 33.33% chance to be one of the two daily rate-ups.
@@ -48,24 +48,32 @@ export function StageBannerRules({
             </li>
             <li>Pity carries between daily rotations and is separate from other banner types.</li>
           </>
-        ) : (
-          <>
+        ) : null}
+      </ul>
+      {kinds.map((kind) => (
+        <div key={kind}>
+          {kinds.length > 1 ? (
+            <h4 className='mt-2 text-xs font-semibold text-slate-400'>
+              {kind === 'wheel' ? 'Wheel Awakening' : 'Character Awakening'}
+            </h4>
+          ) : null}
+          <ul className='space-y-2 py-2 text-xs leading-relaxed text-slate-300'>
             <li>
-              When an SSR drops, it has a {wheel ? '50%' : '33.33%'} chance to be the rate-up before
-              the featured guarantee.
+              When an SSR drops, it has a {kind === 'wheel' ? '50%' : '33.33%'} chance to be the
+              rate-up before the featured guarantee.
             </li>
             <li>
-              {wheel
+              {kind === 'wheel'
                 ? 'After one off-banner SSR, the next SSR is guaranteed to be the rate-up.'
                 : 'After two consecutive off-banner SSRs, the next SSR is guaranteed to be the rate-up.'}
             </li>
             <li>
-              Pity carries between {wheel ? 'Wheel of Destiny' : 'Character'} Event Awakenings and
-              is separate from other banner types.
+              Pity carries between {kind === 'wheel' ? 'Wheel of Destiny' : 'Character'} Event
+              Awakenings and is separate from other banner types.
             </li>
-          </>
-        )}
-      </ul>
-    </details>
+          </ul>
+        </div>
+      ))}
+    </StageDisclosure>
   )
 }

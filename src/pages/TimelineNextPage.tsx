@@ -1,13 +1,21 @@
-import {useLayoutEffect, useRef, useState, useSyncExternalStore, type ReactNode} from 'react'
+import {
+  Fragment,
+  useLayoutEffect,
+  useRef,
+  useState,
+  useSyncExternalStore,
+  type ReactNode,
+} from 'react'
 
 import {useLocation, useNavigate} from 'react-router'
 
+import type {EntityRef} from '@/domain/entities/types'
 import {
   shouldDisplayEndedEventInArchive,
   sortBannersByRelevance,
   sortEventsByRelevance,
 } from '@/domain/timeline'
-import {timelineBanners, timelineEvents} from '@/domain/timeline-data'
+import {timelineBanners, timelineEvents, timelinePatches} from '@/domain/timeline-data'
 import type {TimelinePriceDisplayMode} from '@/domain/timeline-pricing'
 import {
   getTimelineViewForSection,
@@ -16,8 +24,7 @@ import {
   type TimelineContentFilter,
   type TimelineSectionId,
 } from '@/domain/timeline-routing'
-import {DeferredDatabaseDetailOverlayOutlet} from '@/features/database/detail/DeferredDatabaseDetailOverlayOutlet'
-import {useDatabaseDetailOverlay} from '@/features/database/detail/useDatabaseDetailOverlay'
+import {isDbDetailEntityRef, type DbDetailEntityRef} from '@/stores/dbDetailStore'
 
 import {StageSheet} from './timeline/next/StageSheet'
 import {BannerTile, EventRow} from './timeline/next/TimelineLedger'
@@ -27,7 +34,8 @@ import {
   isBanner,
   type TimelineEntry,
 } from './timeline/next/timelineNextModel'
-import {TimelineStage} from './timeline/next/TimelineStage'
+import {TimelineRosterOverlay} from './timeline/next/TimelineRosterOverlay'
+import {STAGE_TITLE_ID, StageMissing, TimelineStage} from './timeline/next/TimelineStage'
 import {getTimelineDZoneSummary} from './timeline/timelineDZoneSummary'
 import {TimelinePageSection} from './timeline/TimelinePageSection'
 import {partitionTimelineEntriesByStatus} from './timeline/timelineStatusPartition'
@@ -74,9 +82,40 @@ function readTimelineVisit(state: unknown): TimelineVisit | undefined {
   }
 }
 
+function excludesEntry(filter: TimelineContentFilter, entry: TimelineEntry) {
+  return filter !== 'all' && (filter === 'banners') !== isBanner(entry)
+}
+
+function readTimelineRoster(state: unknown): DbDetailEntityRef | undefined {
+  if (!state || typeof state !== 'object' || !('timelineRoster' in state)) return
+  const ref = state.timelineRoster
+  if (
+    !ref ||
+    typeof ref !== 'object' ||
+    !('kind' in ref) ||
+    typeof ref.kind !== 'string' ||
+    !('id' in ref) ||
+    typeof ref.id !== 'string' ||
+    !ref.id
+  )
+    return
+  const candidate = {kind: ref.kind, id: ref.id}
+  return isDbDetailEntityRef(candidate) ? candidate : undefined
+}
+
+function focusStageTitle() {
+  const heading = document.getElementById(STAGE_TITLE_ID)
+  if (typeof heading?.scrollIntoView === 'function') heading.scrollIntoView({block: 'nearest'})
+  heading?.focus({preventScroll: true})
+}
+
+interface SelectOptions {
+  focusStage?: boolean
+  reveal?: boolean
+}
+
 export function TimelineNextPage() {
   const now = useTimelineNow()
-  const detailOverlay = useDatabaseDetailOverlay()
   const desktop = useSyncExternalStore(
     subscribeDesktop,
     getDesktopSnapshot,
@@ -88,10 +127,15 @@ export function TimelineNextPage() {
   const pendingClose = useRef<string>(undefined)
   const locationState: unknown = location.state
   const visit = readTimelineVisit(locationState)
-  const {session} = detailOverlay
+  const roster = readTimelineRoster(locationState)
   const [priceMode, setPriceMode] = useState<TimelinePriceDisplayMode>('silver-prime')
   const targetSection = parseTimelineSectionId(searchParams.get('section'))
-  const filter =
+  const requestedId = searchParams.get('item')
+  const pendingFocus = useRef<string>(undefined)
+  const pendingReveal = useRef<string | undefined>(
+    targetSection ? undefined : (requestedId ?? undefined),
+  )
+  const requestedFilter =
     getTimelineViewForSection(targetSection) ?? parseTimelineContentFilter(searchParams.get('view'))
   useTimelineSectionScroll(targetSection)
   const events = sortEventsByRelevance(timelineEvents, now)
@@ -102,7 +146,10 @@ export function TimelineNextPage() {
   })
   const bannerSections = partitionTimelineEntriesByStatus(banners, {now})
   const entries: TimelineEntry[] = [...events, ...banners]
-  const requested = entries.find((entry) => entry.id === searchParams.get('item'))
+  const requested = entries.find((entry) => entry.id === requestedId)
+  const missingId = requestedId && !requested ? requestedId : undefined
+  const filter: TimelineContentFilter =
+    requested && excludesEntry(requestedFilter, requested) ? 'all' : requestedFilter
   const visibleEvents = filter === 'banners' ? undefined : eventSections
   const visibleBanners = filter === 'events' ? undefined : bannerSections
   const firstUpcoming = [visibleEvents?.upcoming.at(0), visibleBanners?.upcoming.at(0)]
@@ -110,24 +157,35 @@ export function TimelineNextPage() {
     .sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime())
     .at(0)
   const fallback = visibleEvents?.active.at(0) ?? visibleBanners?.active.at(0) ?? firstUpcoming
-  const selected = requested ?? (desktop ? fallback : undefined)
+  const selected = requested ?? (desktop && !missingId ? fallback : undefined)
   const dZoneSummary = getTimelineDZoneSummary(events, now)
   const agenda = getTimelineAgendaGroups({
     events,
     banners,
     filter,
     now,
+    patches: timelinePatches,
     season: dZoneSummary.endDate
       ? {name: dZoneSummary.name, endDate: dZoneSummary.endDate}
       : undefined,
   })
 
-  useLayoutEffect(
-    () => () => {
-      session.dispose()
-    },
-    [requested?.id, session],
-  )
+  useLayoutEffect(() => {
+    const id = selected?.id
+    if (!id) return
+    if (pendingFocus.current === id) {
+      pendingFocus.current = undefined
+      focusStageTitle()
+    }
+    if (pendingReveal.current === id) {
+      pendingReveal.current = undefined
+      if (!desktop) return
+      const row = [...document.querySelectorAll<HTMLElement>('[data-entry-id]')].find(
+        (node) => node.dataset.entryId === id,
+      )
+      if (typeof row?.scrollIntoView === 'function') row.scrollIntoView({block: 'nearest'})
+    }
+  }, [selected?.id, desktop])
 
   useLayoutEffect(() => {
     if (!pendingClose.current || pendingClose.current === location.key) return
@@ -138,10 +196,17 @@ export function TimelineNextPage() {
     void navigate({search: next.toString(), hash: location.hash}, {replace: true})
   }, [location.key, location.search, location.hash, navigate])
 
-  function select(id: string) {
+  function select(id: string, options: SelectOptions = {}) {
     if (pendingClose.current || id === requested?.id) return
     const next = new URLSearchParams(searchParams)
     next.set('item', id)
+    const target = entries.find((entry) => entry.id === id)
+    if (target && excludesEntry(filter, target)) {
+      next.delete('view')
+      next.delete('section')
+    }
+    pendingFocus.current = options.focusStage ? id : undefined
+    pendingReveal.current = options.reveal ? id : undefined
     const timelineVisit: TimelineVisit =
       visit && requested ? {...visit, depth: visit.depth + 1} : {depth: 1}
     void navigate({search: next.toString(), hash: location.hash}, {state: {timelineVisit}})
@@ -173,19 +238,38 @@ export function TimelineNextPage() {
     void navigate(
       {search: next.toString(), hash: location.hash},
       {
-        replace: !clearsSelection,
+        replace: true,
         state: next.has('item') && visit ? {timelineVisit: visit} : null,
       },
     )
   }
 
-  const stage = (
+  function openRoster(ref: EntityRef) {
+    if (!isDbDetailEntityRef(ref) || roster || pendingClose.current) return
+    void navigate(
+      {search: location.search, hash: location.hash},
+      {state: {timelineVisit: visit, timelineRoster: ref}},
+    )
+  }
+
+  function clearMissing() {
+    const next = new URLSearchParams(searchParams)
+    next.delete('item')
+    void navigate({search: next.toString(), hash: location.hash}, {replace: true})
+  }
+
+  const jumpToDetails = desktop ? focusStageTitle : undefined
+  const missing = missingId ? <StageMissing id={missingId} onClear={clearMissing} /> : null
+  const stage = missing ?? (
     <TimelineStage
       entries={entries}
       entry={selected}
       now={now}
-      onOpenDetail={detailOverlay.open}
-      onSelect={select}
+      onClose={desktop ? undefined : closeSelection}
+      onOpenDetail={openRoster}
+      onSelect={(id) => {
+        select(id, {focusStage: true, reveal: true})
+      }}
       priceMode={priceMode}
     />
   )
@@ -198,10 +282,17 @@ export function TimelineNextPage() {
         now={now}
         onFilterChange={setFilter}
         onPriceModeChange={setPriceMode}
-        onSelect={select}
+        onSelect={(id) => {
+          select(id, {reveal: true})
+        }}
         priceMode={priceMode}
         summary={dZoneSummary}
       />
+      {!desktop && missing ? (
+        <div className='mb-6 rounded-[2px] border border-slate-700/50 bg-slate-950/80'>
+          {missing}
+        </div>
+      ) : null}
       <div className='grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_27rem]'>
         <div className='min-w-0 space-y-7'>
           {filter !== 'banners' ? (
@@ -209,12 +300,14 @@ export function TimelineNextPage() {
               <TimelineLedger
                 kind='events'
                 sections={eventSections}
+                selectedId={selected?.id}
                 targetSection={targetSection}
                 renderItem={(event) => (
                   <EventRow
                     event={event}
                     key={event.id}
                     now={now}
+                    onJumpToDetails={jumpToDetails}
                     onSelect={select}
                     priceMode={priceMode}
                     selected={event.id === selected?.id}
@@ -228,12 +321,14 @@ export function TimelineNextPage() {
               <TimelineLedger
                 kind='banners'
                 sections={bannerSections}
+                selectedId={selected?.id}
                 targetSection={targetSection}
                 renderItem={(banner) => (
                   <BannerTile
                     banner={banner}
                     key={banner.id}
                     now={now}
+                    onJumpToDetails={jumpToDetails}
                     onSelect={select}
                     priceMode={priceMode}
                     selected={banner.id === selected?.id}
@@ -249,16 +344,9 @@ export function TimelineNextPage() {
             className='timeline-next-stage ui-inset-frame relative rounded-[2px] border border-slate-700/50 bg-slate-950/80'
             key={selected?.id}
           >
-            {requested ? (
-              <button
-                className='absolute top-2 right-2 z-10 rounded-sm border border-slate-700/60 bg-slate-950 px-3 py-1.5 text-sm text-slate-200 hover:text-amber-100 focus-visible:outline-2 focus-visible:outline-amber-200/60'
-                onClick={closeSelection}
-                type='button'
-              >
-                Close
-              </button>
-            ) : null}
-            <div className='timeline-next-stage-scroll ui-scrollbar'>{stage}</div>
+            <div className='timeline-next-stage-scroll ui-scrollbar' data-stage-scroll>
+              {stage}
+            </div>
           </aside>
         ) : null}
       </div>
@@ -267,7 +355,7 @@ export function TimelineNextPage() {
           {stage}
         </StageSheet>
       ) : null}
-      <DeferredDatabaseDetailOverlayOutlet session={detailOverlay.session} />
+      {roster ? <TimelineRosterOverlay entry={roster} key={location.key} /> : null}
     </section>
   )
 }
@@ -276,16 +364,30 @@ function TimelineLedger<TEntry extends TimelineEntry>({
   kind,
   sections,
   renderItem,
+  selectedId,
   targetSection,
 }: {
   kind: 'events' | 'banners'
   sections: Record<'active' | 'upcoming' | 'ended', TEntry[]>
   renderItem: (entry: TEntry) => ReactNode
+  selectedId?: string
   targetSection?: TimelineSectionId
 }) {
   const endedSectionId = `ended-${kind}` as const
   const upcomingSectionId = `upcoming-${kind}` as const
-  const archive = useTimelineArchiveExpansion({endedSectionId, upcomingSectionId, targetSection})
+  const revealRole = !selectedId
+    ? undefined
+    : sections.ended.some((entry) => entry.id === selectedId)
+      ? 'ended'
+      : sections.upcoming.some((entry) => entry.id === selectedId)
+        ? 'upcoming'
+        : undefined
+  const archive = useTimelineArchiveExpansion({
+    endedSectionId,
+    reveal: revealRole && selectedId ? {role: revealRole, key: selectedId} : undefined,
+    targetSection,
+    upcomingSectionId,
+  })
   const isEventList = kind === 'events'
   if (!sections.active.length && !sections.upcoming.length && !sections.ended.length) {
     return <p className='text-sm text-slate-400'>No {kind} to display.</p>
@@ -307,7 +409,34 @@ function TimelineLedger<TEntry extends TimelineEntry>({
           ? 'grid grid-cols-[minmax(0,1fr)] gap-2'
           : 'grid grid-cols-[repeat(auto-fill,minmax(min(100%,19rem),1fr))] gap-4'
       }
-      renderItem={renderItem}
+      renderItem={(entry, section) => {
+        if (section !== 'ended') return renderItem(entry)
+        const index = sections.ended.indexOf(entry)
+        const date = new Date(entry.endDate)
+        const previous = index > 0 ? new Date(sections.ended[index - 1].endDate) : undefined
+        const newMonth =
+          !previous ||
+          date.getFullYear() !== previous.getFullYear() ||
+          date.getMonth() !== previous.getMonth()
+        const heading = (
+          <h3 className='flex items-center gap-3 pt-3 text-[0.65rem] font-extrabold tracking-[0.12em] text-slate-400 uppercase'>
+            {date.toLocaleDateString(undefined, {month: 'short', year: 'numeric'})}
+            <span aria-hidden className='h-px flex-1 bg-slate-700/40' />
+          </h3>
+        )
+        return (
+          <Fragment key={entry.id}>
+            {newMonth ? (
+              isEventList ? (
+                <li>{heading}</li>
+              ) : (
+                <div className='col-span-full'>{heading}</div>
+              )
+            ) : null}
+            {renderItem(entry)}
+          </Fragment>
+        )
+      }}
       upcoming={{
         expanded: archive.upcomingExpanded,
         onToggle: archive.toggleUpcoming,

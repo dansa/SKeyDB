@@ -45,17 +45,11 @@ export function StageSheet({
       ref={ref}
       tabIndex={-1}
     >
-      <div className='flex items-center gap-3 border-b border-slate-700/40 px-4 py-2'>
-        <span className='ui-title min-w-0 flex-1 truncate text-sm text-amber-50'>{title}</span>
-        <button
-          className='min-h-10 shrink-0 px-2 text-sm text-slate-200 hover:text-amber-100 focus-visible:outline-2 focus-visible:outline-amber-200/60'
-          onClick={onClose}
-          type='button'
-        >
-          Close
-        </button>
-      </div>
-      <div className='ui-scrollbar max-h-[calc(88dvh-3.5rem)] overflow-y-auto' key={selectionKey}>
+      <div
+        className='ui-scrollbar max-h-[88dvh] overflow-y-auto overscroll-contain'
+        data-stage-scroll
+        key={selectionKey}
+      >
         {children}
       </div>
     </dialog>,

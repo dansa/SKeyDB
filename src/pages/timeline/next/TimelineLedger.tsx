@@ -1,3 +1,5 @@
+import {useState} from 'react'
+
 import {
   EVENT_CATEGORY_METADATA,
   getTimelineCountdown,
@@ -33,9 +35,13 @@ export function EventArt({
     variant ?? event.customArt,
     variant ? 'center' : event.artAlign,
   )
-  return art?.url ? (
+  const [failedUrl, setFailedUrl] = useState<string>()
+  return art?.url && art.url !== failedUrl ? (
     <img
       alt=''
+      onError={() => {
+        setFailedUrl(art.url)
+      }}
       className={`h-full w-full ${art.isWheel && containWheel ? 'object-contain' : 'object-cover'} ${art.isWheel ? 'object-center' : 'object-top'} ${className}`}
       src={art.url}
       style={
@@ -65,7 +71,7 @@ export function EventMeta({
   const price = showPrice ? formatTimelinePrice(event.pricing, priceMode) : undefined
   return (
     <div
-      className={`flex items-center gap-x-1.5 gap-y-1 text-[0.64rem] leading-tight font-extrabold tracking-[0.11em] uppercase ${compact ? 'overflow-hidden whitespace-nowrap' : 'flex-wrap'}`}
+      className={`flex items-center gap-x-1.5 gap-y-1 text-[0.64rem] leading-tight font-extrabold tracking-[0.11em] uppercase ${compact ? 'flex-wrap sm:flex-nowrap sm:overflow-hidden sm:whitespace-nowrap' : 'flex-wrap'}`}
     >
       <span className={`shrink-0 timeline-event-meta--${tone}`}>
         {EVENT_CATEGORY_METADATA[event.category ?? 'other'].label}
@@ -86,9 +92,9 @@ export function EventMeta({
       ) : null}
       {price ? (
         <>
-          <span className='shrink-0 text-slate-600'>·</span>
+          <span className={`shrink-0 text-slate-600 ${compact ? 'hidden sm:inline' : ''}`}>·</span>
           <span
-            className={`${compact ? 'min-w-0 truncate' : ''} timeline-event-meta--${ended ? 'ended' : 'price'}`}
+            className={`${compact ? 'basis-full sm:min-w-0 sm:basis-auto sm:truncate' : ''} timeline-event-meta--${ended ? 'ended' : 'price'}`}
           >
             {event.missions?.length && event.rewards?.length === 2 ? 'Premium: ' : null}
             {price}
@@ -124,7 +130,7 @@ export function Countdown({
         {countdown.label}
       </div>
       <div
-        className={`${large ? 'text-2xl' : 'text-base'} font-semibold whitespace-nowrap tabular-nums ${urgent ? 'text-[oklch(76%_0.078_28_/_0.88)]' : countdown.label === 'Ended' ? 'text-slate-500' : 'text-amber-50'}`}
+        className={`${large ? 'text-2xl' : 'text-base'} font-semibold whitespace-nowrap tabular-nums ${urgent ? 'text-[oklch(76%_0.078_28_/_0.88)]' : countdown.label === 'Ended' ? 'text-slate-400' : 'text-amber-50'}`}
       >
         {value}
       </div>
@@ -137,36 +143,56 @@ export function BannerMeta({
   now,
   priceMode,
   limit,
+  showPrice = true,
 }: {
   banner: BannerEntry
   now: Date
   priceMode: TimelinePriceDisplayMode
   limit?: number
+  showPrice?: boolean
 }) {
   return (
     <BannerMetadataList
       banner={banner}
       className='flex flex-wrap items-center gap-x-1.5 gap-y-1 text-[0.64rem] leading-tight font-extrabold tracking-[0.11em] uppercase'
       endedSeparatorClass='text-slate-700'
-      endedTextClass='text-slate-500'
+      endedTextClass='timeline-event-meta--ended'
       fallbackClass='text-slate-300'
       isEnded={getTimelineStatus(banner.startDate, banner.endDate, now) === 'ended'}
       limit={limit}
+      priceClass='timeline-event-meta--price'
       priceMode={priceMode}
+      showPrice={showPrice}
       separatorClass='text-slate-600'
     />
   )
 }
 
+function JumpToDetails({onJump}: {onJump: () => void}) {
+  return (
+    <button
+      className='sr-only z-30 min-h-10 items-center self-start rounded-[2px] border border-amber-300/60 bg-slate-950 px-3 text-[0.64rem] font-extrabold tracking-[0.12em] text-amber-100 uppercase focus:not-sr-only focus:m-1.5 focus:inline-flex focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-200/60'
+      onClick={onJump}
+      type='button'
+    >
+      Jump to details
+    </button>
+  )
+}
+
+const ROW_SCROLL_MARGIN = 'scroll-mt-[calc(var(--site-header-height)+1rem)] scroll-mb-4'
+
 export function EventRow({
   event,
   now,
+  onJumpToDetails,
   onSelect,
   priceMode,
   selected,
 }: {
   event: EventEntry
   now: Date
+  onJumpToDetails?: () => void
   onSelect: (id: string) => void
   priceMode: TimelinePriceDisplayMode
   selected: boolean
@@ -176,7 +202,7 @@ export function EventRow({
     ?.split('\n')[0]
     .replace(/\[([^\]]+)\]\(https?:\/\/[^)]+\)/g, '$1')
   return (
-    <li>
+    <li className={`relative ${ROW_SCROLL_MARGIN}`} data-entry-id={event.id}>
       <button
         aria-current={selected ? 'true' : undefined}
         className={`timeline-next-row relative flex min-h-20 w-full overflow-hidden rounded-[2px] border bg-[linear-gradient(180deg,rgba(15,23,42,0.78),rgba(10,16,28,0.88))] text-left transition-colors duration-[var(--ui-motion-duration-fast)] hover:border-amber-200/30 focus-visible:ring-2 focus-visible:ring-amber-200/50 focus-visible:outline-none motion-reduce:transition-none ${selected ? 'ui-inset-frame border-amber-300/55' : 'border-slate-700/40'}`}
@@ -193,13 +219,13 @@ export function EventRow({
         </div>
         <div className='min-w-0 flex-1 space-y-1 px-3 py-2'>
           <span
-            className={`ui-title line-clamp-2 text-base sm:line-clamp-none sm:truncate ${ended ? 'text-slate-500' : 'text-amber-50'}`}
+            className={`ui-title line-clamp-2 text-base sm:line-clamp-none sm:truncate ${ended ? 'text-slate-300' : 'text-amber-50'}`}
           >
             {event.title}
           </span>
           <EventMeta compact event={event} now={now} priceMode={priceMode} />
           {summary ? (
-            <span className={`line-clamp-1 text-xs ${ended ? 'text-slate-500' : 'text-slate-400'}`}>
+            <span className='line-clamp-1 text-xs text-slate-400'>
               <TimelineRichText priceMode={priceMode} text={summary} />
             </span>
           ) : null}
@@ -208,6 +234,7 @@ export function EventRow({
           <Countdown entry={event} now={now} />
         </div>
       </button>
+      {selected && onJumpToDetails ? <JumpToDetails onJump={onJumpToDetails} /> : null}
     </li>
   )
 }
@@ -215,12 +242,14 @@ export function EventRow({
 export function BannerTile({
   banner,
   now,
+  onJumpToDetails,
   onSelect,
   priceMode,
   selected,
 }: {
   banner: BannerEntry
   now: Date
+  onJumpToDetails?: () => void
   onSelect: (id: string) => void
   priceMode: TimelinePriceDisplayMode
   selected: boolean
@@ -229,7 +258,8 @@ export function BannerTile({
   const ended = getTimelineStatus(banner.startDate, banner.endDate, now) === 'ended'
   return (
     <article
-      className={`relative flex h-full flex-col overflow-hidden rounded-[2px] border bg-slate-950 ${selected ? 'border-amber-300/55 ring-1 ring-amber-300/15 ring-inset' : 'border-slate-700/50 hover:border-amber-200/30'}`}
+      data-entry-id={banner.id}
+      className={`relative flex h-full flex-col overflow-hidden rounded-[2px] border bg-slate-950 ${ROW_SCROLL_MARGIN} ${selected ? 'border-amber-300/55 ring-1 ring-amber-300/15 ring-inset' : 'border-slate-700/50 hover:border-amber-200/30'}`}
     >
       <div className='ui-inset-frame relative aspect-[8/5] overflow-hidden'>
         <div
@@ -250,7 +280,7 @@ export function BannerTile({
       <div className='flex flex-1 items-center gap-3 border-t border-slate-700/40 bg-[linear-gradient(180deg,rgba(15,23,42,0.78),rgba(10,16,28,0.88))] px-3 py-2'>
         <div className='min-w-0 flex-1'>
           <h3
-            className={`ui-title line-clamp-2 text-base leading-tight ${ended ? 'text-slate-400' : 'text-amber-50'}`}
+            className={`ui-title line-clamp-2 text-base leading-tight text-balance ${ended ? 'text-slate-300' : 'text-amber-50'}`}
           >
             {banner.title}
           </h3>
@@ -271,6 +301,7 @@ export function BannerTile({
         }}
         type='button'
       />
+      {selected && onJumpToDetails ? <JumpToDetails onJump={onJumpToDetails} /> : null}
     </article>
   )
 }

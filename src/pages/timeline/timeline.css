@@ -107,7 +107,7 @@
 }
 
 .timeline-event-meta--ended {
-  color: oklch(57% 0.034 255 / 0.72);
+  color: oklch(68% 0.03 255 / 0.9);
 }
 
 .timeline-v2-filter-list {
@@ -178,6 +178,12 @@
     background-color var(--ui-motion-duration-fast) var(--ui-motion-ease-soft),
     color var(--ui-motion-duration-fast) var(--ui-motion-ease-soft),
     box-shadow var(--ui-motion-duration-fast) var(--ui-motion-ease-soft);
+}
+
+@media (max-width: 39.999rem) {
+  .timeline-v2-price-toggle-button {
+    min-height: 2.5rem;
+  }
 }
 
 .timeline-v2-price-toggle-button + .timeline-v2-price-toggle-button {

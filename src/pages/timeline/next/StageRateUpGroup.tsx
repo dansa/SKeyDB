@@ -1,7 +1,7 @@
 import type {EntityRef} from '@/domain/entities/types'
 import type {BannerRateUpGroup} from '@/domain/timeline'
 
-import {StageBannerRules} from './StageBannerRules'
+import {StageDisclosure} from './StageDisclosure'
 import {StageRoster} from './StageRoster'
 
 export function StageRateUpGroup({
@@ -15,7 +15,7 @@ export function StageRateUpGroup({
   const units = (names: string[]) => names.map((name) => ({kind, name}))
   return (
     <section className='space-y-4 border-t border-slate-700/40 pt-4'>
-      <h3 className='text-xs font-bold text-slate-300'>
+      <h3 className='text-[0.65rem] font-extrabold tracking-[0.12em] text-slate-400 uppercase'>
         {options.length > 1
           ? 'Rerun banners'
           : kind === 'wheel'
@@ -33,19 +33,35 @@ export function StageRateUpGroup({
             key={title}
           >
             <h4 className='ui-title text-sm text-amber-50'>{title}</h4>
-            <div className={offBanner ? 'grid grid-cols-[3.5rem_minmax(0,1fr)] gap-3' : undefined}>
+            <div
+              className={
+                offBanner
+                  ? 'grid grid-cols-[3.5rem_minmax(0,1fr)] gap-3 max-[374px]:grid-cols-1'
+                  : undefined
+              }
+            >
               <div>
                 {offBanner ? (
                   <p className='mb-1 text-xs font-semibold text-amber-200'>Rate-up</p>
                 ) : null}
-                <StageRoster compact onOpenDetail={onOpenDetail} units={units([rateUp])} />
+                <StageRoster
+                  compact
+                  highlighted
+                  onOpenDetail={onOpenDetail}
+                  units={units([rateUp])}
+                />
               </div>
               {offBanner ? (
-                <div className='min-w-0'>
+                <div className='min-w-0 border-l border-slate-700/40 pl-3 max-[374px]:border-t max-[374px]:border-l-0 max-[374px]:pt-2 max-[374px]:pl-0'>
                   <p className='mb-1 text-xs text-slate-300'>
                     Off-banner SSRs ({offBanner.length})
                   </p>
-                  <StageRoster compact onOpenDetail={onOpenDetail} units={units(offBanner)} />
+                  <StageRoster
+                    compact
+                    fiveAcross
+                    onOpenDetail={onOpenDetail}
+                    units={units(offBanner)}
+                  />
                 </div>
               ) : null}
             </div>
@@ -53,15 +69,13 @@ export function StageRateUpGroup({
         ))}
       </div>
       {sharedOffBanner ? (
-        <details className='border-b border-slate-700/40 pb-3'>
-          <summary className='cursor-pointer py-2 text-xs font-semibold text-amber-100'>
-            {options.length > 1 ? 'Shared off-banner SSRs' : 'Off-banner SSRs'} (
-            {sharedOffBanner.length})
-          </summary>
+        <StageDisclosure
+          className='border-b border-slate-700/40 pb-3'
+          label={`${options.length > 1 ? 'Shared off-banner SSRs' : 'Off-banner SSRs'} (${String(sharedOffBanner.length)})`}
+        >
           <StageRoster compact onOpenDetail={onOpenDetail} units={units(sharedOffBanner)} />
-        </details>
+        </StageDisclosure>
       ) : null}
-      <StageBannerRules profile={kind} />
     </section>
   )
 }
