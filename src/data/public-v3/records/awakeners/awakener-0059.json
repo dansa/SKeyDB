@@ -154,7 +154,7 @@
           "id": "voice-146197",
           "title": "Affinity: I",
           "unlockCondition": "Unlocks at Affinity Level 2",
-          "content": "Mercy, weakness, confusion... your eyes are clouded with impurities. One who wavers can never understand what strength is."
+          "content": "Mercy, weakness, confusion... your eyes are clouded with impurities. One who isn't pure can never understand what strength is."
         },
         {
           "id": "voice-146173",
@@ -178,7 +178,7 @@
           "id": "voice-146199",
           "title": "Affinity: V",
           "unlockCondition": "Unlocks at Affinity Level 10",
-          "content": "Listen well, I'll say this only once:\nI, Lotan, deem you an opponent worthy of my patience.\nUntil you reach your peak, I shall be your most reliable blade. This promise has nothing to do with feeling or loyalty. You're my most thrilling rival, and I will never let you fall along the way."
+          "content": "Listen well, I'll say this only once:  I, Lotan, deem you an opponent worth waiting for. Until you reach your peak, I shall be your most reliable blade. My promise and my loyalty have nothing to do with feeling. You're my most thrilling rival, and I will never let you fall along the way."
         },
         {
           "id": "voice-146158",
@@ -208,7 +208,7 @@
         {
           "id": "voice-146160",
           "title": "Chat: About the Keeper",
-          "content": "I dislike those with a divided heart, as such division usually means weakness. But you are an exception. I once believed those who carry too much could never go far. But the path you've chosen surprises me... Perhaps an opponent walking a different path is more worthy of honing and challenge. Wouldn't you agree,\"opponent\"?"
+          "content": "I dislike the impure, because impurity usually means weakness. But you are an exception. I once believed someone carrying so much could never go far. But the path you've walked surprises even me... Perhaps one who walks a different road is all the more worth honing, and challenging. Wouldn't you agree, \"opponent\"?"
         },
         {
           "id": "voice-146175",

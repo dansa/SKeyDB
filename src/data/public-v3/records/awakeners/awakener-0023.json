@@ -142,7 +142,7 @@
           "id": "voice-5602",
           "title": "Enlighten: Elevate",
           "unlockCondition": "Unlocks at Enlighten Level 11",
-          "content": "Ungrateful monsters, assassins, and killers—do they have any value that you recognize? Freak."
+          "content": "An ungrateful monster, an assassin, a killer... and you still see some worth in that? You're strange."
         },
         {
           "id": "voice-5937",
@@ -160,13 +160,13 @@
           "id": "voice-5980",
           "title": "Affinity: II",
           "unlockCondition": "Unlocks at Affinity Level 4",
-          "content": "Spare me the high-sounding talk. What do you want from me? There must be a reason for keeping my sanity intact."
+          "content": "Spare me the fine words. What do you want from me? You spend so much effort keeping me sane. You must want something in return."
         },
         {
           "id": "voice-5979",
           "title": "Affinity: III",
           "unlockCondition": "Unlocks at Affinity Level 6",
-          "content": "Does my eyes make you uncomfortable? Good. That's the ferocity that kept me alive in that hell."
+          "content": "Does my glare make you uneasy? Good. That ferocity is what kept me alive in that hell."
         },
         {
           "id": "voice-5982",
@@ -178,7 +178,7 @@
           "id": "voice-5981",
           "title": "Affinity: V",
           "unlockCondition": "Unlocks at Affinity Level 10",
-          "content": "My vengeance was always directed at the Spartans, but now, even that city-state no longer exists... Fine. Becoming your blade is not impossible. I reluctantly accept you as my partner, but if you dare to betray me, I will tear out your heart."
+          "content": "My vengeance was only ever for the Spartans, but now even their city-state is gone... Fine. I may as well become your blade. I'll grudgingly accept you as my partner, but if you dare betray me, I will tear out your heart."
         },
         {
           "id": "voice-6116",
@@ -201,7 +201,7 @@
           "id": "voice-4964",
           "title": "Chat: About Aigis",
           "unlockCondition": "Unlocks after acquiring Awakener \"Aigis\"",
-          "content": "What kind of irresponsible parents would name their daughter after a shield made of Gorgon's head? ...She has no parents? Hmm... let's keep this conversation between us."
+          "content": "What kind of irresponsible parents name their daughter after a shield bearing a Gorgon's head? ...She has no parents? Hmm... let's keep this conversation between us."
         },
         {
           "id": "voice-6679",
@@ -216,7 +216,7 @@
         {
           "id": "voice-5750",
           "title": "Chat: What I Like",
-          "content": "Likes? Someone once asked me that on the battlefields of Peloponnesus... It's too late. I've long abandoned such personal preferences."
+          "content": "Likes? Someone asked me that once, on the battlefields of the Peloponnese... It's too late. I abandoned such personal preferences long ago."
         },
         {
           "id": "voice-6097",
@@ -238,7 +238,7 @@
         {
           "id": "voice-6688",
           "title": "Investigation Success",
-          "content": "The enemy's blood has not yet drained completely."
+          "content": "The enemy hasn't bled dry yet."
         },
         {
           "id": "voice-6068",
@@ -253,17 +253,17 @@
         {
           "id": "voice-5779",
           "title": "Hit: I",
-          "content": "(A scoff of endurance.)"
+          "content": "(A dismissive grunt)"
         },
         {
           "id": "voice-5777",
           "title": "Hit: II",
-          "content": "(A scoff of endurance.)"
+          "content": "(A dismissive grunt)"
         },
         {
           "id": "voice-5778",
           "title": "Hit: III",
-          "content": "(A scoff of endurance.)"
+          "content": "(A dismissive grunt)"
         },
         {
           "id": "voice-5776",
@@ -283,7 +283,7 @@
         {
           "id": "voice-5104",
           "title": "Rouse",
-          "content": "Exterminate!"
+          "content": "Leave none alive!"
         },
         {
           "id": "voice-5091",

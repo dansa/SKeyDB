@@ -107,7 +107,7 @@
         {
           "id": "voice-6434",
           "title": "Upgrade: II",
-          "content": "Not bad, I guess."
+          "content": "Barely a pass."
         },
         {
           "id": "voice-6431",
@@ -130,7 +130,7 @@
           "id": "voice-5672",
           "title": "Enlighten: Reflect",
           "unlockCondition": "Unlocks at Enlighten Level 3",
-          "content": "Balancing attendance, maintaining research progress, and completing teaching tasks. It seems the reverse time compression experiment requires immediate prioritization."
+          "content": "Field deployments, research deadlines, and teaching duties on top of that. It seems the reverse time-compression experiment needs to go on the schedule."
         },
         {
           "id": "voice-5352",
@@ -148,13 +148,13 @@
           "id": "voice-5354",
           "title": "Enlighten: Flourish",
           "unlockCondition": "Unlocks at Enlighten Level 15",
-          "content": "This body can barely contain this Power, but it's not yet time to switch puppets. Why are you merely standing there? Assist me with this leg; adjustments are required."
+          "content": "This body can barely contain this power, but it's not time to swap dolls yet. Don't just stand there. Hold this leg for me; I need to make some adjustments."
         },
         {
           "id": "voice-6050",
           "title": "Affinity: I",
           "unlockCondition": "Unlocks at Affinity Level 2",
-          "content": "Thirteen reports require urgent approval, six damaged communicators await repair, and I must also monitor the results of five distinct Silver extraction experiments... So, instead of squandering my limited time by disturbing me, why not attempt to exercise your feeble brain matter?"
+          "content": "Thirteen reports require urgent approval, six damaged communicators await repair, and I must also monitor the results of five separate Silver Core extraction experiments... So rather than squander my limited time by disturbing me, why not try exercising that feeble white matter of yours?"
         },
         {
           "id": "voice-6047",
@@ -178,7 +178,7 @@
           "id": "voice-6094",
           "title": "Affinity: V",
           "unlockCondition": "Unlocks at Affinity Level 10",
-          "content": "I have no time for rest. The Dissolution has already claimed two of my bodies. Before the inevitable end catches up, there is much I must comprehend... Assist me, starting with the preparation of experimental materials. I trust you won't miscalculate the balance."
+          "content": "I have no time for rest. The Dissolution has already claimed two of my bodies. Before the end catches up with me, there is too much I need to understand... Help me. Start by preparing the experimental materials. I trust you're not foolish enough to get the equations unbalanced?"
         },
         {
           "id": "voice-6043",
@@ -188,7 +188,7 @@
         {
           "id": "voice-6629",
           "title": "Chat: About Afternoon Tea",
-          "content": "Awakeners might consume out of curiosity, but food is not essential for our existence. Therefore, there is no need to summon me for every afternoon tea. Sugar intake only accelerates the wear and tear on this body's ball joints."
+          "content": "Awakeners may eat out of curiosity, but food isn't necessary for our existence. So there's no need to fetch me for every afternoon tea. Sugar only makes this body's ball joints wear out faster."
         },
         {
           "id": "voice-4929",
@@ -200,7 +200,7 @@
           "id": "voice-5271",
           "title": "Chat: About Erica",
           "unlockCondition": "Unlocks after acquiring Awakener \"Erica\"",
-          "content": "I sincerely hope she doesn't malfunction during our conversation. My lovely yet infuriating assistant, there are no more spare labs for her to inadvertently detonate."
+          "content": "Let's hope she doesn't malfunction while we're talking. My lovable, detestable assistant... we're out of spare labs for her to blow up."
         },
         {
           "id": "voice-5938",
@@ -262,12 +262,12 @@
         {
           "id": "voice-6098",
           "title": "Hit: I",
-          "content": "An astute observation!"
+          "content": "(A startled gasp)"
         },
         {
           "id": "voice-5097",
           "title": "Hit: II",
-          "content": "A keen insight!"
+          "content": "(A startled gasp)"
         },
         {
           "id": "voice-4988",

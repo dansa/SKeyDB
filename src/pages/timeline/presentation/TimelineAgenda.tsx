@@ -7,6 +7,7 @@ import {formatTimelineDisplayDate} from '@/domain/timeline'
 
 import {
   getDesktopAgendaGroups,
+  isAgendaSegmentHighlighted,
   type TimelineAgendaGroup,
   type TimelineAgendaMoment,
 } from './timelinePageModel'
@@ -41,6 +42,10 @@ function relativeTime(date: Date, now: Date): string {
   return hours < 24 ? `in ${String(hours)}h` : `in ${String(Math.floor(hours / 24))}d`
 }
 
+function getPatchLabel(patch: NonNullable<TimelineAgendaGroup['patch']>) {
+  return patch.action === 'end' ? `${patch.title} ends` : patch.title
+}
+
 interface AgendaProps {
   groups: TimelineAgendaGroup[]
   now: Date
@@ -61,7 +66,7 @@ function AgendaMoments({
       {patch ? (
         <li className={rowClass}>
           <time className='font-semibold text-amber-100' dateTime={patch.date}>
-            {patch.title}
+            {getPatchLabel(patch)}
           </time>
         </li>
       ) : null}
@@ -93,7 +98,7 @@ function AgendaMoments({
 
 function MobileAgenda({groups, now, onSelect}: AgendaProps) {
   const next = groups[0]
-  const nextLabel = next.patch?.title ?? getAgendaSummary(next.moments)
+  const nextLabel = next.patch ? getPatchLabel(next.patch) : getAgendaSummary(next.moments)
   return (
     <details className='group mt-4 border-t border-slate-700/45 lg:hidden'>
       <summary className='flex min-h-11 cursor-pointer list-none items-center gap-2 py-2 text-left text-xs focus-visible:outline-2 focus-visible:outline-amber-200/70 [&::-webkit-details-marker]:hidden'>
@@ -138,7 +143,10 @@ function DesktopAgenda({groups, now, onSelect}: AgendaProps) {
   return (
     <div aria-label='Upcoming timeline moments' className='mt-5 hidden pb-1 lg:block' role='region'>
       <div className='timeline-agenda flex items-start'>
-        <div className='timeline-agenda-node timeline-agenda-now'>
+        <div
+          className='timeline-agenda-node timeline-agenda-now'
+          data-campaign={isAgendaSegmentHighlighted(now.toISOString(), groups)}
+        >
           <span className='text-xs font-semibold text-slate-300'>Now</span>
         </div>
         {shownGroups.map((group) => {
@@ -158,7 +166,7 @@ function DesktopAgenda({groups, now, onSelect}: AgendaProps) {
               </span>
               {patch ? (
                 <span className='ui-title mt-1 block truncate text-base leading-tight text-amber-100'>
-                  {patch.title}
+                  {getPatchLabel(patch)}
                 </span>
               ) : null}
               {label ? (
@@ -167,16 +175,20 @@ function DesktopAgenda({groups, now, onSelect}: AgendaProps) {
             </>
           )
           const className = 'timeline-agenda-node min-w-0 text-left'
-          const major = patch ? 'true' : undefined
+          const date = group.date.toISOString()
+          const marker = {
+            'data-major': patch ? 'true' : undefined,
+            'data-campaign': isAgendaSegmentHighlighted(patch?.date ?? date, groups),
+          }
           if (!moment)
             return (
-              <div className={className} data-major={major} key={group.date.toISOString()}>
+              <div className={className} key={date} {...marker}>
                 {content}
               </div>
             )
           if (standaloneReset)
             return (
-              <Link className={className} key={group.date.toISOString()} title={label} to='/d-zone'>
+              <Link className={className} key={date} title={label} to='/d-zone' {...marker}>
                 {content}
               </Link>
             )
@@ -184,29 +196,29 @@ function DesktopAgenda({groups, now, onSelect}: AgendaProps) {
             return (
               <button
                 className={className}
-                key={group.date.toISOString()}
+                key={date}
                 onClick={() => {
                   if (moment.id) onSelect(moment.id)
                 }}
                 title={label}
                 type='button'
+                {...marker}
               >
                 {content}
               </button>
             )
-          const date = group.date.toISOString()
           const expanded = expandedGroup === group
           return (
             <button
               aria-controls={expanded ? panelId : undefined}
               aria-expanded={expanded}
               className={`${className} cursor-pointer hover:text-amber-100`}
-              data-major={major}
               key={date}
               onClick={() => {
                 setOpenDate(expanded ? undefined : date)
               }}
               type='button'
+              {...marker}
             >
               <span className='flex items-start justify-between gap-2'>
                 <span className='min-w-0'>{content}</span>

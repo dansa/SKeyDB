@@ -240,7 +240,7 @@
   transform: rotate(45deg);
 }
 
-.timeline-agenda-node[data-major='true'] {
+.timeline-agenda-node[data-campaign='true'] {
   border-top-color: oklch(78% 0.1 84 / 0.55);
 }
 

@@ -118,7 +118,7 @@
           "id": "voice-6162",
           "title": "Enlighten: Observe",
           "unlockCondition": "Unlocks at Enlighten Level 1",
-          "content": "Those with strength must not use their power to oppress others, for you all share my blood.\" I remember the teachings of our Father God of Compassion. I will use this strength only to protect those around me."
+          "content": "\"Those with strength must not use their power to oppress others, for you all share my blood.\" I hold fast to the teachings of the God of Love, and will use this strength only to protect those around me."
         },
         {
           "id": "voice-4977",
@@ -160,7 +160,7 @@
           "id": "voice-6454",
           "title": "Affinity: II",
           "unlockCondition": "Unlocks at Affinity Level 4",
-          "content": "Will you pray with me, my Pale Flame? Let us pray for those who died in our battle today. Though cursed with dissolution and madness, they are still children of the All-Father, our brothers and sisters. May they now find their deserved peace."
+          "content": "Will you pray with me, my Pale Flame? Let us pray for those who died in our battle today. Though Dissolution drove them mad, they are still children of the All-Father, our brothers and sisters. May they now find the peace they deserve."
         },
         {
           "id": "voice-6453",
@@ -193,7 +193,7 @@
         {
           "id": "voice-5355",
           "title": "Chat: About Fatigue",
-          "content": "The burden of guiding light can overwhelm even the purest of saints. If you feel weary, my pale flame, please confide in me. I will do everything in my power to ease your burden and share the weight of these countless blessings."
+          "content": "The burden of guiding the light can crush even the purest saint. If you grow weary, my Pale Flame, please tell me. I will do all I can to ease your burden, and share the weight of all the blessings you carry."
         },
         {
           "id": "voice-5468",
@@ -249,7 +249,7 @@
         {
           "id": "voice-45153",
           "title": "Chat: About Home",
-          "content": "I may not have been born in the Kingdom of Leo, but the Church of Redemption is where I received my second life. Why, then, can I not consider this place my home?"
+          "content": "I may not have been born in the Kingdom of Leonia, but the Church of Redemption is where I received my second life. Why, then, can I not consider this place my home?"
         },
         {
           "id": "voice-45159",
@@ -260,7 +260,7 @@
           "id": "voice-45157",
           "title": "Chat: About Ogier",
           "unlockCondition": "Unlocks after clearing Special Operation \"Color of Blood\"",
-          "content": "That child is sincere, steadfast, and kind, with a rare bright soul. The last time I met a spirit like this was during the first chapter of my life."
+          "content": "That child is sincere, steadfast, and kind, with a rare and radiant soul. The last time I met anyone like that was in my first life."
         },
         {
           "id": "voice-45161",
@@ -328,7 +328,7 @@
         {
           "id": "voice-5722",
           "title": "Exalt",
-          "content": "Lambs, the All-Father's will shall redeem you."
+          "content": "O lambs, the All-Father's mercy shall redeem you."
         },
         {
           "id": "voice-57835",

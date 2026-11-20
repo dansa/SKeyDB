@@ -148,7 +148,7 @@
           "id": "voice-133725",
           "title": "Enlighten: Flourish",
           "unlockCondition": "Unlocks at Enlighten Level 15",
-          "content": "Everything is a past epilogue. Everything is a new prologue. The new chapter between us waits for you to write it, Keeper."
+          "content": "What's past is prologue. Our new chapter is waiting for you to write it, Keeper."
         },
         {
           "id": "voice-133758",
@@ -203,7 +203,7 @@
         {
           "id": "voice-133759",
           "title": "Chat: What I Hate",
-          "content": "I have never cared for performances that simply repeat themselves. The very reason one steps into a theater is to witness a living stage—one that cannot be recreated.\nIf it does nothing but turn like clockwork, the stage becomes an ornate cage, and watching becomes nothing more than a tedious pilgrimage toward an ending you already know.\nA souless masquerade, no matter how magnificent the production is. What do you think?"
+          "content": "I have never cared for performances that simply repeat themselves. The very reason one steps into a theater is to witness a living stage, one that cannot be recreated.\nIf it does nothing but turn like clockwork, the stage becomes an ornate cage, and watching becomes nothing more than a tedious pilgrimage toward an ending you already know.\nA soulless masquerade, no matter how magnificent the production. What do you think?"
         },
         {
           "id": "voice-133722",
@@ -295,7 +295,7 @@
         {
           "id": "voice-133753",
           "title": "Skill: II",
-          "content": "What was written draws near."
+          "content": "The future has arrived."
         },
         {
           "id": "voice-133762",

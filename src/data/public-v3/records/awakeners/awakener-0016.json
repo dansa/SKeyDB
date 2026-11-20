@@ -107,12 +107,12 @@
         {
           "id": "voice-5458",
           "title": "Upgrade: II",
-          "content": "Have you grown a little?"
+          "content": "Did I grow a little?"
         },
         {
           "id": "voice-5459",
           "title": "Upgrade: III",
-          "content": "Sorry, it's hard for me to grow my body..."
+          "content": "Sorry, I don't grow very easily..."
         },
         {
           "id": "voice-4978",
@@ -130,7 +130,7 @@
           "id": "voice-5854",
           "title": "Enlighten: Reflect",
           "unlockCondition": "Unlocks at Enlighten Level 3",
-          "content": "Maybe when I grow up, I'll be able to control myself and not drain others' Life... Just a tiny bit is enough for me to survive."
+          "content": "Maybe when I grow up, I'll be able to control myself and stop draining other people's life force... Just a tiny bit is enough for me to survive."
         },
         {
           "id": "voice-5855",
@@ -166,7 +166,7 @@
           "id": "voice-5576",
           "title": "Affinity: III",
           "unlockCondition": "Unlocks at Affinity Level 6",
-          "content": "Tinct is my twin sister. Unlike me, she always shines brightly... Without my drag, she would have a brighter future, her singing echoing throughout the galaxy..."
+          "content": "Tinct is my twin sister. Unlike me, she always shines... If I weren't dragging her down, she'd have a much brighter future, and her songs would ring across the whole galaxy..."
         },
         {
           "id": "voice-5573",

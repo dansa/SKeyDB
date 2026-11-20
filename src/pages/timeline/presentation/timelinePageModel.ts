@@ -21,10 +21,32 @@ export interface TimelineAgendaMoment {
   id?: string
 }
 
+interface TimelineAgendaPatch extends Pick<TimelinePatch, 'id' | 'title' | 'date'> {
+  action: 'start' | 'end'
+  campaign?: {start: string; end: string}
+}
+
 export interface TimelineAgendaGroup {
   date: Date
   moments: TimelineAgendaMoment[]
-  patch?: TimelinePatch
+  patch?: TimelineAgendaPatch
+}
+
+function getPatchMarkers({id, title, date, endDate}: TimelinePatch): TimelineAgendaPatch[] {
+  const start: TimelineAgendaPatch = {id, title, date, action: 'start'}
+  if (!endDate) return [start]
+  const campaign = {start: date, end: endDate}
+  return [
+    {...start, campaign},
+    {id, title, date: endDate, action: 'end', campaign},
+  ]
+}
+
+export function isAgendaSegmentHighlighted(at: string, groups: TimelineAgendaGroup[]): boolean {
+  return groups.some(({patch}) => {
+    const campaign = patch?.campaign
+    return campaign ? campaign.start <= at && at < campaign.end : false
+  })
 }
 
 export function getTimelineAgendaGroups({
@@ -73,7 +95,7 @@ export function getTimelineAgendaGroups({
     group.moments.push(moment)
     groups.set(key, group)
   }
-  for (const patch of patches) {
+  for (const patch of patches.flatMap(getPatchMarkers)) {
     const date = new Date(patch.date)
     if (date.getTime() <= now.getTime()) continue
     const key = dayKey(date)
@@ -90,7 +112,7 @@ export function getTimelineAgendaGroups({
 export function getDesktopAgendaGroups(groups: TimelineAgendaGroup[]): TimelineAgendaGroup[] {
   const shown = groups.slice(0, 4)
   if (shown.some((group) => group.patch)) return shown
-  const nextPatch = groups.find((group) => group.patch)
+  const nextPatch = groups.find((group) => group.patch?.action === 'start')
   return nextPatch ? [...shown.slice(0, 3), nextPatch] : shown
 }
 

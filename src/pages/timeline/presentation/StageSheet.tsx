@@ -1,4 +1,4 @@
-import {useLayoutEffect, useRef, type ReactNode, type RefObject} from 'react'
+import {useEffectEvent, useLayoutEffect, useRef, type ReactNode, type RefObject} from 'react'
 
 import {createPortal} from 'react-dom'
 
@@ -18,6 +18,11 @@ export function StageSheet({
   title: string
 }) {
   const ref = useRef<HTMLDialogElement>(null)
+  const dismissOnBackdrop = useEffectEvent((event: MouseEvent) => {
+    // Native dialog backdrop clicks target the dialog itself.
+    if (event.target === event.currentTarget) onClose()
+  })
+
   useLayoutEffect(() => {
     const dialog = ref.current
     if (!dialog) return
@@ -27,7 +32,9 @@ export function StageSheet({
     if (typeof dialog.showModal === 'function') dialog.showModal()
     else dialog.setAttribute('open', '')
     dialog.focus({preventScroll: true})
+    dialog.addEventListener('click', dismissOnBackdrop)
     return () => {
+      dialog.removeEventListener('click', dismissOnBackdrop)
       if (typeof dialog.close === 'function') dialog.close()
       else dialog.removeAttribute('open')
       releasePageScrollLock(lock)
@@ -45,9 +52,6 @@ export function StageSheet({
       onCancel={(event) => {
         event.preventDefault()
         onClose()
-      }}
-      onClick={(event) => {
-        if (event.target === event.currentTarget) onClose()
       }}
       ref={ref}
       tabIndex={-1}

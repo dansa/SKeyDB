@@ -69,6 +69,8 @@ export interface TimelinePatch {
   kind: TimelinePatchKind
   /** ISO timestamp the update goes live. */
   date: string
+  /** Optional ISO timestamp when the featured campaign ends. */
+  endDate?: string
 }
 
 export interface BannerRateUpGroup {

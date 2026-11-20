@@ -471,18 +471,28 @@ export function loadTimelineEvents(input: unknown): EventEntry[] {
   return z.array(eventInputSchema).parse(input).map(loadEvent)
 }
 
-const patchInputSchema = z.object({
-  id: nonEmptyStringSchema,
-  title: nonEmptyStringSchema,
-  kind: z.enum(TIMELINE_PATCH_KINDS),
-  date: gameDateSchema,
-})
+const patchInputSchema = z
+  .object({
+    id: nonEmptyStringSchema,
+    title: nonEmptyStringSchema,
+    kind: z.enum(TIMELINE_PATCH_KINDS),
+    date: gameDateSchema,
+    endDate: gameDateSchema.optional(),
+  })
+  .refine(({date, endDate}) => !endDate || parseGameDate(endDate) > parseGameDate(date), {
+    path: ['endDate'],
+    message: 'The campaign end must be after the patch date.',
+  })
 
 export function loadTimelinePatches(input: unknown): TimelinePatch[] {
   return z
     .array(patchInputSchema)
     .parse(input)
-    .map((patch) => ({...patch, date: parseGameDate(patch.date)}))
+    .map(({date, endDate, ...patch}) => ({
+      ...patch,
+      date: parseGameDate(date),
+      ...(endDate ? {endDate: parseGameDate(endDate)} : {}),
+    }))
 }
 
 export function validateTimelineLinks(entries: Pick<EventEntry, 'id' | 'related'>[]): void {
