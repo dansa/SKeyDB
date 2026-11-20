@@ -114,35 +114,11 @@ interface SelectOptions {
   reveal?: boolean
 }
 
-export function TimelinePage() {
-  const now = useTimelineNow()
-  const desktop = useSyncExternalStore(
-    subscribeDesktop,
-    getDesktopSnapshot,
-    getServerDesktopSnapshot,
-  )
-  const location = useLocation()
-  const navigate = useNavigate()
-  const navigationType = useNavigationType()
-  const searchParams = new URLSearchParams(location.search)
-  const pageTitleRef = useRef<HTMLHeadingElement>(null)
-  const pendingClose = useRef<string>(undefined)
-  const locationState: unknown = location.state
-  const visit = readTimelineVisit(locationState)
-  const roster = readTimelineRoster(locationState)
-  const [priceMode, setPriceMode] = useState<TimelinePriceDisplayMode>('silver-prime')
-  const hashSection = parseTimelineSectionId(location.hash.slice(1))
-  const targetSection = parseTimelineSectionId(searchParams.get('section')) ?? hashSection
-  const requestedId = searchParams.get('item')
-  const pendingFocus = useRef<string>(undefined)
-  const focusWasInStage = useRef(false)
-  const previousStageId = useRef<string>(undefined)
-  const pendingReveal = useRef<string | undefined>(
-    targetSection ? undefined : (requestedId ?? undefined),
-  )
-  const requestedFilter =
-    getTimelineViewForSection(targetSection) ?? parseTimelineContentFilter(searchParams.get('view'))
-  useTimelineSectionScroll(targetSection)
+function getTimelinePageView(
+  now: Date,
+  requestedId: string | null,
+  requestedFilter: TimelineContentFilter,
+) {
   const events = sortEventsByRelevance(timelineEvents, now)
   const banners = sortBannersByRelevance(timelineBanners, now)
   const eventSections = partitionTimelineEntriesByStatus(events, {
@@ -162,7 +138,6 @@ export function TimelinePage() {
     .sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime())
     .at(0)
   const fallback = visibleEvents?.active.at(0) ?? visibleBanners?.active.at(0) ?? firstUpcoming
-  const selected = requested ?? (desktop && !missingId ? fallback : undefined)
   const dZoneSummary = getTimelineDZoneSummary(now)
   const agenda = getTimelineAgendaGroups({
     events,
@@ -172,7 +147,29 @@ export function TimelinePage() {
     patches: timelinePatches,
     resetDate: dZoneSummary.resetDate,
   })
+  return {
+    agenda,
+    bannerSections,
+    dZoneSummary,
+    entries,
+    eventSections,
+    fallback,
+    filter,
+    missingId,
+    requested,
+  }
+}
 
+function useTimelineStageFocus(
+  id: string | undefined,
+  desktop: boolean,
+  navigationType: NavigationType,
+  initialReveal: string | undefined,
+) {
+  const pendingFocus = useRef<string>(undefined)
+  const focusWasInStage = useRef(false)
+  const previousStageId = useRef<string>(undefined)
+  const pendingReveal = useRef<string | undefined>(initialReveal)
   useLayoutEffect(() => {
     function trackFocus(event: FocusEvent) {
       focusWasInStage.current =
@@ -191,7 +188,6 @@ export function TimelinePage() {
   }, [])
 
   useLayoutEffect(() => {
-    const id = selected?.id
     const priorId = previousStageId.current
     previousStageId.current = id
     if (!id) {
@@ -216,7 +212,56 @@ export function TimelinePage() {
       )
       if (typeof row?.scrollIntoView === 'function') row.scrollIntoView({block: 'nearest'})
     }
-  }, [selected?.id, desktop, navigationType])
+  }, [id, desktop, navigationType])
+
+  return function prepareStageSelection(id: string, options: SelectOptions) {
+    pendingFocus.current = options.focusStage ? id : undefined
+    pendingReveal.current = options.reveal ? id : undefined
+  }
+}
+
+export function TimelinePage() {
+  const now = useTimelineNow()
+  const desktop = useSyncExternalStore(
+    subscribeDesktop,
+    getDesktopSnapshot,
+    getServerDesktopSnapshot,
+  )
+  const location = useLocation()
+  const navigate = useNavigate()
+  const navigationType = useNavigationType()
+  const searchParams = new URLSearchParams(location.search)
+  const pageTitleRef = useRef<HTMLHeadingElement>(null)
+  const pendingClose = useRef<string>(undefined)
+  const locationState: unknown = location.state
+  const visit = readTimelineVisit(locationState)
+  const roster = readTimelineRoster(locationState)
+  const [priceMode, setPriceMode] = useState<TimelinePriceDisplayMode>('silver-prime')
+  const hashSection = parseTimelineSectionId(location.hash.slice(1))
+  const targetSection = parseTimelineSectionId(searchParams.get('section')) ?? hashSection
+  const requestedId = searchParams.get('item')
+  const requestedFilter =
+    getTimelineViewForSection(targetSection) ?? parseTimelineContentFilter(searchParams.get('view'))
+  useTimelineSectionScroll(targetSection)
+  const {
+    agenda,
+    bannerSections,
+    dZoneSummary,
+    entries,
+    eventSections,
+    fallback,
+    filter,
+    missingId,
+    requested,
+  } = getTimelinePageView(now, requestedId, requestedFilter)
+  const selected = requested ?? (desktop && !missingId ? fallback : undefined)
+
+  const prepareStageSelection = useTimelineStageFocus(
+    selected?.id,
+    desktop,
+    navigationType,
+    targetSection ? undefined : (requestedId ?? undefined),
+  )
 
   useLayoutEffect(() => {
     if (!pendingClose.current || pendingClose.current === location.key) return
@@ -242,8 +287,7 @@ export function TimelinePage() {
       next.delete('section')
       if (hashSection) hash = ''
     }
-    pendingFocus.current = options.focusStage ? id : undefined
-    pendingReveal.current = options.reveal ? id : undefined
+    prepareStageSelection(id, options)
     const timelineVisit: TimelineVisit =
       visit && requested ? {...visit, depth: visit.depth + 1} : {depth: 1}
     void navigate({search: next.toString(), hash}, {state: {timelineVisit}})

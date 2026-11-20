@@ -86,18 +86,34 @@ export function EventMeta({
           <span className='shrink-0 text-slate-400'>Preliminary</span>
         </>
       ) : null}
-      {price ? (
-        <>
-          <span className={`shrink-0 text-slate-600 ${compact ? 'hidden sm:inline' : ''}`}>·</span>
-          <span
-            className={`${compact ? 'basis-full sm:min-w-0 sm:basis-auto sm:truncate' : ''} timeline-event-meta--${ended ? 'ended' : 'price'}`}
-          >
-            {event.missions?.length && event.rewards?.length === 2 ? 'Premium: ' : null}
-            {price}
-          </span>
-        </>
-      ) : null}
+      <EventMetaPrice compact={compact} ended={ended} event={event} price={price} />
     </div>
+  )
+}
+
+function EventMetaPrice({
+  compact,
+  ended,
+  event,
+  price,
+}: {
+  compact: boolean
+  ended: boolean
+  event: EventEntry
+  price?: string
+}) {
+  if (!price) return null
+  const premiumOnly = event.missions?.length && event.rewards?.length === 2
+  return (
+    <>
+      <span className={`shrink-0 text-slate-600 ${compact ? 'hidden sm:inline' : ''}`}>·</span>
+      <span
+        className={`${compact ? 'basis-full sm:min-w-0 sm:basis-auto sm:truncate' : ''} timeline-event-meta--${ended ? 'ended' : 'price'}`}
+      >
+        {premiumOnly ? 'Premium: ' : null}
+        {price}
+      </span>
+    </>
   )
 }
 
