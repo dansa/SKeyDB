@@ -517,7 +517,9 @@ describe('DatabasePage', () => {
       fireEvent.click(screen.getByRole('button', {name: 'Go back in history', hidden: true}))
     })
 
-    await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument())
+    await waitFor(() => {
+      expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+    })
     expect(screen.getByTestId('location-path')).toHaveTextContent('/database')
   })
 
@@ -548,11 +550,11 @@ describe('DatabasePage', () => {
     expect(await findAwakenerDetailDialog(/alpha details/)).toBeInTheDocument()
 
     fireEvent.click(screen.getByLabelText('Switch to lore tab'))
-    await waitFor(() =>
+    await waitFor(() => {
       expect(screen.getByTestId('location-path')).toHaveTextContent(
         '/database/awakeners/alpha/lore',
-      ),
-    )
+      )
+    })
 
     fireEvent.click(screen.getByLabelText('Close detail'))
     await waitFor(() => {
@@ -561,9 +563,9 @@ describe('DatabasePage', () => {
     })
 
     fireEvent.click(screen.getByRole('button', {name: 'Go back in history'}))
-    await waitFor(() =>
-      expect(screen.getByTestId('location-path')).toHaveTextContent('/before-database'),
-    )
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path')).toHaveTextContent('/before-database')
+    })
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
   })
 
@@ -579,20 +581,20 @@ describe('DatabasePage', () => {
     })
 
     fireEvent.click(screen.getByRole('button', {name: 'Go back in history'}))
-    await waitFor(() =>
-      expect(screen.getByTestId('location-path')).toHaveTextContent('/before-database'),
-    )
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path')).toHaveTextContent('/before-database')
+    })
   })
 
   it('closes a navigated deep link without reopening it on Back', async () => {
     await renderDatabasePage(['/before-database', '/database/awakeners/alpha'], 1)
     await findAwakenerDetailDialog(/alpha details/)
     fireEvent.click(screen.getByLabelText('Switch to lore tab'))
-    await waitFor(() =>
+    await waitFor(() => {
       expect(screen.getByTestId('location-path')).toHaveTextContent(
         '/database/awakeners/alpha/lore',
-      ),
-    )
+      )
+    })
     fireEvent.click(screen.getByLabelText('Close detail'))
     await waitFor(() => {
       expect(screen.getByTestId('location-path').textContent).toBe('/database')
@@ -703,9 +705,9 @@ describe('DatabasePage', () => {
       fireEvent.click(screen.getByLabelText('Switch to beta detail'))
     })
 
-    await waitFor(() =>
-      expect(screen.getByTestId('location-path')).toHaveTextContent('/database/awakeners/beta'),
-    )
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path')).toHaveTextContent('/database/awakeners/beta')
+    })
     expect(await findAwakenerDetailDialog(/beta details/)).toBeInTheDocument()
 
     await act(async () => {
@@ -722,7 +724,9 @@ describe('DatabasePage', () => {
     await renderDatabasePage('/database/awk/missing')
 
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
-    await waitFor(() => expect(screen.getByTestId('location-path')).toHaveTextContent('/database'))
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path')).toHaveTextContent('/database')
+    })
   })
 
   it('falls back to the database root when a deep-linked awakener is missing current public data', async () => {
@@ -731,7 +735,9 @@ describe('DatabasePage', () => {
     await renderDatabasePage('/database/awk/beta')
 
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
-    await waitFor(() => expect(screen.getByTestId('location-path')).toHaveTextContent('/database'))
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path')).toHaveTextContent('/database')
+    })
   })
 
   it('preserves query params when falling back from an unknown deep link tab', async () => {
@@ -759,16 +765,18 @@ describe('DatabasePage', () => {
       fireEvent.click(screen.getByRole('button', {name: 'Go back in history'}))
     })
 
-    await waitFor(() => expect(screen.getByTestId('location-path')).toHaveTextContent('/database'))
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path')).toHaveTextContent('/database')
+    })
   })
 
   it('preserves generated canonical awakener slugs and only entity-valid query params', async () => {
     await renderDatabasePage('/database/awk/24?q=24&mainstat=KEYFLARE_REGEN&realm=CHAOS&sort=ATK')
 
     expect(await findAwakenerDetailDialog(/alpha details/)).toBeInTheDocument()
-    await waitFor(() =>
-      expect(screen.getByTestId('location-path')).toHaveTextContent('/database/awakeners/24'),
-    )
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path')).toHaveTextContent('/database/awakeners/24')
+    })
     expect(screen.getByTestId('location-search')).toHaveTextContent('?q=24&realm=CHAOS&sort=ATK')
   })
 
@@ -911,9 +919,9 @@ describe('DatabasePage', () => {
     await renderDatabasePage('/database/wheels/missing')
 
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
-    await waitFor(() =>
-      expect(screen.getByTestId('location-path')).toHaveTextContent('/database/wheels'),
-    )
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path')).toHaveTextContent('/database/wheels')
+    })
   })
 
   it('preserves search params when switching from a wheel modal to an awakener modal', async () => {
@@ -927,9 +935,9 @@ describe('DatabasePage', () => {
       fireEvent.click(await screen.findByLabelText('Switch to alpha awakener detail'))
     })
 
-    await waitFor(() =>
-      expect(screen.getByTestId('location-path')).toHaveTextContent('/database/awakeners/alpha'),
-    )
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path')).toHaveTextContent('/database/awakeners/alpha')
+    })
     expect(screen.getByTestId('location-search')).toHaveTextContent('?q=merciful&realm=CARO')
   })
 
@@ -956,14 +964,14 @@ describe('DatabasePage', () => {
     const originalBrowseCard = screen.getByLabelText('View details for Merciful Nurturing')
     const originalBrowseSearch = screen.getByLabelText('Search wheels')
     fireEvent.click(originalBrowseCard)
-    await waitFor(() =>
-      expect(screen.getByRole('dialog', {name: /merciful nurturing details/i})).toBeInTheDocument(),
-    )
+    await waitFor(() => {
+      expect(screen.getByRole('dialog', {name: /merciful nurturing details/i})).toBeInTheDocument()
+    })
 
     fireEvent.click(await screen.findByLabelText('Switch to alpha awakener detail'))
-    await waitFor(() =>
-      expect(screen.getByTestId('location-path')).toHaveTextContent('/database/awakeners/alpha'),
-    )
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path')).toHaveTextContent('/database/awakeners/alpha')
+    })
     expect(screen.getByTestId('location-search')).toHaveTextContent('?q=merciful')
     expect(screen.getByLabelText('View details for Merciful Nurturing')).toBe(originalBrowseCard)
     expect(screen.getByLabelText('Search wheels')).toBe(originalBrowseSearch)
@@ -978,9 +986,9 @@ describe('DatabasePage', () => {
     })
 
     fireEvent.click(screen.getByRole('button', {name: 'Go back in history'}))
-    await waitFor(() =>
-      expect(screen.getByTestId('location-path')).toHaveTextContent('/before-database'),
-    )
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path')).toHaveTextContent('/before-database')
+    })
   })
 
   it('filters wheels by the neutral realm without affecting other wheel routes', async () => {
@@ -1013,10 +1021,12 @@ describe('DatabasePage', () => {
     expect(screen.getByTestId('location-search')).toHaveTextContent('?q=s')
 
     fireEvent.click(screen.getByRole('link', {name: 'Covenants'}))
-    await waitFor(() =>
-      expect(screen.getByTestId('location-path')).toHaveTextContent('/database/covenants'),
-    )
-    await waitFor(() => expect(screen.getByTestId('location-search')).toBeEmptyDOMElement())
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path')).toHaveTextContent('/database/covenants')
+    })
+    await waitFor(() => {
+      expect(screen.getByTestId('location-search')).toBeEmptyDOMElement()
+    })
     await screen.findByRole('searchbox')
 
     fireEvent.keyDown(window, {key: 'o'})
@@ -1042,17 +1052,15 @@ describe('DatabasePage', () => {
   it('preserves sanitized posse search params when opening and closing detail routes', async () => {
     await renderDatabasePage('/database/posses?q=sigil&realm=CHAOS&mainstat=KEYFLARE_REGEN')
 
-    await waitFor(() =>
-      expect(screen.getByTestId('location-search')).toHaveTextContent('?q=sigil&realm=CHAOS'),
-    )
+    await waitFor(() => {
+      expect(screen.getByTestId('location-search')).toHaveTextContent('?q=sigil&realm=CHAOS')
+    })
 
     fireEvent.click(screen.getByLabelText('View details for Silent Sigil'))
 
-    await waitFor(() =>
-      expect(screen.getByTestId('location-path')).toHaveTextContent(
-        '/database/posses/silent-sigil',
-      ),
-    )
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path')).toHaveTextContent('/database/posses/silent-sigil')
+    })
     expect(screen.getByTestId('location-search')).toHaveTextContent('?q=sigil&realm=CHAOS')
     expect(
       await screen.findByRole('dialog', {name: /silent sigil posse details/i}),
@@ -1060,24 +1068,26 @@ describe('DatabasePage', () => {
 
     fireEvent.click(screen.getByLabelText('Close posse detail'))
 
-    await waitFor(() =>
-      expect(screen.getByTestId('location-path')).toHaveTextContent('/database/posses'),
-    )
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path')).toHaveTextContent('/database/posses')
+    })
     expect(screen.getByTestId('location-search')).toHaveTextContent('?q=sigil&realm=CHAOS')
   })
 
   it('preserves sanitized covenant search params when opening and closing detail routes', async () => {
     await renderDatabasePage('/database/covenants?q=oath&realm=CHAOS')
 
-    await waitFor(() => expect(screen.getByTestId('location-search')).toHaveTextContent('?q=oath'))
+    await waitFor(() => {
+      expect(screen.getByTestId('location-search')).toHaveTextContent('?q=oath')
+    })
 
     fireEvent.click(screen.getByLabelText('View details for Oath of Glass'))
 
-    await waitFor(() =>
+    await waitFor(() => {
       expect(screen.getByTestId('location-path')).toHaveTextContent(
         '/database/covenants/oath-of-glass',
-      ),
-    )
+      )
+    })
     expect(screen.getByTestId('location-search')).toHaveTextContent('?q=oath')
     expect(
       await screen.findByRole('dialog', {name: /oath of glass covenant details/i}),
@@ -1085,9 +1095,9 @@ describe('DatabasePage', () => {
 
     fireEvent.click(screen.getByLabelText('Close covenant detail'))
 
-    await waitFor(() =>
-      expect(screen.getByTestId('location-path')).toHaveTextContent('/database/covenants'),
-    )
+    await waitFor(() => {
+      expect(screen.getByTestId('location-path')).toHaveTextContent('/database/covenants')
+    })
     expect(screen.getByTestId('location-search')).toHaveTextContent('?q=oath')
   })
 
@@ -1105,7 +1115,9 @@ describe('DatabasePage', () => {
   it('strips invalid entity params from deep-linked posse routes', async () => {
     await renderDatabasePage('/database/posses?mainstat=KEYFLARE_REGEN')
 
-    await waitFor(() => expect(screen.getByTestId('location-search')).toBeEmptyDOMElement())
+    await waitFor(() => {
+      expect(screen.getByTestId('location-search')).toBeEmptyDOMElement()
+    })
   })
 
   it('sorts awakeners by ATK stat descending', async () => {
@@ -1133,9 +1145,9 @@ describe('DatabasePage', () => {
     ['/lore/skills', {section: 'skills'}, '/lore/skills'],
   ])('opens and canonicalizes deep Lore route %s', async (suffix, route, canonical) => {
     await renderDatabasePage(`/database/awakeners/alpha${suffix}`)
-    await waitFor(() =>
-      expect(screen.getByTestId('lore-route')).toHaveTextContent(JSON.stringify(route)),
-    )
+    await waitFor(() => {
+      expect(screen.getByTestId('lore-route')).toHaveTextContent(JSON.stringify(route))
+    })
     await waitFor(() => {
       expect(screen.getByTestId('location-path').textContent).toBe(
         `/database/awakeners/alpha${canonical}`,
