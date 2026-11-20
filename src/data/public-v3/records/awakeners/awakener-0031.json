@@ -130,13 +130,13 @@
           "id": "voice-5197",
           "title": "Enlighten: Reflect",
           "unlockCondition": "Unlocks at Enlighten Level 3",
-          "content": "Ah, back in the chaotic ocean. I like it."
+          "content": "Feels like I'm back in the ocean of chaos. Not bad."
         },
         {
           "id": "voice-5196",
           "title": "Enlighten: Insight",
           "unlockCondition": "Unlocks at Enlighten Level 7",
-          "content": "This beast is merely a fragment of my will. Its form may not change, but my power knows no bounds."
+          "content": "However much I'm upgraded, this beast's appearance won't change. In the end, it's only my power given form."
         },
         {
           "id": "voice-5199",
@@ -160,25 +160,25 @@
           "id": "voice-6278",
           "title": "Affinity: II",
           "unlockCondition": "Unlocks at Affinity Level 4",
-          "content": "Hmph... I still can't fathom why Ramona picked you as her partner. You reek of strength, yes, but you're nowhere near my league."
+          "content": "Hmph... I still can't fathom why Ramona picked you as her partner. You reek of strength, yes, but you're a long way from being my rival."
         },
         {
           "id": "voice-6279",
           "title": "Affinity: III",
           "unlockCondition": "Unlocks at Affinity Level 6",
-          "content": "Yes, gaze upon me. I am this planet's most ancient being, demanding reverence from the insignificant. I've guarded this planet for eons. Is a thrilling battle truly too much to ask for in return?"
+          "content": "That's it, look up at me with awe. I am this planet's oldest creation, and I'm owed the respect of lesser beings. I've guarded this planet for countless ages. Is one all-out duel as payment really too much to ask?"
         },
         {
           "id": "voice-6276",
           "title": "Affinity: IV",
           "unlockCondition": "Unlocks at Affinity Level 8",
-          "content": "Interesting. Your growth in battle far surpasses my expectations. Given time, you might become... Strange. Even after all this time, I still find hope in a creature as seemingly weak as you."
+          "content": "Interesting. Your growth in battle far surpasses my expectations. Given time, you might become... Strange. After all these ages, I still find myself expecting something of a creature as weak as you."
         },
         {
           "id": "voice-6277",
           "title": "Affinity: V",
           "unlockCondition": "Unlocks at Affinity Level 10",
-          "content": "Perhaps now is the time. Listen closely. Lotan, the Beast of the Stars, formally challenges you. Do not fret; I shall ensure your survival until you reach your zenith. I will not allow my chosen opponent to suffer the same fate again."
+          "content": "Perhaps now is the time to say it. Listen closely. Lotan, the Beast of the Stars, formally challenges you to a decisive duel... Of course, until you reach your peak, I will keep you safe. I won't let a rival I've chosen die young a second time."
         },
         {
           "id": "voice-5153",
@@ -194,7 +194,7 @@
           "id": "voice-6361",
           "title": "Chat: About Tulu",
           "unlockCondition": "Unlocks after acquiring Awakener \"Tulu\"",
-          "content": "How dare you summon him! That useless, lazy oaf! He was once someone I held in high regard! Away with him! I refuse to look at that fool!"
+          "content": "Why would you summon him?! That useless sleepyhead! No pride, no ambition... and to think I once had such high hopes for him! We're leaving! I don't want to see him!"
         },
         {
           "id": "voice-5929",
@@ -220,7 +220,7 @@
         {
           "id": "voice-6497",
           "title": "Chat: What I Hate",
-          "content": "Hate? I despise those who give up halfway. The mere thought of them makes me want to regurgitate last night's meal."
+          "content": "Things I hate... People who give up halfway, I suppose. Just thinking about them makes yesterday's dinner come back up."
         },
         {
           "id": "voice-6156",
@@ -242,7 +242,7 @@
         {
           "id": "voice-5865",
           "title": "Investigation Halted",
-          "content": "Hmph, not bad at all. Our next duel will be legendary."
+          "content": "Hmph, not bad. Next time we duel, I'll hold nothing back."
         },
         {
           "id": "voice-5723",

@@ -118,7 +118,7 @@
           "id": "voice-5368",
           "title": "Enlighten: Observe",
           "unlockCondition": "Unlocks at Enlighten Level 1",
-          "content": "What can I help you with...?"
+          "content": "Can Aigis help...?"
         },
         {
           "id": "voice-6066",
@@ -178,7 +178,7 @@
           "id": "voice-5170",
           "title": "Affinity: V",
           "unlockCondition": "Unlocks at Affinity Level 10",
-          "content": "Aigis... Can I really return to the crowd? I'm not ready yet, but you've already accepted me... In that case, please continue to look after me... Keeper."
+          "content": "Can Aigis... really be around people again? I'm not ready yet, but you've already welcomed me... So, from now on, p-please take care of me... Keeper."
         },
         {
           "id": "voice-6151",
@@ -205,7 +205,7 @@
         {
           "id": "voice-5840",
           "title": "Chat: About Dissolution",
-          "content": "If only Aigis could bear this black liquid for everyone... After all, Aigis never existed, which might be a good thing for this world, right?"
+          "content": "If only Aigis could take all this black liquid for everyone... After all, it would be better for the world if Aigis had never existed, wouldn't it?"
         },
         {
           "id": "voice-5255",

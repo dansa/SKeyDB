@@ -124,7 +124,7 @@
           "id": "voice-5248",
           "title": "Enlighten: Ponder",
           "unlockCondition": "Unlocks at Enlighten Level 2",
-          "content": "Is it just me? Or... Did my craving for blood diminish somewhat?"
+          "content": "Is it just me? Or did my craving for blood ease a little?"
         },
         {
           "id": "voice-5246",
@@ -142,7 +142,7 @@
           "id": "voice-5244",
           "title": "Enlighten: Elevate",
           "unlockCondition": "Unlocks at Enlighten Level 11",
-          "content": "The feeling of being bathed in sunlight again... I didn't know it felt so nice, so warm. It brings tears to my eyes."
+          "content": "Bathing in sunlight... I never knew it was this soft. It makes me want to cry."
         },
         {
           "id": "voice-5245",
@@ -172,7 +172,7 @@
           "id": "voice-6441",
           "title": "Affinity: IV",
           "unlockCondition": "Unlocks at Affinity Level 8",
-          "content": "Blood flows like a river. I am yours. Never have I felt so strongly."
+          "content": "Blood flows like a river. I belong to you... I've never felt it so strongly."
         },
         {
           "id": "voice-6440",
@@ -214,7 +214,7 @@
         {
           "id": "voice-6469",
           "title": "Chat: What I Like",
-          "content": "Don't be fooled by my appearance; I was once a noble lady, too... I embroidered, I read Tennyson... Oh, and I once sang songs: \"She flows like an endless river through my veins...\""
+          "content": "Don't be fooled by how I look. I was a lady once, too... I can embroider, I read Tennyson... Oh, and I can sing: \"She flows like an endless river through my veins...\""
         },
         {
           "id": "voice-5363",
@@ -224,7 +224,7 @@
         {
           "id": "voice-5437",
           "title": "Chat: About the Keeper",
-          "content": "I must accuse you, Keeper. Your kindness makes me uneasy—only physical pain feels real and stable to me."
+          "content": "I must accuse you, Keeper. You're far too gentle with me, and it makes me uneasy. To me, only the pain of the flesh is real and lasting."
         }
       ],
       "battle": [
@@ -236,12 +236,12 @@
         {
           "id": "voice-5157",
           "title": "Investigation Success",
-          "content": "Ah, time to get fed. Hehe..."
+          "content": "And now... it's mealtime. Hehe..."
         },
         {
           "id": "voice-5655",
           "title": "Investigation Halted",
-          "content": "If I am taken as a hostage, what cruel fate awaits me?"
+          "content": "If I'm taken as a prisoner of war, what cruel fate awaits me?"
         },
         {
           "id": "voice-6698",
@@ -251,12 +251,12 @@
         {
           "id": "voice-6592",
           "title": "Defense: I",
-          "content": "Be careful what you wish for."
+          "content": "Do be careful."
         },
         {
           "id": "voice-5621",
           "title": "Defense: II",
-          "content": "How do you like this?"
+          "content": "Like this?"
         },
         {
           "id": "voice-5662",

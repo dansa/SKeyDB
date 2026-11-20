@@ -102,12 +102,12 @@
         {
           "id": "voice-5438",
           "title": "Upgrade: I",
-          "content": "Quite good, indeed."
+          "content": "Very good. You serve well."
         },
         {
           "id": "voice-5439",
           "title": "Upgrade: II",
-          "content": "This is barely enough."
+          "content": "This is nowhere near enough."
         },
         {
           "id": "voice-5440",
@@ -160,7 +160,7 @@
           "id": "voice-6475",
           "title": "Affinity: II",
           "unlockCondition": "Unlocks at Affinity Level 4",
-          "content": "Keeper, is there anyone you don't like? As a favor, I can teach them a lesson. Within a week, they'll be a changed person, obediently prostrating themselves before you."
+          "content": "Keeper, is there anyone you dislike? As a token of thanks, I could give them a little training. Within a week, they'll be a changed person, obediently licking your toes."
         },
         {
           "id": "voice-6474",
@@ -178,7 +178,7 @@
           "id": "voice-6472",
           "title": "Affinity: V",
           "unlockCondition": "Unlocks at Affinity Level 10",
-          "content": "What a surprise, I've gained an equivalent companionship.\nHowever... I request to retain the right to command you, merely for our mutual amusement. Come to my chambers tonight; I still have much to learn about human sensibilities..."
+          "content": "How novel. I seem to have gained a friendship between equals.\nHowever... I'd like to keep the right to order you around, as a little spice between us. Come to my bedroom tonight. There is still much I need to learn about human affection..."
         },
         {
           "id": "voice-6124",
@@ -215,7 +215,7 @@
         {
           "id": "voice-6326",
           "title": "Chat: What I Like",
-          "content": "A qualified servant must be pliable and vacuous—I prefer obedient lambs."
+          "content": "A proper servant must be frail and empty-headed. I prefer docile lambs."
         },
         {
           "id": "voice-5457",

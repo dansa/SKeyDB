@@ -16,7 +16,7 @@
   "defaultVariantId": "relic-variant-0121",
   "rarity": "SR",
   "aliases": [],
-  "descriptionTemplate": "Each card played grants [Arg1] Temporary {STR} and recovers [Arg2] HP. After dealing Active DMG, remove [Arg2] {STR} gained from this Relic. The Awakener gains 30 Aliemus for each enemy killed.",
+  "descriptionTemplate": "Each card played grants [Arg1] Temporary {STR} and recovers [Heal:Arg2] HP. After dealing Active DMG, remove [Arg2] {STR} gained from this Relic. The Awakener gains 30 Aliemus for each enemy killed.",
   "descriptionArgs": {
     "Arg1": {
       "kind": "computed",
@@ -43,7 +43,7 @@
       "tier": "Pendulum",
       "category": "PENDULUM",
       "rarity": "SR",
-      "descriptionTemplate": "Each card played grants [Arg1] Temporary {STR} and recovers [Arg2] HP. After dealing Active DMG, remove [Arg2] {STR} gained from this Relic. The Awakener gains 30 Aliemus for each enemy killed.",
+      "descriptionTemplate": "Each card played grants [Arg1] Temporary {STR} and recovers [Heal:Arg2] HP. After dealing Active DMG, remove [Arg2] {STR} gained from this Relic. The Awakener gains 30 Aliemus for each enemy killed.",
       "descriptionArgs": {
         "Arg1": {
           "kind": "computed",

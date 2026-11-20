@@ -124,7 +124,7 @@
           "id": "voice-6054",
           "title": "Enlighten: Ponder",
           "unlockCondition": "Unlocks at Enlighten Level 2",
-          "content": "I'm so happy... You're so biased and favor me so much."
+          "content": "I'm so happy... You favor me so shamelessly."
         },
         {
           "id": "voice-6055",
@@ -142,7 +142,7 @@
           "id": "voice-6264",
           "title": "Enlighten: Elevate",
           "unlockCondition": "Unlocks at Enlighten Level 11",
-          "content": "Is this the manifestation of your desire, to deepen my affection?"
+          "content": "You want my love to run even deeper? Is that what you desire?"
         },
         {
           "id": "voice-6058",
@@ -178,7 +178,7 @@
           "id": "voice-5699",
           "title": "Affinity: V",
           "unlockCondition": "Unlocks at Affinity Level 10",
-          "content": "I have always awaited the arrival of destruction, never considering \"resistance\"... Will you help my shallow soul cross the abyss? Even in a world where I narrowly survived, you still grant me salvation..."
+          "content": "I always waited for destruction to come, and never imagined I could resist it... Will you carry a soul as shallow as mine across annihilation, and save me even in a world that only just escaped death?"
         },
         {
           "id": "voice-6495",
@@ -188,7 +188,7 @@
         {
           "id": "voice-5287",
           "title": "Chat: About Past",
-          "content": "To survive annihilation, I've shared my spirit and blood with too many. My power now is a ghost of what it was when I first embraced this Supreme Will..."
+          "content": "To survive annihilation, I've shared my spirit and blood with far too many. My power now is a ghost of what it was when I first took on this will..."
         },
         {
           "id": "voice-5802",
@@ -225,7 +225,7 @@
         {
           "id": "voice-5424",
           "title": "Chat: About the Keeper",
-          "content": "You truly are a dishonest child. Lucky for you, I have eternity to wait..."
+          "content": "You're not being honest with yourself, child. Luckily, I have more than enough time and patience to wait for you..."
         },
         {
           "id": "voice-50903",
@@ -237,7 +237,7 @@
           "id": "voice-50910",
           "title": "Chat: About Tawil",
           "unlockCondition": "Unlocks after acquiring Awakener \"Ramona\"",
-          "content": "Oh dear, I've lost to her this time... But since she chose you, you'll drink the Holy Tree's sap and carry my blood and seeds to a new world, yes?"
+          "content": "Oh dear, I have to admit she beat me this time... But since she chose you, you'll drink the Tree's milk and carry my blood and seed into the new world, won't you?"
         },
         {
           "id": "voice-50901",
@@ -300,7 +300,7 @@
           "id": "voice-50900",
           "title": "Chat: About Keygrave",
           "unlockCondition": "Clear Main Story Chapter 7",
-          "content": "I glimpsed your tombstone in Keygrave's shadows... Will my mummified flesh rest here too, one day? No? What a pity."
+          "content": "While I was looking for a secluded spot in the Keygrave just now, I think I saw your tombstone... Will my mummy be buried here too? No? What a pity."
         },
         {
           "id": "voice-50909",
@@ -311,7 +311,7 @@
         {
           "id": "voice-50904",
           "title": "Chat: About the Desert",
-          "content": "Born from the yellow sands, and to the yellow sands you shall return. On this brief journey, shouldn't you leave some souvenirs along the way? Sow some seeds?"
+          "content": "Born of the yellow sands, and to the yellow sands you shall return. On this brief journey, surely you should leave something behind? Sow something?"
         }
       ],
       "battle": [

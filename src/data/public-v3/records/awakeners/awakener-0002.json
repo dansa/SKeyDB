@@ -102,7 +102,7 @@
         {
           "id": "voice-5315",
           "title": "Upgrade: I",
-          "content": "Heh. You're slightly smarter than I thought."
+          "content": "Heh. At least you know your place."
         },
         {
           "id": "voice-5316",
@@ -112,7 +112,7 @@
         {
           "id": "voice-5317",
           "title": "Upgrade: III",
-          "content": "You look quite amusing when you try to please me."
+          "content": "You're kind of cute when you try so hard to please me."
         },
         {
           "id": "voice-6405",
@@ -148,7 +148,7 @@
           "id": "voice-6220",
           "title": "Enlighten: Flourish",
           "unlockCondition": "Unlocks at Enlighten Level 15",
-          "content": "I saw... It climbing up from the darkness of the well; countless eyes appearing on its flesh egg. They stared at me, calling me... Maze God!"
+          "content": "I saw... It climbing up out of the darkness of the well, countless eyes surfacing on its egg of flesh. They stared at me, and called me... God of the Maze."
         },
         {
           "id": "voice-5608",
@@ -183,7 +183,7 @@
         {
           "id": "voice-6507",
           "title": "Chat: Touch",
-          "content": "Shit! What are you doing?! Believe it or not, I'll chop your hand off!"
+          "content": "Shit! What are you doing?! Try that again and I'll chop your hand off!"
         },
         {
           "id": "voice-4965",
@@ -237,7 +237,7 @@
         {
           "id": "voice-5049",
           "title": "Investigation Success",
-          "content": "What should we do with these failures?"
+          "content": "So, what should we do with the losers?"
         },
         {
           "id": "voice-4911",
@@ -247,7 +247,7 @@
         {
           "id": "voice-6107",
           "title": "Strike: I",
-          "content": "How dare you look elsewhere!"
+          "content": "Don't you dare zone out!"
         },
         {
           "id": "voice-6108",
