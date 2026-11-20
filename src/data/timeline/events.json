@@ -3,7 +3,7 @@
     "id": "moskstraumen-260309",
     "title": "Call of the Moskstraumen",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Vortice avatar.\nClear Vortice and the Sea and complete achievements. Each draw at Vortice's Hoard gives five rewards for 750 matching Conches.\nGameplay ends Apr 6; shop and achievement claims stay open until Apr 13. Clear No More the Shore for the Drowned Innocence Posse.",
+    "description": "SR Wheel copies and a limited Vortice avatar.\nClear Vortice and the Sea and complete achievements. Each draw at Vortice's Hoard gives five rewards for 750 matching Conches.\nShop exchanges and achievement claims stay open until Apr 13. Clear No More the Shore for the Drowned Innocence Posse.",
     "startDate": "2026/03/09 09:00",
     "endDate": "2026/04/06 09:00",
     "pinned": true,
@@ -450,7 +450,7 @@
     "id": "crimson-heartwood-260223",
     "title": "Crimson Heartwood",
     "category": "skin",
-    "description": "Crimson Kaede outfit for 24.\nThe outfit unlocks on the 15th login with Premium Archives.",
+    "description": "Crimson Kaede outfit for \"24\".\nPremium Archives unlocks the outfit after 15 logins.",
     "startDate": "2026/02/23 09:00",
     "endDate": "2026/03/23 09:00",
     "featured": "24",
@@ -683,7 +683,7 @@
     "id": "conjugated-fates-260406",
     "title": "Conjugated Fates",
     "category": "preorder",
-    "description": "100 free Silver and seven paid gift packs.",
+    "description": "100 Silver free; one preorder unlocks seven reward claims.",
     "startDate": "2026/04/06 09:00",
     "endDate": "2026/05/18 09:00",
     "keyDates": [
@@ -867,7 +867,7 @@
     "id": "mythag-gifts-260309",
     "title": "Gifts from Mythag",
     "category": "login",
-    "description": "10 Luminous Cores across the first 7 logins, with more rewards throughout the 28-day event.",
+    "description": "10 Luminous Cores across the first seven logins.\nLogin days don't have to be consecutive.",
     "startDate": "2026/03/09 09:00",
     "endDate": "2026/04/06 09:00",
     "customArt": "/events/gifts-from-mythag.webp"
@@ -876,7 +876,7 @@
     "id": "feast-of-flames-260323",
     "title": "Feast of Flames",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Wanda avatar.\nClear City in the Lake and complete achievements. Wanda's Treasure Vault offers fixed-price rewards across three shops.\nGameplay ends Apr 20; shop and achievement claims stay open until Apr 27. Clear the Feast of Flames Psyche Deepdive for the Feast of Decay Posse. On the rerun, repeat avatars convert to one Formless One's Invitation; extra Hearts of Hedonism convert to 5,000 Rose Scrip each.",
+    "description": "SR Wheel copies and a limited Wanda avatar.\nClear City in the Lake and complete achievements. Shop exchanges and achievement claims stay open until Apr 27.\nClear the Feast of Flames Psyche Deepdive for the Feast of Decay Posse. On the rerun, repeat avatars convert to one Formless One's Invitation; extra Hearts of Hedonism convert to 5,000 Rose Scrip each.",
     "startDate": "2026/03/23 09:00",
     "endDate": "2026/04/20 09:00",
     "featured": [
@@ -922,7 +922,7 @@
       },
       {
         "title": "Spine Spike Grip limited stock",
-        "note": "Limited stock. Each Wheel costs 2,500 Original Tibia. Each Core costs 1,250 Original Tibia.",
+        "note": "Each Wheel costs 2,500 Original Tibia. Each Core costs 1,250 Original Tibia.",
         "summaryCount": 3,
         "items": [
           {
@@ -953,7 +953,7 @@
       },
       {
         "title": "Guardian of Ruins limited stock",
-        "note": "Limited stock. Each Wheel costs 2,500 Tornoceras.",
+        "note": "Each Wheel costs 2,500 Tornoceras.",
         "summaryCount": 2,
         "items": [
           {
@@ -1000,7 +1000,7 @@
       },
       {
         "title": "Dark Bindings limited stock",
-        "note": "Limited stock. Each Wheel costs 2,500 Spiral Ruins.",
+        "note": "Each Wheel costs 2,500 Spiral Ruins.",
         "summaryCount": 2,
         "items": [
           {
@@ -1066,7 +1066,7 @@
     "id": "phase-reversal-260316",
     "title": "Phase Reversal",
     "category": "gameplay-event",
-    "description": "Traphase milestones with an exclusive avatar and 10 emotes.\nRound Wonders tracks Magic Acorns from Traphase achievements. Clear My Turn: Outlander's Visit to unlock the 100–900 tiers and Cosmos Reforged to unlock the 1,000–6,000 tiers. All core rewards unlock by 3,600 Acorns; later tiers award only Rose Scrip.\nClear My Turn to earn the Tavern's Opening Posse. The story is free to unlock during the event and costs 3 Reality Verge afterward if not already unlocked.",
+    "description": "Traphase milestones with an exclusive avatar and 10 emotes.\nRound Wonders tracks Magic Acorns from Traphase achievements. Clear My Turn: Outlander's Visit to unlock the 100–900 tiers and Cosmos Reforged to unlock the 1,000–6,000 tiers. All core rewards unlock by 3,600 Acorns; later tiers award only Rose Scrip.\nClear My Turn for the Tavern's Opening Posse.",
     "startDate": "2026/03/16 09:00",
     "endDate": "2026/03/30 09:00",
     "featured": [
@@ -1171,7 +1171,7 @@
     "id": "sovereigns-return-260406",
     "title": "The Sovereign's Return",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Tulu avatar.\nClear Gaze of the Deep Sea and complete achievements for event currency. Abyssborn Epiphany offers fixed-price rewards. Gameplay ends May 4; the shops and achievement claims stay open until May 11.\nClear Day of Coronation to earn the Blessing of the Stars Posse. Repeat avatar rewards convert to one Formless One's Invitation.",
+    "description": "SR Wheel copies and a limited Tulu avatar.\nClear Gaze of the Deep Sea and complete achievements. Shop exchanges and achievement claims stay open until May 11.\nClear Day of Coronation for the Blessing of the Stars Posse. Repeat avatar rewards convert to one Formless One's Invitation.",
     "startDate": "2026/04/06 09:00",
     "endDate": "2026/05/04 09:00",
     "artVariants": {
@@ -1360,7 +1360,7 @@
     "id": "mythag-gifts-260420",
     "title": "Gifts from Mythag",
     "category": "login",
-    "description": "10 Luminous Cores across the first 7 logins, with more rewards throughout the 28-day event.",
+    "description": "10 Luminous Cores across the first seven logins.\nLogin days don't have to be consecutive.",
     "startDate": "2026/04/20 09:00",
     "endDate": "2026/05/18 09:00",
     "customArt": "/events/gifts-from-mythag.webp"
@@ -1504,7 +1504,7 @@
     "id": "spikenard-myrrh-260406",
     "title": "With Spikenard And Myrrh",
     "category": "skin",
-    "description": "Free Wanda outfit.\nComplete all five missions to unlock the skin. After the event, it costs 680 Silver Prime in Garment Ordering.",
+    "description": "Free Wanda outfit.\nComplete all five missions for the outfit and 10 Pure Cores.",
     "startDate": "2026/04/06 09:00",
     "endDate": "2026/04/20 09:00",
     "pricing": "Free",
@@ -1593,7 +1593,7 @@
     "id": "bound-weaver-260420",
     "title": "Bound Weaver",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Arachne avatar.\nClear The Puppet's Stage and complete achievements. Each draw at Theater Souvenirs gives five rewards for 750 A-Reserve Tickets.\nGameplay ends May 18; shop and achievement claims stay open until May 25. Unspent tickets convert to 40 Rose Scrip each.",
+    "description": "SR Wheel copies and a limited Arachne avatar.\nClear The Puppet's Stage and complete achievements. Each draw at Theater Souvenirs gives five rewards for 750 A-Reserve Tickets.\nShop exchanges and achievement claims stay open until May 25. Unspent tickets convert to 40 Rose Scrip each.",
     "startDate": "2026/04/20 09:00",
     "endDate": "2026/05/18 09:00",
     "pinned": true,
@@ -1900,7 +1900,7 @@
     "id": "great-conquering-260504",
     "title": "The Great Conquering",
     "category": "gameplay-event",
-    "description": "Fixed-price rewards from Offer Tribute.\nClear Divine Predation and complete achievements. Gameplay ends May 18; the shop and achievement claims stay open until May 25.\nClear Culinary Dominion to earn the Voracious Resolve Posse. The Dreamscape is free to unlock during the event and costs 7 Reality Verge afterward if not already unlocked.",
+    "description": "Exchange for 5 Pure Cores and 5 Luminous Cores.\nClear Divine Predation and complete achievements. Shop exchanges and achievement claims stay open until May 25.\nClear Culinary Dominion for the Voracious Resolve Posse.",
     "startDate": "2026/05/04 09:00",
     "endDate": "2026/05/18 09:00",
     "featured": [
@@ -2956,7 +2956,7 @@
     "id": "mythag-gifts-260518",
     "title": "Gifts from Mythag",
     "category": "login",
-    "description": "10 Luminous Cores across the first 7 logins, with more rewards throughout the 28-day event.",
+    "description": "10 Luminous Cores across the first seven logins.\nLogin days don't have to be consecutive.",
     "startDate": "2026/05/18 09:00",
     "endDate": "2026/06/15 09:00",
     "customArt": "/events/gifts-from-mythag.webp"
@@ -3100,7 +3100,7 @@
     "id": "unfading-memories-260518",
     "title": "Unfading Memories",
     "category": "preorder",
-    "description": "100 free Silver and seven paid gift packs.",
+    "description": "100 Silver free; one preorder unlocks seven reward claims.",
     "startDate": "2026/05/18 09:00",
     "endDate": "2026/06/29 09:00",
     "keyDates": [
@@ -3353,7 +3353,7 @@
     "id": "ouverture-260615",
     "title": "Ouvertüre Universell",
     "category": "skin",
-    "description": "Free Hameln outfit.\nComplete all five missions to unlock the skin. After the event, it costs 680 Silver Prime in Garment Ordering.",
+    "description": "Free Hameln outfit.\nComplete all five missions for the outfit and 10 Pure Cores.",
     "startDate": "2026/06/15 09:00",
     "endDate": "2026/06/29 09:00",
     "featured": "Hameln",
@@ -3442,7 +3442,7 @@
     "id": "mythag-gifts-260615",
     "title": "Gifts from Mythag",
     "category": "login",
-    "description": "10 Luminous Cores across the first 7 logins, with more rewards throughout the 14-day event.",
+    "description": "10 Luminous Cores across the first seven logins.\nLogin days don't have to be consecutive.",
     "startDate": "2026/06/15 09:00",
     "endDate": "2026/06/29 09:00",
     "customArt": "/events/gifts-from-mythag.webp"
@@ -3586,7 +3586,7 @@
     "id": "invisible-symphony-260615",
     "title": "Invisible Symphony",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Hameln avatar.\nClear Roaring Machines and complete achievements. Somnus Citadel offers fixed-price rewards for Aria's Peak. Gameplay ends Jul 13; the shop and achievements remain available through Jul 20. Leftover currency converts to 40 Rose Scrip each.",
+    "description": "SR Wheel copies and a limited Hameln avatar.\nClear Roaring Machines and complete achievements. Shop exchanges and achievement claims stay open until Jul 20. Each unspent Aria's Peak converts to 40 Rose Scrip.",
     "startDate": "2026/06/15 09:00",
     "endDate": "2026/07/13 09:00",
     "featured": [
@@ -3749,7 +3749,7 @@
     "id": "inverted-rebirth-260530",
     "title": "Inverted Rebirth",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Saya avatar.\nClear Dark Chamber Notes and complete achievements. Each draw at Dandelion Garden gives five rewards for 750 matching Scale Dust.\nGameplay ends Aug 24; shop and achievement claims stay open until Aug 31. Clear Forgotten Seed of Love for the For the New World Posse.",
+    "description": "SR Wheel copies and a limited Saya avatar.\nClear Dark Chamber Notes and complete achievements. Each draw at Dandelion Garden gives five rewards for 750 matching Scale Dust.\nShop exchanges and achievement claims stay open until Aug 31. Clear Forgotten Seed of Love for the For the New World Posse.",
     "startDate": "2026/05/30 09:00",
     "endDate": "2026/08/24 09:00",
     "featured": [
@@ -3842,7 +3842,7 @@
     "id": "seed-of-love-260530",
     "title": "Forgotten Seed of Love",
     "category": "story",
-    "description": "Permanent Multiverse Link side story. Clear it to earn the For the New World Posse.\nPart 1 opens May 30 and Part 2 opens Jun 6. Free to unlock through Aug 24; if not already unlocked, it costs 3 Reality Verge afterward. Progress carries over.",
+    "description": "Permanent Multiverse Link side story. Clear it to earn the For the New World Posse.\nPart 1 opens May 30 and Part 2 opens Jun 6. Free to unlock through Aug 24. Progress carries over.",
     "startDate": "2026/05/30 09:00",
     "endDate": "2026/08/24 09:00",
     "artVariants": {
@@ -4080,7 +4080,7 @@
     "id": "mythag-gifts-260629",
     "title": "Gifts from Mythag",
     "category": "login",
-    "description": "10 Luminous Cores across the first 7 logins, with more rewards throughout the 28-day event.",
+    "description": "10 Luminous Cores across the first seven logins.\nLogin days don't have to be consecutive.",
     "startDate": "2026/06/29 09:00",
     "endDate": "2026/07/27 09:00",
     "customArt": "/events/gifts-from-mythag.webp"
@@ -4224,7 +4224,7 @@
     "id": "ebwynnos-260629",
     "title": "Ebwynnos Evermore",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Pontos avatar.\nClear The High House Hunt and complete achievements. Hunting Grounds offers fixed-price rewards across three shops. Gameplay ends Jul 27; the shops and achievement claims stay open until Aug 3.\nClear the Ebwynnos Evermore Psyche Deepdive to earn The Hollow One Posse. It is free to unlock during the event and costs 3 Reality Verge afterward if not already unlocked.",
+    "description": "SR Wheel copies and a limited Pontos avatar.\nClear The High House Hunt and complete achievements. Shop exchanges and achievement claims stay open until Aug 3.\nClear the Ebwynnos Evermore Psyche Deepdive for The Hollow One Posse.",
     "startDate": "2026/06/29 09:00",
     "endDate": "2026/07/27 09:00",
     "featured": [
@@ -4413,7 +4413,7 @@
     "id": "black-sun-260706",
     "title": "Summer under Black Sun",
     "category": "gameplay-event",
-    "description": "Seven cumulative logins for 10 Luminous Cores and a limited avatar.\nSummer Fiesta awards the Volleyball \"Champion\" avatar on the seventh login. See You in Neverland is free to unlock during the event; if missed, it costs 7 Reality Verge afterward. Clearing it awards the Beachside Memento Posse.",
+    "description": "Seven cumulative logins for 10 Luminous Cores and a limited avatar.\nSummer Fiesta awards the Volleyball \"Champion\" avatar on the seventh login. See You in Neverland is free to unlock during the event. Clear it for the Beachside Memento Posse.",
     "startDate": "2026/07/06 09:00",
     "endDate": "2026/07/20 09:00",
     "featured": [
@@ -4447,7 +4447,7 @@
     "id": "til-snow-melts-260713",
     "title": "Til the Snow Melts",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Helot: Catena avatar.\nClear Beast Ambition and complete achievements. Each draw at Mountain Maw gives five rewards for 750 matching Buds.\nGameplay ends Aug 10; shop and achievement claims stay open until Aug 17. Clear Elworth's Returnee for The Mountains' Resolve Posse.",
+    "description": "SR Wheel copies and a limited Helot: Catena avatar.\nClear Beast Ambition and complete achievements. Each draw at Mountain Maw gives five rewards for 750 matching Buds.\nShop exchanges and achievement claims stay open until Aug 17. Clear Elworth's Returnee for The Mountains' Resolve Posse.",
     "startDate": "2026/07/13 09:00",
     "endDate": "2026/08/10 09:00",
     "featured": [
@@ -4539,7 +4539,7 @@
     "id": "cetus-falls-260727",
     "title": "Till the Cetus Falls",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Lotan: Cetarchon avatar.\nClear Greed and Bloodlust and complete achievements. Arena Altar offers fixed-price rewards for Crimson Sacrifice. Gameplay ends Aug 24; the shop and achievement claims stay open until Aug 31.\nClear the Till the Cetus Falls Psyche Deepdive to earn the Cetus-Devouring Storm Posse. It is free to unlock during the event and costs 3 Reality Verge afterward if not already unlocked.",
+    "description": "SR Wheel copies and a limited Lotan: Cetarchon avatar.\nClear Greed and Bloodlust and complete achievements. Shop exchanges and achievement claims stay open until Aug 31.\nClear the Till the Cetus Falls Psyche Deepdive for the Cetus-Devouring Storm Posse.",
     "startDate": "2026/07/27 09:00",
     "endDate": "2026/08/24 09:00",
     "featured": [
@@ -4925,7 +4925,7 @@
     "id": "mythag-gifts-260727",
     "title": "Gifts from Mythag",
     "category": "login",
-    "description": "10 Luminous Cores across the first 7 logins, with more rewards throughout the 28-day event.",
+    "description": "10 Luminous Cores across the first seven logins.\nLogin days don't have to be consecutive.",
     "startDate": "2026/07/27 09:00",
     "endDate": "2026/08/24 09:00",
     "customArt": "/events/gifts-from-mythag.webp"
@@ -5069,7 +5069,7 @@
     "id": "life-as-usual-260803",
     "title": "If Life Was As Usual",
     "category": "gameplay-event",
-    "description": "Fixed-price rewards from the Student Union Building.\nClear New Thing Under the Sun and complete achievements. Gameplay ends Aug 17; the shop and achievement claims stay open until Aug 24.\nClear See You, Neverland to earn the A Fleeting Dream Posse. The Dreamscape is free to unlock during the event and costs 7 Reality Verge afterward if not already unlocked.",
+    "description": "Exchange for 5 Pure Cores and 5 Luminous Cores.\nClear New Thing Under the Sun and complete achievements. Shop exchanges and achievement claims stay open until Aug 24.\nClear See You, Neverland for the A Fleeting Dream Posse.",
     "startDate": "2026/08/03 09:00",
     "endDate": "2026/08/17 09:00",
     "artVariants": {
@@ -5227,7 +5227,7 @@
     "id": "myriad-wishcraft-260810",
     "title": "Myriad Wishcraft",
     "category": "preorder",
-    "description": "100 free Silver and seven paid gift packs.",
+    "description": "100 Silver free; one preorder unlocks seven reward claims.",
     "startDate": "2026/08/10 09:00",
     "endDate": "2026/09/21 09:00",
     "keyDates": [
@@ -5410,7 +5410,7 @@
     "id": "before-spring-fades-260810",
     "title": "Before Spring Fades",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Horla avatar.\nClear Garden Memories and complete achievements. Each draw at Colette's Flowerhouse gives five rewards for 750 matching Poems.\nGameplay ends Sep 7; shop and achievement claims stay open until Sep 14. Unspent Poems convert to 40 Rose Scrip each. Clear Rose Habitat for the Spring's Verse Posse.",
+    "description": "SR Wheel copies and a limited Horla avatar.\nClear Garden Memories and complete achievements. Each draw at Colette's Flowerhouse gives five rewards for 750 matching Poems.\nShop exchanges and achievement claims stay open until Sep 14. Unspent Poems convert to 40 Rose Scrip each. Clear Rose Habitat for the Spring's Verse Posse.",
     "startDate": "2026/08/10 09:00",
     "endDate": "2026/09/07 09:00",
     "featured": [
@@ -5502,7 +5502,7 @@
     "id": "new-moon-snow-260824",
     "title": "New Moon and Deep Snow",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Caraboo avatar.\nClear Umapati's Treasures and complete achievements. Each draw at Fairy's Rituals gives five rewards for 750 matching Apples.\nGameplay ends Sep 21; shop and achievement claims stay open until Sep 28.",
+    "description": "SR Wheel copies and a limited Caraboo avatar.\nClear Umapati's Treasures and complete achievements. Each draw at Fairy's Rituals gives five rewards for 750 matching Apples.\nShop exchanges and achievement claims stay open until Sep 28.",
     "startDate": "2026/08/24 09:00",
     "endDate": "2026/09/21 09:00",
     "featured": [
@@ -5810,7 +5810,7 @@
     "id": "mythag-gifts-260824",
     "title": "Gifts from Mythag",
     "category": "login",
-    "description": "10 Luminous Cores across the first 7 logins, with more rewards throughout the 28-day event.",
+    "description": "10 Luminous Cores across the first seven logins.\nLogin days don't have to be consecutive.",
     "startDate": "2026/08/24 09:00",
     "endDate": "2026/09/21 09:00",
     "customArt": "/events/gifts-from-mythag.webp"
@@ -5954,7 +5954,7 @@
     "id": "million-suns-260907",
     "title": "A Million Suns Descend",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Kathigu-Ra avatar.\nClear Hunt of the Charred and complete achievements. A Hidden Base offers fixed-price rewards across three shops. Gameplay ends Oct 5; the shops and achievement claims stay open until Oct 12.\nClear Everburning Vex to earn the Undying Sun Posse. The Psyche Deepdive is free to unlock during the event and costs 3 Reality Verge afterward if not already unlocked.",
+    "description": "SR Wheel copies and a limited Kathigu-Ra avatar.\nClear Hunt of the Charred and complete achievements. Shop exchanges and achievement claims stay open until Oct 12.\nClear Everburning Vex for the Undying Sun Posse.",
     "startDate": "2026/09/07 09:00",
     "endDate": "2026/10/05 09:00",
     "featured": [
@@ -6143,7 +6143,7 @@
     "id": "should-glory-fade-260921",
     "title": "Should Glory Fade",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Ogier: Oathbound avatar.\nClear Quest for the Grail and complete achievements. Peddler's Pack offers fixed-price rewards for Medals of Old. Gameplay ends Oct 19; the shop and achievement claims stay open until Oct 26. Unspent medals convert to 40 Rose Scrip each.",
+    "description": "SR Wheel copies and a limited Ogier: Oathbound avatar.\nClear Quest for the Grail and complete achievements. Shop exchanges and achievement claims stay open until Oct 26. Unspent Medals of Old convert to 40 Rose Scrip each.",
     "startDate": "2026/09/21 09:00",
     "endDate": "2026/10/19 09:00",
     "featured": [
@@ -6525,7 +6525,7 @@
     "id": "mythag-gifts-260921",
     "title": "Gifts from Mythag",
     "category": "login",
-    "description": "10 Luminous Cores across the first 7 logins, with more rewards throughout the 28-day event.",
+    "description": "10 Luminous Cores across the first seven logins.\nLogin days don't have to be consecutive.",
     "startDate": "2026/09/21 09:00",
     "endDate": "2026/10/19 09:00",
     "customArt": "/events/gifts-from-mythag.webp"
@@ -6669,7 +6669,7 @@
     "id": "sneaky-witch-261012",
     "title": "Sneaky Witch O'Clock",
     "category": "preorder",
-    "description": "100 free Silver and seven paid gift packs.",
+    "description": "100 Silver free; one preorder unlocks seven reward claims.",
     "startDate": "2026/10/12 09:00",
     "endDate": "2026/11/16 09:00",
     "keyDates": [
@@ -6852,7 +6852,7 @@
     "id": "mirrored-prisoner-261005",
     "title": "Mirrored Prisoner",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Castor avatar.\nClear Skybound Spirit and complete achievements. Thirst for Knowledge offers fixed-price rewards across three electives. Gameplay ends Nov 2; the shops and achievement claims stay open until Nov 9.\nClear Beyond the Skies: Part I to earn the Derision of Destiny Posse. The Dreamscape is free to unlock during the event and costs 7 Reality Verge afterward if not already unlocked.",
+    "description": "SR Wheel copies and a limited Castor avatar.\nClear Skybound Spirit and complete achievements. Shop exchanges and achievement claims stay open until Nov 9.\nClear Beyond the Skies: Part I for the Derision of Destiny Posse.",
     "startDate": "2026/10/05 09:00",
     "endDate": "2026/11/02 09:00",
     "featured": [
@@ -7041,7 +7041,7 @@
     "id": "then-there-were-none-261019",
     "title": "And Then There Were None",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Vivian avatar.\nClear event stages and complete achievements. Each cauldron draw gives five rewards for 750 matching Toad Tokens.\nGameplay ends Nov 16; shop and achievement claims stay open until Nov 23. Clear Princess Diary for the Nightborn Evil Posse.",
+    "description": "SR Wheel copies and a limited Vivian avatar.\nClear event stages and complete achievements. Each cauldron draw gives five rewards for 750 matching Toad Tokens.\nShop exchanges and achievement claims stay open until Nov 23. Clear Princess Diary for the Nightborn Evil Posse.",
     "startDate": "2026/10/19 09:00",
     "endDate": "2026/11/16 09:00",
     "featured": [
@@ -7353,7 +7353,7 @@
     "id": "mythag-gifts-261019",
     "title": "Gifts from Mythag",
     "category": "login",
-    "description": "10 Luminous Cores across the first 7 logins, with more rewards throughout the 28-day event.",
+    "description": "10 Luminous Cores across the first seven logins.\nLogin days don't have to be consecutive.",
     "startDate": "2026/10/19 09:00",
     "endDate": "2026/11/16 09:00",
     "customArt": "/events/gifts-from-mythag.webp"
@@ -7497,7 +7497,7 @@
     "id": "pickman-canvas-261102",
     "title": "Dark Side of the Canvas",
     "category": "gameplay-event",
-    "description": "SR Wheel copies and a limited Pickman avatar.\nClear Bizarre Sketch and complete achievements. Each draw at Pickman's Studio gives five rewards for 750 of the matching paint.\nClear Ghastly Canvas for the Void Hues Posse. Progress carries over; if you miss the free unlock, it costs 3 Reality Verge afterward.",
+    "description": "SR Wheel copies and a limited Pickman avatar.\nClear Bizarre Sketch and complete achievements. Each draw at Pickman's Studio gives five rewards for 750 of the matching paint.\nClear Ghastly Canvas for the Void Hues Posse. Story progress carries over.",
     "startDate": "2026/11/02 09:00",
     "endDate": "2026/11/30 09:00",
     "featured": [
@@ -7595,7 +7595,7 @@
     "id": "no-candy-no-tricks-261019",
     "title": "No Candy, No Tricks",
     "category": "skin",
-    "description": "Murphy’s 4☆ outfit rerun.\nThe first draw is free. Candy Snatcher can first drop on draw 5 (480 Silver Prime total). By draw 10 (1,980 Silver Prime total), all prizes are obtained. Prizes don’t repeat; existing owners get a Rebirth Core instead of the skin.",
+    "description": "Murphy's 4☆ outfit rerun.\nThe first draw is free. Candy Snatcher can drop starting on draw 5 (480 Silver Prime total). Prizes don't repeat; ten draws (1,980 Silver Prime total) guarantee every prize. If you already own the outfit, its prize gives a Soul Rewind Core instead.\nUnused Spooky Pumpkin Candy is refunded by mail at its purchase price.",
     "startDate": "2026/10/19 09:00",
     "endDate": "2026/11/16 09:00",
     "featured": "Murphy",
@@ -7649,7 +7649,7 @@
     "id": "constellated-memories-261116",
     "title": "Constellated Memories",
     "category": "milestone",
-    "description": "Five free pulls daily.\nChoose either Kaleido Recollections banner for your free daily Awaken ×5. The free pull is shared, and awakenings on either banner count toward the same milestones.",
+    "description": "Five free pulls daily.\nClaim one daily Awaken ×5 on either Kaleido Recollections banner. Pulls on both banners count toward the same event milestones.",
     "startDate": "2026/11/16 09:00",
     "endDate": "2026/11/30 09:00",
     "artVariants": {
@@ -7715,7 +7715,7 @@
     "id": "homecoming-stars-261121",
     "title": "Homecoming Stars",
     "category": "preorder",
-    "description": "100 free Silver and seven paid gift packs.",
+    "description": "100 Silver free; one preorder unlocks seven reward claims.",
     "startDate": "2026/11/21 09:00",
     "endDate": "2027/01/04 09:00",
     "artVariants": {
@@ -7898,7 +7898,7 @@
     "id": "cuckoo-at-seven-261116",
     "title": "Cuckoo at Seven",
     "category": "skin",
-    "description": "Free Lily outfit.\nComplete all five missions to unlock the skin. After the event, it costs 680 Silver Prime in Garment Ordering.",
+    "description": "Free Lily outfit.\nComplete all five missions for the outfit and 10 Pure Cores.",
     "startDate": "2026/11/16 09:00",
     "endDate": "2026/11/30 09:00",
     "featured": "Lily",
@@ -7984,7 +7984,7 @@
     "id": "aquamarine-dream-261116",
     "title": "Aquamarine Dream",
     "category": "wheel-event",
-    "description": "Earn 4 free copies of Next Time It Rains.\nStandard missions also award 30 Pure Cores. Premium adds 12 copies and 60 Luminous Cores.",
+    "description": "Earn 4 free copies of Next Time It Rains.\nPremium Archives adds 12 more copies.",
     "startDate": "2026/11/16 09:00",
     "endDate": "2026/11/30 09:00",
     "featured": [
@@ -8203,7 +8203,7 @@
     "id": "mythag-gifts-261116",
     "title": "Gifts from Mythag",
     "category": "login",
-    "description": "Daily login rewards.\nThe first seven logins earn 10 Luminous Cores in total. Login days don't have to be consecutive.",
+    "description": "10 Luminous Cores across the first seven logins.\nLater logins award Rose Scrip and Investigation Badges. Login days don't have to be consecutive.",
     "startDate": "2026/11/16 09:00",
     "endDate": "2026/11/30 09:00",
     "artVariants": {
