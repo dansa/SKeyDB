@@ -11,12 +11,30 @@ import {
 import {
   loadTimelineBanners,
   loadTimelineEvents,
+  loadTimelinePatches,
   timelineBanners,
   timelineEvents,
   validateTimelineLinks,
 } from './timeline-data'
 
 describe('timeline data loading', () => {
+  it('normalizes an optional campaign end and rejects an end at or before launch', () => {
+    const patch = {
+      id: 'anniversary',
+      title: 'Anniversary',
+      kind: 'anniversary',
+      date: '2026/11/30 09:00',
+    }
+    expect(loadTimelinePatches([patch])[0].endDate).toBeUndefined()
+    expect(loadTimelinePatches([{...patch, endDate: '2027/01/04 09:00'}])[0]).toMatchObject({
+      date: '2026-11-30T01:00:00.000Z',
+      endDate: '2027-01-04T01:00:00.000Z',
+    })
+    expect(() => loadTimelinePatches([{...patch, endDate: patch.date}])).toThrow(
+      /end must be after the patch date/,
+    )
+  })
+
   it('validates and converts optional key dates', () => {
     const event = {
       id: 'key-date-test',

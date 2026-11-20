@@ -7,7 +7,11 @@ import {timelineBanners} from '@/domain/timeline-data'
 
 import {resolveTimelineFeaturedAsset} from '../timelineDetailResolution'
 import {TimelineAgenda} from './TimelineAgenda'
-import {getDisplayBanner, getTimelineAgendaGroups} from './timelinePageModel'
+import {
+  getDesktopAgendaGroups,
+  getDisplayBanner,
+  getTimelineAgendaGroups,
+} from './timelinePageModel'
 import {resolveTimelineThumbnail} from './timelineThumbnails'
 
 it.each(['260223', '260323', '260406', '260615', '260713', '260810', '260907', '261005', '261102'])(
@@ -158,6 +162,92 @@ describe('timeline agenda grouping', () => {
     expect(onSelect).toHaveBeenCalledWith('active-2')
     fireEvent.click(grouped)
     expect(desktop.queryByRole('link', {name: /D-Zone reset/})).not.toBeInTheDocument()
+  })
+
+  it('keeps both campaign boundaries without displacing nearer dates for its end', () => {
+    const launch = date(10)
+    const end = date(18)
+    const input = {
+      filter: 'all' as const,
+      events: [11, 12, 13].map((day) => event(`Event ${String(day)}`, day, 17)),
+      banners: [],
+      resetDate: date(14),
+      patches: [
+        {
+          id: 'anniv',
+          title: 'Anniversary',
+          kind: 'anniversary' as const,
+          date: launch,
+          endDate: end,
+        },
+      ],
+    }
+    const upcoming = getTimelineAgendaGroups({...input, now})
+    expect(upcoming[0].patch).toMatchObject({action: 'start', date: launch})
+    expect(upcoming.at(-1)?.patch).toMatchObject({action: 'end', date: end})
+    const active = getTimelineAgendaGroups({...input, now: new Date(launch)})
+    expect(active.at(-1)?.patch).toMatchObject({action: 'end', date: end})
+    expect(getDesktopAgendaGroups(active).at(-1)?.moments[0].kind).toBe('season')
+
+    expect(getTimelineAgendaGroups({...input, now: new Date(end)})).toEqual([])
+  })
+
+  it.each([
+    [
+      9,
+      [
+        ['Now', 'false'],
+        ['Anniversary', 'true'],
+        ['D-Zone reset', 'true'],
+        ['Anniversary ends', 'false'],
+        ['After ends', 'false'],
+      ],
+    ],
+    [
+      12,
+      [
+        ['Now', 'true'],
+        ['D-Zone reset', 'true'],
+        ['Anniversary ends', 'false'],
+        ['After ends', 'false'],
+      ],
+    ],
+    [
+      19,
+      [
+        ['Now', 'false'],
+        ['After ends', 'false'],
+      ],
+    ],
+  ])('colors just the visible campaign span on day %i', (day, expected) => {
+    const now = new Date(date(day))
+    const groups = getTimelineAgendaGroups({
+      now,
+      filter: 'all',
+      events: [event('After', 8, 21)],
+      banners: [],
+      resetDate: date(14),
+      patches: [
+        {
+          id: 'anniv',
+          title: 'Anniversary',
+          kind: 'anniversary',
+          date: date(10),
+          endDate: date(18),
+        },
+      ],
+    })
+    render(
+      <MemoryRouter>
+        <TimelineAgenda groups={groups} now={now} onSelect={vi.fn()} />
+      </MemoryRouter>,
+    )
+    const desktop = within(screen.getByRole('region', {name: 'Upcoming timeline moments'}))
+    for (const [label, highlighted] of expected) {
+      expect(
+        desktop.getByText(label, {exact: true}).closest('.timeline-agenda-node'),
+      ).toHaveAttribute('data-campaign', highlighted)
+    }
   })
 
   it('respects the filter and keeps every future day available to the mobile agenda', () => {
