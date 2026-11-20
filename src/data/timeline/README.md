@@ -43,9 +43,9 @@ Array of event objects. Each event appears as a card in the Events section.
 | `featured` | string, object, or array | no | One or more featured awakeners or wheels. Uses the same item forms as banner [`featured`](#featured-units), including explicit kinds, custom art, and detail-link opt-outs |
 | `customArt` | string | no | Custom art URL or path. Overrides `featured` art if both are set. Use for skins, special promo art, raid art, etc. Non-URL values like `"TBD"` are ignored. Paths starting with `/events/` are resolved against `src/assets/events/*` (bundled), e.g. `/events/arachne.png` |
 | `pricing` | string | no | Displays a silver pricing badge, e.g. `"960 Silver Prime"`, `"$24.99"` |
-| `rewards` | array | no | Reward groups with a nonempty `items` array of `{name, amount?}`. Optional fields: `title`, `note`, `layout` (`days`), `price`, `summaryCount`, `choiceCount` (number of picks from the items after `summaryCount`), and `claims` (`{label, items}` rows). |
+| `rewards` | array | no | Reward groups with a nonempty `items` array of `{name, amount?, itemId?}`. Optional fields: `title`, `note`, `layout` (`days`), `price`, `summaryCount`, `choiceCount` (number of picks from the items after `summaryCount`), and `claims` (`{label, items}` rows). |
 | `missions` | array | no | Rows of `{label, standard, premium?}`. Each track is an array of reward items. Use `premium` only for additional paid rewards. |
-| `artVariants` | object | no | Both `card` (square) and `detail` (wide) must resolve to bundled `/events/` assets. `customArt` remains the fallback. |
+| `artVariants` | object | no | Both `card` (square) and `detail` (wide) must resolve to bundled `/events/` assets. Omit `customArt` when both crops are supplied. |
 | `related` | array | no | Existing event or banner IDs. IDs must be unique across both files. |
 
 For free/paid tracks, set the individual group prices explicitly (for example, `Free` and `1680 Silver Prime`). Leave the entry price for the card summary. Use `summaryCount` to keep long lists compact and `claims` for dated claims, not mission rewards.
@@ -62,7 +62,7 @@ Keep event-only currencies out of reward totals. For random shops, separate capp
 | `battlepass` | Green | Battle pass events |
 | `gameplay-event` | Amber | General gameplay events |
 | `d-tide` | Red | Rotating D-Tide events; ended entries are hidden from the archive |
-| `curriculum` | Green | Seasonal task-track passes; ended entries are hidden from the archive |
+| `curriculum` | Green | Seasonal task-track passes, including historical runs with verified Premium rewards |
 | `login` | Teal | Daily login bonus events; ended entries are hidden from the archive |
 | `skin` | Rose | Outfit / skin releases |
 | `wheel-event` | Blue | Wheel acquisition events (gacha for wheels) |
@@ -76,7 +76,13 @@ Keep event-only currencies out of reward totals. For random shops, separate capp
 
 ### Event Art Crops
 
-Prepare a square card crop and a wide detail crop, then reference them in `artVariants`. Both are centered in their frames. Older entries without variants use the default framing for their fallback art.
+Prepare a square card crop and a wide detail crop, then reference them in `artVariants`. Both are centered in their frames. Use `customArt` only for older entries without dedicated crops.
+
+### Curriculum History
+
+Archive the terms with unique rewards; recurring Gifts from Mythag remain hidden in history. Use the term's own start/end, Premium extras, and double-EXP flag. Include Basic and Advanced totals and prices only when supported by the dated pass data. Premium includes Advanced; its reward group lists only the additional rewards.
+
+The Tools `scripts/timeline_curriculum_evidence.py` report can prepare an explicitly reviewed range of terms and extract their cosmetic icons. Curriculum reward `itemId` values match `src/assets/events/rewards/curriculum-<itemId>.webp`, so a localization change does not break the art. Reuse the shared Curriculum card and detail crops.
 
 ### Descriptions
 

@@ -109,6 +109,7 @@ const dailyScheduleInputSchema: z.ZodType<DailyScheduleInput> = z.object({
 const rewardItemSchema = z.object({
   name: nonEmptyStringSchema,
   amount: nonEmptyStringSchema.optional(),
+  itemId: z.number().int().positive().optional(),
 })
 const missionRewardSchema = z.object({
   label: nonEmptyStringSchema,

@@ -79,7 +79,7 @@ function ItemWell({icon, size}: {icon?: string; size: 'sm' | 'md'}) {
 }
 
 function RewardLine({item, highlight = false}: {item: TimelineRewardItem; highlight?: boolean}) {
-  const art = getRewardArt(item.name)
+  const art = getRewardArt(item)
   return (
     <RewardPreview
       item={item}
@@ -98,14 +98,14 @@ function RewardLine({item, highlight = false}: {item: TimelineRewardItem; highli
 }
 
 function RewardItems({items}: {items: TimelineRewardItem[]}) {
-  const highlights = items.filter((item) => getRewardArt(item.name)?.highlight)
-  const materials = items.filter((item) => !getRewardArt(item.name)?.highlight)
+  const highlights = items.filter((item) => getRewardArt(item)?.highlight)
+  const materials = items.filter((item) => !getRewardArt(item)?.highlight)
   return (
     <div className='mt-2'>
       {highlights.length >= 3 ? (
         <ul className='grid grid-cols-4 gap-x-2 gap-y-3'>
           {withOccurrenceKeys(highlights, (item) => item.name).map(({item, key}) => {
-            const art = getRewardArt(item.name)
+            const art = getRewardArt(item)
             return (
               <li className='min-w-0' key={key}>
                 <RewardPreview
@@ -164,7 +164,7 @@ function LoginCalendar({items}: {items: TimelineRewardItem[]}) {
   return (
     <div className='timeline-login-grid mt-2'>
       {items.map((item, day) => {
-        const art = getRewardArt(item.name)
+        const art = getRewardArt(item)
         const bonus = notable.has(day)
         return (
           <RewardPreview

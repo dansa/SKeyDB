@@ -1,3 +1,5 @@
+import type {TimelineRewardItem} from '@/domain/timeline'
+
 const assets = import.meta.glob<string>('../../../assets/events/rewards/*.webp', {
   eager: true,
   import: 'default',
@@ -172,6 +174,7 @@ const definitions = new Map<string, RewardArtDefinition>([
   ['Gnosis Fragment', {file: 'anniversary-gnosis-fragment-icon.webp'}],
   ['Refined Gnosis Fragment', {file: 'anniversary-refined-gnosis-fragment-icon.webp'}],
   ['Special Potion Supply', {file: 'special-potion-supply.webp'}],
+  ['Synaptic Enzyme', {file: 'synaptic-enzyme.webp'}],
   ['Aetheric Shard', {file: 'aetheric-shard.webp'}],
   ['Aetheric Stone', {file: 'aetheric-stone.webp'}],
   ['Remembrance Quill', {file: 'remembrance-quill.webp'}],
@@ -206,6 +209,12 @@ const rewardArt = new Map(
 )
 
 export const rewardArtNames = [...rewardArt.keys()]
-export function getRewardArt(name: string) {
-  return rewardArt.get(name)
+export function getRewardArt({itemId, name}: TimelineRewardItem) {
+  const icon =
+    itemId === undefined
+      ? undefined
+      : assets[`../../../assets/events/rewards/curriculum-${String(itemId)}.webp`]
+  return icon
+    ? {icon, previewImage: undefined, description: undefined, highlight: true}
+    : rewardArt.get(name)
 }

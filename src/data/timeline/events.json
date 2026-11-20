@@ -7,7 +7,6 @@
     "startDate": "2026/03/09 09:00",
     "endDate": "2026/04/06 09:00",
     "pinned": true,
-    "customArt": "/events/vortice-event-detail.webp",
     "artVariants": {
       "card": "/events/vortice-event-card.webp",
       "detail": "/events/vortice-event-detail.webp"
@@ -94,14 +93,139 @@
     ]
   },
   {
-    "id": "curriculum-260301",
-    "title": "Curriculum Honor",
+    "id": "curriculum-260309",
+    "title": "Curriculum Honor: Term 30",
     "category": "curriculum",
-    "description": "Advanced: 680 Silver Prime. Premium: 1,280 Silver Prime.\n Complete daily and weekly tasks.\n Free track: basic rewards. Advanced Topics: SSR Wheel selector, Silver and Luminous Cores. Premium includes Advanced rewards and adds limited cosmetics and other extras.",
-    "startDate": "2026/03/01 09:00",
+    "description": "Seasonal battle pass.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
+    "startDate": "2026/03/09 09:00",
     "endDate": "2026/04/06 09:00",
-    "customArt": "/events/curriculum.webp",
-    "pricing": "680-1280 Silver Prime"
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Basic Topics",
+        "items": [
+          {
+            "name": "Pure Core",
+            "amount": "×12"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×1,560,000"
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×6"
+          },
+          {
+            "name": "Aetheric Stone",
+            "amount": "×1"
+          },
+          {
+            "name": "Remembrance Quill",
+            "amount": "×100"
+          }
+        ],
+        "price": "Free"
+      },
+      {
+        "title": "Advanced adds",
+        "price": "680 Silver Prime",
+        "note": "Also grants 680 Silver on purchase.",
+        "items": [
+          {
+            "name": "Curriculum Honor selector box",
+            "amount": "×1"
+          },
+          {
+            "name": "Silver",
+            "amount": "×2,500"
+          },
+          {
+            "name": "Luminous Core",
+            "amount": "×12"
+          },
+          {
+            "name": "Aetheric Stone",
+            "amount": "×3"
+          },
+          {
+            "name": "Remembrance Quill",
+            "amount": "×300"
+          },
+          {
+            "name": "Mimetic Crystal",
+            "amount": "×390"
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×6"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×4,680,000"
+          }
+        ]
+      },
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Grants 1,460 Silver in total on purchase.",
+        "items": [
+          {
+            "name": "Collector's Stamp: Tawil",
+            "amount": "×1",
+            "itemId": 127059
+          },
+          {
+            "name": "Collector's Stamp: Lily",
+            "amount": "×1",
+            "itemId": 127067
+          },
+          {
+            "name": "Collector's Stamp: Lotan",
+            "amount": "×1",
+            "itemId": 120955
+          },
+          {
+            "name": "Collector's Stamp: Ogier",
+            "amount": "×1",
+            "itemId": 120960
+          },
+          {
+            "name": "Mythag Interlude: Ramona",
+            "amount": "×1",
+            "itemId": 130553
+          },
+          {
+            "name": "Mythag Interlude: Ramona: Timeworn",
+            "amount": "×1",
+            "itemId": 130550
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          }
+        ],
+        "price": "1,280 Silver Prime"
+      }
+    ],
+    "pricing": "680-1280 Silver Prime",
+    "featured": [
+      {
+        "name": "Spring in Yakutsk",
+        "kind": "wheel"
+      },
+      {
+        "name": "Sunfall",
+        "kind": "wheel"
+      },
+      {
+        "name": "Birth of a Soul",
+        "kind": "wheel"
+      }
+    ]
   },
   {
     "id": "lucky-winner-260309",
@@ -330,7 +454,6 @@
     "startDate": "2026/02/23 09:00",
     "endDate": "2026/03/23 09:00",
     "featured": "24",
-    "customArt": "/events/24-crimson-kaede.webp",
     "pricing": "980 Silver Prime",
     "artVariants": {
       "card": "/events/crimson-kaede-card.webp",
@@ -573,7 +696,6 @@
       "name": "Arachne",
       "detailLink": false
     },
-    "customArt": "/events/arachne-preorder.webp",
     "pricing": "1980 Silver Prime",
     "artVariants": {
       "card": "/events/conjugated-fates-card.webp",
@@ -934,7 +1056,6 @@
         ]
       }
     ],
-    "customArt": "/events/wanda-event.webp",
     "artVariants": {
       "card": "/events/wanda-event-card.webp",
       "detail": "/events/wanda-event-detail.webp"
@@ -954,7 +1075,6 @@
         "kind": "posse"
       }
     ],
-    "customArt": "/events/phase-reversal.webp",
     "artVariants": {
       "card": "/events/phase-reversal-card.webp",
       "detail": "/events/phase-reversal-detail.webp"
@@ -1054,7 +1174,6 @@
     "description": "SR Wheel copies and a limited Tulu avatar.\nClear Gaze of the Deep Sea and complete achievements for event currency. Abyssborn Epiphany offers fixed-price rewards. Gameplay ends May 4; the shops and achievement claims stay open until May 11.\nClear Day of Coronation to earn the Blessing of the Stars Posse. Repeat avatar rewards convert to one Formless One's Invitation.",
     "startDate": "2026/04/06 09:00",
     "endDate": "2026/05/04 09:00",
-    "customArt": "/events/sovereigns-return-detail.webp",
     "artVariants": {
       "card": "/events/sovereigns-return-card.webp",
       "detail": "/events/sovereigns-return-detail.webp"
@@ -1248,13 +1367,138 @@
   },
   {
     "id": "curriculum-260420",
-    "title": "Curriculum Honor",
+    "title": "Curriculum Honor: Term 32",
     "category": "curriculum",
-    "description": "Advanced: 680 Silver Prime. Premium: 1,280 Silver Prime.\n Complete daily and weekly tasks.\n Free track: basic rewards. Advanced Topics: SSR Wheel selector, Silver and Luminous Cores. Premium includes Advanced rewards and adds limited cosmetics and other extras.",
+    "description": "Seasonal battle pass.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
     "startDate": "2026/04/20 09:00",
     "endDate": "2026/05/18 09:00",
-    "customArt": "/events/curriculum.webp",
-    "pricing": "680-1280 Silver Prime"
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Basic Topics",
+        "items": [
+          {
+            "name": "Pure Core",
+            "amount": "×12"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×1,560,000"
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×6"
+          },
+          {
+            "name": "Aetheric Stone",
+            "amount": "×1"
+          },
+          {
+            "name": "Remembrance Quill",
+            "amount": "×100"
+          }
+        ],
+        "price": "Free"
+      },
+      {
+        "title": "Advanced adds",
+        "price": "680 Silver Prime",
+        "note": "Also grants 680 Silver on purchase.",
+        "items": [
+          {
+            "name": "Curriculum Honor selector box",
+            "amount": "×1"
+          },
+          {
+            "name": "Silver",
+            "amount": "×2,500"
+          },
+          {
+            "name": "Luminous Core",
+            "amount": "×12"
+          },
+          {
+            "name": "Aetheric Stone",
+            "amount": "×3"
+          },
+          {
+            "name": "Remembrance Quill",
+            "amount": "×300"
+          },
+          {
+            "name": "Mimetic Crystal",
+            "amount": "×390"
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×6"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×4,680,000"
+          }
+        ]
+      },
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Grants 1,460 Silver in total on purchase.",
+        "items": [
+          {
+            "name": "Mythag Interlude: Pandia",
+            "amount": "×1",
+            "itemId": 130545
+          },
+          {
+            "name": "Mythag Interlude: Lily",
+            "amount": "×1",
+            "itemId": 130554
+          },
+          {
+            "name": "Collector's Stamp: Aigis",
+            "amount": "×1",
+            "itemId": 132666
+          },
+          {
+            "name": "Keeper-See No Evil",
+            "amount": "×1",
+            "itemId": 133406
+          },
+          {
+            "name": "Dexter-One More!",
+            "amount": "×1",
+            "itemId": 127040
+          },
+          {
+            "name": "Tulu-Wide Awake",
+            "amount": "×1",
+            "itemId": 127057
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          }
+        ],
+        "price": "1,280 Silver Prime"
+      }
+    ],
+    "pricing": "680-1280 Silver Prime",
+    "featured": [
+      {
+        "name": "Spring in Yakutsk",
+        "kind": "wheel"
+      },
+      {
+        "name": "Sunfall",
+        "kind": "wheel"
+      },
+      {
+        "name": "Birth of a Soul",
+        "kind": "wheel"
+      }
+    ]
   },
   {
     "id": "spikenard-myrrh-260406",
@@ -1263,7 +1507,6 @@
     "description": "Free Wanda outfit.\nComplete all five missions to unlock the skin. After the event, it costs 680 Silver Prime in Garment Ordering.",
     "startDate": "2026/04/06 09:00",
     "endDate": "2026/04/20 09:00",
-    "customArt": "/events/wanda-skin.webp",
     "pricing": "Free",
     "artVariants": {
       "card": "/events/spikenard-and-myrrh-card.webp",
@@ -1364,7 +1607,6 @@
         "kind": "wheel"
       }
     ],
-    "customArt": "/events/arachne-event.webp",
     "artVariants": {
       "card": "/events/arachne-event-card.webp",
       "detail": "/events/arachne-event-detail.webp"
@@ -1448,7 +1690,6 @@
         "kind": "wheel"
       }
     ],
-    "customArt": "/events/private-afternoon-wheelwebp.webp",
     "pricing": "980 Silver Prime",
     "artVariants": {
       "card": "/events/private-afternoon-card.webp",
@@ -1676,7 +1917,6 @@
         "kind": "posse"
       }
     ],
-    "customArt": "/events/uvhash-agrippa-event.webp",
     "artVariants": {
       "card": "/events/uvhash-agrippa-event-card.webp",
       "detail": "/events/uvhash-agrippa-event-detail.webp"
@@ -1835,7 +2075,6 @@
         "kind": "wheel"
       }
     ],
-    "customArt": "/events/to-the-star.webp",
     "artVariants": {
       "card": "/events/to-the-star-card.webp",
       "detail": "/events/to-the-star-detail.webp"
@@ -1920,7 +2159,6 @@
     "description": "Free Saya and anniversary rewards.\nComplete all three missions to unlock Saya. Premium Archives adds rewards for the same missions, including both Rewind Cores for completing them all.",
     "startDate": "2026/05/18 09:00",
     "endDate": "2026/06/29 09:00",
-    "customArt": "/events/dreamy-rendezvous.webp",
     "pricing": "3980 Silver Prime",
     "pinned": true,
     "artVariants": {
@@ -2089,7 +2327,6 @@
     "description": "Seven stages with personal and campus rewards.\nOne stage unlocks each day. Each needs a Support Keeper and can be retried. New entries close Jun 15. If the campus reaches one million captures by then, the event ends Jun 29. Otherwise, it ends 14 days after the campus reaches that goal.",
     "startDate": "2026/05/18 09:00",
     "endDate": "2026/06/29 09:00",
-    "customArt": "/events/meowch-obliged.webp",
     "artVariants": {
       "card": "/events/meowch-obliged-card.webp",
       "detail": "/events/meowch-obliged-detail.webp"
@@ -2284,7 +2521,6 @@
         "kind": "wheel"
       }
     ],
-    "customArt": "/events/sakura-reveries.webp",
     "pricing": "980 Silver Prime",
     "artVariants": {
       "card": "/events/sakura-reveries-card.webp",
@@ -2498,7 +2734,6 @@
     "description": "Four limited-time shop bundles: two avatar boxes and two customizable material packs.",
     "startDate": "2026/05/18 09:00",
     "endDate": "2026/06/29 09:00",
-    "customArt": "/events/curated-gift-boxes.webp",
     "pricing": "688-2688 Silver Prime",
     "artVariants": {
       "card": "/events/curated-gift-boxes-card.webp",
@@ -2674,7 +2909,6 @@
     "description": "Up to 1,000 Dreamsparks from Awakening milestones.",
     "startDate": "2026/05/18 09:00",
     "endDate": "2026/08/24 09:00",
-    "customArt": "/events/dreamy-offering.webp",
     "artVariants": {
       "card": "/events/dreamy-offering-card.webp",
       "detail": "/events/dreamy-offering-detail.webp"
@@ -2729,12 +2963,138 @@
   },
   {
     "id": "curriculum-260518",
-    "title": "Curriculum Honor",
+    "title": "Curriculum Honor: Term 33",
     "category": "curriculum",
-    "description": "Earn limited avatars and Traphase emotes. Complete daily and weekly tasks.\n Limited avatars: Saya, Doll: Inferno and Caecus. Traphase emotes: Nautila, Goliath and Karen.",
+    "description": "Seasonal battle pass.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
     "startDate": "2026/05/18 09:00",
     "endDate": "2026/06/15 09:00",
-    "customArt": "/events/curriculum.webp"
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Basic Topics",
+        "items": [
+          {
+            "name": "Pure Core",
+            "amount": "×12"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×1,560,000"
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×6"
+          },
+          {
+            "name": "Aetheric Stone",
+            "amount": "×1"
+          },
+          {
+            "name": "Remembrance Quill",
+            "amount": "×100"
+          }
+        ],
+        "price": "Free"
+      },
+      {
+        "title": "Advanced adds",
+        "price": "680 Silver Prime",
+        "note": "Also grants 680 Silver on purchase.",
+        "items": [
+          {
+            "name": "Curriculum Honor selector box",
+            "amount": "×1"
+          },
+          {
+            "name": "Silver",
+            "amount": "×2,500"
+          },
+          {
+            "name": "Luminous Core",
+            "amount": "×12"
+          },
+          {
+            "name": "Aetheric Stone",
+            "amount": "×3"
+          },
+          {
+            "name": "Remembrance Quill",
+            "amount": "×300"
+          },
+          {
+            "name": "Mimetic Crystal",
+            "amount": "×390"
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×6"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×4,680,000"
+          }
+        ]
+      },
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Grants 1,460 Silver in total on purchase.",
+        "items": [
+          {
+            "name": "Collector's Stamp: Saya",
+            "amount": "×1",
+            "itemId": 140206
+          },
+          {
+            "name": "Mythag Interlude: Doll: Inferno",
+            "amount": "×1",
+            "itemId": 130543
+          },
+          {
+            "name": "Unfading Yesterday: Caecus",
+            "amount": "×1",
+            "itemId": 132451
+          },
+          {
+            "name": "Nautila-Where?",
+            "amount": "×1",
+            "itemId": 127044
+          },
+          {
+            "name": "Goliath-Workout",
+            "amount": "×1",
+            "itemId": 127029
+          },
+          {
+            "name": "Karen-Oops",
+            "amount": "×1",
+            "itemId": 127022
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          }
+        ],
+        "price": "1,280 Silver Prime"
+      }
+    ],
+    "pricing": "680-1280 Silver Prime",
+    "featured": [
+      {
+        "name": "Spring in Yakutsk",
+        "kind": "wheel"
+      },
+      {
+        "name": "Sunfall",
+        "kind": "wheel"
+      },
+      {
+        "name": "Birth of a Soul",
+        "kind": "wheel"
+      }
+    ]
   },
   {
     "id": "unfading-memories-260518",
@@ -2753,7 +3113,6 @@
         "date": "2026/07/06 09:00"
       }
     ],
-    "customArt": "/events/saya-collab.webp",
     "pricing": "1980 Silver Prime",
     "artVariants": {
       "card": "/events/unfading-memories-card.webp",
@@ -2927,7 +3286,6 @@
     "description": "Astral Reign selectors and an avatar frame from Prime Extraction.\nMilestones count paid Silver Prime obtained through Prime Extraction, not Silver Prime spent. Bonus Silver Prime from extraction does not count.",
     "startDate": "2026/05/18 09:00",
     "endDate": "2026/06/29 09:00",
-    "customArt": "/events/stream-of-infatuation.webp",
     "artVariants": {
       "card": "/events/stream-of-infatuation-card.webp",
       "detail": "/events/stream-of-infatuation-detail.webp"
@@ -2999,7 +3357,6 @@
     "startDate": "2026/06/15 09:00",
     "endDate": "2026/06/29 09:00",
     "featured": "Hameln",
-    "customArt": "/events/hameln-skin.webp",
     "pricing": "Free",
     "artVariants": {
       "card": "/events/ouverture-universell-card.webp",
@@ -3092,12 +3449,138 @@
   },
   {
     "id": "curriculum-260615",
-    "title": "Curriculum Honor",
+    "title": "Curriculum Honor: Term 34",
     "category": "curriculum",
-    "description": "Earn doubled EXP and pay less for Premium Topics. Complete daily and weekly tasks.\n Limited avatars: Thais, Pharos and Ryker. Traphase emotes: Uvhash, Aurita and Jenkin.",
+    "description": "Battle pass with double Topic EXP.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
     "startDate": "2026/06/15 09:00",
     "endDate": "2026/06/29 09:00",
-    "customArt": "/events/curriculum.webp"
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Basic Topics",
+        "items": [
+          {
+            "name": "Pure Core",
+            "amount": "×12"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×1,560,000"
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×6"
+          },
+          {
+            "name": "Aetheric Stone",
+            "amount": "×1"
+          },
+          {
+            "name": "Remembrance Quill",
+            "amount": "×100"
+          }
+        ],
+        "price": "Free"
+      },
+      {
+        "title": "Advanced adds",
+        "price": "680 Silver Prime",
+        "note": "Also grants 680 Silver on purchase.",
+        "items": [
+          {
+            "name": "Curriculum Honor selector box",
+            "amount": "×1"
+          },
+          {
+            "name": "Silver",
+            "amount": "×2,500"
+          },
+          {
+            "name": "Luminous Core",
+            "amount": "×12"
+          },
+          {
+            "name": "Aetheric Stone",
+            "amount": "×3"
+          },
+          {
+            "name": "Remembrance Quill",
+            "amount": "×300"
+          },
+          {
+            "name": "Mimetic Crystal",
+            "amount": "×390"
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×6"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×4,680,000"
+          }
+        ]
+      },
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Grants 1,070 Silver in total on purchase.",
+        "items": [
+          {
+            "name": "Collector's Stamp: Thais",
+            "amount": "×1",
+            "itemId": 132663
+          },
+          {
+            "name": "Unfading Yesterday: Faros",
+            "amount": "×1",
+            "itemId": 140570
+          },
+          {
+            "name": "Mythag Interlude: Ryker",
+            "amount": "×1",
+            "itemId": 130552
+          },
+          {
+            "name": "Uvhash-Brawl",
+            "amount": "×1",
+            "itemId": 127066
+          },
+          {
+            "name": "Aurita-Dodge",
+            "amount": "×1",
+            "itemId": 127052
+          },
+          {
+            "name": "Jenkin-Sneak",
+            "amount": "×1",
+            "itemId": 127038
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          }
+        ],
+        "price": "980 Silver Prime"
+      }
+    ],
+    "pricing": "680-980 Silver Prime",
+    "featured": [
+      {
+        "name": "Spring in Yakutsk",
+        "kind": "wheel"
+      },
+      {
+        "name": "Sunfall",
+        "kind": "wheel"
+      },
+      {
+        "name": "Birth of a Soul",
+        "kind": "wheel"
+      }
+    ]
   },
   {
     "id": "invisible-symphony-260615",
@@ -3116,7 +3599,6 @@
         "kind": "wheel"
       }
     ],
-    "customArt": "/events/invisible-symphony-detail.webp",
     "artVariants": {
       "card": "/events/invisible-symphony-card.webp",
       "detail": "/events/invisible-symphony-detail.webp"
@@ -3350,7 +3832,6 @@
         ]
       }
     ],
-    "customArt": "/events/saya-event.webp",
     "artVariants": {
       "card": "/events/saya-event-card.webp",
       "detail": "/events/saya-event-detail.webp"
@@ -3364,7 +3845,6 @@
     "description": "Permanent Multiverse Link side story. Clear it to earn the For the New World Posse.\nPart 1 opens May 30 and Part 2 opens Jun 6. Free to unlock through Aug 24; if not already unlocked, it costs 3 Reality Verge afterward. Progress carries over.",
     "startDate": "2026/05/30 09:00",
     "endDate": "2026/08/24 09:00",
-    "customArt": "/events/forgotten-seed.webp",
     "artVariants": {
       "card": "/events/forgotten-seed-card.webp",
       "detail": "/events/forgotten-seed-detail.webp"
@@ -3607,13 +4087,138 @@
   },
   {
     "id": "curriculum-260629",
-    "title": "Curriculum Honor",
+    "title": "Curriculum Honor: Term 35",
     "category": "curriculum",
-    "description": "Advanced: 680 Silver Prime. Premium: 1,280 Silver Prime.\n Complete daily and weekly tasks.\n Free track: basic rewards. Advanced Topics: SSR Wheel selector, Silver and Luminous Cores. Premium includes Advanced rewards and adds limited cosmetics and other extras.",
+    "description": "Seasonal battle pass.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
     "startDate": "2026/06/29 09:00",
     "endDate": "2026/07/27 09:00",
-    "customArt": "/events/curriculum.webp",
-    "pricing": "680-1280 Silver Prime"
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Basic Topics",
+        "items": [
+          {
+            "name": "Pure Core",
+            "amount": "×12"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×1,560,000"
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×6"
+          },
+          {
+            "name": "Aetheric Stone",
+            "amount": "×1"
+          },
+          {
+            "name": "Remembrance Quill",
+            "amount": "×100"
+          }
+        ],
+        "price": "Free"
+      },
+      {
+        "title": "Advanced adds",
+        "price": "680 Silver Prime",
+        "note": "Also grants 680 Silver on purchase.",
+        "items": [
+          {
+            "name": "Curriculum Honor selector box",
+            "amount": "×1"
+          },
+          {
+            "name": "Silver",
+            "amount": "×2,500"
+          },
+          {
+            "name": "Luminous Core",
+            "amount": "×12"
+          },
+          {
+            "name": "Aetheric Stone",
+            "amount": "×3"
+          },
+          {
+            "name": "Remembrance Quill",
+            "amount": "×300"
+          },
+          {
+            "name": "Mimetic Crystal",
+            "amount": "×390"
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×6"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×4,680,000"
+          }
+        ]
+      },
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Grants 1,460 Silver in total on purchase.",
+        "items": [
+          {
+            "name": "Collector's Stamp: Sorel",
+            "amount": "×1",
+            "itemId": 132664
+          },
+          {
+            "name": "Unfading Yesterday: Goliath",
+            "amount": "×1",
+            "itemId": 132446
+          },
+          {
+            "name": "Unfading Yesterday: Miryam",
+            "amount": "×1",
+            "itemId": 132448
+          },
+          {
+            "name": "Kathigu-Ra-Shoot",
+            "amount": "×1",
+            "itemId": 127063
+          },
+          {
+            "name": "Winkle-Crit Fail",
+            "amount": "×1",
+            "itemId": 143424
+          },
+          {
+            "name": "Ryker-Crit Win",
+            "amount": "×1",
+            "itemId": 127027
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          }
+        ],
+        "price": "1,280 Silver Prime"
+      }
+    ],
+    "pricing": "680-1280 Silver Prime",
+    "featured": [
+      {
+        "name": "Spring in Yakutsk",
+        "kind": "wheel"
+      },
+      {
+        "name": "Sunfall",
+        "kind": "wheel"
+      },
+      {
+        "name": "Birth of a Soul",
+        "kind": "wheel"
+      }
+    ]
   },
   {
     "id": "ebwynnos-260629",
@@ -3636,7 +4241,6 @@
         "kind": "posse"
       }
     ],
-    "customArt": "/events/pontos-event.webp",
     "artVariants": {
       "card": "/events/pontos-event-card.webp",
       "detail": "/events/pontos-event-detail.webp"
@@ -3818,7 +4422,6 @@
         "kind": "posse"
       }
     ],
-    "customArt": "/events/summer-under-the-black-sun.webp",
     "artVariants": {
       "card": "/events/summer-under-the-black-sun-card.webp",
       "detail": "/events/summer-under-the-black-sun-detail.webp"
@@ -3861,7 +4464,6 @@
         "kind": "posse"
       }
     ],
-    "customArt": "/events/ghelot-event.webp",
     "artVariants": {
       "card": "/events/ghelot-event-card.webp",
       "detail": "/events/ghelot-event-detail.webp"
@@ -3954,7 +4556,6 @@
         "kind": "posse"
       }
     ],
-    "customArt": "/events/lotan-event.webp",
     "artVariants": {
       "card": "/events/lotan-event-card.webp",
       "detail": "/events/lotan-event-detail.webp"
@@ -4114,7 +4715,6 @@
         "kind": "wheel"
       }
     ],
-    "customArt": "/events/falling-upward.webp",
     "pricing": "1680 Silver Prime",
     "artVariants": {
       "card": "/events/falling-upward-card.webp",
@@ -4332,13 +4932,138 @@
   },
   {
     "id": "curriculum-260727",
-    "title": "Curriculum Honor",
+    "title": "Curriculum Honor: Term 36",
     "category": "curriculum",
-    "description": "Advanced: 680 Silver Prime. Premium: 1,280 Silver Prime.\n Complete daily and weekly tasks.\n Free track: basic rewards. Advanced Topics: SSR Wheel selector, Silver and Luminous Cores. Premium includes Advanced rewards and adds limited cosmetics and other extras.",
+    "description": "Seasonal battle pass.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
     "startDate": "2026/07/27 09:00",
     "endDate": "2026/08/24 09:00",
-    "customArt": "/events/curriculum.webp",
-    "pricing": "680-1280 Silver Prime"
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Basic Topics",
+        "items": [
+          {
+            "name": "Pure Core",
+            "amount": "×12"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×1,560,000"
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×6"
+          },
+          {
+            "name": "Aetheric Stone",
+            "amount": "×1"
+          },
+          {
+            "name": "Remembrance Quill",
+            "amount": "×100"
+          }
+        ],
+        "price": "Free"
+      },
+      {
+        "title": "Advanced adds",
+        "price": "680 Silver Prime",
+        "note": "Also grants 680 Silver on purchase.",
+        "items": [
+          {
+            "name": "Curriculum Honor selector box",
+            "amount": "×1"
+          },
+          {
+            "name": "Silver",
+            "amount": "×2,500"
+          },
+          {
+            "name": "Luminous Core",
+            "amount": "×12"
+          },
+          {
+            "name": "Aetheric Stone",
+            "amount": "×3"
+          },
+          {
+            "name": "Remembrance Quill",
+            "amount": "×300"
+          },
+          {
+            "name": "Mimetic Crystal",
+            "amount": "×390"
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×6"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×4,680,000"
+          }
+        ]
+      },
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Grants 1,460 Silver in total on purchase.",
+        "items": [
+          {
+            "name": "Collector's Stamp: Helot",
+            "amount": "×1",
+            "itemId": 144521
+          },
+          {
+            "name": "Mythag Interlude: \"24\"",
+            "amount": "×1",
+            "itemId": 130547
+          },
+          {
+            "name": "Mythag Interlude: Lotan",
+            "amount": "×1",
+            "itemId": 130544
+          },
+          {
+            "name": "Nautila-Drive",
+            "amount": "×1",
+            "itemId": 145606
+          },
+          {
+            "name": "Juliette-Tame",
+            "amount": "×1",
+            "itemId": 127054
+          },
+          {
+            "name": "Corposant-Navigate",
+            "amount": "×1",
+            "itemId": 127061
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          }
+        ],
+        "price": "1,280 Silver Prime"
+      }
+    ],
+    "pricing": "680-1280 Silver Prime",
+    "featured": [
+      {
+        "name": "Spring in Yakutsk",
+        "kind": "wheel"
+      },
+      {
+        "name": "Sunfall",
+        "kind": "wheel"
+      },
+      {
+        "name": "Birth of a Soul",
+        "kind": "wheel"
+      }
+    ]
   },
   {
     "id": "life-as-usual-260803",
@@ -4347,7 +5072,6 @@
     "description": "Fixed-price rewards from the Student Union Building.\nClear New Thing Under the Sun and complete achievements. Gameplay ends Aug 17; the shop and achievement claims stay open until Aug 24.\nClear See You, Neverland to earn the A Fleeting Dream Posse. The Dreamscape is free to unlock during the event and costs 7 Reality Verge afterward if not already unlocked.",
     "startDate": "2026/08/03 09:00",
     "endDate": "2026/08/17 09:00",
-    "customArt": "/events/if-life-was-as-usual.webp",
     "artVariants": {
       "card": "/events/if-life-was-as-usual-card.webp",
       "detail": "/events/if-life-was-as-usual-detail.webp"
@@ -4516,7 +5240,6 @@
         "date": "2026/09/28 09:00"
       }
     ],
-    "customArt": "/events/myriad-wishcraft.webp",
     "pricing": "1980 Silver Prime",
     "artVariants": {
       "card": "/events/myriad-wishcraft-card.webp",
@@ -4704,7 +5427,6 @@
         "kind": "posse"
       }
     ],
-    "customArt": "/events/before-spring-fades.webp",
     "artVariants": {
       "card": "/events/before-spring-fades-card.webp",
       "detail": "/events/before-spring-fades-detail.webp"
@@ -4794,7 +5516,6 @@
         "kind": "wheel"
       }
     ],
-    "customArt": "/events/new-moon-and-deep-snow.webp",
     "artVariants": {
       "card": "/events/new-moon-and-deep-snow-card.webp",
       "detail": "/events/new-moon-and-deep-snow-detail.webp"
@@ -4879,7 +5600,6 @@
         "kind": "wheel"
       }
     ],
-    "customArt": "/events/after-school-hours.webp",
     "pricing": "1680 Silver Prime",
     "artVariants": {
       "card": "/events/after-school-hours-card.webp",
@@ -5097,13 +5817,138 @@
   },
   {
     "id": "curriculum-260824",
-    "title": "Curriculum Honor",
+    "title": "Curriculum Honor: Term 37",
     "category": "curriculum",
-    "description": "Advanced: 680 Silver Prime. Premium: 1,280 Silver Prime.\n Complete daily and weekly tasks.\n Free track: basic rewards. Advanced Topics: SSR Wheel selector, Silver and Luminous Cores. Premium includes Advanced rewards and adds limited cosmetics and other extras.",
+    "description": "Seasonal battle pass.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
     "startDate": "2026/08/24 09:00",
     "endDate": "2026/09/21 09:00",
-    "customArt": "/events/curriculum.webp",
-    "pricing": "680-1280 Silver Prime"
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Basic Topics",
+        "items": [
+          {
+            "name": "Pure Core",
+            "amount": "×12"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×1,560,000"
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×6"
+          },
+          {
+            "name": "Aetheric Stone",
+            "amount": "×1"
+          },
+          {
+            "name": "Remembrance Quill",
+            "amount": "×100"
+          }
+        ],
+        "price": "Free"
+      },
+      {
+        "title": "Advanced adds",
+        "price": "680 Silver Prime",
+        "note": "Also grants 680 Silver on purchase.",
+        "items": [
+          {
+            "name": "Curriculum Honor selector box",
+            "amount": "×1"
+          },
+          {
+            "name": "Silver",
+            "amount": "×2,500"
+          },
+          {
+            "name": "Luminous Core",
+            "amount": "×12"
+          },
+          {
+            "name": "Aetheric Stone",
+            "amount": "×3"
+          },
+          {
+            "name": "Remembrance Quill",
+            "amount": "×300"
+          },
+          {
+            "name": "Mimetic Crystal",
+            "amount": "×390"
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×6"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×4,680,000"
+          }
+        ]
+      },
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Grants 1,460 Silver in total on purchase.",
+        "items": [
+          {
+            "name": "Collector's Stamp: Doresain",
+            "amount": "×1",
+            "itemId": 127056
+          },
+          {
+            "name": "Unfading Yesterday: Aurita",
+            "amount": "×1",
+            "itemId": 132445
+          },
+          {
+            "name": "Mythag Interlude: Nymphaea",
+            "amount": "×1",
+            "itemId": 130549
+          },
+          {
+            "name": "Dexter-Credit",
+            "amount": "×1",
+            "itemId": 127069
+          },
+          {
+            "name": "Thais-Charm",
+            "amount": "×1",
+            "itemId": 127020
+          },
+          {
+            "name": "Miryam-Pray",
+            "amount": "×1",
+            "itemId": 127047
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          }
+        ],
+        "price": "1,280 Silver Prime"
+      }
+    ],
+    "pricing": "680-1280 Silver Prime",
+    "featured": [
+      {
+        "name": "Spring in Yakutsk",
+        "kind": "wheel"
+      },
+      {
+        "name": "Sunfall",
+        "kind": "wheel"
+      },
+      {
+        "name": "Birth of a Soul",
+        "kind": "wheel"
+      }
+    ]
   },
   {
     "id": "million-suns-260907",
@@ -5126,7 +5971,6 @@
         "kind": "posse"
       }
     ],
-    "customArt": "/events/a-million-suns-descend.webp",
     "artVariants": {
       "card": "/events/a-million-suns-descend-card.webp",
       "detail": "/events/a-million-suns-descend-detail.webp"
@@ -5312,7 +6156,6 @@
         "kind": "wheel"
       }
     ],
-    "customArt": "/events/should-glory-fade.webp",
     "artVariants": {
       "card": "/events/should-glory-fade-card.webp",
       "detail": "/events/should-glory-fade-detail.webp"
@@ -5472,7 +6315,6 @@
         "kind": "wheel"
       }
     ],
-    "customArt": "/events/born-in-darkness.webp",
     "pricing": "1680 Silver Prime",
     "artVariants": {
       "card": "/events/born-in-darkness-card.webp",
@@ -5690,13 +6532,138 @@
   },
   {
     "id": "curriculum-260921",
-    "title": "Curriculum Honor",
+    "title": "Curriculum Honor: Term 38",
     "category": "curriculum",
-    "description": "Advanced: 680 Silver Prime. Premium: 1,280 Silver Prime.\n Complete daily and weekly tasks.\n Free track: basic rewards. Advanced Topics: SSR Wheel selector, Silver and Luminous Cores. Premium includes Advanced rewards and adds limited cosmetics and other extras.",
+    "description": "Seasonal battle pass.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
     "startDate": "2026/09/21 09:00",
     "endDate": "2026/10/19 09:00",
-    "customArt": "/events/curriculum.webp",
-    "pricing": "680-1280 Silver Prime"
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Basic Topics",
+        "items": [
+          {
+            "name": "Pure Core",
+            "amount": "×12"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×1,560,000"
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×6"
+          },
+          {
+            "name": "Aetheric Stone",
+            "amount": "×1"
+          },
+          {
+            "name": "Remembrance Quill",
+            "amount": "×100"
+          }
+        ],
+        "price": "Free"
+      },
+      {
+        "title": "Advanced adds",
+        "price": "680 Silver Prime",
+        "note": "Also grants 680 Silver on purchase.",
+        "items": [
+          {
+            "name": "Curriculum Honor selector box",
+            "amount": "×1"
+          },
+          {
+            "name": "Silver",
+            "amount": "×2,500"
+          },
+          {
+            "name": "Luminous Core",
+            "amount": "×12"
+          },
+          {
+            "name": "Aetheric Stone",
+            "amount": "×3"
+          },
+          {
+            "name": "Remembrance Quill",
+            "amount": "×300"
+          },
+          {
+            "name": "Mimetic Crystal",
+            "amount": "×390"
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×6"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×4,680,000"
+          }
+        ]
+      },
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Grants 1,460 Silver in total on purchase.",
+        "items": [
+          {
+            "name": "Premium Collector's Stamp: Leigh",
+            "amount": "×1",
+            "itemId": 144522
+          },
+          {
+            "name": "Mythag Interlude: Ogier",
+            "amount": "×1",
+            "itemId": 130542
+          },
+          {
+            "name": "Mythag Interlude: Karen",
+            "amount": "×1",
+            "itemId": 133404
+          },
+          {
+            "name": "Salvador-Watering",
+            "amount": "×1",
+            "itemId": 150810
+          },
+          {
+            "name": "Xu-Disdain",
+            "amount": "×1",
+            "itemId": 150820
+          },
+          {
+            "name": "Doll-Puzzled",
+            "amount": "×1",
+            "itemId": 150825
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          }
+        ],
+        "price": "1,280 Silver Prime"
+      }
+    ],
+    "pricing": "680-1280 Silver Prime",
+    "featured": [
+      {
+        "name": "Spring in Yakutsk",
+        "kind": "wheel"
+      },
+      {
+        "name": "Sunfall",
+        "kind": "wheel"
+      },
+      {
+        "name": "Birth of a Soul",
+        "kind": "wheel"
+      }
+    ]
   },
   {
     "id": "sneaky-witch-261012",
@@ -5715,7 +6682,6 @@
         "date": "2026/11/23 09:00"
       }
     ],
-    "customArt": "/events/witchs-nocturnal-operation.webp",
     "pricing": "1980 Silver Prime",
     "artVariants": {
       "card": "/events/witchs-nocturnal-operation-card.webp",
@@ -5903,7 +6869,6 @@
         "kind": "posse"
       }
     ],
-    "customArt": "/events/mirrored-prisoner.webp",
     "artVariants": {
       "card": "/events/mirrored-prisoner-card.webp",
       "detail": "/events/mirrored-prisoner-detail.webp"
@@ -6094,7 +7059,6 @@
         "kind": "posse"
       }
     ],
-    "customArt": "/events/and-then-there-were-none.webp",
     "artVariants": {
       "card": "/events/and-then-there-were-none-card.webp",
       "detail": "/events/and-then-there-were-none-detail.webp"
@@ -6179,7 +7143,6 @@
         "kind": "wheel"
       }
     ],
-    "customArt": "/events/soul-anatomist.webp",
     "pricing": "1680 Silver Prime",
     "artVariants": {
       "card": "/events/soul-anatomist-card.webp",
@@ -6397,13 +7360,138 @@
   },
   {
     "id": "curriculum-261019",
-    "title": "Curriculum Honor",
+    "title": "Curriculum Honor: Term 39",
     "category": "curriculum",
-    "description": "Advanced: 680 Silver Prime. Premium: 1,280 Silver Prime.\n Complete daily and weekly tasks.\n Free track: basic rewards. Advanced Topics: SSR Wheel selector, Silver and Luminous Cores. Premium includes Advanced rewards and adds limited cosmetics and other extras.",
+    "description": "Seasonal battle pass.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
     "startDate": "2026/10/19 09:00",
     "endDate": "2026/11/16 09:00",
-    "customArt": "/events/curriculum.webp",
-    "pricing": "680-1280 Silver Prime"
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Basic Topics",
+        "items": [
+          {
+            "name": "Pure Core",
+            "amount": "×12"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×1,560,000"
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×6"
+          },
+          {
+            "name": "Aetheric Stone",
+            "amount": "×1"
+          },
+          {
+            "name": "Remembrance Quill",
+            "amount": "×100"
+          }
+        ],
+        "price": "Free"
+      },
+      {
+        "title": "Advanced adds",
+        "price": "680 Silver Prime",
+        "note": "Also grants 680 Silver on purchase.",
+        "items": [
+          {
+            "name": "Curriculum Honor selector box",
+            "amount": "×1"
+          },
+          {
+            "name": "Silver",
+            "amount": "×2,500"
+          },
+          {
+            "name": "Luminous Core",
+            "amount": "×12"
+          },
+          {
+            "name": "Aetheric Stone",
+            "amount": "×3"
+          },
+          {
+            "name": "Remembrance Quill",
+            "amount": "×300"
+          },
+          {
+            "name": "Mimetic Crystal",
+            "amount": "×390"
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×6"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×4,680,000"
+          }
+        ]
+      },
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Grants 1,460 Silver in total on purchase.",
+        "items": [
+          {
+            "name": "Collector's Stamp: Murphy",
+            "amount": "×1",
+            "itemId": 127028
+          },
+          {
+            "name": "Unfading Yesterday: Sanga",
+            "amount": "×1",
+            "itemId": 132452
+          },
+          {
+            "name": "Unfading Yesterday: Celeste",
+            "amount": "×1",
+            "itemId": 152853
+          },
+          {
+            "name": "Hannah: Photo",
+            "amount": "×1",
+            "itemId": 150815
+          },
+          {
+            "name": "\"24\": Bad News",
+            "amount": "×1",
+            "itemId": 150819
+          },
+          {
+            "name": "Keeper: Stop Fighting",
+            "amount": "×1",
+            "itemId": 150811
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          }
+        ],
+        "price": "1,280 Silver Prime"
+      }
+    ],
+    "pricing": "680-1280 Silver Prime",
+    "featured": [
+      {
+        "name": "Spring in Yakutsk",
+        "kind": "wheel"
+      },
+      {
+        "name": "Sunfall",
+        "kind": "wheel"
+      },
+      {
+        "name": "Birth of a Soul",
+        "kind": "wheel"
+      }
+    ]
   },
   {
     "id": "pickman-canvas-261102",
@@ -6426,7 +7514,6 @@
         "kind": "posse"
       }
     ],
-    "customArt": "/events/dark-side-of-the-canvas.webp",
     "artVariants": {
       "card": "/events/dark-side-of-the-canvas-card.webp",
       "detail": "/events/dark-side-of-the-canvas-detail.webp"
@@ -6512,7 +7599,6 @@
     "startDate": "2026/10/19 09:00",
     "endDate": "2026/11/16 09:00",
     "featured": "Murphy",
-    "customArt": "/events/no-candy-no-tricks.webp",
     "pricing": "480-1980 Silver Prime",
     "rerun": true,
     "artVariants": {
@@ -6566,7 +7652,6 @@
     "description": "Five free pulls daily.\nChoose either Kaleido Recollections banner for your free daily Awaken ×5. The free pull is shared, and awakenings on either banner count toward the same milestones.",
     "startDate": "2026/11/16 09:00",
     "endDate": "2026/11/30 09:00",
-    "customArt": "/events/constellated-memories.webp",
     "artVariants": {
       "card": "/events/constellated-memories-card.webp",
       "detail": "/events/constellated-memories-detail.webp"
@@ -6633,7 +7718,6 @@
     "description": "100 free Silver and seven paid gift packs.",
     "startDate": "2026/11/21 09:00",
     "endDate": "2027/01/04 09:00",
-    "customArt": "/events/homecoming-stars.webp",
     "artVariants": {
       "card": "/events/homecoming-stars-card.webp",
       "detail": "/events/homecoming-stars-detail.webp"
@@ -6818,7 +7902,6 @@
     "startDate": "2026/11/16 09:00",
     "endDate": "2026/11/30 09:00",
     "featured": "Lily",
-    "customArt": "/events/cuckoo-at-seven.webp",
     "artVariants": {
       "card": "/events/cuckoo-at-seven-card.webp",
       "detail": "/events/cuckoo-at-seven-detail.webp"
@@ -6910,7 +7993,6 @@
         "kind": "wheel"
       }
     ],
-    "customArt": "/events/aquamarine-dream.webp",
     "artVariants": {
       "card": "/events/aquamarine-dream-card.webp",
       "detail": "/events/aquamarine-dream-detail.webp"
@@ -7124,7 +8206,6 @@
     "description": "Daily login rewards.\nThe first seven logins earn 10 Luminous Cores in total. Login days don't have to be consecutive.",
     "startDate": "2026/11/16 09:00",
     "endDate": "2026/11/30 09:00",
-    "customArt": "/events/gifts-from-mythag.webp",
     "artVariants": {
       "card": "/events/gifts-from-mythag-card.webp",
       "detail": "/events/gifts-from-mythag-detail.webp"
@@ -7196,12 +8277,11 @@
   },
   {
     "id": "curriculum-261116",
-    "title": "Curriculum Honor",
+    "title": "Curriculum Honor: Term 40",
     "category": "curriculum",
     "description": "Battle pass with double Topic EXP.\nComplete daily and weekly tasks to earn Topic EXP and unlock rewards as you level up. Basic Topics is free. Advanced Topics unlocks extra level rewards, including an SSR Wheel selector. Premium includes Advanced and adds exclusive cosmetics and an immediate 20-level boost.",
     "startDate": "2026/11/16 09:00",
     "endDate": "2026/11/30 09:00",
-    "customArt": "/events/curriculum.webp",
     "artVariants": {
       "card": "/events/curriculum-card.webp",
       "detail": "/events/curriculum-detail.webp"
@@ -7321,6 +8401,2021 @@
             "amount": "×10"
           }
         ]
+      }
+    ]
+  },
+  {
+    "id": "curriculum-240111",
+    "title": "Curriculum Honor: Term 2",
+    "category": "curriculum",
+    "description": "Seasonal battle pass.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
+    "startDate": "2024/01/11 05:00",
+    "endDate": "2024/02/22 05:00",
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Only the Premium extras are listed here.",
+        "items": [
+          {
+            "name": "By the Silver Key: Ramona",
+            "amount": "×1",
+            "itemId": 25142
+          },
+          {
+            "name": "By the Silver Key: Ogier",
+            "amount": "×1",
+            "itemId": 25141
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          },
+          {
+            "name": "2× EXP",
+            "amount": "×1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "curriculum-240222",
+    "title": "Curriculum Honor: Term 3",
+    "category": "curriculum",
+    "description": "Seasonal battle pass.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
+    "startDate": "2024/02/22 05:00",
+    "endDate": "2024/04/04 09:00",
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Only the Premium extras are listed here.",
+        "items": [
+          {
+            "name": "By the Silver Key: Doll",
+            "amount": "×1",
+            "itemId": 35816
+          },
+          {
+            "name": "By the Silver Key: Faros",
+            "amount": "×1",
+            "itemId": 54472
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "curriculum-240404",
+    "title": "Curriculum Honor: Term 4",
+    "category": "curriculum",
+    "description": "Seasonal battle pass.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
+    "startDate": "2024/04/04 09:00",
+    "endDate": "2024/05/18 09:00",
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Only the Premium extras are listed here.",
+        "items": [
+          {
+            "name": "By the Silver Key: Caecus",
+            "amount": "×1",
+            "itemId": 54486
+          },
+          {
+            "name": "By the Silver Key: Helot",
+            "amount": "×1",
+            "itemId": 54495
+          },
+          {
+            "name": "Dexter-Check!",
+            "amount": "×1",
+            "itemId": 46758
+          },
+          {
+            "name": "Hannah-Intel!",
+            "amount": "×1",
+            "itemId": 46738
+          },
+          {
+            "name": "William-Thinking",
+            "amount": "×1",
+            "itemId": 46742
+          },
+          {
+            "name": "Czort-Overtime",
+            "amount": "×1",
+            "itemId": 46760
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "curriculum-240518",
+    "title": "Curriculum Honor: Term 5",
+    "category": "curriculum",
+    "description": "Seasonal battle pass.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
+    "startDate": "2024/05/18 09:00",
+    "endDate": "2024/06/17 09:00",
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Only the Premium extras are listed here.",
+        "items": [
+          {
+            "name": "By the Silver Key: Keeper",
+            "amount": "×1",
+            "itemId": 49264
+          },
+          {
+            "name": "By the Silver Key: Ramona: Timeworn",
+            "amount": "×1",
+            "itemId": 49271
+          },
+          {
+            "name": "Nautila-Adventure!",
+            "amount": "×1",
+            "itemId": 46781
+          },
+          {
+            "name": "Tinct-Smile",
+            "amount": "×1",
+            "itemId": 46755
+          },
+          {
+            "name": "Ramona: Timeworn-Worried",
+            "amount": "×1",
+            "itemId": 46787
+          },
+          {
+            "name": "Goliath-Take This!",
+            "amount": "×1",
+            "itemId": 46789
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          },
+          {
+            "name": "Synaptic Enzyme",
+            "amount": "×1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "curriculum-240617",
+    "title": "Curriculum Honor: Term 6",
+    "category": "curriculum",
+    "description": "Seasonal battle pass.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
+    "startDate": "2024/06/17 09:00",
+    "endDate": "2024/07/15 09:00",
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Only the Premium extras are listed here.",
+        "items": [
+          {
+            "name": "By the Silver Key: Lotan",
+            "amount": "×1",
+            "itemId": 35817
+          },
+          {
+            "name": "By the Silver Key: Liz",
+            "amount": "×1",
+            "itemId": 51996
+          },
+          {
+            "name": "Nymphaea-Floaty",
+            "amount": "×1",
+            "itemId": 46766
+          },
+          {
+            "name": "Winkle-Yikes!",
+            "amount": "×1",
+            "itemId": 46768
+          },
+          {
+            "name": "Leigh-Lemme Taste",
+            "amount": "×1",
+            "itemId": 46780
+          },
+          {
+            "name": "Faros-Joy",
+            "amount": "×1",
+            "itemId": 46736
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          },
+          {
+            "name": "Synaptic Enzyme",
+            "amount": "×1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "curriculum-240715",
+    "title": "Curriculum Honor: Term 7",
+    "category": "curriculum",
+    "description": "Seasonal battle pass.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
+    "startDate": "2024/07/15 09:00",
+    "endDate": "2024/08/12 09:00",
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Only the Premium extras are listed here.",
+        "items": [
+          {
+            "name": "By the Silver Key: Sanga",
+            "amount": "×1",
+            "itemId": 54483
+          },
+          {
+            "name": "By the Silver Key: Aigis",
+            "amount": "×1",
+            "itemId": 54473
+          },
+          {
+            "name": "Pandia-Air Kiss",
+            "amount": "×1",
+            "itemId": 46745
+          },
+          {
+            "name": "Agrippa-Hug",
+            "amount": "×1",
+            "itemId": 46773
+          },
+          {
+            "name": "Caecus-Sob",
+            "amount": "×1",
+            "itemId": 46786
+          },
+          {
+            "name": "Jenkin-Space Mouse",
+            "amount": "×1",
+            "itemId": 46763
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          },
+          {
+            "name": "Synaptic Enzyme",
+            "amount": "×1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "curriculum-240812",
+    "title": "Curriculum Honor: Term 8",
+    "category": "curriculum",
+    "description": "Seasonal battle pass.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
+    "startDate": "2024/08/12 09:00",
+    "endDate": "2024/09/09 09:00",
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Only the Premium extras are listed here.",
+        "items": [
+          {
+            "name": "By the Silver Key: Pandia",
+            "amount": "×1",
+            "itemId": 54492
+          },
+          {
+            "name": "By the Silver Key: Aurita",
+            "amount": "×1",
+            "itemId": 54488
+          },
+          {
+            "name": "Faint-Wakey!",
+            "amount": "×1",
+            "itemId": 46737
+          },
+          {
+            "name": "Ryker-Head Scratch",
+            "amount": "×1",
+            "itemId": 54125
+          },
+          {
+            "name": "Alva-Truce",
+            "amount": "×1",
+            "itemId": 46761
+          },
+          {
+            "name": "Goliath-Sinister",
+            "amount": "×1",
+            "itemId": 46764
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          },
+          {
+            "name": "Synaptic Enzyme",
+            "amount": "×1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "curriculum-240909",
+    "title": "Curriculum Honor: Term 9",
+    "category": "curriculum",
+    "description": "Seasonal battle pass.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
+    "startDate": "2024/09/09 09:00",
+    "endDate": "2024/10/07 09:00",
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Only the Premium extras are listed here.",
+        "items": [
+          {
+            "name": "By the Silver Key: Erica",
+            "amount": "×1",
+            "itemId": 54477
+          },
+          {
+            "name": "By the Silver Key: Leigh",
+            "amount": "×1",
+            "itemId": 54493
+          },
+          {
+            "name": "Sorel-Good Game",
+            "amount": "×1",
+            "itemId": 46771
+          },
+          {
+            "name": "Karen-Dig In!",
+            "amount": "×1",
+            "itemId": 46794
+          },
+          {
+            "name": "Sanga-Threat",
+            "amount": "×1",
+            "itemId": 46759
+          },
+          {
+            "name": "Murphy-Brrr",
+            "amount": "×1",
+            "itemId": 46777
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          },
+          {
+            "name": "Synaptic Enzyme",
+            "amount": "×1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "curriculum-241007",
+    "title": "Curriculum Honor: Term 10",
+    "category": "curriculum",
+    "description": "Seasonal battle pass.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
+    "startDate": "2024/10/07 09:00",
+    "endDate": "2024/11/04 09:00",
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Only the Premium extras are listed here.",
+        "items": [
+          {
+            "name": "By the Silver Key: Nymphaea",
+            "amount": "×1",
+            "itemId": 54475
+          },
+          {
+            "name": "By the Silver Key: Celeste",
+            "amount": "×1",
+            "itemId": 54481
+          },
+          {
+            "name": "Helot: Catena-Pfft",
+            "amount": "×1",
+            "itemId": 46744
+          },
+          {
+            "name": "Aurita-Dizzy",
+            "amount": "×1",
+            "itemId": 46757
+          },
+          {
+            "name": "Liz-Headache",
+            "amount": "×1",
+            "itemId": 46788
+          },
+          {
+            "name": "Ogier-Broke",
+            "amount": "×1",
+            "itemId": 46793
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          },
+          {
+            "name": "Synaptic Enzyme",
+            "amount": "×1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "curriculum-241104",
+    "title": "Curriculum Honor: Term 11",
+    "category": "curriculum",
+    "description": "Seasonal battle pass.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
+    "startDate": "2024/11/04 09:00",
+    "endDate": "2024/12/02 09:00",
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Only the Premium extras are listed here.",
+        "items": [
+          {
+            "name": "By the Silver Key: Karen",
+            "amount": "×1",
+            "itemId": 54484
+          },
+          {
+            "name": "By the Silver Key: Faint",
+            "amount": "×1",
+            "itemId": 54482
+          },
+          {
+            "name": "Rogers-Flustered",
+            "amount": "×1",
+            "itemId": 54124
+          },
+          {
+            "name": "Albino-Taste Pain",
+            "amount": "×1",
+            "itemId": 54136
+          },
+          {
+            "name": "Herbert-Clap Clap",
+            "amount": "×1",
+            "itemId": 54135
+          },
+          {
+            "name": "William-PFFFT",
+            "amount": "×1",
+            "itemId": 46775
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          },
+          {
+            "name": "Synaptic Enzyme",
+            "amount": "×1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "curriculum-241202",
+    "title": "Curriculum Honor: Term 12",
+    "category": "curriculum",
+    "description": "Seasonal battle pass.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
+    "startDate": "2024/12/02 09:00",
+    "endDate": "2024/12/30 09:00",
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Only the Premium extras are listed here.",
+        "items": [
+          {
+            "name": "By the Silver Key: Nautila",
+            "amount": "×1",
+            "itemId": 54497
+          },
+          {
+            "name": "By the Silver Key: Tinct",
+            "amount": "×1",
+            "itemId": 54476
+          },
+          {
+            "name": "Tawil-Come Along",
+            "amount": "×1",
+            "itemId": 54133
+          },
+          {
+            "name": "Goliath-Roar!",
+            "amount": "×1",
+            "itemId": 68851
+          },
+          {
+            "name": "Sorel-Adieu",
+            "amount": "×1",
+            "itemId": 68859
+          },
+          {
+            "name": "Aurita-Poor Thing",
+            "amount": "×1",
+            "itemId": 68849
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          },
+          {
+            "name": "Synaptic Enzyme",
+            "amount": "×1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "curriculum-241230",
+    "title": "Curriculum Honor: Term 13",
+    "category": "curriculum",
+    "description": "Seasonal battle pass.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
+    "startDate": "2024/12/30 09:00",
+    "endDate": "2025/02/10 09:00",
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Only the Premium extras are listed here.",
+        "items": [
+          {
+            "name": "By the Silver Key: Agrippa",
+            "amount": "×1",
+            "itemId": 54490
+          },
+          {
+            "name": "By the Silver Key: Winkle",
+            "amount": "×1",
+            "itemId": 54479
+          },
+          {
+            "name": "Jenkin-Rude!",
+            "amount": "×1",
+            "itemId": 68852
+          },
+          {
+            "name": "Ryker-Try Me",
+            "amount": "×1",
+            "itemId": 68848
+          },
+          {
+            "name": "Murphy-Slacking",
+            "amount": "×1",
+            "itemId": 68857
+          },
+          {
+            "name": "Horla-True That",
+            "amount": "×1",
+            "itemId": 68855
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          },
+          {
+            "name": "Synaptic Enzyme",
+            "amount": "×1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "curriculum-250210",
+    "title": "Curriculum Honor: Term 14",
+    "category": "curriculum",
+    "description": "Seasonal battle pass.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
+    "startDate": "2025/02/10 09:00",
+    "endDate": "2025/03/10 09:00",
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Only the Premium extras are listed here.",
+        "items": [
+          {
+            "name": "By the Silver Key: Herbert",
+            "amount": "×1",
+            "itemId": 72917
+          },
+          {
+            "name": "By the Silver Key: Rogers",
+            "amount": "×1",
+            "itemId": 72933
+          },
+          {
+            "name": "Doll-Serene",
+            "amount": "×1",
+            "itemId": 54128
+          },
+          {
+            "name": "Leigh-Drool",
+            "amount": "×1",
+            "itemId": 72916
+          },
+          {
+            "name": "Daffodil-Wave",
+            "amount": "×1",
+            "itemId": 72854
+          },
+          {
+            "name": "Miryam-Look Here",
+            "amount": "×1",
+            "itemId": 72897
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          },
+          {
+            "name": "Synaptic Enzyme",
+            "amount": "×1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "curriculum-250310",
+    "title": "Curriculum Honor: Term 15",
+    "category": "curriculum",
+    "description": "Seasonal battle pass.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
+    "startDate": "2025/03/10 09:00",
+    "endDate": "2025/04/07 09:00",
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Only the Premium extras are listed here.",
+        "items": [
+          {
+            "name": "By the Silver Key: N",
+            "amount": "×1",
+            "itemId": 72851
+          },
+          {
+            "name": "By the Silver Key: Koum",
+            "amount": "×1",
+            "itemId": 72929
+          },
+          {
+            "name": "Horla-Flowers!",
+            "amount": "×1",
+            "itemId": 72909
+          },
+          {
+            "name": "Ramona-Open Up",
+            "amount": "×1",
+            "itemId": 72846
+          },
+          {
+            "name": "Murphy-AAAHH!",
+            "amount": "×1",
+            "itemId": 72902
+          },
+          {
+            "name": "Tulu-That's It?",
+            "amount": "×1",
+            "itemId": 72852
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          },
+          {
+            "name": "Synaptic Enzyme",
+            "amount": "×1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "curriculum-250407",
+    "title": "Curriculum Honor: Term 16",
+    "category": "curriculum",
+    "description": "Seasonal battle pass.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
+    "startDate": "2025/04/07 09:00",
+    "endDate": "2025/05/05 09:00",
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Only the Premium extras are listed here.",
+        "items": [
+          {
+            "name": "By the Silver Key: Alistair",
+            "amount": "×1",
+            "itemId": 72905
+          },
+          {
+            "name": "By the Silver Key: Albino",
+            "amount": "×1",
+            "itemId": 72891
+          },
+          {
+            "name": "Dexter-Cheers",
+            "amount": "×1",
+            "itemId": 72934
+          },
+          {
+            "name": "Thais-Smile",
+            "amount": "×1",
+            "itemId": 72849
+          },
+          {
+            "name": "Sylvia-Meds Time",
+            "amount": "×1",
+            "itemId": 72864
+          },
+          {
+            "name": "William-Listen Up!",
+            "amount": "×1",
+            "itemId": 72895
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          },
+          {
+            "name": "Synaptic Enzyme",
+            "amount": "×1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "curriculum-250505",
+    "title": "Curriculum Honor: Term 17",
+    "category": "curriculum",
+    "description": "Seasonal battle pass.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
+    "startDate": "2025/05/05 09:00",
+    "endDate": "2025/06/02 09:00",
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Only the Premium extras are listed here.",
+        "items": [
+          {
+            "name": "By the Silver Key: Hannah",
+            "amount": "×1",
+            "itemId": 72937
+          },
+          {
+            "name": "By the Silver Key: Francis",
+            "amount": "×1",
+            "itemId": 72844
+          },
+          {
+            "name": "Murphy-Yummy",
+            "amount": "×1",
+            "itemId": 72946
+          },
+          {
+            "name": "Karen-Oopsie",
+            "amount": "×1",
+            "itemId": 72889
+          },
+          {
+            "name": "Ramona-Pro",
+            "amount": "×1",
+            "itemId": 72915
+          },
+          {
+            "name": "Celeste-Yep",
+            "amount": "×1",
+            "itemId": 72876
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          },
+          {
+            "name": "Synaptic Enzyme",
+            "amount": "×1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "curriculum-250602",
+    "title": "Curriculum Honor: Term 18",
+    "category": "curriculum",
+    "description": "Seasonal battle pass.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
+    "startDate": "2025/06/02 09:00",
+    "endDate": "2025/06/30 09:00",
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Only the Premium extras are listed here.",
+        "items": [
+          {
+            "name": "By the Silver Key: Brown",
+            "amount": "×1",
+            "itemId": 72908
+          },
+          {
+            "name": "By the Silver Key: Juliette",
+            "amount": "×1",
+            "itemId": 72861
+          },
+          {
+            "name": "Doll-Say What?",
+            "amount": "×1",
+            "itemId": 72896
+          },
+          {
+            "name": "Ryker-Pretty Pls",
+            "amount": "×1",
+            "itemId": 72919
+          },
+          {
+            "name": "Salvador-OK",
+            "amount": "×1",
+            "itemId": 72845
+          },
+          {
+            "name": "Alistair-Smile",
+            "amount": "×1",
+            "itemId": 72860
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          },
+          {
+            "name": "Synaptic Enzyme",
+            "amount": "×1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "curriculum-250630",
+    "title": "Curriculum Honor: Term 19",
+    "category": "curriculum",
+    "description": "Battle pass with double Topic EXP.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
+    "startDate": "2025/06/30 09:00",
+    "endDate": "2025/07/21 09:00",
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Only the Premium extras are listed here.",
+        "items": [
+          {
+            "name": "By the Silver Key: Colette",
+            "amount": "×1",
+            "itemId": 72841
+          },
+          {
+            "name": "Chibi Mug Shot: Tulu",
+            "amount": "×1",
+            "itemId": 94734
+          },
+          {
+            "name": "William-Timber!",
+            "amount": "×1",
+            "itemId": 72843
+          },
+          {
+            "name": "Caecus-Ouch",
+            "amount": "×1",
+            "itemId": 72870
+          },
+          {
+            "name": "Tulu-Sleepy",
+            "amount": "×1",
+            "itemId": 72885
+          },
+          {
+            "name": "Ryker-Sleuth",
+            "amount": "×1",
+            "itemId": 91397
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          },
+          {
+            "name": "Synaptic Enzyme",
+            "amount": "×1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "curriculum-250721",
+    "title": "Curriculum Honor: Term 20",
+    "category": "curriculum",
+    "description": "Seasonal battle pass.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
+    "startDate": "2025/07/21 09:00",
+    "endDate": "2025/08/18 09:00",
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Only the Premium extras are listed here.",
+        "items": [
+          {
+            "name": "Unfading Yesterday: Doll: Inferno",
+            "amount": "×1",
+            "itemId": 96331
+          },
+          {
+            "name": "Unfading Yesterday: Doll",
+            "amount": "×1",
+            "itemId": 96332
+          },
+          {
+            "name": "Wanda-Sparkle",
+            "amount": "×1",
+            "itemId": 72930
+          },
+          {
+            "name": "Sorel-Shh",
+            "amount": "×1",
+            "itemId": 72952
+          },
+          {
+            "name": "Alva-Go Go Go!",
+            "amount": "×1",
+            "itemId": 72883
+          },
+          {
+            "name": "Daffodil-After You",
+            "amount": "×1",
+            "itemId": 72913
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          },
+          {
+            "name": "Synaptic Enzyme",
+            "amount": "×1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "curriculum-250818",
+    "title": "Curriculum Honor: Term 21",
+    "category": "curriculum",
+    "description": "Battle pass with double Topic EXP.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
+    "startDate": "2025/08/18 09:00",
+    "endDate": "2025/09/08 09:00",
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Only the Premium extras are listed here.",
+        "items": [
+          {
+            "name": "Unfading Yesterday: Lotan",
+            "amount": "×1",
+            "itemId": 97989
+          },
+          {
+            "name": "Unfading Yesterday: Alva",
+            "amount": "×1",
+            "itemId": 97415
+          },
+          {
+            "name": "Pandia-Love",
+            "amount": "×1",
+            "itemId": 72943
+          },
+          {
+            "name": "Murphy-Hmph",
+            "amount": "×1",
+            "itemId": 97406
+          },
+          {
+            "name": "Leigh-Love U",
+            "amount": "×1",
+            "itemId": 97356
+          },
+          {
+            "name": "Alva-Uhhh",
+            "amount": "×1",
+            "itemId": 97355
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          },
+          {
+            "name": "Synaptic Enzyme",
+            "amount": "×1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "curriculum-250908",
+    "title": "Curriculum Honor: Term 22",
+    "category": "curriculum",
+    "description": "Seasonal battle pass.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
+    "startDate": "2025/09/08 09:00",
+    "endDate": "2025/10/06 09:00",
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Only the Premium extras are listed here.",
+        "items": [
+          {
+            "name": "Chibi Mug Shot: Horla",
+            "amount": "×1",
+            "itemId": 94733
+          },
+          {
+            "name": "Chibi Mug Shot: Hameln",
+            "amount": "×1",
+            "itemId": 97402
+          },
+          {
+            "name": "Dexter-Elegant",
+            "amount": "×1",
+            "itemId": 97384
+          },
+          {
+            "name": "Hameln-Flute",
+            "amount": "×1",
+            "itemId": 72910
+          },
+          {
+            "name": "Lily-Thanks!",
+            "amount": "×1",
+            "itemId": 72840
+          },
+          {
+            "name": "Salvador-Holy Light",
+            "amount": "×1",
+            "itemId": 72899
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          },
+          {
+            "name": "Synaptic Enzyme",
+            "amount": "×1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "curriculum-251006",
+    "title": "Curriculum Honor: Term 23",
+    "category": "curriculum",
+    "description": "Battle pass with double Topic EXP.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
+    "startDate": "2025/10/06 09:00",
+    "endDate": "2025/10/20 09:00",
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Only the Premium extras are listed here.",
+        "items": [
+          {
+            "name": "Unfading Yesterday: Ramona: Timeworn",
+            "amount": "×1",
+            "itemId": 97422
+          },
+          {
+            "name": "Unfading Yesterday: Pandia",
+            "amount": "×1",
+            "itemId": 97400
+          },
+          {
+            "name": "Ramona: Timeworn-Coming!",
+            "amount": "×1",
+            "itemId": 72894
+          },
+          {
+            "name": "Ramona: Timeworn-Going!",
+            "amount": "×1",
+            "itemId": 72875
+          },
+          {
+            "name": "Aigis-Nighty",
+            "amount": "×1",
+            "itemId": 72839
+          },
+          {
+            "name": "Lily-Reach",
+            "amount": "×1",
+            "itemId": 97367
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          },
+          {
+            "name": "Synaptic Enzyme",
+            "amount": "×1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "curriculum-251020",
+    "title": "Curriculum Honor: Term 24",
+    "category": "curriculum",
+    "description": "Seasonal battle pass.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
+    "startDate": "2025/10/20 09:00",
+    "endDate": "2025/11/17 09:00",
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Only the Premium extras are listed here.",
+        "items": [
+          {
+            "name": "Chibi Mug Shot: Thais",
+            "amount": "×1",
+            "itemId": 97412
+          },
+          {
+            "name": "Chibi Mug Shot: Sorel",
+            "amount": "×1",
+            "itemId": 97413
+          },
+          {
+            "name": "Chibi Mug Shot: Salvador",
+            "amount": "×1",
+            "itemId": 97380
+          },
+          {
+            "name": "Unfading Yesterday: Karen",
+            "amount": "×1",
+            "itemId": 97385
+          },
+          {
+            "name": "Unfading Yesterday: Lily",
+            "amount": "×1",
+            "itemId": 97383
+          },
+          {
+            "name": "Unfading Yesterday: Nautila",
+            "amount": "×1",
+            "itemId": 97418
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          },
+          {
+            "name": "Synaptic Enzyme",
+            "amount": "×1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "curriculum-251117",
+    "title": "Curriculum Honor: Term 25",
+    "category": "curriculum",
+    "description": "Seasonal battle pass.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
+    "startDate": "2025/11/17 09:00",
+    "endDate": "2025/12/15 09:00",
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Only the Premium extras are listed here.",
+        "items": [
+          {
+            "name": "Unfading Yesterday: \"24\"",
+            "amount": "×1",
+            "itemId": 97363
+          },
+          {
+            "name": "Unfading Yesterday: Nymphaea",
+            "amount": "×1",
+            "itemId": 97373
+          },
+          {
+            "name": "Chibi Mug Shot: Daffodil",
+            "amount": "×1",
+            "itemId": 97393
+          },
+          {
+            "name": "Chibi Mug Shot: Murphy",
+            "amount": "×1",
+            "itemId": 97361
+          },
+          {
+            "name": "Collector's Stamp: Ramona",
+            "amount": "×1",
+            "itemId": 120957
+          },
+          {
+            "name": "Collector's Stamp: Ramona: Timeworn",
+            "amount": "×1",
+            "itemId": 120964
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "curriculum-251215",
+    "title": "Curriculum Honor: Term 26",
+    "category": "curriculum",
+    "description": "Battle pass with double Topic EXP.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
+    "startDate": "2025/12/15 09:00",
+    "endDate": "2025/12/29 09:00",
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Basic Topics",
+        "items": [
+          {
+            "name": "Pure Core",
+            "amount": "×12"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×1,560,000"
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×6"
+          },
+          {
+            "name": "Aetheric Stone",
+            "amount": "×1"
+          },
+          {
+            "name": "Remembrance Quill",
+            "amount": "×100"
+          }
+        ],
+        "price": "Free"
+      },
+      {
+        "title": "Advanced adds",
+        "price": "680 Silver Prime",
+        "note": "Also grants 680 Silver on purchase.",
+        "items": [
+          {
+            "name": "Curriculum Honor selector box",
+            "amount": "×1"
+          },
+          {
+            "name": "Silver",
+            "amount": "×2,500"
+          },
+          {
+            "name": "Luminous Core",
+            "amount": "×12"
+          },
+          {
+            "name": "Aetheric Stone",
+            "amount": "×3"
+          },
+          {
+            "name": "Remembrance Quill",
+            "amount": "×300"
+          },
+          {
+            "name": "Mimetic Crystal",
+            "amount": "×390"
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×6"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×4,680,000"
+          }
+        ]
+      },
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Grants 1,070 Silver in total on purchase.",
+        "items": [
+          {
+            "name": "Chibi Mug Shot: Wanda",
+            "amount": "×1",
+            "itemId": 97408
+          },
+          {
+            "name": "Chibi Mug Shot: Miryam",
+            "amount": "×1",
+            "itemId": 97398
+          },
+          {
+            "name": "Collector's Stamp: Doll",
+            "amount": "×1",
+            "itemId": 120956
+          },
+          {
+            "name": "Collector's Stamp: Doll: Inferno",
+            "amount": "×1",
+            "itemId": 120958
+          },
+          {
+            "name": "Unfading Yesterday: Helot",
+            "amount": "×1",
+            "itemId": 97379
+          },
+          {
+            "name": "Unfading Yesterday: Helot: Catena",
+            "amount": "×1",
+            "itemId": 123483
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          }
+        ],
+        "price": "980 Silver Prime"
+      }
+    ],
+    "pricing": "680-980 Silver Prime",
+    "featured": [
+      {
+        "name": "Spring in Yakutsk",
+        "kind": "wheel"
+      },
+      {
+        "name": "Sunfall",
+        "kind": "wheel"
+      },
+      {
+        "name": "Birth of a Soul",
+        "kind": "wheel"
+      }
+    ]
+  },
+  {
+    "id": "curriculum-251229",
+    "title": "Curriculum Honor: Term 27",
+    "category": "curriculum",
+    "description": "Seasonal battle pass.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
+    "startDate": "2025/12/29 09:00",
+    "endDate": "2026/01/26 09:00",
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Basic Topics",
+        "items": [
+          {
+            "name": "Pure Core",
+            "amount": "×12"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×1,560,000"
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×6"
+          },
+          {
+            "name": "Aetheric Stone",
+            "amount": "×1"
+          },
+          {
+            "name": "Remembrance Quill",
+            "amount": "×100"
+          }
+        ],
+        "price": "Free"
+      },
+      {
+        "title": "Advanced adds",
+        "price": "680 Silver Prime",
+        "note": "Also grants 680 Silver on purchase.",
+        "items": [
+          {
+            "name": "Curriculum Honor selector box",
+            "amount": "×1"
+          },
+          {
+            "name": "Silver",
+            "amount": "×2,500"
+          },
+          {
+            "name": "Luminous Core",
+            "amount": "×12"
+          },
+          {
+            "name": "Aetheric Stone",
+            "amount": "×3"
+          },
+          {
+            "name": "Remembrance Quill",
+            "amount": "×300"
+          },
+          {
+            "name": "Mimetic Crystal",
+            "amount": "×390"
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×6"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×4,680,000"
+          }
+        ]
+      },
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Grants 1,460 Silver in total on purchase.",
+        "items": [
+          {
+            "name": "Unfading Yesterday: Sorel",
+            "amount": "×1",
+            "itemId": 123484
+          },
+          {
+            "name": "Unfading Yesterday: Agrippa",
+            "amount": "×1",
+            "itemId": 123485
+          },
+          {
+            "name": "Unfading Yesterday: Uvhash",
+            "amount": "×1",
+            "itemId": 123482
+          },
+          {
+            "name": "Chibi Mug Shot: Ramona: Timeworn",
+            "amount": "×1",
+            "itemId": 97360
+          },
+          {
+            "name": "Collector's Stamp: Ryker",
+            "amount": "×1",
+            "itemId": 120963
+          },
+          {
+            "name": "Collector's Stamp: Nautila",
+            "amount": "×1",
+            "itemId": 120959
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          }
+        ],
+        "price": "1,280 Silver Prime"
+      }
+    ],
+    "pricing": "680-1280 Silver Prime",
+    "featured": [
+      {
+        "name": "Spring in Yakutsk",
+        "kind": "wheel"
+      },
+      {
+        "name": "Sunfall",
+        "kind": "wheel"
+      },
+      {
+        "name": "Birth of a Soul",
+        "kind": "wheel"
+      }
+    ]
+  },
+  {
+    "id": "curriculum-260126",
+    "title": "Curriculum Honor: Term 28",
+    "category": "curriculum",
+    "description": "Seasonal battle pass.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
+    "startDate": "2026/01/26 09:00",
+    "endDate": "2026/02/23 09:00",
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Basic Topics",
+        "items": [
+          {
+            "name": "Pure Core",
+            "amount": "×12"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×1,560,000"
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×6"
+          },
+          {
+            "name": "Aetheric Stone",
+            "amount": "×1"
+          },
+          {
+            "name": "Remembrance Quill",
+            "amount": "×100"
+          }
+        ],
+        "price": "Free"
+      },
+      {
+        "title": "Advanced adds",
+        "price": "680 Silver Prime",
+        "note": "Also grants 680 Silver on purchase.",
+        "items": [
+          {
+            "name": "Curriculum Honor selector box",
+            "amount": "×1"
+          },
+          {
+            "name": "Silver",
+            "amount": "×2,500"
+          },
+          {
+            "name": "Luminous Core",
+            "amount": "×12"
+          },
+          {
+            "name": "Aetheric Stone",
+            "amount": "×3"
+          },
+          {
+            "name": "Remembrance Quill",
+            "amount": "×300"
+          },
+          {
+            "name": "Mimetic Crystal",
+            "amount": "×390"
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×6"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×4,680,000"
+          }
+        ]
+      },
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Grants 1,460 Silver in total on purchase.",
+        "items": [
+          {
+            "name": "Unfading Yesterday: Thais",
+            "amount": "×1",
+            "itemId": 123487
+          },
+          {
+            "name": "Unfading Yesterday: Salvador",
+            "amount": "×1",
+            "itemId": 123478
+          },
+          {
+            "name": "Unfading Yesterday: Aigis",
+            "amount": "×1",
+            "itemId": 123481
+          },
+          {
+            "name": "Collector's Stamp: \"24\"",
+            "amount": "×1",
+            "itemId": 120961
+          },
+          {
+            "name": "Collector's Stamp: Nymphaea",
+            "amount": "×1",
+            "itemId": 120962
+          },
+          {
+            "name": "Collector's Stamp: Pandia",
+            "amount": "×1",
+            "itemId": 120965
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          }
+        ],
+        "price": "1,280 Silver Prime"
+      }
+    ],
+    "pricing": "680-1280 Silver Prime",
+    "featured": [
+      {
+        "name": "Spring in Yakutsk",
+        "kind": "wheel"
+      },
+      {
+        "name": "Sunfall",
+        "kind": "wheel"
+      },
+      {
+        "name": "Birth of a Soul",
+        "kind": "wheel"
+      }
+    ]
+  },
+  {
+    "id": "curriculum-260223",
+    "title": "Curriculum Honor: Term 29",
+    "category": "curriculum",
+    "description": "Battle pass with double Topic EXP.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
+    "startDate": "2026/02/23 09:00",
+    "endDate": "2026/03/09 09:00",
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Basic Topics",
+        "items": [
+          {
+            "name": "Pure Core",
+            "amount": "×12"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×1,560,000"
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×6"
+          },
+          {
+            "name": "Aetheric Stone",
+            "amount": "×1"
+          },
+          {
+            "name": "Remembrance Quill",
+            "amount": "×100"
+          }
+        ],
+        "price": "Free"
+      },
+      {
+        "title": "Advanced adds",
+        "price": "680 Silver Prime",
+        "note": "Also grants 680 Silver on purchase.",
+        "items": [
+          {
+            "name": "Curriculum Honor selector box",
+            "amount": "×1"
+          },
+          {
+            "name": "Silver",
+            "amount": "×2,500"
+          },
+          {
+            "name": "Luminous Core",
+            "amount": "×12"
+          },
+          {
+            "name": "Aetheric Stone",
+            "amount": "×3"
+          },
+          {
+            "name": "Remembrance Quill",
+            "amount": "×300"
+          },
+          {
+            "name": "Mimetic Crystal",
+            "amount": "×390"
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×6"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×4,680,000"
+          }
+        ]
+      },
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Grants 1,070 Silver in total on purchase.",
+        "items": [
+          {
+            "name": "Unfading Yesterday: Leigh",
+            "amount": "×1",
+            "itemId": 123486
+          },
+          {
+            "name": "Unfading Yesterday: Faint",
+            "amount": "×1",
+            "itemId": 123757
+          },
+          {
+            "name": "Unfading Yesterday: Doresain",
+            "amount": "×1",
+            "itemId": 129898
+          },
+          {
+            "name": "Unfading Yesterday: Ramona",
+            "amount": "×1",
+            "itemId": 97366
+          },
+          {
+            "name": "Collector's Stamp: Alva",
+            "amount": "×1",
+            "itemId": 127058
+          },
+          {
+            "name": "Collector's Stamp: Karen",
+            "amount": "×1",
+            "itemId": 127045
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          }
+        ],
+        "price": "980 Silver Prime"
+      }
+    ],
+    "pricing": "680-980 Silver Prime",
+    "featured": [
+      {
+        "name": "Spring in Yakutsk",
+        "kind": "wheel"
+      },
+      {
+        "name": "Sunfall",
+        "kind": "wheel"
+      },
+      {
+        "name": "Birth of a Soul",
+        "kind": "wheel"
+      }
+    ]
+  },
+  {
+    "id": "curriculum-260406",
+    "title": "Curriculum Honor: Term 31",
+    "category": "curriculum",
+    "description": "Battle pass with double Topic EXP.\nDaily and weekly tasks grant Topic EXP. Premium includes Advanced Topics and adds the term's exclusive rewards.",
+    "startDate": "2026/04/06 09:00",
+    "endDate": "2026/04/20 09:00",
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Basic Topics",
+        "items": [
+          {
+            "name": "Pure Core",
+            "amount": "×12"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×1,560,000"
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×6"
+          },
+          {
+            "name": "Aetheric Stone",
+            "amount": "×1"
+          },
+          {
+            "name": "Remembrance Quill",
+            "amount": "×100"
+          }
+        ],
+        "price": "Free"
+      },
+      {
+        "title": "Advanced adds",
+        "price": "680 Silver Prime",
+        "note": "Also grants 680 Silver on purchase.",
+        "items": [
+          {
+            "name": "Curriculum Honor selector box",
+            "amount": "×1"
+          },
+          {
+            "name": "Silver",
+            "amount": "×2,500"
+          },
+          {
+            "name": "Luminous Core",
+            "amount": "×12"
+          },
+          {
+            "name": "Aetheric Stone",
+            "amount": "×3"
+          },
+          {
+            "name": "Remembrance Quill",
+            "amount": "×300"
+          },
+          {
+            "name": "Mimetic Crystal",
+            "amount": "×390"
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×6"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×4,680,000"
+          }
+        ]
+      },
+      {
+        "title": "Premium adds",
+        "note": "Includes Advanced Topics. Grants 1,070 Silver in total on purchase.",
+        "items": [
+          {
+            "name": "Unfading Yesterday: Tulu",
+            "amount": "×1",
+            "itemId": 132450
+          },
+          {
+            "name": "Unfading Yesterday: Murphy",
+            "amount": "×1",
+            "itemId": 132453
+          },
+          {
+            "name": "Unfading Yesterday: Ogier",
+            "amount": "×1",
+            "itemId": 97399
+          },
+          {
+            "name": "Mythag Interlude: Doll",
+            "amount": "×1",
+            "itemId": 130548
+          },
+          {
+            "name": "Mythag Interlude: Nautila",
+            "amount": "×1",
+            "itemId": 130551
+          },
+          {
+            "name": "Collector's Stamp: Salvador",
+            "amount": "×1",
+            "itemId": 132665
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          }
+        ],
+        "price": "980 Silver Prime"
+      }
+    ],
+    "pricing": "680-980 Silver Prime",
+    "featured": [
+      {
+        "name": "Spring in Yakutsk",
+        "kind": "wheel"
+      },
+      {
+        "name": "Sunfall",
+        "kind": "wheel"
+      },
+      {
+        "name": "Birth of a Soul",
+        "kind": "wheel"
       }
     ]
   }

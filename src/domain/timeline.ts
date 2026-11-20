@@ -23,6 +23,7 @@ export interface BannerDailyScheduleEntry {
 export interface TimelineRewardItem {
   name: string
   amount?: string
+  itemId?: number
 }
 
 export interface TimelineMissionReward {
@@ -141,12 +142,7 @@ export const EVENT_CATEGORY_METADATA: Record<EventCategory, EventCategoryMetadat
   battlepass: {label: 'Battlepass', priority: 120, docsBadgeColor: 'Green'},
   'gameplay-event': {label: 'Gameplay Event', priority: 20, docsBadgeColor: 'Amber'},
   'd-tide': {label: 'D-Tide', priority: 40, docsBadgeColor: 'Red', hideEndedFromArchive: true},
-  curriculum: {
-    label: 'Curriculum',
-    priority: 60,
-    docsBadgeColor: 'Green',
-    hideEndedFromArchive: true,
-  },
+  curriculum: {label: 'Curriculum', priority: 60, docsBadgeColor: 'Green'},
   login: {label: 'Login', priority: 100, docsBadgeColor: 'Teal', hideEndedFromArchive: true},
   skin: {label: 'Skin', priority: 50, docsBadgeColor: 'Rose'},
   'wheel-event': {label: 'Wheel', priority: 70, docsBadgeColor: 'Blue'},

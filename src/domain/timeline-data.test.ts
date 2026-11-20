@@ -1,8 +1,9 @@
 import {describe, expect, it} from 'vitest'
 
 import rawBanners from '@/data/timeline/banners.json'
+import rawEvents from '@/data/timeline/events.json'
 
-import {getBannerDailyScheduleEntry} from './timeline'
+import {getBannerDailyScheduleEntry, shouldDisplayEndedEventInArchive} from './timeline'
 import {
   resolveTimelineBannerDerivedPool,
   resolveTimelineBannerPoolSlots,
@@ -224,12 +225,49 @@ describe('timeline data loading', () => {
       detail: expect.stringContaining('-detail.webp'),
     })
   })
-  it('resolves both bundled Curriculum artwork variants', () => {
+  it('identifies Curriculum Term 40 and resolves both of its artwork variants', () => {
     const event = timelineEvents.find(({id}) => id === 'curriculum-261116')
+    expect(event?.title).toBe('Curriculum Honor: Term 40')
     expect(event?.artVariants).toEqual({
       card: expect.stringContaining('curriculum-card.webp'),
       detail: expect.stringContaining('curriculum-detail.webp'),
     })
+  })
+
+  it('keeps legacy artwork only on entries without dedicated crops', () => {
+    expect(
+      rawEvents
+        .filter((event) => Object.hasOwn(event, 'artVariants') && Object.hasOwn(event, 'customArt'))
+        .map(({id}) => id),
+    ).toEqual([])
+    expect(timelineEvents.find(({id}) => id === 'mythag-gifts-260309')?.customArt).toContain(
+      'gifts-from-mythag.webp',
+    )
+  })
+
+  it('archives the cosmetic-bearing Curriculum terms without assuming early track totals', () => {
+    const terms = timelineEvents
+      .filter((event) => event.category === 'curriculum' && event.startDate < '2026-11-16')
+      .sort((left, right) => left.startDate.localeCompare(right.startDate))
+
+    expect(terms.map(({title}) => title)).toEqual(
+      Array.from({length: 38}, (_, index) => `Curriculum Honor: Term ${String(index + 2)}`),
+    )
+    expect(terms.every(shouldDisplayEndedEventInArchive)).toBe(true)
+    for (const [index, term] of terms.entries()) {
+      if (index > 0) expect(term.startDate).toBe(terms[index - 1].endDate)
+      expect(term.rewards?.at(-1)?.items.some(({itemId}) => itemId !== undefined)).toBe(true)
+    }
+    expect(terms[0].pricing).toBeUndefined()
+    expect(terms[0].rewards?.map(({title}) => title)).toEqual(['Premium adds'])
+    const short = terms.find(({id}) => id === 'curriculum-260406')
+    expect(short?.rewards?.map(({price}) => price)).toEqual([
+      'Free',
+      '680 Silver Prime',
+      '980 Silver Prime',
+    ])
+    const standard = terms.find(({id}) => id === 'curriculum-261019')
+    expect(standard?.rewards?.at(-1)?.price).toBe('1,280 Silver Prime')
   })
 
   it('preserves reward groups and related IDs and rejects empty reward items', () => {
@@ -272,17 +310,17 @@ describe('timeline data loading', () => {
       realmId: 'CHAOS',
       detailLink: undefined,
     })
-    expect(story?.customArt).toContain('and-then-there-were-none')
+    expect(story?.artVariants?.detail).toContain('and-then-there-were-none-detail.webp')
 
     const clinic = timelineEvents.find((entry) => entry.id === 'soul-anatomist-261019')
     expect(clinic?.featured?.[0]).toMatchObject({
       name: "Imago's Clinic",
       detailLink: undefined,
     })
-    expect(clinic?.customArt).toContain('soul-anatomist')
+    expect(clinic?.artVariants?.detail).toContain('soul-anatomist-detail.webp')
     expect(
-      timelineEvents.find((entry) => entry.id === 'pickman-canvas-261102')?.customArt,
-    ).toContain('dark-side-of-the-canvas')
+      timelineEvents.find((entry) => entry.id === 'pickman-canvas-261102')?.artVariants?.detail,
+    ).toContain('dark-side-of-the-canvas-detail.webp')
   })
 
   it('uses the game opening day rather than the UTC day or banner end for eligibility', () => {
@@ -394,9 +432,9 @@ describe('timeline data loading', () => {
       category: 'curriculum',
       endDate: '2026-06-29T01:00:00.000Z',
       startDate: '2026-06-15T01:00:00.000Z',
-      title: 'Curriculum Honor',
+      title: 'Curriculum Honor: Term 34',
     })
-    expect(season34Curriculum?.description).toContain('doubled EXP')
+    expect(season34Curriculum?.description).toContain('double Topic EXP')
     expect(collabEvent).toMatchObject({
       category: 'gameplay-event',
       endDate: '2026-08-24T01:00:00.000Z',
@@ -416,9 +454,9 @@ describe('timeline data loading', () => {
       {kind: 'awakener', name: 'Saya'},
       {kind: 'wheel', name: 'Fragrant Morphogenesis'},
     ])
-    expect(anniversaryLogin?.customArt).toContain('to-the-star')
-    expect(dreamyRendezvous?.customArt).toContain('dreamy-rendezvous')
-    expect(collabEvent?.customArt).toContain('saya-event')
+    expect(anniversaryLogin?.artVariants?.detail).toContain('to-the-star-detail.webp')
+    expect(dreamyRendezvous?.artVariants?.detail).toContain('dreamy-rendezvous-detail.webp')
+    expect(collabEvent?.artVariants?.detail).toContain('saya-event-detail.webp')
     expect(collabSideStory).toMatchObject({
       category: 'story',
       endDate: '2026-08-24T01:00:00.000Z',
@@ -427,7 +465,7 @@ describe('timeline data loading', () => {
       title: 'Forgotten Seed of Love',
       featured: [{name: 'For the New World', kind: 'posse'}],
     })
-    expect(collabSideStory?.customArt).toContain('forgotten-seed')
+    expect(collabSideStory?.artVariants?.detail).toContain('forgotten-seed-detail.webp')
     expect(collabSideStory?.description).toContain('Permanent Multiverse Link side story')
     expect(collabBanner?.preliminary).toBeUndefined()
   })
@@ -1005,7 +1043,7 @@ describe('timeline data loading', () => {
       title: 'Ouvertüre Universell',
     })
     expect(skin?.featured?.map((unit) => unit.name)).toEqual(['Hameln'])
-    expect(skin?.customArt).toContain('hameln-skin')
+    expect(skin?.artVariants?.detail).toContain('ouverture-universell-detail.webp')
     expect(rerunEvent).toMatchObject({
       category: 'gameplay-event',
       endDate: '2026-07-13T01:00:00.000Z',
@@ -1064,18 +1102,18 @@ describe('timeline data loading', () => {
     ])
     expect(gameplay).toMatchObject({
       category: 'gameplay-event',
-      customArt: expect.stringContaining('should-glory-fade'),
+      artVariants: {detail: expect.stringContaining('should-glory-fade-detail.webp')},
       title: 'Should Glory Fade',
     })
     expect(archives).toMatchObject({
       category: 'wheel-event',
-      customArt: expect.stringContaining('born-in-darkness'),
+      artVariants: {detail: expect.stringContaining('born-in-darkness-detail.webp')},
       pricing: '1680 Silver Prime',
       title: 'Born in Darkness',
     })
     expect(preorder).toMatchObject({
       category: 'preorder',
-      customArt: expect.stringContaining('witchs-nocturnal-operation'),
+      artVariants: {detail: expect.stringContaining('witchs-nocturnal-operation-detail.webp')},
       endDate: '2026-11-16T01:00:00.000Z',
       pricing: '1980 Silver Prime',
       startDate: '2026-10-12T01:00:00.000Z',
