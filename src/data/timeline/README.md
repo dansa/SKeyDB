@@ -2,6 +2,14 @@
 
 This folder contains the JSON data files that power the Timeline page. Edit these files to add, remove, or update events and banners.
 
+## Run IDs
+
+Each event and banner run has one lowercase `series-YYMMDD` ID, shared by `/timeline?item=...` and `related` links. Use a short series key consistently across reruns (for example, `mythag-gifts`, `curriculum`, `kaleido-fl`, or `kaleido-ar`). The date is the first day of that run in the game's UTC+8 calendar, not the date the entry was added.
+
+Generate a new ID from the website repo with `npm run timeline:id -- pickman-canvas 2027/11/02`. The command prints the ID without editing the data and checks both timeline files for collisions. If separate runs share a series and start day, add a meaningful qualifier to the series key before generating the ID. Backfills work the same way as new runs. Once published, keep the ID fixed even if the title or scheduled start is corrected.
+
+The Tools schedule report supplies source dates and pool evidence; adding or updating a website timeline entry is still a reviewed edit. Use the printed ID in the new record and its `related` links. The script tests check ID format, uniqueness, and related targets across both files.
+
 ## Date Format
 
 All dates use the game's announcement format: **`YYYY/MM/DD HH:MM`** in **UTC+8** (Hong Kong / server time).
@@ -23,18 +31,27 @@ Array of event objects. Each event appears as a card in the Events section.
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `id` | string | **yes** | Unique identifier. Convention: `event-{category}-{short-name}` |
+| `id` | string | **yes** | Unique `series-YYMMDD` run ID; see [Run IDs](#run-ids) |
 | `title` | string | **yes** | Display title |
 | `category` | string | no | Determines the colored badge. See [Event Categories](#event-categories) below |
 | `description` | string | no | Short description text. Supports shared timeline rich text; see [Descriptions](#descriptions) |
 | `startDate` | string | **yes** | Start time in `YYYY/MM/DD HH:MM` UTC+8 |
 | `endDate` | string | **yes** | End time in `YYYY/MM/DD HH:MM` UTC+8 |
+| `keyDates` | array | no | Additional `{label, date}` facts shown in event details only, using the same date format as `endDate`. Use for verified claim and purchase deadlines. |
 | `pinned` | boolean | no | Pinned events sort to the top |
 | `preliminary` | boolean | no | Marks dates, rewards, or details as provisional and shows a `Preliminary` metadata label |
 | `featured` | string, object, or array | no | One or more featured awakeners or wheels. Uses the same item forms as banner [`featured`](#featured-units), including explicit kinds, custom art, and detail-link opt-outs |
 | `customArt` | string | no | Custom art URL or path. Overrides `featured` art if both are set. Use for skins, special promo art, raid art, etc. Non-URL values like `"TBD"` are ignored. Paths starting with `/events/` are resolved against `src/assets/events/*` (bundled), e.g. `/events/arachne.png` |
 | `pricing` | string | no | Displays a silver pricing badge, e.g. `"960 Silver Prime"`, `"$24.99"` |
-| `artAlign` | string | no | Overrides the default art positioning. Accepts any CSS `object-position` value. See [Art Alignment](#art-alignment) below |
+| `rewards` | array | no | Reward groups with a nonempty `items` array of `{name, amount?, itemId?}`. Optional fields: `title`, `note`, `layout` (`days`), `price`, `summaryCount`, `choiceCount` (number of picks from the items after `summaryCount`), and `claims` (`{label, items}` rows). |
+| `missions` | array | no | Rows of `{label, standard, premium?}`. Each track is an array of reward items. Use `premium` only for additional paid rewards. |
+| `artVariants` | object | no | Both `card` (square) and `detail` (wide) must resolve to bundled `/events/` assets. Omit `customArt` when both crops are supplied. |
+| `related` | array | no | Existing event or banner IDs. IDs must be unique across both files. |
+
+For free/paid tracks, set the individual group prices explicitly (for example, `Free` and `1680 Silver Prime`). Leave the entry price for the card summary. Use `summaryCount` to keep long lists compact and `claims` for dated claims, not mission rewards.
+
+Keep event-only currencies out of reward totals. For random shops, separate capped stock from repeatable draws. Use the original event artwork where available and record its source when adding new crops.
+
 
 ### Event Categories
 
@@ -42,12 +59,12 @@ Array of event objects. Each event appears as a card in the Events section.
 |----------|-------------|---------|
 | `story` | Amber | Story events and story reruns |
 | `raid` | Red | Raid and competitive PvE events |
-| `battlepass` | Violet | Battle pass events |
+| `battlepass` | Green | Battle pass events |
 | `gameplay-event` | Amber | General gameplay events |
 | `d-tide` | Red | Rotating D-Tide events; ended entries are hidden from the archive |
-| `curriculum` | Violet | Seasonal task-track passes; ended entries are hidden from the archive |
+| `curriculum` | Green | Seasonal task-track passes, including historical runs with verified Premium rewards |
 | `login` | Teal | Daily login bonus events; ended entries are hidden from the archive |
-| `skin` | Violet | Outfit / skin releases |
+| `skin` | Rose | Outfit / skin releases |
 | `wheel-event` | Blue | Wheel acquisition events (gacha for wheels) |
 | `anniversary` | Teal | Anniversary events |
 | `milestone` | Gold | Milestone events and rewards |
@@ -57,18 +74,19 @@ Array of event objects. Each event appears as a card in the Events section.
 | `maintenance` | Slate | Server maintenance windows |
 | `other` | Slate | Anything that doesn't fit above |
 
-### Art Alignment
+### Event Art Crops
 
-By default, character art uses `top` positioning (shows head/upper body) and wheel art uses `center`. You can override this per-event with `artAlign`:
+Prepare a square card crop and a wide detail crop, then reference them in `artVariants`. Both are centered in their frames. Use `customArt` only for older entries without dedicated crops.
 
-```json
-"artAlign": "center"          // center the image
-"artAlign": "top"             // show top (default for characters)
-"artAlign": "bottom"          // show bottom
-"artAlign": "50% 20%"         // precise CSS object-position (x y)
-```
+### Curriculum History
+
+Archive the terms with unique rewards; recurring Gifts from Mythag remain hidden in history. Use the term's own start/end, Premium extras, and double-EXP flag. Include Basic and Advanced totals and prices only when supported by the dated pass data. Premium includes Advanced; its reward group lists only the additional rewards.
+
+The Tools `scripts/timeline_curriculum_evidence.py` report can prepare an explicitly reviewed range of terms and extract their cosmetic icons. Curriculum reward `itemId` values match `src/assets/events/rewards/curriculum-<itemId>.webp`, so a localization change does not break the art. Reuse the shared Curriculum card and detail crops.
 
 ### Descriptions
+
+Write event and banner descriptions and reward notes as they would read during the run: use present tense for mechanics and scheduled deadlines. Leave that wording intact when a run moves into the archive; the timeline handles its ended status separately.
 
 Descriptions support `\n` for line breaks:
 ```json
@@ -88,15 +106,34 @@ Note: double quotes inside strings must be escaped with `\"` — this is a JSON 
 
 ```json
 {
-  "id": "event-story-vortice",
+  "id": "moskstraumen-260309",
   "title": "Call of the Moskstraumen",
   "category": "gameplay-event",
   "description": "Gameplay and story event featuring *Vortice*.\nObtain SR-Wheel and more.",
   "startDate": "2026/03/09 09:00",
   "endDate": "2026/03/23 09:00",
   "pinned": true,
-  "featured": "Vortice"
+  "featured": "Vortice",
+  "rewards": [{"title": "Missions", "items": [{"name": "Pure Core", "amount": "×10"}]}],
+  "related": ["vortice-duo-260309"]
 }
+```
+
+---
+
+## patches.json
+
+Major game updates that get a named marker in the Timeline agenda. List only anniversaries, half-anniversaries and collabs; regular patches stay unlisted.
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `id` | string | **yes** | Unique identifier, e.g. `patch-anniversary-2026` |
+| `title` | string | **yes** | Name shown in the agenda, e.g. `Anniversary` |
+| `kind` | string | **yes** | `anniversary`, `half-anniversary` or `collab` |
+| `date` | string | **yes** | When the update goes live, in `YYYY/MM/DD HH:MM` UTC+8 |
+
+```json
+{"id": "patch-anniversary-2026", "title": "Anniversary", "kind": "anniversary", "date": "2026/11/30 09:00"}
 ```
 
 ---
@@ -109,7 +146,7 @@ Array of banner objects. Each banner appears as a card in the Banners section wi
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `id` | string | **yes** | Unique identifier. Convention: `banner-{short-name}` |
+| `id` | string | **yes** | Unique `series-YYMMDD` run ID; see [Run IDs](#run-ids) |
 | `title` | string | **yes** | Display title |
 | `type` | string | **yes** | Determines the type badge. See [Banner Types](#banner-types) below |
 | `tags` | array | no | Optional display tags when one label is not enough, e.g. `["limited", "collab", "preliminary"]`. Falls back to `type` when omitted. |
@@ -119,10 +156,14 @@ Array of banner objects. Each banner appears as a card in the Banners section wi
 | `pinned` | boolean | no | Pinned banners sort to the top |
 | `featured` | array | no | List of featured units. See [Featured Units](#featured-units) |
 | `poolSlots` | array | no | Rotating pool slots. See [Pool Slots](#pool-slots) |
+| `dailySchedule` | array | for `daily` | One row per game day, ordered and consecutive: `{day, featured, offBanner?}`. |
+| `rateUpGroups` | array | no | Separate featured banners: `{kind, options: [{title, rateUp, offBanner?}], sharedOffBanner?}`. Use a shared pool only when it applies to every option. |
+| `rulesProfile` | string | no | Supported profiles: `myriad-self-select`, `oathbound-oracle`, `kaleido`, `fated-soiree`, and `triple-soiree`. Use a profile only when that specific run follows it. The last two control paid banner artwork presentation. |
 | `derivedPool` | object | no | Database-derived pool configuration. Use `slots` for independently filtered bucket slots |
 | `linkedPresentation` | string | no | Linked-slot artwork mode: `expanded` (default, side by side), `alternating` (one labeled column alternating owner and wheel), or `paired` (one labeled column with a 60/40 owner-and-wheel split) |
 | `customArt` | string | no | Full-card banner art URL or path. Overrides featured/pool artwork when present. Paths starting with `/banners/` are resolved against `src/assets/banners/*`. |
 | `preliminary` | boolean | no | Marks dates, pools, or banner details as provisional. If `tags` is omitted, adds `Preliminary` beside the type label |
+| `related` | array | no | IDs of related events or banners |
 
 Derived pools include only Awakeners released on or before the banner's opening
 day in the game's UTC+8 calendar, together with their matching SSR wheels. Later
@@ -143,6 +184,8 @@ This is a release-date cutoff, not a snapshot of historical database classificat
 | `selector` | Pick-your-own-rate-up banners |
 | `wheel` | Wheel-only banners |
 | `combo` | Combo banners (mixed character + wheel pools) |
+| `daily` | Banners with a day-by-day rotation and a `dailySchedule` |
+| `premium` | Paid-only banner runs |
 
 Display-only tags also support `collab` for collaboration banners and `preliminary` for provisional information.
 
@@ -303,7 +346,7 @@ bottom 40%; both advance as one candidate pair.
 
 ```json
 {
-  "id": "banner-arcane-tides",
+  "id": "arcane-tides-260305",
   "title": "Awaken — Arcane Tides",
   "type": "awaken",
   "description": "Featured rate-up. [Review on Discord](https://discord.gg/example)",

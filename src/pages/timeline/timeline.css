@@ -32,32 +32,7 @@
   }
 }
 
-.timeline-date-container {
-  container-type: inline-size;
-}
-
-.timeline-date-display__visual {
-  display: inline;
-}
-
-.timeline-date-display__part {
-  display: inline;
-}
-
-@container (max-width: 26rem) {
-  .timeline-date-display--responsive .timeline-date-display__visual {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.08rem;
-  }
-
-  .timeline-date-display--responsive .timeline-date-display__separator {
-    display: none;
-  }
-}
-
-/* Event metadata keeps only the custom OKLCH taxonomy palette here. Layout lives in EventCard. */
+/* Shared event and banner taxonomy colors. */
 .timeline-event-meta--amber {
   color: oklch(77% 0.078 83 / 0.88);
 }
@@ -74,6 +49,10 @@
   color: oklch(77% 0.062 68 / 0.88);
 }
 
+.timeline-event-meta--green {
+  color: oklch(78% 0.08 135 / 0.88);
+}
+
 .timeline-event-meta--orange {
   color: oklch(77% 0.076 55 / 0.88);
 }
@@ -84,6 +63,10 @@
 
 .timeline-event-meta--red {
   color: oklch(76% 0.078 28 / 0.88);
+}
+
+.timeline-event-meta--rose {
+  color: oklch(77% 0.075 350 / 0.88);
 }
 
 .timeline-event-meta--slate {
@@ -99,223 +82,5 @@
 }
 
 .timeline-event-meta--ended {
-  color: oklch(57% 0.034 255 / 0.72);
-}
-
-.timeline-v2-filter-list {
-  position: relative;
-  display: grid;
-  width: min(100%, 29rem);
-  max-width: 100%;
-  min-width: 0;
-  min-inline-size: 0;
-  margin: 0;
-  border: 0;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  padding: 0;
-  justify-self: center;
-}
-
-.timeline-v2-control-stack {
-  display: grid;
-  min-width: 0;
-  justify-items: center;
-  gap: 0.55rem;
-}
-
-.timeline-v2-price-toggle-shell {
-  display: flex;
-  min-width: 0;
-  min-inline-size: 0;
-  max-width: 100%;
-  align-items: baseline;
-  justify-content: center;
-  gap: 0.55rem;
-  margin: 0;
-  border: 0;
-  padding: 0;
-}
-
-.timeline-v2-price-toggle-label {
-  color: var(--ui-text-faint);
-  font-size: var(--ui-text-label);
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: var(--ui-label-tracking);
-  text-transform: uppercase;
-}
-
-.timeline-v2-price-toggle {
-  display: inline-grid;
-  min-width: 0;
-  grid-template-columns: repeat(2, minmax(3.85rem, 1fr));
-  border: 1px solid var(--ui-control-border);
-  background: linear-gradient(180deg, var(--ui-control-surface), var(--ui-control-surface-strong));
-  box-shadow: inset 0 1px 0 oklch(93% 0.03 84 / 0.04);
-}
-
-.timeline-v2-price-toggle-button {
-  min-width: 0;
-  min-height: 2rem;
-  border: 0;
-  background: transparent;
-  padding: 0.5rem 0.65rem;
-  color: var(--ui-control-text);
-  font-size: var(--ui-text-label);
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  transition:
-    background-color var(--ui-motion-duration-fast) var(--ui-motion-ease-soft),
-    color var(--ui-motion-duration-fast) var(--ui-motion-ease-soft),
-    box-shadow var(--ui-motion-duration-fast) var(--ui-motion-ease-soft);
-}
-
-.timeline-v2-price-toggle-button + .timeline-v2-price-toggle-button {
-  border-left: 1px solid var(--ui-control-border-subtle);
-}
-
-.timeline-v2-price-toggle-button--active {
-  background: linear-gradient(180deg, var(--ui-active-surface), var(--ui-active-surface-strong));
-  color: oklch(94% 0.035 84 / 0.96);
-  box-shadow:
-    inset 0 0 0 1px oklch(82% 0.1 84 / 0.18),
-    0 0 0.75rem oklch(78% 0.1 84 / 0.08);
-}
-
-.timeline-v2-price-toggle-button--inactive:hover,
-.timeline-v2-price-toggle-button--inactive:focus-visible {
-  color: var(--ui-control-text-hover);
-}
-
-.timeline-v2-price-toggle-button:focus-visible {
-  outline: 2px solid var(--ui-focus-ring-soft);
-  outline-offset: 2px;
-}
-
-.timeline-v2-filter-button {
-  position: relative;
-  display: inline-flex;
-  min-width: 0;
-  min-height: 4.8rem;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 0.5rem;
-  border: 0;
-  background: transparent;
-  color: oklch(72% 0.035 254 / 0.86);
-  padding: 0.75rem 0.5rem;
-  font-family: 'Droid Serif', Georgia, serif;
-  font-size: 0.98rem;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  transition:
-    background-color var(--ui-motion-duration-fast) var(--ui-motion-ease-soft),
-    color var(--ui-motion-duration-fast) var(--ui-motion-ease-soft);
-}
-
-.timeline-v2-filter-button::before {
-  content: '';
-  width: 0.52rem;
-  height: 0.52rem;
-  border: 4px solid transparent;
-  box-shadow: inset 0 0 0 1px currentColor;
-  opacity: 0.42;
-  transform: rotate(45deg);
-  transition:
-    border-color var(--ui-motion-duration-fast) var(--ui-motion-ease-soft),
-    opacity var(--ui-motion-duration-fast) var(--ui-motion-ease-soft),
-    box-shadow var(--ui-motion-duration-fast) var(--ui-motion-ease-soft);
-}
-
-.timeline-v2-filter-label::before {
-  content: '';
-  position: absolute;
-  inset: -0.35rem -0.75rem;
-  z-index: -1;
-  background: radial-gradient(ellipse at center, oklch(72% 0.1 84 / 0.3), transparent 68%);
-  filter: blur(0.7rem);
-  opacity: 0;
-  transition: opacity var(--ui-motion-duration-fast) var(--ui-motion-ease-soft);
-}
-
-.timeline-v2-filter-label {
-  position: relative;
-  z-index: 1;
-  min-width: 0;
-  max-width: 100%;
-}
-
-.timeline-v2-filter-button--active {
-  color: oklch(95% 0.035 84);
-  text-shadow:
-    0 0 0.7rem oklch(78% 0.09 84 / 0.32),
-    0 0.08rem 0.65rem oklch(3% 0.02 250 / 0.9);
-}
-
-.timeline-v2-filter-button--active::before {
-  border-color: oklch(82% 0.12 88 / 0.88);
-  opacity: 1;
-  box-shadow:
-    inset 0 0 0 1px oklch(12% 0.025 248 / 0.72),
-    0 0 0.85rem oklch(78% 0.1 84 / 0.24);
-}
-
-.timeline-v2-filter-button--active .timeline-v2-filter-label::before {
-  opacity: 1;
-}
-
-.timeline-v2-filter-button--inactive:hover,
-.timeline-v2-filter-button--inactive:focus-visible {
-  color: oklch(85% 0.025 254 / 0.94);
-}
-
-.timeline-v2-filter-button--inactive:hover::before,
-.timeline-v2-filter-button--inactive:focus-visible::before {
-  border-color: oklch(82% 0.12 88 / 0.88);
-  color: oklch(95% 0.035 84);
-  opacity: 0.8;
-  box-shadow:
-    inset 0 0 0 1px oklch(12% 0.025 248 / 0.72),
-    0 0 0.65rem oklch(78% 0.1 84 / 0.18);
-}
-
-.timeline-v2-filter-button:focus-visible {
-  outline: 2px solid var(--ui-focus-ring-soft);
-  outline-offset: 2px;
-}
-
-@media (min-width: 48rem) {
-  .timeline-v2-control-stack {
-    justify-items: start;
-  }
-
-  .timeline-v2-filter-list {
-    justify-self: start;
-  }
-}
-
-@media (max-width: 47.999rem) {
-  .timeline-v2-filter-button {
-    min-height: 3.55rem;
-    gap: 0.35rem;
-    padding-block: 0.55rem 0.5rem;
-    font-size: 0.92rem;
-  }
-
-  .timeline-v2-filter-button::before {
-    width: 0.42rem;
-    height: 0.42rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .timeline-v2-filter-button,
-  .timeline-v2-filter-button::before,
-  .timeline-v2-filter-label::before,
-  .timeline-v2-price-toggle-button {
-    transition: none;
-  }
+  color: oklch(68% 0.03 255 / 0.9);
 }

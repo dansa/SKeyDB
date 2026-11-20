@@ -12,9 +12,11 @@ interface BannerMetadataListProps {
   endedTextClass: string
   fallbackClass: string
   isEnded: boolean
+  /** Caps the tag list; the price is always shown when enabled. */
   limit?: number
+  priceClass?: string
   priceMode: TimelinePriceDisplayMode
-  renderWhenEmpty?: boolean
+  showPrice?: boolean
   separatorClass: string
 }
 
@@ -26,14 +28,16 @@ export function BannerMetadataList({
   fallbackClass,
   isEnded,
   limit,
+  priceClass,
   priceMode,
-  renderWhenEmpty = false,
+  showPrice = true,
   separatorClass,
 }: BannerMetadataListProps) {
-  const items = getBannerMetadataItems(banner, priceMode, limit)
-  const keyedItems = getKeyedBannerMetadataItems(items)
+  const tags = getBannerMetadataTags(banner, limit)
+  const price = showPrice ? formatTimelinePrice(banner.pricing, priceMode) : undefined
+  const keyedItems = getKeyedBannerMetadataItems(tags)
 
-  if (items.length === 0 && !renderWhenEmpty) return null
+  if (tags.length === 0 && !price) return null
 
   return (
     <div className={className}>
@@ -49,6 +53,22 @@ export function BannerMetadataList({
           </span>
         </Fragment>
       ))}
+      {price ? (
+        <>
+          {keyedItems.length ? (
+            <span aria-hidden className={isEnded ? endedSeparatorClass : separatorClass}>
+              &middot;
+            </span>
+          ) : null}
+          <span
+            className={
+              isEnded ? endedTextClass : (priceClass ?? getBannerTagColor(price, fallbackClass))
+            }
+          >
+            {price}
+          </span>
+        </>
+      ) : null}
     </div>
   )
 }
@@ -62,17 +82,9 @@ function getKeyedBannerMetadataItems(items: readonly string[]) {
   })
 }
 
-function getBannerMetadataItems(
-  banner: BannerEntry,
-  priceMode: TimelinePriceDisplayMode,
-  limit: number | undefined,
-) {
-  const displayPricing = formatTimelinePrice(banner.pricing, priceMode)
-  const items = [
-    ...getBannerDisplayTags(banner),
-    ...(banner.customTags ?? []),
-    displayPricing,
-  ].filter((tag): tag is string => Boolean(tag))
-
+function getBannerMetadataTags(banner: BannerEntry, limit: number | undefined) {
+  const items = [...getBannerDisplayTags(banner), ...(banner.customTags ?? [])].filter(
+    (tag): tag is string => Boolean(tag),
+  )
   return typeof limit === 'number' ? items.slice(0, limit) : items
 }

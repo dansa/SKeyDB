@@ -1,94 +1,468 @@
 [
   {
-    "id": "banner-vortice",
+    "id": "vortice-duo-260309",
     "title": "Maelstrom of Woe / Forsaken Isle",
     "type": "awaken",
     "description": "Featured rate-up banners for Vortice and her SSR Wheel 'The Faraway Eden'.",
     "startDate": "2026/03/09 09:00",
     "endDate": "2026/04/06 09:00",
     "featured": ["Vortice", "The Faraway Eden"],
-    "pinned": true
+    "pinned": true,
+    "rateUpGroups": [
+      {
+        "kind": "awakener",
+        "options": [{"title": "Maelstrom of Woe", "rateUp": "Vortice", "offBanner": ["Goliath", "Faros", "Caecus", "Sanga", "Celeste"]}]
+      },
+      {
+        "kind": "wheel",
+        "options": [{"title": "Forsaken Isle", "rateUp": "The Faraway Eden"}],
+        "sharedOffBanner": [
+          "Memory Spiral",
+          "Gift of Decay",
+          "Drifting in Desire",
+          "Will Unyielding",
+          "Silent Banquet",
+          "Blade of the Titan",
+          "Amidst the Downpour",
+          "Fin of Sorrow",
+          "Death of Ms. Coral",
+          "Sail of Providence",
+          "Chains Unbound",
+          "Pale Descendant",
+          "Bloody Feast",
+          "The Glutton's Tale",
+          "Lullaby Devoured",
+          "Fouetté",
+          "Song of the Bound",
+          "Incalculable Factor",
+          "Path Forsaken",
+          "Happy Magic Show"
+        ]
+      }
+    ]
   },
   {
-    "id": "banner-triune-verdant-feb",
+    "id": "triune-verdant-260223",
     "title": "Triune Verdant",
     "type": "rerun",
-    "description": "Three rerun banners, featuring the awakeners 24, Horla and Pickman.",
+    "description": "Three rerun banners featuring 24, Horla and Pickman.",
     "startDate": "2026/02/23 09:00",
-    "endDate": "2026/03/24 09:00",
-    "featured": ["24", "Horla", "Pickman"]
+    "endDate": "2026/03/23 09:00",
+    "rateUpGroups": [
+      {
+        "kind": "awakener",
+        "options": [
+          {
+            "title": "As Myself",
+            "rateUp": "24",
+            "offBanner": ["Nautila", "Nymphaea", "Pandia", "Alva", "Karen"]
+          },
+          {
+            "title": "Paper to Ash",
+            "rateUp": "Horla",
+            "offBanner": ["Liz", "Tinct", "Winkle", "Jenkin", "Casiah"]
+          },
+          {
+            "title": "Daubed in Nightmares",
+            "rateUp": "Pickman",
+            "offBanner": ["Helot", "Agrippa", "Uvhash", "Leigh", "Faint"]
+          }
+        ]
+      }
+    ]
   },
   {
-    "id": "banner-sylvan-omen-feb",
+    "id": "sylvan-omen-260223",
     "title": "Sylvan Omen",
     "type": "rerun",
-    "description": "Three rerun banners, featuring the Wheels Aberrant Devour, The Last Verse and Paradoxical Realism.",
+    "description": "Three rerun banners featuring the Wheels Aberrant Devour, The Last Verse and Paradoxical Realism.",
     "startDate": "2026/02/23 09:00",
-    "endDate": "2026/03/24 09:00",
-    "featured": ["Aberrant Devour", "The Last Verse", "Paradoxical Realism"]
+    "endDate": "2026/03/23 09:00",
+    "rateUpGroups": [
+      {
+        "kind": "wheel",
+        "options": [
+          {
+            "title": "Symbiotic Illusion",
+            "rateUp": "Aberrant Devour"
+          },
+          {
+            "title": "Last Petal Falls",
+            "rateUp": "The Last Verse"
+          },
+          {
+            "title": "Delirious Duality",
+            "rateUp": "Paradoxical Realism"
+          }
+        ],
+        "sharedOffBanner": [
+          "Memory Spiral",
+          "Gift of Decay",
+          "Drifting in Desire",
+          "Will Unyielding",
+          "Silent Banquet",
+          "Blade of the Titan",
+          "Amidst the Downpour",
+          "Fin of Sorrow",
+          "Death of Ms. Coral",
+          "Sail of Providence",
+          "Chains Unbound",
+          "Pale Descendant",
+          "Bloody Feast",
+          "The Glutton's Tale",
+          "Lullaby Devoured",
+          "Fouetté",
+          "Song of the Bound",
+          "Incalculable Factor",
+          "Path Forsaken",
+          "Happy Magic Show"
+        ]
+      }
+    ]
   },
   {
-    "id": "banner-triune-verdant-mar",
+    "id": "triune-verdant-260323",
     "title": "Triune Verdant",
     "type": "rerun",
-    "description": "Three rerun banners, featuring the awakeners Wanda, Salvador and Kathigu-ra.",
+    "description": "Three rerun banners featuring Wanda, Salvador and Kathigu-Ra.",
     "startDate": "2026/03/23 09:00",
     "endDate": "2026/04/20 09:00",
-    "featured": ["Wanda", "Salvador", "Kathigu-ra"]
+    "rateUpGroups": [
+      {
+        "kind": "awakener",
+        "options": [
+          {
+            "title": "Lady of Thorns",
+            "rateUp": "Wanda",
+            "offBanner": ["Liz", "Tinct", "Winkle", "Jenkin", "Casiah"]
+          },
+          {
+            "title": "Herald of Divine Will",
+            "rateUp": "Salvador",
+            "offBanner": ["Helot", "Agrippa", "Uvhash", "Leigh", "Faint"]
+          },
+          {
+            "title": "Eternal Conflagration",
+            "rateUp": "Kathigu-Ra",
+            "offBanner": ["Nautila", "Nymphaea", "Pandia", "Alva", "Karen"]
+          }
+        ]
+      }
+    ]
   },
   {
-    "id": "banner-sylvan-omen-mar",
+    "id": "sylvan-omen-260323",
     "title": "Sylvan Omen",
     "type": "rerun",
-    "description": "Three rerun banners, featuring the Wheels Queen's Edict, Tablet of Scriptures, Amber-Tinted Death",
+    "description": "Three rerun banners featuring the Wheels Queen's Edict, Tablet of Scriptures and Amber-Tinted Death.",
     "startDate": "2026/03/23 09:00",
     "endDate": "2026/04/20 09:00",
-    "featured": ["Queen's Edict", "Tablet of Scriptures", "Amber-Tinted Death"]
+    "rateUpGroups": [
+      {
+        "kind": "wheel",
+        "options": [
+          {
+            "title": "Opulent Fervor",
+            "rateUp": "Queen's Edict"
+          },
+          {
+            "title": "Primordial Dawn",
+            "rateUp": "Tablet of Scriptures"
+          },
+          {
+            "title": "From Fomalhaut",
+            "rateUp": "Amber-Tinted Death"
+          }
+        ],
+        "sharedOffBanner": [
+          "Memory Spiral",
+          "Gift of Decay",
+          "Drifting in Desire",
+          "Will Unyielding",
+          "Silent Banquet",
+          "Blade of the Titan",
+          "Amidst the Downpour",
+          "Fin of Sorrow",
+          "Death of Ms. Coral",
+          "Sail of Providence",
+          "Chains Unbound",
+          "Pale Descendant",
+          "Bloody Feast",
+          "The Glutton's Tale",
+          "Lullaby Devoured",
+          "Fouetté",
+          "Song of the Bound",
+          "Incalculable Factor",
+          "Path Forsaken",
+          "Happy Magic Show"
+        ]
+      }
+    ]
   },
   {
-    "id": "banner-triune-verdant-apr",
+    "id": "triune-verdant-260406",
     "title": "Triune Verdant",
     "type": "rerun",
-    "description": "Three rerun banners, featuring the awakeners Tulu, Sorel and Doll: Inferno.",
+    "description": "Three rerun banners featuring Tulu, Sorel and Doll: Inferno.",
     "startDate": "2026/04/06 09:00",
     "endDate": "2026/05/04 09:00",
-    "featured": ["Tulu", "Sorel", "Doll: Inferno"]
+    "rateUpGroups": [
+      {
+        "kind": "awakener",
+        "options": [
+          {
+            "title": "When Stars Align",
+            "rateUp": "Tulu",
+            "offBanner": ["Goliath", "Faros", "Caecus", "Sanga", "Celeste"]
+          },
+          {
+            "title": "Sumptuous Banquet",
+            "rateUp": "Sorel",
+            "offBanner": ["Helot", "Agrippa", "Uvhash", "Leigh", "Faint"]
+          },
+          {
+            "title": "Absolute Prophet",
+            "rateUp": "Doll: Inferno",
+            "offBanner": ["Nautila", "Nymphaea", "Pandia", "Alva", "Karen"]
+          }
+        ]
+      }
+    ]
   },
   {
-    "id": "banner-sylvan-omen-apr",
+    "id": "sylvan-omen-260406",
     "title": "Sylvan Omen",
     "type": "rerun",
-    "description": "Three rerun banners, featuring the Wheels Hymn of the Sovereign, By Rose Alone and Manikin of Oblivion.",
+    "description": "Three rerun banners featuring the Wheels Hymn of the Sovereign, By Rose Alone and Manikin of Oblivion.",
     "startDate": "2026/04/06 09:00",
     "endDate": "2026/05/04 09:00",
-    "featured": ["Hymn of the Sovereign", "By Rose Alone", "Manikin of Oblivion"]
+    "rateUpGroups": [
+      {
+        "kind": "wheel",
+        "options": [
+          {
+            "title": "Dark Sea Whispers",
+            "rateUp": "Hymn of the Sovereign"
+          },
+          {
+            "title": "Crimson Deluge",
+            "rateUp": "By Rose Alone"
+          },
+          {
+            "title": "Void Projection",
+            "rateUp": "Manikin of Oblivion"
+          }
+        ],
+        "sharedOffBanner": [
+          "Memory Spiral",
+          "Gift of Decay",
+          "Drifting in Desire",
+          "Will Unyielding",
+          "Silent Banquet",
+          "Blade of the Titan",
+          "Amidst the Downpour",
+          "Fin of Sorrow",
+          "Death of Ms. Coral",
+          "Sail of Providence",
+          "Chains Unbound",
+          "Pale Descendant",
+          "Bloody Feast",
+          "The Glutton's Tale",
+          "Lullaby Devoured",
+          "Fouetté",
+          "Song of the Bound",
+          "Incalculable Factor",
+          "Path Forsaken",
+          "Happy Magic Show"
+        ]
+      }
+    ]
   },
   {
-    "id": "banner-arachne",
+    "id": "arachne-duo-260420",
     "title": "Fata Texunt / Sempiternal Web",
     "type": "awaken",
     "description": "Featured rate-up banners for Arachne and her SSR Wheel 'Eternal Weave'.",
     "startDate": "2026/04/20 09:00",
     "endDate": "2026/05/18 09:00",
     "featured": ["Arachne", "Eternal Weave"],
-    "pinned": true
+    "pinned": true,
+    "rateUpGroups": [
+      {
+        "kind": "awakener",
+        "options": [{"title": "Fata Texunt", "rateUp": "Arachne", "offBanner": ["Liz", "Tinct", "Winkle", "Jenkin", "Casiah"]}]
+      },
+      {
+        "kind": "wheel",
+        "options": [{"title": "Sempiternal Web", "rateUp": "Eternal Weave"}],
+        "sharedOffBanner": [
+          "Memory Spiral",
+          "Gift of Decay",
+          "Drifting in Desire",
+          "Will Unyielding",
+          "Silent Banquet",
+          "Blade of the Titan",
+          "Amidst the Downpour",
+          "Fin of Sorrow",
+          "Death of Ms. Coral",
+          "Sail of Providence",
+          "Chains Unbound",
+          "Pale Descendant",
+          "Bloody Feast",
+          "The Glutton's Tale",
+          "Lullaby Devoured",
+          "Fouetté",
+          "Song of the Bound",
+          "Incalculable Factor",
+          "Path Forsaken",
+          "Happy Magic Show"
+        ]
+      }
+    ]
   },
   {
-    "id": "banner-moonless-guide",
+    "id": "kaleido-fl-260505",
     "title": "Kaleido Recollections: Faded Legacy",
     "type": "combo",
-    "description": "Premium banner featuring all limited Awakeners and Wheels of Destiny from \"Faded Legacy\".",
+    "description": "Limited Faded Legacy Awakeners and Wheels.",
     "startDate": "2026/05/05 09:00",
     "endDate": "2026/05/30 09:00",
-    "derivedPool": {
-      "availabilityTypes": ["LIMITED_FADED_LEGACY"],
-      "slotCount": 4,
-      "awakenerSlots": 3,
-      "wheelSlots": 1
-    }
+    "rulesProfile": "kaleido",
+    "poolSlots": [
+      {
+        "label": "Awakeners",
+        "pool": [
+          {
+            "name": "Lily",
+            "kind": "awakener"
+          },
+          {
+            "name": "24",
+            "kind": "awakener"
+          },
+          {
+            "name": "Ryker",
+            "kind": "awakener"
+          },
+          {
+            "name": "Hameln",
+            "kind": "awakener"
+          },
+          {
+            "name": "Tawil",
+            "kind": "awakener"
+          },
+          {
+            "name": "Tulu",
+            "kind": "awakener"
+          },
+          {
+            "name": "Murphy",
+            "kind": "awakener"
+          },
+          {
+            "name": "Miryam",
+            "kind": "awakener"
+          },
+          {
+            "name": "Sorel",
+            "kind": "awakener"
+          },
+          {
+            "name": "Salvador",
+            "kind": "awakener"
+          },
+          {
+            "name": "Thais",
+            "kind": "awakener"
+          },
+          {
+            "name": "Helot: Catena",
+            "kind": "awakener"
+          },
+          {
+            "name": "Daffodil",
+            "kind": "awakener"
+          },
+          {
+            "name": "Wanda",
+            "kind": "awakener"
+          },
+          {
+            "name": "Horla",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "label": "Wheels",
+        "pool": [
+          {
+            "name": "Grace Through Pain",
+            "kind": "wheel"
+          },
+          {
+            "name": "Aberrant Devour",
+            "kind": "wheel"
+          },
+          {
+            "name": "Hour of Fortune",
+            "kind": "wheel"
+          },
+          {
+            "name": "Eternal Requiem",
+            "kind": "wheel"
+          },
+          {
+            "name": "Wheel Unseen",
+            "kind": "wheel"
+          },
+          {
+            "name": "Hymn of the Sovereign",
+            "kind": "wheel"
+          },
+          {
+            "name": "Shrouded Birth",
+            "kind": "wheel"
+          },
+          {
+            "name": "Power of the Pious",
+            "kind": "wheel"
+          },
+          {
+            "name": "By Rose Alone",
+            "kind": "wheel"
+          },
+          {
+            "name": "Tablet of Scriptures",
+            "kind": "wheel"
+          },
+          {
+            "name": "Merciful Nurturing",
+            "kind": "wheel"
+          },
+          {
+            "name": "Drowning in Crimson",
+            "kind": "wheel"
+          },
+          {
+            "name": "Treasured Rarity",
+            "kind": "wheel"
+          },
+          {
+            "name": "Queen's Edict",
+            "kind": "wheel"
+          },
+          {
+            "name": "The Last Verse",
+            "kind": "wheel"
+          }
+        ]
+      }
+    ]
   },
   {
-    "id": "banner-saya-no-uta-collab",
+    "id": "saya-collab-260530",
     "title": "Sprout of Liebestod / Alien Crypsela",
     "type": "awaken",
     "tags": ["awaken", "collab"],
@@ -99,156 +473,1653 @@
       {"name": "Saya", "kind": "awakener"},
       {"name": "Fragrant Morphogenesis", "kind": "wheel"}
     ],
-    "pinned": true
-  },
-  {
-    "id": "banner-echoing-wishes",
-    "title": "Echoing Wishes",
-    "type": "daily",
-    "description": "Daily rotating special awakening banners. Each day features a different limited awakener and their recommended Wheel of Destiny.",
-    "startDate": "2026/05/18 09:00",
-    "endDate": "2026/06/15 09:00",
-    "dailySchedule": [
-      {"day": 1, "featured": ["Tulu", "Hymn of the Sovereign"]},
-      {"day": 2, "featured": ["Daffodil", "Treasured Rarity"]},
-      {"day": 3, "featured": ["Sorel", "By Rose Alone"]},
-      {"day": 4, "featured": ["Lily", "Grace Through Pain"]},
-      {"day": 5, "featured": ["Murphy", "Shrouded Birth"]},
-      {"day": 6, "featured": ["Wanda", "Queen's Edict"]},
-      {"day": 7, "featured": ["Salvador", "Tablet of Scriptures"]},
-      {"day": 8, "featured": ["24", "Aberrant Devour"]},
-      {"day": 9, "featured": ["Thais", "Merciful Nurturing"]},
-      {"day": 10, "featured": ["Miryam", "Power of the Pious"]},
-      {"day": 11, "featured": ["Horla", "The Last Verse"]},
-      {"day": 12, "featured": ["Ryker", "Hour of Fortune"]},
-      {"day": 13, "featured": ["Hameln", "Eternal Requiem"]},
-      {"day": 14, "featured": ["Helot: Catena", "Drowning in Crimson"]},
-      {"day": 15, "featured": ["Tawil", "Wheel Unseen"]},
-      {"day": 16, "featured": ["Doll: Inferno", "Manikin of Oblivion"]},
-      {"day": 17, "featured": ["Clementine", "Veiled Anguish"]},
-      {"day": 18, "featured": ["Corposant", "Flamebound Navigator"]},
-      {"day": 19, "featured": ["Castor", "Unbearable Freedom"]},
-      {"day": 20, "featured": ["Doresain", "Kiss of Repose"]},
-      {"day": 21, "featured": ["Kathigu-Ra", "Amber-Tinted Death"]},
-      {"day": 22, "featured": ["Pickman", "Paradoxical Realism"]},
-      {"day": 23, "featured": ["Pollux", "Twisted Knight Ballad"]},
-      {"day": 24, "featured": ["Murphy: Fauxborn", "Uteri Somnia"]},
-      {"day": 25, "featured": ["Mouchette", "Doomsday Rampage"]},
-      {"day": 26, "featured": ["Xu", "Vain Regrets"]},
-      {"day": 27, "featured": ["Vortice", "The Faraway Eden"]},
-      {"day": 28, "featured": ["Arachne", "Eternal Weave"]}
+    "pinned": true,
+    "rateUpGroups": [
+      {
+        "kind": "awakener",
+        "options": [{"title": "Sprout of Liebestod", "rateUp": "Saya", "offBanner": ["Helot", "Agrippa", "Uvhash", "Leigh", "Faint"]}]
+      },
+      {
+        "kind": "wheel",
+        "options": [{"title": "Alien Crypsela", "rateUp": "Fragrant Morphogenesis"}],
+        "sharedOffBanner": [
+          "Memory Spiral",
+          "Gift of Decay",
+          "Drifting in Desire",
+          "Will Unyielding",
+          "Silent Banquet",
+          "Blade of the Titan",
+          "Amidst the Downpour",
+          "Fin of Sorrow",
+          "Death of Ms. Coral",
+          "Sail of Providence",
+          "Chains Unbound",
+          "Pale Descendant",
+          "Bloody Feast",
+          "The Glutton's Tale",
+          "Lullaby Devoured",
+          "Fouetté",
+          "Song of the Bound",
+          "Incalculable Factor",
+          "Path Forsaken",
+          "Happy Magic Show"
+        ]
+      }
     ]
   },
   {
-    "id": "banner-kaleido-recollections-astral-reign",
-    "title": "Kaleido Recollections: Astral Reign",
-    "type": "combo",
-    "description": "Premium banner featuring all Astral Reign limited Awakeners and Wheels of Destiny.",
+    "id": "echoing-wishes-260518",
+    "title": "Echoing Wishes",
+    "type": "daily",
+    "description": "A different rate-up Awakener and Wheel each day.",
     "startDate": "2026/05/18 09:00",
     "endDate": "2026/06/15 09:00",
-    "derivedPool": {
-      "availabilityTypes": ["LIMITED_ASTRAL_REIGN"],
-      "excludeNames": ["Caraboo"],
-      "slotCount": 4,
-      "awakenerSlots": 3,
-      "wheelSlots": 1
-    }
+    "dailySchedule": [
+      {
+        "day": 1,
+        "featured": [
+          {
+            "name": "Tulu",
+            "kind": "awakener"
+          },
+          {
+            "name": "Hymn of the Sovereign",
+            "kind": "wheel"
+          }
+        ],
+        "offBanner": [
+          {
+            "name": "Goliath",
+            "kind": "awakener"
+          },
+          {
+            "name": "Faros",
+            "kind": "awakener"
+          },
+          {
+            "name": "Caecus",
+            "kind": "awakener"
+          },
+          {
+            "name": "Sanga",
+            "kind": "awakener"
+          },
+          {
+            "name": "Celeste",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "featured": [
+          {
+            "name": "Daffodil",
+            "kind": "awakener"
+          },
+          {
+            "name": "Treasured Rarity",
+            "kind": "wheel"
+          }
+        ],
+        "offBanner": [
+          {
+            "name": "Liz",
+            "kind": "awakener"
+          },
+          {
+            "name": "Tinct",
+            "kind": "awakener"
+          },
+          {
+            "name": "Winkle",
+            "kind": "awakener"
+          },
+          {
+            "name": "Jenkin",
+            "kind": "awakener"
+          },
+          {
+            "name": "Casiah",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "featured": [
+          {
+            "name": "Sorel",
+            "kind": "awakener"
+          },
+          {
+            "name": "By Rose Alone",
+            "kind": "wheel"
+          }
+        ],
+        "offBanner": [
+          {
+            "name": "Helot",
+            "kind": "awakener"
+          },
+          {
+            "name": "Agrippa",
+            "kind": "awakener"
+          },
+          {
+            "name": "Uvhash",
+            "kind": "awakener"
+          },
+          {
+            "name": "Leigh",
+            "kind": "awakener"
+          },
+          {
+            "name": "Faint",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "day": 4,
+        "featured": [
+          {
+            "name": "Lily",
+            "kind": "awakener"
+          },
+          {
+            "name": "Grace Through Pain",
+            "kind": "wheel"
+          }
+        ],
+        "offBanner": [
+          {
+            "name": "Nautila",
+            "kind": "awakener"
+          },
+          {
+            "name": "Nymphaea",
+            "kind": "awakener"
+          },
+          {
+            "name": "Pandia",
+            "kind": "awakener"
+          },
+          {
+            "name": "Alva",
+            "kind": "awakener"
+          },
+          {
+            "name": "Karen",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "day": 5,
+        "featured": [
+          {
+            "name": "Murphy",
+            "kind": "awakener"
+          },
+          {
+            "name": "Shrouded Birth",
+            "kind": "wheel"
+          }
+        ],
+        "offBanner": [
+          {
+            "name": "Goliath",
+            "kind": "awakener"
+          },
+          {
+            "name": "Faros",
+            "kind": "awakener"
+          },
+          {
+            "name": "Caecus",
+            "kind": "awakener"
+          },
+          {
+            "name": "Sanga",
+            "kind": "awakener"
+          },
+          {
+            "name": "Celeste",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "day": 6,
+        "featured": [
+          {
+            "name": "Wanda",
+            "kind": "awakener"
+          },
+          {
+            "name": "Queen's Edict",
+            "kind": "wheel"
+          }
+        ],
+        "offBanner": [
+          {
+            "name": "Liz",
+            "kind": "awakener"
+          },
+          {
+            "name": "Tinct",
+            "kind": "awakener"
+          },
+          {
+            "name": "Winkle",
+            "kind": "awakener"
+          },
+          {
+            "name": "Jenkin",
+            "kind": "awakener"
+          },
+          {
+            "name": "Casiah",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "day": 7,
+        "featured": [
+          {
+            "name": "Salvador",
+            "kind": "awakener"
+          },
+          {
+            "name": "Tablet of Scriptures",
+            "kind": "wheel"
+          }
+        ],
+        "offBanner": [
+          {
+            "name": "Helot",
+            "kind": "awakener"
+          },
+          {
+            "name": "Agrippa",
+            "kind": "awakener"
+          },
+          {
+            "name": "Uvhash",
+            "kind": "awakener"
+          },
+          {
+            "name": "Leigh",
+            "kind": "awakener"
+          },
+          {
+            "name": "Faint",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "day": 8,
+        "featured": [
+          {
+            "name": "24",
+            "kind": "awakener"
+          },
+          {
+            "name": "Aberrant Devour",
+            "kind": "wheel"
+          }
+        ],
+        "offBanner": [
+          {
+            "name": "Nautila",
+            "kind": "awakener"
+          },
+          {
+            "name": "Nymphaea",
+            "kind": "awakener"
+          },
+          {
+            "name": "Pandia",
+            "kind": "awakener"
+          },
+          {
+            "name": "Alva",
+            "kind": "awakener"
+          },
+          {
+            "name": "Karen",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "day": 9,
+        "featured": [
+          {
+            "name": "Thais",
+            "kind": "awakener"
+          },
+          {
+            "name": "Merciful Nurturing",
+            "kind": "wheel"
+          }
+        ],
+        "offBanner": [
+          {
+            "name": "Helot",
+            "kind": "awakener"
+          },
+          {
+            "name": "Agrippa",
+            "kind": "awakener"
+          },
+          {
+            "name": "Uvhash",
+            "kind": "awakener"
+          },
+          {
+            "name": "Leigh",
+            "kind": "awakener"
+          },
+          {
+            "name": "Faint",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "day": 10,
+        "featured": [
+          {
+            "name": "Miryam",
+            "kind": "awakener"
+          },
+          {
+            "name": "Power of the Pious",
+            "kind": "wheel"
+          }
+        ],
+        "offBanner": [
+          {
+            "name": "Goliath",
+            "kind": "awakener"
+          },
+          {
+            "name": "Faros",
+            "kind": "awakener"
+          },
+          {
+            "name": "Caecus",
+            "kind": "awakener"
+          },
+          {
+            "name": "Sanga",
+            "kind": "awakener"
+          },
+          {
+            "name": "Celeste",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "day": 11,
+        "featured": [
+          {
+            "name": "Horla",
+            "kind": "awakener"
+          },
+          {
+            "name": "The Last Verse",
+            "kind": "wheel"
+          }
+        ],
+        "offBanner": [
+          {
+            "name": "Liz",
+            "kind": "awakener"
+          },
+          {
+            "name": "Tinct",
+            "kind": "awakener"
+          },
+          {
+            "name": "Winkle",
+            "kind": "awakener"
+          },
+          {
+            "name": "Jenkin",
+            "kind": "awakener"
+          },
+          {
+            "name": "Casiah",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "day": 12,
+        "featured": [
+          {
+            "name": "Ryker",
+            "kind": "awakener"
+          },
+          {
+            "name": "Hour of Fortune",
+            "kind": "wheel"
+          }
+        ],
+        "offBanner": [
+          {
+            "name": "Nautila",
+            "kind": "awakener"
+          },
+          {
+            "name": "Nymphaea",
+            "kind": "awakener"
+          },
+          {
+            "name": "Pandia",
+            "kind": "awakener"
+          },
+          {
+            "name": "Alva",
+            "kind": "awakener"
+          },
+          {
+            "name": "Karen",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "day": 13,
+        "featured": [
+          {
+            "name": "Hameln",
+            "kind": "awakener"
+          },
+          {
+            "name": "Eternal Requiem",
+            "kind": "wheel"
+          }
+        ],
+        "offBanner": [
+          {
+            "name": "Nautila",
+            "kind": "awakener"
+          },
+          {
+            "name": "Nymphaea",
+            "kind": "awakener"
+          },
+          {
+            "name": "Pandia",
+            "kind": "awakener"
+          },
+          {
+            "name": "Alva",
+            "kind": "awakener"
+          },
+          {
+            "name": "Karen",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "day": 14,
+        "featured": [
+          {
+            "name": "Helot: Catena",
+            "kind": "awakener"
+          },
+          {
+            "name": "Drowning in Crimson",
+            "kind": "wheel"
+          }
+        ],
+        "offBanner": [
+          {
+            "name": "Helot",
+            "kind": "awakener"
+          },
+          {
+            "name": "Agrippa",
+            "kind": "awakener"
+          },
+          {
+            "name": "Uvhash",
+            "kind": "awakener"
+          },
+          {
+            "name": "Leigh",
+            "kind": "awakener"
+          },
+          {
+            "name": "Faint",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "day": 15,
+        "featured": [
+          {
+            "name": "Tawil",
+            "kind": "awakener"
+          },
+          {
+            "name": "Wheel Unseen",
+            "kind": "wheel"
+          }
+        ],
+        "offBanner": [
+          {
+            "name": "Nautila",
+            "kind": "awakener"
+          },
+          {
+            "name": "Nymphaea",
+            "kind": "awakener"
+          },
+          {
+            "name": "Pandia",
+            "kind": "awakener"
+          },
+          {
+            "name": "Alva",
+            "kind": "awakener"
+          },
+          {
+            "name": "Karen",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "day": 16,
+        "featured": [
+          {
+            "name": "Doll: Inferno",
+            "kind": "awakener"
+          },
+          {
+            "name": "Manikin of Oblivion",
+            "kind": "wheel"
+          }
+        ],
+        "offBanner": [
+          {
+            "name": "Nautila",
+            "kind": "awakener"
+          },
+          {
+            "name": "Nymphaea",
+            "kind": "awakener"
+          },
+          {
+            "name": "Pandia",
+            "kind": "awakener"
+          },
+          {
+            "name": "Alva",
+            "kind": "awakener"
+          },
+          {
+            "name": "Karen",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "day": 17,
+        "featured": [
+          {
+            "name": "Clementine",
+            "kind": "awakener"
+          },
+          {
+            "name": "Veiled Anguish",
+            "kind": "wheel"
+          }
+        ],
+        "offBanner": [
+          {
+            "name": "Liz",
+            "kind": "awakener"
+          },
+          {
+            "name": "Tinct",
+            "kind": "awakener"
+          },
+          {
+            "name": "Winkle",
+            "kind": "awakener"
+          },
+          {
+            "name": "Jenkin",
+            "kind": "awakener"
+          },
+          {
+            "name": "Casiah",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "day": 18,
+        "featured": [
+          {
+            "name": "Corposant",
+            "kind": "awakener"
+          },
+          {
+            "name": "Flamebound Navigator",
+            "kind": "wheel"
+          }
+        ],
+        "offBanner": [
+          {
+            "name": "Goliath",
+            "kind": "awakener"
+          },
+          {
+            "name": "Faros",
+            "kind": "awakener"
+          },
+          {
+            "name": "Caecus",
+            "kind": "awakener"
+          },
+          {
+            "name": "Sanga",
+            "kind": "awakener"
+          },
+          {
+            "name": "Celeste",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "day": 19,
+        "featured": [
+          {
+            "name": "Castor",
+            "kind": "awakener"
+          },
+          {
+            "name": "Unbearable Freedom",
+            "kind": "wheel"
+          }
+        ],
+        "offBanner": [
+          {
+            "name": "Liz",
+            "kind": "awakener"
+          },
+          {
+            "name": "Tinct",
+            "kind": "awakener"
+          },
+          {
+            "name": "Winkle",
+            "kind": "awakener"
+          },
+          {
+            "name": "Jenkin",
+            "kind": "awakener"
+          },
+          {
+            "name": "Casiah",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "day": 20,
+        "featured": [
+          {
+            "name": "Doresain",
+            "kind": "awakener"
+          },
+          {
+            "name": "Kiss of Repose",
+            "kind": "wheel"
+          }
+        ],
+        "offBanner": [
+          {
+            "name": "Helot",
+            "kind": "awakener"
+          },
+          {
+            "name": "Agrippa",
+            "kind": "awakener"
+          },
+          {
+            "name": "Uvhash",
+            "kind": "awakener"
+          },
+          {
+            "name": "Leigh",
+            "kind": "awakener"
+          },
+          {
+            "name": "Faint",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "day": 21,
+        "featured": [
+          {
+            "name": "Kathigu-Ra",
+            "kind": "awakener"
+          },
+          {
+            "name": "Amber-Tinted Death",
+            "kind": "wheel"
+          }
+        ],
+        "offBanner": [
+          {
+            "name": "Nautila",
+            "kind": "awakener"
+          },
+          {
+            "name": "Nymphaea",
+            "kind": "awakener"
+          },
+          {
+            "name": "Pandia",
+            "kind": "awakener"
+          },
+          {
+            "name": "Alva",
+            "kind": "awakener"
+          },
+          {
+            "name": "Karen",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "day": 22,
+        "featured": [
+          {
+            "name": "Pickman",
+            "kind": "awakener"
+          },
+          {
+            "name": "Paradoxical Realism",
+            "kind": "wheel"
+          }
+        ],
+        "offBanner": [
+          {
+            "name": "Helot",
+            "kind": "awakener"
+          },
+          {
+            "name": "Agrippa",
+            "kind": "awakener"
+          },
+          {
+            "name": "Uvhash",
+            "kind": "awakener"
+          },
+          {
+            "name": "Leigh",
+            "kind": "awakener"
+          },
+          {
+            "name": "Faint",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "day": 23,
+        "featured": [
+          {
+            "name": "Pollux",
+            "kind": "awakener"
+          },
+          {
+            "name": "Twisted Knight Ballad",
+            "kind": "wheel"
+          }
+        ],
+        "offBanner": [
+          {
+            "name": "Liz",
+            "kind": "awakener"
+          },
+          {
+            "name": "Tinct",
+            "kind": "awakener"
+          },
+          {
+            "name": "Winkle",
+            "kind": "awakener"
+          },
+          {
+            "name": "Jenkin",
+            "kind": "awakener"
+          },
+          {
+            "name": "Casiah",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "day": 24,
+        "featured": [
+          {
+            "name": "Murphy: Fauxborn",
+            "kind": "awakener"
+          },
+          {
+            "name": "Uteri Somnia",
+            "kind": "wheel"
+          }
+        ],
+        "offBanner": [
+          {
+            "name": "Goliath",
+            "kind": "awakener"
+          },
+          {
+            "name": "Faros",
+            "kind": "awakener"
+          },
+          {
+            "name": "Caecus",
+            "kind": "awakener"
+          },
+          {
+            "name": "Sanga",
+            "kind": "awakener"
+          },
+          {
+            "name": "Celeste",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "day": 25,
+        "featured": [
+          {
+            "name": "Mouchette",
+            "kind": "awakener"
+          },
+          {
+            "name": "Doomsday Rampage",
+            "kind": "wheel"
+          }
+        ],
+        "offBanner": [
+          {
+            "name": "Nautila",
+            "kind": "awakener"
+          },
+          {
+            "name": "Nymphaea",
+            "kind": "awakener"
+          },
+          {
+            "name": "Pandia",
+            "kind": "awakener"
+          },
+          {
+            "name": "Alva",
+            "kind": "awakener"
+          },
+          {
+            "name": "Karen",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "day": 26,
+        "featured": [
+          {
+            "name": "Xu",
+            "kind": "awakener"
+          },
+          {
+            "name": "Vain Regrets",
+            "kind": "wheel"
+          }
+        ],
+        "offBanner": [
+          {
+            "name": "Helot",
+            "kind": "awakener"
+          },
+          {
+            "name": "Agrippa",
+            "kind": "awakener"
+          },
+          {
+            "name": "Uvhash",
+            "kind": "awakener"
+          },
+          {
+            "name": "Leigh",
+            "kind": "awakener"
+          },
+          {
+            "name": "Faint",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "day": 27,
+        "featured": [
+          {
+            "name": "Vortice",
+            "kind": "awakener"
+          },
+          {
+            "name": "The Faraway Eden",
+            "kind": "wheel"
+          }
+        ],
+        "offBanner": [
+          {
+            "name": "Goliath",
+            "kind": "awakener"
+          },
+          {
+            "name": "Faros",
+            "kind": "awakener"
+          },
+          {
+            "name": "Caecus",
+            "kind": "awakener"
+          },
+          {
+            "name": "Sanga",
+            "kind": "awakener"
+          },
+          {
+            "name": "Celeste",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "day": 28,
+        "featured": [
+          {
+            "name": "Arachne",
+            "kind": "awakener"
+          },
+          {
+            "name": "Eternal Weave",
+            "kind": "wheel"
+          }
+        ],
+        "offBanner": [
+          {
+            "name": "Liz",
+            "kind": "awakener"
+          },
+          {
+            "name": "Tinct",
+            "kind": "awakener"
+          },
+          {
+            "name": "Winkle",
+            "kind": "awakener"
+          },
+          {
+            "name": "Jenkin",
+            "kind": "awakener"
+          },
+          {
+            "name": "Casiah",
+            "kind": "awakener"
+          }
+        ]
+      }
+    ],
+    "rulesProfile": "oathbound-oracle"
   },
   {
-    "id": "banner-stars-in-full-bloom-assault",
+    "id": "kaleido-ar-260518",
+    "title": "Kaleido Recollections: Astral Reign",
+    "type": "combo",
+    "description": "Limited Astral Reign Awakeners and Wheels.",
+    "startDate": "2026/05/18 09:00",
+    "endDate": "2026/06/15 09:00",
+    "rulesProfile": "kaleido",
+    "poolSlots": [
+      {
+        "label": "Awakeners",
+        "pool": [
+          {
+            "name": "Doll: Inferno",
+            "kind": "awakener"
+          },
+          {
+            "name": "Xu",
+            "kind": "awakener"
+          },
+          {
+            "name": "Pickman",
+            "kind": "awakener"
+          },
+          {
+            "name": "Vortice",
+            "kind": "awakener"
+          },
+          {
+            "name": "Mouchette",
+            "kind": "awakener"
+          },
+          {
+            "name": "Corposant",
+            "kind": "awakener"
+          },
+          {
+            "name": "Clementine",
+            "kind": "awakener"
+          },
+          {
+            "name": "Kathigu-Ra",
+            "kind": "awakener"
+          },
+          {
+            "name": "Castor",
+            "kind": "awakener"
+          },
+          {
+            "name": "Doresain",
+            "kind": "awakener"
+          },
+          {
+            "name": "Pollux",
+            "kind": "awakener"
+          },
+          {
+            "name": "Murphy: Fauxborn",
+            "kind": "awakener"
+          },
+          {
+            "name": "Arachne",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "label": "Wheels",
+        "pool": [
+          {
+            "name": "Vain Regrets",
+            "kind": "wheel"
+          },
+          {
+            "name": "Paradoxical Realism",
+            "kind": "wheel"
+          },
+          {
+            "name": "The Faraway Eden",
+            "kind": "wheel"
+          },
+          {
+            "name": "Doomsday Rampage",
+            "kind": "wheel"
+          },
+          {
+            "name": "Flamebound Navigator",
+            "kind": "wheel"
+          },
+          {
+            "name": "Veiled Anguish",
+            "kind": "wheel"
+          },
+          {
+            "name": "Amber-Tinted Death",
+            "kind": "wheel"
+          },
+          {
+            "name": "Unbearable Freedom",
+            "kind": "wheel"
+          },
+          {
+            "name": "Kiss of Repose",
+            "kind": "wheel"
+          },
+          {
+            "name": "Twisted Knight Ballad",
+            "kind": "wheel"
+          },
+          {
+            "name": "Uteri Somnia",
+            "kind": "wheel"
+          },
+          {
+            "name": "Manikin of Oblivion",
+            "kind": "wheel"
+          },
+          {
+            "name": "Eternal Weave",
+            "kind": "wheel"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stars-bloom-assault-260530",
     "title": "Stars in Full Bloom",
     "type": "premium",
     "customTags": ["Assault"],
     "pricing": "USD 29.99",
-    "description": "Guaranteed awakening featuring 2 limited SSR Awakeners and 3 limited SSR Wheels, with triple copies for each obtained item.",
+    "description": "Guaranteed SSRs with triple copies.\nOne five-pull per banner: two SSR Awakeners and three SSR Wheels, with three copies of each result.",
     "startDate": "2026/05/30 09:00",
     "endDate": "2026/06/29 09:00",
-    "derivedPool": {
-      "limitedAwakenerType": "ASSAULT",
-      "excludeNames": ["Caraboo"],
-      "slotCount": 4
-    }
+    "rulesProfile": "triple-soiree",
+    "poolSlots": [
+      {
+        "label": "Awakeners",
+        "pool": [
+          {
+            "name": "Vortice",
+            "kind": "awakener"
+          },
+          {
+            "name": "Mouchette",
+            "kind": "awakener"
+          },
+          {
+            "name": "Kathigu-Ra",
+            "kind": "awakener"
+          },
+          {
+            "name": "Doresain",
+            "kind": "awakener"
+          },
+          {
+            "name": "Pollux",
+            "kind": "awakener"
+          },
+          {
+            "name": "24",
+            "kind": "awakener"
+          },
+          {
+            "name": "Tulu",
+            "kind": "awakener"
+          },
+          {
+            "name": "Sorel",
+            "kind": "awakener"
+          },
+          {
+            "name": "Helot: Catena",
+            "kind": "awakener"
+          },
+          {
+            "name": "Daffodil",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "label": "Wheels",
+        "pool": [
+          {
+            "name": "The Faraway Eden",
+            "kind": "wheel"
+          },
+          {
+            "name": "Doomsday Rampage",
+            "kind": "wheel"
+          },
+          {
+            "name": "Amber-Tinted Death",
+            "kind": "wheel"
+          },
+          {
+            "name": "Kiss of Repose",
+            "kind": "wheel"
+          },
+          {
+            "name": "Twisted Knight Ballad",
+            "kind": "wheel"
+          },
+          {
+            "name": "Aberrant Devour",
+            "kind": "wheel"
+          },
+          {
+            "name": "Hymn of the Sovereign",
+            "kind": "wheel"
+          },
+          {
+            "name": "By Rose Alone",
+            "kind": "wheel"
+          },
+          {
+            "name": "Drowning in Crimson",
+            "kind": "wheel"
+          },
+          {
+            "name": "Treasured Rarity",
+            "kind": "wheel"
+          }
+        ]
+      }
+    ]
   },
   {
-    "id": "banner-stars-in-full-bloom-warden",
+    "id": "stars-bloom-warden-260530",
     "title": "Stars in Full Bloom",
     "type": "premium",
     "customTags": ["Warden"],
     "pricing": "USD 29.99",
-    "description": "Guaranteed awakening featuring 2 limited SSR Awakeners and 3 limited SSR Wheels, with triple copies for each obtained item.",
+    "description": "Guaranteed SSRs with triple copies.\nOne five-pull per banner: two SSR Awakeners and three SSR Wheels, with three copies of each result.",
     "startDate": "2026/05/30 09:00",
     "endDate": "2026/06/29 09:00",
-    "derivedPool": {
-      "limitedAwakenerType": "WARDEN",
-      "excludeNames": ["Caraboo"],
-      "slotCount": 4
-    }
+    "rulesProfile": "triple-soiree",
+    "poolSlots": [
+      {
+        "label": "Awakeners",
+        "pool": [
+          {
+            "name": "Corposant",
+            "kind": "awakener"
+          },
+          {
+            "name": "Castor",
+            "kind": "awakener"
+          },
+          {
+            "name": "Lily",
+            "kind": "awakener"
+          },
+          {
+            "name": "Murphy",
+            "kind": "awakener"
+          },
+          {
+            "name": "Salvador",
+            "kind": "awakener"
+          },
+          {
+            "name": "Wanda",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "label": "Wheels",
+        "pool": [
+          {
+            "name": "Flamebound Navigator",
+            "kind": "wheel"
+          },
+          {
+            "name": "Unbearable Freedom",
+            "kind": "wheel"
+          },
+          {
+            "name": "Grace Through Pain",
+            "kind": "wheel"
+          },
+          {
+            "name": "Shrouded Birth",
+            "kind": "wheel"
+          },
+          {
+            "name": "Tablet of Scriptures",
+            "kind": "wheel"
+          },
+          {
+            "name": "Queen's Edict",
+            "kind": "wheel"
+          }
+        ]
+      }
+    ]
   },
   {
-    "id": "banner-stars-in-full-bloom-chorus",
+    "id": "stars-bloom-chorus-260530",
     "title": "Stars in Full Bloom",
     "type": "premium",
     "customTags": ["Chorus"],
     "pricing": "USD 29.99",
-    "description": "Guaranteed awakening featuring 2 limited SSR Awakeners and 3 limited SSR Wheels, with triple copies for each obtained item.",
+    "description": "Guaranteed SSRs with triple copies.\nOne five-pull per banner: two SSR Awakeners and three SSR Wheels, with three copies of each result.",
     "startDate": "2026/05/30 09:00",
     "endDate": "2026/06/29 09:00",
-    "derivedPool": {
-      "limitedAwakenerType": "CHORUS",
-      "excludeNames": ["Caraboo"],
-      "slotCount": 4
-    }
+    "rulesProfile": "triple-soiree",
+    "poolSlots": [
+      {
+        "label": "Awakeners",
+        "pool": [
+          {
+            "name": "Arachne",
+            "kind": "awakener"
+          },
+          {
+            "name": "Xu",
+            "kind": "awakener"
+          },
+          {
+            "name": "Murphy: Fauxborn",
+            "kind": "awakener"
+          },
+          {
+            "name": "Doll: Inferno",
+            "kind": "awakener"
+          },
+          {
+            "name": "Pickman",
+            "kind": "awakener"
+          },
+          {
+            "name": "Clementine",
+            "kind": "awakener"
+          },
+          {
+            "name": "Ryker",
+            "kind": "awakener"
+          },
+          {
+            "name": "Hameln",
+            "kind": "awakener"
+          },
+          {
+            "name": "Tawil",
+            "kind": "awakener"
+          },
+          {
+            "name": "Miryam",
+            "kind": "awakener"
+          },
+          {
+            "name": "Thais",
+            "kind": "awakener"
+          },
+          {
+            "name": "Horla",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "label": "Wheels",
+        "pool": [
+          {
+            "name": "Eternal Weave",
+            "kind": "wheel"
+          },
+          {
+            "name": "Vain Regrets",
+            "kind": "wheel"
+          },
+          {
+            "name": "Uteri Somnia",
+            "kind": "wheel"
+          },
+          {
+            "name": "Manikin of Oblivion",
+            "kind": "wheel"
+          },
+          {
+            "name": "Paradoxical Realism",
+            "kind": "wheel"
+          },
+          {
+            "name": "Veiled Anguish",
+            "kind": "wheel"
+          },
+          {
+            "name": "Hour of Fortune",
+            "kind": "wheel"
+          },
+          {
+            "name": "Eternal Requiem",
+            "kind": "wheel"
+          },
+          {
+            "name": "Wheel Unseen",
+            "kind": "wheel"
+          },
+          {
+            "name": "Power of the Pious",
+            "kind": "wheel"
+          },
+          {
+            "name": "Merciful Nurturing",
+            "kind": "wheel"
+          },
+          {
+            "name": "The Last Verse",
+            "kind": "wheel"
+          }
+        ]
+      }
+    ]
   },
   {
-    "id": "banner-triune-verdant-jun",
+    "id": "triune-verdant-260615",
     "title": "Triune Verdant",
     "type": "rerun",
-    "description": "Three rerun banners, featuring the awakeners Hameln, Murphy and Clementine.",
+    "description": "Three rerun banners featuring Hameln, Murphy and Clementine.",
     "startDate": "2026/06/15 09:00",
     "endDate": "2026/07/13 09:00",
-    "featured": ["Hameln", "Murphy", "Clementine"]
+    "rateUpGroups": [
+      {
+        "kind": "awakener",
+        "options": [
+          {
+            "title": "Symphony of Echoes",
+            "rateUp": "Hameln",
+            "offBanner": ["Nautila", "Nymphaea", "Pandia", "Alva", "Karen"]
+          },
+          {
+            "title": "Imprisoned Prayers",
+            "rateUp": "Murphy",
+            "offBanner": ["Goliath", "Faros", "Caecus", "Sanga", "Celeste"]
+          },
+          {
+            "title": "Temptation Healer",
+            "rateUp": "Clementine",
+            "offBanner": ["Liz", "Tinct", "Winkle", "Jenkin", "Casiah"]
+          }
+        ]
+      }
+    ]
   },
   {
-    "id": "banner-sylvan-omen-jun",
+    "id": "sylvan-omen-260615",
     "title": "Sylvan Omen",
     "type": "rerun",
     "tags": ["rerun", "wheel"],
-    "description": "Three rerun banners, featuring the Wheels Eternal Requiem, Shrouded Birth and Veiled Anguish.",
+    "description": "Three rerun banners featuring the Wheels Eternal Requiem, Shrouded Birth and Veiled Anguish.",
     "startDate": "2026/06/15 09:00",
     "endDate": "2026/07/13 09:00",
-    "featured": ["Eternal Requiem", "Shrouded Birth", "Veiled Anguish"]
+    "rateUpGroups": [
+      {
+        "kind": "wheel",
+        "options": [
+          {
+            "title": "Profane Anthem",
+            "rateUp": "Eternal Requiem"
+          },
+          {
+            "title": "Ethereal Glory",
+            "rateUp": "Shrouded Birth"
+          },
+          {
+            "title": "Painful Reminiscence",
+            "rateUp": "Veiled Anguish"
+          }
+        ],
+        "sharedOffBanner": [
+          "Memory Spiral",
+          "Gift of Decay",
+          "Drifting in Desire",
+          "Will Unyielding",
+          "Silent Banquet",
+          "Blade of the Titan",
+          "Amidst the Downpour",
+          "Fin of Sorrow",
+          "Death of Ms. Coral",
+          "Sail of Providence",
+          "Chains Unbound",
+          "Pale Descendant",
+          "Bloody Feast",
+          "The Glutton's Tale",
+          "Lullaby Devoured",
+          "Fouetté",
+          "Song of the Bound",
+          "Incalculable Factor",
+          "Path Forsaken",
+          "Happy Magic Show"
+        ]
+      }
+    ]
   },
   {
-    "id": "banner-pontos",
+    "id": "pontos-duo-260629",
     "title": "Lord of the Deep / The Abyssal Oubliette",
     "type": "awaken",
     "description": "Featured rate-up banners for Pontos and his signature SSR Wheel.",
     "startDate": "2026/06/29 09:00",
     "endDate": "2026/07/27 09:00",
     "featured": ["Pontos", {"name": "Pontos", "kind": "wheel-auto"}],
-    "pinned": true
+    "pinned": true,
+    "rateUpGroups": [
+      {
+        "kind": "awakener",
+        "options": [{"title": "Lord of the Deep", "rateUp": "Pontos", "offBanner": ["Goliath", "Faros", "Caecus", "Sanga", "Celeste"]}]
+      },
+      {
+        "kind": "wheel",
+        "options": [{"title": "The Abyssal Oubliette", "rateUp": "Living Cage"}],
+        "sharedOffBanner": [
+          "Memory Spiral",
+          "Gift of Decay",
+          "Drifting in Desire",
+          "Will Unyielding",
+          "Silent Banquet",
+          "Blade of the Titan",
+          "Amidst the Downpour",
+          "Fin of Sorrow",
+          "Death of Ms. Coral",
+          "Sail of Providence",
+          "Chains Unbound",
+          "Pale Descendant",
+          "Bloody Feast",
+          "The Glutton's Tale",
+          "Lullaby Devoured",
+          "Fouetté",
+          "Song of the Bound",
+          "Incalculable Factor",
+          "Path Forsaken",
+          "Happy Magic Show"
+        ]
+      }
+    ]
   },
   {
-    "id": "banner-triune-verdant-jul",
+    "id": "triune-verdant-260713",
     "title": "Triune Verdant",
     "type": "rerun",
-    "description": "Three rerun banners, featuring the awakeners Helot: Catena, Corposant and Pollux.",
+    "description": "Three rerun banners featuring Helot: Catena, Corposant and Pollux.",
     "startDate": "2026/07/13 09:00",
     "endDate": "2026/08/10 09:00",
-    "featured": ["Helot: Catena", "Corposant", "Pollux"]
+    "rateUpGroups": [
+      {
+        "kind": "awakener",
+        "options": [
+          {
+            "title": "Vengeful Beast",
+            "rateUp": "Helot: Catena",
+            "offBanner": ["Helot", "Agrippa", "Uvhash", "Leigh", "Faint"]
+          },
+          {
+            "title": "Ember Vanguard",
+            "rateUp": "Corposant",
+            "offBanner": ["Goliath", "Faros", "Caecus", "Sanga", "Celeste"]
+          },
+          {
+            "title": "Sacred Absolution",
+            "rateUp": "Pollux",
+            "offBanner": ["Liz", "Tinct", "Winkle", "Jenkin", "Casiah"]
+          }
+        ]
+      }
+    ]
   },
   {
-    "id": "banner-sylvan-omen-jul",
+    "id": "sylvan-omen-260713",
     "title": "Sylvan Omen",
     "type": "rerun",
     "tags": ["rerun", "wheel"],
-    "description": "Three rerun banners, featuring the Wheels Drowning in Crimson, Flamebound Navigator and Twisted Knight Ballad.",
+    "description": "Three rerun banners featuring the Wheels Drowning in Crimson, Flamebound Navigator and Twisted Knight Ballad.",
     "startDate": "2026/07/13 09:00",
     "endDate": "2026/08/10 09:00",
-    "featured": ["Drowning in Crimson", "Flamebound Navigator", "Twisted Knight Ballad"]
+    "rateUpGroups": [
+      {
+        "kind": "wheel",
+        "options": [
+          {
+            "title": "Sanguine Downpour",
+            "rateUp": "Drowning in Crimson"
+          },
+          {
+            "title": "Beacon of the Deep",
+            "rateUp": "Flamebound Navigator"
+          },
+          {
+            "title": "Path of Atonement",
+            "rateUp": "Twisted Knight Ballad"
+          }
+        ],
+        "sharedOffBanner": [
+          "Memory Spiral",
+          "Gift of Decay",
+          "Drifting in Desire",
+          "Will Unyielding",
+          "Silent Banquet",
+          "Blade of the Titan",
+          "Amidst the Downpour",
+          "Fin of Sorrow",
+          "Death of Ms. Coral",
+          "Sail of Providence",
+          "Chains Unbound",
+          "Pale Descendant",
+          "Bloody Feast",
+          "The Glutton's Tale",
+          "Lullaby Devoured",
+          "Fouetté",
+          "Song of the Bound",
+          "Incalculable Factor",
+          "Path Forsaken",
+          "Happy Magic Show"
+        ]
+      }
+    ]
   },
   {
-    "id": "banner-lotan-cetarchon",
+    "id": "lotan-duo-260727",
     "title": "Astral Reaver / Leviathan's Descent",
     "type": "awaken",
     "description": "Featured rate-up banners for Lotan: Cetarchon and her SSR Wheel 'Cetus Occasus'.",
@@ -264,29 +2135,122 @@
         "kind": "wheel"
       }
     ],
-    "pinned": true
+    "pinned": true,
+    "rateUpGroups": [
+      {
+        "kind": "awakener",
+        "options": [{"title": "Astral Reaver", "rateUp": "Lotan: Cetarchon", "offBanner": ["Nautila", "Nymphaea", "Pandia", "Alva", "Karen"]}]
+      },
+      {
+        "kind": "wheel",
+        "options": [{"title": "Leviathan's Descent", "rateUp": "Cetus Occasus"}],
+        "sharedOffBanner": [
+          "Memory Spiral",
+          "Gift of Decay",
+          "Drifting in Desire",
+          "Will Unyielding",
+          "Silent Banquet",
+          "Blade of the Titan",
+          "Amidst the Downpour",
+          "Fin of Sorrow",
+          "Death of Ms. Coral",
+          "Sail of Providence",
+          "Chains Unbound",
+          "Pale Descendant",
+          "Bloody Feast",
+          "The Glutton's Tale",
+          "Lullaby Devoured",
+          "Fouetté",
+          "Song of the Bound",
+          "Incalculable Factor",
+          "Path Forsaken",
+          "Happy Magic Show"
+        ]
+      }
+    ]
   },
   {
-    "id": "banner-triune-verdant-aug",
+    "id": "triune-verdant-260810",
     "title": "Triune Verdant",
     "type": "rerun",
-    "description": "Three rerun banners, featuring the awakeners Horla, Doresain and Mouchette.",
+    "description": "Three rerun banners featuring Horla, Doresain and Mouchette.",
     "startDate": "2026/08/10 09:00",
     "endDate": "2026/09/07 09:00",
-    "featured": ["Horla", "Doresain", "Mouchette"]
+    "rateUpGroups": [
+      {
+        "kind": "awakener",
+        "options": [
+          {
+            "title": "Paper to Ash",
+            "rateUp": "Horla",
+            "offBanner": ["Liz", "Tinct", "Winkle", "Jenkin", "Casiah"]
+          },
+          {
+            "title": "Pandemonium Feast",
+            "rateUp": "Doresain",
+            "offBanner": ["Helot", "Agrippa", "Uvhash", "Leigh", "Faint"]
+          },
+          {
+            "title": "Mistbound Sojourner",
+            "rateUp": "Mouchette",
+            "offBanner": ["Nautila", "Nymphaea", "Pandia", "Alva", "Karen"]
+          }
+        ]
+      }
+    ]
   },
   {
-    "id": "banner-sylvan-omen-aug",
+    "id": "sylvan-omen-260810",
     "title": "Sylvan Omen",
     "type": "rerun",
     "tags": ["rerun", "wheel"],
-    "description": "Three rerun banners, featuring the Wheels The Last Verse, Kiss of Repose and Doomsday Rampage.",
+    "description": "Three rerun banners featuring the Wheels The Last Verse, Kiss of Repose and Doomsday Rampage.",
     "startDate": "2026/08/10 09:00",
     "endDate": "2026/09/07 09:00",
-    "featured": ["The Last Verse", "Kiss of Repose", "Doomsday Rampage"]
+    "rateUpGroups": [
+      {
+        "kind": "wheel",
+        "options": [
+          {
+            "title": "Last Petal Falls",
+            "rateUp": "The Last Verse"
+          },
+          {
+            "title": "Oath of the Hollowed",
+            "rateUp": "Kiss of Repose"
+          },
+          {
+            "title": "Sealed \"Dawn\"",
+            "rateUp": "Doomsday Rampage"
+          }
+        ],
+        "sharedOffBanner": [
+          "Memory Spiral",
+          "Gift of Decay",
+          "Drifting in Desire",
+          "Will Unyielding",
+          "Silent Banquet",
+          "Blade of the Titan",
+          "Amidst the Downpour",
+          "Fin of Sorrow",
+          "Death of Ms. Coral",
+          "Sail of Providence",
+          "Chains Unbound",
+          "Pale Descendant",
+          "Bloody Feast",
+          "The Glutton's Tale",
+          "Lullaby Devoured",
+          "Fouetté",
+          "Song of the Bound",
+          "Incalculable Factor",
+          "Path Forsaken",
+          "Happy Magic Show"
+        ]
+      }
+    ]
   },
   {
-    "id": "banner-caraboo",
+    "id": "caraboo-duo-260824",
     "title": "Saccharine Facade / Whispers in Sugarfrost",
     "type": "awaken",
     "description": "Featured rate-up banners for Caraboo and her SSR Wheel \"Honeyed Deceit\".",
@@ -304,103 +2268,481 @@
         "customArt": "/banners/honeyed-deceit.webp"
       }
     ],
-    "pinned": true
+    "pinned": true,
+    "rateUpGroups": [
+      {
+        "kind": "awakener",
+        "options": [{"title": "Saccharine Facade", "rateUp": "Caraboo", "offBanner": ["Helot", "Agrippa", "Uvhash", "Leigh", "Faint"]}]
+      },
+      {
+        "kind": "wheel",
+        "options": [{"title": "Whispers in Sugarfrost", "rateUp": "Honeyed Deceit"}],
+        "sharedOffBanner": [
+          "Memory Spiral",
+          "Gift of Decay",
+          "Drifting in Desire",
+          "Will Unyielding",
+          "Silent Banquet",
+          "Blade of the Titan",
+          "Amidst the Downpour",
+          "Fin of Sorrow",
+          "Death of Ms. Coral",
+          "Sail of Providence",
+          "Chains Unbound",
+          "Pale Descendant",
+          "Bloody Feast",
+          "The Glutton's Tale",
+          "Lullaby Devoured",
+          "Fouetté",
+          "Song of the Bound",
+          "Incalculable Factor",
+          "Path Forsaken",
+          "Happy Magic Show"
+        ]
+      }
+    ]
   },
   {
-    "id": "banner-lightward-reminiscence-assault",
+    "id": "lightward-assault-260824",
     "title": "Lightward Reminiscence",
     "type": "premium",
     "customTags": ["Assault"],
     "pricing": "980 Silver Prime",
-    "description": "One fivefold guaranteed awakening containing 2 Faded Legacy limited SSR Awakeners and 3 Faded Legacy limited SSR Wheels from the Assault pool.",
+    "description": "Guaranteed Faded Legacy SSRs.\nOne five-pull per banner: two SSR Awakeners and three SSR Wheels, plus one Gnosis Primer.",
     "startDate": "2026/08/24 09:00",
     "endDate": "2026/09/21 09:00",
-    "derivedPool": {
-      "availabilityTypes": ["LIMITED_FADED_LEGACY"],
-      "limitedAwakenerType": "ASSAULT",
-      "excludeNames": ["Caraboo"],
-      "slotCount": 5,
-      "awakenerSlots": 2,
-      "wheelSlots": 3
-    }
+    "rulesProfile": "fated-soiree",
+    "poolSlots": [
+      {
+        "label": "Awakeners",
+        "pool": [
+          {
+            "name": "24",
+            "kind": "awakener"
+          },
+          {
+            "name": "Tulu",
+            "kind": "awakener"
+          },
+          {
+            "name": "Sorel",
+            "kind": "awakener"
+          },
+          {
+            "name": "Helot: Catena",
+            "kind": "awakener"
+          },
+          {
+            "name": "Daffodil",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "label": "Wheels",
+        "pool": [
+          {
+            "name": "Aberrant Devour",
+            "kind": "wheel"
+          },
+          {
+            "name": "Hymn of the Sovereign",
+            "kind": "wheel"
+          },
+          {
+            "name": "By Rose Alone",
+            "kind": "wheel"
+          },
+          {
+            "name": "Drowning in Crimson",
+            "kind": "wheel"
+          },
+          {
+            "name": "Treasured Rarity",
+            "kind": "wheel"
+          }
+        ]
+      }
+    ]
   },
   {
-    "id": "banner-lightward-reminiscence-warden",
+    "id": "lightward-warden-260824",
     "title": "Lightward Reminiscence",
     "type": "premium",
     "customTags": ["Warden"],
     "pricing": "980 Silver Prime",
-    "description": "One fivefold guaranteed awakening containing 2 Faded Legacy limited SSR Awakeners and 3 Faded Legacy limited SSR Wheels from the Warden pool.",
+    "description": "Guaranteed Faded Legacy SSRs.\nOne five-pull per banner: two SSR Awakeners and three SSR Wheels, plus one Gnosis Primer.",
     "startDate": "2026/08/24 09:00",
     "endDate": "2026/09/21 09:00",
-    "derivedPool": {
-      "availabilityTypes": ["LIMITED_FADED_LEGACY"],
-      "limitedAwakenerType": "WARDEN",
-      "excludeNames": ["Caraboo"],
-      "slotCount": 5,
-      "awakenerSlots": 2,
-      "wheelSlots": 3
-    }
+    "rulesProfile": "fated-soiree",
+    "poolSlots": [
+      {
+        "label": "Awakeners",
+        "pool": [
+          {
+            "name": "Lily",
+            "kind": "awakener"
+          },
+          {
+            "name": "Murphy",
+            "kind": "awakener"
+          },
+          {
+            "name": "Salvador",
+            "kind": "awakener"
+          },
+          {
+            "name": "Wanda",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "label": "Wheels",
+        "pool": [
+          {
+            "name": "Grace Through Pain",
+            "kind": "wheel"
+          },
+          {
+            "name": "Shrouded Birth",
+            "kind": "wheel"
+          },
+          {
+            "name": "Tablet of Scriptures",
+            "kind": "wheel"
+          },
+          {
+            "name": "Queen's Edict",
+            "kind": "wheel"
+          }
+        ]
+      }
+    ]
   },
   {
-    "id": "banner-lightward-reminiscence-chorus",
+    "id": "lightward-chorus-260824",
     "title": "Lightward Reminiscence",
     "type": "premium",
     "customTags": ["Chorus"],
     "pricing": "980 Silver Prime",
-    "description": "One fivefold guaranteed awakening containing 2 Faded Legacy limited SSR Awakeners and 3 Faded Legacy limited SSR Wheels from the Chorus pool.",
+    "description": "Guaranteed Faded Legacy SSRs.\nOne five-pull per banner: two SSR Awakeners and three SSR Wheels, plus one Gnosis Primer.",
     "startDate": "2026/08/24 09:00",
     "endDate": "2026/09/21 09:00",
-    "derivedPool": {
-      "availabilityTypes": ["LIMITED_FADED_LEGACY"],
-      "limitedAwakenerType": "CHORUS",
-      "excludeNames": ["Caraboo"],
-      "slotCount": 5,
-      "awakenerSlots": 2,
-      "wheelSlots": 3
-    }
+    "rulesProfile": "fated-soiree",
+    "poolSlots": [
+      {
+        "label": "Awakeners",
+        "pool": [
+          {
+            "name": "Ryker",
+            "kind": "awakener"
+          },
+          {
+            "name": "Hameln",
+            "kind": "awakener"
+          },
+          {
+            "name": "Tawil",
+            "kind": "awakener"
+          },
+          {
+            "name": "Miryam",
+            "kind": "awakener"
+          },
+          {
+            "name": "Thais",
+            "kind": "awakener"
+          },
+          {
+            "name": "Horla",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "label": "Wheels",
+        "pool": [
+          {
+            "name": "Hour of Fortune",
+            "kind": "wheel"
+          },
+          {
+            "name": "Eternal Requiem",
+            "kind": "wheel"
+          },
+          {
+            "name": "Wheel Unseen",
+            "kind": "wheel"
+          },
+          {
+            "name": "Power of the Pious",
+            "kind": "wheel"
+          },
+          {
+            "name": "Merciful Nurturing",
+            "kind": "wheel"
+          },
+          {
+            "name": "The Last Verse",
+            "kind": "wheel"
+          }
+        ]
+      }
+    ]
   },
   {
-    "id": "banner-stars-cradled-close",
+    "id": "stars-cradled-260824",
     "title": "Stars Cradled Close",
     "type": "selector",
-    "description": "Select one unique Astral Reign limited Awakener in each category: Assault, Warden, Chorus, Male and Female. Any SSR obtained comes from the five selected Awakeners or their matching Wheels of Destiny.",
+    "description": "Five picks shape the SSR pool.\nChoose a different Awakener for each category. Once selected, your picks are locked for the event. Only those five Awakeners and their five recommended Wheels can drop as SSRs.",
     "startDate": "2026/08/24 09:00",
     "endDate": "2026/09/21 09:00",
     "linkedPresentation": "paired",
-    "derivedPool": {
-      "availabilityTypes": ["LIMITED_ASTRAL_REIGN"],
-      "excludeNames": ["Caraboo"],
-      "slots": [
-        {"kind": "awakener", "label": "Assault", "limitedAwakenerType": "ASSAULT", "linked": true},
-        {"kind": "awakener", "label": "Warden", "limitedAwakenerType": "WARDEN", "linked": true},
-        {"kind": "awakener", "label": "Chorus", "limitedAwakenerType": "CHORUS", "linked": true},
-        {"kind": "awakener", "label": "Male", "gender": "Male", "linked": true},
-        {"kind": "awakener", "label": "Female", "gender": "Female", "linked": true}
-      ]
-    }
+    "rulesProfile": "myriad-self-select",
+    "poolSlots": [
+      {
+        "label": "Assault",
+        "linked": true,
+        "pool": [
+          {
+            "name": "Lotan: Cetarchon",
+            "kind": "awakener"
+          },
+          {
+            "name": "Mouchette",
+            "kind": "awakener"
+          },
+          {
+            "name": "Kathigu-Ra",
+            "kind": "awakener"
+          },
+          {
+            "name": "Vortice",
+            "kind": "awakener"
+          },
+          {
+            "name": "Doresain",
+            "kind": "awakener"
+          },
+          {
+            "name": "Pollux",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "label": "Warden",
+        "linked": true,
+        "pool": [
+          {
+            "name": "Pontos",
+            "kind": "awakener"
+          },
+          {
+            "name": "Corposant",
+            "kind": "awakener"
+          },
+          {
+            "name": "Castor",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "label": "Chorus",
+        "linked": true,
+        "pool": [
+          {
+            "name": "Doll: Inferno",
+            "kind": "awakener"
+          },
+          {
+            "name": "Murphy: Fauxborn",
+            "kind": "awakener"
+          },
+          {
+            "name": "Saya",
+            "kind": "awakener"
+          },
+          {
+            "name": "Xu",
+            "kind": "awakener"
+          },
+          {
+            "name": "Pickman",
+            "kind": "awakener"
+          },
+          {
+            "name": "Arachne",
+            "kind": "awakener"
+          },
+          {
+            "name": "Clementine",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "label": "Male",
+        "linked": true,
+        "pool": [
+          {
+            "name": "Pontos",
+            "kind": "awakener"
+          },
+          {
+            "name": "Doresain",
+            "kind": "awakener"
+          },
+          {
+            "name": "Pickman",
+            "kind": "awakener"
+          },
+          {
+            "name": "Pollux",
+            "kind": "awakener"
+          },
+          {
+            "name": "Castor",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "label": "Female",
+        "linked": true,
+        "pool": [
+          {
+            "name": "Lotan: Cetarchon",
+            "kind": "awakener"
+          },
+          {
+            "name": "Mouchette",
+            "kind": "awakener"
+          },
+          {
+            "name": "Kathigu-Ra",
+            "kind": "awakener"
+          },
+          {
+            "name": "Doll: Inferno",
+            "kind": "awakener"
+          },
+          {
+            "name": "Vortice",
+            "kind": "awakener"
+          },
+          {
+            "name": "Murphy: Fauxborn",
+            "kind": "awakener"
+          },
+          {
+            "name": "Corposant",
+            "kind": "awakener"
+          },
+          {
+            "name": "Saya",
+            "kind": "awakener"
+          },
+          {
+            "name": "Xu",
+            "kind": "awakener"
+          },
+          {
+            "name": "Arachne",
+            "kind": "awakener"
+          },
+          {
+            "name": "Clementine",
+            "kind": "awakener"
+          }
+        ]
+      }
+    ]
   },
   {
-    "id": "banner-triune-verdant-sep",
+    "id": "triune-verdant-260907",
     "title": "Triune Verdant",
     "type": "rerun",
     "description": "Three rerun banners featuring Kathigu-Ra, Daffodil and Murphy: Fauxborn.",
     "startDate": "2026/09/07 09:00",
     "endDate": "2026/10/05 09:00",
-    "featured": ["Kathigu-Ra", "Daffodil", "Murphy: Fauxborn"]
+    "rateUpGroups": [
+      {
+        "kind": "awakener",
+        "options": [
+          {
+            "title": "Eternal Conflagration",
+            "rateUp": "Kathigu-Ra",
+            "offBanner": ["Nautila", "Nymphaea", "Pandia", "Alva", "Karen"]
+          },
+          {
+            "title": "Soul Dispatch",
+            "rateUp": "Daffodil",
+            "offBanner": ["Liz", "Tinct", "Winkle", "Jenkin", "Casiah"]
+          },
+          {
+            "title": "Venerated Birth",
+            "rateUp": "Murphy: Fauxborn",
+            "offBanner": ["Goliath", "Faros", "Caecus", "Sanga", "Celeste"]
+          }
+        ]
+      }
+    ]
   },
   {
-    "id": "banner-sylvan-omen-sep",
+    "id": "sylvan-omen-260907",
     "title": "Sylvan Omen",
     "type": "rerun",
     "tags": ["rerun", "wheel"],
     "description": "Three rerun banners featuring the Wheels Amber-Tinted Death, Treasured Rarity and Uteri Somnia.",
     "startDate": "2026/09/07 09:00",
     "endDate": "2026/10/05 09:00",
-    "featured": ["Amber-Tinted Death", "Treasured Rarity", "Uteri Somnia"]
+    "rateUpGroups": [
+      {
+        "kind": "wheel",
+        "options": [
+          {
+            "title": "From Fomalhaut",
+            "rateUp": "Amber-Tinted Death"
+          },
+          {
+            "title": "Sea of Epiphany",
+            "rateUp": "Treasured Rarity"
+          },
+          {
+            "title": "Abyssbound Embryo",
+            "rateUp": "Uteri Somnia"
+          }
+        ],
+        "sharedOffBanner": [
+          "Memory Spiral",
+          "Gift of Decay",
+          "Drifting in Desire",
+          "Will Unyielding",
+          "Silent Banquet",
+          "Blade of the Titan",
+          "Amidst the Downpour",
+          "Fin of Sorrow",
+          "Death of Ms. Coral",
+          "Sail of Providence",
+          "Chains Unbound",
+          "Pale Descendant",
+          "Bloody Feast",
+          "The Glutton's Tale",
+          "Lullaby Devoured",
+          "Fouetté",
+          "Song of the Bound",
+          "Incalculable Factor",
+          "Path Forsaken",
+          "Happy Magic Show"
+        ]
+      }
+    ]
   },
   {
-    "id": "banner-ogier-oathbound",
+    "id": "ogier-duo-260921",
     "title": "Sin-Bound Glory / Sullied White",
     "type": "awaken",
     "description": "Featured rate-up banners for Ogier: Oathbound and his SSR Wheel \"Ever Sunward\".",
@@ -410,85 +2752,577 @@
       {"name": "Ogier: Oathbound", "kind": "awakener"},
       {"name": "Ever Sunward", "kind": "wheel"}
     ],
-    "pinned": true
+    "pinned": true,
+    "rateUpGroups": [
+      {
+        "kind": "awakener",
+        "options": [{"title": "Sin-Bound Glory", "rateUp": "Ogier: Oathbound", "offBanner": ["Nautila", "Nymphaea", "Pandia", "Alva", "Karen"]}]
+      },
+      {
+        "kind": "wheel",
+        "options": [{"title": "Sullied White", "rateUp": "Ever Sunward"}],
+        "sharedOffBanner": [
+          "Memory Spiral",
+          "Gift of Decay",
+          "Drifting in Desire",
+          "Will Unyielding",
+          "Silent Banquet",
+          "Blade of the Titan",
+          "Amidst the Downpour",
+          "Fin of Sorrow",
+          "Death of Ms. Coral",
+          "Sail of Providence",
+          "Chains Unbound",
+          "Pale Descendant",
+          "Bloody Feast",
+          "The Glutton's Tale",
+          "Lullaby Devoured",
+          "Fouetté",
+          "Song of the Bound",
+          "Incalculable Factor",
+          "Path Forsaken",
+          "Happy Magic Show"
+        ]
+      }
+    ]
   },
   {
-    "id": "banner-triune-verdant-oct",
+    "id": "triune-verdant-261005",
     "title": "Triune Verdant",
     "type": "rerun",
     "description": "Three rerun banners featuring Castor, Miryam and Xu.",
     "startDate": "2026/10/05 09:00",
     "endDate": "2026/11/02 09:00",
-    "featured": ["Castor", "Miryam", "Xu"]
+    "rateUpGroups": [
+      {
+        "kind": "awakener",
+        "options": [
+          {
+            "title": "Obsidian Wings",
+            "rateUp": "Castor",
+            "offBanner": ["Liz", "Tinct", "Winkle", "Jenkin", "Casiah"]
+          },
+          {
+            "title": "Abyssal Descent",
+            "rateUp": "Miryam",
+            "offBanner": ["Goliath", "Faros", "Caecus", "Sanga", "Celeste"]
+          },
+          {
+            "title": "Nocturnal Rapture",
+            "rateUp": "Xu",
+            "offBanner": ["Helot", "Agrippa", "Uvhash", "Leigh", "Faint"]
+          }
+        ]
+      }
+    ]
   },
   {
-    "id": "banner-sylvan-omen-oct",
+    "id": "sylvan-omen-261005",
     "title": "Sylvan Omen",
     "type": "rerun",
     "tags": ["rerun", "wheel"],
     "description": "Three rerun banners featuring the Wheels Unbearable Freedom, Power of the Pious and Vain Regrets.",
     "startDate": "2026/10/05 09:00",
     "endDate": "2026/11/02 09:00",
-    "featured": ["Unbearable Freedom", "Power of the Pious", "Vain Regrets"]
+    "rateUpGroups": [
+      {
+        "kind": "wheel",
+        "options": [
+          {
+            "title": "The Invictus",
+            "rateUp": "Unbearable Freedom"
+          },
+          {
+            "title": "Celestial Decree",
+            "rateUp": "Power of the Pious"
+          },
+          {
+            "title": "Gaze of Sedition",
+            "rateUp": "Vain Regrets"
+          }
+        ],
+        "sharedOffBanner": [
+          "Memory Spiral",
+          "Gift of Decay",
+          "Drifting in Desire",
+          "Will Unyielding",
+          "Silent Banquet",
+          "Blade of the Titan",
+          "Amidst the Downpour",
+          "Fin of Sorrow",
+          "Death of Ms. Coral",
+          "Sail of Providence",
+          "Chains Unbound",
+          "Pale Descendant",
+          "Bloody Feast",
+          "The Glutton's Tale",
+          "Lullaby Devoured",
+          "Fouetté",
+          "Song of the Bound",
+          "Incalculable Factor",
+          "Path Forsaken",
+          "Happy Magic Show"
+        ]
+      }
+    ]
   },
   {
-    "id": "banner-vivian",
+    "id": "vivian-duo-261019",
     "title": "Indolent Sorceress / Putrefying Irrigation",
     "type": "awaken",
-    "description": "Featured rate-up banners for Vivian and her SSR Wheel \"The Seer's Riddle\".",
+    "description": "Separate rate-up Awakenings for Vivian and The Seer’s Riddle.",
     "startDate": "2026/10/19 09:00",
     "endDate": "2026/11/16 09:00",
     "featured": [
-      {"name": "Vivian", "kind": "awakener", "realmId": "CHAOS"},
-      {"name": "The Seer's Riddle", "kind": "wheel"}
+      {
+        "name": "Vivian",
+        "kind": "awakener",
+        "realmId": "CHAOS"
+      },
+      {
+        "name": "The Seer's Riddle",
+        "kind": "wheel"
+      }
     ],
-    "pinned": true
+    "pinned": true,
+    "rateUpGroups": [
+      {
+        "kind": "awakener",
+        "options": [
+          {
+            "title": "Indolent Sorceress",
+            "rateUp": "Vivian",
+            "offBanner": ["Nautila", "Nymphaea", "Pandia", "Alva", "Karen"]
+          }
+        ]
+      },
+      {
+        "kind": "wheel",
+        "options": [
+          {
+            "title": "Putrefying Irrigation",
+            "rateUp": "The Seer's Riddle"
+          }
+        ],
+        "sharedOffBanner": [
+          "Memory Spiral",
+          "Gift of Decay",
+          "Drifting in Desire",
+          "Will Unyielding",
+          "Silent Banquet",
+          "Blade of the Titan",
+          "Amidst the Downpour",
+          "Fin of Sorrow",
+          "Death of Ms. Coral",
+          "Sail of Providence",
+          "Chains Unbound",
+          "Pale Descendant",
+          "Bloody Feast",
+          "The Glutton's Tale",
+          "Lullaby Devoured",
+          "Fouetté",
+          "Song of the Bound",
+          "Incalculable Factor",
+          "Path Forsaken",
+          "Happy Magic Show"
+        ]
+      }
+    ]
   },
   {
-    "id": "banner-triune-verdant-nov",
+    "id": "triune-verdant-261102",
     "title": "Triune Verdant",
     "type": "rerun",
     "description": "Three rerun banners featuring Pickman, Tulu and Lily.",
     "startDate": "2026/11/02 09:00",
     "endDate": "2026/11/30 09:00",
-    "featured": ["Pickman", "Tulu", "Lily"]
+    "rateUpGroups": [
+      {
+        "kind": "awakener",
+        "options": [
+          {
+            "title": "Daubed in Nightmares",
+            "rateUp": "Pickman",
+            "offBanner": ["Helot", "Agrippa", "Uvhash", "Leigh", "Faint"]
+          },
+          {
+            "title": "When Stars Align",
+            "rateUp": "Tulu",
+            "offBanner": ["Goliath", "Faros", "Caecus", "Sanga", "Celeste"]
+          },
+          {
+            "title": "Unstained Blossom",
+            "rateUp": "Lily",
+            "offBanner": ["Nautila", "Nymphaea", "Pandia", "Alva", "Karen"]
+          }
+        ]
+      }
+    ]
   },
   {
-    "id": "banner-sylvan-omen-nov",
+    "id": "sylvan-omen-261102",
     "title": "Sylvan Omen",
     "type": "rerun",
     "tags": ["rerun", "wheel"],
     "description": "Three rerun banners featuring the Wheels Paradoxical Realism, Hymn of the Sovereign and Grace Through Pain.",
     "startDate": "2026/11/02 09:00",
     "endDate": "2026/11/30 09:00",
-    "featured": ["Paradoxical Realism", "Hymn of the Sovereign", "Grace Through Pain"]
+    "rateUpGroups": [
+      {
+        "kind": "wheel",
+        "options": [
+          {
+            "title": "Delirious Duality",
+            "rateUp": "Paradoxical Realism"
+          },
+          {
+            "title": "Dark Sea Whispers",
+            "rateUp": "Hymn of the Sovereign"
+          },
+          {
+            "title": "Untainted Hope",
+            "rateUp": "Grace Through Pain"
+          }
+        ],
+        "sharedOffBanner": [
+          "Memory Spiral",
+          "Gift of Decay",
+          "Drifting in Desire",
+          "Will Unyielding",
+          "Silent Banquet",
+          "Blade of the Titan",
+          "Amidst the Downpour",
+          "Fin of Sorrow",
+          "Death of Ms. Coral",
+          "Sail of Providence",
+          "Chains Unbound",
+          "Pale Descendant",
+          "Bloody Feast",
+          "The Glutton's Tale",
+          "Lullaby Devoured",
+          "Fouetté",
+          "Song of the Bound",
+          "Incalculable Factor",
+          "Path Forsaken",
+          "Happy Magic Show"
+        ]
+      }
+    ]
   },
   {
-    "id": "banner-kaleido-recollections-faded-legacy-nov",
+    "id": "kaleido-fl-261116",
     "title": "Kaleido Recollections: Faded Legacy",
     "type": "combo",
-    "description": "Features limited Faded Legacy Awakeners and Wheels of Destiny. After two consecutive SSR rewards of the same kind, the next SSR is guaranteed to be the other kind.",
+    "description": "Limited Faded Legacy Awakeners and Wheels.",
     "startDate": "2026/11/16 09:00",
     "endDate": "2026/11/30 09:00",
-    "derivedPool": {
-      "availabilityTypes": ["LIMITED_FADED_LEGACY"],
-      "slotCount": 4,
-      "awakenerSlots": 3,
-      "wheelSlots": 1
-    }
+    "related": ["constellated-memories-261116"],
+    "rulesProfile": "kaleido",
+    "poolSlots": [
+      {
+        "label": "Awakeners",
+        "pool": [
+          {
+            "name": "Lily",
+            "kind": "awakener"
+          },
+          {
+            "name": "24",
+            "kind": "awakener"
+          },
+          {
+            "name": "Ryker",
+            "kind": "awakener"
+          },
+          {
+            "name": "Hameln",
+            "kind": "awakener"
+          },
+          {
+            "name": "Tawil",
+            "kind": "awakener"
+          },
+          {
+            "name": "Tulu",
+            "kind": "awakener"
+          },
+          {
+            "name": "Murphy",
+            "kind": "awakener"
+          },
+          {
+            "name": "Miryam",
+            "kind": "awakener"
+          },
+          {
+            "name": "Sorel",
+            "kind": "awakener"
+          },
+          {
+            "name": "Salvador",
+            "kind": "awakener"
+          },
+          {
+            "name": "Thais",
+            "kind": "awakener"
+          },
+          {
+            "name": "Helot: Catena",
+            "kind": "awakener"
+          },
+          {
+            "name": "Daffodil",
+            "kind": "awakener"
+          },
+          {
+            "name": "Wanda",
+            "kind": "awakener"
+          },
+          {
+            "name": "Horla",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "label": "Wheels",
+        "pool": [
+          {
+            "name": "Grace Through Pain",
+            "kind": "wheel"
+          },
+          {
+            "name": "Aberrant Devour",
+            "kind": "wheel"
+          },
+          {
+            "name": "Hour of Fortune",
+            "kind": "wheel"
+          },
+          {
+            "name": "Eternal Requiem",
+            "kind": "wheel"
+          },
+          {
+            "name": "Wheel Unseen",
+            "kind": "wheel"
+          },
+          {
+            "name": "Hymn of the Sovereign",
+            "kind": "wheel"
+          },
+          {
+            "name": "Shrouded Birth",
+            "kind": "wheel"
+          },
+          {
+            "name": "Power of the Pious",
+            "kind": "wheel"
+          },
+          {
+            "name": "By Rose Alone",
+            "kind": "wheel"
+          },
+          {
+            "name": "Tablet of Scriptures",
+            "kind": "wheel"
+          },
+          {
+            "name": "Merciful Nurturing",
+            "kind": "wheel"
+          },
+          {
+            "name": "Drowning in Crimson",
+            "kind": "wheel"
+          },
+          {
+            "name": "Treasured Rarity",
+            "kind": "wheel"
+          },
+          {
+            "name": "Queen's Edict",
+            "kind": "wheel"
+          },
+          {
+            "name": "The Last Verse",
+            "kind": "wheel"
+          }
+        ]
+      }
+    ]
   },
   {
-    "id": "banner-kaleido-recollections-astral-reign-nov",
+    "id": "kaleido-ar-261116",
     "title": "Kaleido Recollections: Astral Reign",
     "type": "combo",
-    "description": "Features limited Astral Reign Awakeners and Wheels of Destiny. After two consecutive SSR rewards of the same kind, the next SSR is guaranteed to be the other kind.",
+    "description": "Limited Astral Reign Awakeners and Wheels.",
     "startDate": "2026/11/16 09:00",
     "endDate": "2026/11/30 09:00",
-    "derivedPool": {
-      "availabilityTypes": ["LIMITED_ASTRAL_REIGN"],
-      "slotCount": 4,
-      "awakenerSlots": 3,
-      "wheelSlots": 1
-    }
+    "related": ["constellated-memories-261116"],
+    "rulesProfile": "kaleido",
+    "poolSlots": [
+      {
+        "label": "Awakeners",
+        "pool": [
+          {
+            "name": "Doll: Inferno",
+            "kind": "awakener"
+          },
+          {
+            "name": "Kathigu-Ra",
+            "kind": "awakener"
+          },
+          {
+            "name": "Mouchette",
+            "kind": "awakener"
+          },
+          {
+            "name": "Lotan: Cetarchon",
+            "kind": "awakener"
+          },
+          {
+            "name": "Ogier: Oathbound",
+            "kind": "awakener"
+          },
+          {
+            "name": "Vivian",
+            "kind": "awakener"
+          },
+          {
+            "name": "Pickman",
+            "kind": "awakener"
+          },
+          {
+            "name": "Doresain",
+            "kind": "awakener"
+          },
+          {
+            "name": "Xu",
+            "kind": "awakener"
+          },
+          {
+            "name": "Saya",
+            "kind": "awakener"
+          },
+          {
+            "name": "Caraboo",
+            "kind": "awakener"
+          },
+          {
+            "name": "Corposant",
+            "kind": "awakener"
+          },
+          {
+            "name": "Vortice",
+            "kind": "awakener"
+          },
+          {
+            "name": "Murphy: Fauxborn",
+            "kind": "awakener"
+          },
+          {
+            "name": "Pontos",
+            "kind": "awakener"
+          },
+          {
+            "name": "Clementine",
+            "kind": "awakener"
+          },
+          {
+            "name": "Castor",
+            "kind": "awakener"
+          },
+          {
+            "name": "Pollux",
+            "kind": "awakener"
+          },
+          {
+            "name": "Arachne",
+            "kind": "awakener"
+          }
+        ]
+      },
+      {
+        "label": "Wheels",
+        "pool": [
+          {
+            "name": "Manikin of Oblivion",
+            "kind": "wheel"
+          },
+          {
+            "name": "Amber-Tinted Death",
+            "kind": "wheel"
+          },
+          {
+            "name": "Doomsday Rampage",
+            "kind": "wheel"
+          },
+          {
+            "name": "Cetus Occasus",
+            "kind": "wheel"
+          },
+          {
+            "name": "Ever Sunward",
+            "kind": "wheel"
+          },
+          {
+            "name": "The Seer's Riddle",
+            "kind": "wheel"
+          },
+          {
+            "name": "Paradoxical Realism",
+            "kind": "wheel"
+          },
+          {
+            "name": "Kiss of Repose",
+            "kind": "wheel"
+          },
+          {
+            "name": "Vain Regrets",
+            "kind": "wheel"
+          },
+          {
+            "name": "Fragrant Morphogenesis",
+            "kind": "wheel"
+          },
+          {
+            "name": "Honeyed Deceit",
+            "kind": "wheel"
+          },
+          {
+            "name": "Flamebound Navigator",
+            "kind": "wheel"
+          },
+          {
+            "name": "The Faraway Eden",
+            "kind": "wheel"
+          },
+          {
+            "name": "Uteri Somnia",
+            "kind": "wheel"
+          },
+          {
+            "name": "Living Cage",
+            "kind": "wheel"
+          },
+          {
+            "name": "Veiled Anguish",
+            "kind": "wheel"
+          },
+          {
+            "name": "Unbearable Freedom",
+            "kind": "wheel"
+          },
+          {
+            "name": "Twisted Knight Ballad",
+            "kind": "wheel"
+          },
+          {
+            "name": "Eternal Weave",
+            "kind": "wheel"
+          }
+        ]
+      }
+    ]
   }
 ]

@@ -1,7 +1,5 @@
 import type {CSSProperties, ReactNode} from 'react'
 
-import {Link} from 'react-router'
-
 import './season-masthead.css'
 
 export interface SeasonMastheadCountdown {
@@ -17,20 +15,16 @@ export interface SeasonMastheadSummary {
   note?: string
   emblemSrc?: string
   artSrc?: string
-  linkAriaLabel?: string
-  to?: string
 }
 
 interface SeasonMastheadProps {
   children: ReactNode
-  layout: 'page' | 'timeline'
   summary: SeasonMastheadSummary
   summaryAlignment?: 'center' | 'default'
 }
 
 export function SeasonMasthead({
   children,
-  layout,
   summary,
   summaryAlignment = 'default',
 }: SeasonMastheadProps) {
@@ -39,7 +33,6 @@ export function SeasonMasthead({
     : undefined
   const summaryClass = [
     'season-masthead__summary',
-    summary.to ? 'season-masthead__summary--link' : null,
     summaryAlignment === 'center' ? 'self-center' : null,
   ]
     .filter(Boolean)
@@ -75,23 +68,12 @@ export function SeasonMasthead({
   )
 
   return (
-    <header className={`season-masthead season-masthead--${layout}`}>
+    <header className='season-masthead'>
       <div className='season-masthead__inner'>
         <div className='season-masthead__content'>{children}</div>
-        {summary.to ? (
-          <Link
-            aria-label={summary.linkAriaLabel ?? summary.ariaLabel}
-            className={summaryClass}
-            style={summaryStyle}
-            to={summary.to}
-          >
-            {summaryContent}
-          </Link>
-        ) : (
-          <aside aria-label={summary.ariaLabel} className={summaryClass} style={summaryStyle}>
-            {summaryContent}
-          </aside>
-        )}
+        <aside aria-label={summary.ariaLabel} className={summaryClass} style={summaryStyle}>
+          {summaryContent}
+        </aside>
       </div>
     </header>
   )

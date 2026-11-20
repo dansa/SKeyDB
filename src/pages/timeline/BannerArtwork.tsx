@@ -1,8 +1,5 @@
-import {useEffect, useMemo, useReducer, useRef, useState, type MouseEvent} from 'react'
+import {useEffect, useMemo, useReducer, useRef, useState} from 'react'
 
-import {Link} from 'react-router'
-
-import type {EntityRef} from '@/domain/entities/types'
 import type {BannerFeaturedUnit, BannerLinkedPresentation, BannerPoolSlot} from '@/domain/timeline'
 
 import {
@@ -24,9 +21,6 @@ import {
 } from './usePoolCycling'
 import {usePoolMontagePreload} from './usePoolMontagePreload'
 
-const SLICE_DETAIL_TARGET_BASE_CLASS =
-  'absolute z-30 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-amber-100/95 focus-visible:shadow-[inset_0_0_0_1px_rgba(15,23,42,0.85)]'
-const SLICE_DETAIL_TARGET_CLASS = `${SLICE_DETAIL_TARGET_BASE_CLASS} inset-0`
 const POOL_MONTAGE_LAYER_CLASS =
   'absolute inset-0 overflow-hidden transition-opacity ease-in-out motion-reduce:transition-none'
 const POOL_MONTAGE_TRANSITION_STYLE = {
@@ -61,77 +55,14 @@ function scheduleAfterNextPaint(callback: () => void): () => void {
   }
 }
 
-function isPlainPrimaryClick(event: MouseEvent<HTMLElement>): boolean {
-  return event.button === 0 && !event.altKey && !event.ctrlKey && !event.metaKey && !event.shiftKey
-}
-
-function openDetailFromTarget(
-  event: MouseEvent<HTMLElement>,
-  detailRef: EntityRef | undefined,
-  onOpenDetail: ((ref: EntityRef) => void) | undefined,
-) {
-  if (!detailRef || !onOpenDetail || !isPlainPrimaryClick(event)) {
-    return
-  }
-
-  event.preventDefault()
-  event.stopPropagation()
-  onOpenDetail(detailRef)
-}
-
-function SliceDetailTarget({
-  asset,
-  className,
-  onOpenDetail,
-}: {
-  asset: SliceAsset
-  className: string
-  onOpenDetail?: (ref: EntityRef) => void
-}) {
-  if (asset.linkTo) {
-    return (
-      <Link
-        aria-label={asset.label}
-        className={className}
-        onClick={(event) => {
-          openDetailFromTarget(event, asset.detailRef, onOpenDetail)
-        }}
-        title={asset.label}
-        to={asset.linkTo}
-      />
-    )
-  }
-
-  if (!asset.detailRef || !onOpenDetail) {
-    return null
-  }
-
-  return (
-    <button
-      aria-label={asset.label}
-      className={className}
-      onClick={(event) => {
-        openDetailFromTarget(event, asset.detailRef, onOpenDetail)
-      }}
-      title={asset.label}
-      type='button'
-    />
-  )
-}
-
 function getArtworkImageClass(asset: SliceAsset, emphasis: boolean): string {
-  const base =
-    'h-full w-full transition-transform duration-500 ease-out will-change-transform [backface-visibility:hidden] motion-reduce:transition-none'
+  const base = 'h-full w-full object-cover'
 
   if (asset.isWheel) {
-    return emphasis
-      ? `${base} scale-[1.18] object-cover object-center group-hover/art-panel:scale-[1.24]`
-      : `${base} scale-[1.12] object-cover object-center group-hover/art-panel:scale-[1.18]`
+    return emphasis ? `${base} scale-[1.18] object-center` : `${base} scale-[1.12] object-center`
   }
 
-  return emphasis
-    ? `${base} scale-[1.035] object-cover object-top group-hover/art-panel:scale-[1.08]`
-    : `${base} object-cover object-top group-hover/art-panel:scale-[1.045]`
+  return emphasis ? `${base} scale-[1.035] object-top` : `${base} object-top`
 }
 
 function ArtworkFallback({label}: {label?: string}) {
@@ -180,47 +111,27 @@ function SplitPanelSeparator() {
 
 function ArtworkPanel({
   asset,
-  className = '',
   emphasis = false,
   loading = 'lazy',
-  onOpenDetail,
   showSeparator = false,
 }: {
   asset: SliceAsset
-  className?: string
   emphasis?: boolean
   loading?: 'eager' | 'lazy'
-  onOpenDetail?: (ref: EntityRef) => void
   showSeparator?: boolean
 }) {
   return (
-    <div
-      className={`group/art-panel relative min-w-0 overflow-hidden bg-slate-950 ${className}`}
-      title={asset.label}
-    >
+    <div className='relative min-w-0 overflow-hidden bg-slate-950'>
       <div className='absolute inset-0'>
         <ArtworkVisual asset={asset} emphasis={emphasis} loading={loading} />
       </div>
       <div className='pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,14,0.02),rgba(2,6,14,0.04)_48%,rgba(2,6,14,0.74))]' />
       {showSeparator ? <SplitPanelSeparator /> : null}
-      <SliceDetailTarget
-        asset={asset}
-        className={SLICE_DETAIL_TARGET_CLASS}
-        onOpenDetail={onOpenDetail}
-      />
     </div>
   )
 }
 
-function FeaturedArtwork({
-  assets,
-  loading,
-  onOpenDetail,
-}: {
-  assets: SliceAsset[]
-  loading: 'eager' | 'lazy'
-  onOpenDetail?: (ref: EntityRef) => void
-}) {
+function FeaturedArtwork({assets, loading}: {assets: SliceAsset[]; loading: 'eager' | 'lazy'}) {
   if (assets.length === 0) {
     return <BannerPlaceholderArt />
   }
@@ -234,9 +145,8 @@ function FeaturedArtwork({
         <ArtworkPanel
           asset={asset}
           emphasis={index === 0}
-          key={`${asset.label}:${asset.url ?? asset.linkTo ?? 'unlinked'}`}
+          key={`${asset.label}:${asset.url ?? 'no-art'}`}
           loading={loading}
-          onOpenDetail={onOpenDetail}
           showSeparator={index < splitAssets.length - 1}
         />
       ))}
@@ -315,7 +225,6 @@ function PoolMontageSlot({
   frame,
   label,
   loading,
-  onOpenDetail,
   presentation,
   showSeparator,
   showAlternate,
@@ -325,7 +234,6 @@ function PoolMontageSlot({
   frame: PoolCycleFrame
   label?: string
   loading: 'eager' | 'lazy'
-  onOpenDetail?: (ref: EntityRef) => void
   presentation: BannerLinkedPresentation
   showSeparator: boolean
   showAlternate: boolean
@@ -366,16 +274,11 @@ function PoolMontageSlot({
   const assetB = assets[layers.bIdx]
   const alternateAssetA = alternateAssets?.[layers.aIdx]
   const alternateAssetB = alternateAssets?.[layers.bIdx]
-  const frontPrimaryAsset = layers.front === 'a' ? assetA : assetB
   const frontAlternateAsset = layers.front === 'a' ? alternateAssetA : alternateAssetB
-  const frontAsset = showAlternate && frontAlternateAsset ? frontAlternateAsset : frontPrimaryAsset
   const isPaired = presentation === 'paired' && Boolean(frontAlternateAsset)
 
   return (
-    <div
-      className='group/art-panel group/slice relative min-w-0 overflow-hidden bg-slate-950 [contain:paint]'
-      title={frontAsset.label}
-    >
+    <div className='relative min-w-0 overflow-hidden bg-slate-950 [contain:paint]'>
       <div
         aria-hidden={layers.front !== 'a'}
         className={POOL_MONTAGE_LAYER_CLASS}
@@ -419,26 +322,6 @@ function PoolMontageSlot({
         </div>
       ) : null}
       {showSeparator ? <SplitPanelSeparator /> : null}
-      {isPaired && frontAlternateAsset ? (
-        <>
-          <SliceDetailTarget
-            asset={frontPrimaryAsset}
-            className={`${SLICE_DETAIL_TARGET_BASE_CLASS} inset-x-0 top-0 h-[60%]`}
-            onOpenDetail={onOpenDetail}
-          />
-          <SliceDetailTarget
-            asset={frontAlternateAsset}
-            className={`${SLICE_DETAIL_TARGET_BASE_CLASS} inset-x-0 bottom-0 h-[40%]`}
-            onOpenDetail={onOpenDetail}
-          />
-        </>
-      ) : (
-        <SliceDetailTarget
-          asset={frontAsset}
-          className={SLICE_DETAIL_TARGET_CLASS}
-          onOpenDetail={onOpenDetail}
-        />
-      )}
     </div>
   )
 }
@@ -511,10 +394,7 @@ function PoolMontagePlaceholderSlot({
   showSeparator: boolean
 }) {
   return (
-    <div
-      className='group/art-panel relative min-w-0 overflow-hidden bg-slate-950 [contain:paint]'
-      title={asset.label}
-    >
+    <div className='relative min-w-0 overflow-hidden bg-slate-950 [contain:paint]'>
       <ArtworkFallback label={asset.label} />
       {label ? (
         <div className='pointer-events-none absolute top-2 left-1/2 z-20 max-w-[92%] -translate-x-1/2 border border-amber-100/15 bg-slate-950/72 px-1.5 py-1 text-center text-[0.64rem] leading-none font-extrabold tracking-[0.12em] text-amber-50/90 uppercase shadow-sm backdrop-blur-sm'>
@@ -528,13 +408,11 @@ function PoolMontagePlaceholderSlot({
 
 function PoolMontageArtwork({
   loading,
-  onOpenDetail,
   presentation,
   poolSlots,
   visualSlots,
 }: {
   loading: 'eager' | 'lazy'
-  onOpenDetail?: (ref: EntityRef) => void
   presentation: BannerLinkedPresentation
   poolSlots: BannerPoolSlot[]
   visualSlots: ResolvedVisualSlot[]
@@ -561,12 +439,9 @@ function PoolMontageArtwork({
 
   return (
     <div
-      className='absolute inset-y-0 left-0 grid bg-slate-950'
+      className='absolute inset-0 grid bg-slate-950'
       ref={rootRef}
-      style={{
-        gridTemplateColumns: getPoolGridTemplate(visualSlots.length),
-        right: visualSlots.length >= 5 ? '1.75rem' : 0,
-      }}
+      style={{gridTemplateColumns: getPoolGridTemplate(visualSlots.length)}}
     >
       {assetsReady
         ? visualSlots.map((vs, index) => (
@@ -577,7 +452,6 @@ function PoolMontageArtwork({
               key={getVisualSlotSignature(vs)}
               label={vs.label}
               loading={loading}
-              onOpenDetail={onOpenDetail}
               presentation={effectivePresentation}
               showSeparator={index < visualSlots.length - 1}
               showAlternate={showAlternate}
@@ -616,7 +490,7 @@ function FullCardArtwork({
     <div className='absolute inset-0 overflow-hidden bg-slate-950'>
       <img
         alt={label}
-        className='h-full w-full object-cover object-center transition-transform duration-500 ease-out group-hover/banner:scale-[1.035] motion-reduce:transition-none'
+        className='h-full w-full object-cover object-center'
         decoding='async'
         draggable={false}
         loading={loading}
@@ -634,7 +508,6 @@ interface BannerArtworkProps {
   linkedPresentation?: BannerLinkedPresentation
   poolSlots?: BannerPoolSlot[]
   title: string
-  onOpenDetail?: (ref: EntityRef) => void
 }
 
 export function BannerArtwork({
@@ -644,7 +517,6 @@ export function BannerArtwork({
   linkedPresentation = 'expanded',
   poolSlots,
   title,
-  onOpenDetail,
 }: BannerArtworkProps) {
   const effectiveFeatured = featured ?? EMPTY_FEATURED
   const displaySlices = useMemo(() => expandFeatured(effectiveFeatured), [effectiveFeatured])
@@ -666,7 +538,6 @@ export function BannerArtwork({
     return (
       <PoolMontageArtwork
         loading={loading}
-        onOpenDetail={onOpenDetail}
         presentation={linkedPresentation}
         poolSlots={effectivePoolSlots}
         visualSlots={visualSlots}
@@ -674,5 +545,5 @@ export function BannerArtwork({
     )
   }
 
-  return <FeaturedArtwork assets={displayAssets} loading={loading} onOpenDetail={onOpenDetail} />
+  return <FeaturedArtwork assets={displayAssets} loading={loading} />
 }

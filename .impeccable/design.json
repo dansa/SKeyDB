@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-05-17T13:31:38.6412678+02:00",
+  "generatedAt": "2026-11-18T15:25:26.623Z",
   "title": "Design System: SKeyDB",
   "extensions": {
     "colorMeta": {
@@ -19,6 +19,21 @@
           "oklch(92% 0.01 257)"
         ]
       },
+      "shell-night": {
+        "role": "neutral",
+        "displayName": "Shell Night",
+        "canonical": "oklch(10.5% 0.024 254)",
+        "tonalRamp": [
+          "oklch(15% 0.013 254)",
+          "oklch(25% 0.018 254)",
+          "oklch(37% 0.021 254)",
+          "oklch(50% 0.023 254)",
+          "oklch(63% 0.024 254)",
+          "oklch(76% 0.024 254)",
+          "oklch(88% 0.017 254)",
+          "oklch(95% 0.008 254)"
+        ]
+      },
       "panel-night": {
         "role": "neutral",
         "displayName": "Panel Night",
@@ -32,6 +47,81 @@
           "oklch(56% 0.02 252)",
           "oklch(75% 0.014 252)",
           "oklch(93% 0.008 252)"
+        ]
+      },
+      "panel-night-strong": {
+        "role": "neutral",
+        "displayName": "Strong Panel Night",
+        "canonical": "oklch(8.5% 0.024 252 / 0.9)",
+        "tonalRamp": [
+          "oklch(15% 0.013 252)",
+          "oklch(25% 0.018 252)",
+          "oklch(37% 0.021 252)",
+          "oklch(50% 0.023 252)",
+          "oklch(63% 0.024 252)",
+          "oklch(76% 0.024 252)",
+          "oklch(88% 0.017 252)",
+          "oklch(95% 0.008 252)"
+        ]
+      },
+      "art-well": {
+        "role": "neutral",
+        "displayName": "Art Well",
+        "canonical": "oklch(4.5% 0.018 252 / 0.86)",
+        "tonalRamp": [
+          "oklch(15% 0.01 252)",
+          "oklch(25% 0.013 252)",
+          "oklch(37% 0.016 252)",
+          "oklch(50% 0.017 252)",
+          "oklch(63% 0.018 252)",
+          "oklch(76% 0.018 252)",
+          "oklch(88% 0.012 252)",
+          "oklch(95% 0.006 252)"
+        ]
+      },
+      "text-main": {
+        "role": "neutral",
+        "displayName": "Main Text",
+        "canonical": "oklch(91% 0.025 255)",
+        "tonalRamp": [
+          "oklch(15% 0.014 255)",
+          "oklch(25% 0.018 255)",
+          "oklch(37% 0.022 255)",
+          "oklch(50% 0.024 255)",
+          "oklch(63% 0.025 255)",
+          "oklch(76% 0.025 255)",
+          "oklch(88% 0.017 255)",
+          "oklch(95% 0.009 255)"
+        ]
+      },
+      "text-muted": {
+        "role": "neutral",
+        "displayName": "Muted Text",
+        "canonical": "oklch(77% 0.024 250 / 0.86)",
+        "tonalRamp": [
+          "oklch(15% 0.013 250)",
+          "oklch(25% 0.018 250)",
+          "oklch(37% 0.021 250)",
+          "oklch(50% 0.023 250)",
+          "oklch(63% 0.024 250)",
+          "oklch(76% 0.024 250)",
+          "oklch(88% 0.017 250)",
+          "oklch(95% 0.008 250)"
+        ]
+      },
+      "text-faint": {
+        "role": "neutral",
+        "displayName": "Faint Text",
+        "canonical": "oklch(61% 0.035 254 / 0.86)",
+        "tonalRamp": [
+          "oklch(15% 0.019 254)",
+          "oklch(25% 0.026 254)",
+          "oklch(37% 0.031 254)",
+          "oklch(50% 0.034 254)",
+          "oklch(63% 0.035 254)",
+          "oklch(76% 0.034 254)",
+          "oklch(88% 0.024 254)",
+          "oklch(95% 0.012 254)"
         ]
       },
       "amber-gold": {
@@ -49,9 +139,84 @@
           "oklch(96% 0.035 84)"
         ]
       },
+      "amber-gold-soft": {
+        "role": "primary",
+        "displayName": "Soft Amber Title",
+        "canonical": "oklch(95% 0.035 84)",
+        "tonalRamp": [
+          "oklch(15% 0.019 84)",
+          "oklch(25% 0.026 84)",
+          "oklch(37% 0.031 84)",
+          "oklch(50% 0.034 84)",
+          "oklch(63% 0.035 84)",
+          "oklch(76% 0.034 84)",
+          "oklch(88% 0.024 84)",
+          "oklch(95% 0.012 84)"
+        ]
+      },
+      "border-muted": {
+        "role": "neutral",
+        "displayName": "Muted Border",
+        "canonical": "oklch(58% 0.04 232 / 0.34)",
+        "tonalRamp": [
+          "oklch(15% 0.022 232)",
+          "oklch(25% 0.029 232)",
+          "oklch(37% 0.035 232)",
+          "oklch(50% 0.038 232)",
+          "oklch(63% 0.04 232)",
+          "oklch(76% 0.039 232)",
+          "oklch(88% 0.028 232)",
+          "oklch(95% 0.014 232)"
+        ]
+      },
+      "border-subtle": {
+        "role": "neutral",
+        "displayName": "Subtle Border",
+        "canonical": "oklch(58% 0.04 232 / 0.22)",
+        "tonalRamp": [
+          "oklch(15% 0.022 232)",
+          "oklch(25% 0.029 232)",
+          "oklch(37% 0.035 232)",
+          "oklch(50% 0.038 232)",
+          "oklch(63% 0.04 232)",
+          "oklch(76% 0.039 232)",
+          "oklch(88% 0.028 232)",
+          "oklch(95% 0.014 232)"
+        ]
+      },
+      "focus-gold": {
+        "role": "neutral",
+        "displayName": "Focus Gold",
+        "canonical": "oklch(84% 0.1 84 / 0.38)",
+        "tonalRamp": [
+          "oklch(15% 0.055 84)",
+          "oklch(25% 0.073 84)",
+          "oklch(37% 0.088 84)",
+          "oklch(50% 0.096 84)",
+          "oklch(63% 0.1 84)",
+          "oklch(76% 0.098 84)",
+          "oklch(88% 0.069 84)",
+          "oklch(95% 0.034 84)"
+        ]
+      },
+      "danger-red": {
+        "role": "tertiary",
+        "displayName": "Danger Red",
+        "canonical": "oklch(76% 0.078 28 / 0.88)",
+        "tonalRamp": [
+          "oklch(18% 0.055 28)",
+          "oklch(29% 0.07 28)",
+          "oklch(42% 0.078 28)",
+          "oklch(56% 0.082 28)",
+          "oklch(68% 0.08 28)",
+          "oklch(76% 0.078 28)",
+          "oklch(87% 0.048 28)",
+          "oklch(96% 0.025 28)"
+        ]
+      },
       "info-blue": {
         "role": "secondary",
-        "displayName": "Timeline Blue",
+        "displayName": "Info Blue",
         "canonical": "oklch(77% 0.07 236 / 0.88)",
         "tonalRamp": [
           "oklch(18% 0.055 236)",
@@ -64,19 +229,34 @@
           "oklch(96% 0.024 236)"
         ]
       },
-      "danger-red": {
-        "role": "tertiary",
-        "displayName": "D-Tide Red",
-        "canonical": "oklch(76% 0.078 28 / 0.88)",
+      "success-teal": {
+        "role": "secondary",
+        "displayName": "Success Teal",
+        "canonical": "oklch(76% 0.066 188 / 0.88)",
         "tonalRamp": [
-          "oklch(18% 0.055 28)",
-          "oklch(29% 0.07 28)",
-          "oklch(42% 0.078 28)",
-          "oklch(56% 0.082 28)",
-          "oklch(68% 0.08 28)",
-          "oklch(76% 0.078 28)",
-          "oklch(87% 0.048 28)",
-          "oklch(96% 0.025 28)"
+          "oklch(15% 0.036 188)",
+          "oklch(25% 0.048 188)",
+          "oklch(37% 0.058 188)",
+          "oklch(50% 0.063 188)",
+          "oklch(63% 0.066 188)",
+          "oklch(76% 0.065 188)",
+          "oklch(88% 0.046 188)",
+          "oklch(95% 0.022 188)"
+        ]
+      },
+      "violet-meta": {
+        "role": "secondary",
+        "displayName": "Violet Meta",
+        "canonical": "oklch(76% 0.072 302 / 0.88)",
+        "tonalRamp": [
+          "oklch(15% 0.04 302)",
+          "oklch(25% 0.053 302)",
+          "oklch(37% 0.063 302)",
+          "oklch(50% 0.069 302)",
+          "oklch(63% 0.072 302)",
+          "oklch(76% 0.071 302)",
+          "oklch(88% 0.05 302)",
+          "oklch(95% 0.024 302)"
         ]
       }
     },
@@ -124,14 +304,9 @@
         "purpose": "Emblems and meaningful art icons on dark backgrounds."
       },
       {
-        "name": "soft-artwork-plaque",
-        "value": "backdrop-blur(2px), bg-slate-950/28, 0 8px 22px rgba(2,6,14,0.34)",
-        "purpose": "Static title labels over banner artwork."
-      },
-      {
-        "name": "artwork-details-drawer",
-        "value": "backdrop-blur(10px), dark vertical gradient, -14px 0 26px rgba(2,6,14,0.36)",
-        "purpose": "Readable body-copy drawers over banner artwork."
+        "name": "focus-glow",
+        "value": "0 0 0 0.22rem oklch(82% 0.12 86 / 0.16)",
+        "purpose": "Visible focus support around amber states."
       }
     ],
     "motion": [
@@ -197,8 +372,8 @@
       "kind": "button",
       "refersTo": "segmented-toggle",
       "description": "Compact two-state display preference control.",
-      "html": "<div class='ds-price-toggle' role='group' aria-label='Display prices'><button class='is-active'>Prime</button><button>USD</button></div>",
-      "css": ".ds-price-toggle{display:inline-grid;grid-template-columns:repeat(2,minmax(3.85rem,1fr));border:1px solid oklch(45% .034 255/.42);background:linear-gradient(180deg,oklch(13% .028 248/.72),oklch(8% .026 248/.76));box-shadow:inset 0 1px 0 oklch(93% .03 84/.04)}.ds-price-toggle button{min-height:2rem;border:0;background:transparent;color:oklch(70% .035 254/.86);padding:.5rem .65rem;font-size:.64rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.ds-price-toggle button+button{border-left:1px solid oklch(45% .034 255/.32)}.ds-price-toggle .is-active{background:linear-gradient(180deg,oklch(30% .075 84/.42),oklch(18% .045 84/.36));color:oklch(94% .035 84/.96);box-shadow:inset 0 0 0 1px oklch(82% .1 84/.18),0 0 .75rem oklch(78% .1 84/.08)}.ds-price-toggle button:focus-visible{outline:2px solid oklch(84% .1 84/.3);outline-offset:2px}"
+      "html": "<div class='ds-price-toggle' role='group' aria-label='Display prices'><button type='button' aria-pressed='true'>Prime</button><button type='button' aria-pressed='false'>USD</button></div>",
+      "css": ".ds-price-toggle{display:inline-grid;grid-template-columns:repeat(2,minmax(3.85rem,1fr));border:1px solid var(--ui-control-border, oklch(45% 0.034 255 / 0.42));border-radius:var(--ui-radius-xs, 2px);background:linear-gradient(180deg,var(--ui-control-surface, oklch(13% 0.028 248 / 0.72)),var(--ui-control-surface-strong, oklch(8% 0.026 248 / 0.76)));box-shadow:inset 0 1px 0 oklch(93% .03 84/.04)}.ds-price-toggle button{min-height:2rem;border:0;background:transparent;color:var(--ui-control-text, oklch(70% 0.035 254 / 0.86));padding:.5rem .65rem;font-family:Noto Sans,Trebuchet MS,sans-serif;font-size:.64rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;transition:color var(--ui-motion-duration-fast, 150ms) var(--ui-motion-ease-soft, cubic-bezier(0.25, 1, 0.5, 1))}.ds-price-toggle button+button{border-left:1px solid var(--ui-control-border-subtle, oklch(45% 0.034 255 / 0.32))}.ds-price-toggle button:hover{color:var(--ui-control-text-hover, oklch(86% 0.03 254 / 0.94))}.ds-price-toggle button[aria-pressed=true]{background:linear-gradient(180deg,var(--ui-active-surface, oklch(30% 0.075 84 / 0.42)),var(--ui-active-surface-strong, oklch(18% 0.045 84 / 0.36)));color:var(--ui-accent-gold-soft, oklch(95% 0.035 84));box-shadow:inset 0 0 0 1px oklch(82% .1 84/.18),0 0 .75rem oklch(78% .1 84/.08)}.ds-price-toggle button:focus-visible{border-color:var(--ui-control-border-hover, oklch(76% 0.07 84 / 0.5));outline:2px solid var(--ui-focus-ring, oklch(84% 0.1 84 / 0.38));outline-offset:2px}@media(prefers-reduced-motion:reduce){.ds-price-toggle button{transition:none}}"
     },
     {
       "name": "D-zone Alert Chip",
@@ -233,22 +408,6 @@
       "css": ".ds-event-row{display:grid;grid-template-columns:6rem minmax(0,1fr);overflow:hidden;border:1px solid rgba(51,65,85,.4);background:linear-gradient(180deg,rgba(15,23,42,.78),rgba(10,16,28,.88));transition:border-color 150ms ease;color:oklch(91% .025 255)}.ds-event-row:hover{border-color:rgba(253,230,138,.3)}.ds-event-art{min-height:8rem;background:linear-gradient(135deg,oklch(20% .04 236),oklch(5% .018 252));border-right:1px solid rgba(51,65,85,.3)}.ds-event-copy{min-width:0;padding:.75rem 1rem}.ds-event-copy h3{margin:0;color:oklch(95% .035 84/.9);font-family:'Droid Serif',Georgia,serif;font-size:.98rem;line-height:1.16}.ds-event-copy p{margin:.4rem 0 0;color:oklch(77% .078 83/.88);font-size:.64rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}"
     },
     {
-      "name": "Banner Static Title Plaque",
-      "kind": "custom",
-      "refersTo": "compact-card",
-      "description": "Soft text-on-art plaque for collapsed banner summaries.",
-      "html": "<div class='ds-banner-plaque'><h3>Fata Texunt / Sempiternal Web</h3><p>New Awakener</p><span>Ends in 13h 25m</span></div>",
-      "css": ".ds-banner-plaque{display:inline-grid;min-width:8.75rem;max-width:min(28rem,calc(100vw - 3rem));border:1px solid rgba(255,244,202,.12);background:rgba(2,6,23,.28);padding:.5rem .75rem;box-shadow:0 8px 22px rgba(2,6,14,.34),inset 0 1px 0 rgba(255,244,202,.04);backdrop-filter:blur(2px);color:oklch(95% .035 84)}.ds-banner-plaque h3{margin:0 0 -.14em;padding-bottom:.14em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:'Droid Serif',Georgia,serif;font-size:1rem;line-height:1.12;color:oklch(95% .035 84);text-shadow:0 1px 3px rgba(0,0,0,.9)}.ds-banner-plaque p,.ds-banner-plaque span{margin:.375rem 0 0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:.56rem;font-weight:800;letter-spacing:.14em;line-height:1;text-transform:uppercase;text-shadow:0 1px 2px rgba(0,0,0,.92)}.ds-banner-plaque p{color:oklch(78% .1 84)}.ds-banner-plaque span{color:oklch(74% .032 255/.9)}"
-    },
-    {
-      "name": "Banner Details Drawer",
-      "kind": "custom",
-      "refersTo": "compact-card",
-      "description": "Stronger text-on-art drawer for readable banner details.",
-      "html": "<aside class='ds-banner-drawer'><h3>Fata Texunt / Sempiternal Web</h3><p class='ds-tags'>New Awakener</p><p>Featured rate-up banners for Arachne and her SSR Wheel.</p></aside>",
-      "css": ".ds-banner-drawer{display:flex;min-height:13rem;max-width:18rem;flex-direction:column;justify-content:center;border-left:1px solid rgba(255,244,202,.16);background:linear-gradient(180deg,rgba(9,16,29,.42) 0%,rgba(9,16,29,.88) 44%,rgba(4,8,16,.98) 100%);box-shadow:-14px 0 26px rgba(2,6,14,.36);backdrop-filter:blur(10px);padding:1.25rem 1.25rem 1.25rem 2.75rem;color:rgb(241 245 249)}.ds-banner-drawer h3{margin:0;color:oklch(95% .035 84);font-family:'Droid Serif',Georgia,serif;font-size:1.08rem;line-height:1.16}.ds-banner-drawer .ds-tags{margin:.5rem 0 0;color:oklch(78% .1 84);font-size:.58rem;font-weight:800;letter-spacing:.16em;line-height:1;text-transform:uppercase}.ds-banner-drawer p:last-child{margin:.75rem 0 0;color:rgb(148 163 184);font-family:'Noto Sans','Trebuchet MS',sans-serif;font-size:.75rem;line-height:1.5}"
-    },
-    {
       "name": "Database Filter Chip",
       "kind": "chip",
       "refersTo": "chip-filter",
@@ -265,7 +424,7 @@
       "Serif names and season titles paired with dense sans controls and metadata.",
       "Sharp 2-3 px product geometry, with rounded pills reserved for legacy surfaces until redesigned.",
       "Art and realm color appear as contextual tints, not decoration.",
-      "Translucent blur is allowed for text on artwork, with soft blur for title plaques and stronger blur for body-copy drawers.",
+      "Translucent blur is allowed only where it improves text contrast on artwork.",
       "Motion is short, stateful, and disabled for reduced-motion users."
     ],
     "rules": [
@@ -296,7 +455,7 @@
       },
       {
         "name": "The Text-on-Art Blur Rule",
-        "body": "Blur is allowed when text sits on artwork and needs legibility. Use the least blur that solves the reading problem: soft plaque for titles, stronger drawer for body copy.",
+        "body": "Blur is allowed when text sits on artwork and needs legibility. Use the least blur that solves the reading problem.",
         "section": "elevation"
       },
       {

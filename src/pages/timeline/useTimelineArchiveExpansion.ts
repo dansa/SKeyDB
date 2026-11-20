@@ -10,17 +10,28 @@ type ArchiveExpansionOverrides = Partial<
 
 interface UseTimelineArchiveExpansionOptions {
   endedSectionId: TimelineSectionId
+  /** Opens the archive holding a selected entry once per entry, leaving later toggles to the reader. */
+  reveal?: {role: ArchiveExpansionRole; key: string}
   targetSection?: TimelineSectionId
   upcomingSectionId: TimelineSectionId
 }
 
 export function useTimelineArchiveExpansion({
   endedSectionId,
+  reveal,
   targetSection,
   upcomingSectionId,
 }: UseTimelineArchiveExpansionOptions) {
   const [overrides, setOverrides] = useState<ArchiveExpansionOverrides>({})
+  const [revealedKey, setRevealedKey] = useState<string>()
   const targetKey: ArchiveExpansionKey = targetSection ?? 'none'
+  if (reveal && reveal.key !== revealedKey) {
+    setRevealedKey(reveal.key)
+    setOverrides((current) => ({
+      ...current,
+      [targetKey]: {...current[targetKey], [reveal.role]: true},
+    }))
+  }
 
   function getDefaultExpanded(role: ArchiveExpansionRole): boolean {
     if (role === 'upcoming') {

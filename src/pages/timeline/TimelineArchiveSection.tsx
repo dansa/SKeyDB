@@ -4,6 +4,7 @@ import {FaChevronRight} from 'react-icons/fa6'
 
 interface TimelineArchiveSectionProps {
   children: ReactNode
+  contentContainer?: 'div' | 'ul'
   contentClassName?: string
   dividerClassName?: string
   expanded: boolean
@@ -19,6 +20,7 @@ const DEFAULT_ARCHIVE_DIVIDER_CLASS =
 
 export function TimelineArchiveSection({
   children,
+  contentContainer: ContentContainer = 'div',
   contentClassName,
   dividerClassName = DEFAULT_ARCHIVE_DIVIDER_CLASS,
   expanded,
@@ -66,7 +68,9 @@ export function TimelineArchiveSection({
       >
         <div className='timeline-archive-motion__clip'>
           <div className='timeline-archive-motion__content'>
-            <div className={contentClassName}>{shouldRenderChildren ? children : null}</div>
+            <ContentContainer className={contentClassName}>
+              {shouldRenderChildren ? children : null}
+            </ContentContainer>
           </div>
         </div>
       </section>

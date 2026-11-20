@@ -1,361 +1,598 @@
-import {act, fireEvent, render, screen} from '@testing-library/react'
-import {MemoryRouter, useLocation} from 'react-router'
+import {act, fireEvent, render, screen, within} from '@testing-library/react'
+import {MemoryRouter, useLocation, useNavigate} from 'react-router'
 import {afterEach, describe, expect, it, vi} from 'vitest'
 
+import type {DatabaseDetailOverlaySession} from '@/stores/dbDetailStore'
+
+import {getPoolGroups} from './timeline/presentation/timelinePageModel'
 import {TimelinePage} from './TimelinePage'
 
-const detailStoreMocks = vi.hoisted(() => ({
-  openDetail: vi.fn(),
-}))
-
 vi.mock('@/domain/timeline-data', () => ({
-  timelineBanners: [
-    {
-      id: 'active-banner',
-      title: 'Active Banner',
-      type: 'limited',
-      startDate: '2026-03-09T00:00:00.000Z',
-      endDate: '2026-03-12T00:00:00.000Z',
-    },
-    {
-      id: 'ended-banner',
-      title: 'Archived Banner',
-      type: 'rerun',
-      startDate: '2026-03-01T00:00:00.000Z',
-      endDate: '2026-03-08T00:00:00.000Z',
-    },
-    {
-      id: 'upcoming-banner',
-      title: 'Upcoming Banner',
-      type: 'limited',
-      startDate: '2026-03-13T00:00:00.000Z',
-      endDate: '2026-03-20T00:00:00.000Z',
-    },
-  ],
+  timelinePatches: [],
   timelineEvents: [
     {
-      id: 'event-dtide',
-      title: 'Regional D-Effect Zone',
-      category: 'd-tide',
-      description: 'Bi-weekly D-Tide raids.\nCurrent Realm relic: Caro Ring.',
-      startDate: '2026-03-09T00:00:00.000Z',
-      endDate: '2026-03-12T00:00:00.000Z',
+      id: 'event-first',
+      title: 'First Event',
+      category: 'story',
+      customArt: '/event-test.webp',
+      description: 'A full sentence with enough words.\nAnother line.',
+      pricing: '60 Silver Prime',
+      keyDates: [
+        {label: 'Claims until', date: '2026-11-30T11:00:00Z'},
+        {label: 'Shop closes', date: '2027-01-11T11:00:00Z'},
+      ],
+      startDate: '2026-03-09T00:00:00Z',
+      endDate: '2026-03-12T00:00:00Z',
+      rewards: [{title: 'Daily login', items: [{name: 'Core', amount: '×3'}]}],
+      related: ['banner-pool', 'banner-wheel'],
+    },
+    {
+      id: 'event-missions-only',
+      title: 'Missions Only',
+      startDate: '2026-03-11T00:00:00Z',
+      endDate: '2026-03-12T00:00:00Z',
+      missions: [{label: 'Complete a trial', standard: [{name: 'Core', amount: '×1'}]}],
+    },
+    {
+      id: 'event-february',
+      title: 'February Event',
+      startDate: '2026-02-01T12:00:00Z',
+      endDate: '2026-02-25T12:00:00Z',
+    },
+    {
+      id: 'event-january',
+      title: 'January Event',
+      startDate: '2026-01-01T12:00:00Z',
+      endDate: '2026-01-25T12:00:00Z',
+    },
+  ],
+  timelineBanners: [
+    {
+      id: 'banner-pool',
+      title: 'Pool Banner',
+      type: 'combo',
+      pricing: '1980 Silver Prime',
+      startDate: '2026-03-09T00:00:00Z',
+      endDate: '2026-03-12T00:00:00Z',
+      poolSlots: [
+        {
+          pool: [
+            {name: 'Tulu', kind: 'awakener'},
+            {name: 'Lily', kind: 'awakener'},
+          ],
+        },
+      ],
+    },
+    {
+      id: 'banner-daily',
+      title: 'Daily Banner',
+      type: 'daily',
+      startDate: '2026-03-09T00:00:00Z',
+      endDate: '2026-03-12T00:00:00Z',
+      dailySchedule: [
+        {day: 1, featured: [{name: 'Tulu', kind: 'awakener'}]},
+        {
+          day: 2,
+          featured: [
+            {name: 'Lily', kind: 'awakener'},
+            {name: 'Ever Sunward', kind: 'wheel'},
+          ],
+        },
+        {day: 3, featured: [{name: 'Miryam', kind: 'awakener'}]},
+      ],
+    },
+    {
+      id: 'banner-wheel',
+      title: 'Wheel Banner',
+      type: 'wheel',
+      startDate: '2026-03-09T00:00:00Z',
+      endDate: '2026-03-12T00:00:00Z',
+      featured: [{name: 'Ever Sunward', kind: 'wheel'}],
+    },
+    {
+      id: 'banner-february',
+      title: 'February Banner',
+      type: 'limited',
+      startDate: '2026-02-01T12:00:00Z',
+      endDate: '2026-02-25T12:00:00Z',
+    },
+    {
+      id: 'banner-january',
+      title: 'January Banner',
+      type: 'limited',
+      startDate: '2026-01-01T12:00:00Z',
+      endDate: '2026-01-25T12:00:00Z',
     },
   ],
 }))
-
-vi.mock('@/domain/dzone', () => ({
-  getCurrentDzoneSeasonSummary: () => ({
-    id: 'dzone-0101',
-    period: 101,
-    name: 'Current Test Zone',
-    start: '2026-03-09T00:00:00.000Z',
-    end: '2026-03-12T00:00:00.000Z',
-    stageEffect: 'Astral Reign',
+vi.mock('./timeline/timelineDZoneSummary', () => ({
+  getTimelineDZoneSummary: () => ({
+    name: 'Test season',
     realm: 'CARO',
-    seasonPath: 'seasons/dzone0101.json',
-  }),
-  getLatestDzoneSeasonSummary: () => ({
-    id: 'dzone-0101',
-    period: 101,
-    name: 'Current Test Zone',
-    start: '2026-03-09T00:00:00.000Z',
-    end: '2026-03-12T00:00:00.000Z',
-    stageEffect: 'Astral Reign',
-    realm: 'CARO',
-    seasonPath: 'seasons/dzone0101.json',
+    startDate: '2026-02-28T00:00:00Z',
+    resetDate: '2026-03-14T00:00:00Z',
   }),
 }))
-
-vi.mock('@/domain/dzone-season-realm', () => ({
-  getDzoneSeasonSummaryDisplayName: () => 'Caro Ring',
+vi.mock('./timeline/BannerArtwork', () => ({
+  BannerArtwork: ({featured}: {featured?: {name: string}[]}) => (
+    <div data-featured={featured?.map(({name}) => name).join(',')} data-testid='banner-artwork' />
+  ),
 }))
-
-vi.mock('@/features/database/detail/useDatabaseDetailOverlay', () => ({
-  useDatabaseDetailOverlay: () => ({
-    close: vi.fn(),
-    followReference: vi.fn(),
-    isOpen: false,
-    open: detailStoreMocks.openDetail,
-    session: {},
-  }),
-}))
-
 vi.mock('@/features/database/detail/DeferredDatabaseDetailOverlayOutlet', () => ({
-  DeferredDatabaseDetailOverlayOutlet: () => <div data-testid='timeline-detail-host' />,
-}))
-
-vi.mock('./timeline/BannerCard', () => ({
-  BannerCard: ({
-    banner,
-    onOpenDetail,
-  }: {
-    banner: {title: string}
-    onOpenDetail?: (ref: {kind: 'wheel'; id: string}) => void
-  }) => (
-    <button
-      onClick={() => {
-        onOpenDetail?.({kind: 'wheel', id: 'wheel-0128'})
-      }}
-      type='button'
-    >
-      {banner.title}
-    </button>
+  DeferredDatabaseDetailOverlayOutlet: ({session}: {session: DatabaseDetailOverlaySession}) => (
+    <div aria-label='Roster details' role='dialog'>
+      <span>{session.top()?.kind}</span>
+      <button onClick={session.close} type='button'>
+        Close roster
+      </button>
+    </div>
   ),
 }))
 
-vi.mock('./timeline/EventList', () => ({
-  EventList: () => <div>No events to display.</div>,
-}))
-
-function LocationProbe() {
+function Location() {
+  const navigate = useNavigate()
   const location = useLocation()
-  return <output data-testid='location'>{`${location.pathname}${location.search}`}</output>
+  return (
+    <>
+      <span data-testid='location'>{location.search}</span>
+      <button
+        type='button'
+        onClick={() => {
+          void navigate(-1)
+        }}
+      >
+        History back
+      </button>
+      <button
+        type='button'
+        onClick={() => {
+          void navigate(1)
+        }}
+      >
+        History forward
+      </button>
+    </>
+  )
 }
 
-function renderTimelinePage(initialEntries = ['/timeline']) {
+function renderPage(path = '/timeline') {
   return render(
-    <MemoryRouter initialEntries={initialEntries}>
+    <MemoryRouter initialEntries={[path]}>
       <TimelinePage />
-      <LocationProbe />
+      <Location />
     </MemoryRouter>,
   )
 }
 
 afterEach(() => {
   vi.useRealTimers()
-  detailStoreMocks.openDetail.mockReset()
+  vi.unstubAllGlobals()
 })
 
 describe('TimelinePage', () => {
-  it('keeps ended banners collapsed by default and expands them on demand', () => {
-    vi.useFakeTimers()
-    vi.setSystemTime(new Date('2026-03-10T00:00:00.000Z'))
-
-    renderTimelinePage()
-
-    expect(screen.getByText('Active Banner')).toBeInTheDocument()
-    const upcomingToggle = screen.getByRole('button', {name: /upcoming banners/i})
-    expect(upcomingToggle).toHaveAttribute('aria-expanded', 'true')
-    expect(screen.getByRole('button', {name: 'Upcoming Banner'})).toBeInTheDocument()
-    expect(screen.queryByRole('button', {name: 'Archived Banner'})).not.toBeInTheDocument()
-
-    fireEvent.click(upcomingToggle)
-
-    expect(upcomingToggle).toHaveAttribute('aria-expanded', 'false')
-    expect(screen.queryByRole('button', {name: 'Upcoming Banner'})).not.toBeInTheDocument()
-
-    fireEvent.click(screen.getByRole('button', {name: /ended banners/i}))
-
-    expect(screen.getByRole('button', {name: 'Archived Banner'})).toBeInTheDocument()
-  })
-
-  it('renders the timeline price display toggle in the masthead', () => {
-    vi.useFakeTimers()
-    vi.setSystemTime(new Date('2026-03-10T00:00:00.000Z'))
-
-    renderTimelinePage()
-
-    expect(screen.getByText('Display Prices')).toBeInTheDocument()
-
-    const silverPrime = screen.getByRole('button', {name: 'Silver Prime'})
-    const estimatedUsd = screen.getByRole('button', {name: 'Estimated USD'})
-
-    expect(silverPrime).toHaveAttribute('aria-pressed', 'true')
-    expect(estimatedUsd).toHaveAttribute('aria-pressed', 'false')
-
-    fireEvent.click(estimatedUsd)
-
-    expect(silverPrime).toHaveAttribute('aria-pressed', 'false')
-    expect(estimatedUsd).toHaveAttribute('aria-pressed', 'true')
-  })
-
-  it('uses the view search param for timeline content tabs', () => {
-    vi.useFakeTimers()
-    vi.setSystemTime(new Date('2026-03-10T00:00:00.000Z'))
-
-    renderTimelinePage(['/timeline?view=banners'])
-
-    expect(screen.getByTestId('location')).toHaveTextContent('/timeline?view=banners')
-    expect(screen.getByRole('button', {name: 'Banners'})).toHaveAttribute('aria-pressed', 'true')
-    expect(screen.getByText('Active Banner')).toBeInTheDocument()
-    expect(screen.queryByText('No events to display.')).not.toBeInTheDocument()
-
-    fireEvent.click(screen.getByRole('button', {name: 'Events'}))
-
-    expect(screen.getByTestId('location')).toHaveTextContent('/timeline?view=events')
-    expect(screen.getByRole('button', {name: 'Events'})).toHaveAttribute('aria-pressed', 'true')
-
-    fireEvent.click(screen.getByRole('button', {name: 'Both'}))
-
-    expect(screen.getByTestId('location')).toHaveTextContent('/timeline')
-    expect(screen.getByRole('button', {name: 'Both'})).toHaveAttribute('aria-pressed', 'true')
-  })
-
-  it('uses the section search param as a timeline scroll target and view hint', () => {
-    const scrollIntoView = vi.fn()
-    const originalScrollIntoView = Object.getOwnPropertyDescriptor(
-      Element.prototype,
-      'scrollIntoView',
-    )
-    Object.defineProperty(Element.prototype, 'scrollIntoView', {
-      configurable: true,
-      value: scrollIntoView,
-    })
-    vi.useFakeTimers()
-    vi.setSystemTime(new Date('2026-03-10T00:00:00.000Z'))
-
-    try {
-      renderTimelinePage(['/timeline?section=upcoming-banners'])
-
-      expect(screen.getByRole('button', {name: 'Banners'})).toHaveAttribute('aria-pressed', 'true')
-      const upcomingBannersToggle = screen.getByRole('button', {name: /upcoming banners/i})
-      expect(upcomingBannersToggle).toHaveAttribute('aria-expanded', 'true')
-
-      act(() => {
-        vi.runOnlyPendingTimers()
-      })
-
-      expect(scrollIntoView).toHaveBeenCalledWith({block: 'start', behavior: 'smooth'})
-
-      fireEvent.click(upcomingBannersToggle)
-
-      expect(upcomingBannersToggle).toHaveAttribute('aria-expanded', 'false')
-
-      fireEvent.click(screen.getByRole('button', {name: 'Events'}))
-
-      expect(screen.getByTestId('location')).toHaveTextContent('/timeline?view=events')
-    } finally {
-      if (originalScrollIntoView) {
-        Object.defineProperty(Element.prototype, 'scrollIntoView', originalScrollIntoView)
-      }
-    }
-  })
-
-  it('uses instant section scrolling when reduced motion is preferred', () => {
-    const scrollIntoView = vi.fn()
-    const originalScrollIntoView = Object.getOwnPropertyDescriptor(
-      Element.prototype,
-      'scrollIntoView',
-    )
-    const originalMatchMedia = window.matchMedia
-    Object.defineProperty(Element.prototype, 'scrollIntoView', {
-      configurable: true,
-      value: scrollIntoView,
-    })
-    Object.defineProperty(window, 'matchMedia', {
-      configurable: true,
-      value: vi.fn().mockReturnValue({
-        addEventListener: vi.fn(),
-        addListener: vi.fn(),
-        dispatchEvent: vi.fn(),
-        matches: true,
-        media: '(prefers-reduced-motion: reduce)',
-        onchange: null,
-        removeEventListener: vi.fn(),
-        removeListener: vi.fn(),
-      }),
-    })
-    vi.useFakeTimers()
-    vi.setSystemTime(new Date('2026-03-10T00:00:00.000Z'))
-
-    try {
-      renderTimelinePage(['/timeline?section=upcoming-banners'])
-
-      act(() => {
-        vi.runOnlyPendingTimers()
-      })
-
-      expect(scrollIntoView).toHaveBeenCalledWith({block: 'start', behavior: 'auto'})
-    } finally {
-      if (originalScrollIntoView) {
-        Object.defineProperty(Element.prototype, 'scrollIntoView', originalScrollIntoView)
-      }
-      Object.defineProperty(window, 'matchMedia', {
+  it.each(['?section=ended-banners', '#ended-banners'])(
+    'opens and scrolls to a linked archive via %s, without locking the filter',
+    async (suffix) => {
+      vi.useFakeTimers()
+      vi.setSystemTime(new Date('2026-03-10T12:00:00Z'))
+      const original = Object.getOwnPropertyDescriptor(Element.prototype, 'scrollIntoView')
+      const scrollIntoView = vi.fn()
+      Object.defineProperty(Element.prototype, 'scrollIntoView', {
         configurable: true,
-        value: originalMatchMedia,
+        value: scrollIntoView,
       })
-    }
+      try {
+        renderPage(`/timeline${suffix}`)
+        const show = within(screen.getByRole('group', {name: 'Show'}))
+        expect(show.getByRole('button', {name: 'Banners'})).toHaveAttribute('aria-pressed', 'true')
+        expect(screen.getByRole('region', {name: 'Ended banners'})).toBeInTheDocument()
+
+        await act(async () => {
+          vi.runOnlyPendingTimers()
+        })
+        expect(scrollIntoView).toHaveBeenCalledWith({block: 'start', behavior: 'smooth'})
+        expect(scrollIntoView.mock.contexts).toContain(document.getElementById('ended-banners'))
+
+        fireEvent.click(show.getByRole('button', {name: 'Events'}))
+        expect(show.getByRole('button', {name: 'Events'})).toHaveAttribute('aria-pressed', 'true')
+        expect(screen.getByTestId('location')).toHaveTextContent(/^\?view=events$/)
+      } finally {
+        if (original) Object.defineProperty(Element.prototype, 'scrollIntoView', original)
+        else Reflect.deleteProperty(Element.prototype, 'scrollIntoView')
+      }
+    },
+  )
+
+  it('formats key dates like the date range, including a different year', () => {
+    vi.useFakeTimers()
+    vi.setSystemTime(new Date('2026-03-10T12:00:00Z'))
+    renderPage('/timeline?item=event-first')
+    const stage = within(screen.getByLabelText('Selected details'))
+    expect(stage.getByText('Nov 30')).toHaveAttribute('datetime', '2026-11-30T11:00:00Z')
+    expect(stage.getByText('Jan 11, 2027')).toHaveAttribute('datetime', '2027-01-11T11:00:00Z')
+  })
+  it('inserts end-month headings in both archives while preserving list semantics', () => {
+    vi.useFakeTimers()
+    vi.setSystemTime(new Date('2026-03-10T12:00:00Z'))
+    renderPage()
+    fireEvent.click(screen.getByRole('button', {name: /Ended events/}))
+    fireEvent.click(screen.getByRole('button', {name: /Ended banners/}))
+    const february = new Date('2026-02-25T12:00:00Z').toLocaleDateString(undefined, {
+      month: 'short',
+      year: 'numeric',
+    })
+    const january = new Date('2026-01-25T12:00:00Z').toLocaleDateString(undefined, {
+      month: 'short',
+      year: 'numeric',
+    })
+    const eventArchive = within(screen.getByRole('region', {name: 'Ended events'}))
+    const bannerArchive = within(screen.getByRole('region', {name: 'Ended banners'}))
+    expect(eventArchive.getByRole('heading', {name: february}).closest('li')).toBeInTheDocument()
+    expect(eventArchive.getByRole('heading', {name: january})).toBeInTheDocument()
+    expect(bannerArchive.getByRole('heading', {name: february})).toBeInTheDocument()
+    expect(bannerArchive.getByRole('heading', {name: january})).toBeInTheDocument()
   })
 
-  it('cancels a pending section scroll frame when the section param changes', () => {
+  it('shows missions even if the event has no reward summary', () => {
     vi.useFakeTimers()
-    vi.setSystemTime(new Date('2026-03-10T00:00:00.000Z'))
-    const requestAnimationFrame = vi.spyOn(window, 'requestAnimationFrame')
-    const cancelAnimationFrame = vi.spyOn(window, 'cancelAnimationFrame')
-
-    try {
-      renderTimelinePage(['/timeline?section=upcoming-banners'])
-
-      fireEvent.click(screen.getByRole('button', {name: 'Events'}))
-
-      expect(requestAnimationFrame).toHaveBeenCalled()
-      expect(cancelAnimationFrame).toHaveBeenCalledWith(requestAnimationFrame.mock.results[0].value)
-    } finally {
-      requestAnimationFrame.mockRestore()
-      cancelAnimationFrame.mockRestore()
-    }
+    vi.setSystemTime(new Date('2026-03-10T12:00:00Z'))
+    renderPage('/timeline?item=event-missions-only')
+    const stage = within(screen.getByLabelText('Selected details'))
+    expect(stage.getByRole('heading', {name: 'By mission (1)'})).toBeInTheDocument()
+    expect(stage.getByText('Complete a trial')).toBeVisible()
+    expect(stage.getByText('Complete a trial').closest('details')).toBeNull()
+    expect(stage.queryByRole('columnheader')).not.toBeInTheDocument()
   })
 
-  it('opens database detail overlays from timeline cards', () => {
+  it('does not add a history step when a filter clears the selection', () => {
     vi.useFakeTimers()
-    vi.setSystemTime(new Date('2026-03-10T00:00:00.000Z'))
-
-    renderTimelinePage()
-
-    fireEvent.click(screen.getByRole('button', {name: 'Active Banner'}))
-
-    expect(detailStoreMocks.openDetail).toHaveBeenCalledWith({kind: 'wheel', id: 'wheel-0128'})
-    expect(screen.getByTestId('timeline-detail-host')).toBeInTheDocument()
+    vi.setSystemTime(new Date('2026-03-10T12:00:00Z'))
+    renderPage()
+    const row = screen
+      .getAllByRole('button', {name: /First Event/})
+      .find((button) => button.classList.contains('timeline-row'))
+    if (!row) throw new Error('Event row not found')
+    fireEvent.click(row)
+    fireEvent.click(
+      within(screen.getByRole('group', {name: 'Show'})).getByRole('button', {name: 'Banners'}),
+    )
+    fireEvent.click(screen.getByRole('button', {name: 'Show details for Pool Banner'}))
+    expect(screen.queryByRole('button', {name: 'Close'})).not.toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', {name: 'History back'}))
+    expect(screen.getByTestId('location')).toHaveTextContent(/^\?view=banners$/)
+    fireEvent.click(screen.getByRole('button', {name: 'History back'}))
+    expect(screen.getByTestId('location')).toBeEmptyDOMElement()
+    fireEvent.click(screen.getByRole('button', {name: 'History forward'}))
+    expect(screen.getByTestId('location')).toHaveTextContent(/^\?view=banners$/)
+    fireEvent.click(screen.getByRole('button', {name: 'History forward'}))
+    expect(screen.getByTestId('location')).toHaveTextContent(/^\?view=banners&item=banner-pool$/)
   })
 
-  it('filters the timeline surface between events and banners', () => {
+  it('closes the roster before the timeline and restores it on Forward', () => {
     vi.useFakeTimers()
-    vi.setSystemTime(new Date('2026-03-10T00:00:00.000Z'))
-
-    renderTimelinePage()
-
-    expect(screen.getByRole('group', {name: 'Timeline content'})).toBeInTheDocument()
-    expect(screen.getByText('No events to display.')).toBeInTheDocument()
-    expect(screen.getByText('Active Banner')).toBeInTheDocument()
-    expect(screen.getByText('Upcoming Banner')).toBeInTheDocument()
-
-    fireEvent.click(screen.getByRole('button', {name: 'Events'}))
-
-    expect(screen.getByText('No events to display.')).toBeInTheDocument()
-    expect(screen.queryByText('Active Banner')).not.toBeInTheDocument()
-    expect(screen.queryByText('Upcoming Banner')).not.toBeInTheDocument()
-
-    fireEvent.click(screen.getByRole('button', {name: 'Banners'}))
-
-    expect(screen.queryByText('No events to display.')).not.toBeInTheDocument()
-    expect(screen.getByText('Active Banner')).toBeInTheDocument()
-    expect(screen.getByText('Upcoming Banner')).toBeInTheDocument()
+    vi.setSystemTime(new Date('2026-03-10T12:00:00Z'))
+    vi.stubGlobal('matchMedia', () => ({
+      matches: false,
+      addEventListener: () => undefined,
+      removeEventListener: () => undefined,
+    }))
+    renderPage('/timeline?view=banners')
+    fireEvent.click(screen.getByRole('button', {name: 'Show details for Pool Banner'}))
+    const sheet = screen.getByRole('dialog', {name: 'Pool Banner'})
+    fireEvent.click(within(sheet).getByRole('button', {name: 'Tulu'}))
+    expect(screen.getByRole('dialog', {name: 'Roster details'})).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', {name: 'History back'}))
+    expect(screen.queryByRole('dialog', {name: 'Roster details'})).not.toBeInTheDocument()
+    expect(sheet).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', {name: 'History forward'}))
+    fireEvent.click(screen.getByRole('button', {name: 'Close roster'}))
+    expect(screen.queryByRole('dialog', {name: 'Roster details'})).not.toBeInTheDocument()
+    expect(sheet).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', {name: 'History back'}))
+    expect(sheet).not.toBeInTheDocument()
+    expect(screen.getByTestId('location')).toHaveTextContent(/^\?view=banners$/)
   })
 
-  it('does not render redundant status filter controls', () => {
+  it('exposes the masthead filters, price control and season link', () => {
     vi.useFakeTimers()
-    vi.setSystemTime(new Date('2026-03-10T00:00:00.000Z'))
-
-    renderTimelinePage()
-
-    expect(screen.queryByRole('button', {name: 'Live'})).not.toBeInTheDocument()
-    expect(screen.queryByRole('button', {name: 'Upcoming'})).not.toBeInTheDocument()
-    expect(screen.queryByRole('button', {name: 'Ended'})).not.toBeInTheDocument()
-    expect(screen.getByRole('button', {name: /ended banners/i})).toBeInTheDocument()
+    vi.setSystemTime(new Date('2026-03-10T12:00:00Z'))
+    renderPage()
+    expect(screen.getByRole('heading', {name: 'Events & Banners', level: 1})).toBeInTheDocument()
+    expect(screen.getByRole('link', {name: /^D-Zone, Test season/})).toHaveAttribute(
+      'href',
+      '/d-zone',
+    )
+    const show = within(screen.getByRole('group', {name: 'Show'}))
+    expect(show.getByRole('button', {name: 'All'})).toHaveAttribute('aria-pressed', 'true')
+    fireEvent.click(show.getByRole('button', {name: 'Banners'}))
+    expect(screen.getByTestId('location')).toHaveTextContent('?view=banners')
+    expect(show.getByRole('button', {name: 'Banners'})).toHaveAttribute('aria-pressed', 'true')
+    expect(
+      within(screen.getByLabelText('Selected details')).queryByRole('heading', {
+        name: 'First Event',
+      }),
+    ).not.toBeInTheDocument()
+    fireEvent.click(show.getByRole('button', {name: 'Events'}))
+    fireEvent.click(screen.getByRole('button', {name: 'Estimated USD'}))
+    expect(screen.getByRole('button', {name: 'Estimated USD'})).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    )
+    expect(within(screen.getByLabelText('Selected details')).getAllByText('~$1')).toHaveLength(1)
   })
 
-  it('uses the D-Zone season data in the masthead', () => {
+  it('deduplicates labeled pool members across slots and includes linked wheels', () => {
+    const groups = getPoolGroups([
+      {label: 'First', linked: true, pool: [{kind: 'awakener', name: 'Tulu'}]},
+      {
+        label: 'Second',
+        pool: [
+          {kind: 'awakener', name: 'Tulu'},
+          {kind: 'awakener', name: 'Lily'},
+        ],
+      },
+    ])
+    expect(groups.map((group) => [group.label, group.units.map((unit) => unit.kind)])).toEqual([
+      ['First', ['awakener', 'wheel-auto']],
+      ['Second', ['awakener']],
+    ])
+  })
+
+  it('defaults to the first active event and displays its rewards', () => {
     vi.useFakeTimers()
-    vi.setSystemTime(new Date('2026-03-10T00:00:00.000Z'))
+    vi.setSystemTime(new Date('2026-03-10T12:00:00Z'))
+    renderPage()
+    const stage = within(screen.getByLabelText('Selected details'))
+    expect(stage.getByRole('heading', {name: 'First Event'})).toBeInTheDocument()
+    expect(stage.getByText('Daily login')).toBeInTheDocument()
+    expect(stage.getByText('×3')).toBeInTheDocument()
+    expect(stage.getByText('Claims until')).toBeInTheDocument()
+    expect(stage.getAllByText('60 Silver Prime')).toHaveLength(1)
+    const description = stage.getByText(/A full sentence/)
+    expect(description.parentElement).toHaveClass('timeline-description')
+    expect(stage.getByText('Another line.').tagName).toBe('P')
+    const art = screen.getByLabelText('Selected details').querySelector('img')
+    expect(art).toHaveClass('object-[50%_25%]')
+    expect(art?.parentElement).toHaveClass('aspect-[5/2]')
+    const poolRelated = stage.getByRole('button', {name: /Pool Banner/})
+    expect(within(poolRelated).queryByTestId('banner-artwork')).not.toBeInTheDocument()
+    expect(poolRelated.querySelector('img')).toBeNull()
+    const wheelRelated = stage.getByRole('button', {name: /Wheel Banner/})
+    expect(wheelRelated.querySelector('img')).toBeNull()
+    expect(screen.getByTestId('location')).toHaveTextContent('')
+  })
 
-    renderTimelinePage()
+  it('selects a banner and lists its pool in the stage', () => {
+    vi.useFakeTimers()
+    vi.setSystemTime(new Date('2026-03-10T12:00:00Z'))
+    renderPage('/timeline?view=banners')
+    const tile = screen
+      .getByRole('button', {name: 'Show details for Pool Banner'})
+      .closest('article')
+    if (!tile) throw new Error('Banner tile not found')
+    const art = within(tile).getByTestId('banner-artwork')
+    expect(art.parentElement).toHaveAttribute('inert')
+    expect(art.parentElement).toHaveClass('pointer-events-none', 'isolate')
+    expect(art.parentElement).not.toContainElement(
+      within(tile).getByRole('heading', {name: 'Pool Banner'}),
+    )
+    fireEvent.click(screen.getByRole('button', {name: 'Show details for Pool Banner'}))
+    expect(
+      within(screen.getByLabelText('Selected details')).getAllByText('1,980 Silver Prime'),
+    ).toHaveLength(1)
+    expect(screen.getByTestId('location')).toHaveTextContent('view=banners&item=banner-pool')
+    const stage = within(screen.getByLabelText('Selected details'))
+    expect(stage.getByTestId('banner-artwork').parentElement).toHaveAttribute('inert')
+    expect(stage.getByRole('heading', {name: 'Pool'})).toBeInTheDocument()
+    expect(
+      screen.getByLabelText('Selected details').querySelector('.aspect-video'),
+    ).toBeInTheDocument()
+    expect(stage.getByText('Tulu')).toBeInTheDocument()
+    expect(stage.getByText('Lily')).toBeInTheDocument()
+  })
 
-    const seasonLink = screen.getByRole('link', {name: 'D-Zone season'})
-    expect(seasonLink).toHaveAttribute('href', '/d-zone')
-    expect(seasonLink).toHaveTextContent('Current Season')
-    expect(seasonLink).toHaveTextContent('Caro Ring')
-    expect(screen.getByText('Ends in 2d 0h')).toBeInTheDocument()
-    expect(screen.queryByText('Current D-Zone data pending')).not.toBeInTheDocument()
+  it('opens on the current rotation and lets readers browse another day', () => {
+    vi.useFakeTimers()
+    vi.setSystemTime(new Date('2026-03-10T12:00:00Z'))
+    renderPage('/timeline?item=banner-daily')
+    const stage = within(screen.getByLabelText('Selected details'))
+    expect(stage.getByRole('heading', {name: 'Schedule'})).toBeInTheDocument()
+    const day = stage.getByRole('combobox', {name: 'Rotation day'})
+    expect(day).toHaveValue('2')
+    expect(stage.getByRole('option', {name: /Day 2.*Today/})).toHaveProperty('selected', true)
+    const wheel = stage.getByRole('button', {name: 'Ever Sunward'}).querySelector('img')
+    expect(wheel).toHaveAttribute('src', expect.stringContaining('/wheels/Mini/'))
+    expect(stage.getByRole('button', {name: 'Lily'}).querySelector('img')).toHaveAttribute(
+      'src',
+      expect.stringContaining('/awk-portraits/'),
+    )
+    const hero = stage.getByTestId('banner-artwork')
+    expect(hero).toHaveAttribute('data-featured', 'Lily,Ever Sunward')
+    fireEvent.click(stage.getByRole('button', {name: 'Previous day'}))
+    expect(day).toHaveValue('1')
+    expect(stage.queryByRole('button', {name: 'Ever Sunward'})).not.toBeInTheDocument()
+    expect(stage.getByTestId('banner-artwork')).toHaveAttribute('data-featured', 'Tulu')
+  })
+
+  it('explains an unknown entry link instead of opening a different entry', () => {
+    vi.useFakeTimers()
+    vi.setSystemTime(new Date('2026-03-10T12:00:00Z'))
+    renderPage('/timeline?item=does-not-exist')
+    const stage = within(screen.getByLabelText('Selected details'))
+    expect(stage.getByRole('heading', {name: 'Entry not found'})).toBeInTheDocument()
+    expect(stage.getByText(/does-not-exist/)).toBeInTheDocument()
+    expect(stage.queryByRole('heading', {name: 'First Event'})).not.toBeInTheDocument()
+    expect(document.querySelector('[aria-current="true"]')).toBeNull()
+    fireEvent.click(stage.getByRole('button', {name: 'Clear link'}))
+    expect(screen.getByTestId('location')).toBeEmptyDOMElement()
+    expect(
+      within(screen.getByLabelText('Selected details')).getByRole('heading', {name: 'First Event'}),
+    ).toBeInTheDocument()
+  })
+
+  it('keeps the list in step with a related banner and focuses its details', () => {
+    vi.useFakeTimers()
+    vi.setSystemTime(new Date('2026-03-10T12:00:00Z'))
+    renderPage('/timeline?view=events&item=event-first')
+    fireEvent.click(
+      within(screen.getByLabelText('Selected details')).getByRole('button', {name: /Pool Banner/}),
+    )
+    expect(screen.getByTestId('location')).toHaveTextContent(/^\?item=banner-pool$/)
+    expect(screen.getByRole('button', {name: 'Show details for Pool Banner'})).toHaveAttribute(
+      'aria-current',
+      'true',
+    )
+    expect(
+      within(screen.getByLabelText('Selected details')).getByRole('heading', {
+        name: 'Pool Banner',
+        level: 2,
+      }),
+    ).toHaveFocus()
+  })
+
+  it('shows every entry when a deep link points outside the current view', () => {
+    vi.useFakeTimers()
+    vi.setSystemTime(new Date('2026-03-10T12:00:00Z'))
+    renderPage('/timeline?view=events&item=banner-pool')
+    const show = within(screen.getByRole('group', {name: 'Show'}))
+    expect(show.getByRole('button', {name: 'All'})).toHaveAttribute('aria-pressed', 'true')
+    expect(screen.getByRole('button', {name: 'Show details for Pool Banner'})).toHaveAttribute(
+      'aria-current',
+      'true',
+    )
+  })
+
+  it('offers a keyboard jump from the selected row to its details', () => {
+    vi.useFakeTimers()
+    vi.setSystemTime(new Date('2026-03-10T12:00:00Z'))
+    renderPage('/timeline?item=event-first')
+    const jump = screen.getAllByRole('button', {name: 'Jump to details'})
+    expect(jump).toHaveLength(1)
+    fireEvent.click(jump[0])
+    expect(
+      within(screen.getByLabelText('Selected details')).getByRole('heading', {
+        name: 'First Event',
+        level: 2,
+      }),
+    ).toHaveFocus()
+  })
+
+  it('moves focus to the selected detail heading from the desktop agenda', () => {
+    vi.useFakeTimers()
+    vi.setSystemTime(new Date('2026-03-10T12:00:00Z'))
+    renderPage()
+    const agenda = screen.getByRole('region', {name: 'Upcoming timeline moments'})
+    const button = within(agenda).getByRole('button', {name: /Missions Only starts/})
+    button.focus()
+    fireEvent.click(button)
+
+    const heading = within(screen.getByLabelText('Selected details')).getByRole('heading', {
+      name: 'Missions Only',
+      level: 2,
+    })
+    expect(heading).toHaveFocus()
+    button.focus()
+    fireEvent.click(button)
+    expect(heading).toHaveFocus()
+  })
+
+  it('opens the archive that holds a linked ended entry', () => {
+    vi.useFakeTimers()
+    vi.setSystemTime(new Date('2026-03-10T12:00:00Z'))
+    renderPage('/timeline?item=event-february')
+    const archive = within(screen.getByRole('region', {name: 'Ended events'}))
+    expect(archive.getByRole('button', {name: /February Event/})).toHaveAttribute(
+      'aria-current',
+      'true',
+    )
+    fireEvent.click(screen.getByRole('button', {name: /Ended events/}))
+    expect(screen.queryByRole('region', {name: 'Ended events'})).not.toBeInTheDocument()
+  })
+
+  it('opens and closes the mobile sheet, restoring focus and preserving filters', () => {
+    vi.useFakeTimers()
+    vi.setSystemTime(new Date('2026-03-10T12:00:00Z'))
+    vi.stubGlobal('matchMedia', () => ({
+      matches: false,
+      addEventListener: () => undefined,
+      removeEventListener: () => undefined,
+    }))
+    renderPage('/timeline?view=events')
+    const row = screen
+      .getAllByRole('button', {name: /First Event/})
+      .find((button) => button.classList.contains('timeline-row'))
+    if (!row) throw new Error('Event row not found')
+    row.focus()
+    fireEvent.click(row)
+    expect(screen.getByRole('dialog', {name: 'First Event'})).toHaveFocus()
+    expect(document.documentElement.style.overflow).toBe('hidden')
+    fireEvent(screen.getByRole('dialog'), new Event('cancel', {bubbles: true, cancelable: true}))
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+    expect(row).toHaveFocus()
+    expect(screen.getByTestId('location')).toHaveTextContent('?view=events')
+    expect(document.documentElement.style.overflow).not.toBe('hidden')
+  })
+
+  it.each(['Close', 'History back'])(
+    'restores focus to the page heading on %s if the sheet opener has disappeared',
+    (action) => {
+      vi.useFakeTimers()
+      vi.setSystemTime(new Date('2026-03-10T23:59:30Z'))
+      vi.stubGlobal('matchMedia', () => ({
+        matches: false,
+        addEventListener: () => undefined,
+        removeEventListener: () => undefined,
+      }))
+      renderPage()
+      const disclosure = screen.getByText(/^Next:/).closest('details')
+      if (!disclosure) throw new Error('Mobile agenda not found')
+      disclosure.open = true
+      const agenda = within(screen.getByRole('list', {name: 'Upcoming dates'}))
+      const button = agenda.getByRole('button', {name: 'Missions Only starts'})
+      button.focus()
+      fireEvent.click(button)
+      const sheet = screen.getByRole('dialog', {name: 'Missions Only'})
+
+      act(() => {
+        vi.advanceTimersByTime(60_000)
+      })
+      expect(button).not.toBeInTheDocument()
+      const close = action === 'Close' ? within(sheet) : screen
+      fireEvent.click(close.getByRole('button', {name: action}))
+      expect(sheet).not.toBeInTheDocument()
+      expect(screen.getByRole('heading', {name: 'Events & Banners', level: 1})).toHaveFocus()
+    },
+  )
+
+  it('updates the mobile sheet name when selecting a related entry', () => {
+    vi.useFakeTimers()
+    vi.setSystemTime(new Date('2026-03-10T12:00:00Z'))
+    vi.stubGlobal('matchMedia', () => ({
+      matches: false,
+      addEventListener: () => undefined,
+      removeEventListener: () => undefined,
+    }))
+    renderPage('/timeline?item=event-first')
+    fireEvent.click(
+      within(screen.getByRole('dialog', {name: 'First Event'})).getByRole('button', {
+        name: /Pool Banner/,
+      }),
+    )
+    expect(screen.getByRole('dialog', {name: 'Pool Banner'})).toBeInTheDocument()
+    expect(screen.getByRole('heading', {name: 'Pool Banner', level: 2})).toHaveFocus()
+    fireEvent.click(screen.getByRole('button', {name: 'History back'}))
+    expect(screen.getByRole('dialog', {name: 'First Event'})).toBeInTheDocument()
+    expect(screen.getByRole('heading', {name: 'First Event', level: 2})).toHaveFocus()
+    fireEvent.click(screen.getByRole('button', {name: 'History forward'}))
+    expect(screen.getByRole('heading', {name: 'Pool Banner', level: 2})).toHaveFocus()
+    fireEvent.click(
+      within(screen.getByRole('dialog', {name: 'Pool Banner'})).getByRole('button', {
+        name: 'Close',
+      }),
+    )
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+    expect(screen.getByTestId('location')).toBeEmptyDOMElement()
+    fireEvent.click(screen.getByRole('button', {name: 'History forward'}))
+    expect(screen.getByRole('dialog', {name: 'Pool Banner'})).toBeInTheDocument()
   })
 })

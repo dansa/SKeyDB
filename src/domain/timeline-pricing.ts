@@ -67,11 +67,19 @@ export function formatTimelinePrice(
   price: string | undefined,
   mode: TimelinePriceDisplayMode,
 ): string | undefined {
-  if (!price || mode === 'silver-prime') return price
-
+  if (!price) return price
+  // Real-money prices are already exact, so both modes show them the same way.
   const usdMatch = /^USD\s*(\d+(?:\.\d+)?)$/i.exec(price.trim())
-  if (usdMatch) {
-    return formatUsdCents(Math.round(Number(usdMatch[1]) * 100))
+  if (usdMatch) return '$' + Number(usdMatch[1]).toFixed(2)
+  if (mode === 'silver-prime') {
+    return price.replace(
+      PRICE_TOKEN_PATTERN,
+      (_match: string, startAmount: string, endAmount: string | undefined) => {
+        const start = parseSilverPrimeAmount(startAmount).toLocaleString('en-US')
+        const end = endAmount ? `–${parseSilverPrimeAmount(endAmount).toLocaleString('en-US')}` : ''
+        return `${start}${end} Silver Prime`
+      },
+    )
   }
 
   return price.replace(

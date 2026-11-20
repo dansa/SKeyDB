@@ -18,6 +18,7 @@
     "assets:webp:dry": "node scripts/convert-png-assets-to-webp.mjs --dry-run",
     "assets:wheels:minis": "node scripts/generate-wheel-mini-assets.mjs",
     "assets:wheels:minis:check": "node scripts/generate-wheel-mini-assets.mjs --check",
+    "timeline:id": "node scripts/timeline-run-id.mjs",
     "lint": "oxlint --type-aware --report-unused-disable-directives src scripts functions doctor.config.ts vite.config.ts vitest.config.ts",
     "lint:fix": "oxlint --type-aware --fix src scripts doctor.config.ts vite.config.ts vitest.config.ts",
     "doctor:check": "react-doctor --scope changed --no-telemetry --blocking error",

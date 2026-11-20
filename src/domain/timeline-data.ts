@@ -2,16 +2,20 @@ import {z} from 'zod'
 
 import rawBanners from '@/data/timeline/banners.json'
 import rawEvents from '@/data/timeline/events.json'
+import rawPatches from '@/data/timeline/patches.json'
 
 import {getAwakeners} from './awakeners'
 import {
+  BANNER_RULE_PROFILES,
   BANNER_TAGS,
   BANNER_TYPES,
   EVENT_CATEGORIES,
   normalizeEventCategory,
   parseGameDate,
+  TIMELINE_PATCH_KINDS,
   type BannerEntry,
   type EventEntry,
+  type TimelinePatch,
 } from './timeline'
 import {
   resolveTimelineBannerDerivedPool,
@@ -31,6 +35,8 @@ interface BannerInput {
   tags?: BannerEntry['tags']
   description?: string
   dailySchedule?: DailyScheduleInput[]
+  rulesProfile?: BannerEntry['rulesProfile']
+  rateUpGroups?: BannerEntry['rateUpGroups']
   startDate: string
   endDate: string
   featured?: FeaturedInput[]
@@ -42,10 +48,12 @@ interface BannerInput {
   pricing?: string
   preliminary?: boolean
   linkedPresentation?: BannerEntry['linkedPresentation']
+  related?: string[]
 }
 
 interface DailyScheduleInput {
   day: number
+  offBanner?: FeaturedInput[]
   featured: FeaturedInput[]
 }
 
@@ -57,7 +65,7 @@ const featuredInputSchema: z.ZodType<FeaturedInput> = z.union([
   nonEmptyStringSchema,
   z.object({
     name: nonEmptyStringSchema,
-    kind: z.enum(['awakener', 'wheel', 'wheel-auto', 'placeholder']).optional(),
+    kind: z.enum(['awakener', 'wheel', 'wheel-auto', 'posse', 'placeholder']).optional(),
     customArt: nonEmptyStringSchema.optional(),
     realmId: nonEmptyStringSchema.optional(),
     detailLink: z.boolean().optional(),
@@ -95,6 +103,32 @@ const derivedPoolSlotInputSchema: z.ZodType<DerivedPoolSlotInput> = z
 const dailyScheduleInputSchema: z.ZodType<DailyScheduleInput> = z.object({
   day: z.number().int().positive(),
   featured: z.array(featuredInputSchema).min(1),
+  offBanner: z.array(featuredInputSchema).min(1).optional(),
+})
+
+const rewardItemSchema = z.object({
+  name: nonEmptyStringSchema,
+  amount: nonEmptyStringSchema.optional(),
+  itemId: z.number().int().positive().optional(),
+})
+const missionRewardSchema = z.object({
+  label: nonEmptyStringSchema,
+  standard: z.array(rewardItemSchema).min(1),
+  premium: z.array(rewardItemSchema).min(1).optional(),
+})
+
+const rewardGroupSchema = z.object({
+  title: nonEmptyStringSchema.optional(),
+  price: nonEmptyStringSchema.optional(),
+  summaryCount: z.number().int().positive().optional(),
+  note: z.string().optional(),
+  layout: z.literal('days').optional(),
+  choiceCount: z.number().int().positive().optional(),
+  items: z.array(rewardItemSchema).min(1),
+  claims: z
+    .array(z.object({label: nonEmptyStringSchema, items: z.array(rewardItemSchema).min(1)}))
+    .min(1)
+    .optional(),
 })
 
 const derivedPoolInputSchema: z.ZodType<DerivedPoolInput> = z
@@ -136,6 +170,25 @@ const bannerInputSchema: z.ZodType<BannerInput> = z
     tags: z.array(z.enum(BANNER_TAGS)).optional(),
     description: z.string().optional(),
     dailySchedule: z.array(dailyScheduleInputSchema).optional(),
+    rulesProfile: z.enum(BANNER_RULE_PROFILES).optional(),
+    rateUpGroups: z
+      .array(
+        z.object({
+          kind: z.enum(['awakener', 'wheel']),
+          options: z
+            .array(
+              z.object({
+                title: nonEmptyStringSchema,
+                rateUp: nonEmptyStringSchema,
+                offBanner: z.array(nonEmptyStringSchema).min(1).optional(),
+              }),
+            )
+            .min(1),
+          sharedOffBanner: z.array(nonEmptyStringSchema).min(1).optional(),
+        }),
+      )
+      .min(1)
+      .optional(),
     startDate: gameDateSchema,
     endDate: gameDateSchema,
     featured: z.array(featuredInputSchema).optional(),
@@ -147,6 +200,7 @@ const bannerInputSchema: z.ZodType<BannerInput> = z
     pricing: nonEmptyStringSchema.optional(),
     preliminary: z.boolean().optional(),
     linkedPresentation: z.enum(['expanded', 'alternating', 'paired']).optional(),
+    related: z.array(nonEmptyStringSchema).optional(),
   })
   .superRefine((banner, ctx) => {
     if (banner.poolSlots && banner.derivedPool) {
@@ -228,7 +282,23 @@ const eventInputSchema: z.ZodType<EventInput> = z.object({
   pricing: nonEmptyStringSchema.optional(),
   preliminary: z.boolean().optional(),
   rerun: z.boolean().optional(),
-  artAlign: nonEmptyStringSchema.optional(),
+  artVariants: z
+    .object({
+      card: nonEmptyStringSchema,
+      detail: nonEmptyStringSchema,
+    })
+    .optional(),
+  rewards: z.array(rewardGroupSchema).optional(),
+  missions: z.array(missionRewardSchema).min(1).optional(),
+  keyDates: z
+    .array(
+      z.object({
+        label: nonEmptyStringSchema,
+        date: gameDateSchema,
+      }),
+    )
+    .optional(),
+  related: z.array(nonEmptyStringSchema).optional(),
 })
 
 interface EventInput {
@@ -244,7 +314,11 @@ interface EventInput {
   pricing?: string
   preliminary?: boolean
   rerun?: boolean
-  artAlign?: string
+  artVariants?: {card: string; detail: string}
+  rewards?: EventEntry['rewards']
+  missions?: EventEntry['missions']
+  keyDates?: EventEntry['keyDates']
+  related?: string[]
 }
 
 const timelineEventAssets = import.meta.glob<string>('../assets/events/*', {
@@ -323,17 +397,26 @@ function loadBanner(raw: BannerInput): BannerEntry {
     pinned: raw.pinned,
     pricing: raw.pricing,
     preliminary: raw.preliminary,
+    rulesProfile: raw.rulesProfile,
     linkedPresentation: raw.linkedPresentation,
+    related: raw.related,
     startDate: parseGameDate(raw.startDate),
     endDate: parseGameDate(raw.endDate),
   }
   if (raw.featured) {
     entry.featured = raw.featured.map(resolveUnit)
   }
+  if (raw.rateUpGroups) {
+    entry.rateUpGroups = raw.rateUpGroups
+    entry.featured ??= raw.rateUpGroups.flatMap(({kind, options}) =>
+      options.map(({rateUp}) => ({kind, name: rateUp})),
+    )
+  }
   if (raw.dailySchedule) {
     entry.dailySchedule = raw.dailySchedule.map((scheduleEntry) => ({
       day: scheduleEntry.day,
       featured: scheduleEntry.featured.map(resolveUnit),
+      ...(scheduleEntry.offBanner ? {offBanner: scheduleEntry.offBanner.map(resolveUnit)} : {}),
     }))
   }
   if (raw.poolSlots) {
@@ -346,6 +429,16 @@ function loadBanner(raw: BannerInput): BannerEntry {
 }
 
 function loadEvent(raw: EventInput): EventEntry {
+  const artVariants = raw.artVariants
+    ? {
+        card: resolveBundledEventAsset(raw.artVariants.card),
+        detail: resolveBundledEventAsset(raw.artVariants.detail),
+      }
+    : undefined
+  if (artVariants && (!artVariants.card || !artVariants.detail)) {
+    throw new Error(`Timeline event "${raw.id}" has missing bundled card or detail art`)
+  }
+
   const entry: EventEntry = {
     id: raw.id,
     title: raw.title,
@@ -358,7 +451,11 @@ function loadEvent(raw: EventInput): EventEntry {
     customArt: resolveCustomArt(raw.customArt),
     pricing: raw.pricing,
     rerun: raw.rerun,
-    artAlign: raw.artAlign,
+    artVariants,
+    rewards: raw.rewards,
+    missions: raw.missions,
+    keyDates: raw.keyDates?.map((keyDate) => ({...keyDate, date: parseGameDate(keyDate.date)})),
+    related: raw.related,
   }
   if (raw.featured) {
     entry.featured = resolveFeaturedList(raw.featured)
@@ -374,5 +471,34 @@ export function loadTimelineEvents(input: unknown): EventEntry[] {
   return z.array(eventInputSchema).parse(input).map(loadEvent)
 }
 
+const patchInputSchema = z.object({
+  id: nonEmptyStringSchema,
+  title: nonEmptyStringSchema,
+  kind: z.enum(TIMELINE_PATCH_KINDS),
+  date: gameDateSchema,
+})
+
+export function loadTimelinePatches(input: unknown): TimelinePatch[] {
+  return z
+    .array(patchInputSchema)
+    .parse(input)
+    .map((patch) => ({...patch, date: parseGameDate(patch.date)}))
+}
+
+export function validateTimelineLinks(entries: Pick<EventEntry, 'id' | 'related'>[]): void {
+  const ids = new Set<string>()
+  for (const {id} of entries) {
+    if (ids.has(id)) throw new Error(`Duplicate timeline ID "${id}"`)
+    ids.add(id)
+  }
+  for (const entry of entries) {
+    for (const id of entry.related ?? []) {
+      if (!ids.has(id)) throw new Error(`Timeline entry "${entry.id}" links to missing ID "${id}"`)
+    }
+  }
+}
+
 export const timelineBanners: BannerEntry[] = loadTimelineBanners(rawBanners)
 export const timelineEvents: EventEntry[] = loadTimelineEvents(rawEvents)
+export const timelinePatches: TimelinePatch[] = loadTimelinePatches(rawPatches)
+validateTimelineLinks([...timelineBanners, ...timelineEvents])

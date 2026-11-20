@@ -13,6 +13,7 @@ interface TimelineArchiveConfig {
 
 interface TimelineStatusSectionsProps<TEntry> {
   activeContainer?: ElementType
+  archiveContainer?: 'div' | 'ul'
   activeItems: TEntry[]
   ended: TimelineArchiveConfig
   endedItems: TEntry[]
@@ -25,6 +26,7 @@ interface TimelineStatusSectionsProps<TEntry> {
 
 export function TimelineStatusSections<TEntry>({
   activeContainer: ActiveContainer = 'div',
+  archiveContainer,
   activeItems,
   ended,
   endedItems,
@@ -45,6 +47,7 @@ export function TimelineStatusSections<TEntry>({
       {upcomingItems.length > 0 ? (
         <TimelineArchiveSection
           contentClassName={gridClassName}
+          contentContainer={archiveContainer}
           expanded={upcoming.expanded}
           itemCount={upcomingItems.length}
           onToggle={upcoming.onToggle}
@@ -58,6 +61,7 @@ export function TimelineStatusSections<TEntry>({
       {endedItems.length > 0 ? (
         <TimelineArchiveSection
           contentClassName={gridClassName}
+          contentContainer={archiveContainer}
           expanded={ended.expanded}
           itemCount={endedItems.length}
           onToggle={ended.onToggle}

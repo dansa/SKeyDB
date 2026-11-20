@@ -3,6 +3,18 @@ import {describe, expect, test, vi} from 'vitest'
 import {createDatabaseDetailOverlaySession} from './dbDetailStore'
 
 describe('database detail overlay sessions', () => {
+  test('a history-owned session delegates root Close but pops internal references locally', () => {
+    const root = {kind: 'awakener', id: 'root'} as const
+    const onCloseRoot = vi.fn()
+    const session = createDatabaseDetailOverlaySession({initialRef: root, onCloseRoot})
+    session.followReference({kind: 'wheel', id: 'child'})
+    session.close()
+    expect(session.top()).toEqual(root)
+    expect(onCloseRoot).not.toHaveBeenCalled()
+    session.close()
+    expect(onCloseRoot).toHaveBeenCalledOnce()
+  })
+
   test('open exposes only the owner branch and replaces its previous root', () => {
     const session = createDatabaseDetailOverlaySession()
 

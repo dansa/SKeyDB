@@ -1,7 +1,13 @@
 import {getAwakenerCardAsset} from '@/domain/awakener-assets'
 import {getAwakeners} from '@/domain/awakeners'
-import {buildDatabaseAwakenerPath, buildDatabaseWheelPath} from '@/domain/database-paths'
+import {
+  buildDatabaseAwakenerPath,
+  buildDatabasePossePath,
+  buildDatabaseWheelPath,
+} from '@/domain/database-paths'
 import type {EntityRef} from '@/domain/entities/types'
+import {getPosseAssetById} from '@/domain/posse-assets'
+import {getPosses} from '@/domain/posses'
 import type {BannerFeaturedUnit} from '@/domain/timeline'
 import {getWheelAssetById} from '@/domain/wheel-assets'
 import {getWheels} from '@/domain/wheels'
@@ -57,6 +63,7 @@ function buildTimelineEntityIndexes(
 }
 
 const timelineEntityIndexes = buildTimelineEntityIndexes(getAwakeners(), getWheels())
+const posseByName = new Map(getPosses().map((posse) => [getLookupKey(posse.name), posse]))
 
 export function findTimelineAwakener(name: string) {
   return timelineEntityIndexes.awakenerByName.get(getLookupKey(name))
@@ -81,6 +88,18 @@ export function resolveTimelineFeaturedAsset(unit: BannerFeaturedUnit): Timeline
       realmId: undefined,
       isWheel: false,
       detailRef: undefined,
+    }
+  }
+
+  if (unit.kind === 'posse') {
+    const posse = posseByName.get(getLookupKey(unit.name))
+    return {
+      url: unit.customArt ?? (posse ? getPosseAssetById(posse.id) : undefined),
+      label: unit.name,
+      linkTo: allowDetailLink && posse ? buildDatabasePossePath(posse) : undefined,
+      realmId: unit.realmId,
+      isWheel: false,
+      detailRef: allowDetailLink && posse ? {kind: 'posse', id: posse.id} : undefined,
     }
   }
 
