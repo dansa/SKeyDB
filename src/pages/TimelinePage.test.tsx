@@ -352,7 +352,7 @@ describe('TimelinePage', () => {
     expect(description.parentElement).toHaveClass('timeline-description')
     expect(stage.getByText('Another line.').tagName).toBe('P')
     const art = screen.getByLabelText('Selected details').querySelector('img')
-    expect(art).toHaveStyle({objectPosition: '50% 25%'})
+    expect(art).toHaveClass('object-[50%_25%]')
     expect(art?.parentElement).toHaveClass('aspect-[5/2]')
     const poolRelated = stage.getByRole('button', {name: /Pool Banner/})
     expect(within(poolRelated).queryByTestId('banner-artwork')).not.toBeInTheDocument()
@@ -477,6 +477,25 @@ describe('TimelinePage', () => {
     ).toHaveFocus()
   })
 
+  it('moves focus to the selected detail heading from the desktop agenda', () => {
+    vi.useFakeTimers()
+    vi.setSystemTime(new Date('2026-03-10T12:00:00Z'))
+    renderPage()
+    const agenda = screen.getByRole('region', {name: 'Upcoming timeline moments'})
+    const button = within(agenda).getByRole('button', {name: /Missions Only starts/})
+    button.focus()
+    fireEvent.click(button)
+
+    const heading = within(screen.getByLabelText('Selected details')).getByRole('heading', {
+      name: 'Missions Only',
+      level: 2,
+    })
+    expect(heading).toHaveFocus()
+    button.focus()
+    fireEvent.click(button)
+    expect(heading).toHaveFocus()
+  })
+
   it('opens the archive that holds a linked ended entry', () => {
     vi.useFakeTimers()
     vi.setSystemTime(new Date('2026-03-10T12:00:00Z'))
@@ -513,6 +532,37 @@ describe('TimelinePage', () => {
     expect(screen.getByTestId('location')).toHaveTextContent('?view=events')
     expect(document.documentElement.style.overflow).not.toBe('hidden')
   })
+
+  it.each(['Close', 'History back'])(
+    'restores focus to the page heading on %s if the sheet opener has disappeared',
+    (action) => {
+      vi.useFakeTimers()
+      vi.setSystemTime(new Date('2026-03-10T23:59:30Z'))
+      vi.stubGlobal('matchMedia', () => ({
+        matches: false,
+        addEventListener: () => undefined,
+        removeEventListener: () => undefined,
+      }))
+      renderPage()
+      const disclosure = screen.getByText(/^Next:/).closest('details')
+      if (!disclosure) throw new Error('Mobile agenda not found')
+      disclosure.open = true
+      const agenda = within(screen.getByRole('list', {name: 'Upcoming dates'}))
+      const button = agenda.getByRole('button', {name: 'Missions Only starts'})
+      button.focus()
+      fireEvent.click(button)
+      const sheet = screen.getByRole('dialog', {name: 'Missions Only'})
+
+      act(() => {
+        vi.advanceTimersByTime(60_000)
+      })
+      expect(button).not.toBeInTheDocument()
+      const close = action === 'Close' ? within(sheet) : screen
+      fireEvent.click(close.getByRole('button', {name: action}))
+      expect(sheet).not.toBeInTheDocument()
+      expect(screen.getByRole('heading', {name: 'Events & Banners', level: 1})).toHaveFocus()
+    },
+  )
 
   it('updates the mobile sheet name when selecting a related entry', () => {
     vi.useFakeTimers()

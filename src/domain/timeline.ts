@@ -176,7 +176,6 @@ export interface EventEntry {
   featured?: BannerFeaturedUnit[]
   pricing?: string
   rerun?: boolean
-  artAlign?: string
   artVariants?: {card?: string; detail?: string}
   rewards?: TimelineRewardGroup[]
   missions?: TimelineMissionReward[]

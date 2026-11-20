@@ -87,6 +87,13 @@ export function getTimelineAgendaGroups({
   return [...groups.values()].sort((a, b) => a.date.getTime() - b.date.getTime())
 }
 
+export function getDesktopAgendaGroups(groups: TimelineAgendaGroup[]): TimelineAgendaGroup[] {
+  const shown = groups.slice(0, 4)
+  if (shown.some((group) => group.patch)) return shown
+  const nextPatch = groups.find((group) => group.patch)
+  return nextPatch ? [...shown.slice(0, 3), nextPatch] : shown
+}
+
 export function isBanner(entry: TimelineEntry): entry is BannerEntry {
   return 'type' in entry
 }

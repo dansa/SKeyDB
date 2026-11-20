@@ -43,7 +43,6 @@ Array of event objects. Each event appears as a card in the Events section.
 | `featured` | string, object, or array | no | One or more featured awakeners or wheels. Uses the same item forms as banner [`featured`](#featured-units), including explicit kinds, custom art, and detail-link opt-outs |
 | `customArt` | string | no | Custom art URL or path. Overrides `featured` art if both are set. Use for skins, special promo art, raid art, etc. Non-URL values like `"TBD"` are ignored. Paths starting with `/events/` are resolved against `src/assets/events/*` (bundled), e.g. `/events/arachne.png` |
 | `pricing` | string | no | Displays a silver pricing badge, e.g. `"960 Silver Prime"`, `"$24.99"` |
-| `artAlign` | string | no | Overrides the default art positioning. Accepts any CSS `object-position` value. See [Art Alignment](#art-alignment) below |
 | `rewards` | array | no | Reward groups with a nonempty `items` array of `{name, amount?}`. Optional fields: `title`, `note`, `layout` (`days`), `price`, `summaryCount`, `choiceCount` (number of picks from the items after `summaryCount`), and `claims` (`{label, items}` rows). |
 | `missions` | array | no | Rows of `{label, standard, premium?}`. Each track is an array of reward items. Use `premium` only for additional paid rewards. |
 | `artVariants` | object | no | Both `card` (square) and `detail` (wide) must resolve to bundled `/events/` assets. `customArt` remains the fallback. |
@@ -75,16 +74,9 @@ Keep event-only currencies out of reward totals. For random shops, separate capp
 | `maintenance` | Slate | Server maintenance windows |
 | `other` | Slate | Anything that doesn't fit above |
 
-### Art Alignment
+### Event Art Crops
 
-By default, character art uses `top` positioning (shows head/upper body) and wheel art uses `center`. You can override this per-event with `artAlign`:
-
-```json
-"artAlign": "center"          // center the image
-"artAlign": "top"             // show top (default for characters)
-"artAlign": "bottom"          // show bottom
-"artAlign": "50% 20%"         // precise CSS object-position (x y)
-```
+Prepare a square card crop and a wide detail crop, then reference them in `artVariants`. Both are centered in their frames. Older entries without variants use the default framing for their fallback art.
 
 ### Descriptions
 

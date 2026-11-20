@@ -93,6 +93,26 @@ it('uses the current rotation while active and the first day after it ends', () 
 })
 
 describe('timeline agenda grouping', () => {
+  it('keeps the next named patch visible within the four desktop dates', () => {
+    const groups = getTimelineAgendaGroups({
+      now,
+      filter: 'all',
+      events: [11, 12, 13, 14].map((day) => event(`Event ${String(day)}`, day, 20)),
+      banners: [],
+      patches: [{id: 'anniversary', title: 'Anniversary', kind: 'anniversary', date: date(15)}],
+    })
+    render(
+      <MemoryRouter>
+        <TimelineAgenda groups={groups} now={now} onSelect={vi.fn()} />
+      </MemoryRouter>,
+    )
+
+    const desktop = within(screen.getByRole('region', {name: 'Upcoming timeline moments'}))
+    expect(desktop.getByText('Anniversary')).toBeInTheDocument()
+    expect(desktop.getByRole('button', {name: /Event 13 starts/})).toBeInTheDocument()
+    expect(desktop.queryByRole('button', {name: /Event 14 starts/})).not.toBeInTheDocument()
+  })
+
   it('groups starts, multi-entry ends and the season by local calendar day', () => {
     const groups = getTimelineAgendaGroups({
       now,

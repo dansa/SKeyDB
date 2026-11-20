@@ -1,4 +1,4 @@
-import {useLayoutEffect, useRef, type ReactNode} from 'react'
+import {useLayoutEffect, useRef, type ReactNode, type RefObject} from 'react'
 
 import {createPortal} from 'react-dom'
 
@@ -6,11 +6,13 @@ import {acquirePageScrollLock, releasePageScrollLock} from '@/ui/modal/pageScrol
 
 export function StageSheet({
   children,
+  fallbackFocusRef,
   onClose,
   selectionKey,
   title,
 }: {
   children: ReactNode
+  fallbackFocusRef: RefObject<HTMLHeadingElement | null>
   onClose: () => void
   selectionKey: string
   title: string
@@ -20,6 +22,7 @@ export function StageSheet({
     const dialog = ref.current
     if (!dialog) return
     const previous = document.activeElement instanceof HTMLElement ? document.activeElement : null
+    const fallback = fallbackFocusRef.current
     const lock = acquirePageScrollLock()
     if (typeof dialog.showModal === 'function') dialog.showModal()
     else dialog.setAttribute('open', '')
@@ -28,9 +31,13 @@ export function StageSheet({
       if (typeof dialog.close === 'function') dialog.close()
       else dialog.removeAttribute('open')
       releasePageScrollLock(lock)
-      previous?.focus({preventScroll: true})
+      if (previous?.isConnected && previous !== document.body) {
+        previous.focus({preventScroll: true})
+        if (document.activeElement === previous) return
+      }
+      if (fallback?.isConnected) fallback.focus()
     }
-  }, [])
+  }, [fallbackFocusRef])
   return createPortal(
     <dialog
       aria-label={title}

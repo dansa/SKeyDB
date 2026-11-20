@@ -281,7 +281,6 @@ const eventInputSchema: z.ZodType<EventInput> = z.object({
   pricing: nonEmptyStringSchema.optional(),
   preliminary: z.boolean().optional(),
   rerun: z.boolean().optional(),
-  artAlign: nonEmptyStringSchema.optional(),
   artVariants: z
     .object({
       card: nonEmptyStringSchema,
@@ -314,7 +313,6 @@ interface EventInput {
   pricing?: string
   preliminary?: boolean
   rerun?: boolean
-  artAlign?: string
   artVariants?: {card: string; detail: string}
   rewards?: EventEntry['rewards']
   missions?: EventEntry['missions']
@@ -452,7 +450,6 @@ function loadEvent(raw: EventInput): EventEntry {
     customArt: resolveCustomArt(raw.customArt),
     pricing: raw.pricing,
     rerun: raw.rerun,
-    artAlign: raw.artAlign,
     artVariants,
     rewards: raw.rewards,
     missions: raw.missions,

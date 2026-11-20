@@ -1,4 +1,4 @@
-import type {CSSProperties} from 'react'
+import type {CSSProperties, Ref} from 'react'
 
 import {Link} from 'react-router'
 
@@ -128,6 +128,7 @@ function DZoneSeal({now, summary}: {now: Date; summary: DZoneSummary}) {
 export function TimelineMasthead({
   filter,
   groups,
+  headingRef,
   now,
   onFilterChange,
   onPriceModeChange,
@@ -137,6 +138,7 @@ export function TimelineMasthead({
 }: {
   filter: TimelineContentFilter
   groups: TimelineAgendaGroup[]
+  headingRef: Ref<HTMLHeadingElement>
   now: Date
   onFilterChange: (filter: TimelineContentFilter) => void
   onPriceModeChange: (mode: TimelinePriceDisplayMode) => void
@@ -148,7 +150,11 @@ export function TimelineMasthead({
     <header className='mb-6 border-b border-slate-700/45 pb-5'>
       <div className='grid gap-5 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end'>
         <div className='min-w-0'>
-          <h1 className='ui-title text-[1.9rem] leading-[1.03] text-amber-50'>
+          <h1
+            className='ui-title text-[1.9rem] leading-[1.03] text-amber-50'
+            ref={headingRef}
+            tabIndex={-1}
+          >
             Events &amp; Banners
           </h1>
           <div className='mt-4 flex flex-wrap items-center gap-x-3 gap-y-2'>

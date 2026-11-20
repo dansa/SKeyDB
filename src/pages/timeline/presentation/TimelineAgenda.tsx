@@ -5,7 +5,11 @@ import {Link} from 'react-router'
 
 import {formatTimelineDisplayDate} from '@/domain/timeline'
 
-import type {TimelineAgendaGroup, TimelineAgendaMoment} from './timelinePageModel'
+import {
+  getDesktopAgendaGroups,
+  type TimelineAgendaGroup,
+  type TimelineAgendaMoment,
+} from './timelinePageModel'
 
 function getMomentLabel(moment: TimelineAgendaMoment): string {
   if (moment.kind === 'season') return 'D-Zone reset'
@@ -129,7 +133,7 @@ export function TimelineAgenda(props: AgendaProps) {
 function DesktopAgenda({groups, now, onSelect}: AgendaProps) {
   const panelId = useId()
   const [openDate, setOpenDate] = useState<string>()
-  const shownGroups = groups.slice(0, 4)
+  const shownGroups = getDesktopAgendaGroups(groups)
   const expandedGroup = shownGroups.find((group) => group.date.toISOString() === openDate)
   return (
     <div aria-label='Upcoming timeline moments' className='mt-5 hidden pb-1 lg:block' role='region'>

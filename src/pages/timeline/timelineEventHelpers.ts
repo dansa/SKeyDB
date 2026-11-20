@@ -38,17 +38,15 @@ export const CATEGORY_TONE: Record<EventCategory, EventMetaTone> = {
 interface EventArt {
   url: string | undefined
   isWheel: boolean
-  artAlign?: string
 }
 
 export function resolveEventArt(
   featured: BannerFeaturedUnit[] | undefined,
   customArt: string | undefined,
-  artAlign?: string,
 ): EventArt | null {
-  if (customArt) return {url: customArt, isWheel: false, artAlign}
+  if (customArt) return {url: customArt, isWheel: false}
   const primary = featured?.[0]
   if (!primary) return null
   const {url, isWheel} = resolveTimelineFeaturedAsset(primary)
-  return {url, isWheel, artAlign}
+  return {url, isWheel}
 }

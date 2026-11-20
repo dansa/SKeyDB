@@ -125,6 +125,7 @@ export function TimelinePage() {
   const navigate = useNavigate()
   const navigationType = useNavigationType()
   const searchParams = new URLSearchParams(location.search)
+  const pageTitleRef = useRef<HTMLHeadingElement>(null)
   const pendingClose = useRef<string>(undefined)
   const locationState: unknown = location.state
   const visit = readTimelineVisit(locationState)
@@ -227,7 +228,11 @@ export function TimelinePage() {
   }, [location.key, location.search, location.hash, navigate])
 
   function select(id: string, options: SelectOptions = {}) {
-    if (pendingClose.current || id === requested?.id) return
+    if (pendingClose.current) return
+    if (id === requested?.id) {
+      if (options.focusStage) focusStageTitle()
+      return
+    }
     const next = new URLSearchParams(searchParams)
     next.set('item', id)
     const target = entries.find((entry) => entry.id === id)
@@ -260,9 +265,7 @@ export function TimelinePage() {
     if (pendingClose.current) return
     const next = new URLSearchParams(searchParams)
     next.delete('section')
-    const clearsSelection =
-      requested && nextFilter !== 'all' && (nextFilter === 'banners') !== isBanner(requested)
-    if (clearsSelection) {
+    if (requested && excludesEntry(nextFilter, requested)) {
       next.delete('item')
     }
     if (nextFilter === 'all') next.delete('view')
@@ -311,11 +314,12 @@ export function TimelinePage() {
       <TimelineMasthead
         filter={filter}
         groups={agenda}
+        headingRef={pageTitleRef}
         now={now}
         onFilterChange={setFilter}
         onPriceModeChange={setPriceMode}
         onSelect={(id) => {
-          select(id, {reveal: true})
+          select(id, {focusStage: desktop})
         }}
         priceMode={priceMode}
         summary={dZoneSummary}
@@ -383,7 +387,12 @@ export function TimelinePage() {
         ) : null}
       </div>
       {!desktop && requested ? (
-        <StageSheet onClose={closeSelection} selectionKey={requested.id} title={requested.title}>
+        <StageSheet
+          fallbackFocusRef={pageTitleRef}
+          onClose={closeSelection}
+          selectionKey={requested.id}
+          title={requested.title}
+        >
           {stage}
         </StageSheet>
       ) : null}

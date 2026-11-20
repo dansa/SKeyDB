@@ -162,7 +162,7 @@ function LoginCalendar({items}: {items: TimelineRewardItem[]}) {
   }
   const notable = getNotableLoginDays(items)
   return (
-    <div className='mt-2 grid grid-cols-7 gap-1'>
+    <div className='timeline-login-grid mt-2'>
       {items.map((item, day) => {
         const art = getRewardArt(item.name)
         const bonus = notable.has(day)

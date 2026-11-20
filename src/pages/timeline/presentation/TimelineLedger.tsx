@@ -19,22 +19,23 @@ import {getBannerArtworkSlots, getDisplayBanner, type TimelineEntry} from './tim
 export function EventArt({
   className = '',
   containWheel = false,
-  defaultPosition,
   event,
   surface = 'card',
 }: {
   className?: string
   containWheel?: boolean
-  defaultPosition?: string
   event: EventEntry
   surface?: 'card' | 'detail'
 }) {
   const variant = event.artVariants?.[surface]
-  const art = resolveEventArt(
-    event.featured,
-    variant ?? event.customArt,
-    variant ? 'center' : event.artAlign,
-  )
+  const art = resolveEventArt(event.featured, variant ?? event.customArt)
+  const position = variant
+    ? 'object-center'
+    : surface === 'detail'
+      ? 'object-[50%_25%]'
+      : art?.isWheel
+        ? 'object-center'
+        : 'object-top'
   const [failedUrl, setFailedUrl] = useState<string>()
   return art?.url && art.url !== failedUrl ? (
     <img
@@ -42,13 +43,8 @@ export function EventArt({
       onError={() => {
         setFailedUrl(art.url)
       }}
-      className={`h-full w-full ${art.isWheel && containWheel ? 'object-contain' : 'object-cover'} ${art.isWheel ? 'object-center' : 'object-top'} ${className}`}
+      className={`h-full w-full ${art.isWheel && containWheel ? 'object-contain' : 'object-cover'} ${position} ${className}`}
       src={art.url}
-      style={
-        art.artAlign || defaultPosition
-          ? {objectPosition: art.artAlign ?? defaultPosition}
-          : undefined
-      }
     />
   ) : null
 }

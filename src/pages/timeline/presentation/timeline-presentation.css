@@ -51,6 +51,16 @@
   border-color: var(--ui-item-border-hover);
 }
 
+.timeline-login-grid {
+  --login-grid-gap: 0.25rem;
+  display: grid;
+  gap: var(--login-grid-gap);
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(max(40px, calc((100% - 6 * var(--login-grid-gap)) / 7)), 1fr)
+  );
+}
+
 .timeline-day {
   border: 1px solid var(--ui-border-subtle);
   border-radius: var(--ui-radius-xs);
@@ -175,13 +185,14 @@
   transform: rotate(-90deg);
 }
 
-/* The realm badges carry generous transparent padding, so they render larger than the ring's inner circle. */
+/* Scale past the seal box to account for the transparent padding in the badge. */
 .timeline-season-ring img {
   position: absolute;
-  inset: 0.2rem;
-  width: calc(100% - 0.4rem);
-  height: calc(100% - 0.4rem);
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
+  scale: 1.18;
   filter: drop-shadow(0 0.25rem 0.5rem oklch(4% 0.02 250 / 0.7));
 }
 

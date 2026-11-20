@@ -236,7 +236,7 @@ SKeyDB is mostly flat at rest. Depth comes from tonal layering, hairline borders
 
 ### Season Masthead
 
-The shared `SeasonMasthead` is the current page-introduction primitive. It is full-bleed, shallow, context-heavy, and supports current season art, realm emblems, countdowns, and page controls. Use it for season, event, timeline, or D-zone contexts. Do not turn it into a marketing hero.
+The shared `SeasonMasthead` is the page-introduction primitive for season views such as D-Zone. It is full-bleed, shallow, and supports current season art, realm emblems, countdowns, and page controls. The Events & Banners page uses `TimelineMasthead` instead because its agenda and filters are the primary controls. Neither masthead is a marketing hero.
 
 ### Shared Product Surface Vocabulary
 

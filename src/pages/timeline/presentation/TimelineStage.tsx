@@ -196,7 +196,7 @@ function StageContent({
             />
           </div>
         ) : !isBanner(entry) ? (
-          <EventArt defaultPosition='50% 25%' event={entry} surface='detail' />
+          <EventArt event={entry} surface='detail' />
         ) : null}
         <div className='pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,rgba(2,6,14,0.8))]' />
       </div>
@@ -378,7 +378,7 @@ function RelatedThumb({entry}: {entry: TimelineEntry}) {
     ) : null
   }
 
-  const eventArt = resolveEventArt(entry.featured, entry.customArt, entry.artAlign)
+  const eventArt = resolveEventArt(entry.featured, entry.artVariants?.card ?? entry.customArt)
   return (
     <span
       aria-hidden
