@@ -21,7 +21,7 @@ export interface TimelineAgendaMoment {
   id?: string
 }
 
-interface TimelineAgendaPatch extends Pick<TimelinePatch, 'id' | 'title' | 'date'> {
+interface TimelineAgendaPatch extends Pick<TimelinePatch, 'id' | 'title' | 'date' | 'launchNote'> {
   action: 'start' | 'end'
   campaign?: {start: string; end: string}
 }
@@ -32,8 +32,20 @@ export interface TimelineAgendaGroup {
   patch?: TimelineAgendaPatch
 }
 
-function getPatchMarkers({id, title, date, endDate}: TimelinePatch): TimelineAgendaPatch[] {
-  const start: TimelineAgendaPatch = {id, title, date, action: 'start'}
+function getPatchMarkers({
+  id,
+  title,
+  date,
+  endDate,
+  launchNote,
+}: TimelinePatch): TimelineAgendaPatch[] {
+  const start: TimelineAgendaPatch = {
+    id,
+    title,
+    date,
+    action: 'start',
+    ...(launchNote ? {launchNote} : {}),
+  }
   if (!endDate) return [start]
   const campaign = {start: date, end: endDate}
   return [
@@ -70,16 +82,15 @@ export function getTimelineAgendaGroups({
     ...(filter === 'events' ? [] : banners),
   ]
   for (const entry of entries) {
-    const banner = isBanner(entry)
-    const status = getTimelineStatus(entry.startDate, entry.endDate, now)
-    if (status === 'ended') continue
-    moments.push({
-      action: status === 'upcoming' ? 'start' : 'end',
-      at: status === 'upcoming' ? entry.startDate : entry.endDate,
+    const detail = {
       id: entry.id,
-      kind: banner ? 'banner' : 'event',
+      kind: isBanner(entry) ? ('banner' as const) : ('event' as const),
       title: entry.title,
-    })
+    }
+    moments.push(
+      {...detail, action: 'start', at: entry.startDate},
+      {...detail, action: 'end', at: entry.endDate},
+    )
   }
   if (resetDate)
     moments.push({action: 'start', at: resetDate, kind: 'season', title: 'D-Zone reset'})
@@ -165,6 +176,7 @@ export function getBannerStageProfile(
 }
 
 export function getBannerArtworkSlots(banner: BannerEntry): BannerPoolSlot[] | undefined {
+  if (banner.realmPools) return banner.realmPools.map(({awakeners}) => ({pool: awakeners}))
   const artwork = getBannerStageProfile(banner)?.artwork
   if (!artwork || !banner.poolSlots) return banner.poolSlots
 

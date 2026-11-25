@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "talents",
   "kind": "talent",
-  "recordCount": 234,
+  "recordCount": 237,
   "records": [
     {
       "kind": "talent",
@@ -3031,6 +3031,43 @@
       "family": "gnostic_potential",
       "maxLevel": 5,
       "defaultMaxed": true
+    },
+    {
+      "kind": "talent",
+      "id": "talent.tulu-godking.lightless-bottom",
+      "name": "Lightless Bottom",
+      "route": {
+        "slug": "lightless-bottom",
+        "canonicalPath": "/database/awakeners/tulu-godking/talents/lightless-bottom"
+      },
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
+      "family": "passive"
+    },
+    {
+      "kind": "talent",
+      "id": "talent.tulu-godking.dei-gratia",
+      "name": "Dei Gratia",
+      "route": {
+        "slug": "dei-gratia",
+        "canonicalPath": "/database/awakeners/tulu-godking/talents/dei-gratia"
+      },
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
+      "family": "passive"
+    },
+    {
+      "kind": "talent",
+      "id": "talent.tulu-godking.soulforge-aptitude",
+      "name": "Soulforge Aptitude",
+      "route": {
+        "slug": "soulforge-aptitude",
+        "canonicalPath": "/database/awakeners/tulu-godking/talents/soulforge-aptitude"
+      },
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
     }
   ]
 }

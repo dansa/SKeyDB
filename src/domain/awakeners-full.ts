@@ -1,3 +1,4 @@
+import type {AwakenerForms} from './awakener-forms'
 import type {
   AwakenerEnlightenRecord,
   AwakenerOverlayRecord,
@@ -55,6 +56,7 @@ export type PublicUpgradeableOverlayRecord = AwakenerOverlayRecord & {
 }
 
 export interface AwakenerFullRecord extends AwakenerRosterRecord {
+  forms?: AwakenerForms
   profile?: AwakenerProfile
   cards: {
     C1: PublicUpgradeableSkillRecord

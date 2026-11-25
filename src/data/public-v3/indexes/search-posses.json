@@ -991,6 +991,22 @@
         "realm": "CHAOS",
         "owner": "awakener-0062"
       }
+    },
+    {
+      "kind": "posse",
+      "id": "posse-0065",
+      "name": "The Unfallen Throne",
+      "aliases": [],
+      "tokens": ["aequor", "godking", "the", "the unfallen throne", "throne", "tulu", "tulu godking", "unfallen"],
+      "fields": {
+        "name": ["The Unfallen Throne", "the-unfallen-throne"],
+        "owner": ["Tulu: Godking", "tulu-godking"],
+        "facet": ["AEQUOR"]
+      },
+      "facets": {
+        "realm": "AEQUOR",
+        "owner": "awakener-0063"
+      }
     }
   ]
 }

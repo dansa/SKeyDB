@@ -3,6 +3,7 @@ import {useLayoutEffect, useRef, useState, type RefObject} from 'react'
 import {FaChevronRight, FaXmark} from 'react-icons/fa6'
 
 import type {EntityRef} from '@/domain/entities/types'
+import {getRealmLabel} from '@/domain/realms'
 import {
   formatTimelineDisplayDate,
   getTimelineDateRangeDisplay,
@@ -292,7 +293,7 @@ function StageTiming({
           {price ? (
             <div className='flex items-baseline justify-between gap-4'>
               <dt className='text-[0.65rem] font-extrabold tracking-[0.12em] text-slate-400 uppercase'>
-                Price
+                {isBanner(entry) && entry.realmPools ? 'Price per realm' : 'Price'}
               </dt>
               <dd className='text-right text-sm font-semibold text-slate-100 tabular-nums'>
                 {price}
@@ -385,19 +386,15 @@ function StageBannerDetails({
           <h3 className='text-[0.65rem] font-extrabold tracking-[0.12em] text-slate-400 uppercase'>
             {profile?.artwork === 'kaleido' ? 'Featured pool' : 'Pool'}
           </h3>
-          {poolGroups.map((group) => (
-            <div key={group.label}>
-              <h4 className='mb-2 text-xs font-semibold text-slate-300'>
-                {group.label} ({group.units.length})
-              </h4>
-              <StageRoster
-                compact={Boolean(banner.rulesProfile)}
-                onOpenDetail={onOpenDetail}
-                units={group.units}
-              />
-            </div>
-          ))}
+          <PoolRosters
+            compact={Boolean(banner.rulesProfile)}
+            groups={poolGroups}
+            onOpenDetail={onOpenDetail}
+          />
         </section>
+      ) : null}
+      {banner.realmPools?.length ? (
+        <StageRealmPools onOpenDetail={onOpenDetail} pools={banner.realmPools} />
       ) : null}
       {rotation ? (
         <StageSchedule
@@ -414,6 +411,73 @@ function StageBannerDetails({
         </div>
       ) : null}
     </>
+  )
+}
+
+function StageRealmPools({
+  onOpenDetail,
+  pools,
+}: {
+  onOpenDetail: TimelineStageProps['onOpenDetail']
+  pools: NonNullable<BannerEntry['realmPools']>
+}) {
+  const [realmId, setRealmId] = useState<string>()
+  const selected = pools.find((pool) => pool.realmId === realmId) ?? pools[0]
+  return (
+    <section className='space-y-3 border-t border-slate-700/40 pt-4'>
+      <h3 className='text-[0.65rem] font-extrabold tracking-[0.12em] text-slate-400 uppercase'>
+        Pools
+      </h3>
+      <div
+        aria-label='Realm pool'
+        className='timeline-segmented w-full [&>button]:min-h-10 [&>button]:flex-1 [&>button]:px-1.5'
+        role='group'
+      >
+        {pools.map((pool) => (
+          <button
+            aria-pressed={selected.realmId === pool.realmId}
+            key={pool.realmId}
+            onClick={() => {
+              setRealmId(pool.realmId)
+            }}
+            type='button'
+          >
+            {getRealmLabel(pool.realmId)}
+          </button>
+        ))}
+      </div>
+      <PoolRosters
+        compact
+        groups={[
+          {label: 'Awakeners', units: selected.awakeners},
+          {label: 'Wheels', units: selected.wheels},
+        ]}
+        onOpenDetail={onOpenDetail}
+      />
+    </section>
+  )
+}
+
+function PoolRosters({
+  compact,
+  groups,
+  onOpenDetail,
+}: {
+  compact: boolean
+  groups: ReturnType<typeof getPoolGroups>
+  onOpenDetail: TimelineStageProps['onOpenDetail']
+}) {
+  return (
+    <div className='space-y-4'>
+      {groups.map(({label, units}) => (
+        <div key={label}>
+          <h4 className='mb-2 text-xs font-semibold text-slate-300'>
+            {label} ({units.length})
+          </h4>
+          <StageRoster compact={compact} onOpenDetail={onOpenDetail} units={units} />
+        </div>
+      ))}
+    </div>
   )
 }
 

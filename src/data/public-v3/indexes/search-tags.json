@@ -159,7 +159,7 @@
       "section": "archetype",
       "aliases": [],
       "order": 900,
-      "count": 30
+      "count": 31
     },
     {
       "id": "death-resistance",
@@ -191,7 +191,7 @@
       "section": "archetype",
       "aliases": ["alt realm"],
       "order": 930,
-      "count": 9
+      "count": 10
     },
     {
       "id": "draw",
@@ -319,7 +319,7 @@
       "section": "archetype",
       "aliases": ["crit. dmg", "crit damage", "critical damage"],
       "order": 1050,
-      "count": 29
+      "count": 30
     },
     {
       "id": "temporary-realm-mastery",

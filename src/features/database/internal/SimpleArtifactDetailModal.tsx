@@ -2,6 +2,7 @@ import {useMemo} from 'react'
 
 import {useStore} from 'zustand'
 
+import type {DerivedSkillRecord} from '@/domain/awakener-source-schema'
 import {getCovenantAssetById, getCovenantFullArtAssetById} from '@/domain/covenant-assets'
 import type {Covenant} from '@/domain/covenants'
 import type {CovenantFullRecord} from '@/domain/covenants-full'
@@ -33,6 +34,7 @@ interface PosseDetailModalProps {
   navigation?: DatabaseDetailResultNavigation | null
   onClose: () => void
   onSelectAwakener?: (awakener: {id: string; name: string}, tab?: DatabaseAwakenerTab) => void
+  ownerFormSkills?: DerivedSkillRecord[]
 }
 
 interface CovenantDetailModalProps {
@@ -42,6 +44,7 @@ interface CovenantDetailModalProps {
   navigation?: DatabaseDetailResultNavigation | null
   onClose: () => void
   onSelectAwakener?: never
+  ownerFormSkills?: never
 }
 
 type SimpleArtifactDetailModalProps = PosseDetailModalProps | CovenantDetailModalProps
@@ -56,6 +59,7 @@ function SimpleArtifactDetailModalInner({
   navigation = null,
   onClose,
   onSelectAwakener,
+  ownerFormSkills,
 }: SimpleArtifactDetailModalProps) {
   const {preferences, updateSharedPreferences} = useDatabaseDetailPreferences()
   const collectionOwnership = useStore(collectionOwnershipStore, (state) => state.ownership)
@@ -88,8 +92,9 @@ function SimpleArtifactDetailModalInner({
       buildGlobalDatabaseReferenceLayer({
         extraReferences: descriptions.map((entry) => ({record: entry.record, label: entry.label})),
         formulaContext,
+        ownerFormSkills,
       }),
-    [descriptions, formulaContext],
+    [descriptions, formulaContext, ownerFormSkills],
   )
   const popoverController = useDatabasePopoverController({
     formulaContext,

@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 3,
+  "kind": "skill",
+  "id": "skill.tulu-godking.lex-divina",
+  "name": "Lex Divina",
+  "route": {
+    "slug": "lex-divina",
+    "canonicalPath": "/database/awakeners/tulu-godking/skills/lex-divina"
+  },
+  "ownerAwakenerId": "awakener-0063",
+  "slot": "OverExalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["over_exalt"],
+  "descriptionTemplate": "Triple the Temporary Crit. Rate and Crit. DMG granted by {World-Drowning Tide}. Tulu also gains permanent +25% Crit. Rate and +25% Crit. DMG.",
+  "descriptionArgs": {},
+  "cardKeywords": [],
+  "ownerAwakenerName": "Tulu: Godking"
+}

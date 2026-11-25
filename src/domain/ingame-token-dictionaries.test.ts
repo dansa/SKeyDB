@@ -47,7 +47,7 @@ describe('buildIngameTokenDictionaries', () => {
     expect(result.awakeners.byIdToken.size).toBeGreaterThan(40)
     expect(result.wheels.byIdToken.size).toBeGreaterThan(100)
     expect(result.covenants.byIdToken.size).toBe(21)
-    expect(result.posses.byIdToken.size).toBe(56)
+    expect(result.posses.byIdToken.size).toBe(57)
     expect(result.issues).toEqual([])
   })
 
@@ -61,6 +61,7 @@ describe('buildIngameTokenDictionaries', () => {
     expect(result.covenants.byIdToken.get('covenant-0020')).toBe('w')
     expect(result.posses.byIdToken.get('posse-0002')).toBe('h')
     expect(result.posses.byIdToken.get('posse-0052')).toBe('6')
+    expect(result.posses.byIdToken.get('posse-0065')).toBe('xc')
 
     expect(result.awakeners.byTokenId.get('3')).toBe('awakener-0056')
     expect(result.awakeners.byTokenId.get('xn')).toBe('awakener-0058')
@@ -69,6 +70,7 @@ describe('buildIngameTokenDictionaries', () => {
     expect(result.covenants.byTokenId.get('w')).toBe('covenant-0020')
     expect(result.posses.byTokenId.get('h')).toBe('posse-0002')
     expect(result.posses.byTokenId.get('6')).toBe('posse-0052')
+    expect(result.posses.byTokenId.get('xc')).toBe('posse-0065')
   })
 })
 

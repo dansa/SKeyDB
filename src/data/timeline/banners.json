@@ -1,5 +1,594 @@
 [
   {
+    "id": "galaxy-shines-261130",
+    "title": "When the Galaxy Shines",
+    "type": "daily",
+    "description": "A different rate-up Awakener and Wheel each day.\nEach pair is available for 24 hours from the daily reset at 09:00 (UTC+8). Tulu and Hymn of the Sovereign return on the final day.",
+    "startDate": "2026/11/30 09:00",
+    "endDate": "2027/01/04 09:00",
+    "dailySchedule": [
+      {
+        "day": 1,
+        "featured": [
+          {
+            "name": "Tulu",
+            "kind": "awakener"
+          },
+          {
+            "name": "Hymn of the Sovereign",
+            "kind": "wheel"
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "featured": [
+          {
+            "name": "Daffodil",
+            "kind": "awakener"
+          },
+          {
+            "name": "Treasured Rarity",
+            "kind": "wheel"
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "featured": [
+          {
+            "name": "Sorel",
+            "kind": "awakener"
+          },
+          {
+            "name": "By Rose Alone",
+            "kind": "wheel"
+          }
+        ]
+      },
+      {
+        "day": 4,
+        "featured": [
+          {
+            "name": "Lily",
+            "kind": "awakener"
+          },
+          {
+            "name": "Grace Through Pain",
+            "kind": "wheel"
+          }
+        ]
+      },
+      {
+        "day": 5,
+        "featured": [
+          {
+            "name": "Murphy",
+            "kind": "awakener"
+          },
+          {
+            "name": "Shrouded Birth",
+            "kind": "wheel"
+          }
+        ]
+      },
+      {
+        "day": 6,
+        "featured": [
+          {
+            "name": "Wanda",
+            "kind": "awakener"
+          },
+          {
+            "name": "Queen's Edict",
+            "kind": "wheel"
+          }
+        ]
+      },
+      {
+        "day": 7,
+        "featured": [
+          {
+            "name": "Salvador",
+            "kind": "awakener"
+          },
+          {
+            "name": "Tablet of Scriptures",
+            "kind": "wheel"
+          }
+        ]
+      },
+      {
+        "day": 8,
+        "featured": [
+          {
+            "name": "24",
+            "kind": "awakener"
+          },
+          {
+            "name": "Aberrant Devour",
+            "kind": "wheel"
+          }
+        ]
+      },
+      {
+        "day": 9,
+        "featured": [
+          {
+            "name": "Thais",
+            "kind": "awakener"
+          },
+          {
+            "name": "Merciful Nurturing",
+            "kind": "wheel"
+          }
+        ]
+      },
+      {
+        "day": 10,
+        "featured": [
+          {
+            "name": "Miryam",
+            "kind": "awakener"
+          },
+          {
+            "name": "Power of the Pious",
+            "kind": "wheel"
+          }
+        ]
+      },
+      {
+        "day": 11,
+        "featured": [
+          {
+            "name": "Horla",
+            "kind": "awakener"
+          },
+          {
+            "name": "The Last Verse",
+            "kind": "wheel"
+          }
+        ]
+      },
+      {
+        "day": 12,
+        "featured": [
+          {
+            "name": "Ryker",
+            "kind": "awakener"
+          },
+          {
+            "name": "Hour of Fortune",
+            "kind": "wheel"
+          }
+        ]
+      },
+      {
+        "day": 13,
+        "featured": [
+          {
+            "name": "Hameln",
+            "kind": "awakener"
+          },
+          {
+            "name": "Eternal Requiem",
+            "kind": "wheel"
+          }
+        ]
+      },
+      {
+        "day": 14,
+        "featured": [
+          {
+            "name": "Helot: Catena",
+            "kind": "awakener"
+          },
+          {
+            "name": "Drowning in Crimson",
+            "kind": "wheel"
+          }
+        ]
+      },
+      {
+        "day": 15,
+        "featured": [
+          {
+            "name": "Tawil",
+            "kind": "awakener"
+          },
+          {
+            "name": "Wheel Unseen",
+            "kind": "wheel"
+          }
+        ]
+      },
+      {
+        "day": 16,
+        "featured": [
+          {
+            "name": "Doll: Inferno",
+            "kind": "awakener"
+          },
+          {
+            "name": "Manikin of Oblivion",
+            "kind": "wheel"
+          }
+        ]
+      },
+      {
+        "day": 17,
+        "featured": [
+          {
+            "name": "Clementine",
+            "kind": "awakener"
+          },
+          {
+            "name": "Veiled Anguish",
+            "kind": "wheel"
+          }
+        ]
+      },
+      {
+        "day": 18,
+        "featured": [
+          {
+            "name": "Corposant",
+            "kind": "awakener"
+          },
+          {
+            "name": "Flamebound Navigator",
+            "kind": "wheel"
+          }
+        ]
+      },
+      {
+        "day": 19,
+        "featured": [
+          {
+            "name": "Castor",
+            "kind": "awakener"
+          },
+          {
+            "name": "Unbearable Freedom",
+            "kind": "wheel"
+          }
+        ]
+      },
+      {
+        "day": 20,
+        "featured": [
+          {
+            "name": "Doresain",
+            "kind": "awakener"
+          },
+          {
+            "name": "Kiss of Repose",
+            "kind": "wheel"
+          }
+        ]
+      },
+      {
+        "day": 21,
+        "featured": [
+          {
+            "name": "Kathigu-Ra",
+            "kind": "awakener"
+          },
+          {
+            "name": "Amber-Tinted Death",
+            "kind": "wheel"
+          }
+        ]
+      },
+      {
+        "day": 22,
+        "featured": [
+          {
+            "name": "Pickman",
+            "kind": "awakener"
+          },
+          {
+            "name": "Paradoxical Realism",
+            "kind": "wheel"
+          }
+        ]
+      },
+      {
+        "day": 23,
+        "featured": [
+          {
+            "name": "Pollux",
+            "kind": "awakener"
+          },
+          {
+            "name": "Twisted Knight Ballad",
+            "kind": "wheel"
+          }
+        ]
+      },
+      {
+        "day": 24,
+        "featured": [
+          {
+            "name": "Murphy: Fauxborn",
+            "kind": "awakener"
+          },
+          {
+            "name": "Uteri Somnia",
+            "kind": "wheel"
+          }
+        ]
+      },
+      {
+        "day": 25,
+        "featured": [
+          {
+            "name": "Mouchette",
+            "kind": "awakener"
+          },
+          {
+            "name": "Doomsday Rampage",
+            "kind": "wheel"
+          }
+        ]
+      },
+      {
+        "day": 26,
+        "featured": [
+          {
+            "name": "Xu",
+            "kind": "awakener"
+          },
+          {
+            "name": "Vain Regrets",
+            "kind": "wheel"
+          }
+        ]
+      },
+      {
+        "day": 27,
+        "featured": [
+          {
+            "name": "Vortice",
+            "kind": "awakener"
+          },
+          {
+            "name": "The Faraway Eden",
+            "kind": "wheel"
+          }
+        ]
+      },
+      {
+        "day": 28,
+        "featured": [
+          {
+            "name": "Arachne",
+            "kind": "awakener"
+          },
+          {
+            "name": "Eternal Weave",
+            "kind": "wheel"
+          }
+        ]
+      },
+      {
+        "day": 29,
+        "featured": [
+          {
+            "name": "Saya",
+            "kind": "awakener"
+          },
+          {
+            "name": "Fragrant Morphogenesis",
+            "kind": "wheel"
+          }
+        ]
+      },
+      {
+        "day": 30,
+        "featured": [
+          {
+            "name": "Pontos",
+            "kind": "awakener"
+          },
+          {
+            "name": "Living Cage",
+            "kind": "wheel"
+          }
+        ]
+      },
+      {
+        "day": 31,
+        "featured": [
+          {
+            "name": "Lotan: Cetarchon",
+            "kind": "awakener"
+          },
+          {
+            "name": "Cetus Occasus",
+            "kind": "wheel"
+          }
+        ]
+      },
+      {
+        "day": 32,
+        "featured": [
+          {
+            "name": "Caraboo",
+            "kind": "awakener"
+          },
+          {
+            "name": "Honeyed Deceit",
+            "kind": "wheel"
+          }
+        ]
+      },
+      {
+        "day": 33,
+        "featured": [
+          {
+            "name": "Ogier: Oathbound",
+            "kind": "awakener"
+          },
+          {
+            "name": "Ever Sunward",
+            "kind": "wheel"
+          }
+        ]
+      },
+      {
+        "day": 34,
+        "featured": [
+          {
+            "name": "Vivian",
+            "kind": "awakener"
+          },
+          {
+            "name": "The Seer's Riddle",
+            "kind": "wheel"
+          }
+        ]
+      },
+      {
+        "day": 35,
+        "featured": [
+          {
+            "name": "Tulu",
+            "kind": "awakener"
+          },
+          {
+            "name": "Hymn of the Sovereign",
+            "kind": "wheel"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stars-bloom-faded-261130",
+    "title": "Stars in Full Bloom: Faded Legacy",
+    "type": "premium",
+    "description": "Guaranteed limited SSRs with triple copies.\nOne paid five-pull per realm in this arc. Each five-pull grants two limited SSR Awakeners and three limited SSR Wheels, with three copies of each result. Awakeners below max Enlighten and Wheels below max Ascension take priority.",
+    "startDate": "2026/11/30 09:00",
+    "endDate": "2027/01/04 09:00",
+    "pricing": "USD 29.99",
+    "realmPools": [
+      {
+        "realmId": "CHAOS",
+        "awakeners": ["Lily", "24", "Ryker", "Hameln", "Tawil"],
+        "wheels": ["Grace Through Pain", "Aberrant Devour", "Hour of Fortune", "Eternal Requiem", "Wheel Unseen"]
+      },
+      {
+        "realmId": "AEQUOR",
+        "awakeners": ["Tulu", "Murphy", "Miryam"],
+        "wheels": ["Hymn of the Sovereign", "Shrouded Birth", "Power of the Pious"]
+      },
+      {
+        "realmId": "CARO",
+        "awakeners": ["Sorel", "Salvador", "Thais", "Helot: Catena"],
+        "wheels": ["By Rose Alone", "Tablet of Scriptures", "Merciful Nurturing", "Drowning in Crimson"]
+      },
+      {
+        "realmId": "ULTRA",
+        "awakeners": ["Wanda", "Horla", "Daffodil"],
+        "wheels": ["Queen's Edict", "The Last Verse", "Treasured Rarity"]
+      }
+    ]
+  },
+  {
+    "id": "stars-bloom-astral-261130",
+    "title": "Stars in Full Bloom: Astral Reign",
+    "type": "premium",
+    "description": "Guaranteed limited SSRs with triple copies.\nOne paid five-pull per realm in this arc. Each five-pull grants two limited SSR Awakeners and three limited SSR Wheels, with three copies of each result. Awakeners below max Enlighten and Wheels below max Ascension take priority.",
+    "startDate": "2026/11/30 09:00",
+    "endDate": "2027/01/04 09:00",
+    "pricing": "USD 29.99",
+    "realmPools": [
+      {
+        "realmId": "CHAOS",
+        "awakeners": ["Doll: Inferno", "Kathigu-Ra", "Mouchette", "Lotan: Cetarchon", "Ogier: Oathbound", "Vivian"],
+        "wheels": ["Manikin of Oblivion", "Amber-Tinted Death", "Doomsday Rampage", "Cetus Occasus", "Ever Sunward", "The Seer's Riddle"]
+      },
+      {
+        "realmId": "AEQUOR",
+        "awakeners": ["Corposant", "Murphy: Fauxborn", "Vortice", "Pontos"],
+        "wheels": ["Flamebound Navigator", "Uteri Somnia", "The Faraway Eden", "Living Cage"]
+      },
+      {
+        "realmId": "CARO",
+        "awakeners": ["Doresain", "Pickman", "Xu", "Saya", "Caraboo"],
+        "wheels": ["Kiss of Repose", "Paradoxical Realism", "Vain Regrets", "Fragrant Morphogenesis", "Honeyed Deceit"]
+      },
+      {
+        "realmId": "ULTRA",
+        "awakeners": ["Clementine", "Castor", "Pollux", "Arachne"],
+        "wheels": ["Veiled Anguish", "Unbearable Freedom", "Twisted Knight Ballad", "Eternal Weave"]
+      }
+    ]
+  },
+  {
+    "id": "godking-duo-261130",
+    "title": "The Long Vigil / Celestial Diadem",
+    "type": "awaken",
+    "description": "Separate rate-up Awakenings for Tulu: Godking and A Sleepless Wish.",
+    "startDate": "2026/11/30 09:00",
+    "endDate": "2027/01/04 09:00",
+    "featured": [
+      {
+        "name": "Tulu: Godking",
+        "kind": "awakener"
+      },
+      {
+        "name": "A Sleepless Wish",
+        "kind": "wheel"
+      }
+    ],
+    "related": ["other-shore-261130"],
+    "rateUpGroups": [
+      {
+        "kind": "awakener",
+        "options": [
+          {
+            "title": "The Long Vigil",
+            "rateUp": "Tulu: Godking",
+            "offBanner": ["Goliath", "Faros", "Caecus", "Sanga", "Celeste"]
+          }
+        ]
+      },
+      {
+        "kind": "wheel",
+        "options": [
+          {
+            "title": "Celestial Diadem",
+            "rateUp": "A Sleepless Wish"
+          }
+        ],
+        "sharedOffBanner": [
+          "Memory Spiral",
+          "Gift of Decay",
+          "Drifting in Desire",
+          "Will Unyielding",
+          "Silent Banquet",
+          "Blade of the Titan",
+          "Amidst the Downpour",
+          "Fin of Sorrow",
+          "Death of Ms. Coral",
+          "Sail of Providence",
+          "Chains Unbound",
+          "Pale Descendant",
+          "Bloody Feast",
+          "The Glutton's Tale",
+          "Lullaby Devoured",
+          "Fouetté",
+          "Song of the Bound",
+          "Incalculable Factor",
+          "Path Forsaken",
+          "Happy Magic Show"
+        ]
+      }
+    ]
+  },
+  {
     "id": "vortice-duo-260309",
     "title": "Maelstrom of Woe / Forsaken Isle",
     "type": "awaken",

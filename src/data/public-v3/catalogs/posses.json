@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "posses",
   "kind": "posse",
-  "recordCount": 64,
+  "recordCount": 65,
   "records": [
     {
       "kind": "posse",
@@ -1216,6 +1216,24 @@
       "ownerAwakenerId": "awakener-0062",
       "ownerAwakenerName": "Vivian",
       "lineupToken": "xb"
+    },
+    {
+      "kind": "posse",
+      "id": "posse-0065",
+      "name": "The Unfallen Throne",
+      "route": {
+        "slug": "the-unfallen-throne",
+        "canonicalPath": "/database/posses/the-unfallen-throne"
+      },
+      "assets": {
+        "icon": "asset-posse-0065-icon",
+        "crystal": "asset-posse-0065-crystal",
+        "badge": "asset-posse-0065-badge"
+      },
+      "realm": "AEQUOR",
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
+      "lineupToken": "xc"
     }
   ]
 }

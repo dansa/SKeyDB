@@ -8,7 +8,7 @@
     "canonicalPath": "/database/overlays/rouse"
   },
   "overlayType": "mechanic",
-  "aliases": ["Keyflare Rouse"],
+  "aliases": [],
   "textColor": "misc",
   "descriptionTemplate": "Grants the Awakener permanent combat boosts. Repeated {Rouse} uses don't stack.",
   "descriptionArgs": {}

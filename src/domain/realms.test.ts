@@ -2,6 +2,7 @@ import {describe, expect, it} from 'vitest'
 
 import {
   DEFAULT_REALM_ACCENT,
+  getAwakenerRealmBadge,
   getRealmAccent,
   getRealmBadge,
   getRealmIcon,
@@ -42,5 +43,21 @@ describe('realms domain', () => {
     expect(getRealmBadge('caro')).toEqual(expect.any(String))
     expect(getRealmBadge('unknown')).toBeUndefined()
     expect(getRealmBadge(undefined)).toBeUndefined()
+  })
+
+  it.each([
+    ['aequor', 'Benthos: Aequor'],
+    ['caro', 'Propagation: Caro'],
+    ['chaos', 'Primordia: Chaos'],
+    ['ultra', 'Singularity: Ultra'],
+  ])('keeps the standard and Divine database badges distinct for %s', (realm, label) => {
+    const regular = getAwakenerRealmBadge({realm, tags: []})
+    const divine = getAwakenerRealmBadge({realm, tags: ['Divine Realm']})
+    expect(regular).toEqual({
+      src: expect.stringContaining(`${realm}-regular`),
+      label: getRealmLabel(realm),
+    })
+    expect(divine).toEqual({src: expect.stringContaining(`${realm}-divine`), label})
+    expect(getRealmBadge(realm)).not.toBe(regular?.src)
   })
 })

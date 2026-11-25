@@ -10,7 +10,6 @@ vi.mock('@/domain/realms', async (importOriginal) => {
   return {
     ...actual,
     getRealmAccent: () => '#ffffff',
-    getRealmBadge: () => '/realm-badge.png',
     getRealmIcon: () => '/realm-icon.png',
     getRealmLabel: () => 'Caro',
   }
@@ -71,8 +70,25 @@ describe('AwakenerGridCard', () => {
       <AwakenerGridCard awakener={makeAwakener()} index={0} onSelect={vi.fn()} />,
     )
 
-    expect(container.querySelector('img[src="/realm-badge.png"]')).not.toBeNull()
+    expect(screen.getByTitle('Caro')).toHaveAttribute(
+      'src',
+      expect.stringContaining('caro-regular'),
+    )
     expect(container.querySelector('img[src="/realm-icon.png"]')).toBeNull()
+  })
+
+  it('uses the named Divine badge when the Awakener unlocks a Divine Realm', () => {
+    render(
+      <AwakenerGridCard
+        awakener={makeAwakener({tags: ['Divine Realm']})}
+        index={0}
+        onSelect={vi.fn()}
+      />,
+    )
+    expect(screen.getByTitle('Propagation: Caro')).toHaveAttribute(
+      'src',
+      expect.stringContaining('caro-divine'),
+    )
   })
 
   it('renders both scaling roles when scaling meta is active', () => {

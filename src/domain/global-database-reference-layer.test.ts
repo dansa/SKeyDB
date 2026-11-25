@@ -43,6 +43,39 @@ function getSegmentText(segment: RichSegment): string {
 }
 
 describe('hydrateGlobalDatabaseReferenceInfo', () => {
+  it("resolves the Unfallen Throne reference to its owner's Stars Surge group", async () => {
+    const posse = await publicDetailRecordAdapters.loadPublicPosseDetailById('posse-0065')
+    if (!posse?.ownerAwakenerId) throw new Error('Missing The Unfallen Throne owner')
+
+    const ownerFormSkills = await publicDetailRecordAdapters.loadPublicAwakenerFormSkillsById(
+      posse.ownerAwakenerId,
+    )
+    const layer = buildGlobalDatabaseReferenceLayer({ownerFormSkills})
+    const record = buildPosseDatabaseDescriptionRecord(posse)
+    const segments = parseDatabaseRichDescription({
+      text: resolveDescriptionTemplate(record.descriptionTemplate, record.descriptionArgs),
+      record,
+      referenceLayer: layer,
+    })
+    expect(segments).toContainEqual(expect.objectContaining({type: 'skill', name: 'Stars Surge'}))
+
+    const surge = resolveDatabaseReferenceInfo(layer, 'Stars Surge')
+    if (!surge) throw new Error('Missing Stars Surge')
+    expect(surge.description).toContain('fill all three {Orbits}')
+    expect(surge.record).toMatchObject({
+      nodeKind: 'group',
+      childDerivedSkillIds: [
+        'theophany-surge-pursuit',
+        'theophany-surge-extra-hits',
+        'theophany-surge-per-hit',
+        'theophany-surge-matching-types',
+      ],
+    })
+    expect(
+      resolveDatabaseReferenceInfoById(layer, 'theophany-surge-extra-hits')?.description,
+    ).toContain('3–15 hits')
+  })
+
   it.each([
     ['derived.daffodil.thousand-mirage-effect-vulnerable', 'Vulnerable', 'orison'],
     ['derived.daffodil.thousand-mirage-effect-weakness', 'Weakness', 'orison'],

@@ -1,7 +1,7 @@
 import {getAwakenerCardAsset, getAwakenerPortraitAsset} from '@/domain/awakener-assets'
 import {resolveAwakenerLiteStatsForLevel, type Awakener} from '@/domain/awakeners'
 import {formatAwakenerNameForUi} from '@/domain/name-format'
-import {getRealmAccent, getRealmBadge, getRealmIcon, getRealmLabel} from '@/domain/realms'
+import {getAwakenerRealmBadge, getRealmAccent, getRealmIcon} from '@/domain/realms'
 
 import {
   DEFAULT_AWAKENER_CARD_META_CONTEXT,
@@ -38,9 +38,8 @@ export function AwakenerGridCard({
   const portraitAsset = getAwakenerPortraitAsset(awakener.name)
   const displayName = formatAwakenerNameForUi(awakener.name)
   const realmAccent = getRealmAccent(awakener.realm)
-  const realmBadge = getRealmBadge(awakener.realm)
+  const realmBadge = getAwakenerRealmBadge(awakener)
   const realmIcon = getRealmIcon(awakener.realm)
-  const realmLabel = getRealmLabel(awakener.realm)
   const stats = resolveAwakenerLiteStatsForLevel(awakener, DATABASE_GRID_AWAKENER_STAT_LEVEL)
   const prioritizeImage = shouldPrioritizeDatabaseGridImage(index)
   const cardMeta = getAwakenerCardMetaData(awakener, cardMetaContext)
@@ -59,7 +58,7 @@ export function AwakenerGridCard({
       media={{
         alt: displayName,
         dossierSrc: portraitAsset ?? cardAsset,
-        posterBadge: {label: realmLabel, src: realmBadge},
+        posterBadge: realmBadge,
         posterSrc: cardAsset,
         prioritize: prioritizeImage,
       }}

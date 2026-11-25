@@ -26,10 +26,10 @@ export interface TimelineRewardItem {
   itemId?: number
 }
 
-export interface TimelineMissionReward {
-  label: string
+export type TimelineMissionReward = ({label: string} | {silverPrimeExtracted: number}) & {
   standard: TimelineRewardItem[]
   premium?: TimelineRewardItem[]
+  dropRoll?: (TimelineRewardItem & {chancePercent: number})[]
 }
 
 export interface TimelineRewardGroup {
@@ -71,6 +71,7 @@ export interface TimelinePatch {
   date: string
   /** Optional ISO timestamp when the featured campaign ends. */
   endDate?: string
+  launchNote?: string
 }
 
 export interface BannerRateUpGroup {
@@ -88,6 +89,12 @@ export const BANNER_RULE_PROFILES = [
 ] as const
 export type BannerRuleProfile = (typeof BANNER_RULE_PROFILES)[number]
 
+export interface BannerRealmPool {
+  realmId: string
+  awakeners: BannerFeaturedUnit[]
+  wheels: BannerFeaturedUnit[]
+}
+
 export interface BannerEntry {
   rulesProfile?: BannerRuleProfile
   rateUpGroups?: BannerRateUpGroup[]
@@ -100,6 +107,7 @@ export interface BannerEntry {
   dailySchedule?: BannerDailyScheduleEntry[]
   featured?: BannerFeaturedUnit[]
   poolSlots?: BannerPoolSlot[]
+  realmPools?: BannerRealmPool[]
   linkedPresentation?: BannerLinkedPresentation
   customArt?: string
   customTags?: string[]
@@ -212,7 +220,7 @@ export function getTimelineStatus(startDate: string, endDate: string, now?: Date
   if (reference < start) {
     return 'upcoming'
   }
-  if (reference > end) {
+  if (reference >= end) {
     return 'ended'
   }
   return 'active'
@@ -285,7 +293,7 @@ export function getTimelineCountdown(
   if (reference < start) {
     targetMs = start.getTime() - reference.getTime()
     label = 'Starts in'
-  } else if (reference <= end) {
+  } else if (reference < end) {
     targetMs = end.getTime() - reference.getTime()
     label = 'Ends in'
   } else {
@@ -296,7 +304,7 @@ export function getTimelineCountdown(
       hours: 0,
       minutes: 0,
       label: 'Ended',
-      totalMs: -elapsedMs,
+      totalMs: end.getTime() - reference.getTime(),
     }
   }
 
@@ -310,7 +318,7 @@ export function getTimelineCountdown(
 }
 
 export function formatCountdown(countdown: TimelineCountdown): string {
-  if (countdown.totalMs < 0) {
+  if (countdown.label === 'Ended') {
     if (countdown.days === 0) {
       return 'Ended today'
     }

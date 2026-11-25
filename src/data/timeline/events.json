@@ -1,5 +1,155 @@
 [
   {
+    "id": "lucky-winner-261130",
+    "title": "Lucky Winner",
+    "category": "wheel-event",
+    "rerun": true,
+    "description": "Earn 4 free copies of Stakes of Wisdom.\nExcess copies convert to one Fate Rewind Shard each.",
+    "startDate": "2026/11/30 09:00",
+    "endDate": "2027/01/04 09:00",
+    "featured": [
+      {
+        "name": "Stakes of Wisdom",
+        "kind": "wheel"
+      }
+    ],
+    "pricing": "1,680 Silver Prime",
+    "artVariants": {
+      "card": "/events/lucky-winner-card.webp",
+      "detail": "/events/lucky-winner-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Standard Archives",
+        "price": "Free",
+        "items": [
+          {
+            "name": "Stakes of Wisdom",
+            "amount": "×4"
+          },
+          {
+            "name": "Pure Core",
+            "amount": "×30"
+          }
+        ]
+      },
+      {
+        "title": "Premium Archives adds",
+        "price": "1,680 Silver Prime",
+        "items": [
+          {
+            "name": "Stakes of Wisdom",
+            "amount": "×12"
+          },
+          {
+            "name": "Luminous Core",
+            "amount": "×60"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "heure-du-the-261130",
+    "title": "L'Heure du Thé",
+    "category": "wheel-event",
+    "rerun": true,
+    "description": "Earn 4 free copies of Private Afternoon.\nExcess copies convert to one Fate Rewind Shard each.",
+    "startDate": "2026/11/30 09:00",
+    "endDate": "2027/01/04 09:00",
+    "featured": [
+      {
+        "name": "Private Afternoon",
+        "kind": "wheel"
+      }
+    ],
+    "pricing": "1,680 Silver Prime",
+    "artVariants": {
+      "card": "/events/private-afternoon-card.webp",
+      "detail": "/events/private-afternoon-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Standard Archives",
+        "price": "Free",
+        "items": [
+          {
+            "name": "Private Afternoon",
+            "amount": "×4"
+          },
+          {
+            "name": "Pure Core",
+            "amount": "×30"
+          }
+        ]
+      },
+      {
+        "title": "Premium Archives adds",
+        "price": "1,680 Silver Prime",
+        "items": [
+          {
+            "name": "Private Afternoon",
+            "amount": "×12"
+          },
+          {
+            "name": "Luminous Core",
+            "amount": "×60"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "blossom-court-261130",
+    "title": "Blossom Court",
+    "category": "wheel-event",
+    "rerun": true,
+    "description": "Earn 4 free copies of Sakura Reveries.\nExcess copies convert to one Fate Rewind Shard each.",
+    "startDate": "2026/11/30 09:00",
+    "endDate": "2027/01/04 09:00",
+    "featured": [
+      {
+        "name": "Sakura Reveries",
+        "kind": "wheel"
+      }
+    ],
+    "pricing": "1,680 Silver Prime",
+    "artVariants": {
+      "card": "/events/sakura-reveries-card.webp",
+      "detail": "/events/sakura-reveries-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Standard Archives",
+        "price": "Free",
+        "items": [
+          {
+            "name": "Sakura Reveries",
+            "amount": "×4"
+          },
+          {
+            "name": "Pure Core",
+            "amount": "×30"
+          }
+        ]
+      },
+      {
+        "title": "Premium Archives adds",
+        "price": "1,680 Silver Prime",
+        "items": [
+          {
+            "name": "Sakura Reveries",
+            "amount": "×12"
+          },
+          {
+            "name": "Luminous Core",
+            "amount": "×60"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "moskstraumen-260309",
     "title": "Call of the Moskstraumen",
     "category": "gameplay-event",
@@ -3283,7 +3433,7 @@
     "id": "stream-infatuation-260518",
     "title": "Stream of Infatuation",
     "category": "milestone",
-    "description": "Astral Reign selectors and an avatar frame from Prime Extraction.\nMilestones count paid Silver Prime obtained through Prime Extraction, not Silver Prime spent. Bonus Silver Prime from extraction does not count.",
+    "description": "Astral Reign selectors and an avatar frame from Prime Extraction.\nMilestones count the base Silver Prime purchased, not Prime spent. Regular top-up bonuses and first-purchase matching do not count.",
     "startDate": "2026/05/18 09:00",
     "endDate": "2026/06/29 09:00",
     "artVariants": {
@@ -3292,7 +3442,7 @@
     },
     "missions": [
       {
-        "label": "5,000 Silver Prime extracted",
+        "silverPrimeExtracted": 5000,
         "standard": [
           {
             "name": "Ultra Mapping: Astral Reign",
@@ -3305,7 +3455,7 @@
         ]
       },
       {
-        "label": "10,000 Silver Prime extracted",
+        "silverPrimeExtracted": 10000,
         "standard": [
           {
             "name": "Caro Birth: Astral Reign",
@@ -3318,7 +3468,7 @@
         ]
       },
       {
-        "label": "20,000 Silver Prime extracted",
+        "silverPrimeExtracted": 20000,
         "standard": [
           {
             "name": "Aequor Mystery: Astral Reign",
@@ -3331,7 +3481,7 @@
         ]
       },
       {
-        "label": "30,000 Silver Prime extracted",
+        "silverPrimeExtracted": 30000,
         "standard": [
           {
             "name": "Chaos Echo: Astral Reign",
@@ -7715,7 +7865,7 @@
     "id": "sleepless-oath-261130",
     "title": "The Sleepless Oath",
     "category": "anniversary",
-    "description": "Up to 300 free Ethereal Cores.",
+    "description": "Up to 300 free Ethereal Cores.\nLog in and clear the Faded Legacy and Astral Reign arcs. Premium Archives adds rewards for the same objectives.",
     "startDate": "2026/11/30 09:00",
     "endDate": "2027/03/15 09:00",
     "artVariants": {
@@ -7747,6 +7897,432 @@
           {
             "name": "Ethereal Core",
             "amount": "×100"
+          }
+        ]
+      }
+    ],
+    "pricing": "3980 Silver Prime",
+    "rewards": [
+      {
+        "title": "Standard Archives",
+        "price": "Free",
+        "items": [
+          {
+            "name": "Ethereal Core",
+            "amount": "×300"
+          }
+        ]
+      },
+      {
+        "title": "Premium Archives adds",
+        "price": "3980 Silver Prime",
+        "items": [
+          {
+            "name": "Ethereal Core",
+            "amount": "×300"
+          },
+          {
+            "name": "Silver",
+            "amount": "×15,000"
+          },
+          {
+            "name": "Gnosis Primer",
+            "amount": "×3"
+          },
+          {
+            "name": "Refined Gnosis Primer",
+            "amount": "×1"
+          },
+          {
+            "name": "Soul Rewind Core",
+            "amount": "×1"
+          },
+          {
+            "name": "Fate Rewind Core",
+            "amount": "×1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "beyond-starry-nights-261130",
+    "title": "Beyond the Starry Nights",
+    "category": "anniversary",
+    "description": "Up to 16 copies of A Shore Unreached.\nEach of your first 16 logins awards one copy. Login days don't have to be consecutive.",
+    "startDate": "2026/11/30 09:00",
+    "endDate": "2027/01/04 09:00",
+    "featured": [
+      {
+        "name": "A Shore Unreached",
+        "kind": "wheel"
+      }
+    ],
+    "artVariants": {
+      "card": "/events/beyond-the-starry-nights-card.webp",
+      "detail": "/events/beyond-the-starry-nights-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Daily login",
+        "layout": "days",
+        "items": [
+          {
+            "name": "A Shore Unreached",
+            "amount": "×1"
+          },
+          {
+            "name": "A Shore Unreached",
+            "amount": "×1"
+          },
+          {
+            "name": "A Shore Unreached",
+            "amount": "×1"
+          },
+          {
+            "name": "A Shore Unreached",
+            "amount": "×1"
+          },
+          {
+            "name": "A Shore Unreached",
+            "amount": "×1"
+          },
+          {
+            "name": "A Shore Unreached",
+            "amount": "×1"
+          },
+          {
+            "name": "A Shore Unreached",
+            "amount": "×1"
+          },
+          {
+            "name": "A Shore Unreached",
+            "amount": "×1"
+          },
+          {
+            "name": "A Shore Unreached",
+            "amount": "×1"
+          },
+          {
+            "name": "A Shore Unreached",
+            "amount": "×1"
+          },
+          {
+            "name": "A Shore Unreached",
+            "amount": "×1"
+          },
+          {
+            "name": "A Shore Unreached",
+            "amount": "×1"
+          },
+          {
+            "name": "A Shore Unreached",
+            "amount": "×1"
+          },
+          {
+            "name": "A Shore Unreached",
+            "amount": "×1"
+          },
+          {
+            "name": "A Shore Unreached",
+            "amount": "×1"
+          },
+          {
+            "name": "A Shore Unreached",
+            "amount": "×1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "end-astral-sea-261207",
+    "title": "End of the Astral Sea",
+    "category": "raid",
+    "description": "Server-wide raid across two fronts.\nIn the Bygone and Doomsday Fronts, each Avatar victory reduces its shared server count. Once all copies of a boss's Avatar are defeated, its Avatar stage closes and its Final Battle unlocks. Defeating the first three Avatars on a front can unlock its hidden Final Avatar. Server clears also unlock the latter half of Advent of the Divine Realm.\nAffinity gains are doubled. Support is required, and each fellow Keeper can support you once across both fronts. Keeper and Awakener levels are fixed at 70, with Skills, Madness Omen, and Soulforge Aptitude fixed at 6, 12, and 10.",
+    "startDate": "2026/12/07 09:00",
+    "endDate": "2027/01/04 09:00",
+    "artVariants": {
+      "card": "/events/end-of-the-astral-sea-card.webp",
+      "detail": "/events/end-of-the-astral-sea-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Final Battle first-clear rewards",
+        "note": "Combined total for the first clear of all eight stages across both fronts.",
+        "summaryCount": 5,
+        "items": [
+          {
+            "name": "Ethereal Core",
+            "amount": "×10"
+          },
+          {
+            "name": "Pure Core",
+            "amount": "×30"
+          },
+          {
+            "name": "Refined Gnosis Primer",
+            "amount": "×2"
+          },
+          {
+            "name": "Gnosis Primer",
+            "amount": "×6"
+          },
+          {
+            "name": "Silver",
+            "amount": "×10,000"
+          },
+          {
+            "name": "Remembrance Quill",
+            "amount": "×200"
+          },
+          {
+            "name": "Thousand Faces Seal",
+            "amount": "×3,000"
+          },
+          {
+            "name": "Mimetic Crystal",
+            "amount": "×1,800"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×10,000,000"
+          }
+        ]
+      }
+    ],
+    "missions": [
+      {
+        "label": "First Avatar",
+        "standard": [
+          {
+            "name": "Silver",
+            "amount": "×50"
+          }
+        ],
+        "dropRoll": [
+          {
+            "name": "Gnosis Fragment",
+            "amount": "×2",
+            "chancePercent": 75
+          },
+          {
+            "name": "Refined Gnosis Fragment",
+            "amount": "×2",
+            "chancePercent": 25
+          }
+        ]
+      },
+      {
+        "label": "Second Avatar",
+        "standard": [
+          {
+            "name": "Silver",
+            "amount": "×50"
+          }
+        ],
+        "dropRoll": [
+          {
+            "name": "Mimetic Crystal",
+            "amount": "×60",
+            "chancePercent": 75
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×1,000,000",
+            "chancePercent": 25
+          }
+        ]
+      },
+      {
+        "label": "Third Avatar",
+        "standard": [
+          {
+            "name": "Silver",
+            "amount": "×50"
+          }
+        ],
+        "dropRoll": [
+          {
+            "name": "Thousand Faces Seal",
+            "amount": "×100",
+            "chancePercent": 75
+          },
+          {
+            "name": "Remembrance Quill",
+            "amount": "×20",
+            "chancePercent": 25
+          }
+        ]
+      },
+      {
+        "label": "Final Avatar",
+        "standard": [
+          {
+            "name": "Silver",
+            "amount": "×100"
+          }
+        ],
+        "dropRoll": [
+          {
+            "name": "Pure Core",
+            "amount": "×1",
+            "chancePercent": 75
+          },
+          {
+            "name": "Ethereal Core",
+            "amount": "×1",
+            "chancePercent": 25
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "other-shore-261130",
+    "title": "To the Other Shore",
+    "category": "gameplay-event",
+    "description": "SR Wheel copies and a limited Tulu: Godking avatar.\nClear event stages and complete achievements. Tulu: Godking, A Sleepless Wish, and A Deathless Dream increase material drops. The dates shown are for gameplay, not reward claims.",
+    "startDate": "2026/11/30 09:00",
+    "endDate": "2027/01/04 09:00",
+    "featured": [
+      {
+        "name": "Tulu: Godking",
+        "kind": "awakener"
+      },
+      {
+        "name": "A Deathless Dream",
+        "kind": "wheel"
+      }
+    ],
+    "artVariants": {
+      "card": "/events/to-the-other-shore-card.webp",
+      "detail": "/events/to-the-other-shore-detail.webp"
+    },
+    "related": ["godking-duo-261130"],
+    "rewards": [
+      {
+        "title": "Event rewards",
+        "summaryCount": 4,
+        "items": [
+          {
+            "name": "A Deathless Dream",
+            "amount": "×16"
+          },
+          {
+            "name": "By the Silver Key: Tulu: Godking",
+            "amount": "×1"
+          },
+          {
+            "name": "Luminous Core",
+            "amount": "×6"
+          },
+          {
+            "name": "Pure Core",
+            "amount": "×6"
+          },
+          {
+            "name": "Silver",
+            "amount": "×800"
+          },
+          {
+            "name": "Token of Concord",
+            "amount": "×1"
+          },
+          {
+            "name": "Aetheric Shard",
+            "amount": "×235"
+          },
+          {
+            "name": "Mimetic Crystal",
+            "amount": "×300"
+          },
+          {
+            "name": "Dreamspark",
+            "amount": "×25"
+          },
+          {
+            "name": "Dreamshard",
+            "amount": "×45"
+          }
+        ]
+      },
+      {
+        "title": "Repeatable exchange",
+        "items": [
+          {
+            "name": "Rose Scrip",
+            "amount": "Unlimited"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ex-stellis-261130",
+    "title": "Ex Stellis",
+    "category": "milestone",
+    "description": "Astral Reign selectors and a limited avatar frame from Prime Extraction.\nMilestones count the base Silver Prime purchased, not Prime spent. Regular top-up bonuses and first-purchase matching do not count.",
+    "startDate": "2026/11/30 09:00",
+    "endDate": "2027/01/04 09:00",
+    "artVariants": {
+      "card": "/events/ex-stellis-card.webp",
+      "detail": "/events/ex-stellis-detail.webp"
+    },
+    "missions": [
+      {
+        "silverPrimeExtracted": 5000,
+        "standard": [
+          {
+            "name": "Ultra Mapping: Astral Reign",
+            "amount": "×1"
+          },
+          {
+            "name": "Ultra Prophecy: Astral Reign",
+            "amount": "×1"
+          }
+        ]
+      },
+      {
+        "silverPrimeExtracted": 10000,
+        "standard": [
+          {
+            "name": "Caro Advent: Astral Reign",
+            "amount": "×1"
+          },
+          {
+            "name": "Caro Whisper: Astral Reign",
+            "amount": "×1"
+          }
+        ]
+      },
+      {
+        "silverPrimeExtracted": 20000,
+        "standard": [
+          {
+            "name": "Chaos Echo: Astral Reign",
+            "amount": "×1"
+          },
+          {
+            "name": "Chaos Experiment: Astral Reign",
+            "amount": "×1"
+          }
+        ]
+      },
+      {
+        "silverPrimeExtracted": 30000,
+        "standard": [
+          {
+            "name": "Crown of Stars Aligned",
+            "amount": "×1"
+          },
+          {
+            "name": "Aequor Mystery: Astral Reign",
+            "amount": "×1"
+          },
+          {
+            "name": "Aequor Codex: Astral Reign",
+            "amount": "×1"
           }
         ]
       }

@@ -1,0 +1,394 @@
+{
+  "schemaVersion": 3,
+  "kind": "awakener",
+  "id": "awakener-0063",
+  "name": "Tulu: Godking",
+  "route": {
+    "slug": "tulu-godking",
+    "canonicalPath": "/database/awakeners/tulu-godking"
+  },
+  "assets": {
+    "icon": "asset-awakener-0063-icon"
+  },
+  "numericId": 63,
+  "ingameId": "O01EX01",
+  "lineupToken": "xt",
+  "realm": "AEQUOR",
+  "rarity": "SSR",
+  "type": "ASSAULT",
+  "availabilityType": "LIMITED_ASTRAL_REIGN",
+  "releaseDate": "2026-11-30",
+  "faction": "Lemuria",
+  "aliases": [],
+  "searchTags": ["Divine Realm"],
+  "primaryScalingBase": 20,
+  "baseStatsLv1": {
+    "CON": 39,
+    "ATK": 46,
+    "DEF": 26
+  },
+  "substatsLv1": {
+    "CritRate": 5,
+    "CritDamage": 50,
+    "AliemusRegen": 0.8,
+    "KeyflareRegen": 15,
+    "RealmMastery": 0,
+    "SigilYield": 0.6,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "statScaling": {
+    "CON": 1.85,
+    "ATK": 2.15,
+    "DEF": 1.2
+  },
+  "substatScaling": {
+    "CritRate": 0,
+    "CritDamage": 0,
+    "AliemusRegen": 0.8,
+    "KeyflareRegen": 0,
+    "RealmMastery": 0,
+    "SigilYield": 0.6,
+    "DamageAmplification": 0,
+    "DeathResistance": 0
+  },
+  "profile": {
+    "title": "Tulu: Godking",
+    "faction": "Lemuria"
+  },
+  "forms": {
+    "baseLabel": "Godking",
+    "alternatives": [
+      {
+        "key": "theophany",
+        "label": "Theophany",
+        "name": "Tulu: Theophany",
+        "assetKey": "tulu-theophany",
+        "skillGroups": [
+          {
+            "key": "rebirth",
+            "title": "Rebirth",
+            "entries": [
+              {
+                "key": "dei-gratia",
+                "title": "While Theophany is active",
+                "descriptionTemplate": "The other Awakeners temporarily leave the field. Theophany fights alone with his own HP, is immune to control, and prevents State and Symptom Card generation. Relic effects, Arithmetica, Aliemus, Keyflare, and most buffs and Realm effects are suspended. {STR}, {Alert}, {Counter}, DMG Amplification, and {Aequor} effects remain.",
+                "descriptionArgs": {}
+              },
+              {
+                "key": "rebirth-bonuses",
+                "title": "Rebirth bonuses",
+                "descriptionTemplate": "Each {Erosion} stack removed at rebirth grants +80% Max HP.\nEach permanent Silver Relic grants +15% ATK and +3% DEF; other permanent Relics count as two.\nEach {Etched Memory} at rebirth independently increases {Fixed DMG} multipliers by 2.5%, and {Temporary STR} reduction, {Tentacle DMG}, and Shield multipliers by 0.5% each.\nFor every six skill levels gained on Godking, all Theophany abilities gain one level.",
+                "descriptionArgs": {}
+              }
+            ],
+            "intro": "Base values use the selected stats, before combat bonuses from Relics, {Erosion}, or {Etched Memory}.",
+            "reference": {
+              "name": "Theophany",
+              "aliases": ["Tulu: Theophany"]
+            }
+          },
+          {
+            "key": "asterisms",
+            "title": "Asterisms & Orbits",
+            "entries": [
+              {
+                "key": "brilliance",
+                "title": "Brilliance",
+                "descriptionTemplate": "The number on an Asterism, I to V. Scutum III is a Scutum with Brilliance 3. Match three numbers or make a run of three to give {Stars Surge} extra hits. Runs work in any play order.",
+                "descriptionArgs": {}
+              },
+              {
+                "key": "antares",
+                "title": "Antares",
+                "descriptionTemplate": "Deals [FixedDamage:Arg1] {Fixed DMG}.",
+                "descriptionArgs": {
+                  "Arg1": {
+                    "kind": "scaling",
+                    "values": ["480", "576", "672", "768", "864", "960"],
+                    "stat": "ATK",
+                    "suffix": "%"
+                  }
+                },
+                "cost": "0"
+              },
+              {
+                "key": "scutum",
+                "title": "Scutum",
+                "descriptionTemplate": "Deals [FixedDamage:Arg1] {Fixed DMG} and temporarily reduces all enemies' {STR} by [Exhaustion:Arg2].",
+                "descriptionArgs": {
+                  "Arg1": {
+                    "kind": "scaling",
+                    "values": ["360", "432", "504", "576", "648", "720"],
+                    "stat": "ATK",
+                    "suffix": "%"
+                  },
+                  "Arg2": {
+                    "kind": "scaling",
+                    "values": ["9", "10.8", "12.6", "14.4", "16.2", "18"],
+                    "stat": "DEF",
+                    "suffix": "%"
+                  }
+                },
+                "cost": "0"
+              },
+              {
+                "key": "pleiades",
+                "title": "Pleiades",
+                "descriptionTemplate": "Deals [FixedDamage:Arg1] {Fixed DMG} and adds [TentaclePower:Arg2] to the team's {Tentacle DMG} stat.",
+                "descriptionArgs": {
+                  "Arg1": {
+                    "kind": "scaling",
+                    "values": ["240", "288", "336", "384", "432", "480"],
+                    "stat": "ATK",
+                    "suffix": "%"
+                  },
+                  "Arg2": {
+                    "kind": "scaling",
+                    "values": ["1.5", "1.8", "2.1", "2.4", "2.7", "3"],
+                    "stat": "DEF",
+                    "suffix": "%"
+                  }
+                },
+                "cost": "0"
+              }
+            ],
+            "intro": "Your deck is replaced by 45 Asterisms: three copies of each type at each {Brilliance}. Draw four at the start of each turn. Play them for free into three slots called Orbits. Cards in slots 1, 2, and 3 resolve one, two, and three times respectively. Filling all three slots triggers {Stars Surge} and ends your turn.",
+            "reference": {
+              "name": "Asterisms",
+              "aliases": ["Asterism", "Asterism Dominion", "Orbits"]
+            }
+          },
+          {
+            "key": "surge",
+            "title": "Stars Surge",
+            "entries": [
+              {
+                "key": "pursuit",
+                "title": "Base attack",
+                "descriptionTemplate": "Deal three hits of [FixedDamage:Arg1] {Fixed DMG} before combo bonuses.",
+                "descriptionArgs": {
+                  "Arg1": {
+                    "kind": "scaling",
+                    "values": ["480", "576", "672", "768", "864", "960"],
+                    "stat": "ATK",
+                    "suffix": "%"
+                  }
+                }
+              },
+              {
+                "key": "extra-hits",
+                "title": "Extra hits",
+                "descriptionTemplate": "Numbers ({Brilliance}): three in a row (I, II, III in any order) add 3 hits; three of the same number add 6.\nTypes: three different types add 3 hits; three of the same type add 6.\nNumber and type bonuses stack, for 3–15 hits from the three cards. Antares III, Scutum I, and Pleiades II give 9 hits: 3 base, 3 for the run, and 3 for different types.",
+                "descriptionArgs": {}
+              },
+              {
+                "key": "per-hit",
+                "title": "Per-hit effects",
+                "descriptionTemplate": "{Antares}: add [FixedDamage:Arg1] {Fixed DMG} to the hit.\n{Scutum}: temporarily reduce all enemies' {STR} by [Exhaustion:Arg2].\n{Pleiades}: add [TentaclePower:Arg3] to the team's {Tentacle DMG} stat. This bonus stacks across hits and lasts for the rest of the battle.",
+                "descriptionArgs": {
+                  "Arg1": {
+                    "kind": "scaling",
+                    "values": ["80", "96", "112", "128", "144", "160"],
+                    "stat": "ATK",
+                    "suffix": "%"
+                  },
+                  "Arg2": {
+                    "kind": "scaling",
+                    "values": ["3", "3.6", "4.2", "4.8", "5.4", "6"],
+                    "stat": "DEF",
+                    "suffix": "%"
+                  },
+                  "Arg3": {
+                    "kind": "scaling",
+                    "values": ["0.5", "0.6", "0.7", "0.8", "0.9", "1"],
+                    "stat": "DEF",
+                    "suffix": "%"
+                  }
+                }
+              },
+              {
+                "key": "matching-types",
+                "title": "Same-type effects",
+                "descriptionTemplate": "Three Antares add [Arg1]% of the team's {Tentacle DMG} to each hit as {Fixed DMG}. Three Scutum grant [Block:Arg2] Shield; three Pleiades independently increase Stars Surge's {Fixed DMG} by 2%.",
+                "descriptionArgs": {
+                  "Arg1": {
+                    "kind": "scaling",
+                    "values": ["150", "180", "210", "240", "270", "300"]
+                  },
+                  "Arg2": {
+                    "kind": "scaling",
+                    "values": ["9", "10.8", "12.6", "14.4", "16.2", "18"],
+                    "stat": "DEF",
+                    "suffix": "%"
+                  }
+                }
+              }
+            ],
+            "intro": "As Theophany: fill all three {Orbits} to trigger this {Pursuit} and end your turn. After {Morimens}: a random six-hit Surge fires at the start of each turn. It does not end your turn.",
+            "reference": {
+              "name": "Stars Surge"
+            }
+          },
+          {
+            "key": "runes",
+            "title": "Runes",
+            "entries": [
+              {
+                "key": "alter",
+                "title": "Alter",
+                "descriptionTemplate": "This turn, change each Asterism in hand to a random different type without changing its {Brilliance}.",
+                "descriptionArgs": {}
+              },
+              {
+                "key": "gleam",
+                "title": "Gleam",
+                "descriptionTemplate": "Raise the {Brilliance} of Asterisms in hand by one this turn.",
+                "descriptionArgs": {}
+              },
+              {
+                "key": "dim",
+                "title": "Dim",
+                "descriptionTemplate": "Lower the {Brilliance} of Asterisms in hand by one this turn.",
+                "descriptionArgs": {}
+              },
+              {
+                "key": "herald",
+                "title": "Herald",
+                "descriptionTemplate": "Discover three Runes. Add one to your hand and set its cost to 0.",
+                "descriptionArgs": {}
+              },
+              {
+                "key": "beckon",
+                "title": "Beckon",
+                "descriptionTemplate": "Draw two {Asterisms}.",
+                "descriptionArgs": {}
+              },
+              {
+                "key": "expand",
+                "title": "Expand",
+                "descriptionTemplate": "Gain three different random Runes.",
+                "descriptionArgs": {}
+              },
+              {
+                "key": "recast",
+                "title": "Recast",
+                "descriptionTemplate": "Clear the {Orbits}, discard your hand, draw four Asterisms, and gain two different random Runes.",
+                "descriptionArgs": {}
+              }
+            ],
+            "intro": "Add two random Runes to your hand at the start of each turn. Generated Buff Cards and Buff Card options become random Runes added directly to your hand. Runes do not enter the draw or discard pile. Each costs 5 {Etched Memory} and has {Aftershock}: gain 1 {Etched Memory}.",
+            "reference": {
+              "name": "Runes",
+              "aliases": ["Rune", "Set in Stone"]
+            }
+          },
+          {
+            "key": "departure",
+            "title": "Morimens & After Departure",
+            "entries": [
+              {
+                "key": "morimens",
+                "title": "Morimens",
+                "descriptionTemplate": "When Theophany reaches 0 HP or at the start of the turn after six turns elapse, deal [FixedDamage:Arg1] {Fixed DMG} to all enemies.\nThe other Awakeners return and Tulu leaves the battle. Restore the original deck, fully heal the team, and restore Relics, Arithmetica, Keyflare, and temporarily disabled buffs and Realm effects.",
+                "descriptionArgs": {
+                  "Arg1": {
+                    "kind": "scaling",
+                    "values": ["4000", "4800", "5600", "6400", "7200", "8000"],
+                    "stat": "ATK",
+                    "suffix": "%"
+                  }
+                },
+                "upgrade": {
+                  "slot": "E3",
+                  "descriptionTemplate": "When Theophany reaches 0 HP or at the start of the turn after six turns elapse, deal [FixedDamage:Arg1] {Fixed DMG} and inflict {Fainted} on all enemies.\nThe other Awakeners return and Tulu leaves the battle. Restore the original deck, fully heal the team, and restore Relics, Arithmetica, Keyflare, and temporarily disabled buffs and Realm effects.",
+                  "descriptionArgs": {
+                    "Arg1": {
+                      "kind": "scaling",
+                      "values": ["12000", "14400", "16800", "19200", "21600", "24000"],
+                      "stat": "ATK",
+                      "suffix": "%"
+                    }
+                  }
+                }
+              },
+              {
+                "key": "after-departure",
+                "title": "After Departure",
+                "descriptionTemplate": "A random {Stars Surge} fires automatically at the start of each turn after {Morimens}. It gets the 3 base hits and 3 extra for consecutive {Brilliance}, with no bonus hits from Asterism types. It does not end your turn.",
+                "descriptionArgs": {}
+              }
+            ]
+          }
+        ],
+        "upgradeGroups": [
+          {
+            "key": "enlightens",
+            "title": "Enlightens",
+            "entries": [
+              {
+                "key": "e1",
+                "title": "E1 · By This Flesh, I Endure",
+                "descriptionTemplate": "{Fixed DMG} multiplier +30%, plus 2% per point of Aliemus Regen from Godking, his Wheel, and his Covenant.",
+                "descriptionArgs": {}
+              },
+              {
+                "key": "e2",
+                "title": "E2 · By These Stars, I Kindle",
+                "descriptionTemplate": "{Turn Unique}: After playing two {Asterisms}, the next {Rune} that turn costs 2 less {Etched Memory}.",
+                "descriptionArgs": {}
+              },
+              {
+                "key": "e3",
+                "title": "E3 · By This Stele, I Ordain",
+                "descriptionTemplate": "{Morimens} deals triple damage and inflicts {Fainted} on all enemies.",
+                "descriptionArgs": {}
+              }
+            ],
+            "intro": "Theophany's E1–E3 unlock with Godking's corresponding Enlightens."
+          },
+          {
+            "key": "talents",
+            "title": "Talents",
+            "entries": [
+              {
+                "key": "soulforge-aptitude",
+                "title": "Soulforge Aptitude",
+                "descriptionTemplate": "Only active in {Astral Reign} stages.\nCON, ATK, and DEF +[Arg1]%. Gain [Arg2] Keyflare after playing {Gnosis Rouse} for the first time.\nIncreases the bonuses per {Etched Memory} stack by [Arg3]%. With 1/2/3 other Lemuria Awakeners, each Awakener gains [Arg6]/[Arg7]/[Arg8] Aliemus whenever {Stars Surge} triggers after Tulu leaves the battle.",
+                "descriptionArgs": {
+                  "Arg1": {
+                    "kind": "linear",
+                    "base": "3",
+                    "gainPerLevel": "3"
+                  },
+                  "Arg2": {
+                    "kind": "linear",
+                    "base": "50",
+                    "gainPerLevel": "50"
+                  },
+                  "Arg3": {
+                    "kind": "linear",
+                    "base": "10",
+                    "gainPerLevel": "10"
+                  },
+                  "Arg6": {
+                    "kind": "fixed",
+                    "value": "6"
+                  },
+                  "Arg7": {
+                    "kind": "fixed",
+                    "value": "15"
+                  },
+                  "Arg8": {
+                    "kind": "fixed",
+                    "value": "30"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

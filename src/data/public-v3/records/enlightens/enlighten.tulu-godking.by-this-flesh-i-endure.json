@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 3,
+  "kind": "enlighten",
+  "id": "enlighten.tulu-godking.by-this-flesh-i-endure",
+  "name": "By This Flesh, I Endure",
+  "route": {
+    "slug": "by-this-flesh-i-endure",
+    "canonicalPath": "/database/awakeners/tulu-godking/enlightens/by-this-flesh-i-endure"
+  },
+  "ownerAwakenerId": "awakener-0063",
+  "slot": "E1",
+  "descriptionTemplate": "{Turn Unique}: When Godking triggers {Resonance}, he gains 5 Aliemus plus 0.5 per point of Aliemus Regen Level from his own stats, Wheel, and Covenant.\nTheophany: {Fixed DMG} multiplier +30%, plus 2% per point of Aliemus Regen from Godking, his Wheel, and his Covenant.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Tulu: Godking"
+}

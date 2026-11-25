@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 3,
+  "kind": "enlighten",
+  "id": "enlighten.tulu-godking.by-this-stele-i-ordain",
+  "name": "By This Stele, I Ordain",
+  "route": {
+    "slug": "by-this-stele-i-ordain",
+    "canonicalPath": "/database/awakeners/tulu-godking/enlightens/by-this-stele-i-ordain"
+  },
+  "ownerAwakenerId": "awakener-0063",
+  "slot": "E3",
+  "descriptionTemplate": "{World-Drowning Tide}'s third hit deals triple damage instead of double. The Exalt triggers {Prepare} on all cards in hand.\nTheophany: {Morimens} deals triple damage and inflicts {Fainted} on all enemies.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Tulu: Godking"
+}

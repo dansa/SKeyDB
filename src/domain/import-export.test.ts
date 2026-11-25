@@ -206,6 +206,33 @@ describe('import-export codec', () => {
     expect(parsed.teams[0].slots[0].realm).toBe('CARO')
   })
 
+  it('round-trips the anniversary preview entries in standard team codes', () => {
+    const team = makeTeam('Anniversary Team')
+    team.posseId = 'posse-0065'
+    team.slots[0] = {
+      slotId: 'slot-1',
+      awakenerId: 'awakener-0063',
+      realm: 'AEQUOR',
+      level: 60,
+      wheels: ['wheel-0185', 'wheel-0186'],
+    }
+    team.slots[1] = {
+      slotId: 'slot-2',
+      awakenerId: 'awakener-0055',
+      realm: 'AEQUOR',
+      level: 60,
+      wheels: ['wheel-0187', null],
+    }
+
+    const parsed = decodeImportCode(encodeSingleTeamCode(team))
+
+    expect(parsed.kind).toBe('single')
+    if (parsed.kind !== 'single') return
+    expect(parsed.team.posseId).toBe(team.posseId)
+    expect(parsed.team.slots[0]).toMatchObject(team.slots[0])
+    expect(parsed.team.slots[1]).toMatchObject(team.slots[1])
+  })
+
   it('encodes multi-team with mt1 prefix and round-trips', () => {
     const teams = [makeTeam('Team 1'), makeTeam('Team 2')]
     const code = encodeMultiTeamCode(teams, teams[1].id)

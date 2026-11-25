@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 3,
+  "kind": "wheel",
+  "id": "wheel-0185",
+  "name": "A Sleepless Wish",
+  "route": {
+    "slug": "a-sleepless-wish",
+    "canonicalPath": "/database/wheels/a-sleepless-wish"
+  },
+  "assets": {
+    "icon": "asset-wheel-0185-icon"
+  },
+  "availabilityType": "LIMITED_ASTRAL_REIGN",
+  "hasShopSource": false,
+  "acquisitionSource": "Astral Reign signature Wheel; featured in certain limited Wheel banners.",
+  "rarity": "SSR",
+  "realm": "AEQUOR",
+  "mainstatKey": "ALIEMUS_REGEN",
+  "ownerAwakenerId": "awakener-0063",
+  "ownerAwakenerName": "Tulu: Godking",
+  "lineupToken": "zh",
+  "searchTags": ["Arithmetica"],
+  "descriptionTemplate": "{Team Unique}: Max Arithmetica +1. Effects of the same type cannot stack. The wielder deals [StateArg1]% more {Fixed DMG}. Tentacle Command effects +[StateArg2]%. Tentacle auto-attack DMG multiplier +[StateArg3]%.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": ["20", "30", "40", "50"],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": ["20", "25", "30", "35"],
+      "suffix": "%"
+    },
+    "StateArg3": {
+      "kind": "scaling",
+      "values": ["20", "30", "40", "50"],
+      "suffix": "%"
+    }
+  }
+}

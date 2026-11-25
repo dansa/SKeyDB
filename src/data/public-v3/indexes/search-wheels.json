@@ -5110,6 +5110,95 @@
         "availabilityType": "EVENT",
         "tags": ["draw", "sigil-gain"]
       }
+    },
+    {
+      "kind": "wheel",
+      "id": "wheel-0185",
+      "name": "A Sleepless Wish",
+      "aliases": [],
+      "tokens": [
+        "a",
+        "a sleepless wish",
+        "aequor",
+        "arithmetica",
+        "astral",
+        "godking",
+        "limited",
+        "limited astral reign",
+        "reign",
+        "sleepless",
+        "ssr",
+        "tulu",
+        "tulu godking",
+        "wish"
+      ],
+      "fields": {
+        "name": ["A Sleepless Wish", "a-sleepless-wish"],
+        "owner": ["Tulu: Godking", "tulu-godking"],
+        "tag": ["arithmetica"],
+        "facet": ["AEQUOR", "SSR", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign"]
+      },
+      "facets": {
+        "realm": "AEQUOR",
+        "rarity": "SSR",
+        "mainstatKey": "ALIEMUS_REGEN",
+        "availabilityType": "LIMITED_ASTRAL_REIGN",
+        "owner": "awakener-0063",
+        "tags": ["arithmetica"]
+      }
+    },
+    {
+      "kind": "wheel",
+      "id": "wheel-0186",
+      "name": "A Deathless Dream",
+      "aliases": [],
+      "tokens": ["a", "a deathless dream", "deathless", "dream", "event", "godking", "neutral", "sr", "tulu", "tulu godking"],
+      "fields": {
+        "name": ["A Deathless Dream", "a-deathless-dream"],
+        "owner": ["Tulu: Godking", "tulu-godking"],
+        "facet": ["NEUTRAL", "SR", "EVENT"]
+      },
+      "facets": {
+        "realm": "NEUTRAL",
+        "rarity": "SR",
+        "mainstatKey": "ALIEMUS_REGEN",
+        "availabilityType": "EVENT",
+        "owner": "awakener-0063"
+      }
+    },
+    {
+      "kind": "wheel",
+      "id": "wheel-0187",
+      "name": "A Shore Unreached",
+      "aliases": [],
+      "tokens": [
+        "a",
+        "a shore unreached",
+        "crit",
+        "crit damage",
+        "crit dmg",
+        "critical",
+        "critical damage",
+        "damage",
+        "dmg",
+        "event",
+        "neutral",
+        "shore",
+        "ssr",
+        "unreached"
+      ],
+      "fields": {
+        "name": ["A Shore Unreached", "a-shore-unreached"],
+        "tag": ["crit-dmg", "Crit DMG", "crit. dmg", "crit damage", "critical damage"],
+        "facet": ["NEUTRAL", "SSR", "EVENT"]
+      },
+      "facets": {
+        "realm": "NEUTRAL",
+        "rarity": "SSR",
+        "mainstatKey": "CRIT_RATE",
+        "availabilityType": "EVENT",
+        "tags": ["crit-dmg"]
+      }
     }
   ]
 }

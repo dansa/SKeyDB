@@ -236,8 +236,8 @@ vi.mock('@/domain/name-format', () => ({
   formatAwakenerNameForUi: (name: string) => name,
 }))
 
-vi.mock('@/domain/realms', () => ({
-  getRealmIcon: () => null,
+vi.mock('@/domain/realms', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('@/domain/realms')>()),
   getRealmLabel: (realm: string) => realm,
   getRealmAccent: () => '#ffffff',
 }))
@@ -472,6 +472,15 @@ describe('AwakenerDetailModal', () => {
     window.localStorage.clear()
     collectionOwnershipStore.getState().hydrate()
     preferencesStore.getState().hydrateDatabaseDetailPreferences()
+  })
+
+  it('shows the named Divine Realm badge alongside the title', () => {
+    const awakener = {...makeAwakener(1, 'thais'), realm: 'CARO', tags: ['Divine Realm']}
+    renderAwakenerDetailModal(awakener)
+    expect(screen.getByTitle('Propagation: Caro')).toHaveAttribute(
+      'src',
+      expect.stringContaining('caro-divine'),
+    )
   })
 
   it('resets active tab to upgrades when switching awakeners', async () => {

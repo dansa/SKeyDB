@@ -338,6 +338,12 @@
         "canonicalSlug": "tulu",
         "canonicalPath": "/database/awakeners/tulu"
       },
+      "tulu-godking": {
+        "kind": "awakener",
+        "id": "awakener-0063",
+        "canonicalSlug": "tulu-godking",
+        "canonicalPath": "/database/awakeners/tulu-godking"
+      },
       "uvhash": {
         "kind": "awakener",
         "id": "awakener-0051",
@@ -382,11 +388,29 @@
         "canonicalSlug": "35mm-magic",
         "canonicalPath": "/database/wheels/35mm-magic"
       },
+      "a-deathless-dream": {
+        "kind": "wheel",
+        "id": "wheel-0186",
+        "canonicalSlug": "a-deathless-dream",
+        "canonicalPath": "/database/wheels/a-deathless-dream"
+      },
       "a-knights-vow": {
         "kind": "wheel",
         "id": "wheel-0017",
         "canonicalSlug": "a-knights-vow",
         "canonicalPath": "/database/wheels/a-knights-vow"
+      },
+      "a-shore-unreached": {
+        "kind": "wheel",
+        "id": "wheel-0187",
+        "canonicalSlug": "a-shore-unreached",
+        "canonicalPath": "/database/wheels/a-shore-unreached"
+      },
+      "a-sleepless-wish": {
+        "kind": "wheel",
+        "id": "wheel-0185",
+        "canonicalSlug": "a-sleepless-wish",
+        "canonicalPath": "/database/wheels/a-sleepless-wish"
       },
       "aberrant-devour": {
         "kind": "wheel",
@@ -3726,6 +3750,12 @@
         "canonicalSlug": "the-mountains-resolve",
         "canonicalPath": "/database/posses/the-mountains-resolve"
       },
+      "the-unfallen-throne": {
+        "kind": "posse",
+        "id": "posse-0065",
+        "canonicalSlug": "the-unfallen-throne",
+        "canonicalPath": "/database/posses/the-unfallen-throne"
+      },
       "tiny-wish": {
         "kind": "posse",
         "id": "posse-0005",
@@ -6109,6 +6139,48 @@
         "id": "skill.tinct.voices-from-beyond",
         "canonicalSlug": "voices-from-beyond",
         "canonicalPath": "/database/awakeners/tinct/skills/voices-from-beyond"
+      },
+      "tulu-godking/axis-mundis": {
+        "kind": "skill",
+        "id": "skill.tulu-godking.axis-mundi",
+        "canonicalSlug": "axis-mundis",
+        "canonicalPath": "/database/awakeners/tulu-godking/skills/axis-mundis"
+      },
+      "tulu-godking/defense": {
+        "kind": "skill",
+        "id": "skill.tulu-godking.defense",
+        "canonicalSlug": "defense",
+        "canonicalPath": "/database/awakeners/tulu-godking/skills/defense"
+      },
+      "tulu-godking/great-old-decree": {
+        "kind": "skill",
+        "id": "skill.tulu-godking.great-old-decree",
+        "canonicalSlug": "great-old-decree",
+        "canonicalPath": "/database/awakeners/tulu-godking/skills/great-old-decree"
+      },
+      "tulu-godking/lex-divina": {
+        "kind": "skill",
+        "id": "skill.tulu-godking.lex-divina",
+        "canonicalSlug": "lex-divina",
+        "canonicalPath": "/database/awakeners/tulu-godking/skills/lex-divina"
+      },
+      "tulu-godking/strike": {
+        "kind": "skill",
+        "id": "skill.tulu-godking.strike",
+        "canonicalSlug": "strike",
+        "canonicalPath": "/database/awakeners/tulu-godking/skills/strike"
+      },
+      "tulu-godking/undying-epitaph": {
+        "kind": "skill",
+        "id": "skill.tulu-godking.undying-epitaph",
+        "canonicalSlug": "undying-epitaph",
+        "canonicalPath": "/database/awakeners/tulu-godking/skills/undying-epitaph"
+      },
+      "tulu-godking/world-drowning-tide": {
+        "kind": "skill",
+        "id": "skill.tulu-godking.world-drowning-tide",
+        "canonicalSlug": "world-drowning-tide",
+        "canonicalPath": "/database/awakeners/tulu-godking/skills/world-drowning-tide"
       },
       "tulu/abyss-order": {
         "kind": "skill",
@@ -8970,6 +9042,24 @@
         "canonicalSlug": "soulforge-aptitude",
         "canonicalPath": "/database/awakeners/tinct/talents/soulforge-aptitude"
       },
+      "tulu-godking/dei-gratia": {
+        "kind": "talent",
+        "id": "talent.tulu-godking.dei-gratia",
+        "canonicalSlug": "dei-gratia",
+        "canonicalPath": "/database/awakeners/tulu-godking/talents/dei-gratia"
+      },
+      "tulu-godking/lightless-bottom": {
+        "kind": "talent",
+        "id": "talent.tulu-godking.lightless-bottom",
+        "canonicalSlug": "lightless-bottom",
+        "canonicalPath": "/database/awakeners/tulu-godking/talents/lightless-bottom"
+      },
+      "tulu-godking/soulforge-aptitude": {
+        "kind": "talent",
+        "id": "talent.tulu-godking.soulforge-aptitude",
+        "canonicalSlug": "soulforge-aptitude",
+        "canonicalPath": "/database/awakeners/tulu-godking/talents/soulforge-aptitude"
+      },
       "tulu/divine-kings-power": {
         "kind": "talent",
         "id": "talent.tulu.divine-kings-power",
@@ -10772,6 +10862,36 @@
         "canonicalSlug": "when-crimson-meets-thorns",
         "canonicalPath": "/database/awakeners/tinct/enlightens/when-crimson-meets-thorns"
       },
+      "tulu-godking/all-ye-stars-bow-down": {
+        "kind": "enlighten",
+        "id": "enlighten.tulu-godking.all-ye-stars-bow-down",
+        "canonicalSlug": "all-ye-stars-bow-down",
+        "canonicalPath": "/database/awakeners/tulu-godking/enlightens/all-ye-stars-bow-down"
+      },
+      "tulu-godking/by-these-stars-i-kindle": {
+        "kind": "enlighten",
+        "id": "enlighten.tulu-godking.by-these-stars-i-kindle",
+        "canonicalSlug": "by-these-stars-i-kindle",
+        "canonicalPath": "/database/awakeners/tulu-godking/enlightens/by-these-stars-i-kindle"
+      },
+      "tulu-godking/by-this-flesh-i-endure": {
+        "kind": "enlighten",
+        "id": "enlighten.tulu-godking.by-this-flesh-i-endure",
+        "canonicalSlug": "by-this-flesh-i-endure",
+        "canonicalPath": "/database/awakeners/tulu-godking/enlightens/by-this-flesh-i-endure"
+      },
+      "tulu-godking/by-this-stele-i-ordain": {
+        "kind": "enlighten",
+        "id": "enlighten.tulu-godking.by-this-stele-i-ordain",
+        "canonicalSlug": "by-this-stele-i-ordain",
+        "canonicalPath": "/database/awakeners/tulu-godking/enlightens/by-this-stele-i-ordain"
+      },
+      "tulu-godking/lex-divina": {
+        "kind": "enlighten",
+        "id": "enlighten.tulu-godking.lex-divina",
+        "canonicalSlug": "lex-divina",
+        "canonicalPath": "/database/awakeners/tulu-godking/enlightens/lex-divina"
+      },
       "tulu/lone-king": {
         "kind": "enlighten",
         "id": "enlighten.tulu.lone-king",
@@ -11356,6 +11476,12 @@
         "canonicalSlug": "fragile",
         "canonicalPath": "/database/overlays/fragile"
       },
+      "gnosis-rouse": {
+        "kind": "overlay",
+        "id": "overlay.global.gnosis-rouse",
+        "canonicalSlug": "gnosis-rouse",
+        "canonicalPath": "/database/overlays/gnosis-rouse"
+      },
       "hameln/crescendo": {
         "kind": "overlay",
         "id": "overlay.hameln.crescendo",
@@ -11445,6 +11571,12 @@
         "id": "overlay.kathigu-ra.fiamma",
         "canonicalSlug": "fiamma",
         "canonicalPath": "/database/awakeners/kathigu-ra/overlays/fiamma"
+      },
+      "keyflare-rouse": {
+        "kind": "overlay",
+        "id": "overlay.global.keyflare-rouse",
+        "canonicalSlug": "keyflare-rouse",
+        "canonicalPath": "/database/overlays/keyflare-rouse"
       },
       "leap": {
         "kind": "overlay",
@@ -11847,6 +11979,18 @@
         "id": "overlay.global.tranquil-sea",
         "canonicalSlug": "tranquil-sea",
         "canonicalPath": "/database/overlays/tranquil-sea"
+      },
+      "tulu-godking/erosion": {
+        "kind": "overlay",
+        "id": "overlay.tulu-godking.erosion",
+        "canonicalSlug": "erosion",
+        "canonicalPath": "/database/awakeners/tulu-godking/overlays/erosion"
+      },
+      "tulu-godking/etched-memory": {
+        "kind": "overlay",
+        "id": "overlay.tulu-godking.etched-memory",
+        "canonicalSlug": "etched-memory",
+        "canonicalPath": "/database/awakeners/tulu-godking/overlays/etched-memory"
       },
       "tulu/the-stars-are-right": {
         "kind": "overlay",

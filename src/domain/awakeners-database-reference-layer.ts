@@ -1,3 +1,4 @@
+import {buildAwakenerFormGroupRecord} from './awakener-forms'
 import {getAwakenerOverlays} from './awakener-overlays'
 import {type AwakenerOverlayRecord, type DerivedSkillRecord} from './awakener-source-schema'
 import type {
@@ -33,7 +34,7 @@ import {buildWheelReferenceInfoEntries} from './wheels-database-reference-layer'
 type DatabaseReferenceKind = DatabaseReferenceInfo['kind']
 
 export function collectAwakenerDatabaseCardNames(
-  record: Pick<AwakenerFullRecord, 'cards' | 'talents' | 'enlightens' | 'derivedSkills'>,
+  record: Pick<AwakenerFullRecord, 'cards' | 'talents' | 'enlightens' | 'derivedSkills' | 'forms'>,
   derivedSkills: DerivedSkillRecord[] = getDerivedSkills(),
 ): Set<string> {
   const names = new Set<string>()
@@ -52,6 +53,16 @@ export function collectAwakenerDatabaseCardNames(
 
   for (const entry of record.cards.promotedExtras) {
     names.add(entry.displayName)
+  }
+
+  for (const form of record.forms?.alternatives ?? []) {
+    for (const group of form.skillGroups) {
+      if (group.reference) {
+        names.add(group.reference.name)
+        for (const alias of group.reference.aliases ?? []) names.add(alias)
+      }
+      for (const entry of group.entries) names.add(entry.title)
+    }
   }
 
   for (const entry of [
@@ -174,6 +185,34 @@ function buildReferenceLookups(
       buildReferenceInfoFromEntry('derived-skill', entry),
       getDatabaseDerivedSkillAliases(entry.record),
     )
+  }
+
+  for (const groups of shellView.formSkillGroups?.values() ?? []) {
+    for (const group of groups) {
+      addDescribedReferenceInfos(accumulator, group.entries, (entry) => ({
+        ...buildReferenceInfoFromEntry('derived-skill', entry),
+        label: [
+          entry.record.cost === undefined ? undefined : `Cost ${entry.record.cost}`,
+          group.reference?.name ?? 'Form ability',
+        ]
+          .filter(Boolean)
+          .join(' · '),
+      }))
+      const groupRecord = buildAwakenerFormGroupRecord(
+        shellView.record.id,
+        group.id,
+        group,
+        group.entries.map(({record}) => record.id),
+      )
+      if (!groupRecord) continue
+      accumulator.add(
+        buildDatabaseDerivedSkillReferenceInfo(groupRecord, shellView.formulaContext, {
+          rank: shellView.skillLevel,
+          stats: shellView.stats,
+        }),
+        groupRecord.aliases,
+      )
+    }
   }
 
   for (const record of globalDerivedSkills) {

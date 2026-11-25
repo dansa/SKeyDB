@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 3,
+  "kind": "overlay",
+  "id": "overlay.global.gnosis-rouse",
+  "name": "Gnosis Rouse",
+  "route": {
+    "slug": "gnosis-rouse",
+    "canonicalPath": "/database/overlays/gnosis-rouse"
+  },
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "Play an Awakener's {Rouse} card for its Arithmetica cost.",
+  "descriptionArgs": {}
+}

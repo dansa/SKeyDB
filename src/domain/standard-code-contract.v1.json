@@ -373,6 +373,12 @@
       "legacyId": 62,
       "legacyName": "vivian",
       "id": "awakener-0062"
+    },
+    {
+      "codecIndex": 63,
+      "legacyId": 63,
+      "legacyName": "tulu-godking",
+      "id": "awakener-0063"
     }
   ],
   "wheels": [
@@ -1125,6 +1131,21 @@
       "codecIndex": 150,
       "legacyId": "wheel-0184",
       "id": "wheel-0184"
+    },
+    {
+      "codecIndex": 151,
+      "legacyId": "wheel-0185",
+      "id": "wheel-0185"
+    },
+    {
+      "codecIndex": 152,
+      "legacyId": "wheel-0186",
+      "id": "wheel-0186"
+    },
+    {
+      "codecIndex": 153,
+      "legacyId": "wheel-0187",
+      "id": "wheel-0187"
     }
   ],
   "covenants": [
@@ -1514,6 +1535,11 @@
       "codecIndex": 58,
       "legacyId": "posse-0064",
       "id": "posse-0064"
+    },
+    {
+      "codecIndex": 59,
+      "legacyId": "posse-0065",
+      "id": "posse-0065"
     }
   ]
 }

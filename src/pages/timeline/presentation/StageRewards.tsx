@@ -78,12 +78,22 @@ function ItemWell({icon, size}: {icon?: string; size: 'sm' | 'md'}) {
   )
 }
 
-function RewardLine({item, highlight = false}: {item: TimelineRewardItem; highlight?: boolean}) {
+function RewardLine({
+  item,
+  highlight = false,
+  chancePercent,
+}: {
+  item: TimelineRewardItem
+  highlight?: boolean
+  chancePercent?: number
+}) {
   const art = getRewardArt(item)
+  const chance = chancePercent === undefined ? undefined : `${String(chancePercent)}%`
   return (
     <RewardPreview
       item={item}
       {...preview(art)}
+      label={chance ? `${item.name} ${item.amount ?? ''}`.trim() + `, ${chance} chance` : undefined}
       className={`timeline-item flex w-full min-w-0 items-center text-left text-xs text-slate-200 hover:text-amber-100 focus-visible:outline-2 focus-visible:outline-amber-200 ${highlight ? 'min-h-14 gap-3 py-1.5' : 'min-h-10 gap-2.5 py-1 lg:min-h-9'}`}
     >
       <ItemWell icon={art?.icon} size={highlight ? 'md' : 'sm'} />
@@ -92,6 +102,7 @@ function RewardLine({item, highlight = false}: {item: TimelineRewardItem; highli
       </span>
       <span className='ml-auto shrink-0 pl-2 font-semibold text-slate-50 tabular-nums'>
         {highlight && item.amount === '×1' ? null : item.amount}
+        {chance ? <span className='ml-1.5 font-medium text-slate-300'>{chance}</span> : null}
       </span>
     </RewardPreview>
   )
@@ -200,18 +211,38 @@ function LoginCalendar({items}: {items: TimelineRewardItem[]}) {
 function MissionRewards({
   missions,
   category,
+  priceMode,
   standalone,
 }: {
   missions: TimelineMissionReward[]
   category?: EventEntry['category']
+  priceMode: TimelinePriceDisplayMode
   standalone: boolean
 }) {
   const hasPremium = missions.some((mission) => mission.premium?.length)
+  const rows = missions.map((mission) => {
+    if ('label' in mission) return {mission, label: mission.label}
+    const {silverPrimeExtracted} = mission
+    return {
+      mission,
+      label: `${silverPrimeExtracted.toLocaleString('en-US')} Silver Prime extracted`,
+      estimate:
+        priceMode === 'usd-estimate'
+          ? formatTimelinePrice(`${String(silverPrimeExtracted)} Silver Prime`, priceMode, {
+              includeGifted: false,
+            })
+          : undefined,
+    }
+  })
+  const isRaidDropTable = category === 'raid' && missions.every(({dropRoll}) => dropRoll)
+  const tableLabel = isRaidDropTable
+    ? 'Boss Avatar drops'
+    : category === 'milestone'
+      ? 'Rewards by milestone'
+      : 'Rewards by mission'
   const table = (
     <table className='w-full table-fixed text-left'>
-      <caption className='sr-only'>
-        {category === 'milestone' ? 'Rewards by milestone' : 'Rewards by mission'}
-      </caption>
+      <caption className='sr-only'>{tableLabel}</caption>
       {hasPremium ? (
         <thead className='border-b border-slate-700/50 text-xs text-slate-300'>
           <tr>
@@ -224,15 +255,24 @@ function MissionRewards({
           </tr>
         </thead>
       ) : null}
-      {missions.map((mission) => (
-        <tbody className='border-b border-slate-700/40 last:border-b-0' key={mission.label}>
+      {rows.map(({mission, label, estimate}) => (
+        <tbody className='border-b border-slate-700/40 last:border-b-0' key={label}>
           <tr>
             <th
               className='pt-2.5 pb-1 text-xs font-semibold text-slate-200'
               colSpan={hasPremium ? 2 : undefined}
               scope='rowgroup'
             >
-              {mission.label}
+              {estimate ? (
+                <span className='flex flex-wrap items-baseline justify-between gap-x-2 gap-y-1'>
+                  <span>{label}</span>{' '}
+                  <span className='whitespace-nowrap text-slate-300 tabular-nums'>
+                    {estimate} USD
+                  </span>
+                </span>
+              ) : (
+                label
+              )}
             </th>
           </tr>
           <tr className='align-top'>
@@ -240,6 +280,20 @@ function MissionRewards({
               {mission.standard.map((item) => (
                 <RewardLine item={item} key={item.name} />
               ))}
+              {mission.dropRoll ? (
+                <div
+                  aria-label='One random drop'
+                  className='mb-1 ml-2 border-l border-slate-700/60 pl-2.5'
+                  role='group'
+                >
+                  <p aria-hidden='true' className='pt-1 text-xs text-slate-300'>
+                    One random drop
+                  </p>
+                  {withOccurrenceKeys(mission.dropRoll, (item) => item.name).map(({item, key}) => (
+                    <RewardLine chancePercent={item.chancePercent} item={item} key={key} />
+                  ))}
+                </div>
+              ) : null}
             </td>
             {hasPremium ? (
               <td className='pb-2 pl-2'>
@@ -251,17 +305,30 @@ function MissionRewards({
       ))}
     </table>
   )
-  const label = `${category === 'milestone' ? 'By milestone' : 'By mission'} (${String(missions.length)})`
+  const label = isRaidDropTable
+    ? tableLabel
+    : `${category === 'milestone' ? 'By milestone' : 'By mission'} (${String(missions.length)})`
+  const contents = (
+    <>
+      {isRaidDropTable ? (
+        <p className='pb-1 text-xs leading-relaxed text-slate-400'>
+          Each victory gives the listed rewards plus one random drop. The drops are the same in both
+          fronts.
+        </p>
+      ) : null}
+      {table}
+    </>
+  )
   if (standalone)
     return (
       <div>
         <h4 className='text-xs font-bold text-slate-200'>{label}</h4>
-        {table}
+        {contents}
       </div>
     )
   return (
     <StageDisclosure className='border-t border-slate-700/40' label={label}>
-      {table}
+      {contents}
     </StageDisclosure>
   )
 }
@@ -340,7 +407,12 @@ export function StageRewards({
         </div>
       ) : null}
       {missions?.length ? (
-        <MissionRewards category={category} missions={missions} standalone={!groups.length} />
+        <MissionRewards
+          category={category}
+          missions={missions}
+          priceMode={priceMode}
+          standalone={!groups.length}
+        />
       ) : null}
     </section>
   )

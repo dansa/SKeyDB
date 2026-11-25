@@ -126,6 +126,7 @@ vi.mock('@/domain/relics', () => ({
 vi.mock('@/domain/public-detail-record-adapters', () => ({
   loadPublicAwakenerDetailById: (id: string) =>
     mockPublicDetailLoaders.loadPublicAwakenerDetailById(id),
+  loadPublicAwakenerFormSkillsById: async () => [],
   loadPublicWheelDetailById: (id: string) => mockPublicDetailLoaders.loadPublicWheelDetailById(id),
   loadPublicPosseDetailById: (id: string) => mockPublicDetailLoaders.loadPublicPosseDetailById(id),
   loadPublicCovenantDetailById: (id: string) =>
@@ -148,6 +149,7 @@ vi.mock('@/domain/covenant-assets', () => ({
 
 vi.mock('@/domain/realms', () => ({
   DEFAULT_REALM_ACCENT: '#ffffff',
+  getAwakenerRealmBadge: () => undefined,
   getRealmBadge: () => null,
   getRealmIcon: () => null,
   getRealmLabel: (realm: string) => realm,

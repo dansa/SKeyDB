@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "skills",
   "kind": "skill",
-  "recordCount": 434,
+  "recordCount": 441,
   "records": [
     {
       "kind": "skill",
@@ -5404,6 +5404,104 @@
       "ownerAwakenerName": "Tinct",
       "slot": "Rouse",
       "orisonIds": ["orison-0001", "orison-0002", "orison-0003", "orison-0004", "orison-0005", "orison-0006"]
+    },
+    {
+      "kind": "skill",
+      "id": "skill.tulu-godking.axis-mundi",
+      "name": "Axis Mundis",
+      "route": {
+        "slug": "axis-mundis",
+        "canonicalPath": "/database/awakeners/tulu-godking/skills/axis-mundis"
+      },
+      "cardFamily": "rouse",
+      "cardTypes": ["rouse"],
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
+      "slot": "Rouse"
+    },
+    {
+      "kind": "skill",
+      "id": "skill.tulu-godking.defense",
+      "name": "Defense",
+      "route": {
+        "slug": "defense",
+        "canonicalPath": "/database/awakeners/tulu-godking/skills/defense"
+      },
+      "cardFamily": "command",
+      "cardTypes": ["defense"],
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
+      "slot": "Defense"
+    },
+    {
+      "kind": "skill",
+      "id": "skill.tulu-godking.great-old-decree",
+      "name": "Great Old Decree",
+      "route": {
+        "slug": "great-old-decree",
+        "canonicalPath": "/database/awakeners/tulu-godking/skills/great-old-decree"
+      },
+      "cardFamily": "command",
+      "cardTypes": ["skill"],
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
+      "slot": "Skill2"
+    },
+    {
+      "kind": "skill",
+      "id": "skill.tulu-godking.lex-divina",
+      "name": "Lex Divina",
+      "route": {
+        "slug": "lex-divina",
+        "canonicalPath": "/database/awakeners/tulu-godking/skills/lex-divina"
+      },
+      "cardFamily": "exalt",
+      "cardTypes": ["over_exalt"],
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
+      "slot": "OverExalt"
+    },
+    {
+      "kind": "skill",
+      "id": "skill.tulu-godking.strike",
+      "name": "Strike",
+      "route": {
+        "slug": "strike",
+        "canonicalPath": "/database/awakeners/tulu-godking/skills/strike"
+      },
+      "cardFamily": "command",
+      "cardTypes": ["strike"],
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
+      "slot": "Strike"
+    },
+    {
+      "kind": "skill",
+      "id": "skill.tulu-godking.undying-epitaph",
+      "name": "Undying Epitaph",
+      "route": {
+        "slug": "undying-epitaph",
+        "canonicalPath": "/database/awakeners/tulu-godking/skills/undying-epitaph"
+      },
+      "cardFamily": "command",
+      "cardTypes": ["skill"],
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
+      "slot": "Skill1"
+    },
+    {
+      "kind": "skill",
+      "id": "skill.tulu-godking.world-drowning-tide",
+      "name": "World-Drowning Tide",
+      "route": {
+        "slug": "world-drowning-tide",
+        "canonicalPath": "/database/awakeners/tulu-godking/skills/world-drowning-tide"
+      },
+      "cardFamily": "exalt",
+      "cardTypes": ["exalt"],
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
+      "slot": "Exalt"
     },
     {
       "kind": "skill",

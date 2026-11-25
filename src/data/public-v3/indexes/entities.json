@@ -1055,6 +1055,23 @@
       "availabilityType": "LIMITED_ASTRAL_REIGN",
       "releaseDate": "2026-10-19"
     },
+    "awakener-0063": {
+      "kind": "awakener",
+      "id": "awakener-0063",
+      "name": "Tulu: Godking",
+      "route": {
+        "slug": "tulu-godking",
+        "canonicalPath": "/database/awakeners/tulu-godking"
+      },
+      "assets": {
+        "icon": "asset-awakener-0063-icon"
+      },
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "type": "ASSAULT",
+      "availabilityType": "LIMITED_ASTRAL_REIGN",
+      "releaseDate": "2026-11-30"
+    },
     "awakener-build-0001": {
       "kind": "awakenerBuild",
       "id": "awakener-build-0001",
@@ -7512,6 +7529,66 @@
       "ownerAwakenerName": "Tinct",
       "slot": "AbsoluteAxiom"
     },
+    "enlighten.tulu-godking.all-ye-stars-bow-down": {
+      "kind": "enlighten",
+      "id": "enlighten.tulu-godking.all-ye-stars-bow-down",
+      "name": "All Ye Stars, Bow Down",
+      "route": {
+        "slug": "all-ye-stars-bow-down",
+        "canonicalPath": "/database/awakeners/tulu-godking/enlightens/all-ye-stars-bow-down"
+      },
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
+      "slot": "AbsoluteAxiom"
+    },
+    "enlighten.tulu-godking.by-these-stars-i-kindle": {
+      "kind": "enlighten",
+      "id": "enlighten.tulu-godking.by-these-stars-i-kindle",
+      "name": "By These Stars, I Kindle",
+      "route": {
+        "slug": "by-these-stars-i-kindle",
+        "canonicalPath": "/database/awakeners/tulu-godking/enlightens/by-these-stars-i-kindle"
+      },
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
+      "slot": "E2"
+    },
+    "enlighten.tulu-godking.by-this-flesh-i-endure": {
+      "kind": "enlighten",
+      "id": "enlighten.tulu-godking.by-this-flesh-i-endure",
+      "name": "By This Flesh, I Endure",
+      "route": {
+        "slug": "by-this-flesh-i-endure",
+        "canonicalPath": "/database/awakeners/tulu-godking/enlightens/by-this-flesh-i-endure"
+      },
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
+      "slot": "E1"
+    },
+    "enlighten.tulu-godking.by-this-stele-i-ordain": {
+      "kind": "enlighten",
+      "id": "enlighten.tulu-godking.by-this-stele-i-ordain",
+      "name": "By This Stele, I Ordain",
+      "route": {
+        "slug": "by-this-stele-i-ordain",
+        "canonicalPath": "/database/awakeners/tulu-godking/enlightens/by-this-stele-i-ordain"
+      },
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
+      "slot": "E3"
+    },
+    "enlighten.tulu-godking.lex-divina": {
+      "kind": "enlighten",
+      "id": "enlighten.tulu-godking.lex-divina",
+      "name": "Lex Divina",
+      "route": {
+        "slug": "lex-divina",
+        "canonicalPath": "/database/awakeners/tulu-godking/enlightens/lex-divina"
+      },
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
+      "slot": "OverExalt"
+    },
     "enlighten.tulu.lone-king": {
       "kind": "enlighten",
       "id": "enlighten.tulu.lone-king",
@@ -8994,6 +9071,16 @@
       },
       "overlayType": "mechanic"
     },
+    "overlay.global.gnosis-rouse": {
+      "kind": "overlay",
+      "id": "overlay.global.gnosis-rouse",
+      "name": "Gnosis Rouse",
+      "route": {
+        "slug": "gnosis-rouse",
+        "canonicalPath": "/database/overlays/gnosis-rouse"
+      },
+      "overlayType": "mechanic"
+    },
     "overlay.global.infinite-devour": {
       "kind": "overlay",
       "id": "overlay.global.infinite-devour",
@@ -9011,6 +9098,16 @@
       "route": {
         "slug": "innate",
         "canonicalPath": "/database/overlays/innate"
+      },
+      "overlayType": "mechanic"
+    },
+    "overlay.global.keyflare-rouse": {
+      "kind": "overlay",
+      "id": "overlay.global.keyflare-rouse",
+      "name": "Keyflare Rouse",
+      "route": {
+        "slug": "keyflare-rouse",
+        "canonicalPath": "/database/overlays/keyflare-rouse"
       },
       "overlayType": "mechanic"
     },
@@ -10071,6 +10168,33 @@
       },
       "ownerAwakenerId": "awakener-0057",
       "ownerAwakenerName": "Saya",
+      "overlayType": "mechanic"
+    },
+    "overlay.tulu-godking.erosion": {
+      "kind": "overlay",
+      "id": "overlay.tulu-godking.erosion",
+      "name": "Erosion",
+      "route": {
+        "slug": "erosion",
+        "canonicalPath": "/database/awakeners/tulu-godking/overlays/erosion"
+      },
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
+      "overlayType": "mechanic"
+    },
+    "overlay.tulu-godking.etched-memory": {
+      "kind": "overlay",
+      "id": "overlay.tulu-godking.etched-memory",
+      "name": "Etched Memory",
+      "route": {
+        "slug": "etched-memory",
+        "canonicalPath": "/database/awakeners/tulu-godking/overlays/etched-memory"
+      },
+      "assets": {
+        "icon": "asset-overlay.tulu-godking.etched-memory-icon"
+      },
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
       "overlayType": "mechanic"
     },
     "overlay.tulu.the-stars-are-right": {
@@ -11283,6 +11407,23 @@
       "realm": "CHAOS",
       "ownerAwakenerId": "awakener-0062",
       "ownerAwakenerName": "Vivian"
+    },
+    "posse-0065": {
+      "kind": "posse",
+      "id": "posse-0065",
+      "name": "The Unfallen Throne",
+      "route": {
+        "slug": "the-unfallen-throne",
+        "canonicalPath": "/database/posses/the-unfallen-throne"
+      },
+      "assets": {
+        "icon": "asset-posse-0065-icon",
+        "crystal": "asset-posse-0065-crystal",
+        "badge": "asset-posse-0065-badge"
+      },
+      "realm": "AEQUOR",
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking"
     },
     "relic-0001": {
       "kind": "relic",
@@ -20037,6 +20178,90 @@
       "ownerAwakenerName": "Tinct",
       "slot": "Rouse"
     },
+    "skill.tulu-godking.axis-mundi": {
+      "kind": "skill",
+      "id": "skill.tulu-godking.axis-mundi",
+      "name": "Axis Mundis",
+      "route": {
+        "slug": "axis-mundis",
+        "canonicalPath": "/database/awakeners/tulu-godking/skills/axis-mundis"
+      },
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
+      "slot": "Rouse"
+    },
+    "skill.tulu-godking.defense": {
+      "kind": "skill",
+      "id": "skill.tulu-godking.defense",
+      "name": "Defense",
+      "route": {
+        "slug": "defense",
+        "canonicalPath": "/database/awakeners/tulu-godking/skills/defense"
+      },
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
+      "slot": "Defense"
+    },
+    "skill.tulu-godking.great-old-decree": {
+      "kind": "skill",
+      "id": "skill.tulu-godking.great-old-decree",
+      "name": "Great Old Decree",
+      "route": {
+        "slug": "great-old-decree",
+        "canonicalPath": "/database/awakeners/tulu-godking/skills/great-old-decree"
+      },
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
+      "slot": "Skill2"
+    },
+    "skill.tulu-godking.lex-divina": {
+      "kind": "skill",
+      "id": "skill.tulu-godking.lex-divina",
+      "name": "Lex Divina",
+      "route": {
+        "slug": "lex-divina",
+        "canonicalPath": "/database/awakeners/tulu-godking/skills/lex-divina"
+      },
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
+      "slot": "OverExalt"
+    },
+    "skill.tulu-godking.strike": {
+      "kind": "skill",
+      "id": "skill.tulu-godking.strike",
+      "name": "Strike",
+      "route": {
+        "slug": "strike",
+        "canonicalPath": "/database/awakeners/tulu-godking/skills/strike"
+      },
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
+      "slot": "Strike"
+    },
+    "skill.tulu-godking.undying-epitaph": {
+      "kind": "skill",
+      "id": "skill.tulu-godking.undying-epitaph",
+      "name": "Undying Epitaph",
+      "route": {
+        "slug": "undying-epitaph",
+        "canonicalPath": "/database/awakeners/tulu-godking/skills/undying-epitaph"
+      },
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
+      "slot": "Skill1"
+    },
+    "skill.tulu-godking.world-drowning-tide": {
+      "kind": "skill",
+      "id": "skill.tulu-godking.world-drowning-tide",
+      "name": "World-Drowning Tide",
+      "route": {
+        "slug": "world-drowning-tide",
+        "canonicalPath": "/database/awakeners/tulu-godking/skills/world-drowning-tide"
+      },
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
+      "slot": "Exalt"
+    },
     "skill.tulu.abyss-order": {
       "kind": "skill",
       "id": "skill.tulu.abyss-order",
@@ -23327,6 +23552,43 @@
       "family": "soulforge_aptitude",
       "maxLevel": 10
     },
+    "talent.tulu-godking.dei-gratia": {
+      "kind": "talent",
+      "id": "talent.tulu-godking.dei-gratia",
+      "name": "Dei Gratia",
+      "route": {
+        "slug": "dei-gratia",
+        "canonicalPath": "/database/awakeners/tulu-godking/talents/dei-gratia"
+      },
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
+      "family": "passive"
+    },
+    "talent.tulu-godking.lightless-bottom": {
+      "kind": "talent",
+      "id": "talent.tulu-godking.lightless-bottom",
+      "name": "Lightless Bottom",
+      "route": {
+        "slug": "lightless-bottom",
+        "canonicalPath": "/database/awakeners/tulu-godking/talents/lightless-bottom"
+      },
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
+      "family": "passive"
+    },
+    "talent.tulu-godking.soulforge-aptitude": {
+      "kind": "talent",
+      "id": "talent.tulu-godking.soulforge-aptitude",
+      "name": "Soulforge Aptitude",
+      "route": {
+        "slug": "soulforge-aptitude",
+        "canonicalPath": "/database/awakeners/tulu-godking/talents/soulforge-aptitude"
+      },
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
+      "family": "soulforge_aptitude",
+      "maxLevel": 10
+    },
     "talent.tulu.divine-kings-power": {
       "kind": "talent",
       "id": "talent.tulu.divine-kings-power",
@@ -26394,6 +26656,61 @@
       "availabilityType": "EVENT",
       "hasShopSource": false,
       "mainstatKey": "REALM_MASTERY"
+    },
+    "wheel-0185": {
+      "kind": "wheel",
+      "id": "wheel-0185",
+      "name": "A Sleepless Wish",
+      "route": {
+        "slug": "a-sleepless-wish",
+        "canonicalPath": "/database/wheels/a-sleepless-wish"
+      },
+      "assets": {
+        "icon": "asset-wheel-0185-icon"
+      },
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "availabilityType": "LIMITED_ASTRAL_REIGN",
+      "hasShopSource": false,
+      "mainstatKey": "ALIEMUS_REGEN",
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking"
+    },
+    "wheel-0186": {
+      "kind": "wheel",
+      "id": "wheel-0186",
+      "name": "A Deathless Dream",
+      "route": {
+        "slug": "a-deathless-dream",
+        "canonicalPath": "/database/wheels/a-deathless-dream"
+      },
+      "assets": {
+        "icon": "asset-wheel-0186-icon"
+      },
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "availabilityType": "EVENT",
+      "hasShopSource": false,
+      "mainstatKey": "ALIEMUS_REGEN",
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking"
+    },
+    "wheel-0187": {
+      "kind": "wheel",
+      "id": "wheel-0187",
+      "name": "A Shore Unreached",
+      "route": {
+        "slug": "a-shore-unreached",
+        "canonicalPath": "/database/wheels/a-shore-unreached"
+      },
+      "assets": {
+        "icon": "asset-wheel-0187-icon"
+      },
+      "realm": "NEUTRAL",
+      "rarity": "SSR",
+      "availabilityType": "EVENT",
+      "hasShopSource": false,
+      "mainstatKey": "CRIT_RATE"
     }
   },
   "scopes": {
@@ -26517,7 +26834,8 @@
       "awakener-0059",
       "awakener-0060",
       "awakener-0061",
-      "awakener-0062"
+      "awakener-0062",
+      "awakener-0063"
     ],
     "covenants": [
       "covenant-0001",
@@ -27038,6 +27356,11 @@
       "enlighten.tinct.midnight-elegy",
       "enlighten.tinct.stellar-reverberation",
       "enlighten.tinct.when-crimson-meets-thorns",
+      "enlighten.tulu-godking.all-ye-stars-bow-down",
+      "enlighten.tulu-godking.by-these-stars-i-kindle",
+      "enlighten.tulu-godking.by-this-flesh-i-endure",
+      "enlighten.tulu-godking.by-this-stele-i-ordain",
+      "enlighten.tulu-godking.lex-divina",
       "enlighten.tulu.lone-king",
       "enlighten.tulu.nocturnal-murmurs",
       "enlighten.tulu.the-promised-day",
@@ -27163,8 +27486,10 @@
       "overlay.global.forbidden-lore",
       "overlay.global.fortress",
       "overlay.global.fragile",
+      "overlay.global.gnosis-rouse",
       "overlay.global.infinite-devour",
       "overlay.global.innate",
+      "overlay.global.keyflare-rouse",
       "overlay.global.leap",
       "overlay.global.lemurian",
       "overlay.global.madness",
@@ -27254,6 +27579,8 @@
       "overlay.ryker.chaotic-legacy",
       "overlay.ryker.winner-takes-all",
       "overlay.saya.gynoecium",
+      "overlay.tulu-godking.erosion",
+      "overlay.tulu-godking.etched-memory",
       "overlay.tulu.the-stars-are-right",
       "overlay.vivian.boiling-anger",
       "overlay.vivian.concoct",
@@ -27331,7 +27658,8 @@
       "posse-0061",
       "posse-0062",
       "posse-0063",
-      "posse-0064"
+      "posse-0064",
+      "posse-0065"
     ],
     "relics": [
       "relic-0001",
@@ -28031,6 +28359,13 @@
       "skill.tinct.starlight-aurora",
       "skill.tinct.strike",
       "skill.tinct.voices-from-beyond",
+      "skill.tulu-godking.axis-mundi",
+      "skill.tulu-godking.defense",
+      "skill.tulu-godking.great-old-decree",
+      "skill.tulu-godking.lex-divina",
+      "skill.tulu-godking.strike",
+      "skill.tulu-godking.undying-epitaph",
+      "skill.tulu-godking.world-drowning-tide",
       "skill.tulu.abyss-order",
       "skill.tulu.defense",
       "skill.tulu.immortal-majesty",
@@ -28291,6 +28626,9 @@
       "talent.tinct.madness-omen",
       "talent.tinct.planetary-traveler",
       "talent.tinct.soulforge-aptitude",
+      "talent.tulu-godking.dei-gratia",
+      "talent.tulu-godking.lightless-bottom",
+      "talent.tulu-godking.soulforge-aptitude",
       "talent.tulu.divine-kings-power",
       "talent.tulu.gnostic-potential",
       "talent.tulu.madness-omen",
@@ -28467,7 +28805,10 @@
       "wheel-0181",
       "wheel-0182",
       "wheel-0183",
-      "wheel-0184"
+      "wheel-0184",
+      "wheel-0185",
+      "wheel-0186",
+      "wheel-0187"
     ]
   }
 }

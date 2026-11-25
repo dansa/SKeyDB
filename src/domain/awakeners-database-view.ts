@@ -1,3 +1,4 @@
+import {buildAwakenerFormSkillRecord, type AwakenerForm} from './awakener-forms'
 import {getAwakenerOverlays} from './awakener-overlays'
 import {
   ENLIGHTEN_SLOT_KEYS,
@@ -83,6 +84,7 @@ export interface ResolvedAwakenerDatabaseShellView {
   enlightens: DatabaseDescribedEntry<AwakenerEnlightenRecord>[]
   derivedSkills: DatabaseDescribedEntry<DerivedSkillRecord>[]
   promotedExtras: DatabaseDescribedEntry<DerivedSkillRecord>[]
+  formSkillGroups?: ReadonlyMap<string, ReturnType<typeof resolveAwakenerFormSkillGroups>>
 }
 
 export type ResolvedAwakenerDatabaseReferenceLayer = ResolvedDatabaseReferenceLayer
@@ -149,6 +151,52 @@ function resolveRankedEntry<TRecord extends AwakenerSkillRecord | DerivedSkillRe
     influencingTalentIds,
     influenceBadges,
   }
+}
+
+export function resolveAwakenerFormSkillGroups(
+  form: AwakenerForm,
+  shellView: ResolvedAwakenerDatabaseShellView,
+) {
+  const enlightensBySlot = new Map(shellView.enlightens.map((entry) => [entry.record.slot, entry]))
+  const activeEnlightenIds = new Set(shellView.activeEnlightenIds)
+  return form.skillGroups.map((group) => ({
+    id: `skills-${form.key}-${group.key}`,
+    title: group.title,
+    intro: group.intro,
+    reference: group.reference,
+    entries: group.entries.map((entry) => {
+      const enlighten = entry.upgrade ? enlightensBySlot.get(entry.upgrade.slot) : undefined
+      const isActive = enlighten !== undefined && activeEnlightenIds.has(enlighten.record.id)
+      const copy = isActive && entry.upgrade ? entry.upgrade : entry
+      const record = buildAwakenerFormSkillRecord(
+        shellView.record.id,
+        `${form.key}-${group.key}`,
+        entry,
+        copy,
+      )
+      return resolveRankedEntry(
+        record.id,
+        entry.title,
+        record,
+        shellView.skillLevel,
+        shellView.stats,
+        shellView.formulaContext,
+        enlighten ? [enlighten.record.slot] : [],
+        [],
+        enlighten
+          ? [
+              {
+                kind: 'enlighten',
+                id: enlighten.record.id,
+                label: enlighten.record.slot,
+                referenceName: enlighten.record.displayName,
+                slot: enlighten.record.slot,
+              },
+            ]
+          : [],
+      )
+    }),
+  }))
 }
 
 function resolveTalentEntry(
@@ -774,7 +822,7 @@ export function resolveAwakenerDatabaseShellView(
     influenceBadgeLookups,
   )
 
-  return {
+  const shellView: ResolvedAwakenerDatabaseShellView = {
     selection: resolvedRecord.selection,
     skillLevel,
     stats,
@@ -795,4 +843,13 @@ export function resolveAwakenerDatabaseShellView(
     derivedSkills: ownedDerivedSkills,
     promotedExtras,
   }
+  if (record.forms) {
+    shellView.formSkillGroups = new Map(
+      record.forms.alternatives.map((form) => [
+        form.key,
+        resolveAwakenerFormSkillGroups(form, shellView),
+      ]),
+    )
+  }
+  return shellView
 }

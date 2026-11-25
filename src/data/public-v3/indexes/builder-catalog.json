@@ -63,7 +63,8 @@
       "awakener-0059",
       "awakener-0060",
       "awakener-0061",
-      "awakener-0062"
+      "awakener-0062",
+      "awakener-0063"
     ],
     "wheels": [
       "wheel-0001",
@@ -215,7 +216,10 @@
       "wheel-0181",
       "wheel-0182",
       "wheel-0183",
-      "wheel-0184"
+      "wheel-0184",
+      "wheel-0185",
+      "wheel-0186",
+      "wheel-0187"
     ],
     "covenants": [
       "covenant-0001",
@@ -296,7 +300,8 @@
       "posse-0053",
       "posse-0062",
       "posse-0063",
-      "posse-0064"
+      "posse-0064",
+      "posse-0065"
     ],
     "awakenerBuilds": [
       "awakener-build-0001",
@@ -420,6 +425,7 @@
     "awakener-0060": "4",
     "awakener-0061": "xr",
     "awakener-0062": "xs",
+    "awakener-0063": "xt",
     "covenant-0001": "k",
     "covenant-0002": "m",
     "covenant-0003": "t",
@@ -497,6 +503,7 @@
     "posse-0062": "8",
     "posse-0063": "0",
     "posse-0064": "xb",
+    "posse-0065": "xc",
     "wheel-0001": "xb",
     "wheel-0002": "xC",
     "wheel-0003": "W",
@@ -646,7 +653,10 @@
     "wheel-0181": "zd",
     "wheel-0182": "ze",
     "wheel-0183": "zf",
-    "wheel-0184": "zi"
+    "wheel-0184": "zi",
+    "wheel-0185": "zh",
+    "wheel-0186": "zg",
+    "wheel-0187": "zl"
   },
   "groups": {
     "wheelsByAwakener": {
@@ -710,10 +720,11 @@
       "awakener-0059": ["wheel-0172", "wheel-0173"],
       "awakener-0060": ["wheel-0175", "wheel-0176"],
       "awakener-0061": ["wheel-0178", "wheel-0179"],
-      "awakener-0062": ["wheel-0181", "wheel-0182"]
+      "awakener-0062": ["wheel-0181", "wheel-0182"],
+      "awakener-0063": ["wheel-0185", "wheel-0186"]
     },
     "possesByRealm": {
-      "AEQUOR": ["posse-0010", "posse-0014", "posse-0021", "posse-0025", "posse-0031", "posse-0035", "posse-0044", "posse-0049", "posse-0052"],
+      "AEQUOR": ["posse-0010", "posse-0014", "posse-0021", "posse-0025", "posse-0031", "posse-0035", "posse-0044", "posse-0049", "posse-0052", "posse-0065"],
       "CARO": [
         "posse-0011",
         "posse-0015",
@@ -787,7 +798,8 @@
       "awakener-0059": ["posse-0053"],
       "awakener-0060": ["posse-0062"],
       "awakener-0061": ["posse-0063"],
-      "awakener-0062": ["posse-0064"]
+      "awakener-0062": ["posse-0064"],
+      "awakener-0063": ["posse-0065"]
     },
     "covenantsBySetBonus": {
       "3": [

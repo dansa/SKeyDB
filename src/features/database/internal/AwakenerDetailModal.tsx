@@ -1,4 +1,5 @@
 import {
+  Fragment,
   lazy,
   Suspense,
   useId,
@@ -12,6 +13,7 @@ import {
 import {FaGear, FaXmark} from 'react-icons/fa6'
 
 import {getAwakenerCardAsset, getAwakenerPortraitAsset} from '@/domain/awakener-assets'
+import type {AwakenerForm, AwakenerForms} from '@/domain/awakener-forms'
 import {type Awakener} from '@/domain/awakeners'
 import {type AwakenerFullRecord} from '@/domain/awakeners-full'
 import type {Covenant} from '@/domain/covenants'
@@ -23,7 +25,12 @@ import {
 } from '@/domain/database-paths'
 import {formatAwakenerNameForUi} from '@/domain/name-format'
 import {isPreReleaseAwakener} from '@/domain/pre-release'
-import {getRealmAccent, getRealmIcon, getRealmLabel} from '@/domain/realms'
+import {
+  getAwakenerRealmBadge,
+  getRealmAccent,
+  getRealmLabel,
+  type RealmBadge,
+} from '@/domain/realms'
 import type {Wheel} from '@/domain/wheels'
 import type {DatabaseDetailResultNavigation} from '@/features/database/detail/database-detail-result-navigation'
 import {DatabaseDetailResultNavigator} from '@/features/database/detail/DatabaseDetailResultNavigator'
@@ -281,14 +288,67 @@ interface AwakenerDetailHeaderProps {
   awakener: Awakener
   cardAsset: string | undefined
   displayName: string
+  formControls?: ReactNode
   headerMetaItems: HeaderMetaItem[]
   isMobileHeader: boolean
   onOpenFullArt: () => void
   onTabChange: (tab: DatabaseAwakenerVisibleTab) => void
   portrait: string | undefined
-  realmIcon: string | undefined
+  realmBadge: RealmBadge | undefined
   tabPanelId: string
   tabsetId: string
+}
+
+function AwakenerDetailHeading({
+  awakener,
+  displayName,
+  headerMetaItems,
+  titleBadge,
+  metaBadge,
+  reserveActionSpace,
+}: Pick<AwakenerDetailHeaderProps, 'awakener' | 'displayName' | 'headerMetaItems'> & {
+  titleBadge?: ReactNode
+  metaBadge?: ReactNode
+  reserveActionSpace: boolean
+}) {
+  return (
+    <div className={reserveActionSpace ? 'min-w-0 pr-20' : 'min-w-0'}>
+      <div className='flex items-center gap-2'>
+        <h3 className='ui-title text-xl text-amber-100'>{displayName}</h3>
+        {titleBadge}
+      </div>
+      <p
+        className={`mt-0.5 text-xs text-slate-400 ${metaBadge ? 'flex items-center gap-1.5' : ''}`}
+      >
+        {metaBadge}
+        <span>
+          {headerMetaItems.map((item, index) => (
+            <span key={item.key}>
+              {index > 0 ? <span className='mx-1.5 text-slate-600'>·</span> : null}
+              <span style={item.color ? {color: item.color} : undefined}>{item.label}</span>
+            </span>
+          ))}
+        </span>
+      </p>
+      <DatabaseDetailTagStrip
+        className='mt-1.5 max-w-xl'
+        itemKey={awakener.id}
+        tags={awakener.tags}
+      />
+    </div>
+  )
+}
+
+function AwakenerDetailRealmBadge({badge, size}: {badge?: RealmBadge; size: string}) {
+  return badge ? (
+    <img
+      alt=''
+      className={`${size} shrink-0 object-contain`}
+      draggable={false}
+      src={badge.src}
+      title={badge.label}
+    />
+  ) : null
 }
 
 function AwakenerDetailHeader({
@@ -296,19 +356,26 @@ function AwakenerDetailHeader({
   awakener,
   cardAsset,
   displayName,
+  formControls,
   headerMetaItems,
   isMobileHeader,
   onOpenFullArt,
   onTabChange,
   portrait,
-  realmIcon,
+  realmBadge,
   tabPanelId,
   tabsetId,
 }: AwakenerDetailHeaderProps) {
+  const showPreReleaseNotice = awakener.unreleased === true || isPreReleaseAwakener(awakener)
+  const hasMobileForm = Boolean(formControls) && isMobileHeader
+  const reserveActionSpace = !formControls || !showPreReleaseNotice
+
   return (
     <div className='shrink-0 px-5 pt-4 pb-0 md:pt-5'>
-      {awakener.unreleased || isPreReleaseAwakener(awakener) ? <PreReleaseDataNotice /> : null}
-      <div className='flex items-center gap-2.5 pr-20'>
+      {showPreReleaseNotice ? <PreReleaseDataNotice /> : null}
+      <div
+        className={`flex gap-2.5 ${hasMobileForm ? 'items-start' : 'items-center'} ${reserveActionSpace && !hasMobileForm ? 'pr-20' : ''}`}
+      >
         <AwakenerDetailMobilePortrait
           cardAsset={cardAsset}
           displayName={displayName}
@@ -316,29 +383,25 @@ function AwakenerDetailHeader({
           onOpenFullArt={onOpenFullArt}
           portrait={portrait}
         />
-        {!isMobileHeader ? (
-          <img alt='' className='size-11 shrink-0' draggable={false} src={realmIcon} />
-        ) : null}
-        <div>
-          <div className='flex items-center gap-2'>
-            <h3 className='ui-title text-xl text-amber-100'>{displayName}</h3>
-            {isMobileHeader ? (
-              <img alt='' className='size-5 shrink-0' draggable={false} src={realmIcon} />
-            ) : null}
-          </div>
-          <p className='mt-0.5 text-xs text-slate-400'>
-            {headerMetaItems.map((item, index) => (
-              <span key={item.key}>
-                {index > 0 ? <span className='mx-1.5 text-slate-600'>·</span> : null}
-                <span style={item.color ? {color: item.color} : undefined}>{item.label}</span>
-              </span>
-            ))}
-          </p>
-          <DatabaseDetailTagStrip
-            className='mt-1.5 max-w-xl'
-            itemKey={awakener.id}
-            tags={awakener.tags}
+        {!isMobileHeader ? <AwakenerDetailRealmBadge badge={realmBadge} size='size-11' /> : null}
+        <div
+          className={`flex min-w-0 ${hasMobileForm ? 'flex-col items-start pt-1' : 'flex-wrap items-center gap-x-5'}`}
+        >
+          <AwakenerDetailHeading
+            awakener={awakener}
+            displayName={displayName}
+            headerMetaItems={headerMetaItems}
+            titleBadge={
+              isMobileHeader && !hasMobileForm ? (
+                <AwakenerDetailRealmBadge badge={realmBadge} size='size-6' />
+              ) : null
+            }
+            metaBadge={
+              hasMobileForm ? <AwakenerDetailRealmBadge badge={realmBadge} size='size-5' /> : null
+            }
+            reserveActionSpace={hasMobileForm && reserveActionSpace}
           />
+          {formControls}
         </div>
       </div>
       <div className='mt-3 max-w-2xl'>
@@ -354,6 +417,50 @@ function AwakenerDetailHeader({
   )
 }
 
+function AwakenerFormSwitch({
+  forms,
+  selectedKey,
+  onSelect,
+}: {
+  forms: AwakenerForms
+  selectedKey: string | null
+  onSelect: (key: string | null) => void
+}) {
+  const options = [{key: null, label: forms.baseLabel}, ...forms.alternatives]
+  return (
+    <div
+      aria-label='Awakener form'
+      className='flex max-w-full flex-wrap items-center gap-x-0.5 text-xs'
+      role='group'
+    >
+      <span aria-hidden='true' className='mr-1 text-slate-400'>
+        Form
+      </span>
+      {options.map(({key, label}, index) => (
+        <Fragment key={key ?? 'base'}>
+          {index > 0 ? (
+            <span aria-hidden='true' className='text-slate-500'>
+              /
+            </span>
+          ) : null}
+          <button
+            aria-pressed={selectedKey === key}
+            className='group/form-option inline-flex min-h-11 cursor-pointer items-center rounded-sm font-semibold text-slate-300 hover:text-amber-100 focus-visible:outline-2 focus-visible:outline-amber-200/70 aria-pressed:text-amber-100'
+            onClick={() => {
+              onSelect(key)
+            }}
+            type='button'
+          >
+            <span className='rounded-xs px-1.5 py-1 group-hover/form-option:bg-slate-800/60 group-aria-pressed/form-option:bg-amber-200/12'>
+              {label}
+            </span>
+          </button>
+        </Fragment>
+      ))}
+    </div>
+  )
+}
+
 interface AwakenerDetailTabPanelContentProps {
   loreNavigation?: AwakenerLoreNavigation
   leadingContent?: ReactNode
@@ -361,6 +468,7 @@ interface AwakenerDetailTabPanelContentProps {
   areStatsExpanded: boolean
   awakener: Awakener
   fontScale: AwakenerDetailFontScale
+  form?: AwakenerForm
   fullData: AwakenerFullRecord
   onStatsExpandedChange: (isExpanded: boolean) => void
   sessionActions: AwakenerDetailSessionActions
@@ -375,6 +483,7 @@ function AwakenerDetailTabPanelContent({
   areStatsExpanded,
   awakener,
   fontScale,
+  form,
   fullData,
   onStatsExpandedChange,
   sessionActions,
@@ -403,6 +512,7 @@ function AwakenerDetailTabPanelContent({
     case 'upgrades':
       return (
         <AwakenerDetailUpgrades
+          form={form}
           leadingContent={leadingContent}
           awakener={awakener}
           fontScale={fontScale}
@@ -417,6 +527,7 @@ function AwakenerDetailTabPanelContent({
       return (
         <Suspense fallback={TAB_CONTENT_LOADING_FALLBACK}>
           <AwakenerDetailCards
+            form={form}
             leadingContent={leadingContent}
             onToggleEnlightenSlot={sessionActions.toggleEnlightenSlot}
             referenceLayer={referenceLayer}
@@ -452,6 +563,8 @@ interface AwakenerDetailBodyProps {
   cardAsset: string | undefined
   displayName: string
   fontScale: AwakenerDetailFontScale
+  form?: AwakenerForm
+  formControls?: ReactNode
   fullData: AwakenerFullRecord
   headerMetaItems: HeaderMetaItem[]
   isMobileHeader: boolean
@@ -460,7 +573,7 @@ interface AwakenerDetailBodyProps {
   onTabChange: (tab: DatabaseAwakenerVisibleTab) => void
   popoverRootProps: AwakenerDetailPopoverRootProps
   portrait: string | undefined
-  realmIcon: string | undefined
+  realmBadge: RealmBadge | undefined
   sessionActions: AwakenerDetailSessionActions
   sessionPreferences: AwakenerDetailSessionPreferences
   sessionRuntime: AwakenerDetailSessionRuntime
@@ -493,6 +606,8 @@ function AwakenerDetailBody({
   cardAsset,
   displayName,
   fontScale,
+  form,
+  formControls,
   fullData,
   headerMetaItems,
   isMobileHeader,
@@ -501,7 +616,7 @@ function AwakenerDetailBody({
   onTabChange,
   popoverRootProps,
   portrait,
-  realmIcon,
+  realmBadge,
   sessionActions,
   sessionPreferences,
   sessionRuntime,
@@ -511,12 +626,14 @@ function AwakenerDetailBody({
   const {resolvedControls, resolvedSelection, resolvedStats} = sessionRuntime
   const {usesProfileSidebar, usesIndexedReader, contentClassName, panelClassName} =
     getDetailBodyLayout(activeTab)
+  const statsNote = form ? 'Before rebirth bonuses' : undefined
   const mobileControls =
     isMobileHeader && !usesProfileSidebar ? (
       <div className='mb-4'>
         <AwakenerDetailSidebar
           awakener={awakener}
           areStatsExpanded={areStatsExpanded}
+          collapseProgression={Boolean(form) && usesIndexedReader}
           compact
           controls={resolvedControls}
           onPatchSelection={sessionActions.patchSelection}
@@ -524,6 +641,7 @@ function AwakenerDetailBody({
           scalingRecord={fullData}
           selection={resolvedSelection}
           stats={resolvedStats}
+          statsNote={statsNote}
           substatScaling={fullData.substatScaling}
         />
       </div>
@@ -537,6 +655,7 @@ function AwakenerDetailBody({
             awakener={awakener}
             areStatsExpanded={areStatsExpanded}
             controls={resolvedControls}
+            formArt={form && cardAsset ? {asset: cardAsset, name: displayName} : undefined}
             onOpenFullArt={cardAsset ? onOpenFullArt : undefined}
             onPatchSelection={sessionActions.patchSelection}
             onStatsExpandedChange={onStatsExpandedChange}
@@ -544,6 +663,7 @@ function AwakenerDetailBody({
             scalingRecord={fullData}
             selection={resolvedSelection}
             stats={resolvedStats}
+            statsNote={statsNote}
             substatScaling={fullData.substatScaling}
             variant={usesProfileSidebar ? 'profile' : 'progression'}
           />
@@ -556,12 +676,13 @@ function AwakenerDetailBody({
           awakener={awakener}
           cardAsset={cardAsset}
           displayName={displayName}
+          formControls={formControls}
           headerMetaItems={headerMetaItems}
           isMobileHeader={isMobileHeader}
           onOpenFullArt={onOpenFullArt}
           onTabChange={onTabChange}
           portrait={portrait}
-          realmIcon={realmIcon}
+          realmBadge={realmBadge}
           tabPanelId={tabPanelId}
           tabsetId={tabsetId}
         />
@@ -584,6 +705,7 @@ function AwakenerDetailBody({
               areStatsExpanded={areStatsExpanded}
               awakener={awakener}
               fontScale={fontScale}
+              form={form}
               fullData={fullData}
               onStatsExpandedChange={onStatsExpandedChange}
               sessionActions={sessionActions}
@@ -613,6 +735,9 @@ export function AwakenerDetailModal({
 }: AwakenerDetailModalProps) {
   const [isArtViewerOpen, setIsArtViewerOpen] = useState(false)
   const [areStatsExpanded, setAreStatsExpanded] = useState(false)
+  const [formSelection, setFormSelection] = useState<{ownerId: string; key: string | null} | null>(
+    null,
+  )
   const tabsetId = useId()
   const {
     activeSearchIndex,
@@ -657,12 +782,17 @@ export function AwakenerDetailModal({
   const fontScale = sharedPreferences.fontScale
   const {resolvedControls} = sessionRuntime
 
-  const displayName = formatAwakenerNameForUi(awakener.name)
+  const form =
+    formSelection?.ownerId === awakener.id
+      ? fullData.forms?.alternatives.find(({key}) => key === formSelection.key)
+      : undefined
+  const displayName = formatAwakenerNameForUi(form?.name ?? awakener.name)
   const realmAccent = getRealmAccent(awakener.realm)
-  const realmIcon = getRealmIcon(awakener.realm)
+  const realmBadge = getAwakenerRealmBadge(awakener)
   const realmLabel = getRealmLabel(awakener.realm)
-  const cardAsset = getAwakenerCardAsset(awakener.name)
-  const portrait = getAwakenerPortraitAsset(awakener.name)
+  const assetKey = form?.assetKey ?? awakener.name
+  const cardAsset = getAwakenerCardAsset(assetKey)
+  const portrait = getAwakenerPortraitAsset(assetKey)
   const tabPanelId = `${tabsetId}-panel`
   const fullArtAlt = `${displayName} full art`
   const headerMetaItems = [
@@ -731,6 +861,21 @@ export function AwakenerDetailModal({
             cardAsset={cardAsset}
             displayName={displayName}
             fontScale={fontScale}
+            form={form}
+            formControls={
+              fullData.forms ? (
+                <AwakenerFormSwitch
+                  forms={fullData.forms}
+                  selectedKey={form?.key ?? null}
+                  onSelect={(key) => {
+                    setFormSelection({ownerId: awakener.id, key})
+                    if (activeTab !== 'skills' && activeTab !== 'upgrades') {
+                      setActiveTab('skills')
+                    }
+                  }}
+                />
+              ) : undefined
+            }
             fullData={fullData}
             headerMetaItems={headerMetaItems}
             isMobileHeader={isMobileHeader}
@@ -741,7 +886,7 @@ export function AwakenerDetailModal({
             onTabChange={setActiveTab}
             popoverRootProps={popoverRootProps}
             portrait={portrait}
-            realmIcon={realmIcon}
+            realmBadge={realmBadge}
             sessionActions={sessionActions}
             sessionPreferences={sessionPreferences}
             sessionRuntime={sessionRuntime}

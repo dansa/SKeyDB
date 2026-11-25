@@ -61,6 +61,12 @@
         "id": "talent.jenkins.a-common-enemy"
       }
     ],
+    "a deathless dream": [
+      {
+        "kind": "wheel",
+        "id": "wheel-0186"
+      }
+    ],
     "a fleeting dream": [
       {
         "kind": "posse",
@@ -83,6 +89,18 @@
       {
         "kind": "posse",
         "id": "posse-0004"
+      }
+    ],
+    "a shore unreached": [
+      {
+        "kind": "wheel",
+        "id": "wheel-0187"
+      }
+    ],
+    "a sleepless wish": [
+      {
+        "kind": "wheel",
+        "id": "wheel-0185"
       }
     ],
     "a small wish": [
@@ -317,6 +335,12 @@
       {
         "kind": "enlighten",
         "id": "enlighten.hameln.all-realms-resound"
+      }
+    ],
+    "all ye stars bow down": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.tulu-godking.all-ye-stars-bow-down"
       }
     ],
     "alva": [
@@ -599,6 +623,12 @@
       {
         "kind": "enlighten",
         "id": "enlighten.erica.auto-rectification"
+      }
+    ],
+    "axis mundis": [
+      {
+        "kind": "skill",
+        "id": "skill.tulu-godking.axis-mundi"
       }
     ],
     "bang pop boom": [
@@ -1169,6 +1199,24 @@
       {
         "kind": "wheel",
         "id": "wheel-0004"
+      }
+    ],
+    "by these stars i kindle": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.tulu-godking.by-these-stars-i-kindle"
+      }
+    ],
+    "by this flesh i endure": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.tulu-godking.by-this-flesh-i-endure"
+      }
+    ],
+    "by this stele i ordain": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.tulu-godking.by-this-stele-i-ordain"
       }
     ],
     "caecus": [
@@ -2171,6 +2219,12 @@
       {
         "kind": "enlighten",
         "id": "enlighten.murphy.defiant-providence"
+      }
+    ],
+    "dei gratia": [
+      {
+        "kind": "talent",
+        "id": "talent.tulu-godking.dei-gratia"
       }
     ],
     "delayed sacrifice": [
@@ -3277,6 +3331,12 @@
         "id": "awakener-build-0015"
       }
     ],
+    "erosion": [
+      {
+        "kind": "overlay",
+        "id": "overlay.tulu-godking.erosion"
+      }
+    ],
     "escape plan": [
       {
         "kind": "relic",
@@ -3293,6 +3353,12 @@
       {
         "kind": "enlighten",
         "id": "enlighten.daffodil.essence-sediment"
+      }
+    ],
+    "etched memory": [
+      {
+        "kind": "overlay",
+        "id": "overlay.tulu-godking.etched-memory"
       }
     ],
     "eternal flames": [
@@ -4111,6 +4177,12 @@
         "id": "relic-0175"
       }
     ],
+    "gnosis rouse": [
+      {
+        "kind": "overlay",
+        "id": "overlay.global.gnosis-rouse"
+      }
+    ],
     "gobble up": [
       {
         "kind": "derivedSkill",
@@ -4157,6 +4229,12 @@
       {
         "kind": "derivedSkill",
         "id": "derived.lotan-cetarchon.great-blade-whalefall"
+      }
+    ],
+    "great old decree": [
+      {
+        "kind": "skill",
+        "id": "skill.tulu-godking.great-old-decree"
       }
     ],
     "greed": [
@@ -4900,7 +4978,7 @@
     "keyflare rouse": [
       {
         "kind": "overlay",
-        "id": "overlay.global.rouse"
+        "id": "overlay.global.keyflare-rouse"
       }
     ],
     "kiss of farewell": [
@@ -8983,6 +9061,12 @@
         "id": "skill.vivian.the-sleeper-of-heaths"
       }
     ],
+    "the unfallen throne": [
+      {
+        "kind": "posse",
+        "id": "posse-0065"
+      }
+    ],
     "the unrivaled": [
       {
         "kind": "enlighten",
@@ -9241,6 +9325,12 @@
         "id": "awakener-build-0050"
       }
     ],
+    "tulu godking": [
+      {
+        "kind": "awakener",
+        "id": "awakener-0063"
+      }
+    ],
     "turn unique": [
       {
         "kind": "overlay",
@@ -9419,6 +9509,12 @@
       {
         "kind": "skill",
         "id": "skill.celeste.undying-bird-of-paradise"
+      }
+    ],
+    "undying epitaph": [
+      {
+        "kind": "skill",
+        "id": "skill.tulu-godking.undying-epitaph"
       }
     ],
     "undying flower upon slime": [
@@ -10045,6 +10141,12 @@
         "id": "enlighten.faint.withering-hymn"
       }
     ],
+    "world drowning tide": [
+      {
+        "kind": "skill",
+        "id": "skill.tulu-godking.world-drowning-tide"
+      }
+    ],
     "world ending inferno": [
       {
         "kind": "skill",
@@ -10533,6 +10635,10 @@
       {
         "kind": "skill",
         "id": "skill.tinct.defense"
+      },
+      {
+        "kind": "skill",
+        "id": "skill.tulu-godking.defense"
       },
       {
         "kind": "skill",
@@ -11135,6 +11241,16 @@
         "id": "skill.agrippa.lady-of-labyrinths"
       }
     ],
+    "lex divina": [
+      {
+        "kind": "enlighten",
+        "id": "enlighten.tulu-godking.lex-divina"
+      },
+      {
+        "kind": "skill",
+        "id": "skill.tulu-godking.lex-divina"
+      }
+    ],
     "light of the lost": [
       {
         "kind": "enlighten",
@@ -11153,6 +11269,10 @@
       {
         "kind": "talent",
         "id": "talent.pontos.lightless-bottom"
+      },
+      {
+        "kind": "talent",
+        "id": "talent.tulu-godking.lightless-bottom"
       },
       {
         "kind": "talent",
@@ -11926,6 +12046,10 @@
       },
       {
         "kind": "talent",
+        "id": "talent.tulu-godking.soulforge-aptitude"
+      },
+      {
+        "kind": "talent",
         "id": "talent.tulu.soulforge-aptitude"
       },
       {
@@ -12373,6 +12497,10 @@
       {
         "kind": "skill",
         "id": "skill.tinct.strike"
+      },
+      {
+        "kind": "skill",
+        "id": "skill.tulu-godking.strike"
       },
       {
         "kind": "skill",

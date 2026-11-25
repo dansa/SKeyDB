@@ -117,6 +117,7 @@ describe('AwakenerDetailSidebar', () => {
     )
 
     expect(screen.getByRole('heading', {name: 'Stats'})).toBeInTheDocument()
+    expect(screen.queryByText('Before rebirth bonuses')).not.toBeInTheDocument()
     expect(screen.queryByText('(Lv. 60)')).not.toBeInTheDocument()
     expect(screen.getByRole('spinbutton', {name: 'Psyche Surge bonus'})).toHaveValue(0)
 
@@ -173,5 +174,33 @@ describe('AwakenerDetailSidebar', () => {
       within(panels[0] as HTMLElement).getByRole('heading', {name: 'Stats'}),
     ).toBeInTheDocument()
     expect(within(panels[1] as HTMLElement).getByRole('button', {name: 'E0'})).toBeInTheDocument()
+  })
+
+  it.each([false, true])('shows pre-rebirth stats for alternate forms (compact: %s)', (compact) => {
+    const {container} = render(
+      <AwakenerDetailSidebar
+        awakener={TEST_AWAKENER}
+        collapseProgression={compact}
+        compact={compact}
+        controls={TEST_CONTROLS}
+        formArt={compact ? undefined : {asset: '/theophany.webp', name: 'Theophany'}}
+        onPatchSelection={vi.fn()}
+        scalingRecord={TEST_SCALING_RECORD}
+        selection={TEST_SELECTION}
+        stats={TEST_STATS}
+        statsNote='Before rebirth bonuses'
+        substatScaling={TEST_SUBSTAT_SCALING}
+      />,
+    )
+
+    expect(screen.getByRole('heading', {name: 'Stats'})).toBeInTheDocument()
+    expect(screen.getByText('Before rebirth bonuses')).toBeInTheDocument()
+    expect(screen.getByText('DEF')).toBeInTheDocument()
+    expect(screen.getByText('126')).toBeInTheDocument()
+    if (compact) {
+      expect(container.querySelector('details')).not.toHaveAttribute('open')
+    } else {
+      expect(screen.getByRole('img', {name: 'Theophany card'})).toBeInTheDocument()
+    }
   })
 })

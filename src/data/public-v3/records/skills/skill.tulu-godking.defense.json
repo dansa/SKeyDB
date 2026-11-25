@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 3,
+  "kind": "skill",
+  "id": "skill.tulu-godking.defense",
+  "name": "Defense",
+  "route": {
+    "slug": "defense",
+    "canonicalPath": "/database/awakeners/tulu-godking/skills/defense"
+  },
+  "ownerAwakenerId": "awakener-0063",
+  "slot": "Defense",
+  "cardFamily": "command",
+  "cardTypes": ["defense"],
+  "descriptionTemplate": "Gain [Block:Arg1] Shield. Tulu: Godking gains [Energy:Arg2] Aliemus.\n{Resonance 3}: Apply {Weakness} to all enemies for [Arg3] turn.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": ["10", "12", "14", "16", "18", "20"],
+      "stat": "DEF",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": ["5", "6", "7", "8", "9", "10"]
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "1"
+    },
+    "Arg5": {
+      "kind": "fixed",
+      "value": "3"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    },
+    {
+      "id": "mechanic.prepare",
+      "value": 1
+    }
+  ],
+  "cost": "2",
+  "ownerAwakenerName": "Tulu: Godking"
+}

@@ -41,6 +41,7 @@ interface BannerInput {
   endDate: string
   featured?: FeaturedInput[]
   poolSlots?: PoolSlotInput[]
+  realmPools?: {realmId: string; awakeners: string[]; wheels: string[]}[]
   derivedPool?: DerivedPoolInput
   customArt?: string
   customTags?: string[]
@@ -111,11 +112,21 @@ const rewardItemSchema = z.object({
   amount: nonEmptyStringSchema.optional(),
   itemId: z.number().int().positive().optional(),
 })
-const missionRewardSchema = z.object({
-  label: nonEmptyStringSchema,
+const missionTracksSchema = z.object({
   standard: z.array(rewardItemSchema).min(1),
   premium: z.array(rewardItemSchema).min(1).optional(),
+  dropRoll: z
+    .array(rewardItemSchema.extend({chancePercent: z.number().int().positive().max(100)}))
+    .min(2)
+    .refine((items) => items.reduce((total, {chancePercent}) => total + chancePercent, 0) === 100, {
+      message: 'A drop roll must total 100%.',
+    })
+    .optional(),
 })
+const missionRewardSchema = z.union([
+  missionTracksSchema.extend({label: nonEmptyStringSchema}).strict(),
+  missionTracksSchema.extend({silverPrimeExtracted: z.number().int().positive()}).strict(),
+])
 
 const rewardGroupSchema = z.object({
   title: nonEmptyStringSchema.optional(),
@@ -193,6 +204,20 @@ const bannerInputSchema: z.ZodType<BannerInput> = z
     endDate: gameDateSchema,
     featured: z.array(featuredInputSchema).optional(),
     poolSlots: z.array(poolSlotInputSchema).optional(),
+    realmPools: z
+      .array(
+        z.object({
+          realmId: z.enum(['CHAOS', 'AEQUOR', 'CARO', 'ULTRA']),
+          awakeners: z.array(nonEmptyStringSchema).min(1),
+          wheels: z.array(nonEmptyStringSchema).min(1),
+        }),
+      )
+      .min(1)
+      .refine(
+        (pools) => new Set(pools.map(({realmId}) => realmId)).size === pools.length,
+        'Each realm can only appear once.',
+      )
+      .optional(),
     derivedPool: derivedPoolInputSchema.optional(),
     customArt: nonEmptyStringSchema.optional(),
     customTags: z.array(nonEmptyStringSchema).optional(),
@@ -203,11 +228,14 @@ const bannerInputSchema: z.ZodType<BannerInput> = z
     related: z.array(nonEmptyStringSchema).optional(),
   })
   .superRefine((banner, ctx) => {
-    if (banner.poolSlots && banner.derivedPool) {
+    const poolFields = (['poolSlots', 'derivedPool', 'realmPools'] as const).filter(
+      (field) => banner[field] !== undefined,
+    )
+    if (poolFields.length > 1) {
       ctx.addIssue({
         code: 'custom',
-        path: ['derivedPool'],
-        message: 'Use either poolSlots or derivedPool, not both.',
+        path: [poolFields[1]],
+        message: 'Use only one of poolSlots, derivedPool, or realmPools.',
       })
     }
     if (
@@ -422,6 +450,13 @@ function loadBanner(raw: BannerInput): BannerEntry {
   if (raw.poolSlots) {
     entry.poolSlots = resolvePoolSlots(raw.poolSlots)
   }
+  if (raw.realmPools) {
+    entry.realmPools = raw.realmPools.map(({realmId, awakeners, wheels}) => ({
+      realmId,
+      awakeners: awakeners.map((name) => resolveUnit({name, kind: 'awakener'})),
+      wheels: wheels.map((name) => resolveUnit({name, kind: 'wheel'})),
+    }))
+  }
   if (raw.derivedPool) {
     entry.poolSlots = resolveDerivedPool(raw.derivedPool, raw.id, raw.startDate)
   }
@@ -478,6 +513,7 @@ const patchInputSchema = z
     kind: z.enum(TIMELINE_PATCH_KINDS),
     date: gameDateSchema,
     endDate: gameDateSchema.optional(),
+    launchNote: nonEmptyStringSchema.optional(),
   })
   .refine(({date, endDate}) => !endDate || parseGameDate(endDate) > parseGameDate(date), {
     path: ['endDate'],

@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 3,
+  "kind": "wheel",
+  "id": "wheel-0187",
+  "name": "A Shore Unreached",
+  "route": {
+    "slug": "a-shore-unreached",
+    "canonicalPath": "/database/wheels/a-shore-unreached"
+  },
+  "assets": {
+    "icon": "asset-wheel-0187-icon"
+  },
+  "availabilityType": "EVENT",
+  "hasShopSource": false,
+  "acquisitionSource": "Event reward Wheel.",
+  "rarity": "SSR",
+  "realm": "NEUTRAL",
+  "mainstatKey": "CRIT_RATE",
+  "lineupToken": "zl",
+  "descriptionTemplate": "After the wielder plays their {Gnosis Rouse} card, they gain Temp. Crit. DMG based on the current turn number: +[StateArg1]% per turn. After they trigger {Keyflare Rouse}, they regain [StateArg2]% of the Keyflare spent.",
+  "descriptionArgs": {
+    "StateArg1": {
+      "kind": "scaling",
+      "values": ["7", "8", "9", "10"],
+      "suffix": "%"
+    },
+    "StateArg2": {
+      "kind": "scaling",
+      "values": ["35", "40", "45", "50"],
+      "suffix": "%"
+    }
+  },
+  "searchTags": ["Crit DMG"]
+}

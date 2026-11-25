@@ -8,6 +8,7 @@ import {timelineBanners} from '@/domain/timeline-data'
 import {resolveTimelineFeaturedAsset} from '../timelineDetailResolution'
 import {TimelineAgenda} from './TimelineAgenda'
 import {
+  getBannerArtworkSlots,
   getDesktopAgendaGroups,
   getDisplayBanner,
   getTimelineAgendaGroups,
@@ -50,7 +51,8 @@ it.each([
   'lotan-duo-260727',
   'caraboo-duo-260824',
   'ogier-duo-260921',
-])('resolves both SSR pools for the historical %s pair', (id) => {
+  'godking-duo-261130',
+])('resolves both SSR pools for the featured %s pair', (id) => {
   const groups = timelineBanners.find((entry) => entry.id === id)?.rateUpGroups ?? []
   expect(groups.map(({kind}) => kind)).toEqual(['awakener', 'wheel'])
   for (const {kind, options, sharedOffBanner} of groups) {
@@ -96,7 +98,83 @@ it('uses the current rotation while active and the first day after it ends', () 
   expect(ended.featured?.[0].name).toBe('Tulu')
 })
 
+it('resolves every announced anniversary pair without publishing unannounced rules or pools', () => {
+  const galaxy = timelineBanners.find(({id}) => id === 'galaxy-shines-261130')
+  expect(galaxy?.rulesProfile).toBeUndefined()
+  expect(galaxy?.poolSlots).toBeUndefined()
+  expect(galaxy?.dailySchedule).toHaveLength(35)
+  for (const {featured, offBanner} of galaxy?.dailySchedule ?? []) {
+    expect(offBanner).toBeUndefined()
+    expect(featured.map(({kind}) => kind)).toEqual(['awakener', 'wheel'])
+    for (const unit of featured) {
+      const asset = resolveTimelineFeaturedAsset(unit)
+      expect(asset.detailRef?.kind, unit.name).toBe(unit.kind)
+      expect(asset.url, unit.name).toBeTruthy()
+    }
+  }
+  expect(galaxy).toBeDefined()
+  if (!galaxy) return
+  const finalDay = getDisplayBanner(galaxy, new Date('2027-01-03T01:00:00.000Z'))
+  expect(finalDay.customTags).toEqual(['Day 35', 'Tulu'])
+  expect(finalDay.featured?.map(({name}) => name)).toEqual(['Tulu', 'Hymn of the Sovereign'])
+})
+
+it.each(['faded', 'astral'])(
+  'uses four realm portraits and resolves all paid pool links (%s)',
+  (arc) => {
+    const entry = timelineBanners.find(({id}) => id === `stars-bloom-${arc}-261130`)
+    expect(entry).toBeDefined()
+    if (!entry) return
+    expect(getBannerArtworkSlots(entry)).toEqual(
+      entry.realmPools?.map(({awakeners}) => ({pool: awakeners})),
+    )
+    for (const {awakeners, wheels} of entry.realmPools ?? []) {
+      for (const unit of [...awakeners, ...wheels]) {
+        const asset = resolveTimelineFeaturedAsset(unit)
+        expect(asset.detailRef?.kind, unit.name).toBe(unit.kind)
+        expect(asset.url, unit.name).toBeTruthy()
+      }
+    }
+  },
+)
+
 describe('timeline agenda grouping', () => {
+  it('shows launch notes in both agendas, even when the date has no event or banner', () => {
+    const launchNote = 'First top-up bonus resets.'
+    const groups = getTimelineAgendaGroups({
+      now,
+      filter: 'all',
+      events: [event('Campaign event', 9, 14)],
+      banners: [],
+      patches: [
+        {
+          id: 'anniv',
+          title: 'Anniversary',
+          kind: 'anniversary',
+          date: date(12),
+          endDate: date(14),
+          launchNote,
+        },
+      ],
+    })
+    expect(groups[0].moments).toEqual([])
+    render(
+      <MemoryRouter>
+        <TimelineAgenda groups={groups} now={now} onSelect={vi.fn()} />
+      </MemoryRouter>,
+    )
+    const mobile = within(screen.getByRole('list', {name: 'Upcoming dates'}))
+    const desktop = within(screen.getByRole('region', {name: 'Upcoming timeline moments'}))
+    expect(mobile.getByText(launchNote)).toBeInTheDocument()
+    expect(desktop.queryByText(launchNote)).not.toBeInTheDocument()
+    const launch = desktop.getByRole('button', {name: /Anniversary$/})
+    fireEvent.click(launch)
+    expect(desktop.getByText(launchNote)).toBeInTheDocument()
+    fireEvent.click(desktop.getByRole('button', {name: /Anniversary ends/}))
+    expect(desktop.queryByText(launchNote)).not.toBeInTheDocument()
+    expect(desktop.getByRole('button', {name: 'Campaign event ends'})).toBeInTheDocument()
+  })
+
   it('keeps the next named patch visible within the four desktop dates', () => {
     const groups = getTimelineAgendaGroups({
       now,
@@ -130,7 +208,7 @@ describe('timeline agenda grouping', () => {
       banners: [banner('active-banner', 9, 12)],
       resetDate: date(12, 15),
     })
-    expect(groups).toHaveLength(2)
+    expect(groups).toHaveLength(4)
     expect(groups[0].moments).toMatchObject([{title: 'upcoming', action: 'start', kind: 'event'}])
     expect(groups[1].moments.map((moment) => moment.kind)).toEqual([
       'event',
@@ -140,6 +218,7 @@ describe('timeline agenda grouping', () => {
       'season',
     ])
     expect(groups[1].moments.filter((moment) => moment.action === 'end')).toHaveLength(3)
+    expect(groups[2].moments).toMatchObject([{id: 'upcoming', action: 'end', at: date(15)}])
     const onSelect = vi.fn()
     render(
       <MemoryRouter>
@@ -156,6 +235,18 @@ describe('timeline agenda grouping', () => {
     expect(grouped).toHaveAttribute('aria-expanded', 'false')
     fireEvent.click(grouped)
     expect(grouped).toHaveAttribute('aria-expanded', 'true')
+    const starting = desktop.getByRole('list', {name: 'Starting events'})
+    const endingEvents = desktop.getByRole('list', {name: 'Ending events'})
+    const endingBanners = desktop.getByRole('list', {name: 'Ending banners'})
+    expect(within(starting).getByRole('button', {name: 'other-start starts'})).toHaveTextContent(
+      /^other-start$/,
+    )
+    expect(within(endingEvents).getByRole('button', {name: 'active-2 ends'})).toHaveTextContent(
+      /^active-2$/,
+    )
+    expect(
+      within(endingBanners).getByRole('button', {name: 'active-banner ends'}),
+    ).toHaveTextContent(/^active-banner$/)
     const reset = desktop.getByRole('link', {name: /D-Zone reset/})
     expect(reset.querySelector('time')).toHaveAttribute('datetime', date(12, 15))
     fireEvent.click(desktop.getByRole('button', {name: /active-2 ends/}))
@@ -190,6 +281,60 @@ describe('timeline agenda grouping', () => {
     expect(getDesktopAgendaGroups(active).at(-1)?.moments[0].kind).toBe('season')
 
     expect(getTimelineAgendaGroups({...input, now: new Date(end)})).toEqual([])
+  })
+
+  it('dismisses a grouped desktop date when selecting an adjacent standalone end', () => {
+    const groups = getTimelineAgendaGroups({
+      now,
+      filter: 'all',
+      events: [event('Campaign event', 9, 12), event('Standalone event', 9, 13)],
+      banners: [],
+      patches: [
+        {id: 'campaign', title: 'Campaign', kind: 'anniversary', date: date(9), endDate: date(12)},
+      ],
+    })
+    const onSelect = vi.fn()
+    render(
+      <MemoryRouter>
+        <TimelineAgenda groups={groups} now={now} onSelect={onSelect} />
+      </MemoryRouter>,
+    )
+    const desktop = within(screen.getByRole('region', {name: 'Upcoming timeline moments'}))
+    const grouped = desktop.getByRole('button', {name: /Campaign ends/})
+    fireEvent.click(grouped)
+    expect(desktop.getByRole('button', {name: 'Campaign event ends'})).toBeInTheDocument()
+    fireEvent.click(desktop.getByRole('button', {name: /Standalone event ends/}))
+    expect(onSelect).toHaveBeenCalledWith('Standalone event')
+    expect(grouped).toHaveAttribute('aria-expanded', 'false')
+    expect(desktop.queryByRole('button', {name: 'Campaign event ends'})).not.toBeInTheDocument()
+  })
+
+  it('caps both agendas at 60 calendar days without losing the active campaign highlight', () => {
+    const groups = getTimelineAgendaGroups({
+      now,
+      filter: 'all',
+      events: [event('Within range', 9, 70), event('Out of range', 9, 71)],
+      banners: [],
+      patches: [
+        {id: 'long', title: 'Long campaign', kind: 'anniversary', date: date(9), endDate: date(80)},
+      ],
+    })
+    render(
+      <MemoryRouter>
+        <TimelineAgenda groups={groups} now={now} onSelect={vi.fn()} />
+      </MemoryRouter>,
+    )
+    const mobile = within(screen.getByRole('list', {name: 'Upcoming dates', hidden: true}))
+    expect(mobile.getByText('Within range', {exact: true})).toBeInTheDocument()
+    expect(mobile.queryByText('Out of range', {exact: true})).not.toBeInTheDocument()
+    const desktop = within(screen.getByRole('region', {name: 'Upcoming timeline moments'}))
+    expect(desktop.getByText('Within range ends', {exact: true})).toBeInTheDocument()
+    expect(screen.queryByText('Out of range ends', {exact: true})).not.toBeInTheDocument()
+    expect(screen.queryByText('Long campaign ends', {exact: true})).not.toBeInTheDocument()
+    expect(screen.getByText('Now').closest('.timeline-agenda-node')).toHaveAttribute(
+      'data-campaign',
+      'true',
+    )
   })
 
   it.each([
@@ -261,22 +406,20 @@ describe('timeline agenda grouping', () => {
       events,
       banners: [banner('hidden', 11, 12)],
     })
-    expect(groups).toHaveLength(5)
-    expect(groups.flatMap((group) => group.moments).map((moment) => moment.title)).toEqual([
-      'event-11',
-      'event-12',
-      'event-13',
-      'event-14',
-      'event-15',
-    ])
+    expect(groups).toHaveLength(6)
+    const moments = groups.flatMap((group) => group.moments)
+    const titles = ['event-11', 'event-12', 'event-13', 'event-14', 'event-15']
+    expect(moments.filter(({action}) => action === 'start').map(({title}) => title)).toEqual(titles)
+    expect(moments.filter(({action}) => action === 'end').map(({title}) => title)).toEqual(titles)
     const banners = getTimelineAgendaGroups({
       now,
       filter: 'banners',
       events,
       banners: [banner('shown', 11, 12)],
     })
-    expect(banners.flatMap((group) => group.moments).map((moment) => moment.title)).toEqual([
-      'shown',
+    expect(banners.flatMap((group) => group.moments)).toMatchObject([
+      {id: 'shown', action: 'start', at: date(11)},
+      {id: 'shown', action: 'end', at: date(12)},
     ])
   })
 
@@ -314,7 +457,7 @@ describe('timeline agenda grouping', () => {
         {...patch, id: 'quiet', title: 'Later update', date: date(14)},
       ],
     })
-    expect(groups.map((group) => group.patch?.id)).toEqual([undefined, 'anniv', 'quiet'])
+    expect(groups.map((group) => group.patch?.id)).toEqual([undefined, 'anniv', 'quiet', undefined])
     render(
       <MemoryRouter>
         <TimelineAgenda groups={groups} now={now} onSelect={vi.fn()} />

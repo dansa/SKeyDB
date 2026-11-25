@@ -49,6 +49,28 @@ export function EventArt({
   ) : null
 }
 
+function getEventMetaAmount(event: EventEntry, priceMode: TimelinePriceDisplayMode) {
+  if (event.pricing) {
+    const price = formatTimelinePrice(event.pricing, priceMode)
+    const rewardPrices = event.rewards?.flatMap((group) => (group.price ? [group.price] : []))
+    const hasPremiumTrack =
+      event.category !== 'preorder' && rewardPrices?.length === 2 && rewardPrices.includes('Free')
+    return price && hasPremiumTrack ? `Premium: ${price}` : price
+  }
+
+  const thresholds = event.missions?.flatMap((mission) =>
+    'silverPrimeExtracted' in mission ? [mission.silverPrimeExtracted] : [],
+  )
+  if (!thresholds?.length) return undefined
+
+  const min = Math.min(...thresholds)
+  const max = Math.max(...thresholds)
+  const amount = min === max ? String(min) : `${String(min)}-${String(max)}`
+  const value = formatTimelinePrice(`${amount} Silver Prime`, priceMode, {includeGifted: false})
+  const label = priceMode === 'usd-estimate' ? 'Base extraction cost' : 'Base Prime extracted'
+  return value ? `${label}: ${value}` : undefined
+}
+
 export function EventMeta({
   compact = false,
   event,
@@ -64,7 +86,7 @@ export function EventMeta({
 }) {
   const ended = getTimelineStatus(event.startDate, event.endDate, now) === 'ended'
   const tone = ended ? 'ended' : CATEGORY_TONE[event.category ?? 'other']
-  const price = showPrice ? formatTimelinePrice(event.pricing, priceMode) : undefined
+  const amount = showPrice ? getEventMetaAmount(event, priceMode) : undefined
   return (
     <div
       className={`flex items-center gap-x-1.5 gap-y-1 text-[0.64rem] leading-tight font-extrabold tracking-[0.11em] uppercase ${compact ? 'flex-wrap sm:flex-nowrap sm:overflow-hidden sm:whitespace-nowrap' : 'flex-wrap'}`}
@@ -86,32 +108,28 @@ export function EventMeta({
           <span className='shrink-0 text-slate-400'>Preliminary</span>
         </>
       ) : null}
-      <EventMetaPrice compact={compact} ended={ended} event={event} price={price} />
+      <EventMetaAmount amount={amount} compact={compact} ended={ended} />
     </div>
   )
 }
 
-function EventMetaPrice({
+function EventMetaAmount({
+  amount,
   compact,
   ended,
-  event,
-  price,
 }: {
+  amount?: string
   compact: boolean
   ended: boolean
-  event: EventEntry
-  price?: string
 }) {
-  if (!price) return null
-  const premiumOnly = event.missions?.length && event.rewards?.length === 2
+  if (!amount) return null
   return (
     <>
       <span className={`shrink-0 text-slate-600 ${compact ? 'hidden sm:inline' : ''}`}>·</span>
       <span
         className={`${compact ? 'basis-full sm:min-w-0 sm:basis-auto sm:truncate' : ''} timeline-event-meta--${ended ? 'ended' : 'price'}`}
       >
-        {premiumOnly ? 'Premium: ' : null}
-        {price}
+        {amount}
       </span>
     </>
   )
@@ -131,12 +149,11 @@ export function Countdown({
   if (!countdown || !display) return null
   const ended = countdown.label === 'Ended'
   const urgent = countdown.label === 'Ends in' && countdown.totalMs <= 72 * 60 * 60 * 1000
-  const value =
-    countdown.totalMs >= 0
-      ? countdown.days > 0
-        ? `${String(countdown.days)}d ${String(countdown.hours)}h`
-        : `${String(countdown.hours)}h ${String(countdown.minutes)}m`
-      : display.text.replace(/^Ended\s*/, '') || 'today'
+  const value = !ended
+    ? countdown.days > 0
+      ? `${String(countdown.days)}d ${String(countdown.hours)}h`
+      : `${String(countdown.hours)}h ${String(countdown.minutes)}m`
+    : display.text.replace(/^Ended\s*/, '') || 'today'
   return (
     <div title={display.title}>
       <div className='text-xs leading-tight font-semibold text-slate-400'>{countdown.label}</div>

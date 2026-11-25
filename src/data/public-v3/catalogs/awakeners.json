@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "awakeners",
   "kind": "awakener",
-  "recordCount": 62,
+  "recordCount": 63,
   "records": [
     {
       "kind": "awakener",
@@ -3473,6 +3473,60 @@
       "lineupToken": "xs",
       "aliases": ["vivian"],
       "searchTags": ["STR Up", "Corrosion", "Divine Realm"]
+    },
+    {
+      "kind": "awakener",
+      "id": "awakener-0063",
+      "name": "Tulu: Godking",
+      "route": {
+        "slug": "tulu-godking",
+        "canonicalPath": "/database/awakeners/tulu-godking"
+      },
+      "assets": {
+        "icon": "asset-awakener-0063-icon"
+      },
+      "numericId": 63,
+      "ingameId": "O01EX01",
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "type": "ASSAULT",
+      "availabilityType": "LIMITED_ASTRAL_REIGN",
+      "releaseDate": "2026-11-30",
+      "faction": "Lemuria",
+      "primaryScalingBase": 20,
+      "baseStatsLv1": {
+        "CON": 39,
+        "ATK": 46,
+        "DEF": 26
+      },
+      "substatsLv1": {
+        "CritRate": 5,
+        "CritDamage": 50,
+        "AliemusRegen": 0.8,
+        "KeyflareRegen": 15,
+        "RealmMastery": 0,
+        "SigilYield": 0.6,
+        "DamageAmplification": 0,
+        "DeathResistance": 0
+      },
+      "statScaling": {
+        "CON": 1.85,
+        "ATK": 2.15,
+        "DEF": 1.2
+      },
+      "substatScaling": {
+        "CritRate": 0,
+        "CritDamage": 0,
+        "AliemusRegen": 0.8,
+        "KeyflareRegen": 0,
+        "RealmMastery": 0,
+        "SigilYield": 0.6,
+        "DamageAmplification": 0,
+        "DeathResistance": 0
+      },
+      "lineupToken": "xt",
+      "aliases": [],
+      "searchTags": ["Divine Realm"]
     }
   ]
 }

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 3,
+  "kind": "overlay",
+  "id": "overlay.tulu-godking.erosion",
+  "name": "Erosion",
+  "route": {
+    "slug": "erosion",
+    "canonicalPath": "/database/awakeners/tulu-godking/overlays/erosion"
+  },
+  "overlayType": "mechanic",
+  "ownerAwakenerId": "awakener-0063",
+  "aliases": [],
+  "descriptionTemplate": "In boss battles, Godking gains 1 stack at the start of each turn. At the end of your turn, the team takes damage equal to 10% of its Max HP per stack. Each stack removed at rebirth increases Theophany's Max HP by 80%.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Tulu: Godking"
+}

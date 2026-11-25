@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 3,
+  "kind": "talent",
+  "id": "talent.tulu-godking.dei-gratia",
+  "name": "Dei Gratia",
+  "route": {
+    "slug": "dei-gratia",
+    "canonicalPath": "/database/awakeners/tulu-godking/talents/dei-gratia"
+  },
+  "ownerAwakenerId": "awakener-0063",
+  "family": "passive",
+  "descriptionTemplate": "In boss battles only:\nGodking gains 1 {Erosion} at the start of each turn. At the end of your turn, the team takes damage equal to 10% of its Max HP per stack.\nWhen an Awakener plays {Gnosis Rouse}, Godking gains 3 {Etched Memory}.\nWhen your team is about to be defeated or after six turns elapse, Godking spends all Awakeners' Aliemus, loses all {Erosion} and Godking Authority, and becomes {Tulu: Theophany}.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Tulu: Godking"
+}

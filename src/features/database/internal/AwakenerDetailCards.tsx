@@ -1,5 +1,6 @@
 import {useMemo, type ReactNode} from 'react'
 
+import type {AwakenerForm} from '@/domain/awakener-forms'
 import type {
   AwakenerEnlightenRecord,
   AwakenerSkillRecord,
@@ -31,6 +32,7 @@ import {
 } from './text-styles'
 
 interface AwakenerDetailCardsProps {
+  form?: AwakenerForm
   leadingContent?: ReactNode
   shellView: ResolvedAwakenerDatabaseShellView | null
   referenceLayer: ResolvedDatabaseReferenceLayer | null
@@ -56,6 +58,7 @@ interface CardSectionMeta {
   key: string
   costKind: CardCostKind
   classificationReferenceName?: string
+  showCost?: boolean
 }
 
 function getVariableCostDescription(cost: string): string | undefined {
@@ -138,6 +141,7 @@ function AwakenerCardDescription({
 function AwakenerCardSection<TRecord extends AwakenerSkillRecord | DerivedSkillRecord>({
   anchorId,
   entries,
+  intro,
   exaltBaseCost,
   formulaContext,
   getEntryMeta,
@@ -152,6 +156,7 @@ function AwakenerCardSection<TRecord extends AwakenerSkillRecord | DerivedSkillR
 }: {
   anchorId: string
   entries: DatabaseDescribedEntry<TRecord>[]
+  intro?: string
   exaltBaseCost: string | undefined
   formulaContext: ResolvedAwakenerDatabaseShellView['formulaContext']
   getEntryMeta: (entry: DatabaseDescribedEntry<TRecord>) => CardSectionMeta
@@ -174,12 +179,24 @@ function AwakenerCardSection<TRecord extends AwakenerSkillRecord | DerivedSkillR
       <h4 className={DATABASE_SECTION_TITLE_CLASS} style={getDatabaseDetailSectionHeadingStyle()}>
         {title}
       </h4>
+      {intro ? (
+        <p
+          className={`px-4 py-2 ${DATABASE_DETAIL_BODY_CLASS}`}
+          style={getDatabaseDetailBodyStyle()}
+        >
+          <DatabaseScopedRichDescription
+            referenceLayer={referenceLayer}
+            showTagIcons={showTagIcons}
+            text={intro}
+          />
+        </p>
+      ) : null}
       <div>
         {entries.map((entry, index) => {
           const meta = getEntryMeta(entry)
           const displayCost = getCardDisplayCost(entry.record.cost, meta.costKind, exaltBaseCost)
           const metadataLabels = [
-            `Cost ${displayCost}`,
+            ...(meta.showCost === false ? [] : [`Cost ${displayCost}`]),
             ...getCanonicalCardClassificationLabels(entry.record),
           ]
 
@@ -211,7 +228,7 @@ function AwakenerCardSection<TRecord extends AwakenerSkillRecord | DerivedSkillR
                             <span>{label}</span>
                           )
 
-                        return labelIndex === 0 ? (
+                        return labelIndex === 0 && meta.showCost !== false ? (
                           <span
                             key={`${label}:${labelIndex.toString()}`}
                             className={`${DATABASE_STAT_TOKEN_CLASS} whitespace-nowrap`}
@@ -223,7 +240,7 @@ function AwakenerCardSection<TRecord extends AwakenerSkillRecord | DerivedSkillR
                             key={`${label}:${labelIndex.toString()}`}
                             className='inline-flex items-center gap-1.5 whitespace-nowrap'
                           >
-                            <span className='text-slate-600'>·</span>
+                            {labelIndex > 0 ? <span className='text-slate-600'>·</span> : null}
                             {labelNode}
                           </span>
                         )
@@ -264,6 +281,7 @@ function AwakenerCardSection<TRecord extends AwakenerSkillRecord | DerivedSkillR
 }
 
 export function AwakenerDetailCards({
+  form,
   leadingContent,
   shellView,
   referenceLayer,
@@ -283,38 +301,48 @@ export function AwakenerDetailCards({
   const groups: {
     id: string
     title: string
+    intro?: string
     entries: DatabaseDescribedEntry<AwakenerSkillRecord | DerivedSkillRecord>[]
     getEntryMeta: (
       entry: DatabaseDescribedEntry<AwakenerSkillRecord | DerivedSkillRecord>,
     ) => CardSectionMeta
-  }[] = [
-    {
-      id: 'skills-exalts',
-      title: 'Exalts',
-      entries: shellView.exalts,
-      getEntryMeta: (entry) => ({
-        key: entry.key,
-        costKind: 'kind' in entry.record ? entry.record.kind : 'other',
-        classificationReferenceName: entry.key === 'OverExalt' ? 'Over Exalt' : undefined,
-      }),
-    },
-    {
-      id: 'skills-base-cards',
-      title: 'Base Cards',
-      entries: shellView.commandCards,
-      getEntryMeta: (entry) => ({
-        key: entry.key,
-        costKind: 'kind' in entry.record ? entry.record.kind : 'other',
-        classificationReferenceName: entry.key === 'C1' ? 'Rouse' : undefined,
-      }),
-    },
-    {
-      id: 'skills-extra-cards',
-      title: 'Extra Cards',
-      entries: shellView.promotedExtras,
-      getEntryMeta: (entry) => ({key: entry.record.id, costKind: 'other'}),
-    },
-  ]
+  }[] = form
+    ? (shellView.formSkillGroups?.get(form.key) ?? []).map((group) => ({
+        ...group,
+        getEntryMeta: (entry) => ({
+          key: entry.key,
+          costKind: 'other',
+          showCost: entry.record.cost !== undefined,
+        }),
+      }))
+    : [
+        {
+          id: 'skills-exalts',
+          title: 'Exalts',
+          entries: shellView.exalts,
+          getEntryMeta: (entry) => ({
+            key: entry.key,
+            costKind: 'kind' in entry.record ? entry.record.kind : 'other',
+            classificationReferenceName: entry.key === 'OverExalt' ? 'Over Exalt' : undefined,
+          }),
+        },
+        {
+          id: 'skills-base-cards',
+          title: 'Base Cards',
+          entries: shellView.commandCards,
+          getEntryMeta: (entry) => ({
+            key: entry.key,
+            costKind: 'kind' in entry.record ? entry.record.kind : 'other',
+            classificationReferenceName: entry.key === 'C1' ? 'Rouse' : undefined,
+          }),
+        },
+        {
+          id: 'skills-extra-cards',
+          title: 'Extra Cards',
+          entries: shellView.promotedExtras,
+          getEntryMeta: (entry) => ({key: entry.record.id, costKind: 'other'}),
+        },
+      ]
   const visibleGroups = groups.filter((group) => group.entries.length > 0)
   const indexItems = visibleGroups.map((group) => ({
     id: group.id,
@@ -326,7 +354,12 @@ export function AwakenerDetailCards({
   }))
 
   return (
-    <DetailIndexedReader items={indexItems} scrollKey='skills' defaultExpandedGroups='all'>
+    <DetailIndexedReader
+      key={form?.key}
+      items={indexItems}
+      scrollKey={form?.key ?? 'skills'}
+      defaultExpandedGroups='all'
+    >
       {leadingContent}
       <div className='space-y-4'>
         {visibleGroups.map((group) => (
@@ -334,6 +367,7 @@ export function AwakenerDetailCards({
             key={group.id}
             anchorId={group.id}
             entries={group.entries}
+            intro={group.intro}
             exaltBaseCost={exaltBaseCost}
             formulaContext={shellView.formulaContext}
             getEntryMeta={group.getEntryMeta}

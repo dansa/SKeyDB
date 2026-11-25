@@ -1053,6 +1053,23 @@
         ]
       }
     },
+    "asset-awakener-0063-icon": {
+      "id": "asset-awakener-0063-icon",
+      "slot": "icon",
+      "kind": "awakener",
+      "ownerId": "awakener-0063",
+      "assetId": "tulu-godking",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/awk-cards/tulu-godking.webp",
+        "candidates": [
+          "src/assets/awk-cards/tulu-godking.webp",
+          "src/assets/awk-cards/tulu-godking.png",
+          "src/assets/awk-portraits/tulu-godking.webp",
+          "src/assets/awk-portraits/tulu-godking.png"
+        ]
+      }
+    },
     "asset-wheel-0001-icon": {
       "id": "asset-wheel-0001-icon",
       "slot": "icon",
@@ -2851,6 +2868,42 @@
         "status": "available",
         "path": "src/assets/wheels/Weapon_Full_JP13.webp",
         "candidates": ["src/assets/wheels/Weapon_Full_JP13.webp", "src/assets/wheels/Weapon_Full_JP13.png"]
+      }
+    },
+    "asset-wheel-0185-icon": {
+      "id": "asset-wheel-0185-icon",
+      "slot": "icon",
+      "kind": "wheel",
+      "ownerId": "wheel-0185",
+      "assetId": "Weapon_Full_O01EX",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/wheels/Weapon_Full_O01EX.webp",
+        "candidates": ["src/assets/wheels/Weapon_Full_O01EX.webp", "src/assets/wheels/Weapon_Full_O01EX.png"]
+      }
+    },
+    "asset-wheel-0186-icon": {
+      "id": "asset-wheel-0186-icon",
+      "slot": "icon",
+      "kind": "wheel",
+      "ownerId": "wheel-0186",
+      "assetId": "Weapon_Full_SR38",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/wheels/Weapon_Full_SR38.webp",
+        "candidates": ["src/assets/wheels/Weapon_Full_SR38.webp", "src/assets/wheels/Weapon_Full_SR38.png"]
+      }
+    },
+    "asset-wheel-0187-icon": {
+      "id": "asset-wheel-0187-icon",
+      "slot": "icon",
+      "kind": "wheel",
+      "ownerId": "wheel-0187",
+      "assetId": "Weapon_Full_ZL09",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/wheels/Weapon_Full_ZL09.webp",
+        "candidates": ["src/assets/wheels/Weapon_Full_ZL09.webp", "src/assets/wheels/Weapon_Full_ZL09.png"]
       }
     },
     "asset-relic-0001-icon": {
@@ -11565,6 +11618,42 @@
         "candidates": ["src/assets/posse/Icon/KeyToken_Skill_59.webp", "src/assets/posse/Icon/KeyToken_Skill_59.png"]
       }
     },
+    "asset-posse-0065-badge": {
+      "id": "asset-posse-0065-badge",
+      "slot": "badge",
+      "kind": "posse",
+      "ownerId": "posse-0065",
+      "assetId": "KeyToken_Props_60",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/Badge/KeyToken_Props_60.webp",
+        "candidates": ["src/assets/posse/Badge/KeyToken_Props_60.webp", "src/assets/posse/Badge/KeyToken_Props_60.png"]
+      }
+    },
+    "asset-posse-0065-crystal": {
+      "id": "asset-posse-0065-crystal",
+      "slot": "crystal",
+      "kind": "posse",
+      "ownerId": "posse-0065",
+      "assetId": "KeyToken_Crystal_00",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/FullArt/KeyToken_Crystal_00.webp",
+        "candidates": ["src/assets/posse/FullArt/KeyToken_Crystal_00.webp", "src/assets/posse/FullArt/KeyToken_Crystal_00.png"]
+      }
+    },
+    "asset-posse-0065-icon": {
+      "id": "asset-posse-0065-icon",
+      "slot": "icon",
+      "kind": "posse",
+      "ownerId": "posse-0065",
+      "assetId": "KeyToken_Skill_60",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/posse/Icon/KeyToken_Skill_60.webp",
+        "candidates": ["src/assets/posse/Icon/KeyToken_Skill_60.webp", "src/assets/posse/Icon/KeyToken_Skill_60.png"]
+      }
+    },
     "asset-overlay.aigis.petrify-icon": {
       "id": "asset-overlay.aigis.petrify-icon",
       "slot": "icon",
@@ -12321,6 +12410,18 @@
         "candidates": ["src/assets/icons/IconS_Buff_087.webp", "src/assets/icons/IconS_Buff_087.png"]
       }
     },
+    "asset-overlay.tulu-godking.etched-memory-icon": {
+      "id": "asset-overlay.tulu-godking.etched-memory-icon",
+      "slot": "icon",
+      "kind": "overlay",
+      "ownerId": "overlay.tulu-godking.etched-memory",
+      "assetId": "IconS_Buff_099",
+      "availability": {
+        "status": "available",
+        "path": "src/assets/icons/IconS_Buff_099.webp",
+        "candidates": ["src/assets/icons/IconS_Buff_099.webp", "src/assets/icons/IconS_Buff_099.png"]
+      }
+    },
     "asset-overlay.tulu.the-stars-are-right-icon": {
       "id": "asset-overlay.tulu.the-stars-are-right-icon",
       "slot": "icon",
@@ -12616,6 +12717,9 @@
     },
     "awakener-0062": {
       "icon": "asset-awakener-0062-icon"
+    },
+    "awakener-0063": {
+      "icon": "asset-awakener-0063-icon"
     },
     "wheel-0001": {
       "icon": "asset-wheel-0001-icon"
@@ -13066,6 +13170,15 @@
     },
     "wheel-0184": {
       "icon": "asset-wheel-0184-icon"
+    },
+    "wheel-0185": {
+      "icon": "asset-wheel-0185-icon"
+    },
+    "wheel-0186": {
+      "icon": "asset-wheel-0186-icon"
+    },
+    "wheel-0187": {
+      "icon": "asset-wheel-0187-icon"
     },
     "relic-0001": {
       "icon": "asset-relic-0001-icon"
@@ -14452,6 +14565,11 @@
       "crystal": "asset-posse-0064-crystal",
       "badge": "asset-posse-0064-badge"
     },
+    "posse-0065": {
+      "icon": "asset-posse-0065-icon",
+      "crystal": "asset-posse-0065-crystal",
+      "badge": "asset-posse-0065-badge"
+    },
     "overlay.aigis.petrify": {
       "icon": "asset-overlay.aigis.petrify-icon"
     },
@@ -14640,6 +14758,9 @@
     },
     "overlay.saya.gynoecium": {
       "icon": "asset-overlay.saya.gynoecium-icon"
+    },
+    "overlay.tulu-godking.etched-memory": {
+      "icon": "asset-overlay.tulu-godking.etched-memory-icon"
     },
     "overlay.tulu.the-stars-are-right": {
       "icon": "asset-overlay.tulu.the-stars-are-right-icon"

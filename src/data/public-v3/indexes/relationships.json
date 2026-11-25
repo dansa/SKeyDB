@@ -1662,6 +1662,28 @@
         "overlay.vivian.unclean-toad-god"
       ]
     },
+    "awakener-0063": {
+      "ownedWheels": ["wheel-0185", "wheel-0186"],
+      "ownedPosses": ["posse-0065"],
+      "ownedSkills": [
+        "skill.tulu-godking.axis-mundi",
+        "skill.tulu-godking.defense",
+        "skill.tulu-godking.great-old-decree",
+        "skill.tulu-godking.lex-divina",
+        "skill.tulu-godking.strike",
+        "skill.tulu-godking.undying-epitaph",
+        "skill.tulu-godking.world-drowning-tide"
+      ],
+      "ownedTalents": ["talent.tulu-godking.lightless-bottom", "talent.tulu-godking.dei-gratia", "talent.tulu-godking.soulforge-aptitude"],
+      "ownedEnlightens": [
+        "enlighten.tulu-godking.all-ye-stars-bow-down",
+        "enlighten.tulu-godking.by-these-stars-i-kindle",
+        "enlighten.tulu-godking.by-this-flesh-i-endure",
+        "enlighten.tulu-godking.by-this-stele-i-ordain",
+        "enlighten.tulu-godking.lex-divina"
+      ],
+      "ownedOverlays": ["overlay.tulu-godking.erosion", "overlay.tulu-godking.etched-memory"]
+    },
     "awakener-build-0001": {},
     "awakener-build-0002": {},
     "awakener-build-0003": {},
@@ -2232,6 +2254,11 @@
     "enlighten.tinct.midnight-elegy": {},
     "enlighten.tinct.stellar-reverberation": {},
     "enlighten.tinct.when-crimson-meets-thorns": {},
+    "enlighten.tulu-godking.all-ye-stars-bow-down": {},
+    "enlighten.tulu-godking.by-these-stars-i-kindle": {},
+    "enlighten.tulu-godking.by-this-flesh-i-endure": {},
+    "enlighten.tulu-godking.by-this-stele-i-ordain": {},
+    "enlighten.tulu-godking.lex-divina": {},
     "enlighten.tulu.lone-king": {},
     "enlighten.tulu.nocturnal-murmurs": {},
     "enlighten.tulu.the-promised-day": {},
@@ -2353,8 +2380,10 @@
     "overlay.global.forbidden-lore": {},
     "overlay.global.fortress": {},
     "overlay.global.fragile": {},
+    "overlay.global.gnosis-rouse": {},
     "overlay.global.infinite-devour": {},
     "overlay.global.innate": {},
+    "overlay.global.keyflare-rouse": {},
     "overlay.global.leap": {},
     "overlay.global.lemurian": {},
     "overlay.global.madness": {},
@@ -2444,6 +2473,8 @@
     "overlay.ryker.chaotic-legacy": {},
     "overlay.ryker.winner-takes-all": {},
     "overlay.saya.gynoecium": {},
+    "overlay.tulu-godking.erosion": {},
+    "overlay.tulu-godking.etched-memory": {},
     "overlay.tulu.the-stars-are-right": {},
     "overlay.vivian.boiling-anger": {},
     "overlay.vivian.concoct": {},
@@ -2520,6 +2551,7 @@
     "posse-0062": {},
     "posse-0063": {},
     "posse-0064": {},
+    "posse-0065": {},
     "relic-0001": {},
     "relic-0002": {},
     "relic-0003": {},
@@ -3219,6 +3251,13 @@
     "skill.tinct.voices-from-beyond": {
       "relatedOrisons": ["orison-0001", "orison-0002", "orison-0003", "orison-0004", "orison-0005", "orison-0006"]
     },
+    "skill.tulu-godking.axis-mundi": {},
+    "skill.tulu-godking.defense": {},
+    "skill.tulu-godking.great-old-decree": {},
+    "skill.tulu-godking.lex-divina": {},
+    "skill.tulu-godking.strike": {},
+    "skill.tulu-godking.undying-epitaph": {},
+    "skill.tulu-godking.world-drowning-tide": {},
     "skill.tulu.abyss-order": {},
     "skill.tulu.defense": {},
     "skill.tulu.immortal-majesty": {},
@@ -3477,6 +3516,9 @@
     "talent.tinct.madness-omen": {},
     "talent.tinct.planetary-traveler": {},
     "talent.tinct.soulforge-aptitude": {},
+    "talent.tulu-godking.dei-gratia": {},
+    "talent.tulu-godking.lightless-bottom": {},
+    "talent.tulu-godking.soulforge-aptitude": {},
     "talent.tulu.divine-kings-power": {},
     "talent.tulu.gnostic-potential": {},
     "talent.tulu.madness-omen": {},
@@ -3651,7 +3693,10 @@
     "wheel-0181": {},
     "wheel-0182": {},
     "wheel-0183": {},
-    "wheel-0184": {}
+    "wheel-0184": {},
+    "wheel-0185": {},
+    "wheel-0186": {},
+    "wheel-0187": {}
   },
   "reverse": {
     "awakener-0001": {},
@@ -3716,6 +3761,7 @@
     "awakener-0060": {},
     "awakener-0061": {},
     "awakener-0062": {},
+    "awakener-0063": {},
     "awakener-build-0001": {
       "awakenerId": "awakener-0001"
     },
@@ -5206,6 +5252,21 @@
     "enlighten.tinct.when-crimson-meets-thorns": {
       "ownerAwakenerId": "awakener-0049"
     },
+    "enlighten.tulu-godking.all-ye-stars-bow-down": {
+      "ownerAwakenerId": "awakener-0063"
+    },
+    "enlighten.tulu-godking.by-these-stars-i-kindle": {
+      "ownerAwakenerId": "awakener-0063"
+    },
+    "enlighten.tulu-godking.by-this-flesh-i-endure": {
+      "ownerAwakenerId": "awakener-0063"
+    },
+    "enlighten.tulu-godking.by-this-stele-i-ordain": {
+      "ownerAwakenerId": "awakener-0063"
+    },
+    "enlighten.tulu-godking.lex-divina": {
+      "ownerAwakenerId": "awakener-0063"
+    },
     "enlighten.tulu.lone-king": {
       "ownerAwakenerId": "awakener-0050"
     },
@@ -5461,8 +5522,10 @@
     "overlay.global.forbidden-lore": {},
     "overlay.global.fortress": {},
     "overlay.global.fragile": {},
+    "overlay.global.gnosis-rouse": {},
     "overlay.global.infinite-devour": {},
     "overlay.global.innate": {},
+    "overlay.global.keyflare-rouse": {},
     "overlay.global.leap": {},
     "overlay.global.lemurian": {},
     "overlay.global.madness": {},
@@ -5623,6 +5686,12 @@
     },
     "overlay.saya.gynoecium": {
       "ownerAwakenerId": "awakener-0057"
+    },
+    "overlay.tulu-godking.erosion": {
+      "ownerAwakenerId": "awakener-0063"
+    },
+    "overlay.tulu-godking.etched-memory": {
+      "ownerAwakenerId": "awakener-0063"
     },
     "overlay.tulu.the-stars-are-right": {
       "ownerAwakenerId": "awakener-0050"
@@ -5803,6 +5872,9 @@
     },
     "posse-0064": {
       "ownerAwakenerId": "awakener-0062"
+    },
+    "posse-0065": {
+      "ownerAwakenerId": "awakener-0063"
     },
     "relic-0001": {
       "ownerAwakenerId": "awakener-0001"
@@ -7393,6 +7465,27 @@
     "skill.tinct.voices-from-beyond": {
       "ownerAwakenerId": "awakener-0049"
     },
+    "skill.tulu-godking.axis-mundi": {
+      "ownerAwakenerId": "awakener-0063"
+    },
+    "skill.tulu-godking.defense": {
+      "ownerAwakenerId": "awakener-0063"
+    },
+    "skill.tulu-godking.great-old-decree": {
+      "ownerAwakenerId": "awakener-0063"
+    },
+    "skill.tulu-godking.lex-divina": {
+      "ownerAwakenerId": "awakener-0063"
+    },
+    "skill.tulu-godking.strike": {
+      "ownerAwakenerId": "awakener-0063"
+    },
+    "skill.tulu-godking.undying-epitaph": {
+      "ownerAwakenerId": "awakener-0063"
+    },
+    "skill.tulu-godking.world-drowning-tide": {
+      "ownerAwakenerId": "awakener-0063"
+    },
     "skill.tulu.abyss-order": {
       "ownerAwakenerId": "awakener-0050"
     },
@@ -8167,6 +8260,15 @@
     "talent.tinct.soulforge-aptitude": {
       "ownerAwakenerId": "awakener-0049"
     },
+    "talent.tulu-godking.dei-gratia": {
+      "ownerAwakenerId": "awakener-0063"
+    },
+    "talent.tulu-godking.lightless-bottom": {
+      "ownerAwakenerId": "awakener-0063"
+    },
+    "talent.tulu-godking.soulforge-aptitude": {
+      "ownerAwakenerId": "awakener-0063"
+    },
     "talent.tulu.divine-kings-power": {
       "ownerAwakenerId": "awakener-0050"
     },
@@ -8583,6 +8685,13 @@
       "ownerAwakenerId": "awakener-0062"
     },
     "wheel-0183": {},
-    "wheel-0184": {}
+    "wheel-0184": {},
+    "wheel-0185": {
+      "ownerAwakenerId": "awakener-0063"
+    },
+    "wheel-0186": {
+      "ownerAwakenerId": "awakener-0063"
+    },
+    "wheel-0187": {}
   }
 }
