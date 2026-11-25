@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 3,
+  "kind": "overlay",
+  "id": "overlay.tulu-godking.etched-memory",
+  "name": "Etched Memory",
+  "route": {
+    "slug": "etched-memory",
+    "canonicalPath": "/database/awakeners/tulu-godking/overlays/etched-memory"
+  },
+  "assets": {
+    "icon": "asset-overlay.tulu-godking.etched-memory-icon"
+  },
+  "overlayType": "mechanic",
+  "ownerAwakenerId": "awakener-0063",
+  "aliases": [],
+  "iconId": "IconS_Buff_099",
+  "descriptionTemplate": "Godking's resource. Normally caps at 50 and carries between battles in the same stage. Theophany's bonuses are set at rebirth and don't fall when Runes spend stacks.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Tulu: Godking"
+}

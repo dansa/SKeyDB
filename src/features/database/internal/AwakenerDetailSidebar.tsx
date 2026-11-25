@@ -20,11 +20,14 @@ interface AwakenerDetailSidebarProps {
   selection: AwakenerDatabaseSelection
   onPatchSelection: (nextPartial: Partial<AwakenerDatabaseSelection>) => void
   onOpenFullArt?: () => void
+  formArt?: {asset: string; name: string}
   stats: FullStats | null
   substatScaling: SubstatScaling | null
   scalingRecord: ScalingInfoRecord
   compact?: boolean
+  collapseProgression?: boolean
   profile?: AwakenerProfile | null
+  statsNote?: string
   variant?: 'progression' | 'profile'
   areStatsExpanded?: boolean
   onStatsExpandedChange?: (isExpanded: boolean) => void
@@ -36,26 +39,40 @@ export function AwakenerDetailSidebar({
   selection,
   onPatchSelection,
   onOpenFullArt,
+  formArt,
   stats,
   substatScaling,
   scalingRecord,
   compact,
+  collapseProgression,
   profile,
+  statsNote,
   variant = 'progression',
   areStatsExpanded,
   onStatsExpandedChange,
 }: AwakenerDetailSidebarProps) {
-  const displayName = formatAwakenerNameForUi(awakener.name)
-  const cardAsset = getAwakenerCardAsset(awakener.name)
+  const displayName = formArt?.name ?? formatAwakenerNameForUi(awakener.name)
+  const cardAsset = formArt?.asset ?? getAwakenerCardAsset(awakener.name)
   const fullArtLabel = `View full art for ${displayName}`
-  const progressionSection = (
+  const progressionControls = (
+    <AwakenerDetailStateControls
+      compact={compact}
+      controls={controls}
+      onPatchSelection={onPatchSelection}
+      selection={selection}
+    />
+  )
+  const progressionSection = collapseProgression ? (
+    <details className='border border-slate-600/40 bg-slate-900/30'>
+      <summary className='cursor-pointer px-3 py-2.5 text-sm text-slate-200'>
+        Progression
+        <span className='ml-2 text-xs text-slate-400'>Skill Lv. {selection.skillLevel}</span>
+      </summary>
+      <div className='border-t border-slate-600/40 p-3'>{progressionControls}</div>
+    </details>
+  ) : (
     <div className='border border-slate-600/30 bg-slate-900/30 px-3 py-2'>
-      <AwakenerDetailStateControls
-        compact={compact}
-        controls={controls}
-        onPatchSelection={onPatchSelection}
-        selection={selection}
-      />
+      {progressionControls}
     </div>
   )
 
@@ -76,6 +93,7 @@ export function AwakenerDetailSidebar({
       compact={compact}
       gnosticPotentialLevel={selection.gnosticPotentialLevel}
       isExpanded={areStatsExpanded}
+      note={statsNote}
       onExpandedChange={onStatsExpandedChange}
       scalingRecord={scalingRecord}
       stats={stats}
@@ -117,8 +135,8 @@ export function AwakenerDetailSidebar({
         </div>
       ) : null}
       {variant === 'profile' ? profileSection : null}
-      {compact || variant === 'profile' ? statsSection : progressionSection}
-      {compact || variant === 'profile' ? null : statsSection}
+      {!compact && variant === 'progression' ? progressionSection : null}
+      {statsSection}
       {compact ? progressionSection : null}
     </div>
   )

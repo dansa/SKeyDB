@@ -25,6 +25,19 @@ describe('timeline pricing display helpers', () => {
     expect(formatTimelinePrice('12960 Silver Prime', 'usd-estimate')).not.toBe('~$100')
   })
 
+  it('estimates cumulative extraction milestones without regular gifts or first-purchase matching', () => {
+    const paidOnly = {includeGifted: false}
+    const estimate = (amount: number) =>
+      formatTimelinePrice(`${String(amount)} Silver Prime`, 'usd-estimate', paidOnly)
+    expect([5000, 10000, 20000, 30000].map(estimate)).toEqual(['~$76', '~$152', '~$304', '~$455'])
+    expect(estimate(8080)).not.toBe('~$100')
+    expect(estimate(12960)).not.toBe('~$100')
+    expect(formatTimelinePrice('8080 Silver Prime', 'usd-estimate')).toBe('~$100')
+    expect(formatTimelinePrice('5000-30000 Silver Prime', 'usd-estimate', paidOnly)).toBe(
+      '~$76-455',
+    )
+  })
+
   it('formats embedded Silver Prime prose and exact USD prices', () => {
     expect(
       formatTimelinePrice(

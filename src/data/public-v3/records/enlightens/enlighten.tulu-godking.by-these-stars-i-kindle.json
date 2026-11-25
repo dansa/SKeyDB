@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 3,
+  "kind": "enlighten",
+  "id": "enlighten.tulu-godking.by-these-stars-i-kindle",
+  "name": "By These Stars, I Kindle",
+  "route": {
+    "slug": "by-these-stars-i-kindle",
+    "canonicalPath": "/database/awakeners/tulu-godking/enlightens/by-these-stars-i-kindle"
+  },
+  "ownerAwakenerId": "awakener-0063",
+  "slot": "E2",
+  "descriptionTemplate": "Each time Tulu triggers {Resonance}, the next {Great Old Decree}'s Command multiplier increases by 15 percentage points, up to five stacks.\nTheophany: {Turn Unique}: After playing two {Asterisms}, the next {Rune} that turn costs 2 less {Etched Memory}.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Tulu: Godking"
+}

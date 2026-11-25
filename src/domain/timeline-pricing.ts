@@ -1,27 +1,28 @@
 export type TimelinePriceDisplayMode = 'silver-prime' | 'usd-estimate'
 
 interface SilverPrimePack {
-  amount: number
+  paid: number
+  gifted: number
   cents: number
 }
 
 const SILVER_PRIME_PACKS: SilverPrimePack[] = [
-  // Base plus repeat-purchase gifted Prime; excludes first-purchase doubling.
-  {amount: 60, cents: 99},
-  {amount: 330, cents: 499},
-  {amount: 1090, cents: 1499},
-  {amount: 2240, cents: 2999},
-  {amount: 3880, cents: 4999},
-  {amount: 8080, cents: 9999},
-  {amount: 12800, cents: 14999},
-  {amount: 17500, cents: 19999},
+  // Gifted amounts are the regular bonuses, not first-purchase matches.
+  {paid: 60, gifted: 0, cents: 99},
+  {paid: 300, gifted: 30, cents: 499},
+  {paid: 980, gifted: 110, cents: 1499},
+  {paid: 1980, gifted: 260, cents: 2999},
+  {paid: 3280, gifted: 600, cents: 4999},
+  {paid: 6480, gifted: 1600, cents: 9999},
+  {paid: 9800, gifted: 3000, cents: 14999},
+  {paid: 12800, gifted: 4700, cents: 19999},
 ]
 
-const MAX_PACK_AMOUNT = Math.max(...SILVER_PRIME_PACKS.map((pack) => pack.amount))
 const PRICE_TOKEN_PATTERN =
   /(\d+(?:\.\d+)?\s*k|\d[\d,]*)(?:\s*-\s*(\d+(?:\.\d+)?\s*k|\d[\d,]*))?\s+Silver Prime/gi
 
-const estimatedCostCache = new Map<number, number>()
+const spendableCostCache = new Map<number, number>()
+const extractionCostCache = new Map<number, number>()
 
 function parseSilverPrimeAmount(value: string): number {
   const normalized = value.replace(/\s+/g, '').replace(/,/g, '').toLowerCase()
@@ -31,16 +32,22 @@ function parseSilverPrimeAmount(value: string): number {
   return Number(normalized)
 }
 
-function estimateSilverPrimeCostCents(amount: number): number | null {
-  if (!Number.isFinite(amount) || amount <= 0) return null
-  if (estimatedCostCache.has(amount)) return estimatedCostCache.get(amount) ?? null
+function estimateSilverPrimeCostCents(amount: number, includeGifted: boolean): number | null {
+  if (!Number.isSafeInteger(amount) || amount <= 0) return null
+  const cache = includeGifted ? spendableCostCache : extractionCostCache
+  const cached = cache.get(amount)
+  if (cached !== undefined) return cached
 
-  const limit = amount + MAX_PACK_AMOUNT - 1
+  const packs = SILVER_PRIME_PACKS.map(({paid, gifted, cents}) => ({
+    amount: paid + (includeGifted ? gifted : 0),
+    cents,
+  }))
+  const limit = amount + Math.max(...packs.map((pack) => pack.amount)) - 1
   const costs = new Array<number>(limit + 1).fill(Number.POSITIVE_INFINITY)
   costs[0] = 0
 
   for (let subtotal = 1; subtotal <= limit; subtotal += 1) {
-    for (const pack of SILVER_PRIME_PACKS) {
+    for (const pack of packs) {
       if (subtotal >= pack.amount) {
         costs[subtotal] = Math.min(costs[subtotal], costs[subtotal - pack.amount] + pack.cents)
       }
@@ -50,7 +57,7 @@ function estimateSilverPrimeCostCents(amount: number): number | null {
   const best = Math.min(...costs.slice(amount))
   if (!Number.isFinite(best)) return null
 
-  estimatedCostCache.set(amount, best)
+  cache.set(amount, best)
   return best
 }
 
@@ -58,14 +65,15 @@ function formatUsdCents(cents: number): string {
   return `$${String(Math.ceil(cents / 100))}`
 }
 
-function formatSilverPrimeEstimate(amount: number): string | null {
-  const cents = estimateSilverPrimeCostCents(amount)
+function formatSilverPrimeEstimate(amount: number, includeGifted: boolean): string | null {
+  const cents = estimateSilverPrimeCostCents(amount, includeGifted)
   return cents === null ? null : formatUsdCents(cents)
 }
 
 export function formatTimelinePrice(
   price: string | undefined,
   mode: TimelinePriceDisplayMode,
+  {includeGifted = true}: {includeGifted?: boolean} = {},
 ): string | undefined {
   if (!price) return price
   // Real-money prices are already exact, so both modes show them the same way.
@@ -85,12 +93,18 @@ export function formatTimelinePrice(
   return price.replace(
     PRICE_TOKEN_PATTERN,
     (match: string, startAmount: string, endAmount: string | undefined) => {
-      const startEstimate = formatSilverPrimeEstimate(parseSilverPrimeAmount(startAmount))
+      const startEstimate = formatSilverPrimeEstimate(
+        parseSilverPrimeAmount(startAmount),
+        includeGifted,
+      )
       if (!startEstimate) return match
 
       if (!endAmount) return `~${startEstimate}`
 
-      const endEstimate = formatSilverPrimeEstimate(parseSilverPrimeAmount(endAmount))
+      const endEstimate = formatSilverPrimeEstimate(
+        parseSilverPrimeAmount(endAmount),
+        includeGifted,
+      )
       if (!endEstimate) return match
 
       return `~${startEstimate}-${endEstimate.replace('$', '')}`

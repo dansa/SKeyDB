@@ -26,9 +26,13 @@ describe('timeline data loading', () => {
       date: '2026/11/30 09:00',
     }
     expect(loadTimelinePatches([patch])[0].endDate).toBeUndefined()
-    expect(loadTimelinePatches([{...patch, endDate: '2027/01/04 09:00'}])[0]).toMatchObject({
+    const launchNote = 'First top-up bonus resets.'
+    expect(
+      loadTimelinePatches([{...patch, endDate: '2027/01/04 09:00', launchNote}])[0],
+    ).toMatchObject({
       date: '2026-11-30T01:00:00.000Z',
       endDate: '2027-01-04T01:00:00.000Z',
+      launchNote,
     })
     expect(() => loadTimelinePatches([{...patch, endDate: patch.date}])).toThrow(
       /end must be after the patch date/,
@@ -47,6 +51,41 @@ describe('timeline data loading', () => {
       {label: 'Claims until', date: '2026-12-07T01:00:00.000Z'},
     ])
     expect(() => loadTimelineEvents([{...event, keyDates: [{label: '', date: 'bad'}]}])).toThrow()
+  })
+
+  it('keeps raid first-clear totals separate from guaranteed and random Avatar drops', () => {
+    const raid = timelineEvents.find(({id}) => id === 'end-astral-sea-261207')
+    expect(raid?.rewards?.[0]?.items).toContainEqual({name: 'Silver', amount: '×10,000'})
+    expect(raid?.missions?.map(({standard}) => standard)).toEqual(
+      ['×50', '×50', '×50', '×100'].map((amount) => [{name: 'Silver', amount}]),
+    )
+    expect(
+      raid?.missions?.map(({dropRoll}) => dropRoll?.map(({chancePercent}) => chancePercent)),
+    ).toEqual([
+      [75, 25],
+      [75, 25],
+      [75, 25],
+      [75, 25],
+    ])
+    const rawRaid = rawEvents.find(({id}) => id === 'end-astral-sea-261207')
+    if (!rawRaid) throw new Error('Missing End of the Astral Sea fixture.')
+    expect(() =>
+      loadTimelineEvents([
+        {
+          ...rawRaid,
+          missions: [
+            {
+              label: 'Invalid roll',
+              standard: [{name: 'Silver', amount: '×50'}],
+              dropRoll: [
+                {name: 'Pure Core', chancePercent: 75},
+                {name: 'Ethereal Core', chancePercent: 24},
+              ],
+            },
+          ],
+        },
+      ]),
+    ).toThrow(/A drop roll must total 100%/)
   })
   it('keeps the November Kaleido pools and shared milestones tied to that run', () => {
     const event = timelineEvents.find(({id}) => id === 'constellated-memories-261116')
@@ -117,7 +156,7 @@ describe('timeline data loading', () => {
       'Campus Capture Log',
     ])
     expect(meowch?.missions).toHaveLength(10)
-    expect(meowch?.missions?.at(-1)?.label).toBe('Campus: 1,000,000 total captures')
+    expect(meowch?.missions?.at(-1)).toMatchObject({label: 'Campus: 1,000,000 total captures'})
     for (const event of [stars, rendezvous, meowch]) {
       expect(event?.artVariants).toEqual({
         card: expect.stringContaining('-card.webp'),
@@ -315,6 +354,48 @@ describe('timeline data loading', () => {
       ])[0].related,
     ).toEqual(['event-test'])
   })
+
+  it('rejects a mission that mixes a text label and an extraction threshold', () => {
+    expect(() =>
+      loadTimelineEvents([
+        {
+          id: 'event-test',
+          title: 'Test',
+          startDate: '2026/03/09 09:00',
+          endDate: '2026/03/12 09:00',
+          missions: [
+            {
+              label: 'Extract Silver Prime',
+              silverPrimeExtracted: 5000,
+              standard: [{name: 'Core'}],
+            },
+          ],
+        },
+      ]),
+    ).toThrow()
+  })
+
+  it('rejects competing banner pool definitions', () => {
+    const banner = {
+      id: 'test-competing-pools',
+      title: 'Test Competing Pools',
+      type: 'premium',
+      startDate: '2026/05/18 09:00',
+      endDate: '2026/06/15 09:00',
+    }
+    const poolSlots = [{pool: ['Tulu']}]
+    const derivedPool = {availabilityTypes: ['LIMITED_ASTRAL_REIGN']}
+    const realmPools = [{realmId: 'AEQUOR', awakeners: ['Tulu'], wheels: ['Hymn of the Sovereign']}]
+
+    for (const pools of [
+      {poolSlots, derivedPool},
+      {poolSlots, realmPools},
+      {derivedPool, realmPools},
+    ]) {
+      expect(() => loadTimelineBanners([{...banner, ...pools}])).toThrow(/Use only one of/)
+    }
+  })
+
   it('links the landed Vivian content and resolves the new event artwork', () => {
     const banner = timelineBanners.find((entry) => entry.id === 'vivian-duo-261019')
     expect(banner?.featured).toEqual([
@@ -491,29 +572,49 @@ describe('timeline data loading', () => {
   it('keeps anniversary milestone thresholds and rewards in order', () => {
     const dreamy = timelineEvents.find((event) => event.id === 'dreamy-offering-260518')
     const stream = timelineEvents.find((event) => event.id === 'stream-infatuation-260518')
-    expect(dreamy?.missions?.map((tier) => [tier.label, tier.standard[0]?.amount])).toEqual([
+    expect(
+      dreamy?.missions?.map((tier) => [
+        'label' in tier ? tier.label : undefined,
+        tier.standard[0]?.amount,
+      ]),
+    ).toEqual([
       ['100 Awakens', '×100'],
       ['250 Awakens', '×200'],
       ['500 Awakens', '×300'],
       ['1,000 Awakens', '×400'],
     ])
     expect(
-      stream?.missions?.map((tier) => [tier.label, tier.standard.map((item) => item.name)]),
+      stream?.missions?.map((tier) => [
+        'silverPrimeExtracted' in tier ? tier.silverPrimeExtracted : undefined,
+        tier.standard.map((item) => item.name),
+      ]),
     ).toEqual([
-      [
-        '5,000 Silver Prime extracted',
-        ['Ultra Mapping: Astral Reign', 'Ultra Prophecy: Astral Reign'],
-      ],
-      ['10,000 Silver Prime extracted', ['Caro Birth: Astral Reign', 'Caro Whisper: Astral Reign']],
-      [
-        '20,000 Silver Prime extracted',
-        ['Aequor Mystery: Astral Reign', 'Aequor Codex: Astral Reign'],
-      ],
-      [
-        '30,000 Silver Prime extracted',
-        ['Chaos Echo: Astral Reign', 'Chaos Experiment: Astral Reign', 'Sprout of Love'],
-      ],
+      [5000, ['Ultra Mapping: Astral Reign', 'Ultra Prophecy: Astral Reign']],
+      [10000, ['Caro Birth: Astral Reign', 'Caro Whisper: Astral Reign']],
+      [20000, ['Aequor Mystery: Astral Reign', 'Aequor Codex: Astral Reign']],
+      [30000, ['Chaos Echo: Astral Reign', 'Chaos Experiment: Astral Reign', 'Sprout of Love']],
     ])
+  })
+
+  it('keeps Ex Stellis extraction rewards in their own tier order', () => {
+    const event = timelineEvents.find(({id}) => id === 'ex-stellis-261130')
+    const tiers = [
+      [5000, ['Ultra Mapping: Astral Reign', 'Ultra Prophecy: Astral Reign']],
+      [10000, ['Caro Advent: Astral Reign', 'Caro Whisper: Astral Reign']],
+      [20000, ['Chaos Echo: Astral Reign', 'Chaos Experiment: Astral Reign']],
+      [
+        30000,
+        ['Crown of Stars Aligned', 'Aequor Mystery: Astral Reign', 'Aequor Codex: Astral Reign'],
+      ],
+    ] as const
+    expect(event?.missions).toEqual(
+      tiers.map(([silverPrimeExtracted, names]) => ({
+        silverPrimeExtracted,
+        standard: names.map((name) => ({name, amount: '×1'})),
+      })),
+    )
+    expect(event?.pricing).toBeUndefined()
+    expect(event?.rewards).toBeUndefined()
   })
 
   it('enables database details for the current Lotan and Falling Upward timeline entries', () => {
@@ -602,6 +703,74 @@ describe('timeline data loading', () => {
         .find(({id}) => id === 'stars-bloom-assault-260530')
         ?.poolSlots?.[0]?.pool.map(({name}) => name),
     ).toContain('Helot: Catena')
+  })
+
+  it('loads two anniversary paid banners with four independent realm pools each', () => {
+    const banners = timelineBanners.filter(({id}) => /^stars-bloom-.+-261130$/.test(id))
+    expect(banners).toHaveLength(2)
+    for (const [arc, counts] of [
+      ['faded', [5, 3, 4, 3]],
+      ['astral', [6, 4, 5, 4]],
+    ] as const) {
+      const banner = banners.find(({id}) => id === `stars-bloom-${arc}-261130`)
+      expect(banner).toMatchObject({
+        type: 'premium',
+        pricing: 'USD 29.99',
+        startDate: '2026-11-30T01:00:00.000Z',
+        endDate: '2027-01-04T01:00:00.000Z',
+      })
+      const pools = banner?.realmPools
+      expect(pools?.map(({realmId}) => realmId)).toEqual(['CHAOS', 'AEQUOR', 'CARO', 'ULTRA'])
+      expect(pools?.map(({awakeners}) => awakeners.length)).toEqual(counts)
+      expect(pools?.map(({wheels}) => wheels.length)).toEqual(counts)
+    }
+    const astralCaro = banners[1]?.realmPools?.find(({realmId}) => realmId === 'CARO')
+    expect(astralCaro?.awakeners.map(({name}) => name)).toEqual([
+      'Doresain',
+      'Pickman',
+      'Xu',
+      'Saya',
+      'Caraboo',
+    ])
+    expect(astralCaro?.wheels.map(({name}) => name)).toEqual([
+      'Kiss of Repose',
+      'Paradoxical Realism',
+      'Vain Regrets',
+      'Fragrant Morphogenesis',
+      'Honeyed Deceit',
+    ])
+  })
+
+  it.each([
+    ['lucky-winner', 'Stakes of Wisdom'],
+    ['heure-du-the', 'Private Afternoon'],
+    ['blossom-court', 'Sakura Reveries'],
+  ])('loads the announced %s rerun rewards without carrying over missions', (series, wheel) => {
+    const event = timelineEvents.find(({id}) => id === `${series}-261130`)
+    expect(event).toMatchObject({
+      rerun: true,
+      startDate: '2026-11-30T01:00:00.000Z',
+      endDate: '2027-01-04T01:00:00.000Z',
+      featured: [{name: wheel, kind: 'wheel'}],
+      artVariants: {card: expect.any(String), detail: expect.any(String)},
+      rewards: [
+        {
+          price: 'Free',
+          items: [
+            {name: wheel, amount: '×4'},
+            {name: 'Pure Core', amount: '×30'},
+          ],
+        },
+        {
+          price: '1,680 Silver Prime',
+          items: [
+            {name: wheel, amount: '×12'},
+            {name: 'Luminous Core', amount: '×60'},
+          ],
+        },
+      ],
+    })
+    expect(event?.missions).toBeUndefined()
   })
 
   it('loads the May Kaleido SSR pools with their limited Genesis entries', () => {
@@ -970,7 +1139,7 @@ describe('timeline data loading', () => {
           },
         },
       ]),
-    ).toThrow(/either poolSlots or derivedPool/i)
+    ).toThrow(/Use only one of poolSlots, derivedPool, or realmPools/i)
 
     expect(() =>
       loadTimelineBanners([

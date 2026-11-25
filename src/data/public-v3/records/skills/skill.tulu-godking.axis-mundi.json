@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 3,
+  "kind": "skill",
+  "id": "skill.tulu-godking.axis-mundi",
+  "name": "Axis Mundis",
+  "route": {
+    "slug": "axis-mundis",
+    "canonicalPath": "/database/awakeners/tulu-godking/skills/axis-mundis"
+  },
+  "ownerAwakenerId": "awakener-0063",
+  "slot": "Rouse",
+  "cardFamily": "rouse",
+  "cardTypes": ["rouse"],
+  "descriptionTemplate": "Tulu: Godking gains [Arg2]% Base Aliemus. {Rouse}: Tentacle Limit and Tentacle Count +[Arg3]. Then gain [Arg5] {Etched Memory} the first time each other Awakener uses Exalt.",
+  "descriptionArgs": {
+    "Arg2": {
+      "kind": "scaling",
+      "values": ["25", "30", "35", "40", "45", "50"],
+      "suffix": "%"
+    },
+    "Arg3": {
+      "kind": "fixed",
+      "value": "3"
+    },
+    "Arg5": {
+      "kind": "fixed",
+      "value": "1"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    },
+    {
+      "id": "mechanic.prepare",
+      "value": 1
+    }
+  ],
+  "cost": "5",
+  "upgrades": [
+    {
+      "id": "enlighten.tulu-godking.all-ye-stars-bow-down:skill.tulu-godking.axis-mundi",
+      "operation": "mixed",
+      "upgraderId": "enlighten.tulu-godking.all-ye-stars-bow-down",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "AbsoluteAxiom",
+      "ownerAwakenerId": "awakener-0063",
+      "patch": {
+        "descriptionTemplate": "Tulu: Godking gains [Arg2]% Base Aliemus. {Rouse}: Tentacle Limit and Tentacle Count +[Arg3]. Then gain [Arg5] {Etched Memory} the first time each other Awakener uses Exalt.\n{Turn Unique}: Once Roused, Tulu gains 1 {Etched Memory} when he triggers {Resonance}.",
+        "descriptionArgs": {
+          "Arg2": {
+            "kind": "scaling",
+            "values": ["75", "80", "85", "90", "95", "100"],
+            "suffix": "%"
+          }
+        }
+      }
+    }
+  ],
+  "ownerAwakenerName": "Tulu: Godking"
+}

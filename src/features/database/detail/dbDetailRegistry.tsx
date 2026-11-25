@@ -3,6 +3,7 @@ import {lazy, type ReactNode} from 'react'
 
 import {getAwakenerPortraitAsset} from '@/domain/awakener-assets'
 import type {AwakenerLoreRoute} from '@/domain/awakener-lore-routes'
+import type {DerivedSkillRecord} from '@/domain/awakener-source-schema'
 import type {Awakener} from '@/domain/awakeners'
 import type {AwakenerFullRecord} from '@/domain/awakeners-full'
 import {getCovenantAssetById} from '@/domain/covenant-assets'
@@ -121,7 +122,7 @@ export type DatabaseDetailRouteItemByKind = {
 export interface DatabaseDetailRecordByKind {
   awakener: AwakenerFullRecord
   wheel: WheelFullRecord
-  posse: PosseFullRecord
+  posse: PosseFullRecord & {ownerFormSkills?: DerivedSkillRecord[]}
   covenant: CovenantFullRecord
   relic: PublicRelicRecord
   orison: PublicOrisonRecord
@@ -310,9 +311,12 @@ async function loadWheelDetailRecord(id: string) {
 }
 
 async function loadPosseDetailRecord(id: string) {
-  const {loadPublicPosseDetailById} = await import('@/domain/public-detail-record-adapters')
-
-  return loadPublicPosseDetailById(id)
+  const {loadPublicAwakenerFormSkillsById, loadPublicPosseDetailById} =
+    await import('@/domain/public-detail-record-adapters')
+  const record = await loadPublicPosseDetailById(id)
+  if (!record?.ownerAwakenerId) return record
+  const ownerFormSkills = await loadPublicAwakenerFormSkillsById(record.ownerAwakenerId)
+  return {...record, ownerFormSkills}
 }
 
 async function loadCovenantDetailRecord(id: string) {
@@ -457,6 +461,7 @@ export const dbDetailRegistry: DatabaseDetailRegistry = {
           item={item.item}
           kind='posse'
           navigation={navigation}
+          ownerFormSkills={record.ownerFormSkills}
           onClose={navigationPort.close}
           onSelectAwakener={(awakener) => {
             selectReference('awakener', lookup, navigationPort, awakener)

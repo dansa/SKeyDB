@@ -393,6 +393,12 @@
       "miniSha256": "95b1b444905e982f13d5117eb1f06f509590fe9306d8a70d8aee6e2699f3e2f3"
     },
     {
+      "full": "Weapon_Full_O01EX.webp",
+      "fullSha256": "49a6a75ec1e87a1a70e6422dcf0159d54c0233b52441104c11ae1b2932600efd",
+      "mini": "Weapon_Mini_O01EX.webp",
+      "miniSha256": "c1bb524715b7abc9ab50a08f166ff536cd1dddfba7079d69c3a9596d880db52d"
+    },
+    {
       "full": "Weapon_Full_O02.webp",
       "fullSha256": "512cea8d2723f4bcfb4362301fa15e63755d536886c5dd967a4beb24887df89b",
       "mini": "Weapon_Mini_O02.webp",
@@ -783,6 +789,12 @@
       "miniSha256": "faa7632dc524a94c6036df7dfe8a5a13fc4565c2804e603d0771e45a02fe0c7b"
     },
     {
+      "full": "Weapon_Full_SR38.webp",
+      "fullSha256": "f552dd90d54e2803fe763b36b71e0e6d9d599d8fe505333b8d654626faeffe93",
+      "mini": "Weapon_Mini_SR38.webp",
+      "miniSha256": "c2e8a90d44a9ee398e034ab3ffdff598758a26d4c556c6be98405643c2e028c1"
+    },
+    {
       "full": "Weapon_Full_SR39.webp",
       "fullSha256": "27df94a35bc898fb434f020b02ef206db8f1f814cea5cabe83f35800fe05c273",
       "mini": "Weapon_Mini_SR39.webp",
@@ -907,6 +919,12 @@
       "fullSha256": "479dee0c3b96ccfa92a1b27ee46cf8677c38a5e7939f85714950afe4f5e47438",
       "mini": "Weapon_Mini_ZL08.webp",
       "miniSha256": "6047c8e24bba94f3e4eb9fe8b2485939c8aefb093390e9ffba9ad16a24528ce5"
+    },
+    {
+      "full": "Weapon_Full_ZL09.webp",
+      "fullSha256": "1a6dc63bfaf83eb425fe8c12da897b4980953b995d660f0431a35fb4590ae2ca",
+      "mini": "Weapon_Mini_ZL09.webp",
+      "miniSha256": "3de32127e1808a352923eb4137bf9871988ccef33fdd8ee63e37d7b17efb0f80"
     }
   ]
 }

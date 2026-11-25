@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "enlightens",
   "kind": "enlighten",
-  "recordCount": 310,
+  "recordCount": 315,
   "records": [
     {
       "kind": "enlighten",
@@ -3303,6 +3303,66 @@
       "ownerAwakenerId": "awakener-0049",
       "ownerAwakenerName": "Tinct",
       "slot": "AbsoluteAxiom"
+    },
+    {
+      "kind": "enlighten",
+      "id": "enlighten.tulu-godking.all-ye-stars-bow-down",
+      "name": "All Ye Stars, Bow Down",
+      "route": {
+        "slug": "all-ye-stars-bow-down",
+        "canonicalPath": "/database/awakeners/tulu-godking/enlightens/all-ye-stars-bow-down"
+      },
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
+      "slot": "AbsoluteAxiom"
+    },
+    {
+      "kind": "enlighten",
+      "id": "enlighten.tulu-godking.by-these-stars-i-kindle",
+      "name": "By These Stars, I Kindle",
+      "route": {
+        "slug": "by-these-stars-i-kindle",
+        "canonicalPath": "/database/awakeners/tulu-godking/enlightens/by-these-stars-i-kindle"
+      },
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
+      "slot": "E2"
+    },
+    {
+      "kind": "enlighten",
+      "id": "enlighten.tulu-godking.by-this-flesh-i-endure",
+      "name": "By This Flesh, I Endure",
+      "route": {
+        "slug": "by-this-flesh-i-endure",
+        "canonicalPath": "/database/awakeners/tulu-godking/enlightens/by-this-flesh-i-endure"
+      },
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
+      "slot": "E1"
+    },
+    {
+      "kind": "enlighten",
+      "id": "enlighten.tulu-godking.by-this-stele-i-ordain",
+      "name": "By This Stele, I Ordain",
+      "route": {
+        "slug": "by-this-stele-i-ordain",
+        "canonicalPath": "/database/awakeners/tulu-godking/enlightens/by-this-stele-i-ordain"
+      },
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
+      "slot": "E3"
+    },
+    {
+      "kind": "enlighten",
+      "id": "enlighten.tulu-godking.lex-divina",
+      "name": "Lex Divina",
+      "route": {
+        "slug": "lex-divina",
+        "canonicalPath": "/database/awakeners/tulu-godking/enlightens/lex-divina"
+      },
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
+      "slot": "OverExalt"
     },
     {
       "kind": "enlighten",

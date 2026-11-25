@@ -63,6 +63,7 @@ interface AwakenerDetailStatsPanelProps {
   defaultExpanded?: boolean
   gnosticPotentialLevel?: number
   isExpanded?: boolean
+  note?: string
   onExpandedChange?: (isExpanded: boolean) => void
 }
 
@@ -102,6 +103,7 @@ export function AwakenerDetailStatsPanel({
   defaultExpanded = false,
   gnosticPotentialLevel,
   isExpanded: controlledIsExpanded,
+  note,
   onExpandedChange,
   scalingRecord,
   stats,
@@ -162,7 +164,10 @@ export function AwakenerDetailStatsPanel({
   return (
     <div className='border border-slate-600/30 bg-slate-900/30 px-3 py-2.5'>
       <div className='mb-2 flex items-center justify-between gap-2'>
-        <h4 className='ui-title text-[11px] tracking-wide text-slate-400 uppercase'>Stats</h4>
+        <div>
+          <h4 className='ui-title text-[11px] tracking-wide text-slate-400 uppercase'>Stats</h4>
+          {note ? <p className='mt-0.5 text-xs text-slate-400'>{note}</p> : null}
+        </div>
         {action}
       </div>
 

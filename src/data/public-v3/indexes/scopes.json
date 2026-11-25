@@ -7,7 +7,7 @@
       "idPrefix": "awakener",
       "capabilities": ["catalog", "detailRecord", "search", "snapshot"],
       "searchable": true,
-      "recordCount": 62
+      "recordCount": 63
     },
     {
       "scope": "wheels",
@@ -15,7 +15,7 @@
       "idPrefix": "wheel",
       "capabilities": ["catalog", "detailRecord", "search", "snapshot"],
       "searchable": true,
-      "recordCount": 150
+      "recordCount": 153
     },
     {
       "scope": "relics",
@@ -47,7 +47,7 @@
       "idPrefix": "posse",
       "capabilities": ["catalog", "detailRecord", "search", "snapshot"],
       "searchable": true,
-      "recordCount": 64
+      "recordCount": 65
     },
     {
       "scope": "skills",
@@ -55,7 +55,7 @@
       "idPrefix": "skill",
       "capabilities": ["catalog", "detailRecord", "snapshot"],
       "searchable": false,
-      "recordCount": 434
+      "recordCount": 441
     },
     {
       "scope": "derived-skills",
@@ -71,7 +71,7 @@
       "idPrefix": "talent",
       "capabilities": ["catalog", "detailRecord", "snapshot"],
       "searchable": false,
-      "recordCount": 234
+      "recordCount": 237
     },
     {
       "scope": "enlightens",
@@ -79,7 +79,7 @@
       "idPrefix": "enlighten",
       "capabilities": ["catalog", "detailRecord", "snapshot"],
       "searchable": false,
-      "recordCount": 310
+      "recordCount": 315
     },
     {
       "scope": "overlays",
@@ -87,7 +87,7 @@
       "idPrefix": "overlay",
       "capabilities": ["catalog", "detailRecord", "snapshot"],
       "searchable": false,
-      "recordCount": 165
+      "recordCount": 169
     },
     {
       "scope": "awakener-builds",
@@ -105,7 +105,7 @@
       "idPrefix": "awakener",
       "capabilities": ["catalog", "detailRecord", "search", "snapshot"],
       "searchable": true,
-      "recordCount": 62
+      "recordCount": 63
     },
     "wheels": {
       "scope": "wheels",
@@ -113,7 +113,7 @@
       "idPrefix": "wheel",
       "capabilities": ["catalog", "detailRecord", "search", "snapshot"],
       "searchable": true,
-      "recordCount": 150
+      "recordCount": 153
     },
     "relics": {
       "scope": "relics",
@@ -145,7 +145,7 @@
       "idPrefix": "posse",
       "capabilities": ["catalog", "detailRecord", "search", "snapshot"],
       "searchable": true,
-      "recordCount": 64
+      "recordCount": 65
     },
     "skills": {
       "scope": "skills",
@@ -153,7 +153,7 @@
       "idPrefix": "skill",
       "capabilities": ["catalog", "detailRecord", "snapshot"],
       "searchable": false,
-      "recordCount": 434
+      "recordCount": 441
     },
     "derived-skills": {
       "scope": "derived-skills",
@@ -169,7 +169,7 @@
       "idPrefix": "talent",
       "capabilities": ["catalog", "detailRecord", "snapshot"],
       "searchable": false,
-      "recordCount": 234
+      "recordCount": 237
     },
     "enlightens": {
       "scope": "enlightens",
@@ -177,7 +177,7 @@
       "idPrefix": "enlighten",
       "capabilities": ["catalog", "detailRecord", "snapshot"],
       "searchable": false,
-      "recordCount": 310
+      "recordCount": 315
     },
     "overlays": {
       "scope": "overlays",
@@ -185,7 +185,7 @@
       "idPrefix": "overlay",
       "capabilities": ["catalog", "detailRecord", "snapshot"],
       "searchable": false,
-      "recordCount": 165
+      "recordCount": 169
     },
     "awakener-builds": {
       "scope": "awakener-builds",

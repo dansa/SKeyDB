@@ -8,6 +8,7 @@ import {getPublicAwakenerCatalogRecords} from '@/data-access/public-data/catalog
 import type {PublicDataScope, PublicRecord} from '@/data-access/public-data/contract'
 import {loadPublicRecord} from '@/data-access/public-data/recordRepository'
 
+import {awakenerFormsSchema, buildAwakenerFormReferenceRecords} from './awakener-forms'
 import {awakenerProfileSchema} from './awakener-lore-schema'
 import {
   fullStatsSchema,
@@ -53,6 +54,7 @@ type PublicV3AwakenerRecord = PublicRecord & {
   aliases?: string[]
   baseStatsLv1?: Partial<Record<string, number>>
   faction: string
+  forms?: AwakenerFullRecord['forms']
   ingameId?: string
   name: string
   numericId: number
@@ -129,6 +131,7 @@ const publicAwakenerDetailSchema: z.ZodType<PublicV3AwakenerRecord> = z.looseObj
   aliases: z.array(z.string()).optional(),
   baseStatsLv1: numericRecordSchema.optional(),
   faction: z.string(),
+  forms: awakenerFormsSchema.optional(),
   ingameId: z.string().optional(),
   name: z.string(),
   numericId: z.number(),
@@ -559,6 +562,7 @@ async function adaptPublicAwakenerRecord(
     substatScaling: substatScalingSchema.parse(adaptPublicSubstatScaling(record)),
     assets: {portraitKey: assetKey, iconKey: assetKey},
     profile: record.profile,
+    forms: record.forms,
     cards: adaptPublicAwakenerCards(ownedRecords, record.id),
     talents: adaptPublicAwakenerTalents(ownedRecords),
     enlightens: adaptPublicAwakenerEnlightens(ownedRecords),
@@ -629,6 +633,15 @@ export async function loadPublicAwakenerDetailById(
   return loadPublicRecord('awakeners', publicId).then((record) =>
     record ? adaptPublicAwakenerRecord(parsePublicDetailRecord('awakeners', record)) : undefined,
   )
+}
+
+export async function loadPublicAwakenerFormSkillsById(awakenerId: string) {
+  const publicId = resolvePublicAwakenerId(awakenerId)
+  if (!publicId) return []
+  const record = await loadPublicRecord('awakeners', publicId)
+  if (!record) return []
+  const {forms, numericId} = parsePublicDetailRecord('awakeners', record)
+  return forms ? buildAwakenerFormReferenceRecords(numericId, forms) : []
 }
 
 export async function loadPublicWheelDetailById(

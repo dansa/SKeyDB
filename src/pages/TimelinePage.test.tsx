@@ -4,6 +4,7 @@ import {afterEach, describe, expect, it, vi} from 'vitest'
 
 import type {DatabaseDetailOverlaySession} from '@/stores/dbDetailStore'
 
+import {EventMeta} from './timeline/presentation/TimelineLedger'
 import {getPoolGroups} from './timeline/presentation/timelinePageModel'
 import {TimelinePage} from './TimelinePage'
 
@@ -36,6 +37,11 @@ vi.mock('@/domain/timeline-data', () => ({
     {
       id: 'event-february',
       title: 'February Event',
+      category: 'milestone',
+      missions: [
+        {silverPrimeExtracted: 5000, standard: [{name: 'Core', amount: '×1'}]},
+        {silverPrimeExtracted: 30000, standard: [{name: 'Core', amount: '×2'}]},
+      ],
       startDate: '2026-02-01T12:00:00Z',
       endDate: '2026-02-25T12:00:00Z',
     },
@@ -242,6 +248,44 @@ describe('TimelinePage', () => {
     expect(stage.getByText('Complete a trial')).toBeVisible()
     expect(stage.getByText('Complete a trial').closest('details')).toBeNull()
     expect(stage.queryByRole('columnheader')).not.toBeInTheDocument()
+  })
+
+  it('shows extraction thresholds on the card and converts them with the USD toggle', () => {
+    vi.useFakeTimers()
+    vi.setSystemTime(new Date('2026-03-10T12:00:00Z'))
+    renderPage('/timeline?item=event-february')
+    const archive = within(screen.getByRole('region', {name: 'Ended events'}))
+    const card = within(archive.getByRole('button', {name: /February Event/}))
+    expect(card.getByText('Base Prime extracted: 5,000–30,000 Silver Prime')).toBeVisible()
+
+    fireEvent.click(screen.getByRole('button', {name: 'Estimated USD'}))
+    expect(card.getByText('Base extraction cost: ~$76-455')).toBeVisible()
+    const stage = within(screen.getByLabelText('Selected details'))
+    expect(
+      stage.getByRole('rowheader', {name: '30,000 Silver Prime extracted ~$455 USD'}),
+    ).toBeVisible()
+  })
+
+  it('labels an Archives price as premium even without missions', () => {
+    render(
+      <EventMeta
+        event={{
+          id: 'archives-test',
+          title: 'Archives',
+          category: 'wheel-event',
+          pricing: '1680 Silver Prime',
+          startDate: '2026-03-09T00:00:00Z',
+          endDate: '2026-03-12T00:00:00Z',
+          rewards: [
+            {price: 'Free', items: [{name: 'Pure Core'}]},
+            {price: '1680 Silver Prime', items: [{name: 'Luminous Core'}]},
+          ],
+        }}
+        now={new Date('2026-03-10T12:00:00Z')}
+        priceMode='silver-prime'
+      />,
+    )
+    expect(screen.getByText('Premium: 1,680 Silver Prime')).toBeVisible()
   })
 
   it('does not add a history step when a filter clears the selection', () => {

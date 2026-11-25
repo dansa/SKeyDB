@@ -26,6 +26,7 @@ export interface DetailSectionItem {
 interface DetailSectionProps {
   anchorId?: string
   title: string
+  intro?: string
   items: DetailSectionItem[]
   emptyMessage?: string
   children?: ReactNode
@@ -35,6 +36,7 @@ interface DetailSectionProps {
 export function DetailSection({
   anchorId,
   title,
+  intro,
   items,
   emptyMessage,
   children,
@@ -50,6 +52,11 @@ export function DetailSection({
       <h4 className={DATABASE_SECTION_TITLE_CLASS} style={getDatabaseDetailSectionHeadingStyle()}>
         {title}
       </h4>
+      {intro ? (
+        <p className='px-4 pt-2 text-slate-400' style={getDatabaseDetailBodyTextStyle()}>
+          {intro}
+        </p>
+      ) : null}
 
       {items.length === 0 && !children ? (
         <p className='px-4 pb-3 text-slate-400' style={getDatabaseDetailBodyTextStyle()}>

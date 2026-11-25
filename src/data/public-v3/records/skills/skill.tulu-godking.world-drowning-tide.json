@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 3,
+  "kind": "skill",
+  "id": "skill.tulu-godking.world-drowning-tide",
+  "name": "World-Drowning Tide",
+  "route": {
+    "slug": "world-drowning-tide",
+    "canonicalPath": "/database/awakeners/tulu-godking/skills/world-drowning-tide"
+  },
+  "ownerAwakenerId": "awakener-0063",
+  "slot": "Exalt",
+  "cardFamily": "exalt",
+  "cardTypes": ["exalt"],
+  "descriptionTemplate": "Temporary Crit. Rate and Crit. DMG +[Arg4]%. Deal damage equal to [Arg2]% {Tentacle DMG} bonus to the enemy with the highest HP 3 times. The {ordinal:3rd} hit deals [Arg6] times the damage.",
+  "descriptionArgs": {
+    "Arg2": {
+      "kind": "scaling",
+      "values": ["360", "408", "456", "504", "552", "600"],
+      "suffix": "%"
+    },
+    "Arg4": {
+      "kind": "fixed",
+      "value": "25",
+      "suffix": "%"
+    },
+    "Arg6": {
+      "kind": "fixed",
+      "value": "2"
+    }
+  },
+  "cardKeywords": [],
+  "cost": "150",
+  "upgrades": [
+    {
+      "id": "enlighten.tulu-godking.by-this-stele-i-ordain:skill.tulu-godking.world-drowning-tide",
+      "operation": "mixed",
+      "upgraderId": "enlighten.tulu-godking.by-this-stele-i-ordain",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "E3",
+      "ownerAwakenerId": "awakener-0063",
+      "patch": {
+        "descriptionTemplate": "Temporary Crit. Rate and Crit. DMG +[Arg4]%. Deal damage equal to [Arg2]% {Tentacle DMG} bonus to the enemy with the highest HP 3 times. The {ordinal:3rd} hit deals [Arg6] times the damage. Trigger {Prepare} on all cards in hand.",
+        "descriptionArgs": {
+          "Arg6": {
+            "kind": "fixed",
+            "value": "3"
+          }
+        }
+      }
+    }
+  ],
+  "ownerAwakenerName": "Tulu: Godking"
+}

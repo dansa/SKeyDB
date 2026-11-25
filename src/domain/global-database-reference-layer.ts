@@ -335,6 +335,7 @@ export interface BuildGlobalDatabaseReferenceLayerOptions {
   formulaContext?: PublicFormulaContext
   overlays?: AwakenerOverlayRecord[]
   derivedSkills?: DerivedSkillRecord[]
+  ownerFormSkills?: DerivedSkillRecord[]
   awakenerSkills?: AwakenerSkillRecord[]
   posses?: Posse[]
   covenants?: Covenant[]
@@ -348,6 +349,7 @@ export function buildGlobalDatabaseReferenceLayer({
   awakenerSkills = getAwakenerSkills(),
   covenants = getCovenants(),
   derivedSkills = getDerivedSkills(),
+  ownerFormSkills = [],
   extraReferences = [],
   formulaContext,
   overlays = getAwakenerOverlays(),
@@ -358,7 +360,8 @@ export function buildGlobalDatabaseReferenceLayer({
 }: BuildGlobalDatabaseReferenceLayerOptions = {}): ResolvedDatabaseReferenceLayer {
   const referenceInfos = new DatabaseReferenceLookupAccumulator()
   const overlayNameSet = buildOverlayNameSet(overlays)
-  const referencedDerivedSkills = derivedSkills.filter(
+  const allDerivedSkills = [...ownerFormSkills, ...derivedSkills]
+  const referencedDerivedSkills = allDerivedSkills.filter(
     (entry) => !overlayNameSet.has(entry.displayName.toLowerCase()),
   )
   const referencedAwakenerSkills = awakenerSkills.filter(
@@ -384,7 +387,7 @@ export function buildGlobalDatabaseReferenceLayer({
 
   // Same-name mechanics win untyped lookup, but typed references still need the
   // card in the ID index. Filtering it out entirely defeats explicit references.
-  for (const record of derivedSkills) {
+  for (const record of allDerivedSkills) {
     const info = buildDatabaseDerivedSkillReferenceInfo(record, formulaContext)
     if (overlayNameSet.has(record.displayName.toLowerCase())) {
       addDatabaseReferenceInfoById(referenceInfos.referenceInfoById, info)

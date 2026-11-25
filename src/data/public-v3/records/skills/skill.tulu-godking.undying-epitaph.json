@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 3,
+  "kind": "skill",
+  "id": "skill.tulu-godking.undying-epitaph",
+  "name": "Undying Epitaph",
+  "route": {
+    "slug": "undying-epitaph",
+    "canonicalPath": "/database/awakeners/tulu-godking/skills/undying-epitaph"
+  },
+  "ownerAwakenerId": "awakener-0063",
+  "slot": "Skill1",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
+  "descriptionTemplate": "Gain [Block:Arg1] Shield and [Arg2] Keyflare.\n{Resonance 3}: Gain [Arg5] Keyflare.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "scaling",
+      "values": ["40", "48", "56", "64", "72", "80"],
+      "stat": "DEF",
+      "suffix": "%"
+    },
+    "Arg2": {
+      "kind": "scaling",
+      "values": ["100", "120", "140", "160", "180", "200"]
+    },
+    "Arg4": {
+      "kind": "fixed",
+      "value": "3"
+    },
+    "Arg5": {
+      "kind": "scaling",
+      "values": ["100", "120", "140", "160", "180", "200"]
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    },
+    {
+      "id": "mechanic.prepare",
+      "value": 1
+    }
+  ],
+  "cost": "3",
+  "ownerAwakenerName": "Tulu: Godking"
+}

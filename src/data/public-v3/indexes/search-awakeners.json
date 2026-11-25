@@ -3746,6 +3746,43 @@
         "gender": "Female",
         "tags": ["corrosion", "divine-realm", "str-up"]
       }
+    },
+    {
+      "kind": "awakener",
+      "id": "awakener-0063",
+      "name": "Tulu: Godking",
+      "aliases": [],
+      "tokens": [
+        "aequor",
+        "alt",
+        "alt realm",
+        "assault",
+        "astral",
+        "divine",
+        "divine realm",
+        "godking",
+        "lemuria",
+        "limited",
+        "limited astral reign",
+        "realm",
+        "reign",
+        "ssr",
+        "tulu",
+        "tulu godking"
+      ],
+      "fields": {
+        "name": ["Tulu: Godking", "tulu-godking"],
+        "tag": ["divine-realm", "Divine Realm", "alt realm"],
+        "facet": ["AEQUOR", "SSR", "ASSAULT", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "Lemuria"]
+      },
+      "facets": {
+        "realm": "AEQUOR",
+        "rarity": "SSR",
+        "type": "ASSAULT",
+        "availabilityType": "LIMITED_ASTRAL_REIGN",
+        "faction": "Lemuria",
+        "tags": ["divine-realm"]
+      }
     }
   ]
 }

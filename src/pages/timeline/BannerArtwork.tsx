@@ -55,14 +55,20 @@ function scheduleAfterNextPaint(callback: () => void): () => void {
   }
 }
 
-function getArtworkImageClass(asset: SliceAsset, emphasis: boolean): string {
+function getArtworkImageClass(
+  asset: SliceAsset,
+  emphasis: boolean,
+  alignWithNarrowCrop: boolean,
+): string {
   const base = 'h-full w-full object-cover'
 
   if (asset.isWheel) {
     return emphasis ? `${base} scale-[1.18] object-center` : `${base} scale-[1.12] object-center`
   }
 
-  return emphasis ? `${base} scale-[1.035] object-top` : `${base} object-top`
+  // Bias wider crops toward the top to leave more headroom than the narrow-crop midpoint.
+  const position = alignWithNarrowCrop ? 'object-[50%_15%]' : 'object-top'
+  return emphasis ? `${base} scale-[1.035] ${position}` : `${base} ${position}`
 }
 
 function ArtworkFallback({label}: {label?: string}) {
@@ -79,11 +85,13 @@ function ArtworkFallback({label}: {label?: string}) {
 }
 
 function ArtworkVisual({
+  alignWithNarrowCrop = false,
   asset,
   emphasis = false,
   showFallbackLabel = true,
   loading = 'lazy',
 }: {
+  alignWithNarrowCrop?: boolean
   asset: SliceAsset
   emphasis?: boolean
   showFallbackLabel?: boolean
@@ -92,7 +100,7 @@ function ArtworkVisual({
   return asset.url ? (
     <img
       alt={asset.label}
-      className={getArtworkImageClass(asset, emphasis)}
+      className={getArtworkImageClass(asset, emphasis, alignWithNarrowCrop)}
       decoding='async'
       draggable={false}
       loading={loading}
@@ -110,11 +118,13 @@ function SplitPanelSeparator() {
 }
 
 function ArtworkPanel({
+  alignWithNarrowCrop,
   asset,
   emphasis = false,
   loading = 'lazy',
   showSeparator = false,
 }: {
+  alignWithNarrowCrop: boolean
   asset: SliceAsset
   emphasis?: boolean
   loading?: 'eager' | 'lazy'
@@ -123,7 +133,12 @@ function ArtworkPanel({
   return (
     <div className='relative min-w-0 overflow-hidden bg-slate-950'>
       <div className='absolute inset-0'>
-        <ArtworkVisual asset={asset} emphasis={emphasis} loading={loading} />
+        <ArtworkVisual
+          alignWithNarrowCrop={alignWithNarrowCrop}
+          asset={asset}
+          emphasis={emphasis}
+          loading={loading}
+        />
       </div>
       <div className='pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,14,0.02),rgba(2,6,14,0.04)_48%,rgba(2,6,14,0.74))]' />
       {showSeparator ? <SplitPanelSeparator /> : null}
@@ -143,6 +158,7 @@ function FeaturedArtwork({assets, loading}: {assets: SliceAsset[]; loading: 'eag
     >
       {assets.slice(0, 4).map((asset, index, splitAssets) => (
         <ArtworkPanel
+          alignWithNarrowCrop={splitAssets.length === 2}
           asset={asset}
           emphasis={index === 0}
           key={`${asset.label}:${asset.url ?? 'no-art'}`}

@@ -71,6 +71,14 @@ describe('timeline date and status helpers', () => {
     expect(countdown ? formatCountdown(countdown) : '').toBe('Ended 2d ago')
   })
 
+  it('ends an event at its exact cutoff instead of showing zero time remaining', () => {
+    const start = '2026-03-09T01:00:00.000Z'
+    const end = '2026-03-10T01:00:00.000Z'
+    const now = new Date(end)
+    expect(getTimelineStatus(start, end, now)).toBe('ended')
+    expect(getTimelineCountdownDisplay(start, end, now)?.text).toBe('Ended today')
+  })
+
   it('returns relative countdown text with a date hover label for nearby timeline targets', () => {
     expect(
       getTimelineCountdownDisplay(

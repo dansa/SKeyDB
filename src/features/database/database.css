@@ -213,19 +213,23 @@
 }
 
 .database-grid-card__poster-badge {
+  --poster-badge-shadow: drop-shadow(0 2px 3px rgb(2 6 14 / 0.9));
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0.5rem;
+  left: 0.5rem;
   z-index: 10;
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
   object-fit: contain;
+  filter: var(--poster-badge-shadow);
   transition: filter var(--ui-motion-duration-base) var(--ui-motion-ease-soft);
 }
 
-.database-grid-card-frame:hover .database-grid-card__poster-badge,
-.database-grid-card-frame:focus-within .database-grid-card__poster-badge {
-  filter: brightness(1.1) saturate(1.08);
+@media (prefers-reduced-motion: no-preference) {
+  .database-grid-card-frame:hover .database-grid-card__poster-badge,
+  .database-grid-card-frame:focus-within .database-grid-card__poster-badge {
+    filter: brightness(1.1) saturate(1.08) var(--poster-badge-shadow);
+  }
 }
 
 .database-grid-card__image[data-treatment='badge'] {
@@ -726,8 +730,6 @@
     filter: none;
   }
 
-  .database-grid-card-frame:hover .database-grid-card__poster-badge,
-  .database-grid-card-frame:focus-within .database-grid-card__poster-badge,
   .database-grid-card-frame:hover .database-grid-card__image-plane,
   .database-grid-card-frame:focus-within .database-grid-card__image-plane {
     filter: none;

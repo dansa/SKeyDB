@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 3,
+  "kind": "skill",
+  "id": "skill.tulu-godking.great-old-decree",
+  "name": "Great Old Decree",
+  "route": {
+    "slug": "great-old-decree",
+    "canonicalPath": "/database/awakeners/tulu-godking/skills/great-old-decree"
+  },
+  "ownerAwakenerId": "awakener-0063",
+  "slot": "Skill2",
+  "cardFamily": "command",
+  "cardTypes": ["skill"],
+  "descriptionTemplate": "Command each Tentacle to attack all enemies once at [Arg6]% DMG. Other Awakeners gain [Energy:Arg8] Aliemus.\n{Resonance 3}: Other Awakeners gain another [Energy:Arg3] Aliemus.",
+  "descriptionArgs": {
+    "Arg3": {
+      "kind": "fixed",
+      "value": "5"
+    },
+    "Arg5": {
+      "kind": "fixed",
+      "value": "3"
+    },
+    "Arg6": {
+      "kind": "scaling",
+      "values": ["75", "90", "105", "120", "135", "150"],
+      "suffix": "%"
+    },
+    "Arg8": {
+      "kind": "fixed",
+      "value": "5"
+    }
+  },
+  "cardKeywords": [
+    {
+      "id": "mechanic.retain"
+    },
+    {
+      "id": "mechanic.prepare",
+      "value": 1
+    }
+  ],
+  "cost": "5",
+  "upgrades": [
+    {
+      "id": "enlighten.tulu-godking.by-these-stars-i-kindle:skill.tulu-godking.great-old-decree",
+      "operation": "replace_description",
+      "upgraderId": "enlighten.tulu-godking.by-these-stars-i-kindle",
+      "upgraderType": "enlighten",
+      "upgraderSlot": "E2",
+      "ownerAwakenerId": "awakener-0063",
+      "patch": {
+        "descriptionTemplate": "Command each Tentacle to attack all enemies once at [Arg6]% DMG. Other Awakeners gain [Energy:Arg8] Aliemus.\n{Resonance 3}: Other Awakeners gain another [Energy:Arg3] Aliemus.\nEach time Tulu triggers {Resonance}, the next {Great Old Decree}'s Command multiplier increases by 15 percentage points, up to five stacks."
+      }
+    }
+  ],
+  "ownerAwakenerName": "Tulu: Godking"
+}

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 3,
+  "kind": "enlighten",
+  "id": "enlighten.tulu-godking.all-ye-stars-bow-down",
+  "name": "All Ye Stars, Bow Down",
+  "route": {
+    "slug": "all-ye-stars-bow-down",
+    "canonicalPath": "/database/awakeners/tulu-godking/enlightens/all-ye-stars-bow-down"
+  },
+  "ownerAwakenerId": "awakener-0063",
+  "slot": "AbsoluteAxiom",
+  "descriptionTemplate": "{Axis Mundis} grants an extra 50% of Tulu's base Aliemus.\n{Turn Unique}: Once Roused, Tulu gains 1 {Etched Memory} when he triggers {Resonance}.",
+  "descriptionArgs": {},
+  "ownerAwakenerName": "Tulu: Godking"
+}

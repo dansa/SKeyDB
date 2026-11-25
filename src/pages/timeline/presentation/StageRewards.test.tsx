@@ -21,6 +21,55 @@ describe('StageRewards', () => {
     expect(container.querySelector('details')).toBeNull()
   })
 
+  it('keeps Prime thresholds visible and adds extraction estimates only in USD mode', () => {
+    const props = {
+      category: 'milestone' as const,
+      groups: [],
+      missions: [
+        {silverPrimeExtracted: 5000, standard: [{name: 'Silver', amount: '×10'}]},
+        {label: '100 Awakens', standard: [{name: 'Dreamspark', amount: '×100'}]},
+      ],
+    }
+    const {rerender} = render(<StageRewards {...props} priceMode='silver-prime' />)
+    expect(screen.getByRole('rowheader', {name: '5,000 Silver Prime extracted'})).toBeVisible()
+    expect(screen.queryByText('~$76 USD')).not.toBeInTheDocument()
+
+    rerender(<StageRewards {...props} priceMode='usd-estimate' />)
+    expect(
+      screen.getByRole('rowheader', {name: '5,000 Silver Prime extracted ~$76 USD'}),
+    ).toBeVisible()
+    expect(screen.getByRole('rowheader', {name: '100 Awakens'})).toBeVisible()
+  })
+
+  it('separates guaranteed raid rewards from the two outcomes of one drop roll', () => {
+    render(
+      <StageRewards
+        category='raid'
+        groups={[
+          {title: 'Final Battle first-clear rewards', items: [{name: 'Silver', amount: '×10,000'}]},
+        ]}
+        missions={[
+          {
+            label: 'Final Avatar',
+            standard: [{name: 'Silver', amount: '×100'}],
+            dropRoll: [
+              {name: 'Pure Core', amount: '×1', chancePercent: 75},
+              {name: 'Ethereal Core', amount: '×1', chancePercent: 25},
+            ],
+          },
+        ]}
+        priceMode='silver-prime'
+      />,
+    )
+    fireEvent.click(screen.getByText('Boss Avatar drops', {selector: 'summary'}))
+    const table = screen.getByRole('table', {name: 'Boss Avatar drops'})
+    const roll = within(table).getByRole('group', {name: 'One random drop'})
+    expect(within(table).getByText('Silver')).toBeVisible()
+    expect(within(roll).queryByText('Silver')).not.toBeInTheDocument()
+    expect(within(roll).getByRole('button', {name: 'Pure Core ×1, 75% chance'})).toBeVisible()
+    expect(within(roll).getByRole('button', {name: 'Ethereal Core ×1, 25% chance'})).toBeVisible()
+  })
+
   it('uses feature rows for small highlights and a grid for larger groups', () => {
     const items = [
       {name: 'Thirsting Brush', amount: '×4'},

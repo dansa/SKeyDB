@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 3,
+  "kind": "overlay",
+  "id": "overlay.global.keyflare-rouse",
+  "name": "Keyflare Rouse",
+  "route": {
+    "slug": "keyflare-rouse",
+    "canonicalPath": "/database/overlays/keyflare-rouse"
+  },
+  "overlayType": "mechanic",
+  "aliases": [],
+  "descriptionTemplate": "In {Astral Reign}, spend Keyflare to add an Awakener's {Rouse} card to your hand with {Retain}.",
+  "descriptionArgs": {}
+}

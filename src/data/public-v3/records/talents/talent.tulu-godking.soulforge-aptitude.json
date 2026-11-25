@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 3,
+  "kind": "talent",
+  "id": "talent.tulu-godking.soulforge-aptitude",
+  "name": "Soulforge Aptitude",
+  "route": {
+    "slug": "soulforge-aptitude",
+    "canonicalPath": "/database/awakeners/tulu-godking/talents/soulforge-aptitude"
+  },
+  "ownerAwakenerId": "awakener-0063",
+  "family": "soulforge_aptitude",
+  "maxLevel": 10,
+  "descriptionTemplate": "Only active in {Astral Reign} stages.\nCON, ATK, and DEF +[Arg1]%. Gain [Arg2] Keyflare after playing {Gnosis Rouse} for the first time.\nTentacle auto-attack DMG multiplier +[Arg5]%. Each {Resonance} increases the next {World-Drowning Tide}'s final DMG by [Arg4]%, stacking up to five times. With 1/2/3 other Lemuria Awakeners, each Awakener gains [Arg6]/[Arg7]/[Arg8] Aliemus at battle start.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "linear",
+      "base": "3",
+      "gainPerLevel": "3"
+    },
+    "Arg2": {
+      "kind": "linear",
+      "base": "50",
+      "gainPerLevel": "50"
+    },
+    "Arg4": {
+      "kind": "linear",
+      "base": "3",
+      "gainPerLevel": "3"
+    },
+    "Arg5": {
+      "kind": "linear",
+      "base": "5",
+      "gainPerLevel": "5"
+    },
+    "Arg6": {
+      "kind": "fixed",
+      "value": "6"
+    },
+    "Arg7": {
+      "kind": "fixed",
+      "value": "15"
+    },
+    "Arg8": {
+      "kind": "fixed",
+      "value": "30"
+    }
+  },
+  "ownerAwakenerName": "Tulu: Godking"
+}

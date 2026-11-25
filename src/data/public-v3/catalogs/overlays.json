@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "overlays",
   "kind": "overlay",
-  "recordCount": 165,
+  "recordCount": 169,
   "records": [
     {
       "kind": "overlay",
@@ -851,6 +851,17 @@
     },
     {
       "kind": "overlay",
+      "id": "overlay.global.gnosis-rouse",
+      "name": "Gnosis Rouse",
+      "route": {
+        "slug": "gnosis-rouse",
+        "canonicalPath": "/database/overlays/gnosis-rouse"
+      },
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "kind": "overlay",
       "id": "overlay.global.infinite-devour",
       "name": "Infinite Devour",
       "route": {
@@ -871,6 +882,17 @@
       },
       "overlayType": "mechanic",
       "textColor": "misc",
+      "aliases": []
+    },
+    {
+      "kind": "overlay",
+      "id": "overlay.global.keyflare-rouse",
+      "name": "Keyflare Rouse",
+      "route": {
+        "slug": "keyflare-rouse",
+        "canonicalPath": "/database/overlays/keyflare-rouse"
+      },
+      "overlayType": "mechanic",
       "aliases": []
     },
     {
@@ -1147,7 +1169,7 @@
       },
       "overlayType": "mechanic",
       "textColor": "misc",
-      "aliases": ["Keyflare Rouse"]
+      "aliases": []
     },
     {
       "kind": "overlay",
@@ -2098,6 +2120,35 @@
       "overlayType": "mechanic",
       "textColor": "light",
       "aliases": ["Gynoecium stacks"]
+    },
+    {
+      "kind": "overlay",
+      "id": "overlay.tulu-godking.erosion",
+      "name": "Erosion",
+      "route": {
+        "slug": "erosion",
+        "canonicalPath": "/database/awakeners/tulu-godking/overlays/erosion"
+      },
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
+      "overlayType": "mechanic",
+      "aliases": []
+    },
+    {
+      "kind": "overlay",
+      "id": "overlay.tulu-godking.etched-memory",
+      "name": "Etched Memory",
+      "route": {
+        "slug": "etched-memory",
+        "canonicalPath": "/database/awakeners/tulu-godking/overlays/etched-memory"
+      },
+      "assets": {
+        "icon": "asset-overlay.tulu-godking.etched-memory-icon"
+      },
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
+      "overlayType": "mechanic",
+      "aliases": []
     },
     {
       "kind": "overlay",

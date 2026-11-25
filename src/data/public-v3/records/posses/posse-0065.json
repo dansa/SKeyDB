@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 3,
+  "kind": "posse",
+  "id": "posse-0065",
+  "name": "The Unfallen Throne",
+  "route": {
+    "slug": "the-unfallen-throne",
+    "canonicalPath": "/database/posses/the-unfallen-throne"
+  },
+  "assets": {
+    "icon": "asset-posse-0065-icon",
+    "crystal": "asset-posse-0065-crystal",
+    "badge": "asset-posse-0065-badge"
+  },
+  "ownerAwakenerId": "awakener-0063",
+  "ownerAwakenerName": "Tulu: Godking",
+  "acquisitionSource": "Advent of the Divine Realm (unlock requirement not yet announced)",
+  "realm": "AEQUOR",
+  "lineupToken": "xc",
+  "descriptionTemplate": "Choose 1 non-Derived Command Card in hand. It costs [Arg1] less Arithmetica and gains {Retain} and {Prepare} until it is next played. While Tulu: Godking is on the field, he gains [Arg4] Aliemus and his next {Resonance} effect this turn is doubled. After Tulu leaves the battle, the next {Stars Surge} hits 3 additional times.",
+  "descriptionArgs": {
+    "Arg1": {
+      "kind": "fixed",
+      "value": "1"
+    },
+    "Arg4": {
+      "kind": "fixed",
+      "value": "15"
+    }
+  }
+}

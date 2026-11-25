@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "scope": "wheels",
   "kind": "wheel",
-  "recordCount": 150,
+  "recordCount": 153,
   "records": [
     {
       "kind": "wheel",
@@ -3033,6 +3033,66 @@
       "mainstatKey": "REALM_MASTERY",
       "lineupToken": "zi",
       "searchTags": ["Draw", "Sigil Gain"]
+    },
+    {
+      "kind": "wheel",
+      "id": "wheel-0185",
+      "name": "A Sleepless Wish",
+      "route": {
+        "slug": "a-sleepless-wish",
+        "canonicalPath": "/database/wheels/a-sleepless-wish"
+      },
+      "assets": {
+        "icon": "asset-wheel-0185-icon"
+      },
+      "realm": "AEQUOR",
+      "rarity": "SSR",
+      "availabilityType": "LIMITED_ASTRAL_REIGN",
+      "hasShopSource": false,
+      "mainstatKey": "ALIEMUS_REGEN",
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
+      "lineupToken": "zh",
+      "searchTags": ["Arithmetica"]
+    },
+    {
+      "kind": "wheel",
+      "id": "wheel-0186",
+      "name": "A Deathless Dream",
+      "route": {
+        "slug": "a-deathless-dream",
+        "canonicalPath": "/database/wheels/a-deathless-dream"
+      },
+      "assets": {
+        "icon": "asset-wheel-0186-icon"
+      },
+      "realm": "NEUTRAL",
+      "rarity": "SR",
+      "availabilityType": "EVENT",
+      "hasShopSource": false,
+      "mainstatKey": "ALIEMUS_REGEN",
+      "ownerAwakenerId": "awakener-0063",
+      "ownerAwakenerName": "Tulu: Godking",
+      "lineupToken": "zg"
+    },
+    {
+      "kind": "wheel",
+      "id": "wheel-0187",
+      "name": "A Shore Unreached",
+      "route": {
+        "slug": "a-shore-unreached",
+        "canonicalPath": "/database/wheels/a-shore-unreached"
+      },
+      "assets": {
+        "icon": "asset-wheel-0187-icon"
+      },
+      "realm": "NEUTRAL",
+      "rarity": "SSR",
+      "availabilityType": "EVENT",
+      "hasShopSource": false,
+      "mainstatKey": "CRIT_RATE",
+      "lineupToken": "zl",
+      "searchTags": ["Crit DMG"]
     }
   ]
 }
