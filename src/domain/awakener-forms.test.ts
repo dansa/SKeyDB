@@ -1,5 +1,6 @@
 import {expect, it} from 'vitest'
 
+import {awakenerSearchDocumentRepository} from '@/data-access/public-data/awakenerSearchRepository'
 import {getPublicAwakenerCatalogRecords} from '@/data-access/public-data/catalogScopes/awakenersCatalog'
 
 import {
@@ -11,6 +12,17 @@ import {resolveDatabaseOverlay, resolveDatabaseReferenceInfo} from './database-r
 import {parseDatabaseRichDescription} from './database-rich-text'
 import {getPosseBadgeAssetById, getPosseFullArtAssetById} from './posse-assets'
 import {loadPublicAwakenerDetailById} from './public-detail-record-adapters'
+
+it('indexes Godking under Genesis and Lemurian with his common search shorthand', async () => {
+  const entry = getPublicAwakenerCatalogRecords().find(({id}) => id === 'awakener-0063')
+  expect(entry?.rarity).toBe('Genesis')
+  expect(entry?.searchTags).toEqual(expect.arrayContaining(['Divine Realm', 'Lemurian']))
+  const search = awakenerSearchDocumentRepository.getDocument('awakener-0063')
+  expect(search?.facets?.rarity).toBe('Genesis')
+  expect(search?.facets?.tags).toEqual(expect.arrayContaining(['divine-realm', 'lemurian']))
+  expect(search?.fields.alias).toEqual(expect.arrayContaining(['gtulu', 'g-tulu']))
+  expect((await loadPublicAwakenerDetailById('awakener-0063'))?.rarity).toBe('Genesis')
+})
 
 it('loads Theophany inside the Godking record without adding a second catalog entry', async () => {
   const catalog = getPublicAwakenerCatalogRecords()

@@ -120,6 +120,31 @@ describe('StageRewards', () => {
     ).toBeTruthy()
   })
 
+  it('groups Premium avatars and emotes separately from materials', () => {
+    render(
+      <StageRewards
+        priceMode='silver-prime'
+        groups={[
+          {
+            title: 'Premium adds',
+            price: '1,280 Silver Prime',
+            items: [
+              {name: 'Hannah: Interview', itemId: 150823, cosmetic: 'emote'},
+              {name: "Collector's Stamp: Tulu", itemId: 127030, cosmetic: 'avatar'},
+              {name: 'Special Potion Supply', amount: '×10'},
+            ],
+          },
+        ]}
+      />,
+    )
+    const avatars = screen.getByRole('list', {name: 'Avatars'})
+    const emotes = screen.getByRole('list', {name: 'Emotes'})
+    expect(within(avatars).getByRole('button', {name: "Collector's Stamp: Tulu"})).toBeVisible()
+    expect(within(emotes).getByRole('button', {name: 'Hannah: Interview'})).toBeVisible()
+    expect(screen.getByText('Special Potion Supply').closest('ul')).toBeNull()
+    expect(screen.getByText('1,280 Silver Prime')).toBeVisible()
+  })
+
   it('labels stock disclosures and keeps the claim schedule with its paid pack', () => {
     render(
       <StageRewards

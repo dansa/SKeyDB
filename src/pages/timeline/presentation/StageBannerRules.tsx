@@ -1,6 +1,11 @@
 import {StageDisclosure} from './StageDisclosure'
 
-type RuleProfile = 'awakener' | 'wheel' | 'kaleido' | 'oathbound-oracle' | 'myriad-self-select'
+export type RuleProfile =
+  | 'awakener'
+  | 'wheel'
+  | 'kaleido'
+  | 'oathbound-oracle'
+  | 'myriad-self-select'
 
 export function StageBannerRules({profiles}: {profiles: RuleProfile[]}) {
   const mixed = profiles.includes('kaleido') || profiles.includes('myriad-self-select')

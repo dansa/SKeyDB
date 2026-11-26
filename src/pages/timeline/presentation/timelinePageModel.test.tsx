@@ -6,6 +6,7 @@ import type {BannerEntry, EventEntry} from '@/domain/timeline'
 import {timelineBanners} from '@/domain/timeline-data'
 
 import {resolveTimelineFeaturedAsset} from '../timelineDetailResolution'
+import {StageSchedule} from './StageSchedule'
 import {TimelineAgenda} from './TimelineAgenda'
 import {
   getBannerArtworkSlots,
@@ -98,15 +99,18 @@ it('uses the current rotation while active and the first day after it ends', () 
   expect(ended.featured?.[0].name).toBe('Tulu')
 })
 
-it('resolves every announced anniversary pair without publishing unannounced rules or pools', () => {
+it('resolves separate anniversary rate-ups and off-banner pools for all 35 days', () => {
   const galaxy = timelineBanners.find(({id}) => id === 'galaxy-shines-261130')
-  expect(galaxy?.rulesProfile).toBeUndefined()
+  expect(galaxy?.rulesProfile).toBe('split-daily')
   expect(galaxy?.poolSlots).toBeUndefined()
   expect(galaxy?.dailySchedule).toHaveLength(35)
-  for (const {featured, offBanner} of galaxy?.dailySchedule ?? []) {
-    expect(offBanner).toBeUndefined()
+  const sharedWheels = galaxy?.dailySchedule?.[0].offBanner?.filter(({kind}) => kind === 'wheel')
+  expect(sharedWheels).toHaveLength(20)
+  for (const {featured, offBanner = []} of galaxy?.dailySchedule ?? []) {
+    expect(offBanner.filter(({kind}) => kind === 'awakener')).toHaveLength(5)
+    expect(offBanner.filter(({kind}) => kind === 'wheel')).toEqual(sharedWheels)
     expect(featured.map(({kind}) => kind)).toEqual(['awakener', 'wheel'])
-    for (const unit of featured) {
+    for (const unit of [...featured, ...offBanner]) {
       const asset = resolveTimelineFeaturedAsset(unit)
       expect(asset.detailRef?.kind, unit.name).toBe(unit.kind)
       expect(asset.url, unit.name).toBeTruthy()
@@ -117,6 +121,30 @@ it('resolves every announced anniversary pair without publishing unannounced rul
   const finalDay = getDisplayBanner(galaxy, new Date('2027-01-03T01:00:00.000Z'))
   expect(finalDay.customTags).toEqual(['Day 35', 'Tulu'])
   expect(finalDay.featured?.map(({name}) => name)).toEqual(['Tulu', 'Hymn of the Sovereign'])
+})
+
+it('shows the selected rotation as two pools rather than a mixed banner', () => {
+  const banner = timelineBanners.find(({id}) => id === 'galaxy-shines-261130')
+  const selected = banner?.dailySchedule?.[1]
+  if (!banner || !selected) throw new Error('Missing Galaxy rotation')
+  render(
+    <MemoryRouter>
+      <StageSchedule
+        banner={banner}
+        now={new Date('2026-12-01T02:00:00Z')}
+        onOpenDetail={vi.fn()}
+        onSelectDay={vi.fn()}
+        selected={selected}
+      />
+    </MemoryRouter>,
+  )
+
+  expect(screen.getByRole('heading', {name: 'Character Awakening'})).toBeInTheDocument()
+  expect(screen.getByRole('heading', {name: 'Wheel Awakening'})).toBeInTheDocument()
+  expect(screen.getByText('Off-banner SSRs (5)')).toBeInTheDocument()
+  expect(screen.getByText('Off-banner SSRs (20)')).toBeInTheDocument()
+  expect(screen.getByRole('button', {name: 'Daffodil'})).toBeInTheDocument()
+  expect(screen.getByRole('button', {name: 'Liz'})).toBeInTheDocument()
 })
 
 it.each(['faded', 'astral'])(

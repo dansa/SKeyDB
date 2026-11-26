@@ -3,12 +3,186 @@
     "id": "galaxy-shines-261130",
     "title": "When the Galaxy Shines",
     "type": "daily",
-    "description": "A different rate-up Awakener and Wheel each day.\nEach pair is available for 24 hours from the daily reset at 09:00 (UTC+8). Tulu and Hymn of the Sovereign return on the final day.",
+    "rulesProfile": "split-daily",
+    "description": "Separate Awakener and Wheel banners rotate daily.\nEach pair is available for 24 hours from the daily reset at 09:00 (UTC+8). Tulu and Hymn of the Sovereign return on the final day.",
     "startDate": "2026/11/30 09:00",
     "endDate": "2027/01/04 09:00",
+    "dailyOffBannerPools": {
+      "aequor": [
+        {
+          "name": "Goliath",
+          "kind": "awakener"
+        },
+        {
+          "name": "Faros",
+          "kind": "awakener"
+        },
+        {
+          "name": "Caecus",
+          "kind": "awakener"
+        },
+        {
+          "name": "Sanga",
+          "kind": "awakener"
+        },
+        {
+          "name": "Celeste",
+          "kind": "awakener"
+        }
+      ],
+      "wheels": [
+        {
+          "name": "Memory Spiral",
+          "kind": "wheel"
+        },
+        {
+          "name": "Gift of Decay",
+          "kind": "wheel"
+        },
+        {
+          "name": "Drifting in Desire",
+          "kind": "wheel"
+        },
+        {
+          "name": "Will Unyielding",
+          "kind": "wheel"
+        },
+        {
+          "name": "Silent Banquet",
+          "kind": "wheel"
+        },
+        {
+          "name": "Blade of the Titan",
+          "kind": "wheel"
+        },
+        {
+          "name": "Amidst the Downpour",
+          "kind": "wheel"
+        },
+        {
+          "name": "Fin of Sorrow",
+          "kind": "wheel"
+        },
+        {
+          "name": "Death of Ms. Coral",
+          "kind": "wheel"
+        },
+        {
+          "name": "Sail of Providence",
+          "kind": "wheel"
+        },
+        {
+          "name": "Chains Unbound",
+          "kind": "wheel"
+        },
+        {
+          "name": "Pale Descendant",
+          "kind": "wheel"
+        },
+        {
+          "name": "Bloody Feast",
+          "kind": "wheel"
+        },
+        {
+          "name": "The Glutton's Tale",
+          "kind": "wheel"
+        },
+        {
+          "name": "Lullaby Devoured",
+          "kind": "wheel"
+        },
+        {
+          "name": "Fouetté",
+          "kind": "wheel"
+        },
+        {
+          "name": "Song of the Bound",
+          "kind": "wheel"
+        },
+        {
+          "name": "Incalculable Factor",
+          "kind": "wheel"
+        },
+        {
+          "name": "Path Forsaken",
+          "kind": "wheel"
+        },
+        {
+          "name": "Happy Magic Show",
+          "kind": "wheel"
+        }
+      ],
+      "ultra": [
+        {
+          "name": "Liz",
+          "kind": "awakener"
+        },
+        {
+          "name": "Tinct",
+          "kind": "awakener"
+        },
+        {
+          "name": "Winkle",
+          "kind": "awakener"
+        },
+        {
+          "name": "Jenkin",
+          "kind": "awakener"
+        },
+        {
+          "name": "Casiah",
+          "kind": "awakener"
+        }
+      ],
+      "caro": [
+        {
+          "name": "Helot",
+          "kind": "awakener"
+        },
+        {
+          "name": "Agrippa",
+          "kind": "awakener"
+        },
+        {
+          "name": "Uvhash",
+          "kind": "awakener"
+        },
+        {
+          "name": "Leigh",
+          "kind": "awakener"
+        },
+        {
+          "name": "Faint",
+          "kind": "awakener"
+        }
+      ],
+      "chaos": [
+        {
+          "name": "Nautila",
+          "kind": "awakener"
+        },
+        {
+          "name": "Nymphaea",
+          "kind": "awakener"
+        },
+        {
+          "name": "Pandia",
+          "kind": "awakener"
+        },
+        {
+          "name": "Alva",
+          "kind": "awakener"
+        },
+        {
+          "name": "Karen",
+          "kind": "awakener"
+        }
+      ]
+    },
     "dailySchedule": [
       {
         "day": 1,
+        "offBannerPoolKeys": ["aequor", "wheels"],
         "featured": [
           {
             "name": "Tulu",
@@ -22,6 +196,7 @@
       },
       {
         "day": 2,
+        "offBannerPoolKeys": ["ultra", "wheels"],
         "featured": [
           {
             "name": "Daffodil",
@@ -35,6 +210,7 @@
       },
       {
         "day": 3,
+        "offBannerPoolKeys": ["caro", "wheels"],
         "featured": [
           {
             "name": "Sorel",
@@ -48,6 +224,7 @@
       },
       {
         "day": 4,
+        "offBannerPoolKeys": ["chaos", "wheels"],
         "featured": [
           {
             "name": "Lily",
@@ -61,6 +238,7 @@
       },
       {
         "day": 5,
+        "offBannerPoolKeys": ["aequor", "wheels"],
         "featured": [
           {
             "name": "Murphy",
@@ -74,6 +252,7 @@
       },
       {
         "day": 6,
+        "offBannerPoolKeys": ["ultra", "wheels"],
         "featured": [
           {
             "name": "Wanda",
@@ -87,6 +266,7 @@
       },
       {
         "day": 7,
+        "offBannerPoolKeys": ["caro", "wheels"],
         "featured": [
           {
             "name": "Salvador",
@@ -100,6 +280,7 @@
       },
       {
         "day": 8,
+        "offBannerPoolKeys": ["chaos", "wheels"],
         "featured": [
           {
             "name": "24",
@@ -113,6 +294,7 @@
       },
       {
         "day": 9,
+        "offBannerPoolKeys": ["caro", "wheels"],
         "featured": [
           {
             "name": "Thais",
@@ -126,6 +308,7 @@
       },
       {
         "day": 10,
+        "offBannerPoolKeys": ["aequor", "wheels"],
         "featured": [
           {
             "name": "Miryam",
@@ -139,6 +322,7 @@
       },
       {
         "day": 11,
+        "offBannerPoolKeys": ["ultra", "wheels"],
         "featured": [
           {
             "name": "Horla",
@@ -152,6 +336,7 @@
       },
       {
         "day": 12,
+        "offBannerPoolKeys": ["chaos", "wheels"],
         "featured": [
           {
             "name": "Ryker",
@@ -165,6 +350,7 @@
       },
       {
         "day": 13,
+        "offBannerPoolKeys": ["chaos", "wheels"],
         "featured": [
           {
             "name": "Hameln",
@@ -178,6 +364,7 @@
       },
       {
         "day": 14,
+        "offBannerPoolKeys": ["caro", "wheels"],
         "featured": [
           {
             "name": "Helot: Catena",
@@ -191,6 +378,7 @@
       },
       {
         "day": 15,
+        "offBannerPoolKeys": ["chaos", "wheels"],
         "featured": [
           {
             "name": "Tawil",
@@ -204,6 +392,7 @@
       },
       {
         "day": 16,
+        "offBannerPoolKeys": ["chaos", "wheels"],
         "featured": [
           {
             "name": "Doll: Inferno",
@@ -217,6 +406,7 @@
       },
       {
         "day": 17,
+        "offBannerPoolKeys": ["ultra", "wheels"],
         "featured": [
           {
             "name": "Clementine",
@@ -230,6 +420,7 @@
       },
       {
         "day": 18,
+        "offBannerPoolKeys": ["aequor", "wheels"],
         "featured": [
           {
             "name": "Corposant",
@@ -243,6 +434,7 @@
       },
       {
         "day": 19,
+        "offBannerPoolKeys": ["ultra", "wheels"],
         "featured": [
           {
             "name": "Castor",
@@ -256,6 +448,7 @@
       },
       {
         "day": 20,
+        "offBannerPoolKeys": ["caro", "wheels"],
         "featured": [
           {
             "name": "Doresain",
@@ -269,6 +462,7 @@
       },
       {
         "day": 21,
+        "offBannerPoolKeys": ["chaos", "wheels"],
         "featured": [
           {
             "name": "Kathigu-Ra",
@@ -282,6 +476,7 @@
       },
       {
         "day": 22,
+        "offBannerPoolKeys": ["caro", "wheels"],
         "featured": [
           {
             "name": "Pickman",
@@ -295,6 +490,7 @@
       },
       {
         "day": 23,
+        "offBannerPoolKeys": ["ultra", "wheels"],
         "featured": [
           {
             "name": "Pollux",
@@ -308,6 +504,7 @@
       },
       {
         "day": 24,
+        "offBannerPoolKeys": ["aequor", "wheels"],
         "featured": [
           {
             "name": "Murphy: Fauxborn",
@@ -321,6 +518,7 @@
       },
       {
         "day": 25,
+        "offBannerPoolKeys": ["chaos", "wheels"],
         "featured": [
           {
             "name": "Mouchette",
@@ -334,6 +532,7 @@
       },
       {
         "day": 26,
+        "offBannerPoolKeys": ["caro", "wheels"],
         "featured": [
           {
             "name": "Xu",
@@ -347,6 +546,7 @@
       },
       {
         "day": 27,
+        "offBannerPoolKeys": ["aequor", "wheels"],
         "featured": [
           {
             "name": "Vortice",
@@ -360,6 +560,7 @@
       },
       {
         "day": 28,
+        "offBannerPoolKeys": ["ultra", "wheels"],
         "featured": [
           {
             "name": "Arachne",
@@ -373,6 +574,7 @@
       },
       {
         "day": 29,
+        "offBannerPoolKeys": ["caro", "wheels"],
         "featured": [
           {
             "name": "Saya",
@@ -386,6 +588,7 @@
       },
       {
         "day": 30,
+        "offBannerPoolKeys": ["aequor", "wheels"],
         "featured": [
           {
             "name": "Pontos",
@@ -399,6 +602,7 @@
       },
       {
         "day": 31,
+        "offBannerPoolKeys": ["chaos", "wheels"],
         "featured": [
           {
             "name": "Lotan: Cetarchon",
@@ -412,6 +616,7 @@
       },
       {
         "day": 32,
+        "offBannerPoolKeys": ["caro", "wheels"],
         "featured": [
           {
             "name": "Caraboo",
@@ -425,6 +630,7 @@
       },
       {
         "day": 33,
+        "offBannerPoolKeys": ["chaos", "wheels"],
         "featured": [
           {
             "name": "Ogier: Oathbound",
@@ -438,6 +644,7 @@
       },
       {
         "day": 34,
+        "offBannerPoolKeys": ["chaos", "wheels"],
         "featured": [
           {
             "name": "Vivian",
@@ -451,6 +658,7 @@
       },
       {
         "day": 35,
+        "offBannerPoolKeys": ["aequor", "wheels"],
         "featured": [
           {
             "name": "Tulu",

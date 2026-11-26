@@ -6,6 +6,7 @@ import {
   getTimelineStatus,
   type BannerDailyScheduleEntry,
   type BannerEntry,
+  type BannerFeaturedUnit,
 } from '@/domain/timeline'
 
 import {StageRoster} from './StageRoster'
@@ -15,6 +16,36 @@ import {resolveTimelineThumbnail} from './timelineThumbnails'
 const dayMs = 86_400_000
 const stepClass =
   'ui-compact-control grid min-h-10 cursor-pointer place-items-center disabled:cursor-default disabled:opacity-40'
+
+function SchedulePool({
+  title,
+  featured,
+  offBanner,
+  onOpenDetail,
+}: {
+  title?: string
+  featured: BannerFeaturedUnit[]
+  offBanner?: BannerFeaturedUnit[]
+  onOpenDetail: (ref: EntityRef) => void
+}) {
+  return (
+    <div className='space-y-3'>
+      {title ? <h4 className='text-sm font-semibold text-[var(--ui-text-main)]'>{title}</h4> : null}
+      <div className='space-y-2'>
+        <p className='text-xs font-semibold text-amber-200'>Rate-up</p>
+        <StageRoster compact onOpenDetail={onOpenDetail} units={featured} />
+      </div>
+      {offBanner?.length ? (
+        <div className='space-y-2'>
+          <p className='text-xs font-semibold text-slate-300'>
+            Off-banner SSRs ({offBanner.length})
+          </p>
+          <StageRoster compact onOpenDetail={onOpenDetail} units={offBanner} />
+        </div>
+      ) : null}
+    </div>
+  )
+}
 
 export function StageSchedule({
   banner,
@@ -86,18 +117,25 @@ export function StageSchedule({
           <FaChevronRight aria-hidden className='size-3' />
         </button>
       </div>
-      <div className='space-y-2'>
-        <h4 className='text-xs font-semibold text-amber-200'>Rate-up</h4>
-        <StageRoster compact onOpenDetail={onOpenDetail} units={selected.featured} />
-      </div>
-      {selected.offBanner?.length ? (
-        <div className='space-y-2'>
-          <h4 className='text-xs font-semibold text-slate-300'>
-            Off-banner SSRs ({selected.offBanner.length})
-          </h4>
-          <StageRoster compact onOpenDetail={onOpenDetail} units={selected.offBanner} />
+      {banner.rulesProfile === 'split-daily' ? (
+        <div className='space-y-4 divide-y divide-slate-700/40 [&>div:not(:first-child)]:pt-4'>
+          {(['awakener', 'wheel'] as const).map((kind) => (
+            <SchedulePool
+              featured={selected.featured.filter((unit) => unit.kind === kind)}
+              key={kind}
+              offBanner={selected.offBanner?.filter((unit) => unit.kind === kind)}
+              onOpenDetail={onOpenDetail}
+              title={kind === 'awakener' ? 'Character Awakening' : 'Wheel Awakening'}
+            />
+          ))}
         </div>
-      ) : null}
+      ) : (
+        <SchedulePool
+          featured={selected.featured}
+          offBanner={selected.offBanner}
+          onOpenDetail={onOpenDetail}
+        />
+      )}
     </section>
   )
 }

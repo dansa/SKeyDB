@@ -1,5 +1,251 @@
 [
   {
+    "id": "mythag-gifts-261130",
+    "title": "Gifts from Mythag",
+    "category": "login",
+    "description": "Daily login rewards include 10 Luminous Cores and 6 Ethereal Cores.\nRewards unlock in order as you log in. Login days don't have to be consecutive.",
+    "startDate": "2026/11/30 09:00",
+    "endDate": "2027/01/04 09:00",
+    "artVariants": {
+      "card": "/events/gifts-from-mythag-card.webp",
+      "detail": "/events/gifts-from-mythag-detail.webp"
+    },
+    "rewards": [
+      {
+        "title": "Days 1–7",
+        "layout": "days",
+        "items": [
+          {
+            "name": "Luminous Core",
+            "amount": "×1"
+          },
+          {
+            "name": "Luminous Core",
+            "amount": "×1"
+          },
+          {
+            "name": "Luminous Core",
+            "amount": "×2"
+          },
+          {
+            "name": "Luminous Core",
+            "amount": "×1"
+          },
+          {
+            "name": "Luminous Core",
+            "amount": "×1"
+          },
+          {
+            "name": "Luminous Core",
+            "amount": "×1"
+          },
+          {
+            "name": "Luminous Core",
+            "amount": "×3"
+          }
+        ]
+      },
+      {
+        "title": "Total across logins 8–28",
+        "items": [
+          {
+            "name": "Ethereal Core",
+            "amount": "×6"
+          },
+          {
+            "name": "Token of Concord",
+            "amount": "×1"
+          },
+          {
+            "name": "Remembrance Quill",
+            "amount": "×60"
+          },
+          {
+            "name": "Thousand Faces Seal",
+            "amount": "×600"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×270,000"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "curriculum-261130",
+    "title": "Curriculum Honor: Term 41",
+    "category": "curriculum",
+    "description": "Seasonal battle pass with expanded rewards.\nDaily and weekly tasks grant Topic EXP. Basic Topics is free. Advanced unlocks extra level rewards, including an SSR Wheel selector. Premium includes Advanced and adds exclusive cosmetics.",
+    "startDate": "2026/11/30 09:00",
+    "endDate": "2027/01/04 09:00",
+    "artVariants": {
+      "card": "/events/curriculum-card.webp",
+      "detail": "/events/curriculum-detail.webp"
+    },
+    "pricing": "680-1,280 Silver Prime",
+    "featured": [
+      {
+        "name": "Spring in Yakutsk",
+        "kind": "wheel"
+      },
+      {
+        "name": "Sunfall",
+        "kind": "wheel"
+      },
+      {
+        "name": "Birth of a Soul",
+        "kind": "wheel"
+      }
+    ],
+    "rewards": [
+      {
+        "title": "Basic Topics",
+        "price": "Free",
+        "items": [
+          {
+            "name": "Pure Core",
+            "amount": "×12"
+          },
+          {
+            "name": "Formless One's Gift Card",
+            "amount": "×25"
+          },
+          {
+            "name": "Aetheric Stone",
+            "amount": "×1"
+          },
+          {
+            "name": "Remembrance Quill",
+            "amount": "×100"
+          },
+          {
+            "name": "Investigation Badge",
+            "amount": "×2,500"
+          },
+          {
+            "name": "Black Offering",
+            "amount": "×2,500"
+          },
+          {
+            "name": "D-Jewel",
+            "amount": "×2,500"
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×6"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×1,560,000"
+          }
+        ]
+      },
+      {
+        "title": "Advanced adds",
+        "price": "680 Silver Prime",
+        "note": "Also grants 680 Silver on purchase.",
+        "items": [
+          {
+            "name": "Curriculum Honor selector box",
+            "amount": "×1"
+          },
+          {
+            "name": "Luminous Core",
+            "amount": "×12"
+          },
+          {
+            "name": "Silver",
+            "amount": "×2,500"
+          },
+          {
+            "name": "Aetheric Stone",
+            "amount": "×3"
+          },
+          {
+            "name": "Remembrance Quill",
+            "amount": "×300"
+          },
+          {
+            "name": "Mimetic Crystal",
+            "amount": "×810"
+          },
+          {
+            "name": "Formless One's Invitation",
+            "amount": "×5"
+          },
+          {
+            "name": "Investigation Badge",
+            "amount": "×7,500"
+          },
+          {
+            "name": "Black Offering",
+            "amount": "×7,500"
+          },
+          {
+            "name": "D-Jewel",
+            "amount": "×7,500"
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×6"
+          },
+          {
+            "name": "Rose Scrip",
+            "amount": "×4,680,000"
+          }
+        ]
+      },
+      {
+        "title": "Premium adds",
+        "price": "1,280 Silver Prime",
+        "note": "Includes Advanced Topics. Grants 1,460 Silver in total and +10 Topic Levels on purchase.",
+        "items": [
+          {
+            "name": "Collector's Stamp: Tulu",
+            "amount": "×1",
+            "itemId": 127030,
+            "cosmetic": "avatar"
+          },
+          {
+            "name": "Unfading Yesterday: Liz",
+            "amount": "×1",
+            "itemId": 152857,
+            "cosmetic": "avatar"
+          },
+          {
+            "name": "Unfading Yesterday: Tinct",
+            "amount": "×1",
+            "itemId": 152856,
+            "cosmetic": "avatar"
+          },
+          {
+            "name": "Tohuwabohu: Stare",
+            "amount": "×1",
+            "itemId": 150827,
+            "cosmetic": "emote"
+          },
+          {
+            "name": "Hannah: Interview",
+            "amount": "×1",
+            "itemId": 150823,
+            "cosmetic": "emote"
+          },
+          {
+            "name": "William: Discover",
+            "amount": "×1",
+            "itemId": 150826,
+            "cosmetic": "emote"
+          },
+          {
+            "name": "Special Potion Supply",
+            "amount": "×10"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "lucky-winner-261130",
     "title": "Lucky Winner",
     "category": "wheel-event",
@@ -326,32 +572,38 @@
           {
             "name": "Collector's Stamp: Tawil",
             "amount": "×1",
-            "itemId": 127059
+            "itemId": 127059,
+            "cosmetic": "avatar"
           },
           {
             "name": "Collector's Stamp: Lily",
             "amount": "×1",
-            "itemId": 127067
+            "itemId": 127067,
+            "cosmetic": "avatar"
           },
           {
             "name": "Collector's Stamp: Lotan",
             "amount": "×1",
-            "itemId": 120955
+            "itemId": 120955,
+            "cosmetic": "avatar"
           },
           {
             "name": "Collector's Stamp: Ogier",
             "amount": "×1",
-            "itemId": 120960
+            "itemId": 120960,
+            "cosmetic": "avatar"
           },
           {
             "name": "Mythag Interlude: Ramona",
             "amount": "×1",
-            "itemId": 130553
+            "itemId": 130553,
+            "cosmetic": "avatar"
           },
           {
             "name": "Mythag Interlude: Ramona: Timeworn",
             "amount": "×1",
-            "itemId": 130550
+            "itemId": 130550,
+            "cosmetic": "avatar"
           },
           {
             "name": "Special Potion Supply",
@@ -1599,32 +1851,38 @@
           {
             "name": "Mythag Interlude: Pandia",
             "amount": "×1",
-            "itemId": 130545
+            "itemId": 130545,
+            "cosmetic": "avatar"
           },
           {
             "name": "Mythag Interlude: Lily",
             "amount": "×1",
-            "itemId": 130554
+            "itemId": 130554,
+            "cosmetic": "avatar"
           },
           {
             "name": "Collector's Stamp: Aigis",
             "amount": "×1",
-            "itemId": 132666
+            "itemId": 132666,
+            "cosmetic": "avatar"
           },
           {
             "name": "Keeper-See No Evil",
             "amount": "×1",
-            "itemId": 133406
+            "itemId": 133406,
+            "cosmetic": "emote"
           },
           {
             "name": "Dexter-One More!",
             "amount": "×1",
-            "itemId": 127040
+            "itemId": 127040,
+            "cosmetic": "emote"
           },
           {
             "name": "Tulu-Wide Awake",
             "amount": "×1",
-            "itemId": 127057
+            "itemId": 127057,
+            "cosmetic": "emote"
           },
           {
             "name": "Special Potion Supply",
@@ -3195,32 +3453,38 @@
           {
             "name": "Collector's Stamp: Saya",
             "amount": "×1",
-            "itemId": 140206
+            "itemId": 140206,
+            "cosmetic": "avatar"
           },
           {
             "name": "Mythag Interlude: Doll: Inferno",
             "amount": "×1",
-            "itemId": 130543
+            "itemId": 130543,
+            "cosmetic": "avatar"
           },
           {
             "name": "Unfading Yesterday: Caecus",
             "amount": "×1",
-            "itemId": 132451
+            "itemId": 132451,
+            "cosmetic": "avatar"
           },
           {
             "name": "Nautila-Where?",
             "amount": "×1",
-            "itemId": 127044
+            "itemId": 127044,
+            "cosmetic": "emote"
           },
           {
             "name": "Goliath-Workout",
             "amount": "×1",
-            "itemId": 127029
+            "itemId": 127029,
+            "cosmetic": "emote"
           },
           {
             "name": "Karen-Oops",
             "amount": "×1",
-            "itemId": 127022
+            "itemId": 127022,
+            "cosmetic": "emote"
           },
           {
             "name": "Special Potion Supply",
@@ -3681,32 +3945,38 @@
           {
             "name": "Collector's Stamp: Thais",
             "amount": "×1",
-            "itemId": 132663
+            "itemId": 132663,
+            "cosmetic": "avatar"
           },
           {
             "name": "Unfading Yesterday: Faros",
             "amount": "×1",
-            "itemId": 140570
+            "itemId": 140570,
+            "cosmetic": "avatar"
           },
           {
             "name": "Mythag Interlude: Ryker",
             "amount": "×1",
-            "itemId": 130552
+            "itemId": 130552,
+            "cosmetic": "avatar"
           },
           {
             "name": "Uvhash-Brawl",
             "amount": "×1",
-            "itemId": 127066
+            "itemId": 127066,
+            "cosmetic": "emote"
           },
           {
             "name": "Aurita-Dodge",
             "amount": "×1",
-            "itemId": 127052
+            "itemId": 127052,
+            "cosmetic": "emote"
           },
           {
             "name": "Jenkin-Sneak",
             "amount": "×1",
-            "itemId": 127038
+            "itemId": 127038,
+            "cosmetic": "emote"
           },
           {
             "name": "Special Potion Supply",
@@ -4319,32 +4589,38 @@
           {
             "name": "Collector's Stamp: Sorel",
             "amount": "×1",
-            "itemId": 132664
+            "itemId": 132664,
+            "cosmetic": "avatar"
           },
           {
             "name": "Unfading Yesterday: Goliath",
             "amount": "×1",
-            "itemId": 132446
+            "itemId": 132446,
+            "cosmetic": "avatar"
           },
           {
             "name": "Unfading Yesterday: Miryam",
             "amount": "×1",
-            "itemId": 132448
+            "itemId": 132448,
+            "cosmetic": "avatar"
           },
           {
             "name": "Kathigu-Ra-Shoot",
             "amount": "×1",
-            "itemId": 127063
+            "itemId": 127063,
+            "cosmetic": "emote"
           },
           {
             "name": "Winkle-Crit Fail",
             "amount": "×1",
-            "itemId": 143424
+            "itemId": 143424,
+            "cosmetic": "emote"
           },
           {
             "name": "Ryker-Crit Win",
             "amount": "×1",
-            "itemId": 127027
+            "itemId": 127027,
+            "cosmetic": "emote"
           },
           {
             "name": "Special Potion Supply",
@@ -5164,32 +5440,38 @@
           {
             "name": "Collector's Stamp: Helot",
             "amount": "×1",
-            "itemId": 144521
+            "itemId": 144521,
+            "cosmetic": "avatar"
           },
           {
             "name": "Mythag Interlude: \"24\"",
             "amount": "×1",
-            "itemId": 130547
+            "itemId": 130547,
+            "cosmetic": "avatar"
           },
           {
             "name": "Mythag Interlude: Lotan",
             "amount": "×1",
-            "itemId": 130544
+            "itemId": 130544,
+            "cosmetic": "avatar"
           },
           {
             "name": "Nautila-Drive",
             "amount": "×1",
-            "itemId": 145606
+            "itemId": 145606,
+            "cosmetic": "emote"
           },
           {
             "name": "Juliette-Tame",
             "amount": "×1",
-            "itemId": 127054
+            "itemId": 127054,
+            "cosmetic": "emote"
           },
           {
             "name": "Corposant-Navigate",
             "amount": "×1",
-            "itemId": 127061
+            "itemId": 127061,
+            "cosmetic": "emote"
           },
           {
             "name": "Special Potion Supply",
@@ -6049,32 +6331,38 @@
           {
             "name": "Collector's Stamp: Doresain",
             "amount": "×1",
-            "itemId": 127056
+            "itemId": 127056,
+            "cosmetic": "avatar"
           },
           {
             "name": "Unfading Yesterday: Aurita",
             "amount": "×1",
-            "itemId": 132445
+            "itemId": 132445,
+            "cosmetic": "avatar"
           },
           {
             "name": "Mythag Interlude: Nymphaea",
             "amount": "×1",
-            "itemId": 130549
+            "itemId": 130549,
+            "cosmetic": "avatar"
           },
           {
             "name": "Dexter-Credit",
             "amount": "×1",
-            "itemId": 127069
+            "itemId": 127069,
+            "cosmetic": "emote"
           },
           {
             "name": "Thais-Charm",
             "amount": "×1",
-            "itemId": 127020
+            "itemId": 127020,
+            "cosmetic": "emote"
           },
           {
             "name": "Miryam-Pray",
             "amount": "×1",
-            "itemId": 127047
+            "itemId": 127047,
+            "cosmetic": "emote"
           },
           {
             "name": "Special Potion Supply",
@@ -6764,32 +7052,38 @@
           {
             "name": "Premium Collector's Stamp: Leigh",
             "amount": "×1",
-            "itemId": 144522
+            "itemId": 144522,
+            "cosmetic": "avatar"
           },
           {
             "name": "Mythag Interlude: Ogier",
             "amount": "×1",
-            "itemId": 130542
+            "itemId": 130542,
+            "cosmetic": "avatar"
           },
           {
             "name": "Mythag Interlude: Karen",
             "amount": "×1",
-            "itemId": 133404
+            "itemId": 133404,
+            "cosmetic": "avatar"
           },
           {
             "name": "Salvador-Watering",
             "amount": "×1",
-            "itemId": 150810
+            "itemId": 150810,
+            "cosmetic": "emote"
           },
           {
             "name": "Xu-Disdain",
             "amount": "×1",
-            "itemId": 150820
+            "itemId": 150820,
+            "cosmetic": "emote"
           },
           {
             "name": "Doll-Puzzled",
             "amount": "×1",
-            "itemId": 150825
+            "itemId": 150825,
+            "cosmetic": "emote"
           },
           {
             "name": "Special Potion Supply",
@@ -7592,32 +7886,38 @@
           {
             "name": "Collector's Stamp: Murphy",
             "amount": "×1",
-            "itemId": 127028
+            "itemId": 127028,
+            "cosmetic": "avatar"
           },
           {
             "name": "Unfading Yesterday: Sanga",
             "amount": "×1",
-            "itemId": 132452
+            "itemId": 132452,
+            "cosmetic": "avatar"
           },
           {
             "name": "Unfading Yesterday: Celeste",
             "amount": "×1",
-            "itemId": 152853
+            "itemId": 152853,
+            "cosmetic": "avatar"
           },
           {
             "name": "Hannah: Photo",
             "amount": "×1",
-            "itemId": 150815
+            "itemId": 150815,
+            "cosmetic": "emote"
           },
           {
             "name": "\"24\": Bad News",
             "amount": "×1",
-            "itemId": 150819
+            "itemId": 150819,
+            "cosmetic": "emote"
           },
           {
             "name": "Keeper: Stop Fighting",
             "amount": "×1",
-            "itemId": 150811
+            "itemId": 150811,
+            "cosmetic": "emote"
           },
           {
             "name": "Special Potion Supply",
@@ -8991,27 +9291,33 @@
         "items": [
           {
             "name": "Collector's Stamp: Caecus",
-            "amount": "×1"
+            "amount": "×1",
+            "cosmetic": "avatar"
           },
           {
             "name": "Unfading Yesterday: Corposant",
-            "amount": "×1"
+            "amount": "×1",
+            "cosmetic": "avatar"
           },
           {
             "name": "Mythag Interlude: Alva",
-            "amount": "×1"
+            "amount": "×1",
+            "cosmetic": "avatar"
           },
           {
             "name": "Keeper: Majesty",
-            "amount": "×1"
+            "amount": "×1",
+            "cosmetic": "emote"
           },
           {
             "name": "Mouchette: Tornado",
-            "amount": "×1"
+            "amount": "×1",
+            "cosmetic": "emote"
           },
           {
             "name": "Arachne: The Seer",
-            "amount": "×1"
+            "amount": "×1",
+            "cosmetic": "emote"
           },
           {
             "name": "Special Potion Supply",
@@ -9040,12 +9346,14 @@
           {
             "name": "By the Silver Key: Ramona",
             "amount": "×1",
-            "itemId": 25142
+            "itemId": 25142,
+            "cosmetic": "avatar"
           },
           {
             "name": "By the Silver Key: Ogier",
             "amount": "×1",
-            "itemId": 25141
+            "itemId": 25141,
+            "cosmetic": "avatar"
           },
           {
             "name": "Special Potion Supply",
@@ -9078,12 +9386,14 @@
           {
             "name": "By the Silver Key: Doll",
             "amount": "×1",
-            "itemId": 35816
+            "itemId": 35816,
+            "cosmetic": "avatar"
           },
           {
             "name": "By the Silver Key: Faros",
             "amount": "×1",
-            "itemId": 54472
+            "itemId": 54472,
+            "cosmetic": "avatar"
           },
           {
             "name": "Special Potion Supply",
@@ -9112,32 +9422,38 @@
           {
             "name": "By the Silver Key: Caecus",
             "amount": "×1",
-            "itemId": 54486
+            "itemId": 54486,
+            "cosmetic": "avatar"
           },
           {
             "name": "By the Silver Key: Helot",
             "amount": "×1",
-            "itemId": 54495
+            "itemId": 54495,
+            "cosmetic": "avatar"
           },
           {
             "name": "Dexter-Check!",
             "amount": "×1",
-            "itemId": 46758
+            "itemId": 46758,
+            "cosmetic": "emote"
           },
           {
             "name": "Hannah-Intel!",
             "amount": "×1",
-            "itemId": 46738
+            "itemId": 46738,
+            "cosmetic": "emote"
           },
           {
             "name": "William-Thinking",
             "amount": "×1",
-            "itemId": 46742
+            "itemId": 46742,
+            "cosmetic": "emote"
           },
           {
             "name": "Czort-Overtime",
             "amount": "×1",
-            "itemId": 46760
+            "itemId": 46760,
+            "cosmetic": "emote"
           },
           {
             "name": "Special Potion Supply",
@@ -9166,32 +9482,38 @@
           {
             "name": "By the Silver Key: Keeper",
             "amount": "×1",
-            "itemId": 49264
+            "itemId": 49264,
+            "cosmetic": "avatar"
           },
           {
             "name": "By the Silver Key: Ramona: Timeworn",
             "amount": "×1",
-            "itemId": 49271
+            "itemId": 49271,
+            "cosmetic": "avatar"
           },
           {
             "name": "Nautila-Adventure!",
             "amount": "×1",
-            "itemId": 46781
+            "itemId": 46781,
+            "cosmetic": "emote"
           },
           {
             "name": "Tinct-Smile",
             "amount": "×1",
-            "itemId": 46755
+            "itemId": 46755,
+            "cosmetic": "emote"
           },
           {
             "name": "Ramona: Timeworn-Worried",
             "amount": "×1",
-            "itemId": 46787
+            "itemId": 46787,
+            "cosmetic": "emote"
           },
           {
             "name": "Goliath-Take This!",
             "amount": "×1",
-            "itemId": 46789
+            "itemId": 46789,
+            "cosmetic": "emote"
           },
           {
             "name": "Special Potion Supply",
@@ -9224,32 +9546,38 @@
           {
             "name": "By the Silver Key: Lotan",
             "amount": "×1",
-            "itemId": 35817
+            "itemId": 35817,
+            "cosmetic": "avatar"
           },
           {
             "name": "By the Silver Key: Liz",
             "amount": "×1",
-            "itemId": 51996
+            "itemId": 51996,
+            "cosmetic": "avatar"
           },
           {
             "name": "Nymphaea-Floaty",
             "amount": "×1",
-            "itemId": 46766
+            "itemId": 46766,
+            "cosmetic": "emote"
           },
           {
             "name": "Winkle-Yikes!",
             "amount": "×1",
-            "itemId": 46768
+            "itemId": 46768,
+            "cosmetic": "emote"
           },
           {
             "name": "Leigh-Lemme Taste",
             "amount": "×1",
-            "itemId": 46780
+            "itemId": 46780,
+            "cosmetic": "emote"
           },
           {
             "name": "Faros-Joy",
             "amount": "×1",
-            "itemId": 46736
+            "itemId": 46736,
+            "cosmetic": "emote"
           },
           {
             "name": "Special Potion Supply",
@@ -9282,32 +9610,38 @@
           {
             "name": "By the Silver Key: Sanga",
             "amount": "×1",
-            "itemId": 54483
+            "itemId": 54483,
+            "cosmetic": "avatar"
           },
           {
             "name": "By the Silver Key: Aigis",
             "amount": "×1",
-            "itemId": 54473
+            "itemId": 54473,
+            "cosmetic": "avatar"
           },
           {
             "name": "Pandia-Air Kiss",
             "amount": "×1",
-            "itemId": 46745
+            "itemId": 46745,
+            "cosmetic": "emote"
           },
           {
             "name": "Agrippa-Hug",
             "amount": "×1",
-            "itemId": 46773
+            "itemId": 46773,
+            "cosmetic": "emote"
           },
           {
             "name": "Caecus-Sob",
             "amount": "×1",
-            "itemId": 46786
+            "itemId": 46786,
+            "cosmetic": "emote"
           },
           {
             "name": "Jenkin-Space Mouse",
             "amount": "×1",
-            "itemId": 46763
+            "itemId": 46763,
+            "cosmetic": "emote"
           },
           {
             "name": "Special Potion Supply",
@@ -9340,32 +9674,38 @@
           {
             "name": "By the Silver Key: Pandia",
             "amount": "×1",
-            "itemId": 54492
+            "itemId": 54492,
+            "cosmetic": "avatar"
           },
           {
             "name": "By the Silver Key: Aurita",
             "amount": "×1",
-            "itemId": 54488
+            "itemId": 54488,
+            "cosmetic": "avatar"
           },
           {
             "name": "Faint-Wakey!",
             "amount": "×1",
-            "itemId": 46737
+            "itemId": 46737,
+            "cosmetic": "emote"
           },
           {
             "name": "Ryker-Head Scratch",
             "amount": "×1",
-            "itemId": 54125
+            "itemId": 54125,
+            "cosmetic": "emote"
           },
           {
             "name": "Alva-Truce",
             "amount": "×1",
-            "itemId": 46761
+            "itemId": 46761,
+            "cosmetic": "emote"
           },
           {
             "name": "Goliath-Sinister",
             "amount": "×1",
-            "itemId": 46764
+            "itemId": 46764,
+            "cosmetic": "emote"
           },
           {
             "name": "Special Potion Supply",
@@ -9398,32 +9738,38 @@
           {
             "name": "By the Silver Key: Erica",
             "amount": "×1",
-            "itemId": 54477
+            "itemId": 54477,
+            "cosmetic": "avatar"
           },
           {
             "name": "By the Silver Key: Leigh",
             "amount": "×1",
-            "itemId": 54493
+            "itemId": 54493,
+            "cosmetic": "avatar"
           },
           {
             "name": "Sorel-Good Game",
             "amount": "×1",
-            "itemId": 46771
+            "itemId": 46771,
+            "cosmetic": "emote"
           },
           {
             "name": "Karen-Dig In!",
             "amount": "×1",
-            "itemId": 46794
+            "itemId": 46794,
+            "cosmetic": "emote"
           },
           {
             "name": "Sanga-Threat",
             "amount": "×1",
-            "itemId": 46759
+            "itemId": 46759,
+            "cosmetic": "emote"
           },
           {
             "name": "Murphy-Brrr",
             "amount": "×1",
-            "itemId": 46777
+            "itemId": 46777,
+            "cosmetic": "emote"
           },
           {
             "name": "Special Potion Supply",
@@ -9456,32 +9802,38 @@
           {
             "name": "By the Silver Key: Nymphaea",
             "amount": "×1",
-            "itemId": 54475
+            "itemId": 54475,
+            "cosmetic": "avatar"
           },
           {
             "name": "By the Silver Key: Celeste",
             "amount": "×1",
-            "itemId": 54481
+            "itemId": 54481,
+            "cosmetic": "avatar"
           },
           {
             "name": "Helot: Catena-Pfft",
             "amount": "×1",
-            "itemId": 46744
+            "itemId": 46744,
+            "cosmetic": "emote"
           },
           {
             "name": "Aurita-Dizzy",
             "amount": "×1",
-            "itemId": 46757
+            "itemId": 46757,
+            "cosmetic": "emote"
           },
           {
             "name": "Liz-Headache",
             "amount": "×1",
-            "itemId": 46788
+            "itemId": 46788,
+            "cosmetic": "emote"
           },
           {
             "name": "Ogier-Broke",
             "amount": "×1",
-            "itemId": 46793
+            "itemId": 46793,
+            "cosmetic": "emote"
           },
           {
             "name": "Special Potion Supply",
@@ -9514,32 +9866,38 @@
           {
             "name": "By the Silver Key: Karen",
             "amount": "×1",
-            "itemId": 54484
+            "itemId": 54484,
+            "cosmetic": "avatar"
           },
           {
             "name": "By the Silver Key: Faint",
             "amount": "×1",
-            "itemId": 54482
+            "itemId": 54482,
+            "cosmetic": "avatar"
           },
           {
             "name": "Rogers-Flustered",
             "amount": "×1",
-            "itemId": 54124
+            "itemId": 54124,
+            "cosmetic": "emote"
           },
           {
             "name": "Albino-Taste Pain",
             "amount": "×1",
-            "itemId": 54136
+            "itemId": 54136,
+            "cosmetic": "emote"
           },
           {
             "name": "Herbert-Clap Clap",
             "amount": "×1",
-            "itemId": 54135
+            "itemId": 54135,
+            "cosmetic": "emote"
           },
           {
             "name": "William-PFFFT",
             "amount": "×1",
-            "itemId": 46775
+            "itemId": 46775,
+            "cosmetic": "emote"
           },
           {
             "name": "Special Potion Supply",
@@ -9572,32 +9930,38 @@
           {
             "name": "By the Silver Key: Nautila",
             "amount": "×1",
-            "itemId": 54497
+            "itemId": 54497,
+            "cosmetic": "avatar"
           },
           {
             "name": "By the Silver Key: Tinct",
             "amount": "×1",
-            "itemId": 54476
+            "itemId": 54476,
+            "cosmetic": "avatar"
           },
           {
             "name": "Tawil-Come Along",
             "amount": "×1",
-            "itemId": 54133
+            "itemId": 54133,
+            "cosmetic": "emote"
           },
           {
             "name": "Goliath-Roar!",
             "amount": "×1",
-            "itemId": 68851
+            "itemId": 68851,
+            "cosmetic": "emote"
           },
           {
             "name": "Sorel-Adieu",
             "amount": "×1",
-            "itemId": 68859
+            "itemId": 68859,
+            "cosmetic": "emote"
           },
           {
             "name": "Aurita-Poor Thing",
             "amount": "×1",
-            "itemId": 68849
+            "itemId": 68849,
+            "cosmetic": "emote"
           },
           {
             "name": "Special Potion Supply",
@@ -9630,32 +9994,38 @@
           {
             "name": "By the Silver Key: Agrippa",
             "amount": "×1",
-            "itemId": 54490
+            "itemId": 54490,
+            "cosmetic": "avatar"
           },
           {
             "name": "By the Silver Key: Winkle",
             "amount": "×1",
-            "itemId": 54479
+            "itemId": 54479,
+            "cosmetic": "avatar"
           },
           {
             "name": "Jenkin-Rude!",
             "amount": "×1",
-            "itemId": 68852
+            "itemId": 68852,
+            "cosmetic": "emote"
           },
           {
             "name": "Ryker-Try Me",
             "amount": "×1",
-            "itemId": 68848
+            "itemId": 68848,
+            "cosmetic": "emote"
           },
           {
             "name": "Murphy-Slacking",
             "amount": "×1",
-            "itemId": 68857
+            "itemId": 68857,
+            "cosmetic": "emote"
           },
           {
             "name": "Horla-True That",
             "amount": "×1",
-            "itemId": 68855
+            "itemId": 68855,
+            "cosmetic": "emote"
           },
           {
             "name": "Special Potion Supply",
@@ -9688,32 +10058,38 @@
           {
             "name": "By the Silver Key: Herbert",
             "amount": "×1",
-            "itemId": 72917
+            "itemId": 72917,
+            "cosmetic": "avatar"
           },
           {
             "name": "By the Silver Key: Rogers",
             "amount": "×1",
-            "itemId": 72933
+            "itemId": 72933,
+            "cosmetic": "avatar"
           },
           {
             "name": "Doll-Serene",
             "amount": "×1",
-            "itemId": 54128
+            "itemId": 54128,
+            "cosmetic": "emote"
           },
           {
             "name": "Leigh-Drool",
             "amount": "×1",
-            "itemId": 72916
+            "itemId": 72916,
+            "cosmetic": "emote"
           },
           {
             "name": "Daffodil-Wave",
             "amount": "×1",
-            "itemId": 72854
+            "itemId": 72854,
+            "cosmetic": "emote"
           },
           {
             "name": "Miryam-Look Here",
             "amount": "×1",
-            "itemId": 72897
+            "itemId": 72897,
+            "cosmetic": "emote"
           },
           {
             "name": "Special Potion Supply",
@@ -9746,32 +10122,38 @@
           {
             "name": "By the Silver Key: N",
             "amount": "×1",
-            "itemId": 72851
+            "itemId": 72851,
+            "cosmetic": "avatar"
           },
           {
             "name": "By the Silver Key: Koum",
             "amount": "×1",
-            "itemId": 72929
+            "itemId": 72929,
+            "cosmetic": "avatar"
           },
           {
             "name": "Horla-Flowers!",
             "amount": "×1",
-            "itemId": 72909
+            "itemId": 72909,
+            "cosmetic": "emote"
           },
           {
             "name": "Ramona-Open Up",
             "amount": "×1",
-            "itemId": 72846
+            "itemId": 72846,
+            "cosmetic": "emote"
           },
           {
             "name": "Murphy-AAAHH!",
             "amount": "×1",
-            "itemId": 72902
+            "itemId": 72902,
+            "cosmetic": "emote"
           },
           {
             "name": "Tulu-That's It?",
             "amount": "×1",
-            "itemId": 72852
+            "itemId": 72852,
+            "cosmetic": "emote"
           },
           {
             "name": "Special Potion Supply",
@@ -9804,32 +10186,38 @@
           {
             "name": "By the Silver Key: Alistair",
             "amount": "×1",
-            "itemId": 72905
+            "itemId": 72905,
+            "cosmetic": "avatar"
           },
           {
             "name": "By the Silver Key: Albino",
             "amount": "×1",
-            "itemId": 72891
+            "itemId": 72891,
+            "cosmetic": "avatar"
           },
           {
             "name": "Dexter-Cheers",
             "amount": "×1",
-            "itemId": 72934
+            "itemId": 72934,
+            "cosmetic": "emote"
           },
           {
             "name": "Thais-Smile",
             "amount": "×1",
-            "itemId": 72849
+            "itemId": 72849,
+            "cosmetic": "emote"
           },
           {
             "name": "Sylvia-Meds Time",
             "amount": "×1",
-            "itemId": 72864
+            "itemId": 72864,
+            "cosmetic": "emote"
           },
           {
             "name": "William-Listen Up!",
             "amount": "×1",
-            "itemId": 72895
+            "itemId": 72895,
+            "cosmetic": "emote"
           },
           {
             "name": "Special Potion Supply",
@@ -9862,32 +10250,38 @@
           {
             "name": "By the Silver Key: Hannah",
             "amount": "×1",
-            "itemId": 72937
+            "itemId": 72937,
+            "cosmetic": "avatar"
           },
           {
             "name": "By the Silver Key: Francis",
             "amount": "×1",
-            "itemId": 72844
+            "itemId": 72844,
+            "cosmetic": "avatar"
           },
           {
             "name": "Murphy-Yummy",
             "amount": "×1",
-            "itemId": 72946
+            "itemId": 72946,
+            "cosmetic": "emote"
           },
           {
             "name": "Karen-Oopsie",
             "amount": "×1",
-            "itemId": 72889
+            "itemId": 72889,
+            "cosmetic": "emote"
           },
           {
             "name": "Ramona-Pro",
             "amount": "×1",
-            "itemId": 72915
+            "itemId": 72915,
+            "cosmetic": "emote"
           },
           {
             "name": "Celeste-Yep",
             "amount": "×1",
-            "itemId": 72876
+            "itemId": 72876,
+            "cosmetic": "emote"
           },
           {
             "name": "Special Potion Supply",
@@ -9920,32 +10314,38 @@
           {
             "name": "By the Silver Key: Brown",
             "amount": "×1",
-            "itemId": 72908
+            "itemId": 72908,
+            "cosmetic": "avatar"
           },
           {
             "name": "By the Silver Key: Juliette",
             "amount": "×1",
-            "itemId": 72861
+            "itemId": 72861,
+            "cosmetic": "avatar"
           },
           {
             "name": "Doll-Say What?",
             "amount": "×1",
-            "itemId": 72896
+            "itemId": 72896,
+            "cosmetic": "emote"
           },
           {
             "name": "Ryker-Pretty Pls",
             "amount": "×1",
-            "itemId": 72919
+            "itemId": 72919,
+            "cosmetic": "emote"
           },
           {
             "name": "Salvador-OK",
             "amount": "×1",
-            "itemId": 72845
+            "itemId": 72845,
+            "cosmetic": "emote"
           },
           {
             "name": "Alistair-Smile",
             "amount": "×1",
-            "itemId": 72860
+            "itemId": 72860,
+            "cosmetic": "emote"
           },
           {
             "name": "Special Potion Supply",
@@ -9978,32 +10378,38 @@
           {
             "name": "By the Silver Key: Colette",
             "amount": "×1",
-            "itemId": 72841
+            "itemId": 72841,
+            "cosmetic": "avatar"
           },
           {
             "name": "Chibi Mug Shot: Tulu",
             "amount": "×1",
-            "itemId": 94734
+            "itemId": 94734,
+            "cosmetic": "avatar"
           },
           {
             "name": "William-Timber!",
             "amount": "×1",
-            "itemId": 72843
+            "itemId": 72843,
+            "cosmetic": "emote"
           },
           {
             "name": "Caecus-Ouch",
             "amount": "×1",
-            "itemId": 72870
+            "itemId": 72870,
+            "cosmetic": "emote"
           },
           {
             "name": "Tulu-Sleepy",
             "amount": "×1",
-            "itemId": 72885
+            "itemId": 72885,
+            "cosmetic": "emote"
           },
           {
             "name": "Ryker-Sleuth",
             "amount": "×1",
-            "itemId": 91397
+            "itemId": 91397,
+            "cosmetic": "emote"
           },
           {
             "name": "Special Potion Supply",
@@ -10036,32 +10442,38 @@
           {
             "name": "Unfading Yesterday: Doll: Inferno",
             "amount": "×1",
-            "itemId": 96331
+            "itemId": 96331,
+            "cosmetic": "avatar"
           },
           {
             "name": "Unfading Yesterday: Doll",
             "amount": "×1",
-            "itemId": 96332
+            "itemId": 96332,
+            "cosmetic": "avatar"
           },
           {
             "name": "Wanda-Sparkle",
             "amount": "×1",
-            "itemId": 72930
+            "itemId": 72930,
+            "cosmetic": "emote"
           },
           {
             "name": "Sorel-Shh",
             "amount": "×1",
-            "itemId": 72952
+            "itemId": 72952,
+            "cosmetic": "emote"
           },
           {
             "name": "Alva-Go Go Go!",
             "amount": "×1",
-            "itemId": 72883
+            "itemId": 72883,
+            "cosmetic": "emote"
           },
           {
             "name": "Daffodil-After You",
             "amount": "×1",
-            "itemId": 72913
+            "itemId": 72913,
+            "cosmetic": "emote"
           },
           {
             "name": "Special Potion Supply",
@@ -10094,32 +10506,38 @@
           {
             "name": "Unfading Yesterday: Lotan",
             "amount": "×1",
-            "itemId": 97989
+            "itemId": 97989,
+            "cosmetic": "avatar"
           },
           {
             "name": "Unfading Yesterday: Alva",
             "amount": "×1",
-            "itemId": 97415
+            "itemId": 97415,
+            "cosmetic": "avatar"
           },
           {
             "name": "Pandia-Love",
             "amount": "×1",
-            "itemId": 72943
+            "itemId": 72943,
+            "cosmetic": "emote"
           },
           {
             "name": "Murphy-Hmph",
             "amount": "×1",
-            "itemId": 97406
+            "itemId": 97406,
+            "cosmetic": "emote"
           },
           {
             "name": "Leigh-Love U",
             "amount": "×1",
-            "itemId": 97356
+            "itemId": 97356,
+            "cosmetic": "emote"
           },
           {
             "name": "Alva-Uhhh",
             "amount": "×1",
-            "itemId": 97355
+            "itemId": 97355,
+            "cosmetic": "emote"
           },
           {
             "name": "Special Potion Supply",
@@ -10152,32 +10570,38 @@
           {
             "name": "Chibi Mug Shot: Horla",
             "amount": "×1",
-            "itemId": 94733
+            "itemId": 94733,
+            "cosmetic": "avatar"
           },
           {
             "name": "Chibi Mug Shot: Hameln",
             "amount": "×1",
-            "itemId": 97402
+            "itemId": 97402,
+            "cosmetic": "avatar"
           },
           {
             "name": "Dexter-Elegant",
             "amount": "×1",
-            "itemId": 97384
+            "itemId": 97384,
+            "cosmetic": "emote"
           },
           {
             "name": "Hameln-Flute",
             "amount": "×1",
-            "itemId": 72910
+            "itemId": 72910,
+            "cosmetic": "emote"
           },
           {
             "name": "Lily-Thanks!",
             "amount": "×1",
-            "itemId": 72840
+            "itemId": 72840,
+            "cosmetic": "emote"
           },
           {
             "name": "Salvador-Holy Light",
             "amount": "×1",
-            "itemId": 72899
+            "itemId": 72899,
+            "cosmetic": "emote"
           },
           {
             "name": "Special Potion Supply",
@@ -10210,32 +10634,38 @@
           {
             "name": "Unfading Yesterday: Ramona: Timeworn",
             "amount": "×1",
-            "itemId": 97422
+            "itemId": 97422,
+            "cosmetic": "avatar"
           },
           {
             "name": "Unfading Yesterday: Pandia",
             "amount": "×1",
-            "itemId": 97400
+            "itemId": 97400,
+            "cosmetic": "avatar"
           },
           {
             "name": "Ramona: Timeworn-Coming!",
             "amount": "×1",
-            "itemId": 72894
+            "itemId": 72894,
+            "cosmetic": "emote"
           },
           {
             "name": "Ramona: Timeworn-Going!",
             "amount": "×1",
-            "itemId": 72875
+            "itemId": 72875,
+            "cosmetic": "emote"
           },
           {
             "name": "Aigis-Nighty",
             "amount": "×1",
-            "itemId": 72839
+            "itemId": 72839,
+            "cosmetic": "emote"
           },
           {
             "name": "Lily-Reach",
             "amount": "×1",
-            "itemId": 97367
+            "itemId": 97367,
+            "cosmetic": "emote"
           },
           {
             "name": "Special Potion Supply",
@@ -10268,32 +10698,38 @@
           {
             "name": "Chibi Mug Shot: Thais",
             "amount": "×1",
-            "itemId": 97412
+            "itemId": 97412,
+            "cosmetic": "avatar"
           },
           {
             "name": "Chibi Mug Shot: Sorel",
             "amount": "×1",
-            "itemId": 97413
+            "itemId": 97413,
+            "cosmetic": "avatar"
           },
           {
             "name": "Chibi Mug Shot: Salvador",
             "amount": "×1",
-            "itemId": 97380
+            "itemId": 97380,
+            "cosmetic": "avatar"
           },
           {
             "name": "Unfading Yesterday: Karen",
             "amount": "×1",
-            "itemId": 97385
+            "itemId": 97385,
+            "cosmetic": "avatar"
           },
           {
             "name": "Unfading Yesterday: Lily",
             "amount": "×1",
-            "itemId": 97383
+            "itemId": 97383,
+            "cosmetic": "avatar"
           },
           {
             "name": "Unfading Yesterday: Nautila",
             "amount": "×1",
-            "itemId": 97418
+            "itemId": 97418,
+            "cosmetic": "avatar"
           },
           {
             "name": "Special Potion Supply",
@@ -10326,32 +10762,38 @@
           {
             "name": "Unfading Yesterday: \"24\"",
             "amount": "×1",
-            "itemId": 97363
+            "itemId": 97363,
+            "cosmetic": "avatar"
           },
           {
             "name": "Unfading Yesterday: Nymphaea",
             "amount": "×1",
-            "itemId": 97373
+            "itemId": 97373,
+            "cosmetic": "avatar"
           },
           {
             "name": "Chibi Mug Shot: Daffodil",
             "amount": "×1",
-            "itemId": 97393
+            "itemId": 97393,
+            "cosmetic": "avatar"
           },
           {
             "name": "Chibi Mug Shot: Murphy",
             "amount": "×1",
-            "itemId": 97361
+            "itemId": 97361,
+            "cosmetic": "avatar"
           },
           {
             "name": "Collector's Stamp: Ramona",
             "amount": "×1",
-            "itemId": 120957
+            "itemId": 120957,
+            "cosmetic": "avatar"
           },
           {
             "name": "Collector's Stamp: Ramona: Timeworn",
             "amount": "×1",
-            "itemId": 120964
+            "itemId": 120964,
+            "cosmetic": "avatar"
           },
           {
             "name": "Special Potion Supply",
@@ -10445,32 +10887,38 @@
           {
             "name": "Chibi Mug Shot: Wanda",
             "amount": "×1",
-            "itemId": 97408
+            "itemId": 97408,
+            "cosmetic": "avatar"
           },
           {
             "name": "Chibi Mug Shot: Miryam",
             "amount": "×1",
-            "itemId": 97398
+            "itemId": 97398,
+            "cosmetic": "avatar"
           },
           {
             "name": "Collector's Stamp: Doll",
             "amount": "×1",
-            "itemId": 120956
+            "itemId": 120956,
+            "cosmetic": "avatar"
           },
           {
             "name": "Collector's Stamp: Doll: Inferno",
             "amount": "×1",
-            "itemId": 120958
+            "itemId": 120958,
+            "cosmetic": "avatar"
           },
           {
             "name": "Unfading Yesterday: Helot",
             "amount": "×1",
-            "itemId": 97379
+            "itemId": 97379,
+            "cosmetic": "avatar"
           },
           {
             "name": "Unfading Yesterday: Helot: Catena",
             "amount": "×1",
-            "itemId": 123483
+            "itemId": 123483,
+            "cosmetic": "avatar"
           },
           {
             "name": "Special Potion Supply",
@@ -10580,32 +11028,38 @@
           {
             "name": "Unfading Yesterday: Sorel",
             "amount": "×1",
-            "itemId": 123484
+            "itemId": 123484,
+            "cosmetic": "avatar"
           },
           {
             "name": "Unfading Yesterday: Agrippa",
             "amount": "×1",
-            "itemId": 123485
+            "itemId": 123485,
+            "cosmetic": "avatar"
           },
           {
             "name": "Unfading Yesterday: Uvhash",
             "amount": "×1",
-            "itemId": 123482
+            "itemId": 123482,
+            "cosmetic": "avatar"
           },
           {
             "name": "Chibi Mug Shot: Ramona: Timeworn",
             "amount": "×1",
-            "itemId": 97360
+            "itemId": 97360,
+            "cosmetic": "avatar"
           },
           {
             "name": "Collector's Stamp: Ryker",
             "amount": "×1",
-            "itemId": 120963
+            "itemId": 120963,
+            "cosmetic": "avatar"
           },
           {
             "name": "Collector's Stamp: Nautila",
             "amount": "×1",
-            "itemId": 120959
+            "itemId": 120959,
+            "cosmetic": "avatar"
           },
           {
             "name": "Special Potion Supply",
@@ -10715,32 +11169,38 @@
           {
             "name": "Unfading Yesterday: Thais",
             "amount": "×1",
-            "itemId": 123487
+            "itemId": 123487,
+            "cosmetic": "avatar"
           },
           {
             "name": "Unfading Yesterday: Salvador",
             "amount": "×1",
-            "itemId": 123478
+            "itemId": 123478,
+            "cosmetic": "avatar"
           },
           {
             "name": "Unfading Yesterday: Aigis",
             "amount": "×1",
-            "itemId": 123481
+            "itemId": 123481,
+            "cosmetic": "avatar"
           },
           {
             "name": "Collector's Stamp: \"24\"",
             "amount": "×1",
-            "itemId": 120961
+            "itemId": 120961,
+            "cosmetic": "avatar"
           },
           {
             "name": "Collector's Stamp: Nymphaea",
             "amount": "×1",
-            "itemId": 120962
+            "itemId": 120962,
+            "cosmetic": "avatar"
           },
           {
             "name": "Collector's Stamp: Pandia",
             "amount": "×1",
-            "itemId": 120965
+            "itemId": 120965,
+            "cosmetic": "avatar"
           },
           {
             "name": "Special Potion Supply",
@@ -10850,32 +11310,38 @@
           {
             "name": "Unfading Yesterday: Leigh",
             "amount": "×1",
-            "itemId": 123486
+            "itemId": 123486,
+            "cosmetic": "avatar"
           },
           {
             "name": "Unfading Yesterday: Faint",
             "amount": "×1",
-            "itemId": 123757
+            "itemId": 123757,
+            "cosmetic": "avatar"
           },
           {
             "name": "Unfading Yesterday: Doresain",
             "amount": "×1",
-            "itemId": 129898
+            "itemId": 129898,
+            "cosmetic": "avatar"
           },
           {
             "name": "Unfading Yesterday: Ramona",
             "amount": "×1",
-            "itemId": 97366
+            "itemId": 97366,
+            "cosmetic": "avatar"
           },
           {
             "name": "Collector's Stamp: Alva",
             "amount": "×1",
-            "itemId": 127058
+            "itemId": 127058,
+            "cosmetic": "avatar"
           },
           {
             "name": "Collector's Stamp: Karen",
             "amount": "×1",
-            "itemId": 127045
+            "itemId": 127045,
+            "cosmetic": "avatar"
           },
           {
             "name": "Special Potion Supply",
@@ -10985,32 +11451,38 @@
           {
             "name": "Unfading Yesterday: Tulu",
             "amount": "×1",
-            "itemId": 132450
+            "itemId": 132450,
+            "cosmetic": "avatar"
           },
           {
             "name": "Unfading Yesterday: Murphy",
             "amount": "×1",
-            "itemId": 132453
+            "itemId": 132453,
+            "cosmetic": "avatar"
           },
           {
             "name": "Unfading Yesterday: Ogier",
             "amount": "×1",
-            "itemId": 97399
+            "itemId": 97399,
+            "cosmetic": "avatar"
           },
           {
             "name": "Mythag Interlude: Doll",
             "amount": "×1",
-            "itemId": 130548
+            "itemId": 130548,
+            "cosmetic": "avatar"
           },
           {
             "name": "Mythag Interlude: Nautila",
             "amount": "×1",
-            "itemId": 130551
+            "itemId": 130551,
+            "cosmetic": "avatar"
           },
           {
             "name": "Collector's Stamp: Salvador",
             "amount": "×1",
-            "itemId": 132665
+            "itemId": 132665,
+            "cosmetic": "avatar"
           },
           {
             "name": "Special Potion Supply",

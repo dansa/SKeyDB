@@ -35,6 +35,7 @@ interface BannerInput {
   tags?: BannerEntry['tags']
   description?: string
   dailySchedule?: DailyScheduleInput[]
+  dailyOffBannerPools?: Record<string, FeaturedInput[]>
   rulesProfile?: BannerEntry['rulesProfile']
   rateUpGroups?: BannerEntry['rateUpGroups']
   startDate: string
@@ -55,6 +56,7 @@ interface BannerInput {
 interface DailyScheduleInput {
   day: number
   offBanner?: FeaturedInput[]
+  offBannerPoolKeys?: string[]
   featured: FeaturedInput[]
 }
 
@@ -105,12 +107,14 @@ const dailyScheduleInputSchema: z.ZodType<DailyScheduleInput> = z.object({
   day: z.number().int().positive(),
   featured: z.array(featuredInputSchema).min(1),
   offBanner: z.array(featuredInputSchema).min(1).optional(),
+  offBannerPoolKeys: z.array(nonEmptyStringSchema).min(1).optional(),
 })
 
 const rewardItemSchema = z.object({
   name: nonEmptyStringSchema,
   amount: nonEmptyStringSchema.optional(),
   itemId: z.number().int().positive().optional(),
+  cosmetic: z.enum(['avatar', 'emote']).optional(),
 })
 const missionTracksSchema = z.object({
   standard: z.array(rewardItemSchema).min(1),
@@ -181,6 +185,9 @@ const bannerInputSchema: z.ZodType<BannerInput> = z
     tags: z.array(z.enum(BANNER_TAGS)).optional(),
     description: z.string().optional(),
     dailySchedule: z.array(dailyScheduleInputSchema).optional(),
+    dailyOffBannerPools: z
+      .record(nonEmptyStringSchema, z.array(featuredInputSchema).min(1))
+      .optional(),
     rulesProfile: z.enum(BANNER_RULE_PROFILES).optional(),
     rateUpGroups: z
       .array(
@@ -264,6 +271,16 @@ const bannerInputSchema: z.ZodType<BannerInput> = z
         message: 'dailySchedule is only supported on daily banners.',
       })
     }
+    if (
+      (banner.dailyOffBannerPools || banner.rulesProfile === 'split-daily') &&
+      !banner.dailySchedule
+    ) {
+      ctx.addIssue({
+        code: 'custom',
+        path: ['dailySchedule'],
+        message: 'Shared daily pools and split daily rules require a daily schedule.',
+      })
+    }
     if (banner.dailySchedule) {
       const startMs = new Date(parseGameDate(banner.startDate)).getTime()
       const endMs = new Date(parseGameDate(banner.endDate)).getTime()
@@ -293,9 +310,59 @@ const bannerInputSchema: z.ZodType<BannerInput> = z
             message: `Daily schedule day must be ${expectedDay.toString()}.`,
           })
         }
+        validateDailyOffBannerPools(scheduleEntry, banner, index, ctx)
       })
     }
   })
+
+function validateDailyOffBannerPools(
+  day: DailyScheduleInput,
+  banner: BannerInput,
+  index: number,
+  ctx: z.RefinementCtx,
+) {
+  const path = ['dailySchedule', index, 'offBannerPoolKeys']
+  if (day.offBanner && day.offBannerPoolKeys) {
+    ctx.addIssue({
+      code: 'custom',
+      path,
+      message: 'Use either inline or shared daily pools, not both.',
+    })
+  }
+  const keys = day.offBannerPoolKeys ?? []
+  if (
+    keys.length !== new Set(keys).size ||
+    keys.some((key) => !Object.hasOwn(banner.dailyOffBannerPools ?? {}, key))
+  ) {
+    ctx.addIssue({
+      code: 'custom',
+      path,
+      message: 'Daily pool keys must name distinct shared pools.',
+    })
+  }
+  if (banner.rulesProfile === 'split-daily') {
+    const offBanner =
+      day.offBanner ?? keys.flatMap((key) => banner.dailyOffBannerPools?.[key] ?? [])
+    const kindOf = (entry: FeaturedInput) => (typeof entry === 'string' ? undefined : entry.kind)
+    const rateUpKinds = day.featured.map(kindOf)
+    const offBannerKinds = offBanner.map(kindOf)
+    if (
+      rateUpKinds.length !== 2 ||
+      !rateUpKinds.includes('awakener') ||
+      !rateUpKinds.includes('wheel') ||
+      !offBannerKinds.includes('awakener') ||
+      !offBannerKinds.includes('wheel') ||
+      offBannerKinds.some((kind) => kind !== 'awakener' && kind !== 'wheel')
+    ) {
+      ctx.addIssue({
+        code: 'custom',
+        path,
+        message:
+          'Split daily banners need an Awakener and Wheel rate-up and separate typed off-banner pools.',
+      })
+    }
+  }
+}
 
 const eventInputSchema: z.ZodType<EventInput> = z.object({
   id: nonEmptyStringSchema,
@@ -441,11 +508,20 @@ function loadBanner(raw: BannerInput): BannerEntry {
     )
   }
   if (raw.dailySchedule) {
-    entry.dailySchedule = raw.dailySchedule.map((scheduleEntry) => ({
-      day: scheduleEntry.day,
-      featured: scheduleEntry.featured.map(resolveUnit),
-      ...(scheduleEntry.offBanner ? {offBanner: scheduleEntry.offBanner.map(resolveUnit)} : {}),
-    }))
+    const pools = new Map(
+      Object.entries(raw.dailyOffBannerPools ?? {}).map(([key, units]) => [
+        key,
+        units.map(resolveUnit),
+      ]),
+    )
+    entry.dailySchedule = raw.dailySchedule.map(
+      ({day, featured, offBanner, offBannerPoolKeys}) => ({
+        day,
+        featured: featured.map(resolveUnit),
+        offBanner:
+          offBannerPoolKeys?.flatMap((key) => pools.get(key) ?? []) ?? offBanner?.map(resolveUnit),
+      }),
+    )
   }
   if (raw.poolSlots) {
     entry.poolSlots = resolvePoolSlots(raw.poolSlots)

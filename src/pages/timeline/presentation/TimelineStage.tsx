@@ -15,7 +15,7 @@ import {formatTimelinePrice, type TimelinePriceDisplayMode} from '@/domain/timel
 import {BannerArtwork} from '../BannerArtwork'
 import {resolveEventArt} from '../timelineEventHelpers'
 import {TimelineRichText} from '../TimelineRichText'
-import {StageBannerRules} from './StageBannerRules'
+import {StageBannerRules, type RuleProfile} from './StageBannerRules'
 import {StageRateUpGroup} from './StageRateUpGroup'
 import {StageRewards} from './StageRewards'
 import {StageRoster} from './StageRoster'
@@ -354,6 +354,17 @@ function StageDescription({
   )
 }
 
+function getBannerRuleProfiles(
+  banner: BannerEntry,
+  defaultRule: RuleProfile | undefined,
+): RuleProfile[] {
+  if (banner.rulesProfile === 'split-daily') return ['awakener', 'wheel']
+  if (banner.rateUpGroups?.length) {
+    return [...new Set(banner.rateUpGroups.map(({kind}) => kind))]
+  }
+  return defaultRule ? [defaultRule] : []
+}
+
 function StageBannerDetails({
   banner,
   now,
@@ -370,11 +381,7 @@ function StageBannerDetails({
   const profile = getBannerStageProfile(banner)
   const selectorSlots = profile?.selector ? banner.poolSlots : undefined
   const poolGroups = banner.poolSlots && !selectorSlots ? getPoolGroups(banner.poolSlots) : []
-  const ruleProfiles = banner.rateUpGroups?.length
-    ? [...new Set(banner.rateUpGroups.map((group) => group.kind))]
-    : profile?.rules
-      ? [profile.rules]
-      : []
+  const ruleProfiles = getBannerRuleProfiles(banner, profile?.rules)
   return (
     <>
       {banner.rateUpGroups?.map((group) => (

@@ -751,7 +751,7 @@
       ]
     },
     "awakenersByRarity": {
-      "Genesis": ["awakener-0018", "awakener-0019", "awakener-0020", "awakener-0035", "awakener-0059", "awakener-0061"],
+      "Genesis": ["awakener-0018", "awakener-0019", "awakener-0020", "awakener-0035", "awakener-0059", "awakener-0061", "awakener-0063"],
       "SR": ["awakener-0013", "awakener-0031", "awakener-0038", "awakener-0042"],
       "SSR": [
         "awakener-0001",
@@ -805,8 +805,7 @@
         "awakener-0057",
         "awakener-0058",
         "awakener-0060",
-        "awakener-0062",
-        "awakener-0063"
+        "awakener-0062"
       ]
     },
     "orisonsByRealm": {

@@ -3751,7 +3751,7 @@
       "kind": "awakener",
       "id": "awakener-0063",
       "name": "Tulu: Godking",
-      "aliases": [],
+      "aliases": ["gtulu", "g-tulu"],
       "tokens": [
         "aequor",
         "alt",
@@ -3760,28 +3760,33 @@
         "astral",
         "divine",
         "divine realm",
+        "g",
+        "g tulu",
+        "genesis",
         "godking",
+        "gtulu",
         "lemuria",
+        "lemurian",
         "limited",
         "limited astral reign",
         "realm",
         "reign",
-        "ssr",
         "tulu",
         "tulu godking"
       ],
       "fields": {
         "name": ["Tulu: Godking", "tulu-godking"],
-        "tag": ["divine-realm", "Divine Realm", "alt realm"],
-        "facet": ["AEQUOR", "SSR", "ASSAULT", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "Lemuria"]
+        "alias": ["gtulu", "g-tulu"],
+        "tag": ["divine-realm", "lemurian", "Divine Realm", "alt realm", "lemuria"],
+        "facet": ["AEQUOR", "Genesis", "ASSAULT", "LIMITED_ASTRAL_REIGN", "Limited: Astral Reign", "Lemuria"]
       },
       "facets": {
         "realm": "AEQUOR",
-        "rarity": "SSR",
+        "rarity": "Genesis",
         "type": "ASSAULT",
         "availabilityType": "LIMITED_ASTRAL_REIGN",
         "faction": "Lemuria",
-        "tags": ["divine-realm"]
+        "tags": ["divine-realm", "lemurian"]
       }
     }
   ]
