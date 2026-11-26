@@ -1,8 +1,8 @@
 {
   "schemaVersion": 3,
   "gameDataVersion": "compiled-sha256-66bca2ac948abe8b",
-  "generatedAt": "2026-11-25T16:57:20Z",
-  "buildId": "public-v3-sha256-188d94a99075ee5a",
+  "generatedAt": "2026-11-26T19:57:22Z",
+  "buildId": "public-v3-sha256-864320caee9f3c07",
   "build": {
     "gameDataVersion": "compiled-sha256-66bca2ac948abe8b",
     "recordCount": 2072,
@@ -122,8 +122,8 @@
       "sha256": "051415f92022be9fab49efffc436c7dc280a8875cec68f7d9c96b42e24a84d53"
     },
     "catalogs/awakeners.json": {
-      "bytes": 89921,
-      "sha256": "03f57200e62fa84b61e43cbd596be5f13d0d9e6535a488e7a0209319796e87e5"
+      "bytes": 89954,
+      "sha256": "6b9a30cef08a8285c76df337d0ff36cf8f8f9989a5692bf1bfa58e6366b61e4b"
     },
     "catalogs/covenants.json": {
       "bytes": 7413,
@@ -174,12 +174,12 @@
       "sha256": "1e47d38765528d45493fbd337d0f1622db82c404ce4b42c8eda84dda2f902122"
     },
     "indexes/collection-catalog.json": {
-      "bytes": 32192,
-      "sha256": "aca95d6a6b397726c71ef49b873cd62b8306f4ce2fcf3c0636e5b37cad85ae9c"
+      "bytes": 32184,
+      "sha256": "f507b2ea3bd951b5251c2952d16f303ade42a8c2ff2cadc31a31e79693f98ff3"
     },
     "indexes/entities.json": {
-      "bytes": 882806,
-      "sha256": "6dae5e16f0de8d210e3079816e192711ff93ab94a620a672693b2d640a29896d"
+      "bytes": 882810,
+      "sha256": "ae1119487bfbca3ec83f6b6a7342f1b5ac775a3116f17c0bec3d50a411ba51cc"
     },
     "indexes/facets.json": {
       "bytes": 65916,
@@ -202,8 +202,8 @@
       "sha256": "9d9398631253529f8eee28b8b15300f2d87069e7a0ade2f367371d2c34496426"
     },
     "indexes/search-awakeners.json": {
-      "bytes": 90512,
-      "sha256": "b4ce1100279926b3995e181f1e36ae93afd8d189a46eccb58560ad1535a9f0ad"
+      "bytes": 90682,
+      "sha256": "685459014c822da03a6dc1f98b3b79b40227d0c6bfdf920c1cabf4c9dec52c85"
     },
     "indexes/search-covenants.json": {
       "bytes": 5517,
@@ -223,7 +223,7 @@
     },
     "indexes/search-tags.json": {
       "bytes": 7285,
-      "sha256": "605c12910faf7310558619a495ee92df87f1fed925f21cd2a40089eaf7524e7a"
+      "sha256": "8754ff0dcf9c57ca990e14cf43cf6933fb0d2095a0f288699a5fa9cc52cead42"
     },
     "indexes/search-wheels.json": {
       "bytes": 136095,
@@ -706,8 +706,8 @@
       "sha256": "4b9c54ea52960407793a0e94591c3c9aa039bab21d62891c2d479652ddd8e0f3"
     },
     "records/awakeners/awakener-0063.json": {
-      "bytes": 16534,
-      "sha256": "97647f990fa13fa99d649f14b584cd57362631f0fb6a263510f829b2d2648b4c"
+      "bytes": 16567,
+      "sha256": "92097daf4510819427d42e27bd1cca0790b427104ed2ec32cf4f90ee847fd5c2"
     },
     "records/covenants/covenant-0001.json": {
       "bytes": 926,

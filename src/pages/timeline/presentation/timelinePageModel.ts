@@ -166,6 +166,7 @@ const bannerStageProfiles: Record<NonNullable<BannerEntry['rulesProfile']>, Bann
   'oathbound-oracle': {rules: 'oathbound-oracle'},
   kaleido: {artwork: 'kaleido', rules: 'kaleido'},
   'fated-soiree': {artwork: 3},
+  'split-daily': {},
   'triple-soiree': {artwork: 2},
 }
 

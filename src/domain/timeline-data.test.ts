@@ -291,6 +291,23 @@ describe('timeline data loading', () => {
     })
   })
 
+  it('keeps the announced Gifts totals and distinguishes the three Term 41 reward tracks', () => {
+    const gifts = timelineEvents.find(({id}) => id === 'mythag-gifts-261130')
+    expect(gifts?.rewards?.[0].items).toHaveLength(7)
+    expect(gifts?.rewards?.[1].items).toContainEqual({name: 'Ethereal Core', amount: '×6'})
+    const curriculum = timelineEvents.find(({id}) => id === 'curriculum-261130')
+    expect(curriculum?.rewards?.map(({price}) => price)).toEqual([
+      'Free',
+      '680 Silver Prime',
+      '1,280 Silver Prime',
+    ])
+    expect(curriculum?.rewards?.[1].items).toContainEqual({name: 'Mimetic Crystal', amount: '×810'})
+    const premium = curriculum?.rewards?.[2].items ?? []
+    expect(premium.filter(({cosmetic}) => cosmetic === 'avatar')).toHaveLength(3)
+    expect(premium.filter(({cosmetic}) => cosmetic === 'emote')).toHaveLength(3)
+    expect(premium.map(({name}) => name)).not.toContain('Origin of Time')
+  })
+
   it('keeps legacy artwork only on entries without dedicated crops', () => {
     expect(
       rawEvents
@@ -313,7 +330,9 @@ describe('timeline data loading', () => {
     expect(terms.every(shouldDisplayEndedEventInArchive)).toBe(true)
     for (const [index, term] of terms.entries()) {
       if (index > 0) expect(term.startDate).toBe(terms[index - 1].endDate)
-      expect(term.rewards?.at(-1)?.items.some(({itemId}) => itemId !== undefined)).toBe(true)
+      const cosmetics = term.rewards?.at(-1)?.items.filter(({itemId}) => itemId !== undefined)
+      expect(cosmetics?.length).toBeGreaterThan(0)
+      expect(cosmetics?.every(({cosmetic}) => cosmetic !== undefined)).toBe(true)
     }
     expect(terms[0].pricing).toBeUndefined()
     expect(terms[0].rewards?.map(({title}) => title)).toEqual(['Premium adds'])
@@ -325,6 +344,19 @@ describe('timeline data loading', () => {
     ])
     const standard = terms.find(({id}) => id === 'curriculum-261019')
     expect(standard?.rewards?.at(-1)?.price).toBe('1,280 Silver Prime')
+  })
+
+  it.each([
+    ['curriculum-240111', 2, 0],
+    ['curriculum-240518', 2, 4],
+    ['curriculum-251020', 6, 0],
+    ['curriculum-260518', 3, 3],
+    ['curriculum-261116', 3, 3],
+  ])('keeps the verified Premium cosmetic mix for %s', (id, avatars, emotes) => {
+    const items = timelineEvents.find((event) => event.id === id)?.rewards?.at(-1)?.items ?? []
+    expect(items.filter(({cosmetic}) => cosmetic === 'avatar')).toHaveLength(avatars)
+    expect(items.filter(({cosmetic}) => cosmetic === 'emote')).toHaveLength(emotes)
+    expect(items.find(({name}) => name === 'Special Potion Supply')?.cosmetic).toBeUndefined()
   })
 
   it('preserves reward groups and related IDs and rejects empty reward items', () => {

@@ -108,40 +108,74 @@ function RewardLine({
   )
 }
 
-function RewardItems({items}: {items: TimelineRewardItem[]}) {
-  const highlights = items.filter((item) => getRewardArt(item)?.highlight)
-  const materials = items.filter((item) => !getRewardArt(item)?.highlight)
+function RewardTiles({items, label}: {items: TimelineRewardItem[]; label?: string}) {
+  const threeAcross = label !== undefined && items.length !== 4
   return (
-    <div className='mt-2'>
+    <ul
+      aria-label={label}
+      className={`grid gap-x-2 gap-y-3 ${threeAcross ? 'max-w-76 grid-cols-3' : 'grid-cols-4'}`}
+    >
+      {withOccurrenceKeys(items, (item) => item.name).map(({item, key}) => {
+        const art = getRewardArt(item)
+        return (
+          <li className='min-w-0' key={key}>
+            <RewardPreview
+              item={item}
+              {...preview(art)}
+              className='timeline-item flex w-full min-w-0 flex-col items-stretch gap-1.5 text-left text-slate-200 hover:text-amber-100 focus-visible:outline-2 focus-visible:outline-amber-200'
+            >
+              <span className='timeline-item-well relative grid aspect-square w-full place-items-center p-1.5'>
+                {art?.icon ? (
+                  <img alt='' className='size-full object-contain' src={art.icon} />
+                ) : null}
+                {item.amount && item.amount !== '×1' ? (
+                  <span className='absolute right-1 bottom-1 rounded-[2px] bg-slate-950/90 px-1 py-px text-xs leading-none font-semibold text-slate-50 tabular-nums'>
+                    {item.amount}
+                  </span>
+                ) : null}
+              </span>
+              <span className={`text-xs leading-tight break-words ${label ? '' : 'line-clamp-2'}`}>
+                {item.name}
+              </span>
+            </RewardPreview>
+          </li>
+        )
+      })}
+    </ul>
+  )
+}
+
+function RewardItems({items}: {items: TimelineRewardItem[]}) {
+  const avatars: TimelineRewardItem[] = []
+  const emotes: TimelineRewardItem[] = []
+  const highlights: TimelineRewardItem[] = []
+  const materials: TimelineRewardItem[] = []
+  for (const item of items) {
+    if (item.cosmetic === 'avatar') avatars.push(item)
+    else if (item.cosmetic === 'emote') emotes.push(item)
+    else if (getRewardArt(item)?.highlight) highlights.push(item)
+    else materials.push(item)
+  }
+
+  return (
+    <div className='mt-2 space-y-3'>
+      {avatars.length || emotes.length ? (
+        <div className='space-y-3'>
+          {[
+            {label: 'Avatars', items: avatars},
+            {label: 'Emotes', items: emotes},
+          ].map(({label, items}) =>
+            items.length ? (
+              <div className='space-y-1.5' key={label}>
+                <p className='text-xs font-semibold text-slate-300'>{label}</p>
+                <RewardTiles items={items} label={label} />
+              </div>
+            ) : null,
+          )}
+        </div>
+      ) : null}
       {highlights.length >= 3 ? (
-        <ul className='grid grid-cols-4 gap-x-2 gap-y-3'>
-          {withOccurrenceKeys(highlights, (item) => item.name).map(({item, key}) => {
-            const art = getRewardArt(item)
-            return (
-              <li className='min-w-0' key={key}>
-                <RewardPreview
-                  item={item}
-                  {...preview(art)}
-                  className='timeline-item flex w-full min-w-0 flex-col items-stretch gap-1.5 text-left text-slate-200 hover:text-amber-100 focus-visible:outline-2 focus-visible:outline-amber-200'
-                >
-                  <span className='timeline-item-well relative grid aspect-square w-full place-items-center p-1.5'>
-                    {art?.icon ? (
-                      <img alt='' className='size-full object-contain' src={art.icon} />
-                    ) : null}
-                    {item.amount && item.amount !== '×1' ? (
-                      <span className='absolute right-1 bottom-1 rounded-[2px] bg-slate-950/90 px-1 py-px text-xs leading-none font-semibold text-slate-50 tabular-nums'>
-                        {item.amount}
-                      </span>
-                    ) : null}
-                  </span>
-                  <span className='line-clamp-2 text-xs leading-tight break-words'>
-                    {item.name}
-                  </span>
-                </RewardPreview>
-              </li>
-            )
-          })}
-        </ul>
+        <RewardTiles items={highlights} />
       ) : highlights.length ? (
         <div className='divide-y divide-slate-700/30'>
           {withOccurrenceKeys(highlights, (item) => item.name).map(({item, key}) => (
@@ -150,7 +184,7 @@ function RewardItems({items}: {items: TimelineRewardItem[]}) {
         </div>
       ) : null}
       {materials.length ? (
-        <div className={`${highlights.length ? 'mt-3 ' : ''}divide-y divide-slate-700/30`}>
+        <div className='divide-y divide-slate-700/30'>
           {withOccurrenceKeys(materials, (item) => item.name).map(({item, key}) => (
             <RewardLine item={item} key={key} />
           ))}

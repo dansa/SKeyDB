@@ -175,6 +175,7 @@ const definitions = new Map<string, RewardArtDefinition>([
   ['Chaos Echo: Astral Reign', {file: 'chaos-echo-astral-reign.webp'}],
   ['Chaos Experiment: Astral Reign', {file: 'chaos-experiment-astral-reign.webp'}],
   ['D-Jewel', {file: 'd-jewel.webp'}],
+  ["Formless One's Gift Card", {file: 'formless-ones-gift-card.webp'}],
   ['Black Offering', {file: 'black-offering.webp'}],
   ['Gnosis Elixir III', {file: 'gnosis-elixir-iii.webp'}],
   ['Ethereal Core', {file: 'anniversary-ethereal-core-icon.webp'}],

@@ -24,6 +24,7 @@ export interface TimelineRewardItem {
   name: string
   amount?: string
   itemId?: number
+  cosmetic?: 'avatar' | 'emote'
 }
 
 export type TimelineMissionReward = ({label: string} | {silverPrimeExtracted: number}) & {
@@ -83,6 +84,7 @@ export interface BannerRateUpGroup {
 export const BANNER_RULE_PROFILES = [
   'myriad-self-select',
   'oathbound-oracle',
+  'split-daily',
   'kaleido',
   'fated-soiree',
   'triple-soiree',

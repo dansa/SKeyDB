@@ -3488,7 +3488,7 @@
       "numericId": 63,
       "ingameId": "O01EX01",
       "realm": "AEQUOR",
-      "rarity": "SSR",
+      "rarity": "Genesis",
       "type": "ASSAULT",
       "availabilityType": "LIMITED_ASTRAL_REIGN",
       "releaseDate": "2026-11-30",
@@ -3525,8 +3525,8 @@
         "DeathResistance": 0
       },
       "lineupToken": "xt",
-      "aliases": [],
-      "searchTags": ["Divine Realm"]
+      "aliases": ["gtulu", "g-tulu"],
+      "searchTags": ["Divine Realm", "Lemurian"]
     }
   ]
 }
