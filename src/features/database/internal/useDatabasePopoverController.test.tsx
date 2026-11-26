@@ -423,11 +423,15 @@ describe('useDatabasePopoverController', () => {
       const {rerender} = render(view('E3'))
       if (position === 'nested') {
         fireEvent.click(screen.getByRole('button', {name: 'Open Strike'}))
-        fireEvent.click(await screen.findByRole('button', {name: 'Counter'}))
+        fireEvent.click(
+          await screen.findByRole('button', {name: 'Counter'}, COLD_POPOVER_FIND_OPTIONS),
+        )
       } else {
         fireEvent.click(screen.getByRole('button', {name: 'Open Counter'}))
       }
-      expect(await screen.findByText('Counter at E3.')).toBeInTheDocument()
+      expect(
+        await screen.findByText('Counter at E3.', undefined, COLD_POPOVER_FIND_OPTIONS),
+      ).toBeInTheDocument()
       rerender(view('E2'))
       await waitFor(() => {
         expect(finishObsoleteRequest).toBeDefined()
@@ -462,7 +466,9 @@ describe('useDatabasePopoverController', () => {
       <ControllerHarness referenceLayer={referenceLayer} selectedEnlightenSlot='E3' />,
     )
     fireEvent.click(screen.getByRole('button', {name: 'Open Counter'}))
-    expect(await screen.findByText('Counter at E3.')).toBeInTheDocument()
+    expect(
+      await screen.findByText('Counter at E3.', undefined, COLD_POPOVER_FIND_OPTIONS),
+    ).toBeInTheDocument()
     rerender(<ControllerHarness referenceLayer={referenceLayer} selectedEnlightenSlot='E2' />)
     await waitFor(() => {
       expect(finishRefresh).toBeDefined()
